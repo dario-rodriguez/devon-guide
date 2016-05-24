@@ -1,4 +1,5 @@
 # Devon Guide
+## Getting Started
 
 - [Introduction iCSD, Devon, OASP etc](https://github.com/devonfw/devon/wiki/devon-guide-introduction) [Devon = [1](https://github.com/devonfw/devon/wiki/tutorial-devon-introduction), [2](https://github.com/devonfw/devon/wiki/tutorial-devon-documentation), [3](https://github.com/devonfw/devon/wiki/tutorial-devon-modules), [4](https://github.com/devonfw/devon/wiki/tutorial-introduction)] - [OASP = [1](https://github.com/oasp/oasp4j/wiki), [2](https://github.com/oasp/oasp4j/wiki/architecture), [3](https://github.com/oasp/oasp4j/wiki/tutorial-introduction)]
 
@@ -38,6 +39,7 @@
 
 - [Repeat 12-17 with Cobigen](https://github.com/devonfw/devon/wiki/devon-guide-cobigen) [Devon = [1](https://github.com/devonfw/devon/wiki/tutorial-devon-generator), [2](https://github.com/devonfw/tools-cobigen/wiki/CobiGen)]
 
+## Cookbook 
 - [Security: Login & roles, auth& authorisation](https://github.com/devonfw/devon/wiki/devon-guide-security) [OASP = [1](https://github.com/oasp/oasp4j/wiki/guide-security)]
 
 - [ReST, client](https://github.com/devonfw/devon/wiki/devon-guide-rest-client) [OASP = [1](https://github.com/oasp/oasp4j/wiki/guide-service-layer#rest)]
@@ -52,8 +54,7 @@
 
 - [Websockets](https://github.com/devonfw/devon/wiki/devon-guide-websockets) 
 
-
-# Client GUI Sencha
+## Client GUI Sencha
 
 - [Introduction](https://github.com/devonfw/devon/wiki/devon-guide-sencha-introduction)
 
@@ -95,7 +96,7 @@
 
 - [Internationalization](https://github.com/devonfw/devon/wiki/devon-guide-sencha-i18n)
 
-# Client GUI Angular (TODO: define chapters) 
+## Client GUI Angular (TODO: define chapters) 
 
 - [Introduction](https://github.com/devonfw/devon/wiki/devon-guide-angular-introduction) 
 
