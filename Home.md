@@ -1,0 +1,151 @@
+# Devon Guide
+
+- [Introduction iCSD, Devon, OASP etc](https://github.com/devonfw/devon/wiki/devon-guide-introduction) [Devon = [1](https://github.com/devonfw/devon/wiki/tutorial-devon-introduction), [2](https://github.com/devonfw/devon/wiki/tutorial-devon-documentation), [3](https://github.com/devonfw/devon/wiki/tutorial-devon-modules), [4](https://github.com/devonfw/devon/wiki/tutorial-introduction)] - [OASP = [1](https://github.com/oasp/oasp4j/wiki), [2](https://github.com/oasp/oasp4j/wiki/architecture), [3](https://github.com/oasp/oasp4j/wiki/tutorial-introduction)]
+
+- [Getting started: downloading & installing Devon dist](https://github.com/devonfw/devon/wiki/devon-guide-getting-started) [Devon = [1](https://github.com/devonfw/devon/wiki/tutorial-devon-documentation), [2](https://github.com/devonfw/devon/wiki/tutorial-environment), [3](https://github.com/devonfw/devon/wiki/tutorial-sample), [4](https://github.com/devonfw/devon/wiki/tutorial-components)] - [OASP = [1](https://github.com/oasp/oasp4j/wiki/oasp-ide-setup), [2](https://github.com/oasp/oasp4j/wiki/coding-tools),[3](https://github.com/oasp/oasp4j/wiki/oasp-Deploy-&-Run-OASP-locally)]
+
+- [The OASP/IDE IDE](https://github.com/devonfw/devon/wiki/devon-guide-ide)
+
+- [Running sample application](https://github.com/devonfw/devon/wiki/devon-guide-running-sample-application)
+
+- [Explanation /understanding of Devon Dist structure](https://github.com/devonfw/devon/wiki/devon-guide-devon-structure)  [OASP = [1](https://github.com/oasp/oasp4j/wiki/tutorial-sample)]
+
+- [Create new OASP4J app](https://github.com/devonfw/devon/wiki/devon-guide-newapp) [Devon = [1](https://github.com/devonfw/devon/wiki/tutorial-newapp)] - [OASP = [1](https://github.com/oasp/oasp4j/wiki/tutorial-newapp), [2](https://github.com/oasp/oasp4j/wiki/oasp-Deploy-&-Run-OASP-locally)]
+
+- [Explanation/understanding oasp4j app structure (practical; not abstract)](https://github.com/devonfw/devon/wiki/devon-guide-oasp-app-structure) (TODO) 
+
+- [Location & structure of OASP4J Spring Boot config (Java & xml config)](https://github.com/devonfw/devon/wiki/devon-guide-oasp-spring-config) (TODO) 
+
+- [Configure database(s) (1 and multiple)](https://github.com/devonfw/devon/wiki/devon-guide-configure-database) [Devon = [1](https://github.com/devonfw/devon/wiki/Database-Configuration-Guide)] - [OASP = [1](https://github.com/oasp/oasp4j/wiki/guide-database-migration)]
+
+- [Flyway & Creation & updating DB Schema](https://github.com/devonfw/devon/wiki/devon-guide-flyway) [OASP = [1](https://github.com/oasp/oasp4j/wiki/guide-database-migration)]
+
+- [How to write unit tests (remainder of tutorial is TDD)](https://github.com/devonfw/devon/wiki/devon-guide-unit-test) (TODO) 
+
+- [Logging / Audit](https://github.com/devonfw/devon/wiki/devon-guide-logging-audit) [OASP = [1](https://github.com/oasp/oasp4j/wiki/guide-auditing), [2](https://github.com/oasp/oasp4j/wiki/guide-logging)]
+
+- [JPA, Hibernate & creation of JPA Entity](https://github.com/devonfw/devon/wiki/devon-guide-dataaccess-layer) [OASP = [1](https://github.com/oasp/oasp4j/wiki/guide-dataaccess-layer)]
+
+- [Crud operations & DAO BDD: DAOs](https://github.com/devonfw/devon/wiki/devon-guide-crud) [Devon = [1](https://github.com/devonfw/devon/wiki/tutorial-crud)]
+
+- [ETOs & CTOs](https://github.com/devonfw/devon/wiki/devon-guide-transferobject) [OASP = [1](https://github.com/oasp/oasp4j/wiki/guide-transferobject)]
+
+- [Manager Classes, Use cases, Business Logic](https://github.com/devonfw/devon/wiki/devon-guide-logic-layer) [OASP = [1](https://github.com/oasp/oasp4j/wiki/guide-logic-layer)]
+
+- [Dozer](https://github.com/devonfw/devon/wiki/devon-guide-dozer) [OASP = [1](https://github.com/oasp/oasp4j/wiki/guide-beanmapping)]
+
+- [Creating Rest Service](https://github.com/devonfw/devon/wiki/devon-guide-creating-rest-service) [OASP = [1](https://github.com/oasp/oasp4j/wiki/decision-service-framework), [2](https://github.com/oasp/oasp4j/wiki/guide-service-layer)]
+
+- [Repeat 12-17 with Cobigen](https://github.com/devonfw/devon/wiki/devon-guide-cobigen) [Devon = [1](https://github.com/devonfw/devon/wiki/tutorial-devon-generator), [2](https://github.com/devonfw/tools-cobigen/wiki/CobiGen)]
+
+- [Security: Login & roles, auth& authorisation](https://github.com/devonfw/devon/wiki/devon-guide-security) [OASP = [1](https://github.com/oasp/oasp4j/wiki/guide-security)]
+
+- [ReST, client](https://github.com/devonfw/devon/wiki/devon-guide-rest-client) [OASP = [1](https://github.com/oasp/oasp4j/wiki/guide-service-layer#rest)]
+
+- [WS*, client and server](https://github.com/devonfw/devon/wiki/devon-guide-ws-client-server) (TODO) [OASP = [1](https://github.com/oasp/oasp4j/wiki/decision-service-framework)]
+
+- [Batch](https://github.com/devonfw/devon/wiki/devon-guide-batch-layer) [OASP = [1](https://github.com/oasp/oasp4j/wiki/guide-batch-layer)]
+
+- [JMS](https://github.com/devonfw/devon/wiki/devon-guide-jms) (TODO) 
+
+- [File Upload / download](https://github.com/devonfw/devon/wiki/devon-guide-file-update-download) (TODO) 
+
+- [Websockets](https://github.com/devonfw/devon/wiki/devon-guide-websockets) 
+
+
+# Client GUI Sencha
+
+- [Introduction](https://github.com/devonfw/devon/wiki/devon-guide-sencha-introduction)
+
+- [Define/explain Sechna Workspace & Sencha Cmd](https://github.com/devonfw/devon/wiki/devon-guide-sencha-workspace-cmd)
+
+- [Create a new Sencha App](https://github.com/devonfw/devon/wiki/devon-guide-sencha-newapp)
+
+- [Create a new page](https://github.com/devonfw/devon/wiki/devon-guide-sencha-page)
+
+- [Create a new CRUD page](https://github.com/devonfw/devon/wiki/devon-guide-sencha-crud)
+
+- [Explain Sencha app structure](https://github.com/devonfw/devon/wiki/devon-guide-sencha-app-structure) 
+
+- [Explain Sencha app main template structure](https://github.com/devonfw/devon/wiki/devon-guide-sencha-app-maintemplate)
+
+- [Defining an Ext component](https://github.com/devonfw/devon/wiki/devon-guide-sencha-define-ext-component) 
+
+- [Creating Tests and Mocks (Jasmin & Simlets) TDD](https://github.com/devonfw/devon/wiki/devon-guide-sencha-creating-tests-mocks) (TODO) 
+
+- [Calling web services](https://github.com/devonfw/devon/wiki/devon-guide-sencha-calling-web-service)
+
+- [Models, Stores and Proxies](https://github.com/devonfw/devon/wiki/devon-guide-sencha-models-stores-proxies) 
+
+- [Panels & Windows](https://github.com/devonfw/devon/wiki/devon-guide-sencha-panels-windows)
+
+- [Layouts & positioning](https://github.com/devonfw/devon/wiki/devon-guide-sencha-layouts-positioning)
+
+- [Grids](https://github.com/devonfw/devon/wiki/devon-guide-sencha-grids)
+
+- [Forms](https://github.com/devonfw/devon/wiki/devon-guide-sencha-forms)
+
+- [CORS & protection against Cross Site Scription (XSS)](https://github.com/devonfw/devon/wiki/devon-guide-sencha-cors) 
+
+- [Security](https://github.com/devonfw/devon/wiki/devon-guide-sencha-security)
+
+- [Explanation & modifying Sencha Theme](https://github.com/devonfw/devon/wiki/devon-guide-sencha-theme) (TODO) 
+
+- [Error processing](https://github.com/devonfw/devon/wiki/devon-guide-sencha-error-processing)
+
+- [Internationalization](https://github.com/devonfw/devon/wiki/devon-guide-sencha-i18n)
+
+# Client GUI Angular (TODO: define chapters) 
+
+- [Introduction](https://github.com/devonfw/devon/wiki/devon-guide-angular-introduction) 
+
+- [Enviroment Setup](https://github.com/devonfw/devon/wiki/devon-guide-angular-enviroment-setup) 
+
+- [Running sample aplication](https://github.com/devonfw/devon/wiki/devon-guide-angular-sample-application) (TODO)
+
+- [Create a new application](https://github.com/devonfw/devon/wiki/devon-guide-angular-newapp) (TODO)
+
+- [Create a new page](https://github.com/devonfw/devon/wiki/devon-guide-angular-newpage) (TODO)
+
+- [Create a new CRUD page](https://github.com/devonfw/devon/wiki/devon-guide-angular-crud) (TODO)
+
+- [Explain Angular structure](https://github.com/devonfw/devon/wiki/devon-guide-angular-structure) (TODO)
+
+- [Testing](https://github.com/devonfw/devon/wiki/devon-guide-angular-testing) (TODO)
+ 
+- [Calling web services](https://github.com/devonfw/devon/wiki/devon-guide-angular-services) (TODO)
+
+- [Modules](https://github.com/devonfw/devon/wiki/devon-guide-angular-modules) (TODO)
+
+- [Security](https://github.com/devonfw/devon/wiki/devon-guide-angular-security)
+ 
+- [Internationalization](https://github.com/devonfw/devon/wiki/devon-guide-angular-i18n) (TODO)
+
+# Deployment
+
+- [Project packaging (Spring Boot / War) (client / server)](https://github.com/devonfw/devon/wiki/devon-guide-project-packaging) [Devon = [1](https://github.com/devonfw/devon/wiki/tutorial-packaging), [2](https://github.com/devonfw/devon/wiki/tutorial-devon-jspackaging)] - [OASP = [1](https://github.com/oasp/oasp4j/wiki/tutorial-packaging)]
+
+- [Deployment on Tomcat (client / server)](https://github.com/devonfw/devon/wiki/devon-guide-deployment-tomcat) (TODO) 
+
+- [Deployment on Wildfly (JBoss) (client / server)](https://github.com/devonfw/devon/wiki/devon-guide-deployment-wildfly) (TODO) 
+
+
+# Security; Defense in depth
+
+- [Security: protection against XSS / untrusted input](https://github.com/devonfw/devon/wiki/devon-guide-security-protection-ageinst-xss-untrused) (TODO) 
+
+- [Security: protection against SQL injection](https://github.com/devonfw/devon/wiki/devon-guide-security-protection-ageinst-sql-injection) (TODO) 
+
+
+# TO INCLUDE Capabilities / Features Devon Template  (where to put ???)
+
+
+# MAYBE to include
+
+- [Internationalization](https://github.com/devonfw/devon/wiki/devon-guide-i18n) [OASP = [1](https://github.com/oasp/oasp4j/wiki/guide-i18n)]
+
+- [Responsabilities/legal](https://github.com/devonfw/devon/wiki/devon-guide-responsabilities) [Devon = [1](https://github.com/devonfw/devon/wiki/devon-responsibilities)] - [OASP = [1](http://oasp.github.io/terms-of-use.html)]
+
+- [BLOB](https://github.com/devonfw/devon/wiki/devon-guide-blob-support) [OASP = [1](https://github.com/oasp/oasp4j/wiki/guide-BLOB-support)]
+
+- [Migration from older versions](https://github.com/devonfw/devon/wiki/devon-guide-migration-from-oasp4j-1.5.0-to-2.0.0)  [OASP = [1](https://github.com/oasp/oasp4j/wiki/Migration-Guide-from-OASP4j-1.5.0-to-OASP4j-2.0.0)]
