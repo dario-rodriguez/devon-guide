@@ -1,5 +1,4 @@
 = Devon Guide
-* link:Home[Home]
 == Getting Started
-
+* link:Home[Home]
 * link:getting-started-introduction-to-devon[Introduction to Devon]
