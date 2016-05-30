@@ -2,9 +2,9 @@
 
 ## Getting Started
 
-- [Introduction iCSD, Devon, OASP etc](https://github.com/devonfw/devon/wiki/devon-guide-introduction) [Devon = [1](https://github.com/devonfw/devon/wiki/tutorial-devon-introduction), [2](https://github.com/devonfw/devon/wiki/tutorial-devon-documentation), [3](https://github.com/devonfw/devon/wiki/tutorial-devon-modules), [4](https://github.com/devonfw/devon/wiki/tutorial-introduction)] - [OASP = [1](https://github.com/oasp/oasp4j/wiki), [2](https://github.com/oasp/oasp4j/wiki/architecture), [3](https://github.com/oasp/oasp4j/wiki/tutorial-introduction)]
-
 - [Introduction to Devon](getting-started-introduction-to-devon)
+
+- [Getting started: downloading & installing Devon dist](https://github.com/devonfw/devon/wiki/devon-guide-getting-started) [Devon = [1](https://github.com/devonfw/devon/wiki/tutorial-devon-documentation), [2](https://github.com/devonfw/devon/wiki/tutorial-environment), [3](https://github.com/devonfw/devon/wiki/tutorial-sample), [4](https://github.com/devonfw/devon/wiki/tutorial-components)] - [OASP = [1](https://github.com/oasp/oasp4j/wiki/oasp-ide-setup), [2](https://github.com/oasp/oasp4j/wiki/coding-tools),[3](https://github.com/oasp/oasp4j/wiki/oasp-Deploy-&-Run-OASP-locally)]
 
 - [The OASP/IDE IDE](https://github.com/devonfw/devon/wiki/devon-guide-ide)
 
