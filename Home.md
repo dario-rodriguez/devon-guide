@@ -1,10 +1,5 @@
 # Devon Guide
 
-![](images/devonfw.jpg)
-
-![](images/devonfw.png)
-
-
 ## Getting Started
 
 - [Introduction iCSD, Devon, OASP etc](https://github.com/devonfw/devon/wiki/devon-guide-introduction) [Devon = [1](https://github.com/devonfw/devon/wiki/tutorial-devon-introduction), [2](https://github.com/devonfw/devon/wiki/tutorial-devon-documentation), [3](https://github.com/devonfw/devon/wiki/tutorial-devon-modules), [4](https://github.com/devonfw/devon/wiki/tutorial-introduction)] - [OASP = [1](https://github.com/oasp/oasp4j/wiki), [2](https://github.com/oasp/oasp4j/wiki/architecture), [3](https://github.com/oasp/oasp4j/wiki/tutorial-introduction)]
