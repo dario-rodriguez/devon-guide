@@ -4,3 +4,5 @@
 
 ![](images/devonfw.png)
 
+![](images/cricket.png)
+
