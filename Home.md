@@ -1,6 +1,9 @@
 # Devon Guide
 
-![Devonfw](images/devonfw.jpg)
+![](images/devonfw.jpg)
+
+![](images/devonfw.png)
+
 
 ## Getting Started
 
