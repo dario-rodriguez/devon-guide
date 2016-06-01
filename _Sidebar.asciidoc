@@ -1,5 +1,5 @@
 = Devon Guide
 == Getting Started
 * link:Home[Home]
-* link:getting-started-introduction-to-devon[Introduction to Devon]
-* link:devon-download-and-install[Download and Install Devon]
+* link:getting-started-introduction-to-devonfw[Introduction to Devonfw]
+* link:devon-download-and-install[Download and Install Devonfw]
