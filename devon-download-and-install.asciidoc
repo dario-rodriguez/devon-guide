@@ -24,8 +24,6 @@ Download latest devon distribution from https://coconet.capgemini.com/sf/frs/do/
 
 1. Run the batch file "create-or-update-workspace.bat".
 
-![](images/devon-download-and-install/tutorial_environment_setup_1_create_workspace.png)
-
 +
 image::/images/devon-download-and-install/tutorial_environment_setup_1_create_workspace.png[,]
 +
