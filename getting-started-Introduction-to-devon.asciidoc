@@ -7,7 +7,7 @@ toc::[]
 
 image::images/devonfw-small.png[Devonfw]
 
-Welcome to **Devonfw*, the Devon Framework. This is a product of the CSD industrialization effort to bring a standardized platform for custom software development within Capgemini APPS2. This platform is aimed at engagements where clients do not force the use of a determined technology so we can offer a better alternative coming from our experience as a group.
+Welcome to *Devonfw*, the Devon Framework. This is a product of the CSD industrialization effort to bring a standardized platform for custom software development within Capgemini APPS2. This platform is aimed at engagements where clients do not force the use of a determined technology so we can offer a better alternative coming from our experience as a group.
 
 The current version of the framework is oriented at developing of web applications based on the Java EE programming model using the Spring framework project as the default implementation. The main idea is not to create a monolithic framework but to offer helpers to develop applications with proven patterns. Devonfw tries to be close to standards and not relying too much on custom implementations. That way the ideas can be re-used on other implementations like on a Java EE pure solution (that is, with no Spring involved). Furthermore Devonfw comes with a series of development guides, tutorials and a reference application you can derive from. Devonfw is making extensive use of standards and existing products and not relying too much on technical custom components implemented by CG.
 
@@ -39,7 +39,7 @@ Devonfw contains:
 
 The following picture shows main building blocks of the platform.
 
-image:: devon_buildingblocks.png[Devonfw Building blocks]
+image:: images/introduction/devon_buildingblocks.png[Devonfw Building blocks]
 
 Devonfw uses a state-of-the-art open source core reference architecture for the server (today considered as commodity in the IT-industry) and on top of it an ever increasing number of high-value assets that are Capgemini IP. Why do we use an open source core?: in some countries of the SBU clients only accept open source stacks (most to mention customers who want to stay vendor-independent by principle), so being open is a market need. This also is the rationale for providing a open source reference architecture for the client built with AngularJs (open source itself). The picture above shows the open-source parts of devonfw on the left.
 
