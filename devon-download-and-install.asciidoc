@@ -101,7 +101,7 @@ You can find example projects inside `workspaces\examples`. In the next section 
 
 == Documentation Structure
 
-Here we describe all the documents composing the Devon offering. You can get the versions for the 1.0.0 release on the troom site:
+Here we describe all the documents composing the Devon offering. You can get the versions for the 2.0.0 release on the troom site:
 
 https://coconet.capgemini.com/sf/go/projects.apps2_devon/frs.devon_distribution
 
