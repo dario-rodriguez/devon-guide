@@ -1,4 +1,4 @@
-= Running the sample application
+= Running sample application
 
 Devon comes with a sample application, which showcases the most common features of Devon and its proposed best practices.
 
