@@ -2,7 +2,7 @@
 
 ## Getting Started
 
-- link:getting-started-introduction-to-devon[Introduction to Devon]
+- link:getting-started-introduction-to-devonfw[Introduction to Devon]
 
 - link:devon-download-and-install[Download and Install Devon]
 
