@@ -31,7 +31,7 @@ This will configure the included tools like Eclipse with the default settings of
 +
 The result should be as seen below
 +
-image::images/devonfw-download-and-install//tutorial_environment_setup_2_create_workspace.png
+image::images/devonfw-download-and-install/tutorial_environment_setup_2_create_workspace.png
 
 1. If you use a proxy to connect to the Internet, you have to manually configure it in the following tools:
 
