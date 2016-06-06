@@ -8,7 +8,7 @@
 
 - [The OASP/IDE IDE](https://github.com/devonfw/devon/wiki/devon-guide-ide)
 
-- [Running sample application](https://github.com/devonfw/devon/wiki/devon-guide-running-sample-application)
+- link:devon-running-sample-application[Running Sample Application]
 
 - [Explanation /understanding of Devon Dist structure](https://github.com/devonfw/devon/wiki/devon-guide-devon-structure)  [OASP = [1](https://github.com/oasp/oasp4j/wiki/tutorial-sample)]
 
