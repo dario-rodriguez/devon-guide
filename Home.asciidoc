@@ -6,7 +6,7 @@
 
 - link:devon-download-and-install[Download and Install Devon]
 
-- [The OASP/IDE IDE](https://github.com/devonfw/devon/wiki/devon-guide-ide)
+- link:getting-started-the-devon-ide[The Devon IDE]
 
 - link:devon-running-sample-application[Running Sample Application]
 
