@@ -3,10 +3,30 @@ toc::[]
 
 = The Devon IDE
 
+== Introduction
+
+The Devon IDE is the general name for two distinct versions of a customized Eclipse which comes in a Open Source variant, called OASP4J-IDE, and a more extended version included in the "Devon Dist" which is only available for Capgemini engagements.
+
+=== Features & advantages
+The goal to have a but powerful solution which simplifies the installation, configuration and maintenance of the development IDE. As it is being included in the distribution, the IDE is ready to be used and some specific configuration of certain plugins only takes a few  minutes.
+
+image::images/devon-ide/integrated-ide.png
+
+As with the remainder of the distribution, the advantage of this approach is that you can have as many instances of the oasp4j-ide "installed" on your machine for different projects with different tools, tool versions and configurations. No physical installation and no tweaking of your operating system. "Installations" of the Devon distribution do not interfere with each other nor with other installed software.
+
+=== Multiple Workspaces
+There is inbuilt support for working with different workspaces on different branches. Create and update new workspaces with a few clicks. You can see the workspace name in the title-bar of your IDE so you do not get confused and work on the right branch.
+
+== Cobigen
+In the Devon distribution we have a code generator to create CRUD code, called *Cobigen*. This is a generic incremental generator for end to end code generation tasks, mostly used in Java projects. Due to a template-based approach, CobiGen generates any set of text-based documents and document fragments.
+
+image::images/devon-ide/cobigen.png
+
+Cobigen is distributed in the Devon distribution as an Eclipse plugin, and is available to all Devon developers for Capgemini engagements. Due to the importance of this component and the scope of its functionality, it is fully described elsewhere, in: *TODO*.
+
 == IDE Plugins:
 
-Since an application’s code can greatly vary, and every program can be written in lots of ways without being semantically different, OASP4J IDE comes with pre-installed and pre-configured plugins that use some kind of a probabilistic approach, usually based on pattern matching, to determine which pieces of code should be reviewed. These hints are a real time-saver, helping you to review incoming changes and prevent bugs from propagating into the released artifacts. It provides, CheckStyle, SonarQube,FindBugs.
-Details of each can be found in subsequent sections.
+Since an application’s code can greatly vary, and every program can be written in lots of ways without being semantically different, OASP4J IDE comes with pre-installed and pre-configured plugins that use some kind of a probabilistic approach, usually based on pattern matching, to determine which pieces of code should be reviewed. These hints are a real time-saver, helping you to review incoming changes and prevent bugs from propagating into the released artifacts. Apart from Cobigen mentioned in the previous paragraph, the IDE provides CheckStyle, SonarQube, FindBugs and SOAP-UI. Details of each can be found in subsequent sections.
 
 === CheckStyle
 
