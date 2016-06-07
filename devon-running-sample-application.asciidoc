@@ -1,4 +1,4 @@
-= Running sample application
+= Running Sample Aapplication
 
 Devon comes with a sample application, which showcases the most common features of Devon and its proposed best practices.
 
@@ -12,7 +12,7 @@ The following steps assume that you have already setup your Devon environment.
 
 1. Select "Maven - Existing Maven Projects"
 +
-image::images/tutorial_running_sample_1_import_maven.png[,scaledwidth=80%]
+image::images/devonfw-running-sample-application/tutorial_running_sample_1_import_maven.png[,scaledwidth=80%]
 
 1. Select the directory "workspaces/examples/oasp4j/oasp4j-samples
 +
