@@ -129,21 +129,19 @@ OASP4J IDE comes preinstalled with FindBugs plugin.
 
 You can configure that FindBugs should run automatically for a selected project. For this right-click on a project and select Properties from the popup menu. via the project properties. Select FindBugs → Run automatically  as shown below.
 
-image::images\FindBugs1.png[configure FindBugs]
+image::images/devon-ide/FindBugs1.png[configure FindBugs]
 
 
 To run the error analysis of FindBugs on a project, right-click on it and select the Find Bugs... → Find Bugs menu entry.
 
-image::images\FindBugs2.png[error analysis]
+image::images/devon-ide/FindBugs2.png[error analysis]
 
 Plugin provides specialized views to see the reported error messages. Select Window → Show View → Other... to access the views.
 The FindBugs error messages are also displayed in the Problems view or as decorators in the Package Explorer view.
 
-image::images\FindBugs3.png[ShowView bug Explorer]
+image::images/devon-ide/FindBugs3.png[ShowView bug Explorer]
 
-image::images\FindBugs4.png[bug Explorer]
-
-
+image::images/devon-ide/FindBugs4.png[bug Explorer]
 
 === SonarQube
 
@@ -168,23 +166,16 @@ Once your project exists in SonarQube, you're ready to get started with SonarQub
 
 Go to Window > Preferences > SonarQube > Servers.
 
-
-
 [[img-sonarqube1]]
 .Configure_in_IDE
 image::images/devon-ide/sonarqube1.png["sonarqube1", width = "800" , link="images/sonarqube1.png"]
 
 &#160; +
 
-
-
 SonarQube in Eclipse is pre-configured to access a local SonarQube server listening on http://localhost:9000/.
 You can edit this server, delete it or add new ones.By default, user and password is "admin".If sonar service is started properly, test connection will give you successful result.
 
-
 Linking a project to one analysed on sonar server.
-
-
 
 [[img-associate-sonarqube]]
 .associate-sonarqube
