@@ -13,7 +13,7 @@ The Devonfw archetype generates a Maven Modules Project. It has 3 Maven modules 
 
 ** Properties definition: Spring-boot version, Java version, server port, database port.
 
-** Modules definition: Imports for 3 modules (core, EAR and server).
+** Modules definition: Imports for 2 modules (core and server).
 
 ** Dependency Management: Spring-boot, OASP4J-BOM and JUnit dependencies.
 
