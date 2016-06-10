@@ -5,4 +5,4 @@
 * link:devon-download-and-install[Download and Install Devonfw]
 * link:getting-started-the-devon-ide[The Devon IDE]
 * link:devon-running-sample-application[Running Sample Application]
-* link:devonfw-distribution-structure[Understanding Devonfw Distribution Structure]
+* link:devonfw-distribution-structure[Devonfw Distribution Structure]
