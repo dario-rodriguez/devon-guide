@@ -10,7 +10,7 @@
 
 - link:devon-running-sample-application[Running Sample Application]
 
-- link:devonfw-distribution-structure[Understanding Devonfw Distribution Structure]
+- link:devonfw-distribution-structure[Devonfw Distribution Structure]
 
 - [Explanation /understanding of Devon Dist structure](https://github.com/devonfw/devon/wiki/devon-guide-devon-structure)  [OASPgithub.com/oasp/oasp4j/wiki/tutorial-sample)] = [1](https://
 
