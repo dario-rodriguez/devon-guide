@@ -24,7 +24,7 @@
 
 - link:devonfw-writing-unittest-cases[Writing Unit Test Cases]
 
-- [Logging / Audit](https://github.com/devonfw/devon/wiki/devon-guide-logging-audit) [OASP = [1](https://github.com/oasp/oasp4j/wiki/guide-auditing), [2](https://github.com/oasp/oasp4j/wiki/guide-logging)]
+- link:devonfw-logging-and-auditing[Logging and Auditing]
 
 - [JPA, Hibernate & creation of JPA Entity](https://github.com/devonfw/devon/wiki/devon-guide-dataaccess-layer) [OASP = [1](https://github.com/oasp/oasp4j/wiki/guide-dataaccess-layer)]
 
