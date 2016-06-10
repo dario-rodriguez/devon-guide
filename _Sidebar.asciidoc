@@ -1,4 +1,4 @@
-= Devon Guide
+= Devonfw Guide
 == Getting Started
 * link:Home[Home]
 * link:getting-started-introduction-to-devonfw[Introduction to Devonfw]
