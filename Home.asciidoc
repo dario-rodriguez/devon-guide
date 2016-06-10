@@ -12,7 +12,7 @@
 
 - link:devonfw-distribution-structure[Devonfw Distribution Structure]
 
-- link:devonfw-creating-new-devonfw-application[Create new application]
+- link:creating-new-devonfw-application[Create new application]
 
 - [Explanation/understanding oasp4j app structure (practical; not abstract)](https://github.com/devonfw/devon/wiki/devon-guide-oasp-app-structure) (TODO) 
 
