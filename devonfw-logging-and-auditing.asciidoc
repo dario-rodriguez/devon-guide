@@ -1,7 +1,7 @@
 :toc: macro
 toc::[]
 
-= Logging
+= Logging using Logback
 
 We use http://www.slf4j.org/[SLF4J] as API for logging. The recommended implementation is http://logback.qos.ch/[Logback] for which we provide additional value such as configuration templates and an appender that prevents log-forging and reformatting of stack-traces for operational optimizations.
 
@@ -108,7 +108,7 @@ In order to prevent https://www.owasp.org/index.php/Log_Forging[log forging] att
 == Correlating separate requests
 In order to correlate separate HTTP requests to services belonging to the same user / session, we provide a servlet filter called "DiagnosticContextFilter". This filter first searches for a configurable HTTP header containing a correlation id. If none was found, it will generate a new correlation id. By default the HTTP header used is called "CorrelationId".
 
-= Auditing
+= Auditing with Hibernate Eenvers
 
 For database auditing we use http://envers.jboss.org/[hibernate envers]. If you want to use auditing ensure you have the following dependency in your +pom.xml+:
 [source,xml]
