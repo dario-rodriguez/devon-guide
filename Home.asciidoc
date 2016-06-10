@@ -22,7 +22,7 @@
 
 - [Flyway & Creation & updating DB Schema](https://github.com/devonfw/devon/wiki/devon-guide-flyway) [OASP = [1](https://github.com/oasp/oasp4j/wiki/guide-database-migration)]
 
-- [How to write unit tests (remainder of tutorial is TDD)](https://github.com/devonfw/devon/wiki/devon-guide-unit-test) (TODO) 
+- link:devonfw-writing-unittest-cases[Writing Unit Test Cases]
 
 - [Logging / Audit](https://github.com/devonfw/devon/wiki/devon-guide-logging-audit) [OASP = [1](https://github.com/oasp/oasp4j/wiki/guide-auditing), [2](https://github.com/oasp/oasp4j/wiki/guide-logging)]
 
