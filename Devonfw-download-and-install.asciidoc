@@ -3,9 +3,9 @@ toc::[]
 
 = Environment Setup
 
-In this section you will learn how to setup the Devon environment, so you have everything setup to start working on your first project based on Devon.
+In this section you will learn how to setup the Devonfw environment, so you have everything setup to start working on your first project based on Devon.
 
-The Devon environment contains all software and tools necessary to develop applications with Devon.
+The Devonfw environment contains all software and tools necessary to develop applications with Devonfw.
 
 == Pre-requisites
 
@@ -13,21 +13,21 @@ In order to setup your environment, you need the following pre-requisites:
 
 * Internet connection (including details of your proxy configuration, if necessary)
 * 2GB of free disk space
-* The ZIP containing the latest Devon distribution
+* The ZIP containing the latest Devonfw distribution
 
 == Download
-Download latest devon distribution from https://coconet.capgemini.com/sf/frs/do/listReleases/projects.apps2_devon/frs.devon_distribution[our Teamforge site].
+Download latest Devonfw distribution from https://coconet.capgemini.com/sf/frs/do/listReleases/projects.apps2_devon/frs.devon_distribution[our Teamforge site].
 
 == Prepare the workspace
 
-1. Unzip the Devon distribution into a directory of your choosing. The path to the directory should contain no spaces, to prevent problems with some of the tools.
+1. Unzip the Devonfw distribution into a directory of your choosing. The path to the directory should contain no spaces, to prevent problems with some of the tools.
 
 1. Run the batch file "create-or-update-workspace.bat".
 
 image::images/introduction/productivity_flexibility_impact.png[Productivity]
 image::images/devonfwdownloadandinstall/devon_guide_environment_setup_1_create_workspace.png[Productivity]
 
-This will configure the included tools like Eclipse with the default settings of the Devon distribution.
+This will configure the included tools like Eclipse with the default settings of the Devonfw distribution.
 +
 The result should be as seen below
 +
@@ -81,9 +81,9 @@ Enter your proxy configuration
 +
 image::images/devonfw-download-and-install//tutorial_environment_setup_9_proxy_eclipse.png[,scaledwidth=80%]
 
-1. You now have a working Devon environment.
+1. You now have a working Devonfw environment.
 +
-You can find example projects inside `workspaces\examples`. In the next section you will learn how to run the devon example application.
+You can find example projects inside `workspaces\examples`. In the next section you will learn how to run the Devonfw example application.
 
 == Coding Tools
 
@@ -101,14 +101,14 @@ You can find example projects inside `workspaces\examples`. In the next section 
 
 == Documentation Structure
 
-Here we describe all the documents composing the Devon offering. You can get the versions for the 2.0.0 release on the troom site:
+Here we describe all the documents composing the Devonfw offering. You can get the versions for the 2.0.0 release on the troom site:
 
 https://coconet.capgemini.com/sf/go/projects.apps2_devon/frs.devon_distribution
 
 
 |===
 
-|*Devon documentation*| You are reading it, this is the entry point for all the documentation
+|*Devonfw documentation*| You are reading it, this is the entry point for all the documentation
 
 |*OASP4J guide*| Architecture blueprint for server side applications. Part of the OASP Open Source project
 
@@ -118,7 +118,7 @@ The latest version of this document can be found
 
 |*AngularJS Guide*|Tutorial for creating AngularJS RIA applications following OASP principles
 
-|*Sencha Guide*|Architecture guide and step-by-step tutorial for creating Sencha RIA applications on client side following Devon approach
+|*Sencha Guide*|Architecture guide and step-by-step tutorial for creating Sencha RIA applications on client side following Devonfw approach
 
 |*CobiGen Guide*|The documentation for using the Java code generator for eclipse
 
