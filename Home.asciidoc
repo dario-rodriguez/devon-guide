@@ -4,7 +4,7 @@
 
 - link:getting-started-introduction-to-devonfw[Introduction to Devon]
 
-- link:devon-download-and-install[Download and Install Devon]
+- link:devonfw-download-and-install[Download and Install Devon]
 
 - link:getting-started-the-devon-ide[The Devon IDE]
 
