@@ -2,11 +2,11 @@
 
 ## Getting Started
 
-- link:getting-started-introduction-to-devonfw[Introduction to Devon]
+- link:getting-started-introduction-to-devonfw[Introduction to Devonfw]
 
 - link:devonfw-download-and-install[Download and Install Devonfw]
 
-- link:getting-started-the-devon-ide[The Devon IDE]
+- link:getting-started-the-devon-ide[The Devonfw IDE]
 
 - link:devon-running-sample-application[Running Sample Application]
 
