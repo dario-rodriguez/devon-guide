@@ -1,7 +1,7 @@
 :toc: macro
 toc::[]
 
-= Logging using Logback
+= Logging
 
 We use http://www.slf4j.org/[SLF4J] as API for logging. The recommended implementation is http://logback.qos.ch/[Logback] for which we provide additional value such as configuration templates and an appender that prevents log-forging and reformatting of stack-traces for operational optimizations.
 
