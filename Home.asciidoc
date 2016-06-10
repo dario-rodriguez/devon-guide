@@ -12,9 +12,7 @@
 
 - link:devonfw-distribution-structure[Devonfw Distribution Structure]
 
-- [Explanation /understanding of Devon Dist structure](https://github.com/devonfw/devon/wiki/devon-guide-devon-structure)  [OASPgithub.com/oasp/oasp4j/wiki/tutorial-sample)] = [1](https://
-
-- [Create new OASP4J app](https://github.com/devonfw/devon/wiki/devon-guide-newapp) [Devon = [1](https://github.com/devonfw/devon/wiki/tutorial-newapp)] - [OASP = [1](https://github.com/oasp/oasp4j/wiki/tutorial-newapp), [2](https://github.com/oasp/oasp4j/wiki/oasp-Deploy-&-Run-OASP-locally)]
+- link:devonfw-creating-new-devonfw-application[Create new application]
 
 - [Explanation/understanding oasp4j app structure (practical; not abstract)](https://github.com/devonfw/devon/wiki/devon-guide-oasp-app-structure) (TODO) 
 
