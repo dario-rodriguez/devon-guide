@@ -6,3 +6,4 @@
 * link:getting-started-the-devon-ide[The Devon IDE]
 * link:devon-running-sample-application[Running Sample Application]
 * link:devonfw-distribution-structure[Devonfw Distribution Structure]
+* link:devonfw-creating-new-devonfw-application[Create new application]
