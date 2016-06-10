@@ -8,3 +8,4 @@
 * link:devonfw-distribution-structure[Devonfw Distribution Structure]
 * link:creating-new-devonfw-application[Create new application]
 * link:devonfw-writing-unittest-cases[Writing Unit Test Cases]
+* link:devonfw-logging-and-auditing[Logging and Auditing]
