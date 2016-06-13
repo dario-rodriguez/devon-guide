@@ -11,7 +11,7 @@ The following steps assume that you have already setup your Devon environment.
 1. Select "File - Import"
 
 1. Select "Maven - Existing Maven Projects"
-+
+
 image::images/devonfw-running-sample-application/tutorial_running_sample_1_import_maven.png[,scaledwidth=80%]
 
 1. Select the directory "workspaces/examples/oasp4j/oasp4j-samples
@@ -19,7 +19,7 @@ image::images/devonfw-running-sample-application/tutorial_running_sample_1_impor
 image::images/tutorial_running_sample_2_select_folder_oasp.png[,scaledwidth=80%]
 
 1. Press "Finish"
-+
+
 image::images/tutorial_running_sample_3_import_maven_oasp.png[,scaledwidth=80%]
 
 1. Select "File - Import"
@@ -27,23 +27,23 @@ image::images/tutorial_running_sample_3_import_maven_oasp.png[,scaledwidth=80%]
 1. Select "Maven - Existing Maven Projects"
 
 1. Select the directory "workspaces/examples/devon"
-+
+
 image::images/tutorial_running_sample_2_select_folder.png[,scaledwidth=80%]
 
 1. Press "Finish"
-+
+
 image::images/tutorial_running_sample_3_import_maven.png[,scaledwidth=80%]
 
 1. Wait for Eclipse to finish importing the sample project. This process might take several minutes, depending on the speed of your internet connection.
 
 1. Open the "Server" view
-+
+
 image::images/tutorial_running_sample_4_server_tab.png[,scaledwidth=80%]
 
 1. Right-click on "Tomcat" and select "Add and Remove"
 
 1. Click on "devonfw-sample-server" on the left and move it to the right by clicking on "Add >"
-+
+
 image::images/tutorial_running_sample_5_add_remove.png[,scaledwidth=80%]
 
 1. Click "Finish"
