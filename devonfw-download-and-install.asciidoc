@@ -27,57 +27,57 @@ Download latest Devonfw distribution from https://coconet.capgemini.com/sf/frs/d
 image::images/devon-download-and-install/tutorial_environment_setup_1_create_workspace.png[devon_guide_environment_setup_1_create_workspace]
 
 This will configure the included tools like Eclipse with the default settings of the Devonfw distribution.
-+
+
 The result should be as seen below
-+
-image::images/devon-download-and-install/devon_guide_environment_setup_2_create_workspace.png[,scaledwidth=80%]
+
+image::images/devon-download-and-install/tutorial_environment_setup_2_create_workspace.png[,scaledwidth=80%]
 
 1. If you use a proxy to connect to the Internet, you have to manually configure it in the following tools:
 
 * Maven
-+
+
 Open the file "conf/.m2/settings.xml" in an editor
-+
+
 image::images/devonfw-download-and-install/tutorial_environment_setup_3_proxy_maven.png[,scaledwidth=80%]
-+
+
 Remove the comment tags around the <proxy> section at the beginning of the file.
-+
+
 Then update the settings to match your proxy configuration.
-+
+
 image::images/devon-download-and-install/tutorial_environment_setup_4_proxy_maven.png[,scaledwidth=80%]
-+
+
 If your proxy does not require authentication, simply remove the <username> and <password> lines.
 
 * Sencha Cmd
-+
+
 Open the file software/Sencha/Cmd/default/sencha.cfg in an editor
-+
+
 image::images/devon-download-and-install/tutorial_environment_setup_5_proxy_sencha.png[,scaledwidth=80%]
-+
+
 Search for the property definition of "cmd.jvm.args" (around line 45).
-+
+
 Comment the existing property definition and uncomment the line above it.
-+
+
 Then update the settings to match your proxy configuration.
-+
+
 image::images/devon-download-and-install/tutorial_environment_setup_6_proxy_sencha.png[,scaledwidth=80%]
-+
+
 If your proxy does not require authentication, simply remove the "-Dhttp.proxyUser", "-DhttpProxyPassword", "-Dhttps.proxyUser" and "-Dhttps.proxyPassword" parameters.
 
 * Eclipse
-+
+
 Open eclipse by executing "eclipse-main.bat".
-+
+
 image::images/devon-download-and-install/tutorial_environment_setup_7_proxy_eclipse.png[,scaledwidth=80%]
-+
+
 In the Eclipse preferences dialog, go to "General - Network Connection".
-+
+
 image::images/devon-download-and-install/tutorial_environment_setup_8_proxy_eclipse.png[,scaledwidth=80%]
-+
+
 Switch from "Native" to "Manual"
-+
+
 Enter your proxy configuration
-+
+
 image::images/devon-download-and-install/tutorial_environment_setup_9_proxy_eclipse.png[,scaledwidth=80%]
 
 1. You now have a working Devonfw environment.
