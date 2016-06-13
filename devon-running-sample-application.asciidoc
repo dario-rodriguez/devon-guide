@@ -15,7 +15,7 @@ The following steps assume that you have already setup your Devon environment.
 image::images/devonfw-running-sample-application/tutorial_running_sample_1_import_maven.png[,scaledwidth=80%]
 
 1. Select the directory "workspaces/examples/oasp4j/oasp4j-samples
-+
+
 image::images/tutorial_running_sample_2_select_folder_oasp.png[,scaledwidth=80%]
 
 1. Press "Finish"
