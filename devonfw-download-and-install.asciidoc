@@ -38,7 +38,7 @@ image::images/devon-download-and-install/tutorial_environment_setup_2_create_wor
 
 Open the file "conf/.m2/settings.xml" in an editor
 
-image::images/devonfw-download-and-install/tutorial_environment_setup_3_proxy_maven.png[,scaledwidth=80%]
+image::images/devon-download-and-install/tutorial_environment_setup_3_proxy_maven.png[,scaledwidth=80%]
 
 Remove the comment tags around the <proxy> section at the beginning of the file.
 
