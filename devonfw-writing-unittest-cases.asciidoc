@@ -1,0 +1,41 @@
+= Writing Unit Test Cases
+
+[TODO]
+
+=== Module Tests
+POJOs allow for plain and simple testing
+
+++
+myComponent = new MyComponentImpl();
+myComponent.setOtherComponent(other);
+++
+
+a combination with Mocking-Framework (Mockito) possible
+
+=== Component & Integration Tests
+
+* Spring-Test integrates Spring with JUnit
+* Spring configurations, injections, etc. can be properly tested
+* Single CDI beans or configurations can be overridden for testing
+* Performance: Setting up the context (container) can be slow
+** Spring-test reuses context if multiple tests use same configuration
+
+
+=== JUnit-Test with Spring-Test
+
+++
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = { "classpath:beans-test-service-base.xml" })
+@TestExecutionListeners({DependencyInjectionTestExecutionListener.class, TransactionalTestExecutionListener.class, WebContextTestExecutionListener.class, DirtiesContextTestExecutionListener.class})
+public class MyComponentTest extends Assertions {
+
+   @Inject
+   private MyComponent myComponent;
+ 
+   @Test
+   public void test() {
+      Result result = this.myComponent.calculate(Constants.MAGIC_INPUT);
+      assertThat(result).isEqualTo(getExpectedResult());
+   }
+ }
+++
