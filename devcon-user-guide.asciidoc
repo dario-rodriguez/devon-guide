@@ -450,7 +450,7 @@ After this a new _TestProject_ directory must have been created in the _workspac
 
 With this module we can access in a straightforward way to the documentation to get started with Devon framework. The commands of this module show information related with different components of Devon even opening in the default browser the sites related with them.
 
-- doc devon : Opens the Devon site in the default web browser.
+- ```batch doc devon ```: Opens the Devon site in the default web browser.
 
 - doc devonguide : Opens the Devon Guide in the default web browser.
 
