@@ -1,4 +1,31 @@
 #Introduction
+
 The Devon Console, Devcon, is a cross-platform command line tool running on the JVM that provides many automated tasks around the full life-cycle of Devon applications, from installing the basic working environment and generating a new project, to running a test server and deploying an application to production.
 
 Devcon is the easiest way to use Devon. With a focus on project automation, easy command execution and declarative configuration, it gets out of your way and lets you focus on your code.
+
+# Devcon structure
+
+Devcon is based on three basic elements:
+- modules
+
+- commands
+
+- parameters
+
+So Devcon is a tool based on modules where each module groups several commands related to the module functionality and each command may need parameters to work in one way or another. 
+Each command is used to accomplish one task and may need some parameters in order to achieve its goal. These parameters can be mandatory or optional. The mandatory parameters must be provided by the user when launching the command and the optional parameters can be provided by the user in the same way but if not, they can be read from a configuration file. Apart from this we can use global parameters that are independent from the modules and commands and that will be helpful in order to obtain devcon information (like help) or other basic configuration features, these parameters will be explained later.
+
+# Devcon basic usage
+
+Accordingly with the defined structure the devcon usage is based on the definition of each of its element: module, command and parameters. So in the command line we must specify each of these elements in the correct order:
+
+devon [module] [command] [parameters ...]
+
+- the module will be the first word after the “devon” keyword.
+
+- the command will be the second word after the “devon” keyword.
+
+- the parameters are the rest of the elements defined after the command.
+
+
