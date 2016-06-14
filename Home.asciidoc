@@ -6,6 +6,8 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - link:getting-started-introduction-to-devonfw[Introduction to Devonfw]
 
+- link:devcon-user-guide[Devcon - User guide] (TO EVALUATE)
+
 - link:devonfw-download-and-install[Download and Install Devonfw]
 
 - link:getting-started-the-devon-ide[The Devonfw IDE]
