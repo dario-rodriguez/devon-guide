@@ -586,7 +586,7 @@ A simple example of usage for this command would be the following
 
 [source,batch]
 ----
-D:\>devon workspace create -devonpath C:\MyFolder\devon-dist -foldername newproject
+D:\>*devon workspace create -devonpath C:\MyFolder\devon-dist -foldername newproject*
 Hello, this is Devcon!
 Copyright (c) 2016 Capgemini
 [INFO] creating workspace at path D:\devon2-alpha\workspaces\newproject
