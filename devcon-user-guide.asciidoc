@@ -564,25 +564,33 @@ A simple example of usage for this command would be the following
 D:\devon-dist\workspaces\senchaProject>devon sencha run
 ----
 
-Workspace
+= Workspace
+
 This module handles all tasks related to distribution workspaces.
 
-workspace create
-This command automates the creation of new workspaces within the distribution with the default configuration including a new Eclipse .bat starter related to the new project.
+== workspace create
 
-Parameters
+This command automates the creation of new workspaces within the distribution with the default configuration including a new Eclipse _.bat_ starter related to the new project.
+
+=== Parameters
+
 The create command needs two parameters:
-devonpath: the path where the devon distribution is located.
-foldername: the name for the new workspace.
 
+- *devonpath*: the path where the devon distribution is located.
 
-Example of usage
+- *foldername*: the name for the new workspace.
+
+=== Example of usage
+
 A simple example of usage for this command would be the following
 
+[source,batch]
+----
 D:\>devon workspace create -devonpath C:\MyFolder\devon-dist -foldername newproject
 Hello, this is Devcon!
 Copyright (c) 2016 Capgemini
 [INFO] creating workspace at path D:\devon2-alpha\workspaces\newproject
 [...]
+----
  
-As a result of that a new folder newproject with the default project configuration should be created in the C:\MyFolder\devon-dist\workspaces directory alongside a eclipse-newproject.bat starter script in the root of the distribution. 
+As a result of that a new folder _newproject_ with the default project configuration should be created in the _C:\MyFolder\devon-dist\workspaces_ directory alongside an _eclipse-newproject.bat_ starter script in the root of the distribution. 
