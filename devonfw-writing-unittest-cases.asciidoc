@@ -5,10 +5,10 @@
 === Module Tests
 POJOs allow for plain and simple testing
 
-++
++
 myComponent = new MyComponentImpl();
 myComponent.setOtherComponent(other);
-++
++
 
 a combination with Mocking-Framework (Mockito) possible
 
@@ -23,7 +23,7 @@ a combination with Mocking-Framework (Mockito) possible
 
 === JUnit-Test with Spring-Test
 
-++
++
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:beans-test-service-base.xml" })
 @TestExecutionListeners({DependencyInjectionTestExecutionListener.class, TransactionalTestExecutionListener.class, WebContextTestExecutionListener.class, DirtiesContextTestExecutionListener.class})
@@ -38,4 +38,5 @@ public class MyComponentTest extends Assertions {
       assertThat(result).isEqualTo(getExpectedResult());
    }
  }
-++
++
+
