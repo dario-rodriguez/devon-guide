@@ -1,4 +1,7 @@
-#Introduction
+:toc: macro
+toc::[]
+
+# Introduction
 
 The Devon Console, Devcon, is a cross-platform command line tool running on the JVM that provides many automated tasks around the full life-cycle of Devon applications, from installing the basic working environment and generating a new project, to running a test server and deploying an application to production.
 
@@ -36,11 +39,11 @@ devon [module] [command] [parameters ...]
 
 Both module and command are defined by an identifier that is the ‘name’ that the module or command have assigned in devcon.
 
-==Defining the parameters
+= Defining the parameters
 
 The parameter definition is divided in two parts. The first one is the parameters identifier that is the _name_ that the parameter has assigned within the devcon app *preceded by a single dash*. The second part of the parameter definition is the parameter value.
 
-==Basic example
+= Basic example
 
 Thus a basic example of a devcon line command would be
 
@@ -59,28 +62,39 @@ where:
 
 - *hello* is the value for the _message_ parameter.
 
-Parameters
-As we mentioned before from the point of view of the commands we have two types of parameters: the mandatory parameters and the optional parameters. 
-The mandatory parameters must be provided by the user specifying the parameter identifier and the value in the command line. The optional parameters must be also provided to the app but if the user do not specify it devcon will try to find the parameter value in a related configuration file. In case the parameter is not defined either the command line or in the configuration file devcon will prompt the user for the parameter value.
+= Parameters
 
-Optional parameters in devon.json file
-In the case of the optional parameters if we don’t specify the value when launching the command devcon will search for a devon.json file in order to find the value of the optional parameter. Devcon will start searching from the directory from which the command has been launched and will climb the directory tree until the config file is found
-The devon.json file is a configuration file that defines some properties to be used by devcon in some processes. To define the value for optional parameters we can use the optionalParameters property, that is a JSON object with the definition of each optional parameter
+As we mentioned before from the point of view of the commands we have two types of parameters: the mandatory parameters and the optional parameters. 
+The mandatory parameters must be provided by the user specifying the parameter identifier and the value in the command line. The optional parameters must be also provided to the app but, if the user do not specify it, devcon will try to find the parameter value in a related configuration file. In case the parameter is not defined either the command line or in the configuration file devcon will prompt the user for the parameter value.
+
+== Optional parameters in devon.json file
+
+In the case of the optional parameters if we don’t specify the value when launching the command devcon will search for a _devon.json_ file in order to find the value of the optional parameter. Devcon will start searching from the directory from which the command has been launched and will climb the directory tree until the config file is found.
+The _devon.json_ file is a configuration file that defines some properties to be used by devcon in some processes. To define the value for optional parameters we can use the _optionalParameters_ property, that is a JSON object with the definition of each optional parameter
+
+[source,json]
+----
 …
 "optionalParameters": {"optional1":"value1", "optional2":"value2", … }
 …
- 
-Returning to the previous example imagine that now the saySomething command of the foo module has two parameters, the ‘message’ that is mandatory and the ‘signature’ that is optional. We also have a configuration file called devon.json in the test directory with a content like
+----
 
+Returning to the previous example imagine that now the _saySomething_ command of the _foo_ module has two parameters, the _'message'_ that is mandatory and the _'signature'_ that is optional. We also have a configuration file called _devon.json_ in the test directory with a content like
+
+[source,json]
+----
 { "version": "2.0.0",
   "type":"oasp4j",
   "optionalParameters": {"signature":"test"}
 }
-
+----
 	
-Now if we launch the command from a MyProject\test directory providing both message and signature parameters
+Now if we launch the command from _MyProject\test_ directory providing both _message_ and _signature_ parameters
 
+[source,batch]
+----
 c:\MyProject\test>devon foo saySomething -message hello -signature John 
+----
 
 The command will use the parameter -message with value ‘hello’ and the parameter -signature with value ‘John’ and the output will be
 
