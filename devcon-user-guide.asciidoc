@@ -176,7 +176,7 @@ Available commands for module: foo
 > saySomething: This command is for say something
 ----
 
-In the same way, as a global parameter, if we use the *-h* parameter with a command instead of launching the command the help info related to the command will be shown
+In the same way, as a global parameter, if we use the *-h* parameter with a command, instead of launching the command the help info related to the command will be shown
 
 [source,batch]
 ----
@@ -315,38 +315,61 @@ D:\>devon dist install -user john -password 1234 -path D:\Temp\MyDistribution -t
 Regarding the order of the command parameters, devcon will order them internally so we don’t have to concern about that point and we can specify them in the order we want, the only requirement is that all mandatory parameters are provided.
 
 
-Modules
+# Modules
+
 In the introduction of this guide we mentioned that Devcon is a tool based on modules that group commands so the different functionalities are stored in these modules that act as utilities containers.
 The first version of devcon has been released with the following modules
-help
-sencha
-dist
-doc
-github
-workspace
 
-but in your current Devcon version more modules may have been included. You can list them using the option devon -h 
+- dist
 
-Dist
-The dist module is responsible for the tasks related with the distribution which means all the functionalities surrounding the configuration of the Devon distribution, including the obtention of the distribution itself.
-The module dist consists of two parameters: install and s2.
-dist install
-The install command downloads a distribution from a Team Forge repository and after that extracts the file in a location defined by the user.
+- doc
 
-Requirements
+- github
+
+- help
+
+- sencha
+
+- workspace
+
+but in your current Devcon version more modules may have been included. You can list them using the option 
+
+[source,batch]
+----
+devon -h 
+----
+
+= dist
+
+The _dist_ module is responsible for the tasks related with the distribution which means all the functionalities surrounding the configuration of the Devon distribution, including the obtention of the distribution itself.
+The module _dist_ consists of two parameters: _install_ and _s2_.
+
+== dist install
+
+The _install_ command downloads a distribution from a Team Forge repository and after that extracts the file in a location defined by the user.
+
+=== Requirements
+
 A user with permissions to download files from Team Forge repository.
 
-Parameters
-The install parameter needs four parameters to work properly:
-user: a Team Forge user with permissions to download files from the repository at least.
-password: the Team Forge user password.
-path: the path where the distribution must be downloaded.
-type: the type of distribution. The options are ‘oaspide’ to download a oasp4j based distribution or devondist to download a Devon based distribution.
+=== Parameters
 
-Example of usage
+The _install_ parameter needs four parameters to work properly:
+
+- *user*: a Team Forge user with permissions to download files from the repository at least.
+
+- *password*: the Team Forge user password.
+
+- *path*: the path where the distribution must be downloaded.
+
+- *type*: the type of distribution. The options are _'oaspide'_ to download a oasp4j based distribution or _'devondist'_ to download a Devon based distribution.
+
+=== Example of usage
 A simple example of usage for this command would be the following
 
-D:\>devon dist install -user john -password 1234 -path D:\Temp\MyDistribution -type devondist
+[source,batch]
+---
+D:\>*devon dist install -user john -password 1234 -path D:\Temp\MyDistribution -type devondist*
 Hello, this is Devcon!
 Copyright (c) 2016 Capgemini
 [INFO] installing distribution...
@@ -357,38 +380,56 @@ Copyright (c) 2016 Capgemini
 [INFO] extracting file...
 [INFO] File successfully extracted.
 [INFO] The command INSTALL has finished successfully
+----
 
-You must have in mind that this process can take a while, specially depending of the connection to the internet.
+You must have in mind that this process can take a while, specially depending on your connection to the internet.
 
-dist s2
-The s2 command has been developed to automate the configuration process to use Devon as a Shared Service. This configuration is based on launching two scripts included in the Devon distributions, the s2-init.bat and the s2-create.bat.
-The s2-init.bat is responsible for configuring the settings.xml file (located in the conf/.m2 directory). Basically enables the connection of maven with the Artifactory repository, where the Devon IP modules are stored, and adds the user credentials for this connection.
+== dist s2
 
-The s2-create.bat creates a new project in the workspace of the distribution, and does a checkout of a Subversion repository inside this new project. Finally the script creates a Eclipse .bat starter related to the new project.
+The _s2_ command has been developed to automate the configuration process to use Devon as a Shared Service. This configuration is based on launching two scripts included in the Devon distributions, the _s2-init.bat_ and the _s2-create.bat_.
+The _*s2-init.bat*_ is responsible for configuring the _settings.xml_ file (located in the _conf/.m2_ directory). Basically enables the connection of _Maven_ with the _Artifactory_ repository, where the Devon IP modules are stored, and adds the user credentials for this connection.
 
-Requirements
-An Artifactory user with permissions to download files from the repository.
-A Subversion user with permissions to do the checkout of the project specified in the url parameter.
+The _*s2-create.bat*_ creates a new project in the workspace of the distribution, and does a checkout of a Subversion repository inside this new project. Finally the script creates a Eclipse _.bat_ starter related to the new project.
 
-The command can be launched from any directory within a Devon distribution. The Devon distribution is defined by having a settings.json file located in the conf directory. This file is a JSON object that defines parameters like the version of the distribution or the type which should be devon-dist as is showed below.
+=== Requirements
 
+An _Artifactory_ user with permissions to download files from the repository.
+
+A Subversion user with permissions to do the checkout of the project specified in the _url_ parameter.
+
+The command can be launched from any directory within a Devon distribution. The Devon distribution is defined by having a _settings.json_ file located in the _conf_ directory. This file is a JSON object that defines parameters like the version of the distribution or the type which should be _devon-dist_ as is showed below.
+
+[source,json]
+----
 {"version": "2.0.0","type": "devon-dist"}
+----
 
 The command will search for this file to get the root directory where the scripts are located so is necessary to have this file in its correct location.
 
-Apart from this the settings.xml file needs to be compatible with the Shared Services autoconfiguration script (s2-init.bat). 
-Parameters
-So the s2 command needs six parameters to be able to complete the two phases:
-artuser: an Artifactory user with permissions to download files at least.
-artencpass: the encrypted password of the Artifactory user (can be obtained from the Artifactory user profile).
-projectname: the name for the new project.
-svnuser: a user with permissions in the Subversion repository.
-svnpass: the password of the Subversion user.
-svnurl: the url of the project in the Subversion repository 
+Apart from this the _settings.xml_ file needs to be compatible with the Shared Services autoconfiguration script (_s2-init.bat_).
+ 
+=== Parameters
 
-Example of usage
+So the _s2_ command needs six parameters to be able to complete the two phases:
+
+- *artuser*: an Artifactory user with permissions to download files at least.
+
+- *artencpass*: the encrypted password of the Artifactory user (can be obtained from the Artifactory user profile).
+
+- *projectname*: the name for the new project.
+
+- *svnuser*: a user with permissions in the Subversion repository.
+
+- *svnpass*: the password of the Subversion user.
+
+- *svnurl*: the url of the project in the Subversion repository 
+
+=== Example of usage
+
 A simple example of usage for this command would be the following
 
+[source,batch]
+----
 D:\devon-alpha\workspaces>devon dist s2 -projectname TestProject -artuser john -artencpass ZMF4AgyhQ5X6Sr9Bd1ohjWcFjL -svnurl https://coconet...Project/ -svnuser john_svn -svnpass 12345
 Hello, this is Devcon!
 Copyright (c) 2016 Capgemini
@@ -400,18 +441,26 @@ INFO: Completed
 Eclipse preferences for workspace: "TestProject" have been created/updated
 Created eclipse-TestProject.bat
 Finished creating/updating workspace: "TestProject"
+----
 
-After this a new TestProject directory must have been created in the workspaces directory and in the distribution root a new eclipse-testproject.bat script must have been created.
+After this a new _TestProject_ directory must have been created in the _workspaces_ directory and in the distribution root a new _eclipse-testproject.bat_ script must have been created too.
 
 
-Doc
+= doc
+
 With this module we can access in a straightforward way to the documentation to get started with Devon framework. The commands of this module show information related with different components of Devon even opening in the default browser the sites related with them.
-doc devon : Opens the Devon site in the default web browser.
-doc devonguide : Opens the Devon Guide in the default web browser.
-doc getstarted : Opens the ‘Getting started’ guide of Devon framework.
-doc links : Shows a brief description of Devon framework and lists a set of links related to it like the public site, introduction videos, the Yammer group and so forth.
-doc oasp4jguide : Opens the OASP4J guide.
-doc sencha : Opens the Sencha Ext JS 6 documentation site.  
+
+- doc devon : Opens the Devon site in the default web browser.
+
+- doc devonguide : Opens the Devon Guide in the default web browser.
+
+- doc getstarted : Opens the ‘Getting started’ guide of Devon framework.
+
+- doc links : Shows a brief description of Devon framework and lists a set of links related to it like the public site, introduction videos, the Yammer group and so forth.
+
+- doc oasp4jguide : Opens the OASP4J guide.
+
+- doc sencha : Opens the Sencha Ext JS 6 documentation site.  
 
 Github
 This module is implemented to facilitate getting the Github code from OASP4J and Devon repositories. It has only two commands, one to get the OAPS4J code and the second to get the Devon code.
