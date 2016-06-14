@@ -1,2 +1,62 @@
+:toc: macro
+toc::[]
+
 = Understanding the OASP4J & Spring Boot Configuration
 
+= Configuration
+
+An application needs to be configurable in order to allow internal setup, like CDI (Context and Dependency Injection), but also to allow externalized configuration of a deployed package (e.g. integration into runtime environment). Using http://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/[Spring Boot] we rely on a comprehensive configuration approach following a "convention over configuration" pattern. This guide adds on to this by detailed instructions and best-practices how to deal with configurations.
+
+In general we distinguish the following kinds of configuration that are explained in the following sections:
+
+* xref:internal-application-configuration[Internal Application configuration] maintained by developers
+* xref:externalized-environment-configuration[Externalized Environment configuration] maintained by operators
+* xref:business-configuration[Externalized Business configuration] maintained by business administrators
+
+== Internal Application Configuration
+
+The application configuration contains all internal settings and wiring of the application (bean wiring, database mappings, etc.) and is maintained by the application developers at development time. There usually is a main configuration registered with main Spring Boot App, but differing configurations to support automated test of the application can be defined using profiles (not detailed in this guide).
+
+As we will see the web.xml, as the place for all web related configuration, is not at all used anymore to configure the web app. It is empty. So, let's see how we can configure our Devon based on Spring Boot applications!
+
+=== Standard beans configuration
+
+For basic bean configuration we rely on spring boot using mainly configuration classes and occasionally xml-configuration files. Some key principle to understand Spring Boot auto-configuration features:
+
+* Spring Boot auto-configuration attempts to automatically configure your Spring application based on the jar dependencies and annotated components found in your source code. 
+* Auto-configuration is noninvasive, at any point you can start to define your own configuration to replace specific parts of the auto-configuration by redefining your identically named bean.
+ 
+Beans are configured via annotations at the java-class (@Component, @Bean, @Named, etc.).
+These beans will be known when wiring the application at runtime. The required component scan is already auto-enabled within the main SpringBootApp.
+
+For beans that need separate configuration for any reason, additional Configuration Classes (using annotation @Configuration) can be used and will be automatically evaluated during application startup. 
+
+Configuration classes all reside in the folder:
+
+`src/main/general/configuration/`
+
+=== XML-based beans configuration
+It is still possible and allowed to provide (bean-) configurations using xml, though not recommended. These configuration files are no more bundled via a main xml config file but loaded individually from their respective owners, e.g. for unit-tests:
+
+[source, java]
+@SpringApplicationConfiguration(classes = { SpringBootApp.class }, locations = { "classpath:/config/app/batch/beans-productimport.xml" })
+public class ProductImportJobTest extends AbstractSpringBatchIntegrationTest {
+...
+
+Configuration XML-files reside in an adequately named subfolder of:
+
+`src/main/resources/app`
+
+=== Batch configuration
+In the directory `src/main/resources/config/app/batch` we place the configuration for the batch jobs. Each file within this directory represents one batch job.
+
+=== WebSocket configuration
+A websocket endpoint is configured within the business package as a Spring configuration class. The annotation @EnableWebSocketMessageBroker makes Spring Boot registering this endpoint.
+ 
+[source, java]
+package io.oasp.gastronomy.restaurant.salesmanagement.websocket.config;
+...
+@Configuration
+@EnableWebSocketMessageBroker
+public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
+...
