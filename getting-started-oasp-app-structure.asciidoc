@@ -1,2 +1,4 @@
 = OASP4J Application structure
 
+
+image::images/oasp-app-structure/app-structure.png[App structure]
