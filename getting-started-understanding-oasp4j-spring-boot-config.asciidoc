@@ -62,7 +62,25 @@ With this the annotation @Configuration, Spring Boot will manage our class as a 
 
 === Step 2: Including properties
 
-As we can see in the last step, we have a Configuration Class that configure a simple bean (MyBean) so now we are going to see how we can set values to our 
+As we can see in the last step, we have a Configuration Class that configure a simple bean (MyBean) so now we are going to see how we can set values to our configuration.
+
+There are several ways to set value to the parameters
+
+* Initialized the variable in the code.
+
+[source,java]
+---- 
+(...)
+public int     propertie1 = 0;
+public String  propertie2 = "0";
+public float   propertie3 = 0.0f;
+(...)
+----
+
+Obviously this is a not good practice to configure parameters, but maybe we can use some of the next ways with this to define by default values in our configuration.
+
+* 
+
 
 === XML-based beans configuration
 It is still possible and allowed to provide (bean-) configurations using xml, though not recommended. These configuration files are no more bundled via a main xml config file but loaded individually from their respective owners, e.g. for unit-tests:
