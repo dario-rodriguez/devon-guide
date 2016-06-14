@@ -18,7 +18,7 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - link:creating-new-devonfw-application[Create new application]
 
-- [Explanation/understanding oasp4j app structure (practical; not abstract)](https://github.com/devonfw/devon/wiki/devon-guide-oasp-app-structure) (TODO) 
+- link:getting-started-oasp-app-structure[OASP4J Application structure]
 
 - link:getting-started-understanding-oasp4j-spring-boot-config[Understanding the OASP4J & Spring Boot Configuration]
 
