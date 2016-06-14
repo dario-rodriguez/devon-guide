@@ -67,7 +67,7 @@ where:
 As we mentioned before from the point of view of the commands we have two types of parameters: the mandatory parameters and the optional parameters. 
 The mandatory parameters must be provided by the user specifying the parameter identifier and the value in the command line. The optional parameters must be also provided to the app but, if the user do not specify it, devcon will try to find the parameter value in a related configuration file. In case the parameter is not defined either the command line or in the configuration file devcon will prompt the user for the parameter value.
 
-== Optional parameters in devon.json file
+== Optional parameters in _devon.json_ file
 
 In the case of the optional parameters if we don’t specify the value when launching the command devcon will search for a _devon.json_ file in order to find the value of the optional parameter. Devcon will start searching from the directory from which the command has been launched and will climb the directory tree until the config file is found.
 The _devon.json_ file is a configuration file that defines some properties to be used by devcon in some processes. To define the value for optional parameters we can use the _optionalParameters_ property, that is a JSON object with the definition of each optional parameter
@@ -128,17 +128,22 @@ c:\MyProject\test>devon foo saySomething -message hello
 Please introduce the value for missing parameter signature:|
 ----
 
-Global parameters
+= Global parameters
+
 Devcon handles a third type of parameter that has nothing to do with command parameters. We are referring to the global parameters.
 The global parameters are a set of parameters that works in global context, which means that will affect the behaviour of the command in the first phase, before launching the command module itself. 
 In the first devcon version we have three global parameters defined:
-global parameter help: defined with -h or --help.
-global parameter no prompt: defined with -np or --noprompt.
-global parameter version: defined with -v or --version.
 
-Help
-The global parameter help is very useful to show overall help info of devcon or also for showing more detailed info of each module and command supported.
-For example if we know nothing about how to start with devcon the option -h (or --help) will show a summary of the devcon usage, listing the global parameters and the available modules alongside a brief description of each one.  
+- global parameter _help_: defined with *-h* or *--help*.
+- global parameter _no prompt_: defined with *-np* or *--noprompt*.
+- global parameter _version_: defined with *-v* or *--version*.
+
+== help
+The global parameter _help_ is very useful to show overall help info of devcon or also for showing more detailed info of each module and command supported.
+For example if we know nothing about how to start with devcon the option *-h* (or *--help*) will show a summary of the devcon usage, listing the global parameters and the available modules alongside a brief description of each one.  
+
+[source,batch]
+----
 C:\>devon -h
 Hello, this is Devcon!
 Copyright (c) 2016 Capgemini
@@ -155,8 +160,12 @@ List of available modules:
 > doc: Module with tasks related with obtaining specific documentation
 > github: Module to create a new workspace with all default configuration
 > workspace: Module to create a new workspace with all default configuration
+----
 
-As a global parameter if we use the -h parameter with a module it will show the help info related to this module including a basic usage of the devcon module and a list of the available commands in this module
+As a global parameter if we use the *-h* parameter with a module it will show the help info related to this module including a basic usage and a list of the available commands in this module
+
+[source,batch]
+----
 C:\>devon foo -h
 Hello, this is Devcon!
 Copyright (c) 2016 Capgemini
@@ -165,8 +174,12 @@ This is only a test module.
 
 Available commands for module: foo
 > saySomething: This command is for say something
+----
 
-In the same way, as a global parameter, if we use the -h parameter with a command instead of launching the command the help info related to the command will be shown
+In the same way, as a global parameter, if we use the *-h* parameter with a command instead of launching the command the help info related to the command will be shown
+
+[source,batch]
+----
 D:\>devon foo saySomething -h
 Hello, this is Devcon!
 Copyright (c) 2016 Capgemini
@@ -174,8 +187,12 @@ usage: saySomething [-message] [-signature]
 This command is to say something
  -message     the message to be written
  -signature   the signature
+----
 
 Even if we specify the needed parameters the behaviour will be the same because, as we said, the global parameters affect how devcon behaves before launching the commands
+
+[source,batch]
+----
 D:\>devon foo saySomething -message hello -signature John -h
 Hello, this is Devcon!
 Copyright (c) 2016 Capgemini
@@ -183,6 +200,7 @@ usage: saySomething [-message] [-signature]
 This command is to say something
  -message     the message to be written
  -signature   the signature
+----
 
 No prompt
 The no prompt parameter, defined with -np (or --noprompt) is a parameter to avoid the app asking for user input. As we saw in previous sections there are times where devcon can prompt the user to complete some information as needed parameters. With the -np parameter we avoid this situation and the app will not ask for any extra information during the process. This option can be useful in cases where we want to automate some tasks avoiding the process to hang on waiting for an input. 
