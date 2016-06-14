@@ -34,7 +34,7 @@ For beans that need separate configuration for any reason, additional Configurat
 
 Let's to see how we can customized our own Configuration Class
 
-=== Step 1: Creating the Configuration Class
+==== Step 1: Creating the Configuration Class
 
 In Devon, the Configuration Classes reside in the folder `src/main/general/configuration/` and it's recommended that include the new Configuration Classes here. This is just to keep a clear structure of our projects, the fact is you can include the Configuration Classes in wherever place in the project, it is responsible of Spring Boot scan the application.
 
@@ -60,7 +60,7 @@ public class MyConfigurationClass{
 
 With this the annotation @Configuration, Spring Boot will manage our class as a configuration class.
 
-=== Step 2: Including properties
+==== Step 2: Including properties
 
 As we can see in the last step, we have a Configuration Class that configure a simple bean (MyBean) so now we are going to see how we can set values to our configuration.
 
@@ -105,6 +105,24 @@ mybean.propertie1=0
 mybean.propertie2=0
 mybean.propertie3=0.0f
 ----
+
+* Use @ConfigurationProperties and application.properties
+
+[source,java]
+----
+@Configuration
+@ConfigurationProperties(prefix = "mybean")
+public class MyConfigurationClass{
+    public int     propertie1;
+    public String  propertie2;
+    public float   propertie3;
+
+//WE NEED TO IMPLEMENT THE GETTERS AND SETTERS OF THE VARIABLES
+}
+----
+
+As you can see, now Spring Boot will set in the variables the value of the properties under the prefix "mybean". Therefore, we need just include these in the file application.properties as in the @Value example.
+
 
 
 
