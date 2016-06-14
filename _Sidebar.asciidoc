@@ -8,5 +8,7 @@
 * link:devonfw-distribution-structure[Devonfw Distribution Structure]
 * link:creating-new-devonfw-application[Create new application]
 * link:getting-started-understanding-oasp4j-spring-boot-config[Understanding the OASP4J & Spring Boot Configuration]
+* link:getting-started-database-configuration[Database configuration]
+* link:getting-started-flyway-database-migration[Setting up and maintaining database schemas with Flyway]
 * link:devonfw-writing-unittest-cases[Writing Unit Test Cases]
 * link:devonfw-logging-and-auditing[Logging and Auditing]
