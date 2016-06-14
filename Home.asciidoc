@@ -22,9 +22,9 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - link:getting-started-understanding-oasp4j-spring-boot-config[Understanding the OASP4J & Spring Boot Configuration]
 
-- [Configure database(s) (1 and multiple)](https://github.com/devonfw/devon/wiki/devon-guide-configure-database) [Devon = [1](https://github.com/devonfw/devon/wiki/Database-Configuration-Guide)] - [OASP = [1](https://github.com/oasp/oasp4j/wiki/guide-database-migration)]
+- link:getting-started-database-configuration[Database configuration]
 
-- [Flyway & Creation & updating DB Schema](https://github.com/devonfw/devon/wiki/devon-guide-flyway) [OASP = [1](https://github.com/oasp/oasp4j/wiki/guide-database-migration)]
+- link:getting-started-flyway-database-migration[Setting up and maintaining database schemas with Flyway]
 
 - link:devonfw-writing-unittest-cases[Writing Unit Test Cases]
 
