@@ -452,50 +452,74 @@ With this module we can access in a straightforward way to the documentation to 
 
 - ```doc devon```: Opens the Devon site in the default web browser.
 
-- doc devonguide : Opens the Devon Guide in the default web browser.
+- ```doc devonguide```: Opens the Devon Guide in the default web browser.
 
-- doc getstarted : Opens the ‘Getting started’ guide of Devon framework.
+- ```doc getstarted```: Opens the ‘Getting started’ guide of Devon framework.
 
-- doc links : Shows a brief description of Devon framework and lists a set of links related to it like the public site, introduction videos, the Yammer group and so forth.
+- ```doc links```: Shows a brief description of Devon framework and lists a set of links related to it like the public site, introduction videos, the Yammer group and so forth.
 
-- doc oasp4jguide : Opens the OASP4J guide.
+- ```doc oasp4jguide```: Opens the OASP4J guide.
 
-- doc sencha : Opens the Sencha Ext JS 6 documentation site.  
+- ```doc sencha```: Opens the Sencha Ext JS 6 documentation site.  
 
-Github
-This module is implemented to facilitate getting the Github code from OASP4J and Devon repositories. It has only two commands, one to get the OAPS4J code and the second to get the Devon code.
+= Github
 
-github oasp4j
+This module is implemented to facilitate getting the Github code from OASP4J and Devon repositories. It has only two commands, one to get the OAPS4J code and other to get the Devon code.
+
+== github oasp4j
+
 This command clones the oasp4j repository to the path that the user specifies in the parameters.
 
-Parameters
+=== Parameters
+
 The oasp4j command needs only one parameter:
-path: the location where the repository should be cloned.
-Example of usage
+
+- *path*: the location where the repository should be cloned.
+
+=== Example of usage
+
 A simple example of usage for this command would be the following
 
+[source,batch]
+----
 D:\>devon github oasp4j -path C:\Projects\oasp4j
+----
 
-github devoncode
+== github devoncode
+
 This command clones the Devon repository to the path specified in the path parameter.
 
-Requirements
+=== Requirements
+
 A github user with download permissions over the Devon repository.
 
-Parameters
-path: the location where the repository must be cloned.
-username: the github user (with permission to download).
-password: the password of the github user
+=== Parameters
 
-Example of usage
+The _devoncode_ command needs three parameters:
+
+- *path*: the location where the repository must be cloned.
+
+- *username*: the github user (with permission to download).
+
+- *password*: the password of the github user.
+
+=== Example of usage
+
 A simple example of usage for this command would be the following
 
+[source,batch]
+----
 D:\>devon github devoncode -path C:\Projects\devon -user John_g -pass 12345
+----
 
-Help
-The help module is responsible for showing the help info to facilitate the user the knowledge to use the tool. It has only one command, the guide command, that doesn’t need any parameter and that basically prints a summary of the devcon general usage with a list of the global options and a list with the available modules
+= Help
 
-Example of usage
+The help module is responsible for showing the help info to facilitate the user the knowledge to use the tool. It has only one command, the _guide_ command, that doesn’t need any parameter and that basically prints a summary of the devcon general usage with a list of the global options and a list with the available modules
+
+=== Example of usage
+
+[source,batch]
+----
 D:\>devon help guide
 Hello, this is Devcon!
 Copyright (c) 2016 Capgemini
@@ -512,25 +536,33 @@ List of available modules:
 > doc: Module with tasks related with obtaining specific documentation
 > github: Module to create a new workspace with all default configuration
 > workspace: Module to create a new workspace with all default configuration
+----
 
-If you have follow this guide you can realize that the result is the same that is shown with other options as devon or devon -h. This is because these options internally are using this module help.
-Sencha
-Sencha is a pure JavaScript application framework for building interactive cross platform web applications and is the view layer for web applications developed with Devon Framework. This module encapsulates the Sencha Cmd functionality that is a command line tool to automate tasks around Sencha apps.
+If you have follow this guide you can realize that the result is the same that is shown with other options as ```devon``` or ```devon -h```. This is because these options internally are using this module _help_.
 
-sencha run
-This command compiles in DEBUG mode and then runs the internal Sencha web server. Is the equivalent to the Sencha Cmd’s ‘sencha app watch’ and does not need any parameter.
+= Sencha
 
-Requirements
+_Sencha_ is a pure JavaScript application framework for building interactive cross platform web applications and is the view layer for web applications developed with Devon Framework. This module encapsulates the _Sencha Cmd_ functionality that is a command line tool to automate tasks around _Sencha_ apps.
+
+== sencha run
+
+This command compiles in DEBUG mode and then runs the internal Sencha web server. Is the equivalent to the _Sencha Cmd_'s ```sencha app watch``` and does not need any parameter.
+
+=== Requirements
+
 We should launch the command from a Devon4Sencha project which is defined by a devon.json file with parameter ‘type’ setted to ‘Devon4Sencha’
 
 { "version": "2.0.0",
   "type":"Devon4Secha"}
 
-Example of usage
+=== Example of usage
+
 A simple example of usage for this command would be the following
 
+[source,batch]
+----
 D:\devon-dist\workspaces\senchaProject>devon sencha run
-
+----
 
 Workspace
 This module handles all tasks related to distribution workspaces.
