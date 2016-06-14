@@ -125,7 +125,7 @@ public class MyConfigurationClass{
 }
 ----
 
-As you can see, now Spring Boot will set in the variables the value of the properties under the prefix "mybean". Therefore, we need just include these in the file application.properties as in the @Value example.
+As you can see, now Spring Boot will mapping in the variables the value of the properties under the prefix "mybean". Therefore, we need just include these in the file application.properties as in the @Value example.
 
 
 
@@ -156,3 +156,50 @@ package io.oasp.gastronomy.restaurant.salesmanagement.websocket.config;
 @EnableWebSocketMessageBroker
 public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
 ...
+
+== Externalized Configuration
+
+Externalized configuration is a configuration that is provided separately to a deployment package and can be maintained undisturbed by redeployments.
+
+=== Environment Configuration
+
+The environment configuration contains configuration parameters (typically port numbers, host names, passwords, logins, timeouts, certificates, etc.) specific for the different environments. These are under the control of the operators responsible for the application. 
+
+The environment configuration is maintained in `application.properties` files, defining various properties. 
+These properties are explained in the corresponding configuration sections of the guides for each topic:
+
+* link:guide-dataaccess-layer#database-system-and-access[persistence configuration]
+* link:guide-service-layer#jax-rs-configuration[service configuration]
+* link:guide-logging#configuration[logging guide]
+
+There are two properties files already contained within the example server:
+
+* `src/main/resources/application.properties` providing a default configuration - bundled and deployed with the application package. It further acts as a template to derive a tailored minimal environment-specific configuration.
+* `src/main/resources/config/application.properties` providing additional properties only required at development time (for all local deployment scenarios). This property file is excluded from all packaging.
+
+Where to actually put a tailored application.properties file after deployment depends on the deployment strategy:
+
+* standalone runnable Spring Boot App using embedded tomcat: put a tailored copy of application.properties into `installpath/config/`
+* dedicated tomcat (one tomcat per app): put a tailored copy of application.properties into `tomcat/lib/config`
+* tomcat serving a number of apps (requires expanding the wars): put a tailored copy of application.properties into `tomcat/webapps/<app>/WEB-INF/classes/config`
+
+In this `application.properties` you only define the minimum properties that are environment specific and inherit everything else from the bundled `src/main/resources/application.properties`. In any case, make very sure that the classloader will find the file.
+
+Make sure your properties are thoroughly documented by providing a comment to each property. This inline documentation is most valuable for your operating department. 
+
+=== Business Configuration
+The business configuration contains all business configuration values of the application, which can be edited by administrators through the GUI. The business configuration values are stored in the database in key/value pairs.
+
+The database table `business_configuration` has the following columns:
+
+* ID
+* Property name
+* Property type (Boolean, Integer, String)
+* Property value
+* Description
+
+According to the entries in this table, the administrative GUI shows a generic form to change business configuration. The hierachy of the properties determines the place in the GUI, so the GUI bundles properties from the same hierarchy level and name. Boolean values are shown as checkboxes, integer and string values as text fields. The properties are read and saved in a typed form, an error is raised if you try to save a string in an integer property for example.
+
+We recommend the following base layout for the hierarchical business configuration:
+
+`component.[subcomponent].[subcomponent].propertyname`
