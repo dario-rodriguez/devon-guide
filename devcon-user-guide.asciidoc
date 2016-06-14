@@ -35,7 +35,7 @@ devon [module] [command] [parameters ...]
 
 - the parameters are the rest of the elements defined after the command.
 
-=Defining the module and the command
+= Defining the module and the command
 
 Both module and command are defined by an identifier that is the ‘name’ that the module or command have assigned in devcon.
 
@@ -202,29 +202,40 @@ This command is to say something
  -signature   the signature
 ----
 
-No prompt
-The no prompt parameter, defined with -np (or --noprompt) is a parameter to avoid the app asking for user input. As we saw in previous sections there are times where devcon can prompt the user to complete some information as needed parameters. With the -np parameter we avoid this situation and the app will not ask for any extra information during the process. This option can be useful in cases where we want to automate some tasks avoiding the process to hang on waiting for an input. 
-Be careful with that option as it can result in execution errors. Imagine that in the previous example we don’t have defined the optional parameter signature in the devcon.json file and we execute the command without this parameter and using the -np option. The app will require the signature parameter and, as it can not ask for it, this will result in an error.
+== No prompt
 
+The no prompt parameter, defined with *-np* (or *--noprompt*) is a parameter to avoid the app asking for user input. As we saw in previous sections there are times where devcon can prompt the user to complete some information as needed parameters. With the *-np* parameter we avoid this situation and the app will not ask for any extra information during the process. This option can be useful in cases where we want to automate some tasks avoiding that the process hangs on waiting for an input. 
+Be careful with that option as it can result in execution errors. Imagine that in the previous example we don’t have defined the optional parameter _signature_ in the _devcon.json_ file and we execute the command without this parameter and using the *-np* option. The app will require the _signature_ parameter and, as it can not ask for parameters, this will result in an error.
+
+[source,batch]
+----
 D:\MyProject\client>devon foo saySomething -message hello -np
 Hello, this is Devcon!
 Copyright (c) 2016 Capgemini
 [ERROR] An error occurred. Message: You need to specify the following parameter/s: [-signature]
 
 D:\MyProject\client>
+----
 
-Version
-This is a simple option that returns the devcon running version and is defined with -v (or --version). As the help option this will show the devcon version even though we have defined a command with all required parameters.
+== Version
 
+This is a simple option that returns the devcon running version and is defined with *-v* (or *--version*). As the _help_ option this will show the devcon version even though we have defined a command with all required parameters.
+
+[source,batch]
+----
 D:\>devon -v
 Hello, this is Devcon!
 Copyright (c) 2016 Capgemini
 devcon v.0.1.0
+----
 
+[source,batch]
+----
 D:\>devon foo saySomething -message hello -signature John -v
 Hello, this is Devcon!
 Copyright (c) 2016 Capgemini
 devcon v.0.1.0
+----
 
 First steps with devcon
 In this section we are going to show the basic steps to start using devcon from scratch. To do that we can use the global option -h (help) in order to figure out which commands and parameters we need to define but in a very first attempt only the command devon will be enough.
