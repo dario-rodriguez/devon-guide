@@ -96,24 +96,37 @@ Now if we launch the command from _MyProject\test_ directory providing both _mes
 c:\MyProject\test>devon foo saySomething -message hello -signature John 
 ----
 
-The command will use the parameter -message with value ‘hello’ and the parameter -signature with value ‘John’ and the output will be
+The command will use the parameter *-message* with value '_hello_' and the parameter *-signature* with value _'John'_ and the output will be
 
+[source,batch]
+----
 hello
 John
+----
 
-But if don’t provide the signature parameter
- 
+But if don’t provide the _signature_ parameter
+
+[source,batch]
+---- 
 c:\MyProject\test>devon foo saySomething -message hello
+----
 
-devcon will try to find a devon.json file and within this file will search for the “optionalParameters” object to get the value for signature parameter. 
-In our case the file will be found (in the same directory, remember that if the file is not found on the first directory devcon would climb to the MyProject directory to search there the configuration file) and the output will be 
+devcon will try to find a _devon.json_ file and within this file will search for the _"optionalParameters"_ object to get the value for _signature_ parameter. 
+In our case the file will be found (in the same directory, remember that if the file is not found in the first directory devcon would climb to the _MyProject_ directory to search there the configuration file) and the output will be 
+
+[source,batch]
+----
 hello
 test
+----
 
-Finally if the signature parameter was not defined in the devon.json file or the devon.json is not found devcon will prompt the user to get the value for the parameter
+Finally if the signature parameter is not defined in the _devon.json_ file or the devon.json is not found devcon will prompt the user to get the value for the parameter
 
+[source,batch]
+----
 c:\MyProject\test>devon foo saySomething -message hello
 Please introduce the value for missing parameter signature:|
+----
 
 Global parameters
 Devcon handles a third type of parameter that has nothing to do with command parameters. We are referring to the global parameters.
