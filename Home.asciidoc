@@ -1,6 +1,6 @@
 # Devonfw Guide
 
-*Status doc: link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2TyxYRA/  *
+link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2TyxYRA/[*Status doc*]
 
 ## Getting Started
 
