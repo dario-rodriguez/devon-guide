@@ -24,6 +24,7 @@ As we will see the web.xml, as the place for all web related configuration, is n
 For basic bean configuration we rely on spring boot using mainly configuration classes and occasionally xml-configuration files. Some key principle to understand Spring Boot auto-configuration features:
 
 * Spring Boot auto-configuration attempts to automatically configure your Spring application based on the jar dependencies and annotated components found in your source code. 
+
 * Auto-configuration is noninvasive, at any point you can start to define your own configuration to replace specific parts of the auto-configuration by redefining your identically named bean.
  
 Beans are configured via annotations at the java-class (@Component, @Bean, @Named, etc.).
@@ -31,9 +32,37 @@ These beans will be known when wiring the application at runtime. The required c
 
 For beans that need separate configuration for any reason, additional Configuration Classes (using annotation @Configuration) can be used and will be automatically evaluated during application startup. 
 
-Configuration classes all reside in the folder:
+Let's to see how we can customized our own Configuration Class
 
-`src/main/general/configuration/`
+=== Step 1: Creating the Configuration Class
+
+In Devon, the Configuration Classes reside in the folder `src/main/general/configuration/` and it's recommended that include the new Configuration Classes here. This is just to keep a clear structure of our projects, the fact is you can include the Configuration Classes in wherever place in the project, it is responsible of Spring Boot scan the application.
+
+Therefore, we need to create our Configuration Class, for example src/main/general/configuration/MyConfigurationClass.java
+
+[source,java]
+----
+@Configuration
+public class MyConfigurationClass{
+    public int     propertie1;
+    public String  propertie2;
+    public float   propertie3;
+    
+    private MyBean myBean;
+
+    @Bean
+    public MyBean myBean() { 
+       this.myBean= new MyBean(propertie1,propertie2,propertie3);
+       return this.myBean;
+    } 
+}
+----
+
+With this the annotation @Configuration, Spring Boot will manage our class as a configuration class.
+
+=== Step 2: Including properties
+
+As we can see in the last step, we have a Configuration Class that configure a simple bean (MyBean) so now we are going to see how we can set values to our 
 
 === XML-based beans configuration
 It is still possible and allowed to provide (bean-) configurations using xml, though not recommended. These configuration files are no more bundled via a main xml config file but loaded individually from their respective owners, e.g. for unit-tests:
