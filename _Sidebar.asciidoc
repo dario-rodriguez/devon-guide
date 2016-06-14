@@ -1,6 +1,6 @@
 = Devonfw Guide
 == Getting Started
-* link:Home[Home]
+* link:wiki[Home]
 * link:getting-started-introduction-to-devonfw[Introduction to Devonfw]
 * link:devonfw-download-and-install[Download and Install Devonfw]
 * link:getting-started-the-devon-ide[The Devonfw IDE]
