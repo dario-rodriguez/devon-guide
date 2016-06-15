@@ -43,7 +43,7 @@ They allow you to:
 
 
 
-== How it works?
+== How it works for setting up database and maintaining it?
 
 
 . When you point Flyway to an empty database, it will try to locate its metadata table. As the database is empty, Flyway won't find it and will create it instead.
@@ -63,6 +63,10 @@ The metadata table is updated accordingly.
 And that's it! Every time the need to evolve the database arises, whether structure (DDL) or reference data (DML), simply create a new migration with a version number higher than the current one. The next time Flyway starts, it will find it and upgrade the database accordingly.
 
 A typical metadata table looks like below:
+
+
+image::images/devonfw-flyway-database-migration/schema-version-metadata-table.png[,scaledwidth=80%]
+
  
 
  
