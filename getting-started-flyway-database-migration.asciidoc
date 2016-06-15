@@ -27,7 +27,9 @@ Many projects still rely on manually applied sql scripts. And sometimes not even
 
 
  
- More often  the answer to these questions is: We don't know. 
+
+More often  the answer to these questions is: We don't know. 
+
 
 Database migrations(where flyway comes into picture) are a great way to regain control of this mess.
 
