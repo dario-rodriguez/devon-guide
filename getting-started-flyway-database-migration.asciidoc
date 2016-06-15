@@ -97,7 +97,7 @@ If you want flyway to clear the database before applying the migrations (all dat
 New database migrations are added to +src/main/resources/db/migrations+. They can be http://flywaydb.org/documentation/migration/sql.html[SQL] based or http://flywaydb.org/documentation/migration/java.html[Java] based and follow this naming convention:
 V<version>\__<description> (e.g.: V0003__Add_new_table.sql). For new SQL based migrations also stick to the following conventions:
 
-* properties in camlCase
+* properties in camelCase
 * tables in UPPERCASE
 * ID properties with underscore (e.g. table_id)
 * constraints all UPPERCASE with 
@@ -107,6 +107,22 @@ V<version>\__<description> (e.g.: V0003__Add_new_table.sql). For new SQL based m
 * Inserts always with the same order of properties in blocks for each table
 * Insert properties always starting with id, modificationCounter, [dtype, ] ...
 
+
+So, for example, we can see, a sample script (migration) as shown below:
+
+[source , properties]
+----
+-- *** Staffmemeber ***
+CREATE TABLE STAFFMEMBER(
+    id BIGINT NOT NULL,
+    modificationCounter INTEGER NOT NULL,
+    firstname VARCHAR(255),
+    lastname VARCHAR(255),
+    login VARCHAR(255),
+    role INTEGER
+);
+----
+
 It is also possible to use Flyway for test data. To do so place your test data migrations in +src/main/resources/db/test-data/+ and set property
 
 [source, properties]
@@ -114,6 +130,9 @@ It is also possible to use Flyway for test data. To do so place your test data m
   database.migration.testdata = true
 ----
 Than Flyway scans the additional location for migrations and applies all in the order specified by their version. If migrations +V_01__...+ and +V_02__...+ exist and a test data migration should be applied in between you can name it +V_01_1__...+.
+
+
+
 
  
 
