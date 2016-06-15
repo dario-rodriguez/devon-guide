@@ -159,7 +159,7 @@ Further we define how to use the HTTP status codes for REST services properly. I
 For more details about REST service design please consult the http://restcookbook.com/[RESTful cookbook].
 
 ==== REST Exception Handling
-For exceptions a service needs to have an exception facade that catches all exceptions and handles them by writing proper log messages and mapping them to a HTTP response with an according xref:http-status-codes[HTTP status code]. Therefore the OASP provides a generic solution via +RestServiceExceptionFacade+. You need to follow the link:guide-exceptions[exception guide] so that it works out of the box because the facade needs to be able to distinguish between business and technical exceptions.
+For exceptions a service needs to have an exception facade that catches all exceptions and handles them by writing proper log messages and mapping them to a HTTP response with an according xref:http-status-codes[HTTP status code]. Therefore the OASP provides a generic solution via +RestServiceExceptionFacade+. You need to follow the https://github.com/oasp/oasp4j/wiki/guide-exceptions[exception guide] so that it works out of the box because the facade needs to be able to distinguish between business and technical exceptions.
 You need to configure it in your +beans-service.xml+ as following:
 
 [source,xml]
