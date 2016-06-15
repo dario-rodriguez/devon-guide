@@ -1,0 +1,5 @@
+# Pending tasks for Devon guide
+
+==== Pablo
+
+- In https://github.com/devonfw/devon-guide/wiki/getting-started-Creating-Rest-Service#metadata[Creating-Rest-Service]. *Data-Access Layer Guide* points to a non yet implemented page in Devon guide (fix it when implementation is done).
