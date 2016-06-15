@@ -377,7 +377,7 @@ If the error is caused by a failed validation of the entity, the above format is
 ==== REST Media Types
 The payload of a REST service can be in any format as REST by itself does not specify this. The most established ones that the OASP recommends are https://github.com/oasp/oasp4j/wiki/guide-xml[XML] and https://github.com/oasp/oasp4j/wiki/guide-json[JSON]. Follow these links for further details and guidance how to use them properly. +JAX-RS+ and +CXF+ properly support these formats (+MediaType.APPLICATION_JSON+ and +MediaType.APPLICATION_XML+ can be specified for +@Produces+ or +@Consumes+). Try to decide for a single format for all services if possible and NEVER mix different formats in a service.
 
-In order to use link:guide-json[JSON via Jackson] with +CXF+ you need to register the factory in your +beans-service.xml+ and make +CXF+ use it as following:
+In order to use https://github.com/oasp/oasp4j/wiki/guide-json[JSON] via http://wiki.fasterxml.com/JacksonHome[Jackson] with http://cxf.apache.org/[CXF] you need to register the factory in your +beans-service.xml+ and make +CXF+ use it as following:
 
 [source,xml]
 --------
