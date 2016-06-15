@@ -45,7 +45,8 @@ They allow you to:
 
 == How it works?
 
- When you point Flyway to an empty database, it will try to locate its metadata table. As the database is empty, Flyway won't find it and will create it instead.
+
+When you point Flyway to an empty database, it will try to locate its metadata table. As the database is empty, Flyway won't find it and will create it instead.
 Now we have a database with a single empty table called SCHEMA_VERSION by default.
 
 Immediately afterwards Flyway will begin scanning the filesystem or the classpath of the application for migrations. They can be written in either Sql or Java. 
