@@ -17,10 +17,10 @@ image::images/devonfw-flyway-database-migration/Environments.png[,scaledwidth=80
 We not only have to deal with one copy of environment, but with several. This presents a number of challenges. 
 
 Many projects still rely on manually applied sql scripts. And sometimes not even that (a quick sql statement here or there to fix a problem). And soon many questions arise:
-•What state is the database in on this machine?
-•Has this script already been applied or not?
-•Has the quick fix in production been applied in test afterwards?
-•How do you set up a new database instance?
+* What state is the database in on this machine?
+* Has this script already been applied or not?
+* Has the quick fix in production been applied in test afterwards?
+* How do you set up a new database instance?
 
 More often than not the answer to these questions is: We don't know. 
 
