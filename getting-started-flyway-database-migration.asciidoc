@@ -1,4 +1,4 @@
- = Setting up and maintaining database schemas with Flyway
+=  Setting up and maintaining database schemas with Flyway
 
 
  
@@ -26,12 +26,16 @@ Many projects still rely on manually applied sql scripts. And sometimes not even
 *   How do you set up a new database instance?
 
 
-  More often than not the answer to these questions is: We don't know. 
+ 
+ More often  the answer to these questions is: We don't know. 
 
-Database migrations are a great way to regain control of this mess.
+Database migrations(where flyway comes into picture) are a great way to regain control of this mess.
 
 They allow you to:
-•Recreate a database from scratch
-•Make it clear at all times what state a database is in
-•Migrate in a deterministic way from your current version of the database to a newer one
+
+
+
+* Recreate a database from scratch
+* Make it clear at all times what state a database is in
+* Migrate in a deterministic way from your current version of the database to a newer one
 
