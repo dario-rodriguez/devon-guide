@@ -200,12 +200,12 @@ REST services are called via HTTP(S) URIs. We distinguish between *collection* a
 
 * A collection URI is build from the rest service URI by appending the name of a collection. This is typically the name of an entity. Such URI identifies the entire collection of all elements of this type. Example: 
 ----
-https://mydomain.com/myapp/services/rest/mycomponent/myentity
+    https://mydomain.com/myapp/services/rest/mycomponent/myentity
 ----
 * An element URI is build from a collection URI by appending an element ID. It identifies a single element (entity) within the collection. Example: 
-[source]
+
 ----
-https://mydomain.com/myapp/services/rest/mycomponent/myentity/42
+    https://mydomain.com/myapp/services/rest/mycomponent/myentity/42
 ----
 The following table specifies how to use the HTTP methods (verbs) for collection and element URIs properly (see http://en.wikipedia.org/wiki/Representational_State_Transfer#Applied_to_web_services[wikipedia]). For general design considerations beyond this documentation see the https://pages.apigee.com/web-api-design-ebook.html[API Design eBook].
 
