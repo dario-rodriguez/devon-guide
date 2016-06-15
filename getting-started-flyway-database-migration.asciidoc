@@ -13,7 +13,7 @@ image::images/devonfw-flyway-database-migration/Environments.png[,scaledwidth=80
 
 
 
-We not only have to deal with one copy of environment, but with several. This presents a number of challenges. 
+We not only have to deal with one copy of environment, but with several. This presents a number of challenges in maintain the databases across various environments. 
 
 Many projects still rely on manually applied sql scripts. And sometimes not even that (a quick sql statement here or there to fix a problem). And soon many questions arise:
 
