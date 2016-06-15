@@ -155,3 +155,6 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 - [BLOB](https://github.com/devonfw/devon/wiki/devon-guide-blob-support) [OASP = [1](https://github.com/oasp/oasp4j/wiki/guide-BLOB-support)]
 
 - [Migration from older versions](https://github.com/devonfw/devon/wiki/devon-guide-migration-from-oasp4j-1.5.0-to-2.0.0)  [OASP = [1](https://github.com/oasp/oasp4j/wiki/Migration-Guide-from-OASP4j-1.5.0-to-OASP4j-2.0.0)]
+
+# TODO
+Link to https://github.com/devonfw/devon-guide/wiki/TODO[Pending Tasks] page
