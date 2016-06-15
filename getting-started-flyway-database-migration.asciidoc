@@ -1,4 +1,5 @@
 = Setting up and maintaining database schemas with Flyway
 
 
- https://flywaydb.org/documentation/[Flyway] Flyway is an open-source database migration tool. It strongly favors simplicity and convention over configuration.
+ 
+https://flywaydb.org/documentation/[Flyway]  is an open-source database migration tool. It strongly favors simplicity and convention over configuration.
