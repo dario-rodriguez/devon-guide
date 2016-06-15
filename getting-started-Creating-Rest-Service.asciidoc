@@ -172,7 +172,7 @@ You need to configure it in your +beans-service.xml+ as following:
     <!-- ... -->
   </jaxrs:server>
 --------
-Now your service may throw exceptions but the facade with automatically handle them for you.
+Now your service may throw exceptions but the facade will automatically handle them for you.
 
 ==== Metadata
 OASP has support for the following metadata in REST service invocations:
@@ -183,7 +183,7 @@ OASP has support for the following metadata in REST service invocations:
 |Correlation ID |A unique identifier to associate different requests belonging to the same session / action| link:guide-logging[Logging guide]
 |Validation errors |Standardized format for a service to communicate validation errors to the client| Server-side validation is documented in the link:guide-validation[Validation guide].
 
-The protocol to communicate these validation errors to the client is worked on at https://github.com/oasp/oasp4j/issues/218
+The protocol to communicate these validation errors to the client is discussed at https://github.com/oasp/oasp4j/issues/218
 |Pagination |Standardized format for a service to offer paginated access to a list of entities| Server-side support for pagination is documented in the link:guide-dataaccess-layer#pagination[Data-Access Layer Guide].
 |=======
 
@@ -196,7 +196,7 @@ The OASP proposes, for simplicity, a deviation from the REST common pattern:
 
 This use of REST will lead to simpler code both on client and on server. We discuss this use on the next points.
 
-REST services are called via HTTP(S) URIs. We distinguish between *collection* and *element* URIs:
+REST services are called via HTTP(S) URIs. As we mentioned at the beginning we distinguish between *collection* and *element* URIs:
 
 * A collection URI is build from the rest service URI by appending the name of a collection. This is typically the name of an entity. Such URI identifies the entire collection of all elements of this type. Example: 
 ----
