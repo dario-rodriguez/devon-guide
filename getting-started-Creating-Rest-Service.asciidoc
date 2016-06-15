@@ -95,7 +95,8 @@ Please consider these guidelines and rationales:
 * Hence, we do NOT use +PUT+ but always use +POST+ for write operations. As we always have a technical ID for each entity, we can simply distinguish create and update by the presence of the ID property.
 
 ==== JAX-RS
-For implementing REST services we use the https://jax-rs-spec.java.net/[JAX-RS] standard. As an implementation we recommend http://cxf.apache.org/[CXF] (https://github.com/oasp/oasp4j/wiki/decision-service-framework[why CXF?]). For https://github.com/oasp/oasp4j/wiki/guide-json[JSON] bindings we use http://wiki.fasterxml.com/JacksonHome[Jackson] while https://github.com/oasp/oasp4j/wiki/guide-xml[XML] binding works out-of-the-box with http://www.oracle.com/technetwork/articles/javase/index-140168.html[JAXB].
+For implementing REST services we use the https://jax-rs-spec.java.net/[JAX-RS] standard. As an implementation we recommend http://cxf.apache.org/[CXF]. If you want to know more about why we have chosen these options see https://github.com/oasp/oasp4j/wiki/decision-service-framework[this]. 
+For https://github.com/oasp/oasp4j/wiki/guide-json[JSON] bindings we use http://wiki.fasterxml.com/JacksonHome[Jackson] while https://github.com/oasp/oasp4j/wiki/guide-xml[XML] binding works out-of-the-box with http://www.oracle.com/technetwork/articles/javase/index-140168.html[JAXB].
 To implement a service you simply write a regular class and use JAX-RS annotations to annotate methods that shall be exposed as REST operations. Here is a simple example:
 
 [source,java]
