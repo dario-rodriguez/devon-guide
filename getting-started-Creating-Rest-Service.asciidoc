@@ -452,10 +452,10 @@ Finally we have to register our service implementation in the spring configurati
 The +implementor+ attribute references an existing bean with the ID +TablemanagementWebService+ that corresponds to the +@Named+ annotation of our implementation (see https://github.com/oasp/oasp4j/wiki/guide-dependency-injection[dependency injection guide]). The +address+ attribute defines the URL path of the service.
 
 ==== SOAP Custom Mapping
-In order to map custom link:guide-datatype[datatypes] or other types that do not follow the Java bean conventions, you need to write adapters for JAXB (see link:guide-xml[XML]).
+In order to map custom https://github.com/oasp/oasp4j/wiki/guide-datatype[datatypes] or other types that do not follow the Java bean conventions, you need to write adapters for JAXB (see link:guide-xml[XML]).
 
 ==== SOAP Testing
-For testing SOAP services in general consult the link:guide-testing[testing guide].
+For testing SOAP services in general consult the https://github.com/oasp/oasp4j/wiki/guide-testing[testing guide].
 
 For testing SOAP services manually we strongly recommend http://www.soapui.org/[SoapUI].
 
