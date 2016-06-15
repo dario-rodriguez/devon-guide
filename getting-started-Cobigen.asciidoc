@@ -1,0 +1,245 @@
+:toc: macro
+toc::[]
+
+= Using the generator
+
+In Devon we have a server-side code generator to create CRUD code, this code generator is called Cobigen. Cobigen is distributed in the Devon distribution as an Eclipse plugin, and is available to all Devon developers.
+
+== Preparing Cobigen for first use
+
+Before you can use Cobigen, you have to install the templates to be used by Cobigen. The Devon distribution comes with a set of default templates in the directory `workspaces\main\CobiGen_Templates`.
+
+1. Open Eclipse by executing the batch file `eclipse-main.bat`
+
+1. Select "File - Import"
+
+1. Select "General - Existing projects into workspace"
+
+1. Select the directoy `workspaces\main\CobiGen_Templates`
+
+1. Finish the import.
+
+[NOTE]
+====
+In your own projects, you can create additional templates. Please refer to the document https://coconet.capgemini.com/sf/frs/do/downloadFile/projects.apps2_devon/frs.devon_distribution.1_1_0/frs45867?dl=1["CobiGen_GUIDE.pdf"] for further information.
+====
+
+== Creating a CRUD with Cobigen
+
+In the earlier chapter about CRUD functionality you saw the individual steps necessary to implement a basic CRUD functionality.
+
+Using Cobigen, you can save most of the steps, and get a working result in far less time.
+
+Cobigen needs a starting point to generate the code of a CRUD case. In this example the starting point is the `StaffMemberEntity` class, modelling a member of the staff of our restaurant. So we are going to create a CRUD for the new `StaffMemberEntity` class.
+
+=== step 1. Entity creation
+
+We are going to create a `StaffMember` entity. First, we are going to add the database schema to our database.
+
+In the script `resources/db/migration/V0001__Create_schema.sql` we add:
+
+[source,sql]
+----
+
+CREATE CACHED TABLE PUBLIC.STAFFMEMBER(
+    id BIGINT NOT NULL,
+    name VARCHAR(255),
+    firstname VARCHAR(255),
+    lastname VARCHAR(255)
+);
+
+----
+
+And in the same path, we are going to create a new file (if it do not exist) to add the default data to the `StaffMember` created. We create `V0002__Master_data.sql` file.
+
+[source,sql]
+----
+
+INSERT INTO STAFFMEMBER (id, name, firstname, lastname) VALUES (0, 'Charly', 'Chief', 'Chief');
+INSERT INTO STAFFMEMBER (id, name, firstname, lastname) VALUES (1, 'Carl', 'Cook', 'Cook');
+INSERT INTO STAFFMEMBER (id, name, firstname, lastname) VALUES (2, 'Willy','Waiter', 'Waiter');
+
+----
+
+Now, we create a new StaffMember entity in the package `devonfw.tutorial.staffmanagement.dataaccess.api` with the following code:
+
+.StaffMemberEntity.java
+[source, java]
+----
+
+package devonfw.tutorial.staffmanagement.dataaccess.api;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
+import devonfw.tutorial.general.dataaccess.api.ApplicationPersistenceEntity;
+
+/**
+ * 
+ * The {@link devonfw.tutorial.general.dataaccess.api.ApplicationPersistenceEntity persistent entity} for
+ * 
+ * {@link StaffMember}.
+ */
+
+@Entity(name = "StaffMember")
+public class StaffMemberEntity extends ApplicationPersistenceEntity {
+
+  private static final long serialVersionUID = 1L;
+
+  private String name;
+
+  private String firstName;
+
+  private String lastName;
+
+  /**
+   * 
+   * The constructor.
+   */
+
+  public StaffMemberEntity() {
+
+    super();
+
+  }
+
+  @Column(name = "login", unique = true)
+  public String getName() {
+
+    return this.name;
+
+  }
+
+  public void setName(String login) {
+
+    this.name = login;
+
+  }
+
+  public String getFirstName() {
+
+    return this.firstName;
+
+  }
+
+  public void setFirstName(String firstName) {
+
+    this.firstName = firstName;
+
+  }
+
+  public String getLastName() {
+
+    return this.lastName;
+
+  }
+
+  public void setLastName(String lastName) {
+
+    this.lastName = lastName;
+
+  }
+
+}
+
+----
+
+=== step 2. Generate classes
+
+To generate the rest of the classes concerning the StaffMember CRUD, we only have to do a right click on the `TableEntity.java` class in Eclipse Project Explorer and select "CobiGen ' Generate".
+
+image::images/devon_guide_cobigen_1_context_menu.png[,scaledwidth=80%]
+
+This action opens a code generator wizard, like this:
+
+image::images/devon_guide_cobigen_2_template_selection.png[,scaledwidth=80%]
+
+In this wizard you can select which classes you want to generate, organized by layer. In this example, please select:
+
+* CRUD DAO's
+* CRUD REST services
+* CRUD logic layer (simple)
+* Entity infrastructure
+* TO's
+
+and continue.
+
+In the next step you can select the fields of the entity that you want to expose via the REST service.
+
+image::images/devon_guide_cobigen_3_field_selection.png[,scaledwidth=80%]
+
+Afterwards, click on "Finish" to let CobiGen do its work.
+
+[NOTE]
+====
+It is possible that you will see a final dialog containing some warnings about ambigous imports. You should review the mentioned files, and fix the imports yourself.
+
+image::images/devon_guide_cobigen_4_warnings.png[,scaledwidth=80%]
+
+In many cases, the imports are easily fixable by letting Eclipse auto-complete them by pressing "Ctrl-Shift-O".
+
+====
+
+Cobigen also works incrementally. Cobigen merges your changes and updates all classes based on the Entity class' fields. So you can use Cobigen to generate the structure and the different classes and then develop custom parts of your CRUD.
+
+== Creating user permissions
+ 
+Sometimes we need to include roles and permissions to our applications. CobiGen has a template to do this task. If you want to use this template follow the next steps:
+
+=== Step 1: Define the permissions and roles
+
+Open /oasp4j-sample-core/src/main/resources/config/app/security/access-control-schema.xml and define the permissions to the roles or group of roles like:
+
+[source,xml]
+----
+<group id="MasterData" type="group">
+    <permissions>
+    <!-- staffmemberamanagement -->
+      <permission id="FindStaffMember"/>
+      <permission id="SaveStaffMember"/>
+      <permission id="DeleteStaffMember"/>
+    </permissions>
+  </group>
+----
+
+=== Step 2: Generate permissions
+
+Right click on /oasp4j-sample-core/src/main/resources/config/app/security/access-control-schema.xml and select Cobigen > Generate... 
+   
+[NOTE]
+====
+It is possible that you will have problems with the context
+
+image::images/devon_guide_cobigen_5_error.png[,scaledwidth=80%]
+
+This happens because you need to update the templates. So select Health Check option and you will see the next message 
+
+image::images/devon_guide_cobigen_6_error.png[,scaledwidth=80%]
+
+Click in Advance Health Check
+
+image::images/devon_guide_cobigen_7_error.png[,scaledwidth=80%]
+
+Now upgrade the template to constants/security_permissions and press OK. You can use the security_permissions now.
+====
+ 
+This action opens a code generator wizard, like this:
+
+image::images/devon_guide_cobigen_8_permissions_template_selection.png[,scaledwidth=80%]
+
+In this case you have only an option. Select Permissions Constants and press Finish. You can see now the new Permissions in /oasp4j-sample-core/src/main/java/io/oasp/gastronomy/restaurant/general/common/api/constants/PermissionConstants.java 
+
+
+[source,java]
+----
+public static final String FIND_STAFFMEMBER = "FindStaffMember";
+
+public static final String SAVE_STAFFMEMBER = "SaveStaffMember";
+
+public static final String DELETE_STAFFMEMBER = "DeleteStaffMember";
+----
+
+[NOTE]
+====
+It is possible that you can't press Finish button in CobiGen. This happens because you are using an old version of CobiGen and the wizard can't merge the class PermissionConstants. To fix it you need to delete the class PermissionConstants.java and try again. 
+====
