@@ -204,15 +204,15 @@ Open the _access-control-schema.xml_ located in _/oasp4j-sample-core/src/main/re
 
 === Step 2: Generate permissions
 
-Right click on /oasp4j-sample-core/src/main/resources/config/app/security/access-control-schema.xml and select Cobigen > Generate... 
+Right click on the _access-control-schema.xml_ and select _Cobigen > Generate..._ 
    
 [NOTE]
 ====
-It is possible that you will have problems with the context
+You may have problems related to the context, like the following one
 
 image::images/devon_guide_cobigen_5_error.png[,scaledwidth=80%]
 
-This happens because you need to update the templates. So select Health Check option and you will see the next message 
+This happens because you need to update the templates. To do so do again right click on the _access-control-schema.cml_ and select the _Cobigen > Health Check_ option and you will see a window with a message like the following 
 
 image::images/devon_guide_cobigen_6_error.png[,scaledwidth=80%]
 
@@ -220,7 +220,7 @@ Click in _Advance Health Check_
 
 image::images/devon_guide_cobigen_7_error.png[,scaledwidth=80%]
 
-Now upgrade the template to constants/security_permissions and press OK. You can use the security_permissions now.
+Now upgrade the template to _constants/security_permissions_ and press _OK_. You now should be able to use the security_permissions.
 ====
  
 This action opens a code generator wizard, like this:
