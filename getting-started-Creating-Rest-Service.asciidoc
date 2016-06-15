@@ -397,7 +397,7 @@ In order to use https://github.com/oasp/oasp4j/wiki/guide-json[JSON] via http://
 --------
 
 ==== REST Testing
-For testing REST services in general consult the link:guide-testing[testing guide].
+For testing REST services in general consult the https://github.com/oasp/oasp4j/wiki/guide-testing[testing guide].
 
 For manual testing REST services there are browser plugins:
 
