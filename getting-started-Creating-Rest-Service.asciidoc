@@ -6,6 +6,7 @@ toc::[]
 The service layer is responsible to expose functionality of the link:https://github.com/oasp/oasp4j/wiki/guide-logic-layer[logical layer] to external consumers over a network via xref:protocol[technical protocols].
 
 == Types of Services
+
 If you want to create a service please distinguish the following types of services:
 
 * *External Services* +
@@ -31,6 +32,7 @@ The choices for technology and protocols will depend on the type of service. The
 |=======================
 
 == Versioning
+
 For services consumed by other applications we use versioning to prevent incompatibilities between applications when deploying updates. This is done by the following conventions:
 
 * We define a version number and prefixed with +v+ for version (e.g. +v1+).
@@ -40,12 +42,15 @@ For services consumed by other applications we use versioning to prevent incompa
 * For maintenance and simplicity we avoid keeping more than one previous version.
 
 == Interoperability
+
 For services that are consumed by clients with different technology _interoperability_ is required. This is addressed by selecting the right xref:protocol[protocol] following protocol-specific best practices and following our considerations especially _simplicity_.
 
 == Protocol
+
 For services there are different protocols. Those relevant for and recommended by OASP are listed in the following sections with examples how to implement them in Java.
 
 === REST
+
 REST is an inter-operable protocol that is more lightweight than SOAP.
 However, it is no real standard and can cause confusion. Therefore we define best practices here to guide you.
 For a general introduction consult the http://en.wikipedia.org/wiki/Representational_State_Transfer[wikipedia].
@@ -95,6 +100,7 @@ Please consider these guidelines and rationales:
 * Hence, we do NOT use +PUT+ but always use +POST+ for write operations. As we always have a technical ID for each entity, we can simply distinguish create and update by the presence of the ID property.
 
 ==== JAX-RS
+
 For implementing REST services we use the https://jax-rs-spec.java.net/[JAX-RS] standard. As an implementation we recommend http://cxf.apache.org/[CXF]. If you want to know more about why we have chosen these options see https://github.com/oasp/oasp4j/wiki/decision-service-framework[this]. 
 For https://github.com/oasp/oasp4j/wiki/guide-json[JSON] bindings we use http://wiki.fasterxml.com/JacksonHome[Jackson] while https://github.com/oasp/oasp4j/wiki/guide-xml[XML] binding works out-of-the-box with http://www.oracle.com/technetwork/articles/javase/index-140168.html[JAXB].
 To implement a service you simply write a regular class and use JAX-RS annotations to annotate methods that shall be exposed as REST operations. Here is a simple example:
@@ -131,6 +137,7 @@ Here we can see a REST service for the https://github.com/oasp/oasp4j/wiki/archi
 NOTE: With JAX-RS it is important to make sure that each service method is annotated with the proper HTTP method (+@GET+,+@POST+,etc.) to avoid unnecessary debugging. So you should take care not to forget to specify one of these annotations.
 
 ===== JAX-RS Configuration
+
 Starting from CXF 3.0.0 it is possible to enable the auto-discovery of JAX-RS roots and providers thus avoiding having to specify each service bean in the +beans-service.xml+ file.
 
 When the jaxrs server is instantiated all the scanned root and provider beans (beans annotated with `javax.ws.rs.Path` and `javax.ws.rs.ext.Provider`) are configured. The xml configuration still allows us to specify the root path for all endpoints.
@@ -142,6 +149,7 @@ When the jaxrs server is instantiated all the scanned root and provider beans (b
 --------
 
 ==== HTTP Status Codes
+
 Further we define how to use the HTTP status codes for REST services properly. In general the 4xx codes correspond to an error on the client side and the 5xx codes to an error on the server side.
 
 .Usage of HTTP status codes
@@ -176,6 +184,7 @@ You need to configure it in your +beans-service.xml+ as following:
 Now your service may throw exceptions but the facade will automatically handle them for you.
 
 ==== Metadata
+
 OASP4J has support for the following metadata in REST service invocations:
 
 [options="header"]
@@ -189,6 +198,7 @@ The protocol to communicate these validation errors to the client is discussed a
 |=======
 
 ==== Recommendations for REST requests and responses
+
 The OASP proposes, for simplicity, a deviation from the REST common pattern:
 
 * Using +POST+ for updates (instead of +PUT+)
@@ -211,6 +221,7 @@ REST services are called via HTTP(S) URIs. As we mentioned at the beginning we d
 The following table specifies how to use the HTTP methods (verbs) for collection and element URIs properly (see http://en.wikipedia.org/wiki/Representational_State_Transfer#Applied_to_web_services[wikipedia]). For general design considerations beyond this documentation see the https://pages.apigee.com/web-api-design-ebook.html[API Design eBook].
 
 ===== Unparameterized loading of a single resource
+
 * *HTTP Method*: +GET+
 * *URL example*: +/products/123+
 
@@ -227,6 +238,7 @@ The response contains the resource in JSON format, using a JSON object at the to
 ----
 
 ===== Unparameterized loading of a collection of resources
+
 * *HTTP Method*: +GET+
 * *URL example*: +/products+
 
@@ -253,6 +265,7 @@ The response contains the collection in JSON format, using a JSON object at the 
 Avoid returning JSON arrays at the top-level, to prevent CSRF attacks (see https://www.owasp.org/index.php/OWASP_AJAX_Security_Guidelines)
 
 ===== Saving a resource
+
 * *HTTP Method*: +POST+
 * *URL example*: +/products+
 
@@ -264,6 +277,7 @@ If saving was unsuccessful, refer below for the format to return errors to the c
 
 
 ===== Parameterized loading of a resource
+
 * *HTTP Method*: +POST+
 * *URL example*: +/products/search+
 
@@ -339,6 +353,7 @@ The client can choose to request a count of the total size of the collection, fo
 The service is free to honour this request. If it chooses to do so, it returns the total count as the +pagination.total+ property in the response.
 
 ===== Deletion of a resource
+
 * *HTTP Method*: +DELETE+
 * *URL example*: +/products/123+
 
@@ -376,6 +391,7 @@ If the error is caused by a failed validation of the entity, the above format is
 ----
 
 ==== REST Media Types
+
 The payload of a REST service can be in any format as REST by itself does not specify this. The most established ones that the OASP recommends are https://github.com/oasp/oasp4j/wiki/guide-xml[XML] and https://github.com/oasp/oasp4j/wiki/guide-json[JSON]. Follow these links for further details and guidance how to use them properly. +JAX-RS+ and +CXF+ properly support these formats (+MediaType.APPLICATION_JSON+ and +MediaType.APPLICATION_XML+ can be specified for +@Produces+ or +@Consumes+). Try to decide for a single format for all services if possible and NEVER mix different formats in a service.
 
 In order to use https://github.com/oasp/oasp4j/wiki/guide-json[JSON] via http://wiki.fasterxml.com/JacksonHome[Jackson] with http://cxf.apache.org/[CXF] you need to register the factory in your +beans-service.xml+ and make +CXF+ use it as following:
@@ -398,6 +414,7 @@ In order to use https://github.com/oasp/oasp4j/wiki/guide-json[JSON] via http://
 --------
 
 ==== REST Testing
+
 For testing REST services in general consult the https://github.com/oasp/oasp4j/wiki/guide-testing[testing guide].
 
 For manual testing REST services there are browser plugins:
@@ -407,9 +424,11 @@ For manual testing REST services there are browser plugins:
 
 
 === SOAP
+
 SOAP is a common protocol that is rather complex and heavy. It allows to build inter-operable and well specified services (see WSDL). SOAP is transport neutral what is not only an advantage. We strongly recommend to use HTTPS transport and ignore additional complex standards like WS-Security and use established HTTP-Standards such as RFC2617 (and RFC5280).
 
 ==== JAX-WS
+
 For building web-services with Java we use the https://jcp.org/en/jsr/detail?id=224[JAX-WS] standard.
 There are two approaches:
 
@@ -453,14 +472,17 @@ Finally we have to register our service implementation in the spring configurati
 The +implementor+ attribute references an existing bean with the ID +TablemanagementWebService+ that corresponds to the +@Named+ annotation of our implementation (see https://github.com/oasp/oasp4j/wiki/guide-dependency-injection[dependency injection guide]). The +address+ attribute defines the URL path of the service.
 
 ==== SOAP Custom Mapping
+
 In order to map custom https://github.com/oasp/oasp4j/wiki/guide-datatype[datatypes] or other types that do not follow the Java bean conventions, you need to write adapters for JAXB (see link:guide-xml[XML]).
 
 ==== SOAP Testing
+
 For testing SOAP services in general consult the https://github.com/oasp/oasp4j/wiki/guide-testing[testing guide].
 
 For testing SOAP services manually we strongly recommend http://www.soapui.org/[SoapUI].
 
 == Service Considerations
+
 The term _service_ is quite generic and therefore easily misunderstood. It is a unit exposing coherent functionality via a well-defined interface over a network. For the design of a service we consider the following aspects:
 
 * *self-contained* +
@@ -479,9 +501,11 @@ Process individual entities (for processing large sets of data use a link:guide-
 avoid polymorphism, RPC methods with unique name per signature and no overloading, avoid attachments (consider separate download service), etc.
 
 == Security
+
 Your services are the major entry point to your application. Hence security considerations are important here.
 
 === CSRF
+
 A common security threat is https://www.owasp.org/index.php/Top_10_2013-A8-Cross-Site_Request_Forgery_(CSRF)[CSRF] for REST services. Therefore all REST operations that are performing modifications (PUT, POST, DELETE, etc. - all except GET) have to be secured against CSRF attacks. In OASP4J we are using spring-security that already solves CSRF token generation and verification. The integration is part of the application template as well as the sample-application.
 
 For testing in development environment the CSRF protection can be disabled using the JVM option +-DCsrfDisabled=true+ when starting the application.
