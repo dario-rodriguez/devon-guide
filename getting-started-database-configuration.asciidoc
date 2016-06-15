@@ -1,1 +1,132 @@
 = Database configuration
+
+In this tutorial we are going to configure our application to connect with a real database of our choice. Devon give us a very simple configuration, so we just need to add the dependency of the database libraries, create a profile, set the information of our database in the profile and activate it, update the script files , if any, as per DB syntax.
+
+== Add dependencies
+Add Dependency for database in pom.xml file. For e.g If we are configuring mysql databse in our application, then need to add below dependency in pom.xml file.
+
+MySQL:
+ 
+[source]
+<dependency>
+ 	<groupId>mysql</groupId>
+ 	<artifactId>mysql-connector-java</artifactId>
+</dependency>
+
+*Note*: this driver should NOT be used in a production environment because of license issues. See down for an alternative.
+
+== Create a Spring Profile
+
+Spring Profile provides a way to segregate parts of your application configuration and make it only available in certain environments. In our case, we're going to create a profile to your database configuration.
+
+Create a file in src/resources/config named application-{PROFILE_NAME}.properties. The name of the profile isn't important, for this example we named it application-mysql.properties.
+
+== Set the database configuration
+
+Add database configuration in application-{PROFILE_NAME}.properties file. For e.g
+
+MySQL:
+[source]
+spring.jpa.database=mysql
+spring.datasource.url=jdbc:mysql://localhost:3306/restaurant?user=root&password=root&connectTimeout=10000&socketTimeout=10000&autoReconnect=true
+spring.jpa.database-platform=org.hibernate.dialect.MySQL5Dialect
+spring.datasource.username=root
+spring.datasource.password=root
+spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+flyway.locations=classpath:db/migration,classpath:db/migration/mysql
+
+== Activate the new profile
+
+To activate new profile update src/main/resources/application.properties file. Set spring.profiles.active= profile-name. In our example profile-name is mysql. 
+ 
+MySQL:
+[source]
+spring.profiles.active=mysql 
+
+== Update database script files
+
+Devon have https://flywaydb.org/getstarted/[flyway] configured. Flyway is an open-source database migration tool.It strongly favors simplicity and convention over configuration.Flyway will search for script files for corresponding database. It will parse the script files and create or update corresponding tables in a database.
+
+Generally, DDL Script file is present at location db/migration/database/1.0. For e.g db/migration/mysql/1.0
+And other script files are present at location db/migration.
+Make sure script files are error  free.
+We can set customized location for migration scripts. We need to add flyway.locations property in application.properties. For example
+
+[source]
+flyway.locations=classpath:db/migration,classpath:db/migration/mysql
+
+Here we can mention classpath or filesystems path.
+
+== Database configurations
+=== MySQL
+
+The use of the MySQL is already being illustrated in the above examples. However, as mentioned, the GPL licensed (native) MySQL driver should *not* be used in a production environment. As an alternative, the free and liberally licensed "mariaDB" (a MySQL clone) library should be used. 
+
+The dependency declaration consists of:
+
+[source]
+<dependency>
+    <groupId>org.mariadb.jdbc</groupId>
+    <artifactId>mariadb-java-client</artifactId>
+    <version>1.2.3</version>
+</dependency> 
+
+And the library can be used like MySQL but with a slight change to the configuration:
+
+[source]
+spring.datasource.driver-class-name=org.mariadb.jdbc.Driver
+
+=== PostgreSQL 
+
+The dependency declaration consists of:
+
+ <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+     <version>9.4-1206-jdbc41</version>
+  </dependency>
+
+
+Ultimately, the following configuration must be used in order to use the postgresql driver and database:
+[source]
+
+spring.jpa.database=postgresql
+spring.datasource.url=jdbc:postgresql://localhost:5432/<db name>
+spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
+spring.datasource.username=postgres
+spring.datasource.password=<password set at time of installation>
+spring.datasource.driver-class-name=org.postgresql.Driver
+flyway.locations=classpath:db/migration,classpath:db/migration/postgres
+
+=== Microsoft MSSQL Server
+
+The Microsoft JDBC drivers are *not* available on Maven Central; http://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=11774[ they need to be downloaded from the Microsoft site.]
+ 
+Once downloaded they should be installed in the local Maven repository (.m2 folder on the local machine). That can be done with the command:
+
+[source]
+mvn install:install-file -DgroupId=com.microsoft.sqlserver -DartifactId=sqljdbc4 -Dversion=<version> -Dpackaging=jar -DgeneratePom=true -Dfile=<driver JAR file>
+
+Once installed, the library must be added to the project pom.xml file. The dependency declaration is
+
+[source]
+ <dependency>
+    <groupId>com.microsoft.sqlserver</groupId>
+    <artifactId>sqljdbc4</artifactId>
+    <version>4.0</version>
+  </dependency>
+
+Ultimately, the following configuration must be used in order to use the MSSQL server driver and database:
+
+[source]
+spring.jpa.database=sqlserver
+spring.datasource.url=jdbc:sqlserver://<servername>:<port>;databaseName=<databasename>
+spring.jpa.database-platform=org.hibernate.dialect.SQLServerDialect
+spring.datasource.username=root
+spring.datasource.password=root
+spring.datasource.driver-class-name=com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+
+(replace "root" with your actual username / password)
+
+For further information see: https://wiki.jasig.org/pages/viewpage.action?pageId=57578731[MS SQL Server and MS JDBC Driver ]
