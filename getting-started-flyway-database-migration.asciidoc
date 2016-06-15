@@ -123,6 +123,7 @@ CREATE TABLE STAFFMEMBER(
 );
 ----
 
+
 It is also possible to use Flyway for test data. To do so place your test data migrations in +src/main/resources/db/test-data/+ and set property
 
 [source, properties]
