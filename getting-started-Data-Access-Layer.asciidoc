@@ -79,13 +79,13 @@ public class MoneyAttributeConverter implements AttributeConverter<Money, BigDec
 ----
 The annotation _@Converter_ is detected by the JPA vendor if the annotated class is in the packages to scan (see _beans-jpa.xml_). Further, _autoApply = true_ implies that the converter is automatically used for all properties of the handled datatype. Therefore all entities with properties of that datatype will automatically be mapped properly (in our example _Money_ is mapped as _BigDecimal_).
 
-In case you have a composite datatype that you need to map to multiple columns the JPA does not offer a real solution. As a workaround you can use a bean instead of a real datatype and declare it as xref:embeddable[_@Embeddable_]. If you are using hibernate you can implement _CompositeUserType_. Via the _@TypeDef_ annotation it can be registered to hibernate. If you want to annotate the _CompositeUserType_ implementation itself you also need another annotation (e.g. _MappedSuperclass_ tough not technically correct) so it is found by the scan.
+In case you have a composite datatype that you need to map to multiple columns the JPA does not offer a real solution. As a workaround you can use a bean instead of a real datatype and declare it as xref:embeddable[_@Embeddable_]. If you are using hibernate you can implement _CompositeUserType_. Via the _@TypeDef_ annotation it can be registered to hibernate. If you want to annotate the _CompositeUserType_ implementation itself you also need another annotation (e.g. _MappedSuperclass_ although not technically correct) so it is found by the scan.
 
 ===== Enumerations
-By default JPA maps Enums via their ordinal. Therefore the database will only contain the ordinals (0, 1, 2, etc.) so inside the database you can not easily understand their meaning. Using +@Enumerated+ with +EnumType.STRING+ allows to map the enum values to their name (+Enum.name()+). Both approaches are fragile when it comes to code changes and refactorings (if you change the order of the enum values or rename them) after being in production with your application. If you want to avoid this and get a robust mapping you can define a dedicated string in each enum value for database representation that you keep untouched. Then you treat the enum just like any other xref:entities-and-datatypes[custom datatype].
+By default JPA maps _Enums_ via their ordinal. Therefore the database will only contain the ordinals (0, 1, 2, etc.) so inside the database you can not easily understand their meaning. Using _@Enumerated_ with _EnumType.STRING_ allows to map the _enum_ values to their name (_Enum.name()_). Both approaches are fragile when it comes to code changes and refactorings (if you change the order of the _enum_ values or rename them) after being in production with your application. If you want to avoid this and get a robust mapping you can define a dedicated string in each _enum_ value for database representation that you keep untouched. Then you treat the _enum_ just like any other xref:entities-and-datatypes[custom datatype].
 
 ===== BLOB
-If binary or character large objects (BLOB/CLOB) should be used to store the value of an attribute, e.g. to store an icon, the +@Lob+ annotation should be used as shown in the following listing: 
+If binary or character large objects (BLOB/CLOB) should be used to store the value of an attribute, e.g. to store an icon, the _@Lob_ annotation should be used as shown in the following listing: 
 [source,java]
 ----
 @Lob
@@ -103,7 +103,7 @@ public Blob getAttachment() {
 ----
 
 ===== Date and Time
-To store date and time related values, the temporal annotation can be used as shown in the listing below:
+To store date and time related values, the _@Temporal_ annotation can be used as shown in the listing below:
 [source,java]
 ----
 @Temporal(TemporalType.TIMESTAMP)
@@ -111,9 +111,9 @@ public java.util.Date getStart() {
   return start;
 }
 ----
-Until Java8 the java data type +java.util.Date+ (or Jodatime) has to be used. 
-+TemporalType+ defines the granularity. In this case, a precision of nanoseconds is used. If this granularity is not wanted, +TemporalType.DATE+ can be used instead, which only has a granularity of milliseconds. 
-Mixing these two granularities can cause problems when comparing one value to another. This is why we *only*  use +TemporalType.TIMESTAMP+.
+Until Java8 the java data type _java.util.Date_ (or Jodatime) has to be used. 
+_TemporalType_ defines the granularity. In this case, a precision of nanoseconds is used. If this granularity is not wanted, _TemporalType.DATE_ can be used instead, which only has a granularity of milliseconds. 
+Mixing these two granularities can cause problems when comparing one value to another. This is why we *only*  use _TemporalType.TIMESTAMP_.
 
 ==== Primary Keys
 We only use simple Long values as primary keys (IDs). By default it is auto generated (+@GeneratedValue(strategy=GenerationType.AUTO)+). This is already provided by the class +io.oasp.module.jpa.persistence.api.AbstractPersistenceEntity+ that you can extend.
