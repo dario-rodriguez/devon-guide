@@ -44,7 +44,7 @@ public class Employee
 {
    @Id
    @GeneratedValue(strategy= GenerationType.AUTO) 
-   private int id;
+   private long id;
 ----
 
 With the help of the _@Column_ annotation it is possible to define the name of the column that an attribute is mapped to as well as other aspects such as _nullable_ or _unique_. If no column name is specified, the name of the property is used as default.
