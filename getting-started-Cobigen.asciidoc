@@ -204,25 +204,8 @@ In Eclipse open the _access-control-schema.xml_ located in _/oasp4j-sample-core/
 
 === Step 2: Generate the PermissionConstants class
 
-Right click on the _access-control-schema.xml_ and select _Cobigen > Generate..._ 
-   
-[NOTE]
-====
-You may have problems related to the context, like the following one
+Right click on the _access-control-schema.xml_ and select _Cobigen > Generate..._
 
-image::images/devonfw-cobigen/devon_guide_cobigen_5_error.png[,scaledwidth=60%]
-
-This happens because you need to update the templates. So do again right click on the _access-control-schema.xml_ and select this time the _Cobigen > Health Check_ option and you will see a window with a message like the following 
-
-image::images/devonfw-cobigen/devon_guide_cobigen_6_error.png[,scaledwidth=60%]
-
-Click in _Advance Health Check_
-
-image::images/devonfw-cobigen/devon_guide_cobigen_7_error.png[,scaledwidth=60%]
-
-Now upgrade the template to _constants/security_permissions_ and press _OK_. You now should be able to use the security_permissions.
-====
- 
 This action opens a code generator wizard, like this:
 
 image::images/devonfw-cobigen/devon_guide_cobigen_8a_permissions_template_selection.png[,scaledwidth=80%]
@@ -246,4 +229,21 @@ It is possible that you can't press _Finish_ button in CobiGen.
 image::images/devonfw-cobigen/devon_guide_cobigen_8_permissions_template_selection.png[,scaledwidth=30%]
 
 This happens because you are using an old version of CobiGen and the wizard can't merge the class _PermissionConstants_. To work around this you need to delete the class _PermissionConstants.java_ and try again. Cobigen will generate for us the class and will fill it with the updated content. 
+==== 
+   
+=== Fixing context problems
+
+When launching the _Cobigen > Generate_ wizard you may find problems related to the context, like the following one
+
+image::images/devonfw-cobigen/devon_guide_cobigen_5_error.png[,scaledwidth=60%]
+
+This happens because you need to update the templates. So do again right click on the _access-control-schema.xml_ and select this time the _Cobigen > Health Check_ option and you will see a window with a message like the following 
+
+image::images/devonfw-cobigen/devon_guide_cobigen_6_error.png[,scaledwidth=60%]
+
+Click in _Advance Health Check_
+
+image::images/devonfw-cobigen/devon_guide_cobigen_7_error.png[,scaledwidth=60%]
+
+Now upgrade the template to _constants/security_permissions_ and press _OK_. You now should be able to use Cobigen to generate the _PermissionConstants_ class content.
 ====
