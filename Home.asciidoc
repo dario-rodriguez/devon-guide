@@ -30,7 +30,7 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - link:devonfw-logging-and-auditing[Logging and Auditing]
 
-- [JPA, Hibernate & creation of JPA Entity](https://github.com/devonfw/devon/wiki/devon-guide-dataaccess-layer) [OASP = [1](https://github.com/oasp/oasp4j/wiki/guide-dataaccess-layer)]
+- link:getting-started-Data-Access-Layer[Data Access Layer](IN PROGRESS) --> [JPA, Hibernate & creation of JPA Entity](https://github.com/devonfw/devon/wiki/devon-guide-dataaccess-layer) [OASP = [1](https://github.com/oasp/oasp4j/wiki/guide-dataaccess-layer)]
 
 - [Crud operations & DAO BDD: DAOs](https://github.com/devonfw/devon/wiki/devon-guide-crud) [Devon = [1](https://github.com/devonfw/devon/wiki/tutorial-crud)]
 
@@ -40,9 +40,9 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - [Dozer](https://github.com/devonfw/devon/wiki/devon-guide-dozer) [OASP = [1](https://github.com/oasp/oasp4j/wiki/guide-beanmapping)]
 
-- https://github.com/devonfw/devon-guide/wiki/getting-started-Creating-Rest-Service[Creating Rest Service]
+- link:getting-started-Creating-Rest-Service[Creating Rest Service] (TO EVALUATE)
 
-- https://github.com/devonfw/devon-guide/wiki/getting-started-Cobigen[Generating code with Cobigen]
+- link:getting-started-Cobigen[Generating code with Cobigen] (TO EVALUATE)
 
 ## Cookbook 
 - [Security: Login & roles, auth& authorisation](https://github.com/devonfw/devon/wiki/devon-guide-security) [OASP = [1](https://github.com/oasp/oasp4j/wiki/guide-security)]
