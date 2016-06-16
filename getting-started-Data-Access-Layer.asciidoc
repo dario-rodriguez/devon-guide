@@ -111,7 +111,7 @@ public java.util.Date getStart() {
   return start;
 }
 ----
-Until Java8 the java data type _java.util.Date_ (or Jodatime) has to be used. 
+Until Java8 the java data type _java.util.Date_ (or http://joda-time.sourceforge.net/quickstart.html[Jodatime]) has to be used. 
 _TemporalType_ defines the granularity. In this case, a precision of nanoseconds is used. If this granularity is not wanted, _TemporalType.DATE_ can be used instead, which only has a granularity of milliseconds. 
 Mixing these two granularities can cause problems when comparing one value to another. This is why we *only*  use _TemporalType.TIMESTAMP_.
 
