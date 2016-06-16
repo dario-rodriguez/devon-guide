@@ -223,13 +223,13 @@ The _EntityManager_ contains a method called _createNamedQuery(String)_, which t
 
 [NOTE]
 ====
-Using the _createQuery(String)_ method, which takes as parameter the query as string (this string already contains the parameters) is not allowed as this makes the application vulnerable to SQL injection attacks. +
+Using the _createQuery(String)_ method, which takes as parameter the query (a string that already contains the parameters), is not allowed as this makes the application vulnerable to SQL injection attacks.
 ====
 
 When the method _getResultList()_ is invoked, the query is executed and the result is delivered as list. As an alternative, there is a method called _getSingleResult()_, which returns the entity if the query returned exactly one and throws an exception otherwise.
 
 ===== Using Queries to Avoid Bidirectional Relationships 
-With the usage of queries it is possible to avoid bidirectional relationships, which have some disadvantages (see xref:relationships[relationships]). So for example to get all +WorkingTime+'s for a specific +StaffMember+ without having an attribute in the +StaffMember+'s class that stores these +WorkingTime+'s, the following query is needed:
+With the usage of queries it is possible to avoid bidirectional relationships, which have some disadvantages (see xref:relationships[relationships]). So for example to get all _WorkingTime_'s for a specific _StaffMember_ without having an attribute in the _StaffMember_'s class that stores these _WorkingTime_'s, the following query is needed:
 [source,xml]
 ----
 <query name="working.time.search.by.staff.member">
@@ -238,7 +238,7 @@ With the usage of queries it is possible to avoid bidirectional relationships, w
 
 </query>
 ----    
-The method looks as follows (extract of class +WorkingTimeDaoImpl+):
+The method looks as follows (extract of class _WorkingTimeDaoImpl_):
 [source,java]
 ----
 public List<WorkingTime> getWorkingTimesForStaffMember(StaffMember staffMember) {
@@ -247,7 +247,7 @@ public List<WorkingTime> getWorkingTimesForStaffMember(StaffMember staffMember) 
   return query.getResultList();
 }
 ----
-Do not forget to adapt the +WorkingTimeDao+ interface and the +NamedQueries+ class accordingly.
+Do not forget to adapt the _WorkingTimeDao_ interface and the _NamedQueries_ class accordingly.
 
 To get a more detailed description of how to create queries using JPQL, please have a look http://docs.oracle.com/javaee/5/tutorial/doc/bnbtg.html[here] or http://m-m-m.sourceforge.net/apidocs/net/sf/mmm/persistence/api/jpql/JpqlSyntax.html#JPQL_STATEMENT[here].
 
