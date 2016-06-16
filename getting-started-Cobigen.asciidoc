@@ -148,11 +148,11 @@ public class StaffMemberEntity extends ApplicationPersistenceEntity {
 
 To generate the rest of the classes concerning the StaffMember CRUD, we only have to do a right click on the `TableEntity.java` class in Eclipse Project Explorer and select "CobiGen ' Generate".
 
-image::images/devon_guide_cobigen_1_context_menu.png[,scaledwidth=80%]
+image::images/devonfw-cobigen/devon_guide_cobigen_1_context_menu.png[,scaledwidth=80%]
 
 This action opens a code generator wizard, like this:
 
-image::images/devon_guide_cobigen_2_template_selection.png[,scaledwidth=80%]
+image::images/devonfw-cobigen/devon_guide_cobigen_2_template_selection.png[,scaledwidth=80%]
 
 In this wizard you can select which classes you want to generate, organized by layer. In this example, please select:
 
@@ -166,7 +166,7 @@ and continue.
 
 In the next step you can select the fields of the entity that you want to expose via the REST service.
 
-image::images/devon_guide_cobigen_3_field_selection.png[,scaledwidth=80%]
+image::images/devonfw-cobigen/devon_guide_cobigen_3_field_selection.png[,scaledwidth=80%]
 
 Afterwards, click on "Finish" to let CobiGen do its work.
 
@@ -174,7 +174,7 @@ Afterwards, click on "Finish" to let CobiGen do its work.
 ====
 It is possible that you will see a final dialog containing some warnings about ambigous imports. You should review the mentioned files, and fix the imports yourself.
 
-image::images/devon_guide_cobigen_4_warnings.png[,scaledwidth=80%]
+image::images/devonfw-cobigen/devon_guide_cobigen_4_warnings.png[,scaledwidth=80%]
 
 In many cases, the imports are easily fixable by letting Eclipse auto-complete them by pressing "Ctrl-Shift-O".
 
@@ -210,22 +210,22 @@ Right click on the _access-control-schema.xml_ and select _Cobigen > Generate...
 ====
 You may have problems related to the context, like the following one
 
-image::images/devon_guide_cobigen_5_error.png[,scaledwidth=80%]
+image::images/devonfw-cobigen/devon_guide_cobigen_5_error.png[,scaledwidth=80%]
 
 This happens because you need to update the templates. To do so do again right click on the _access-control-schema.cml_ and select the _Cobigen > Health Check_ option and you will see a window with a message like the following 
 
-image::images/devon_guide_cobigen_6_error.png[,scaledwidth=80%]
+image::images/devonfw-cobigen/devon_guide_cobigen_6_error.png[,scaledwidth=80%]
 
 Click in _Advance Health Check_
 
-image::images/devon_guide_cobigen_7_error.png[,scaledwidth=80%]
+image::images/devonfw-cobigen/devon_guide_cobigen_7_error.png[,scaledwidth=80%]
 
 Now upgrade the template to _constants/security_permissions_ and press _OK_. You now should be able to use the security_permissions.
 ====
  
 This action opens a code generator wizard, like this:
 
-image::images/devon_guide_cobigen_8_permissions_template_selection.png[,scaledwidth=80%]
+image::images/devonfw-cobigen/devon_guide_cobigen_8_permissions_template_selection.png[,scaledwidth=80%]
 
 In this case you have only an option. Select Permissions Constants and press Finish. You can see now the new Permissions in /oasp4j-sample-core/src/main/java/io/oasp/gastronomy/restaurant/general/common/api/constants/PermissionConstants.java 
 
