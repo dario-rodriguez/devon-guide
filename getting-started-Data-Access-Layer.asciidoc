@@ -287,16 +287,16 @@ The OASP4J provides the method _findPaginated_ in _AbstractGenericDao_ that exec
   public PaginatedListTo<OrderEntity> findOrders(OrderSearchCriteriaTo criteria) {
 
     OrderEntity order = Alias.alias(OrderEntity.class);
-    EntityPathBase<OrderEntity> alias = Alias.$(order);
+    EntityPathBase<OrderEntity> alias = $(order);
     JPAQuery query = new JPAQuery(getEntityManager()).from(alias);
 
     Long tableId = criteria.getTableId();
     if (tableId != null) {
-      query.where(Alias.$(order.getTableId()).eq(tableId));
+      query.where($(order.getTableId()).eq(tableId));
     }
     OrderState state = criteria.getState();
     if (state != null) {
-      query.where(Alias.$(order.getState()).eq(state));
+      query.where($(order.getState()).eq(state));
     }
 
     return findPaginated(criteria, query, alias);
