@@ -220,6 +220,7 @@ public class StaffMemberDaoImpl extends ApplicationMasterDataDaoImpl<StaffMember
 ----
 
 The _EntityManager_ contains a method called _createNamedQuery(String)_, which takes as parameter the name of the query and creates a new query object. The parameters of the query have to be set using the _setParameter(String, Object)_ method.
+
 [Note]
 ====
 Using the _createQuery(String)_ method, which takes as parameter the query as string (this string already contains the parameters) is not allowed as this makes the application vulnerable to SQL injection attacks. +
