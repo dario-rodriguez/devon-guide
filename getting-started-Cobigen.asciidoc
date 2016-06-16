@@ -1,9 +1,9 @@
 :toc: macro
 toc::[]
 
-= Using the generator
+= Introduction
 
-In Devon we have a server-side code generator to create CRUD code, this code generator is called Cobigen. Cobigen is distributed in the Devon distribution as an Eclipse plugin, and is available to all Devon developers.
+In Devonfw we have a server-side code generator called Cobigen. Cobigen is capable to create CRUD code from an entity or generate the content of the class that defines the user permissions. Cobigen is distributed in the Devonfw distribution as an Eclipse plugin, and is available to all Devonfw developers.
 
 == Preparing Cobigen for first use
 
