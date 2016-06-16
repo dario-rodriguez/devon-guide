@@ -312,7 +312,6 @@ If you need to also return the total number of hits available, you can set _Sear
 For the table entity we can make a search request by accessing the REST endpoint with pagination support like in the following examples:
 
 
-
 [source,json]
 ----
 POST oasp4j-sample-server/services/rest/tablemanagement/v1/table/search
