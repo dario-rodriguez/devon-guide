@@ -42,7 +42,7 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - https://github.com/devonfw/devon-guide/wiki/getting-started-Creating-Rest-Service[Creating Rest Service]
 
-- [Repeat 12-17 with Cobigen](https://github.com/devonfw/devon/wiki/devon-guide-cobigen) [Devon = [1](https://github.com/devonfw/devon/wiki/tutorial-devon-generator), [2](https://github.com/devonfw/tools-cobigen/wiki/CobiGen)]
+- https://github.com/devonfw/devon-guide/wiki/getting-started-Cobigen[Generating code with Cobigen]
 
 ## Cookbook 
 - [Security: Login & roles, auth& authorisation](https://github.com/devonfw/devon/wiki/devon-guide-security) [OASP = [1](https://github.com/oasp/oasp4j/wiki/guide-security)]
