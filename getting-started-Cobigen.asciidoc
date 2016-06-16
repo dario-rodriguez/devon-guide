@@ -243,7 +243,7 @@ public static final String DELETE_STAFFMEMBER = "DeleteStaffMember";
 ====
 It is possible that you can't press _Finish_ button in CobiGen.
 
-image::images/devonfw-cobigen/devon_guide_cobigen_8_permissions_template_selection.png[,scaledwidth=60%]
+image::images/devonfw-cobigen/devon_guide_cobigen_8_permissions_template_selection.png[,scaledwidth=40%]
 
 This happens because you are using an old version of CobiGen and the wizard can't merge the class _PermissionConstants_. To fix it you need to delete the class _PermissionConstants.java_ and try again. 
 ====
