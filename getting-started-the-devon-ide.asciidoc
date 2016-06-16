@@ -70,7 +70,7 @@ image::images/devon-ide/checkstyle2.png["checkstyle2", width = "800" , link="ima
 &#160; +
 
 
-. Select the Checkstyle section within the properties dialog .
+. . Select the Checkstyle section within the properties dialog .
 
 
 [[img-checkstyle3]]
