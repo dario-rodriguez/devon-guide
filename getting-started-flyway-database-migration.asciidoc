@@ -45,6 +45,8 @@ They allow you to:
 
 == How it works for setting up database and maintaining it?
 
+To know which state your database is in, Flyway relies on a special metadata table for all its internal bookkeeping. Flyway creates it automatically when it is run for the first time. After that, every time a migration is applied, its details are stored in that table. Flyway can then query it to know which migrations have been applied, what the current version of the schema is and whether the last migration succeeded or failed.
+
 
 . When you point Flyway to an empty database, it will try to locate its metadata table. As the database is empty, Flyway won't find it and will create it instead.
 . Now we have a database with a single empty table called SCHEMA_VERSION by default.
