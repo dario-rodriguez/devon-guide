@@ -42,9 +42,18 @@ The _@Id_ annotation specifies that a property should be used as xref:primary-ke
 @Table(name="EMPLOYEE")
 public class Employee 
 {
-   @Id
-   @GeneratedValue(strategy= GenerationType.AUTO) 
-   private long id;
+  private Long id;
+
+[...]
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.SEQUENCE)
+  public Long getId() {
+
+    return this.id;
+  }
+
+[...]
 ----
 
 With the help of the _@Column_ annotation it is possible to define the name of the column that an attribute is mapped to as well as other aspects such as _nullable_ or _unique_. If no column name is specified, the name of the property is used as default.
