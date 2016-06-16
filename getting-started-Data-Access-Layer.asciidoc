@@ -36,7 +36,16 @@ The _@Entity_ annotation defines that instances of this class will be entities w
 
 In order to specify how to map the attributes to columns we annotate the corresponding getter methods (technically also private field annotation is also possible but approaches can not be mixed).
 The _@Id_ annotation specifies that a property should be used as xref:primary-keys[primary key].
-
+[source,java]
+----
+@Entity
+@Table(name="EMPLOYEE")
+public class Employee 
+{
+   @Id
+   @GeneratedValue(strategy= GenerationType.AUTO) 
+   private int id;
+----
 
 With the help of the _@Column_ annotation it is possible to define the name of the column that an attribute is mapped to as well as other aspects such as _nullable_ or _unique_. If no column name is specified, the name of the property is used as default.
 [source,java]
