@@ -7,7 +7,7 @@ In Devonfw we have a server-side code generator called Cobigen. Cobigen is capab
 
 == Preparing Cobigen for first use
 
-Before you can use Cobigen, you have to install the templates to be used by Cobigen. The Devon distribution comes with a set of default templates in the directory `workspaces\main\CobiGen_Templates`.
+Before you can use Cobigen, you have to install the templates to be used by Cobigen. The Devonfw distribution comes with a set of default templates in the directory `workspaces\main\CobiGen_Templates`.
 
 1. Open Eclipse by executing the batch file `eclipse-main.bat`
 
