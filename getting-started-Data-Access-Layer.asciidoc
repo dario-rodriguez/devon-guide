@@ -51,7 +51,9 @@ With the help of the _@Column_ annotation it is possible to define the name of t
 [source,java]
 ----
 @Column(name="DESCRIPTION", nullable=false, length=512)
-    public String getDescription() { return description; }
+public String getDescription() { 
+    return description;
+}
 ----
 
 Note that every entity class needs a constructor with public or protected visibility that does not have any arguments. Moreover, neither the class nor its getters and setters may be final.
@@ -59,8 +61,8 @@ Note that every entity class needs a constructor with public or protected visibi
 Entities should be simple POJOs and not contain business logic.
 
 ==== Entities and Datatypes
-Standard datatypes like +Integer+, +BigDecimal+, +String+, etc. are mapped automatically by JPA. Custom link:guide-datatype[datatypes] are mapped as serialized xref:blob[BLOB] by default what is typically undesired. 
-In order to map atomic custom datatypes (implementations of +SimpleDatatype+) we implement an +AttributeConverter+. Here is a simple example:
+Standard datatypes like _Integer_, _BigDecimal_, _String_, etc. are mapped automatically by JPA. Custom link:https://github.com/oasp/oasp4j/wiki/guide-datatype[datatypes] are mapped as serialized xref:blob[BLOB] by default what is typically undesired. 
+In order to map atomic custom datatypes (implementations of _SimpleDatatype_) we implement an _AttributeConverter_. Here is a simple example:
 [source,java]
 ----
 @Converter(autoApply = true)
@@ -75,9 +77,9 @@ public class MoneyAttributeConverter implements AttributeConverter<Money, BigDec
   }
 }
 ----
-The annotation +@Converter+ is detected by the JPA vendor if the annotated class is in the packages to scan (see +beans-jpa.xml+). Further, +autoApply = true+ implies that the converter is automatically used for all properties of the handled datatype. Therefore all entities with properties of that datatype will automatically be mapped properly (in our example +Money+ is mapped as +BigDecimal+).
+The annotation _@Converter_ is detected by the JPA vendor if the annotated class is in the packages to scan (see _beans-jpa.xml_). Further, _autoApply = true_ implies that the converter is automatically used for all properties of the handled datatype. Therefore all entities with properties of that datatype will automatically be mapped properly (in our example _Money_ is mapped as _BigDecimal_).
 
-In case you have a composite datatype that you need to map to multiple columns the JPA does not offer a real solution. As a workaround you can use a bean instead of a real datatype and declare it as xref:embeddable[+@Embeddable+]. If you are using hibernate you can implement +CompositeUserType+. Via the +@TypeDef+ annotation it can be registered to hibernate. If you want to annotate the +CompositeUserType+ implementation itself you also need another annoation (e.g. +MappedSuperclass+ tough not technically correct) so it is found by the scan.
+In case you have a composite datatype that you need to map to multiple columns the JPA does not offer a real solution. As a workaround you can use a bean instead of a real datatype and declare it as xref:embeddable[_@Embeddable_]. If you are using hibernate you can implement _CompositeUserType_. Via the _@TypeDef_ annotation it can be registered to hibernate. If you want to annotate the _CompositeUserType_ implementation itself you also need another annotation (e.g. _MappedSuperclass_ tough not technically correct) so it is found by the scan.
 
 ===== Enumerations
 By default JPA maps Enums via their ordinal. Therefore the database will only contain the ordinals (0, 1, 2, etc.) so inside the database you can not easily understand their meaning. Using +@Enumerated+ with +EnumType.STRING+ allows to map the enum values to their name (+Enum.name()+). Both approaches are fragile when it comes to code changes and refactorings (if you change the order of the enum values or rename them) after being in production with your application. If you want to avoid this and get a robust mapping you can define a dedicated string in each enum value for database representation that you keep untouched. Then you treat the enum just like any other xref:entities-and-datatypes[custom datatype].
