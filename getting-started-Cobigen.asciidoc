@@ -28,7 +28,7 @@ In your own projects, you can create additional templates. Please refer to the d
 
 In an earlier chapter about CRUD functionality you saw the individual steps necessary to implement a basic CRUD functionality.
 
-Using Cobigen, you can save most of these steps, and get a working result in far less time.
+Using Cobigen, you can save most of these steps, and get a working result in far less time. We are going to explain how to use Cobigen to generate the code and classes related to the CRUD operations of an entity but you can know more about the https://github.com/devonfw/tools-cobigen/wiki/cobigen-eclipse_usage[Cobigen usage in Eclipse].
 
 Cobigen needs a starting point to generate the code of a CRUD case. In this example the starting point is the `StaffMemberEntity` class, modelling a member of the staff of our restaurant. So we are going to create a CRUD for the new `StaffMemberEntity` class.
 
