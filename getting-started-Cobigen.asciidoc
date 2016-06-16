@@ -184,11 +184,11 @@ Cobigen also works incrementally. Cobigen merges your changes and updates all cl
 
 == Creating user permissions
  
-Sometimes we need to include roles and permissions to our applications. CobiGen has a template to do this task. If you want to use this template follow the next steps:
+Sometimes we need to include roles and permissions to our applications. CobiGen has a template to automate this task. If you want to use this template follow the next steps:
 
 === Step 1: Define the permissions and roles
 
-Open the _access-control-schema.xml_ located in _/oasp4j-sample-core/src/main/resources/config/app/security/access-control-schema.xml_ and define the permissions to the roles or group of roles like:
+In Eclipse open the _access-control-schema.xml_ located in _/oasp4j-sample-core/src/main/resources/config/app/security/access-control-schema.xml_ and define the permissions to the roles or group of roles like:
 
 [source,xml]
 ----
@@ -212,7 +212,7 @@ You may have problems related to the context, like the following one
 
 image::images/devonfw-cobigen/devon_guide_cobigen_5_error.png[,scaledwidth=80%]
 
-This happens because you need to update the templates. To do so do again right click on the _access-control-schema.cml_ and select the _Cobigen > Health Check_ option and you will see a window with a message like the following 
+This happens because you need to update the templates. So do again right click on the _access-control-schema.xml_ and select this time the _Cobigen > Health Check_ option and you will see a window with a message like the following 
 
 image::images/devonfw-cobigen/devon_guide_cobigen_6_error.png[,scaledwidth=80%]
 
@@ -225,9 +225,9 @@ Now upgrade the template to _constants/security_permissions_ and press _OK_. You
  
 This action opens a code generator wizard, like this:
 
-image::images/devonfw-cobigen/devon_guide_cobigen_8_permissions_template_selection.png[,scaledwidth=80%]
+image::images/devonfw-cobigen/devon_guide_cobigen_8a_permissions_template_selection.png[,scaledwidth=80%]
 
-In this case you have only an option. Select Permissions Constants and press Finish. You can see now the new Permissions in /oasp4j-sample-core/src/main/java/io/oasp/gastronomy/restaurant/general/common/api/constants/PermissionConstants.java 
+In this case you have only one option. Select _Permissions Constants_ and press _Finish_. You should see now the new Permissions added in the file _/oasp4j-sample-core/src/main/java/io/oasp/gastronomy/restaurant/general/common/api/constants/PermissionConstants.java_ 
 
 
 [source,java]
@@ -241,5 +241,7 @@ public static final String DELETE_STAFFMEMBER = "DeleteStaffMember";
 
 [NOTE]
 ====
-It is possible that you can't press Finish button in CobiGen. This happens because you are using an old version of CobiGen and the wizard can't merge the class PermissionConstants. To fix it you need to delete the class PermissionConstants.java and try again. 
+It is possible that you can't press _Finish_ button in CobiGen.
+image::images/devonfw-cobigen/devon_guide_cobigen_8_permissions_template_selection.png[,scaledwidth=60%]
+This happens because you are using an old version of CobiGen and the wizard can't merge the class _PermissionConstants_. To fix it you need to delete the class _PermissionConstants.java_ and try again. 
 ====
