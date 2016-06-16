@@ -32,11 +32,11 @@ public class MessageEntity extends AbstractPersistenceEntity {
   }
  }
 ---- 
-The +@Entity+ annotation defines that instances of this class will be entities which can be stored in the database. The +@Table+ annotation is optional and can be used to define the name of the corresponding table in the database. If it is not specified, the simple name of the entity class is used instead.
+The _@Entity_ annotation defines that instances of this class will be entities which can be stored in the database. The _@Table_ annotation is optional and can be used to define the name of the corresponding table in the database. If it is not specified, the simple name of the entity class is used instead.
 
 In order to specify how to map the attributes to columns we annotate the corresponding getter methods (technically also private field annotation is also possible but approaches can not be mixed).
-The +@Id+ annotation specifies that a property should be used as xref:primary-keys[primary key].
-With the help of the +@Column+ annotation it is possible to define the name of the column that an attribute is mapped to as well as other aspects such as +nullable+ or +unique+. If no column name is specified, the name of the property is used as default.
+The _@Id_ annotation specifies that a property should be used as xref:primary-keys[primary key].
+With the help of the _@Column_ annotation it is possible to define the name of the column that an attribute is mapped to as well as other aspects such as _nullable_ or _unique_. If no column name is specified, the name of the property is used as default.
 
 Note that every entity class needs a constructor with public or protected visibility that does not have any arguments. Moreover, neither the class nor its getters and setters may be final.
 
