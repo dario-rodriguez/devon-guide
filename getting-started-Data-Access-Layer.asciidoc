@@ -303,9 +303,9 @@ The OASP4J provides the method _findPaginated_ in _AbstractGenericDao_ that exec
   }
 ----
 
-Then the query allows pagination by setting +pagination.size+ (+SearchCriteriaTo.getPagination().setSize(Integer)+) to the number of hits per page and +pagination.page+ (+SearchCriteriaTo.getPagination().setPage(int)+) to the desired page.
-If you allow the client to specify +pagination.size+, it is recommended to limit this value on the server side (+SearchCriteriaTo.limitMaximumPageSize(int)+) to prevent performance problems or DOS-attacks.
-If you need to also return the total number of hits available, you can set +SearchCriteria.getPagination().setTotal(boolean)+ to +true+.
+Then the query allows pagination by setting _pagination.size_ (_SearchCriteriaTo.getPagination().setSize(Integer)_) to the number of hits per page and _pagination.page_ (_SearchCriteriaTo.getPagination().setPage(int)_) to the desired page.
+If you allow the client to specify _pagination.size_, it is recommended to limit this value on the server side (_SearchCriteriaTo.limitMaximumPageSize(int)_) to prevent performance problems or DOS-attacks.
+If you need to also return the total number of hits available, you can set _SearchCriteria.getPagination().setTotal(boolean)_ to _true_.
 
 ===== Pagination example
 
