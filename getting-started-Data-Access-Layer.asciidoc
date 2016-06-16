@@ -7,7 +7,7 @@ The data-access layer is responsible for all outgoing connections to access and 
 
 == Persistence
 For mapping java objects to a relational database we use the http://www.oracle.com/technetwork/java/javaee/tech/persistence-jsp-140049.html[Java Persistence API (JPA)]. 
-As JPA implementation we recommend to use http://hibernate.org/orm/[hibernate]. For general documentation about JPA and hibernate follow the links above as we will not replicate the documentation. Here you will only find guidelines and examples how we recommend to use it properly. The following examples show how to map the data of a database to an entity.
+As JPA implementation we recommend to use http://hibernate.org/orm/[hibernate]. For general documentation about JPA and hibernate follow the links above as we will not replicate the documentation. Here you will only find guidelines and examples about how we recommend to use it properly. The following examples show how to map the data of a database to an entity.
 
 === Entity
 Entities are part of the persistence layer and contain the actual data. They are POJOs (Plain Old Java Objects) on which the relational data of a database is mapped and vice versa. The mapping is configured via JPA annotations (+javax.persistence+). Usually an entity class corresponds to a table of a database and a property to a column of that table. An persistent entity instance then represents a row of the database table.
