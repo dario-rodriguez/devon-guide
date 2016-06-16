@@ -43,17 +43,14 @@ The _@Id_ annotation specifies that a property should be used as xref:primary-ke
 public class Employee 
 {
   private Long id;
-
-[...]
-
+...
   @Id
-  @GeneratedValue(strategy = GenerationType.SEQUENCE)
+  @GeneratedValue(strategy = GenerationType.AUTO)
   public Long getId() {
 
     return this.id;
   }
-
-[...]
+...
 ----
 
 With the help of the _@Column_ annotation it is possible to define the name of the column that an attribute is mapped to as well as other aspects such as _nullable_ or _unique_. If no column name is specified, the name of the property is used as default.
@@ -125,14 +122,14 @@ _TemporalType_ defines the granularity. In this case, a precision of nanoseconds
 Mixing these two granularities can cause problems when comparing one value to another. This is why we *only*  use _TemporalType.TIMESTAMP_.
 
 ==== Primary Keys
-We only use simple Long values as primary keys (IDs). By default it is auto generated (+@GeneratedValue(strategy=GenerationType.AUTO)+). This is already provided by the class +io.oasp.module.jpa.persistence.api.AbstractPersistenceEntity+ that you can extend.
-In case you have business oriented keys (often as +String+), you can define an additional property for it and declare it as unique (+@Column(unique=true)+).
+We only use simple Long values as primary keys (IDs). By default it is auto generated (_@GeneratedValue(strategy=GenerationType.AUTO)_). This is already provided by the class _io.oasp.module.jpa.persistence.api.AbstractPersistenceEntity_ that you can extend.
+In case you have business oriented keys (often as _String_), you can define an additional property for it and declare it as unique (_@Column(unique=true)_).
 
 === Data Access Object
-_Data Acccess Objects_ (DAOs) are part of the persistence layer. They are responsible for a specific xref:entity[entity] and should be named +<Entity>Dao[Impl]+. The DAO offers the so called CRUD-functionalities (create, retrieve, update, delete) for the corresponding entity. Additionally a DAO may offer advanced operations such as query or locking methods.
+_Data Acccess Objects_ (DAOs) are part of the persistence layer. They are responsible for a specific xref:entity[entity] and should be named _<Entity>Dao[Impl]_. The DAO offers the so called CRUD-functionalities (create, retrieve, update, delete) for the corresponding entity. Additionally a DAO may offer advanced operations such as query or locking methods.
 
 ==== DAO Interface
-For each DAO there is an interface named +<Entity>Dao+ that defines the API. For CRUD support and common naming we derive it from the interface +io.oasp.module.jpa.persistence.api.Dao+:
+For each DAO there is an interface named _<Entity>Dao_ that defines the API. For CRUD support and common naming we derive it from the interface _io.oasp.module.jpa.persistence.api.Dao_:
 [source,java]
 ----
 public interface MyEntityDao extends Dao<MyEntity> { 
@@ -140,10 +137,10 @@ public interface MyEntityDao extends Dao<MyEntity> {
   List<MyEntity> findByCriteria(MyEntitySearchCriteria criteria);
 }
 ----
-As you can see, the interface +Dao+ has a type parameter for the entity class. All CRUD operations are only inherited so you only have to declare the additional methods.
+As you can see, the interface _Dao_ has a type parameter for the entity class. All CRUD operations are only inherited so you only have to declare the additional methods.
 
 ==== DAO Implementation
-Implementing a DAO is quite simple. We crate a class named +<Entity>DaoImpl+ that extends +io.oasp.module.jpa.persistence.base.AbstractDao+ and implements your +<Entity>Dao+ interface:
+Implementing a DAO is quite simple. We crate a class named _<Entity>DaoImpl_ that extends _io.oasp.module.jpa.persistence.base.AbstractDao_ and implements your _<Entity>Dao_ interface:
 [source,java]
 ----
 public class MyEntityDaoImpl extends AbstractDao<MyEntity> implements MyEntityDao { 
@@ -156,8 +153,8 @@ public class MyEntityDaoImpl extends AbstractDao<MyEntity> implements MyEntityDa
 }
 ----
 
-As you can see +AbstractDao+ already implements the CRUD operations so you only have to implement the additional methods that you have declared in your +<Entity>Dao+ interface.
-In the DAO implementation you can use the method +getEntityManager()+ to access the +EntityManager+ from the JPA. You will need the +EntityManager+ to create and execute xref:queries[queries].
+As you can see _AbstractDao_ already implements the CRUD operations so you only have to implement the additional methods that you have declared in your _<Entity>Dao_ interface.
+In the DAO implementation you can use the method _getEntityManager()_ to access the _EntityManager_ from the JPA. You will need the _EntityManager_ to create and execute xref:queries[queries].
 
 === Queries
 The http://www.oracle.com/technetwork/java/javaee/tech/persistence-jsp-140049.html[Java Persistence API (JPA)] defines its own query language, the java persistence query language (JPQL), which is similar to SQL but operates on entities and their attributes instead of tables and columns.
