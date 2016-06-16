@@ -185,23 +185,42 @@ public class NamedQueries {
 ...
 }
 ----
-Note that changing the name of the java constant (_GET_STAFF_MEMBER_BY_LOGIN_) can be easily done with refactoring (in Eclipse right click _Refactor > Rename_). Further you can trace where the query is used by searching the references of the constant.
+Note that changing the name of the java constant (_GET_STAFF_MEMBER_BY_LOGIN_) can be easily done with refactoring (in Eclipse right click over the property and select _Refactor > Rename_). Further you can trace where the query is used by searching the references of the constant.
 
-The following listing shows how to use this query (in class +StaffMemberDaoImpl+, remember to adapt +StaffMemberDao+!):
+The following listing shows how to use this query (in class _StaffMemberDaoImpl_, remember that we must adapt _StaffMemberDao_).
+
+We will have a StaffMemberDao like the following:
 [source,java]
 ----
-public List<StaffMember> getStaffMemberByName(String firstName, String lastName) {
-  Query query = getEntityManager().createNamedQuery(NamedQueries.STAFFMEMBER_SEARCH_BY_NAME);
-        
-  query.setParameter("firstName", firstName);
-  query.setParameter("lastName", lastName);
-        
-  return query.getResultList();
-}
+public interface StaffMemberDao extends ApplicationDao<StaffMemberEntity>, MasterDataDao<StaffMemberEntity> {
+
+  StaffMemberEntity findByLogin(String login);
+
+...
 ----
-The EntityManager contains a method called +createNamedQuery(String)+, which takes as parameter the name of the query and creates a new query object. As the query has two parameters, these have to be set using the +setParameter(String, Object)+ method. +
-Note that using the +createQuery(String)+ method, which takes as parameter the query as string (this string already contains the parameters) is not allowed as this makes the application vulnerable to SQL injection attacks. +
-When the method +getResultList()+ is invoked, the query is executed and the result is delivered as list. As an alternative, there is a method called +getSingleResult()+, which returns the entity if the query returned exactly one and throws an exception otherwise.
+
+And the implementation of the interface would be:
+[source,java]
+----
+public class StaffMemberDaoImpl extends ApplicationMasterDataDaoImpl<StaffMemberEntity> implements StaffMemberDao {
+
+...
+
+  @Override
+  public StaffMemberEntity findByLogin(String login) {
+
+    TypedQuery<StaffMemberEntity> query =
+        getEntityManager().createNamedQuery(NamedQueries.GET_STAFF_MEMBER_BY_LOGIN, StaffMemberEntity.class);
+    query.setParameter("login", login);
+    return query.getSingleResult();
+  }
+
+...
+----
+
+The _EntityManager_ contains a method called _createNamedQuery(String)_, which takes as parameter the name of the query and creates a new query object. The parameters of the query have to be set using the _setParameter(String, Object)_ method.
+Note that using the _createQuery(String)_ method, which takes as parameter the query as string (this string already contains the parameters) is not allowed as this makes the application vulnerable to SQL injection attacks. +
+When the method _getResultList()_ is invoked, the query is executed and the result is delivered as list. As an alternative, there is a method called _getSingleResult()_, which returns the entity if the query returned exactly one and throws an exception otherwise.
 
 ===== Using Queries to Avoid Bidirectional Relationships 
 With the usage of queries it is possible to avoid bidirectional relationships, which have some disadvantages (see xref:relationships[relationships]). So for example to get all +WorkingTime+'s for a specific +StaffMember+ without having an attribute in the +StaffMember+'s class that stores these +WorkingTime+'s, the following query is needed:
