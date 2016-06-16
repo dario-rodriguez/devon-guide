@@ -5,6 +5,8 @@ toc::[]
 
 In Devonfw we have a server-side code generator called Cobigen. Cobigen is capable to create CRUD code from an entity or generate the content of the class that defines the user permissions. Cobigen is distributed in the Devonfw distribution as an Eclipse plugin, and is available to all Devonfw developers.
 
+If you want to go deeper in Cobigen you can visit the documentation of the https://github.com/devonfw/tools-cobigen/wiki/CobiGen[Cobigen core].
+
 == Preparing Cobigen for first use
 
 Before you can use Cobigen, you have to install the templates to be used by Cobigen. The Devonfw distribution comes with a set of default templates in the directory `workspaces\main\CobiGen_Templates`.
