@@ -185,9 +185,10 @@ public class NamedQueries {
 ...
 }
 ----
+
 Note that changing the name of the java constant (_GET_STAFF_MEMBER_BY_LOGIN_) can be easily done with refactoring (in Eclipse right click over the property and select _Refactor > Rename_). Further you can trace where the query is used by searching the references of the constant.
 
-The following listing shows how to use this query (in class _StaffMemberDaoImpl_, remember that we must adapt _StaffMemberDao_).
+The following listing shows how to use this query in class _StaffMemberDaoImpl_ (remember that we must adapt _StaffMemberDao_).
 
 We will have a StaffMemberDao like the following:
 [source,java]
@@ -219,7 +220,10 @@ public class StaffMemberDaoImpl extends ApplicationMasterDataDaoImpl<StaffMember
 ----
 
 The _EntityManager_ contains a method called _createNamedQuery(String)_, which takes as parameter the name of the query and creates a new query object. The parameters of the query have to be set using the _setParameter(String, Object)_ method.
-Note that using the _createQuery(String)_ method, which takes as parameter the query as string (this string already contains the parameters) is not allowed as this makes the application vulnerable to SQL injection attacks. +
+[Note]
+====
+Using the _createQuery(String)_ method, which takes as parameter the query as string (this string already contains the parameters) is not allowed as this makes the application vulnerable to SQL injection attacks. +
+====
 When the method _getResultList()_ is invoked, the query is executed and the result is delivered as list. As an alternative, there is a method called _getSingleResult()_, which returns the entity if the query returned exactly one and throws an exception otherwise.
 
 ===== Using Queries to Avoid Bidirectional Relationships 
