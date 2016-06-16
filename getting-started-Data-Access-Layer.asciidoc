@@ -160,30 +160,32 @@ In the DAO implementation you can use the method _getEntityManager()_ to access 
 The http://www.oracle.com/technetwork/java/javaee/tech/persistence-jsp-140049.html[Java Persistence API (JPA)] defines its own query language, the java persistence query language (JPQL), which is similar to SQL but operates on entities and their attributes instead of tables and columns.
 
 ==== Static Queries
-The OASP4J advises to specify all queries in one mapping file called +NamedQueries.xml+.
+The OASP4J advises to specify all queries in one mapping file called _orm.xml_ (located in _src/main/resources/META-INF_ directory).
         
-Add the following query to this file: 
+You can add the new queries to this file: 
 [source,xml]
 ----
 <?xml version="1.0" encoding="UTF-8"?>
-<entity-mappings version="1.0" xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd">
-  <named-query name="get.open.order.positions.for.order">
-    <query><![CDATA[SELECT op FROM OrderPosition op where op.order.id = ? AND op.state NOT IN (PAYED, CANCELLED)]]></query>
+<entity-mappings version="1.0" xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd">
+...
+  <named-query name="get.staff.member.by.login">
+    <query><![CDATA[SELECT s FROM StaffMemberEntity s WHERE login = :login]]></query>
   </named-query>
-  ...
-</hibernate-mapping>
+...
+</entity-mappings>
 ----
-To avoid redundant occurrences of the query name (+get.open.order.positions.for.order+) we define the constants for each named query:
+To avoid redundant occurrences of the query name (_get.staff.member.by.login_) we define the constants for each named query:
 [source,java]
 ----
 package io.oasp.gastronomy.restaurant.general.common.api.constants;
  
 public class NamedQueries {
-  public static final String GET_OPEN_ORDER_POSITION_FOR_ORDER = "get.open.order.positions.for.order"; 
+...
+  public static final String GET_STAFF_MEMBER_BY_LOGIN = "get.staff.member.by.login";
+...
 }
 ----
-Note that changing the name of the java constant (+GET_OPEN_ORDER_POSITION_FOR_ORDER+) can be done easily with refactoring. Further you can trace where the query is used by searching the references of the constant.
+Note that changing the name of the java constant (_GET_STAFF_MEMBER_BY_LOGIN_) can be easily done with refactoring (in Eclipse right click _Refactor > Rename_). Further you can trace where the query is used by searching the references of the constant.
 
 The following listing shows how to use this query (in class +StaffMemberDaoImpl+, remember to adapt +StaffMemberDao+!):
 [source,java]
