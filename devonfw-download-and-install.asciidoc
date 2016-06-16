@@ -3,7 +3,7 @@ toc::[]
 
 = Environment Setup
 
-In this section you will learn how to setup the Devonfw environment, so you have everything setup to start working on your first project based on Devon.
+In this section you will learn how to setup the Devonfw environment, so you have everything setup to start working on your first project based on Devonfw.
 
 The Devonfw environment contains all software and tools necessary to develop applications with Devonfw.
 
