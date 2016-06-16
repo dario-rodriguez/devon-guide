@@ -350,9 +350,9 @@ POST oasp4j-sample-server/services/rest/tablemanagement/v1/table/search
 }
 ----
 
-NOTE: as we are requesting with the +total+ property set to +true+ the server responds with the total count of rows for the query.
+NOTE: as we are requesting with the _total_ property set to _true_ the server responds with the total count of rows for the query.
 
-For retrieving a concrete page, we provide the +page+ attribute with the desired value. Here we also left out the +total+ property so the server doesn't incur on the effort to calculate it:
+For retrieving a concrete page, we provide the _page_ attribute with the desired value. Here we also left out the _total_ property so the server doesn't incur on the effort to calculate it:
 
 [source,json]
 ----
@@ -398,9 +398,9 @@ POST oasp4j-sample-server/services/rest/tablemanagement/v1/table/search
 
 
 ==== Query Meta-Parameters
-Queries can have meta-parameters and the OASP currently provides support for _timeout_.
-The OASP provides the method +applyCriteria+ in +AbstractGenericDao+ that applies meta-parameters to a query based on +SearchCriteriaTo+.
-If you already use the pagination support (see above), you do not need to call +applyCriteria+ manually, as it is called internally by +findPaginated+.
+Queries can have meta-parameters and the OASP4J currently provides support for _timeout_.
+OASP4J provides the method _applyCriteria_ in _AbstractGenericDao_ that applies meta-parameters to a query based on _SearchCriteriaTo_.
+If you already use the pagination support (see above), you do not need to call _applyCriteria_ manually, as it is called internally by _findPaginated_.
 
 === Relationships
 ==== n:1 and 1:1 Relationships
@@ -428,13 +428,13 @@ public class WorkingTime {
    }
 }
 ----
-To represent the relationship, an attribute of the type of the corresponding entity class that is referenced has been introduced. The relationship is a n:1 relationship, because every +WorkingTime+ belongs to exactly one +StaffMember+, but a +StaffMember+ usually worked more often than once. +
-This is why the +@ManyToOne+ annotation is used here. For 1:1 relationships the +@OneToOne+ annotation can be used which works basically the same way. To be able to save information about the relation in the database, an additional column in the corresponding table of WorkingTime is needed which contains the primary key of the referenced StaffMember. With the +name+ element of the +@JoinColumn+ annotation it is possible to specify the name of this column.
+To represent the relationship, an attribute of the type of the corresponding entity class that is referenced has been introduced. The relationship is a n:1 relationship, because every _WorkingTime_ belongs to exactly one _StaffMember_, but a _StaffMember_ usually worked more often than once.
+This is why the _@ManyToOne_ annotation is used here. For 1:1 relationships the _@OneToOne_ annotation can be used which works basically the same way. To be able to save information about the relation in the database, an additional column in the corresponding table of _WorkingTime_ is needed which contains the primary key of the referenced _StaffMember_. With the _name_ element of the _@JoinColumn_ annotation it is possible to specify the name of this column.
 
 ==== 1:n and n:m Relationships
-The relationship of the example listed above is currently an unidirectional one, as there is a getter method for retrieving the +StaffMember+ from the +WorkingTime+ object, but not vice versa. 
+The relationship of the example listed above is currently an unidirectional one, as there is a getter method for retrieving the _StaffMember_ from the _WorkingTime_ object, but not vice versa. 
 
-To make it a bidirectional one, the following code has to be added to +StaffMember+:
+To make it a bidirectional one, the following code has to be added to _StaffMember_:
 [source,java]
 ----
   private Set<WorkingTimes> workingTimes;
@@ -448,13 +448,12 @@ To make it a bidirectional one, the following code has to be added to +StaffMemb
     this.workingTimes = workingTimes;
   }
 ----
-To make the relationship bidirectional, the tables in the database do not have to be changed. Instead the column that corresponds to the attribute +staffMember+ in class +WorkingTime+ is used, which is specified by the +mappedBy+ element of the +@OneToMany+ annotation. Hibernate will search for corresponding +WorkingTime+ objects automatically when a +StaffMember+ is loaded.
+To make the relationship bidirectional, the tables in the database do not have to be changed. Instead the column that corresponds to the attribute _staffMember_ in class _WorkingTime_ is used, which is specified by the _mappedBy_ element of the _@OneToMany_ annotation. Hibernate will search for corresponding _WorkingTime_ objects automatically when a _StaffMember_ is loaded.
 
-The problem with bidirectional relationships is that if a +WorkingTime+ object is added to the set or list +workingTimes+ in +StaffMember+, this does not have any effect in the database unless
-the +staffMember+ attribute of that +WorkingTime+ object is set. That is why the OASP4J advices not to use bidirectional relationships but to use queries instead. How to do this is shown xref:queries[here]. If a bidirectional relationship should be used nevertheless, approriate add and remove methods must be used.
+The problem with bidirectional relationships is that if a _WorkingTime_ object is added to the set or list _workingTimes_ in _StaffMember_, this does not have any effect in the database unless the _staffMember_ attribute of that _WorkingTime_ object is set. That is why the OASP4J advises not to use bidirectional relationships but to use queries instead. How to do this is shown xref:queries[here]. If a bidirectional relationship should be used nevertheless, appropiate _add_ and _remove_ methods must be used.
 
-For 1:n and n:m relations, the OASP4J demands that (unordered) Sets and no other collection types are used, as shown in the listing above. The only exception is whenever an ordering is really needed, (sorted) lists can be used. +
-For example, if +WorkingTime+ objects should be sorted by their start time, this could be done like this:
+For 1:n and n:m relations, the OASP4J demands that (unordered) Sets and no other collection types are used, as shown in the listing above. The only exception is whenever an ordering is really needed, (sorted) lists can be used.
+For example, if _WorkingTime_ objects should be sorted by their start time, this could be done like this:
 [source,java]
 ----
   private List<WorkingTimes> workingTimes;
