@@ -672,16 +672,16 @@ Assume an entity _A_ contains a collection of _B_ entities. Should there be a lo
 According to KISS our recommendation is that the user gets an error displayed that tells him to do his change again on the recent data. Try to design your system and the work processing in a way to keep such conflicts rare.
 
 ==== Pessimistic Locking
-For back-end link:guide-service-layer[services] and especially for link:guide-batch-layer[batches] optimistic locking is not suitable. A human user shall not cause a large batch process to fail because he was editing the same entity. Therefore such use-cases use pessimistic locking what gives them a kind of priority over the human users.
-In your xref:data-access-object[DAO] implementation you can provide methods that do pessimistic locking via http://docs.oracle.com/javaee/6/api/javax/persistence/EntityManager.html[+EntityManager+] operations that take a http://docs.oracle.com/javaee/6/api/javax/persistence/LockModeType.html[+LockModeType+]. Here is a simple example:
+For back-end https://github.com/oasp/oasp4j/wiki/guide-service-layer[services] and especially for https://github.com/oasp/oasp4j/wiki/guide-batch-layer[batches] optimistic locking is not suitable. A human user shall not cause a large batch process to fail because he was editing the same entity. Therefore such use-cases use pessimistic locking what gives them a kind of priority over the human users.
+In your xref:data-access-object[DAO] implementation you can provide methods that do pessimistic locking via http://docs.oracle.com/javaee/6/api/javax/persistence/EntityManager.html[_EntityManager_] operations that take a http://docs.oracle.com/javaee/6/api/javax/persistence/LockModeType.html[_LockModeType_]. Here is a simple example:
 [source,java]
 ----
   getEntityManager().lock(entity, LockModeType.READ);
 ----
-When using the +lock(Object, LockModeType)+ method with +LockModeType.READ+, Hibernate will issue a +select ... for update+. This means that no one else can update the entity (see http://docs.oracle.com/cd/B28359_01/server.111/b28286/statements_10002.htm[here] for more information on the statement). If +LockModeType.WRITE+ is specified, Hibernate issues a +select ... for update nowait+ instead, which has has the same meaning as the statement above, but if there is already a lock, the program will not wait for this lock to be release. Instead, an exception is raised. +
+When using the _lock(Object, LockModeType)_ method with _LockModeType.READ_, Hibernate will issue a `select ... for update`. This means that no one else can update the entity (see http://docs.oracle.com/cd/B28359_01/server.111/b28286/statements_10002.htm[here] for more information on the statement). If _LockModeType.WRITE_ is specified, Hibernate issues a `select ... for update nowait` instead, which has has the same meaning as the statement above, but if there is already a lock, the program will not wait for this lock to be released. Instead, an exception is raised. 
 Use one of the types if you want to modify the entity later on, for read only access no lock is required.
         
-As you might have noticed, the behavior of Hibernate deviates from what one would expect by looking at the +LockModeType+ (especially +LockModeType.READ+ should not cause a +select ... for update+ to be issued). The framework actually deviates from what is http://docs.oracle.com/javaee/6/api/javax/persistence/LockModeType.html[specified] in the JPA for unknown reasons.
+As you might have noticed, the behavior of Hibernate deviates from what one would expect by looking at the _LockModeType_ (especially _LockModeType.READ_ should not cause a `select ... for update` to be issued). The framework actually deviates from what is http://docs.oracle.com/javaee/6/api/javax/persistence/LockModeType.html[specified] in the JPA for unknown reasons.
 
 === Database Auditing
 See link:guide-auditing[auditing guide].
