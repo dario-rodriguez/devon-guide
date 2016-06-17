@@ -195,7 +195,7 @@ image::images/devon-ide/link-with-project.png["link-with-project", width = "600"
 
 Click on Finish. Your project is now associated to one analyzed on your SonarQube server.
 
-Changing linkage
+*Changing linkage*
 
 At any time, it is possible to change the project association.
 
@@ -207,7 +207,7 @@ image::images/devon-ide/change-link-with-project.png["change-link-with-project",
 
 &#160; +
 
-Unlinking a Project
+*Unlinking a Project*
 
 To do so, right-click on the project in the Project Explorer, and then SonarQube > Remove SonarQube Nature.
 
@@ -218,7 +218,7 @@ image::images/devon-ide/unlink-with-project.png["unlink-with-project", width = "
 &#160; +
 
 
-Advanced Configuration
+*Advanced Configuration*
 
 Additional settings (such as markers for new issues) are available through Window > Preferences > SonarQube
 
