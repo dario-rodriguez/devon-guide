@@ -1,4 +1,4 @@
-=  Set up and maintain database schemas with Flyway
+=  Setting up and maintaining database schemas with Flyway
 
 
  

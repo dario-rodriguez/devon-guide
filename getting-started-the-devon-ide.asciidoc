@@ -22,7 +22,7 @@ In the Devon distribution we have a code generator to create CRUD code, called *
 
 image::images/devon-ide/cobigen.png[Cobigen]
 
-Cobigen is distributed in the Devon distribution as an Eclipse plugin, and is available to all Devon developers for Capgemini engagements. Due to the importance of this component and the scope of its functionality, it is fully described elsewhere, in: *TODO*.
+Cobigen is distributed in the Devon distribution as an Eclipse plugin, and is available to all Devon developers for Capgemini engagements. Due to the importance of this component and the scope of its functionality, it is fully described https://github.com/devonfw/devon-guide/wiki/getting-started-Cobigen[here].
 
 == IDE Plugins:
 
@@ -195,7 +195,7 @@ image::images/devon-ide/link-with-project.png["link-with-project", width = "600"
 
 Click on Finish. Your project is now associated to one analyzed on your SonarQube server.
 
-Changing linkage
+*Changing linkage*
 
 At any time, it is possible to change the project association.
 
@@ -207,7 +207,7 @@ image::images/devon-ide/change-link-with-project.png["change-link-with-project",
 
 &#160; +
 
-Unlinking a Project
+*Unlinking a Project*
 
 To do so, right-click on the project in the Project Explorer, and then SonarQube > Remove SonarQube Nature.
 
@@ -218,7 +218,7 @@ image::images/devon-ide/unlink-with-project.png["unlink-with-project", width = "
 &#160; +
 
 
-Advanced Configuration
+*Advanced Configuration*
 
 Additional settings (such as markers for new issues) are available through Window > Preferences > SonarQube
 
@@ -280,7 +280,7 @@ image::images/devon-ide/soap-perspective.png["soap-perspective", width = "600" ,
 
 &#160; +
 
-*Creation of new Project*
+*Creating new Project*
 
 Once Soap UI perspective is opened, right click on projects and "select New Soap UI Project"
 

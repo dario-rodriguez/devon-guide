@@ -1,7 +1,74 @@
 = OASP4J Application structure
 
+= OASP4J estructure
 
-image::images/oasp-app-structure/app-structure.png[App structure]
+The OASP4J archetype generates a Maven Modules Project. It has 3 Maven modules and a pom.xml file:
+
+* [xxx-core]: This Maven Module Project contains the different Java classes in our application and the application configuration (beans definition, security configuration, access to database configuration, etc).
+
+* [xxx-server]: This module is responsible for packaging the application as a WAR file. It has a dependency on the core module.
+
+* [pom.xml]:
+
+** Properties definition: Spring-boot version, Java version, server port, database port.
+
+** Modules definition: Imports for 3 modules (core, EAR and server).
+
+** Dependency Management: Spring-boot, OASP4J-BOM and JUnit dependencies. Also we can include Devonfw-BOM and Devonfw dependencies.
+
+** Maven plugin compiler to compile the application to desired Java version.
 
 
-image::images/oasp-app-structure/config-structure.png[App structure]
+= Core Module
+
+Core module contains the base classes and the base configuration for the application. It's divide in three package: Java, Resources and Test. 
+
+image::images/oasp-app-structure/app-structure.png[App structure,width=60%]
+
+Now, we are going to describe each of them. 
+
+== Java 
+
+The package java contains all Java File of the application, where we have the application and the configuration of it. This package contains the SpringBootApp and SpringBootBatchApp (main), the package general and all entity managements that we are going to create for the application. 
+
+=== SpringBootApp and SpringBootBatchApp
+
+*SpringBootApp* is the class that contains the main method to run the Spring Boot application. Spring Boot is responsible for escan the project and find the beans and configuration of the application. So this is the most important class in the application, because it's the application per se. You can read more about Spring Boot http://docs.spring.io/spring-boot/docs/current/reference/html/[here].
+
+*SpringBootBatchApp* this class is responsible for run the batch process of the application. You can see more about the batch proces in OASP4J project https://github.com/oasp/oasp4j/wiki/guide-batch-layer[here].
+
+=== General
+
+The *general* package conteins all Java files of OASP4J application. It's divided in the next subpackages:
+
+===== Common
+
+Contains the reusable Java components of the OASP4J application. 
+
+===== Dataaccess
+
+This package contains the Java files that compone the Data Access layer of OASP4J application. You can see more about this layer https://github.com/oasp/oasp4j/wiki/guide-dataaccess-layer[here].
+
+===== Gui.api
+
+Contains the Java class that has the login page controller of OASP4J application.
+
+===== Logic
+
+Contains the logic layer of OASP4J application. The logic layer is the heart of the application and contains the main business logic. You can see more about it https://github.com/oasp/oasp4j/wiki/guide-logic-layer[here].
+
+===== Service.impl.rest
+
+Contains service layer of OASP4J application. The service layer is responsible to expose functionality of the logical layer to external consumers over a network via technical protocols. You can see more about it https://github.com/oasp/oasp4j/wiki/guide-service-layer[here].
+
+== Resources 
+
+
+
+image::images/oasp-app-structure/config-structure.png[App structure,width=40%]
+
+
+== Test
+
+
+
