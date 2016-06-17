@@ -497,9 +497,9 @@ Note that bidirectional n:m relationships are not allowed for applications based
 ==== Eager vs. Lazy Loading
 Using JPA/Hibernate it is possible to use either lazy or eager loading. Eager loading means that for entities retrieved from the database, other entities that are referenced by these entities are also retrieved, whereas lazy loading means that this is only done when they are actually needed, i.e. when the corresponding getter method is invoked.
         
-Application based on the OASP4J must use lazy loading per default. Projects generated with the project generator are already configured so that this is actually the case (this is done in the file +NamedQueries.hbm.xml+).
+Application based on the OASP4J must use lazy loading per default. Projects generated with the project generator are already configured so that this is actually the case.
         
-For some entities it might be beneficial if eager loading is used. For example if every time a +Bill+ is processed, the +Order+ entities it refers to are needed, eager loading can be used as shown in the following listing:
+For some entities it might be beneficial if eager loading is used. For example if every time a _Bill_ is processed, the _Order_ entities it refers to are needed, eager loading can be used as shown in the following listing:
 [source,java]
 ----
   @OneToMany(fetch = FetchType.EAGER)
@@ -508,11 +508,11 @@ For some entities it might be beneficial if eager loading is used. For example i
     return orders;
   }
 ----
-This can be done with all four types of relationships (annotations: +@OneToOne+, +@ManyToOne+, +@OneToMany+, +@ManyToOne+).
+This can be done with all four types of relationships (annotations: _@OneToOne_, _@ManyToOne_, _@OneToMany_, _@ManyToOne_).
 
 ==== Cascading Relationships
-It is not only possible to specify what happens if an entity is loaded that has some relationship to other entities (see above), but also if an entity is for example persisted or deleted. By default, nothing is done in these situations. +
-This can be changed by using the +cascade+ element of the annotation that specifies the relation type (+@OneToOne+, +@ManyToOne+, +@OneToMany+, +@ManyToOne+). For example, if a +StaffMember+ is persisted, all its +WorkingTime+'s should be persisted and if the same applies for deletions (and some other situations, for example if an entity is reloaded from the database, which can be done using the +refresh(Object)+ method of an EntityManager), this can be realized as shown in the following listing (extract of the +StaffMember+ class):
+It is not only possible to specify what happens if an entity is loaded that has some relationship to other entities (see above), but also if an entity is for example persisted or deleted. By default, nothing is done in these situations.
+This can be changed by using the _cascade_ element of the annotation that specifies the relation type (_@OneToOne_, _@ManyToOne_, _@OneToMany_, _@ManyToOne_). For example, if a _StaffMember_ is persisted, all its _WorkingTime_'s should be persisted and if the same applies for deletions (and some other situations, for example if an entity is reloaded from the database, which can be done using the _refresh(Object)_ method of an EntityManager), this can be done as shown in the following listing (extract of the _StaffMember_ class):
 [source,java]
 ----
   @OneToMany(mappedBy = "staffMember", cascade=CascadeType.ALL)
