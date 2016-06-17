@@ -33,13 +33,13 @@ To create a new application, you should have installed OASP IDE. After that, you
 * Create a new Maven Project.
 * Choose the oas4j-template-server archetype, just like the image.
 
-image::images/devonfw-create-new-app/devon-guide-newapp-choose-archetype.PNG[,scaledwidth=80%]
+image::images/create-new-app/devon-guide-newapp-choose-archetype.PNG[,scaledwidth=80%]
 [Archetype]
 
 * Fill the Group Id, Artifact Id, Version and Package for your project.
 If you want to add an EAR generation mechanism to your project, you should fill the property earProjectName with the value Artifact Id + "-ear". For example, "sampleapp-ear". If you only want to WAR generation, you can remove the property earProjectName.
 
-image::images/devonfw-create-new-app/devon-guide-newapp-archetype-parameters.PNG[,scaledwidth=80%]
+image::images/create-new-app/devon-guide-newapp-archetype-parameters.PNG[,scaledwidth=80%]
 [EAR]
 
 * Finish the Eclipse assistant and you are ready to start your project.
