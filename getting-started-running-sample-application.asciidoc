@@ -1,2 +1,2 @@
-= Running Sample Aapplication
+= Running Sample Application
 
