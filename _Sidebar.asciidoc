@@ -2,6 +2,7 @@
 == Getting Started
 * link:wiki[Home]
 * link:getting-started-introduction-to-devonfw[Introduction to Devonfw]
+* link:devcon-user-guide[Devcon - User guide]
 * link:getting-started-download-and-install[Download and Install Devonfw]
 * link:getting-started-the-devon-ide[The Devonfw IDE]
 * link:getting-started-running-sample-application[Running Sample Application]
@@ -13,6 +14,7 @@
 * link:getting-started-set-up-and-maintain-database-schemas-with-flyway[Set up and maintain database schemas with Flyway]
 * link:getting-started-writing-unittest-cases[Writing Unit Test Cases]
 * link:getting-started-logging-and-auditing[Logging and Auditing]
+* link:getting-started-Data-Access-Layer[Data Access Layer]
 * link:getting-started-transfer-objects[Transfer Objects : ETOs and CTOs]
 * link:getting-started-logic-layer[Implementing Logic Layer: Manager Classes, Use cases, Business Logic]
 * link:getting-started-Creating-Rest-Service[Creating Rest Service]
