@@ -562,7 +562,7 @@ Using the address in the _StaffMember_ entity class can be done as shown in the 
  
 @Entity
 @Table(name = "StaffMember")
-public class StaffMemberEntity extends ApplicationPersistenceEntity implements StaffMember {
+public class StaffMemberEntity implements StaffMember {
  
   ...
   private Address address;
@@ -588,10 +588,10 @@ Another way to realize the one table mapping are Hibernate UserType's, as descri
 === Inheritance
 Just like normal java classes, xref:entity[entity] classes can inherit from others. The only difference is that you need to specify how to map a subtype hierarchy to database tables. 
 
-The http://www.oracle.com/technetwork/java/javaee/tech/persistence-jsp-140049.html[Java Persistence API (JPA)] offers three ways how to do this: 
+The http://www.oracle.com/technetwork/java/javaee/tech/persistence-jsp-140049.html[Java Persistence API (JPA)] offers three ways to do this: 
 --
-* One table per hierarchy. This table contains all columns needed to store all types of entities in the hierarchy. If a column is not needed for an entity because of its type, there is a null value in this column. An additional column is introduced, which denotes the type of the entity (called +"dtype"+ which is of type +varchar+ and stores the class name).
-* One table per subclass. For each concrete entity class there is a table in the database that can store such an entity with all its attributes. An entity is only saved in the table corresponding to its most concrete type. To get all entities of a type that has subtypes, joins are needed.
+* One table per hierarchy: This table contains all columns needed to store all types of entities in the hierarchy. If a column is not needed for an entity because of its type, there is a null value in this column. An additional column is introduced, which denotes the type of the entity (called _"dtype"_ which is of type _varchar_ and stores the class name).
+* One table per class. For each concrete entity class there is a table in the database that can store such an entity with all its attributes. An entity is only saved in the table corresponding to its most concrete type. To get all entities of a type that has subtypes, joins are needed.
 * One table per subclass: joined subclasses. In this case there is a table for every entity class (this includes abstract classes), which contains all columns needed to store an entity of that class apart from those that are already included in the table of the supertype. Additionally there is a primary key column in every table. To get an entity of a class that is a subclass of another one, joins are needed. 
 --
 Every of the three approaches has its advantages and drawbacks, which are discussed in detail http://openjpa.apache.org/builds/1.0.4/apache-openjpa-1.0.4/docs/manual/jpa_overview_mapping_inher.html#jpa_overview_mapping_inher_tpc[here]. In most cases, the first one should be used, because it is usually the fastest way to do the mapping, as no joins are needed when retrieving entities and persisting a new entity or updating one only affects one table. Moreover it is rather simple and easy to understand. +
