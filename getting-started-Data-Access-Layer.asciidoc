@@ -471,22 +471,24 @@ For example, if _WorkingTime_ objects should be sorted by their start time, this
 The value of the _@OrderBy_ annotation consists of an attribute name of the class followed by _asc_ (ascending) or _desc_ (descending). 
 
 To store information about a n:m relationship, a separate table has to be used, as one column cannot store several values (at least if the database schema is in first normal form).
-For example if one wanted to extend the example application so that all ingredients of one _FoodDrink_ can be saved and to model the ingredients themselves as entities (e.g. to store additional information about them), this could be modeled as follows (extract of a _FoodDrink_ class):
+In the example application, in the case of the _Bill_ and the _orderPositions_ the relation between them could be modeled as follows:
 [source,java]
 ----
-  private Set<Order> ingredients;
+  private List<OrderPositionEntity> orderPositions;
  
-  @ManyToMany
-  @JoinTable
-  public Set<Ingredient> getIngredients() {
-    return ingredients;
+  @ManyToMany(fetch = FetchType.EAGER)
+  @JoinTable(name = "Bill_OrderPosition", joinColumns = { @JoinColumn(name = "Bill_id") })
+  public List<OrderPositionEntity> getOrderPositions() {
+
+    return this.orderPositions;
   }
  
-  public void setOrders(Set<Ingredient> ingredients) {
-    this.ingredients = ingredients;
+  public void setOrderPositions(List<OrderPositionEntity> orderPositions) {
+
+    this.orderPositions = orderPositions;
   }
 ----
-Information about the relation is stored in a table called _BILL_ORDER_ that has to have two columns, one for referencing the Bill, the other one for referencing the Order. Note that the _@JoinTable_ annotation is not needed in this case because a separate table is the default solution here (same for n:m relations) unless there is a _mappedBy_ element specified.
+Information about the relation is stored in a table called _BILL_ORDERPOSITION_ that has to have two columns, one for referencing the Bill (_bill_id_), the other one for referencing the Order (_orderpositions_id_). Note that the _@JoinTable_ annotation is not needed in this case because a separate table is the default solution here (same for n:m relations) unless there is a _mappedBy_ element specified.
      
 For 1:n relationships this solution has the disadvantage that more joins (in the database system) are needed to get a Bill with all the Order's it refers to. This might have a negative impact on performance so that the solution to store a reference to the Bill row/entity in the Order's table is probably the better solution in most cases.
      
