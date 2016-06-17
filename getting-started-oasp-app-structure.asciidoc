@@ -2,3 +2,6 @@
 
 
 image::images/oasp-app-structure/app-structure.png[App structure]
+
+
+image::images/oasp-app-structure/config-structure.png[App structure]
