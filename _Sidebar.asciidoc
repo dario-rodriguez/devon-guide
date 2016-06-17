@@ -10,6 +10,6 @@
 * link:getting-started-oasp-app-structure[OASP4J Application structure]
 * link:getting-started-understanding-oasp4j-spring-boot-config[Understanding the OASP4J & Spring Boot Configuration]
 * link:getting-started-database-configuration[Database configuration]
-* link:getting-started-Setting up and maintaining database schemas with Flyway[Setting up and maintaining database schemas with Flyway]
+* link:getting-started-Set up and maintain database schemas with Flyway[Set up and maintain database schemas with Flyway]
 * link:getting-started-writing-unittest-cases[Writing Unit Test Cases]
 * link:getting-started-logging-and-auditing[Logging and Auditing]
