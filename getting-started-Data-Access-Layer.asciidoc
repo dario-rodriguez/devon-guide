@@ -521,12 +521,12 @@ This can be changed by using the _cascade_ element of the annotation that specif
   }
 ----
 There are several _CascadeTypes_, e.g. to specify that a "cascading behavior" should only
-be used if an entity is persisted (+CascadeType.PERSIST+) or deleted (+CascadeType.REMOVE+), see http://meri-stuff.blogspot.de/2012/03/jpa-tutorial.html[here] for more information. 
+be used if an entity is persisted (_CascadeType.PERSIST_) or deleted (_CascadeType.REMOVE_), see http://meri-stuff.blogspot.de/2012/03/jpa-tutorial.html[here] for more information. 
 
 === Embeddable
 An embeddable Object is a way to implement xref:relationships[relationships] between xref:entity[entities], but with a mapping in which both entities are in the same database table. If these entities are often needed together, this is a good way to speed up database operations, as only one access to a table is needed to retrieve both entities. 
 
-Suppose the restaurant example application has to be extended in a way that it is possible to store information about the addresses of +StaffMember+'s, this can be done with a new +Address+ class:
+Suppose the restaurant example application has to be extended in a way that it is possible to store information about the addresses of _StaffMember_'s, this can be done with a new _Address_ class:
 [source,java]
 ----
 ...
@@ -553,15 +553,16 @@ public class Address {
   ...  // other getter and setter methods, equals, hashCode
 }
 ----
-This class looks a bit like an entity class, apart from the fact that the +@Embeddable+ annotation is used instead of the +@Entity+ annotation and no primary key is needed here. In addition to that the methods +equals(Object)+ and +hashCode()+ need to be implemented as this is required by Hibernate (it is not required for entities because they can be unambiguously identified by their primary key). For some hints on how to implement the +hashCode()+ method please have a look http://stackoverflow.com/questions/113511/hash-code-implementation[here]. 
+This class looks a bit like an entity class, apart from the fact that the _@Embeddable_ annotation is used instead of the _@Entity_ annotation and no primary key is needed here. In addition to that the methods _equals(Object)_ and _hashCode()_ need to be implemented as this is required by Hibernate (it is not required for entities because they can be unambiguously identified by their primary key). For some hints on how to implement the _hashCode()_ method please have a look http://stackoverflow.com/questions/113511/hash-code-implementation[here]. 
         
-Using the address in the +StaffMember+ entity class can be done as shown in the following listing:
+Using the address in the _StaffMember_ entity class can be done as shown in the following listing:
 [source,java]
 ----
 ...
  
 @Entity
-public class StaffMember implements StaffMemberRo {
+@Table(name = "StaffMember")
+public class StaffMemberEntity extends ApplicationPersistenceEntity implements StaffMember {
  
   ...
   private Address address;
@@ -577,9 +578,10 @@ public class StaffMember implements StaffMemberRo {
   }
 } 
 ----
-The +@Embedded+ annotation needs to be used for embedded attributes. Note that if in all columns in the +StaffMember+'s table that belong to the +Address+ embeddable there are null values, the +Address+ is null when retrieving the +StaffMember+ entity from the database. This has to be considered when implementing the application core to avoid NullPointerException's.
+The _@Embedded_ annotation needs to be used for embedded attributes. Note that if in all columns in the _StaffMember_'s table that belong to the _Address_ embeddable the values are null, the _Address_ will be null when retrieving the _StaffMember_ entity from the database. This has to be considered when implementing the application core to avoid _NullPointerException_'s.
       
-Moreover, if the database tables are created automatically by Hibernate and a primitive data type is used in the embeddable (in the example this would be the case if +int+ is used instead of +Integer+ as data type for the +zipCode+), there will be a not null constraint on the corresponding column (reason: a primitive data type can never be null in java, so hibernate always introduces a not null constraint). This constraint would be violated if one tries to insert a +StaffMember+ without an +Address+ object (this might be considered as a bug in Hibernate).
+Moreover, if the database tables are created automatically by Hibernate and a primitive data type is used in the embeddable (in the example this would be the case if _int_ is used instead of _Integer_ as data type for the _zipCode_), there will be a _not null_ constraint on the corresponding column (reason: a primitive data type can never be null in java, so hibernate always introduces a _not null_ constraint). This constraint would be violated if one tries to insert a 
+_StaffMember_ without an _Address_ object (this might be considered as a bug in Hibernate).
       
 Another way to realize the one table mapping are Hibernate UserType's, as described http://tedyoung.me/2012/02/07/custom-user-types-with-jpa-and-spring/[here].
 
