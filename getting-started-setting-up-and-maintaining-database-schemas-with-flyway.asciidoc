@@ -9,7 +9,7 @@ Lets say we have our application(a piece of software) and our database.Great. An
 
 But on most projects, this simple view of the world very quickly translates into this
 
-image::images/devonfw-flyway-database-migration/Environments.png[,scaledwidth=80%]
+image::images/setting-up-and-maintaining-db-schemas-with-flyway/Environments.png[,scaledwidth=80%]
 
 
 
@@ -47,27 +47,29 @@ They allow you to:
 
 To know which state your database is in, Flyway relies on a special metadata table for all its internal bookkeeping. 
 
-Flyway creates it automatically when it is run for the first time. After that, every time a migration is applied, its details are stored in that table. Flyway can then query it to know which migrations have been applied, what the current version of the schema is and whether the last migration succeeded or failed.
 
 
-. When you point Flyway to an empty database, it will try to locate its metadata table. As the database is empty, Flyway won't find it and will create it instead.
+. When you point Flyway to an empty database, it will try to locate its metadata table. 
 
-image::images/devonfw-flyway-database-migration/Environments.png[,scaledwidth=80%]
+image::images/setting-up-and-maintaining-db-schemas-with-flyway/how-flyway-works-2.png[,scaledwidth=80%]
 
 
+. As the database is empty, Flyway won't find it and will create it instead.Now we have a database with a single empty table called SCHEMA_VERSION by default.
 
-. Now we have a database with a single empty table called SCHEMA_VERSION by default.
+image::images/setting-up-and-maintaining-db-schemas-with-flyway/how-flyway-works-1.png[,scaledwidth=80%]
 
 . Immediately afterwards Flyway will begin scanning the filesystem or the classpath of the application for migrations. They can be written in either Sql or Java. 
 
  . The migrations are then sorted based on their version number and applied in order. As each migration gets applied, the metadata table is updated accordingly.
 
+
+image::images/setting-up-and-maintaining-db-schemas-with-flyway/how-flyway-works-3.png[,scaledwidth=80%]
+
+
+
 With the metadata and the initial state in place, we can now talk about migrating to newer versions. 
 
 Flyway will once again scan the filesystem or the classpath of the application for migrations. The migrations are checked against the metadata table. If their version number is lower or equal to the one of the version marked as current, they are ignored.
-
-They are then sorted by version number and executed in order: 
-The metadata table is updated accordingly.
 
 And that's it! Every time the need to evolve the database arises, whether structure (DDL) or reference data (DML), simply create a new migration with a version number higher than the current one. The next time Flyway starts, it will find it and upgrade the database accordingly.
 
