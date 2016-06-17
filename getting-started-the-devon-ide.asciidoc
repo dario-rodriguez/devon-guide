@@ -280,7 +280,7 @@ image::images/devon-ide/soap-perspective.png["soap-perspective", width = "600" ,
 
 &#160; +
 
-*Creation of new Project*
+*Creating new Project*
 
 Once Soap UI perspective is opened, right click on projects and "select New Soap UI Project"
 
