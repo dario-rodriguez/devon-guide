@@ -663,13 +663,13 @@ A remaining anomaly is when two stakeholders concurrently access a record, do so
 As a best practice we are using optimistic locking for regular end-user https://github.com/oasp/oasp4j/wiki/guide-service-layer[services] (OLTP) and pessimistic locking for https://github.com/oasp/oasp4j/wiki/guide-batch-layer[batches].
 
 ==== Optimistic Locking
-The class +io.oasp.module.jpa.persistence.api.AbstractPersistenceEntity+ already provides optimistic locking via a +modificationCounter+ with the +@Version+ annotation. Therefore JPA takes care of optimistic locking for you. When entities are transferred to clients, modified and sent back for update you need to ensure the +modificationCounter+ is part of the game. If you follow our guides about link:guide-transferobject[transfer-objects] and link:guide-service-layer[services] this will also work out of the box.
+The class _io.oasp.module.jpa.persistence.api.AbstractPersistenceEntity_ already provides optimistic locking via a _modificationCounter_ with the _@Version_ annotation. Therefore JPA takes care of optimistic locking for you. When entities are transferred to clients, modified and sent back for update you need to ensure the _modificationCounter_ is part of the game. If you follow our guides about https://github.com/oasp/oasp4j/wiki/guide-transferobject[transfer-objects] and https://github.com/oasp/oasp4j/wiki/guide-service-layer[services] this will also work out of the box.
 You only have to care about two things:
 
 * How to deal with optimistic locking in xref:relationships[relationships]? +
-Assume an entity +A+ contains a collection of +B+ entities. Should there be a locking conflict if one user modifies an instance of +A+ while another user in parallel modifies an instance of +B+ that is contained in the other instance? To take influence besides placing collections take a look at https://oasp.github.io/oasp4j/1.1.0/maven/apidocs/io/oasp/module/jpa/dataaccess/api/GenericDao.html#forceIncrementModificationCounter(E)[GenericDao.forceIncrementModificationCounter].
-* What should happen in the UI if an +OptimisticLockException+ occurred? +
-According to KISS our recommendation is that the user gets an error displayed that tells him to do his change again on the recent data. Try to design your system and the work processing in a way to keep such conflicts rare and you are fine.
+Assume an entity _A_ contains a collection of _B_ entities. Should there be a locking conflict if one user modifies an instance of _A_ while another user in parallel modifies an instance of _B_ that is contained in the other instance? To take influence besides placing collections take a look at https://oasp.github.io/oasp4j/1.1.0/maven/apidocs/io/oasp/module/jpa/dataaccess/api/GenericDao.html#forceIncrementModificationCounter(E)[GenericDao.forceIncrementModificationCounter].
+* What should happen in the UI if an _OptimisticLockException_ occurred?
+According to KISS our recommendation is that the user gets an error displayed that tells him to do his change again on the recent data. Try to design your system and the work processing in a way to keep such conflicts rare.
 
 ==== Pessimistic Locking
 For back-end link:guide-service-layer[services] and especially for link:guide-batch-layer[batches] optimistic locking is not suitable. A human user shall not cause a large batch process to fail because he was editing the same entity. Therefore such use-cases use pessimistic locking what gives them a kind of priority over the human users.
