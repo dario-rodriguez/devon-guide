@@ -36,7 +36,7 @@ Let's to see how we can customized our own Configuration Class
 
 In Devon, the Configuration Classes reside in the folder `src/main/general/configuration/` and it's recommended that include the new Configuration Classes here. This is just to keep a clear structure of our projects, the fact is you can include the Configuration Classes in wherever place in the project, it is responsible of Spring Boot scan the application.
 
-image::images/devon_guide_configuration_getting_started_configuration_folder.PNG[,scaledwidth=80%]
+image::images/devonfw-getting-started-conf/devon_guide_configuration_getting_started_configuration_folder.PNG[,scaledwidth=80%]
 
 Therefore, we need to create our Configuration Class, for example src/main/general/configuration/MyConfigurationClass.java
 
@@ -97,7 +97,7 @@ public float propertie3;
 
 And now we need to define the properties in the application.properties. We can define the properties on /main/resources/application.properties or /main/resources/config/application.properties. If we are running the server with the embedded Tomcat of the application, we can use the both files, but if we are deploying the application on a external Tomcat we need to define our properties in the first file. 
 
-image::images/devon_guide_configuration_getting_started_application.properties_files.PNG[,scaledwidth=80%]
+image::images/devonfw-getting-started-conf/devon_guide_configuration_getting_started_application.properties_files.PNG[,scaledwidth=80%]
 
 Learn more about how to run the application https://github.com/devonfw/devon/wiki/tutorial-sample[here].
 
