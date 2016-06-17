@@ -34,9 +34,9 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - [Crud operations & DAO BDD: DAOs](https://github.com/devonfw/devon/wiki/devon-guide-crud) [Devon = [1](https://github.com/devonfw/devon/wiki/tutorial-crud)]
 
-- [ETOs & CTOs](https://github.com/devonfw/devon/wiki/devon-guide-transferobject) [OASP = [1](https://github.com/oasp/oasp4j/wiki/guide-transferobject)]
+- link:getting-started-transfer-objects[Transfer Objects : ETOs and CTOs]
 
-- [Manager Classes, Use cases, Business Logic](https://github.com/devonfw/devon/wiki/devon-guide-logic-layer) [OASP = [1](https://github.com/oasp/oasp4j/wiki/guide-logic-layer)]
+- link:getting-started-logic-layer[Implementing Logic Layer: Manager Classes, Use cases, Business Logic]
 
 - [Dozer](https://github.com/devonfw/devon/wiki/devon-guide-dozer) [OASP = [1](https://github.com/oasp/oasp4j/wiki/guide-beanmapping)]
 
