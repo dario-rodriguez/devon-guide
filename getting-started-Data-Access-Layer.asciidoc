@@ -512,7 +512,7 @@ This can be done with all four types of relationships (annotations: _@OneToOne_,
 
 ==== Cascading Relationships
 It is not only possible to specify what happens if an entity is loaded that has some relationship to other entities (see above), but also if an entity is for example persisted or deleted. By default, nothing is done in these situations.
-This can be changed by using the _cascade_ element of the annotation that specifies the relation type (_@OneToOne_, _@ManyToOne_, _@OneToMany_, _@ManyToOne_). For example, if a _StaffMember_ is persisted, all its _WorkingTime_'s should be persisted and if the same applies for deletions (and some other situations, for example if an entity is reloaded from the database, which can be done using the _refresh(Object)_ method of an EntityManager), this can be done as shown in the following listing (extract of the _StaffMember_ class):
+This can be changed by using the _cascade_ element of the annotation that specifies the relation type (_@OneToOne_, _@ManyToOne_, _@OneToMany_, _@ManyToOne_). For example, if a _StaffMember_ is persisted, all its _WorkingTime_'s should be persisted and if the same applies for deletions (and some other situations, for example if an entity is reloaded from the database, which can be done using the _refresh(Object)_ method of an EntityManager), this can be done as shown in the following listing:
 [source,java]
 ----
   @OneToMany(mappedBy = "staffMember", cascade=CascadeType.ALL)
@@ -520,7 +520,7 @@ This can be changed by using the _cascade_ element of the annotation that specif
     return workingTime;
   }
 ----
-There are several +CascadeTypes+, e.g. to specify that a "cascading behavior" should only
+There are several _CascadeTypes_, e.g. to specify that a "cascading behavior" should only
 be used if an entity is persisted (+CascadeType.PERSIST+) or deleted (+CascadeType.REMOVE+), see http://meri-stuff.blogspot.de/2012/03/jpa-tutorial.html[here] for more information. 
 
 === Embeddable
