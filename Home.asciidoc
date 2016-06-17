@@ -8,15 +8,15 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - link:devcon-user-guide[Devcon - User guide] (TO EVALUATE)
 
-- link:devonfw-download-and-install[Download and Install Devonfw]
+- link:getting-started-download-and-install[Download and Install Devonfw]
 
 - link:getting-started-the-devon-ide[The Devonfw IDE]
 
-- link:devon-running-sample-application[Running Sample Application]
+- link:getting-started-running-sample-application[Running Sample Application]
 
-- link:devonfw-distribution-structure[Devonfw Distribution Structure]
+- link:getting-started-distribution-structure[Devonfw Distribution Structure]
 
-- link:creating-new-devonfw-application[Create new application]
+- link:getting-started-creating-new-devonfw-application[Create new application]
 
 - link:getting-started-oasp-app-structure[OASP4J Application structure]
 
@@ -26,9 +26,9 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - link:getting-started-flyway-database-migration[Setting up and maintaining database schemas with Flyway]
 
-- link:devonfw-writing-unittest-cases[Writing Unit Test Cases]
+- link:getting-started-writing-unittest-cases[Writing Unit Test Cases]
 
-- link:devonfw-logging-and-auditing[Logging and Auditing]
+- link:getting-started-logging-and-auditing[Logging and Auditing]
 
 - link:getting-started-Data-Access-Layer[Data Access Layer] (TO EVALUATE)
 
