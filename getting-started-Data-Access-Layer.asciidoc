@@ -645,7 +645,13 @@ public class Drink extends FoodDrink {
   }
 }
 ----
-To specify how to map the class hierarchy, the +@Inheritance+ annotation is used. Its element +strategy+ defines which type of mapping is used and can have the following values: +InheritanceType.SINGLE_TABLE+ (= one table per hierarchy), +InheritanceType.TABLE_PER_CLASS+ (= one table per subclass) and +InheritanceType.JOINED+ (= one table per subclass, joined tables).
+To specify how to map the class hierarchy, the _@Inheritance_ annotation is used. Its element _strategy_ defines which type of mapping is used and can have the following values: 
+
+- InheritanceType.SINGLE_TABLE (= one table per hierarchy).
+
+- InheritanceType.TABLE_PER_CLASS (= one table per concrete class).
+
+- InheritanceType.JOINED (= one table per subclass, joined tables).
           
 As a best practice we advise you to avoid deep class hierarchies among entity classes (unless they reduce complexity).
 
