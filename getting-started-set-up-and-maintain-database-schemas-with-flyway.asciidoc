@@ -1,0 +1,152 @@
+=  Setting up and maintaining database schemas with Flyway
+
+
+ 
+https://flywaydb.org/documentation/[Flyway]  is an open-source database migration tool. It strongly favors simplicity and convention over configuration.
+
+== Why we use flyway?
+Lets say we have our application(a piece of software) and our database.Great. And this could very well all you need. 
+
+But on most projects, this simple view of the world very quickly translates into this
+
+image::images/setting-up-and-maintaining-db-schemas-with-flyway/Environments.png[,scaledwidth=80%]
+
+
+
+We not only have to deal with one copy of environment, but with several. This presents a number of challenges in maintain the databases across various environments. 
+
+Many projects still rely on manually applied sql scripts. And sometimes not even that (a quick sql statement here or there to fix a problem). And soon many questions arise:
+
+
+
+
+*   What state is the database in on this machine?
+*   Has this script already been applied or not?
+*   Has the quick fix in production been applied in test afterwards?
+*   How do you set up a new database instance?
+
+
+ 
+
+More often  the answer to these questions is: We don't know. 
+
+
+Database migrations(where flyway comes into picture) are a great way to regain control of this mess.
+
+They allow you to:
+
+
+
+* Recreate a database from scratch
+* Make it clear at all times what state a database is in
+* Migrate in a deterministic way from your current version of the database to a newer one.
+
+
+
+== How it works for setting up database and maintaining it?
+
+To know which state your database is in, Flyway relies on a special metadata table for all its internal bookkeeping. 
+
+
+
+. When you point Flyway to an empty database, it will try to locate its metadata table. 
+
+image::images/setting-up-and-maintaining-db-schemas-with-flyway/how-flyway-works-2.png[,scaledwidth=80%]
+
+
+. As the database is empty, Flyway won't find it and will create it instead.Now we have a database with a single empty table called SCHEMA_VERSION by default.
+
+image::images/setting-up-and-maintaining-db-schemas-with-flyway/how-flyway-works-1.png[,scaledwidth=80%]
+
+. Immediately afterwards Flyway will begin scanning the filesystem or the classpath of the application for migrations. They can be written in either Sql or Java. 
+
+ . The migrations are then sorted based on their version number and applied in order. As each migration gets applied, the metadata table is updated accordingly.
+
+
+image::images/setting-up-and-maintaining-db-schemas-with-flyway/how-flyway-works-3.png[,scaledwidth=80%]
+
+
+
+With the metadata and the initial state in place, we can now talk about migrating to newer versions. 
+
+Flyway will once again scan the filesystem or the classpath of the application for migrations. The migrations are checked against the metadata table. If their version number is lower or equal to the one of the version marked as current, they are ignored.
+
+And that's it! Every time the need to evolve the database arises, whether structure (DDL) or reference data (DML), simply create a new migration with a version number higher than the current one. The next time Flyway starts, it will find it and upgrade the database accordingly.
+
+A typical metadata table looks like below:
+
+
+image::images/devonfw-flyway-database-migration/schema-version-metadata-table.png[,scaledwidth=80%]
+
+
+
+== How to set up database ?
+
+
+Flyway can be used standalone or can be integrated via its api to make sure the database migration takes place on startup.
+To enable auto migration on startup (not recommended for productive environment) set the following property in the +application.properties+ file.
+[source, properties]
+----
+  database.migration.auto = true
+----
+It is set to +false+ by default via +application-default.properties+ and shall be done explicitly in production environments. For development environment it is set to +true+ in order to simplify development. This is also recommend for regular test environments.
+
+If you want to use Flyway set the following property in any case to prevent Hibernate from doing changes on the database (pre-configured by default of OASP):
+
+[source, properties]
+----
+  database.hibernate.hbm2ddl.auto=validate
+----
+
+If you want flyway to clear the database before applying the migrations (all data will be deleted), set the following property (default is false):
+
+[source, properties]
+----
+  database.migration.clean = true
+----
+
+New database migrations are added to +src/main/resources/db/migrations+. They can be http://flywaydb.org/documentation/migration/sql.html[SQL] based or http://flywaydb.org/documentation/migration/java.html[Java] based and follow this naming convention:
+V<version>\__<description> (e.g.: V0003__Add_new_table.sql). For new SQL based migrations also stick to the following conventions:
+
+* properties in camelCase
+* tables in UPPERCASE
+* ID properties with underscore (e.g. table_id)
+* constraints all UPPERCASE with 
+ * PK_{table} for primary key
+ * FK_{sourcetable}2{target} for foreign keys
+ * UC_{table}_{property} for unique constraints
+* Inserts always with the same order of properties in blocks for each table
+* Insert properties always starting with id, modificationCounter, [dtype, ] ...
+
+
+So, for example, we can see, a sample script (migration) as shown below:
+
+[source , properties]
+----
+-- *** Staffmemeber ***
+CREATE TABLE STAFFMEMBER(
+    id BIGINT NOT NULL,
+    modificationCounter INTEGER NOT NULL,
+    firstname VARCHAR(255),
+    lastname VARCHAR(255),
+    login VARCHAR(255),
+    role INTEGER
+);
+----
+
+
+It is also possible to use Flyway for test data. To do so place your test data migrations in +src/main/resources/db/test-data/+ and set property
+
+[source, properties]
+----
+  database.migration.testdata = true
+----
+Than Flyway scans the additional location for migrations and applies all in the order specified by their version. If migrations +V_01__...+ and +V_02__...+ exist and a test data migration should be applied in between you can name it +V_01_1__...+.
+
+
+
+
+ 
+
+ 
+
