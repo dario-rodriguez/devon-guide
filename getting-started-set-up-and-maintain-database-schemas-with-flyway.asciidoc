@@ -54,8 +54,6 @@ To know which state your database is in, Flyway relies on a special metadata tab
 
 image::images/setting-up-and-maintaining-db-schemas-with-flyway/how-flyway-works-2.png[,scaledwidth=80%]
 
-
-
 . As the database is empty, Flyway won't find it and will create it instead.Now we have a database with a single empty table called SCHEMA_VERSION by default.
 
 
@@ -64,6 +62,8 @@ image::images/setting-up-and-maintaining-db-schemas-with-flyway/how-flyway-works
 
 
 . Immediately afterwards Flyway will begin scanning the filesystem or the classpath of the application for migrations. They can be written in either Sql or Java. 
+
+
 . The migrations are then sorted based on their version number and applied in order. As each migration gets applied, the metadata table is updated accordingly.
 
 
