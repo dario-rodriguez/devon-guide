@@ -5,7 +5,7 @@
 https://flywaydb.org/documentation/[Flyway]  is an open-source database migration tool. It strongly favors simplicity and convention over configuration.
 
 == Why we use flyway?
-Lets say we have our software(Shiny Soft) and our database(Shiny DB). Great. And this could very well all you need. 
+Lets say we have our application(a piece of software) and our database.Great. And this could very well all you need. 
 
 But on most projects, this simple view of the world very quickly translates into this
 
@@ -45,10 +45,17 @@ They allow you to:
 
 == How it works for setting up database and maintaining it?
 
-To know which state your database is in, Flyway relies on a special metadata table for all its internal bookkeeping. Flyway creates it automatically when it is run for the first time. After that, every time a migration is applied, its details are stored in that table. Flyway can then query it to know which migrations have been applied, what the current version of the schema is and whether the last migration succeeded or failed.
+To know which state your database is in, Flyway relies on a special metadata table for all its internal bookkeeping. 
+
+Flyway creates it automatically when it is run for the first time. After that, every time a migration is applied, its details are stored in that table. Flyway can then query it to know which migrations have been applied, what the current version of the schema is and whether the last migration succeeded or failed.
 
 
 . When you point Flyway to an empty database, it will try to locate its metadata table. As the database is empty, Flyway won't find it and will create it instead.
+
+image::images/devonfw-flyway-database-migration/Environments.png[,scaledwidth=80%]
+
+
+
 . Now we have a database with a single empty table called SCHEMA_VERSION by default.
 
 . Immediately afterwards Flyway will begin scanning the filesystem or the classpath of the application for migrations. They can be written in either Sql or Java. 
