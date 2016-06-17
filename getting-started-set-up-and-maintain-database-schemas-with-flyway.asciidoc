@@ -9,7 +9,7 @@ Lets say we have our application(a piece of software) and our database.Great. An
 
 But on most projects, this simple view of the world very quickly translates into this
 
-image::images/setting-up-and-maintaining-db-schemas-with-flyway/Environments.png[,scaledwidth=80%]
+image::images/setting-up-and-maintaining-db-schemas-with-flyway/environments.png[,scaledwidth=80%]
 
 
 
