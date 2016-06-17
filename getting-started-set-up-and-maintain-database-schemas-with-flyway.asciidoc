@@ -11,6 +11,7 @@ But on most projects, this simple view of the world very quickly translates into
 
 
 image::images/setup-and-maintain-db-schemas-with-flyway/environments.png[,scaledwidth=80%]
+image::images/oasp-app-structure/app-structure.png[App structure,width=60%]
 
 
 
