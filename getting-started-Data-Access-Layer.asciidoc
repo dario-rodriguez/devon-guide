@@ -684,42 +684,85 @@ Use one of the types if you want to modify the entity later on, for read only ac
 As you might have noticed, the behavior of Hibernate deviates from what one would expect by looking at the _LockModeType_ (especially _LockModeType.READ_ should not cause a `select ... for update` to be issued). The framework actually deviates from what is http://docs.oracle.com/javaee/6/api/javax/persistence/LockModeType.html[specified] in the JPA for unknown reasons.
 
 === Database Auditing
-See link:guide-auditing[auditing guide].
+See https://github.com/oasp/oasp4j/wiki/guide-auditing[auditing guide].
 
 === Testing Entities and DAOs
-See link:guide-testing#integration-testing[testing guide].
+See https://github.com/oasp/oasp4j/wiki/guide-testing[testing guide].
 
-=== Principles
+=== Summary of principles
 We strongly recommend these principles:
 
-* Use the JPA where ever possible and use vendor (hibernate) specific features only for situations when JPA does not provide a solution. In the latter case consider first if you really need the feature.
+* Use the JPA where ever possible and use vendor (Hibernate) specific features only for situations when JPA does not provide a solution. In the latter case consider first if you really need the feature.
 * Create your entities as simple POJOs and use JPA to annotate the getters in order to define the mapping.
 * Keep your entities simple and avoid putting advanced logic into entity methods.
 
 == Database Configuration
-The link:guide-configuration[configuration] for spring and hibernate is already provided by OASP in our sample application and the application template. So you only need to worry about a few things to customize.
+The https://github.com/oasp/oasp4j/wiki/guide-configuration[configuration] for Spring and Hibernate is already provided by OASP4J in our sample application and the application template. So you only need to worry about a few things to customize.
 
 === Database System and Access
-Obviously you need to configure which type of database you want to use as well as the location and credentials to access it. The defaults are configured in +application-default.properties+ that is bundled and deployed with the release of the software. It should therefore contain the properties as in the given example:
+Obviously you need to configure which type of database you want to use as well as the location and credentials to access it. To configure a new database we must follow next steps 
 
-[source, properties]
-----
-  database.url=jdbc:postgresql://database.enterprise.com/app
-  database.user.login=appuser01
-  database.hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
-  database.hibernate.hbm2ddl.auto=validate
-----
 
-The environment specific settings (especially passwords) are configured by the operators in +application.properties+. For further details consult the link:guide-configuration[configuration guide]. It can also override the default values. The relevant configuration properties can be seen by the following example for the development environment (located in +src/test/resources+):
 
-[source, properties]
-----
-  database.url=jdbc:postgresql://localhost/app
-  database.user.password=************
-  database.hibernate.hbm2ddl.auto=create
-----
 
-For further details about +database.hibernate.hbm2ddl.auto+ please see https://docs.jboss.org/hibernate/orm/3.3/reference/en-US/html/session-configuration.html#configuration-misc-properties[here]. For production and acceptance environments we use the value +validate+ that should be set as default.
+
+
+==== Add dependencies
+Add Dependency for database in pom.xml file. For e.g if we are configuring mysql database in our application we need to add below dependency in pom.xml file.
+
+MySQL:
+ 
+[source]
+<dependency>
+ 	<groupId>mysql</groupId>
+ 	<artifactId>mysql-connector-java</artifactId>
+</dependency>
+
+*Note*: this driver should NOT be used in a production environment because of license issues. See down for an alternative.
+
+==== Create a Spring Profile
+
+Spring Profile provides a way to segregate parts of your application configuration and make it only available in certain environments. In our case, we're going to create a profile to our database configuration.
+
+Create a file in _src/resources/config_ named _application-{PROFILE_NAME}.properties_. The name of the profile isn't important, for this example we named it _application-mysql.properties_.
+
+==== Set the database configuration
+
+Add database configuration in _application-{PROFILE_NAME}.properties_ file. For e.g
+
+MySQL:
+[source]
+spring.jpa.database=mysql
+spring.datasource.url=jdbc:mysql://localhost:3306/restaurant?user=root&password=root&connectTimeout=10000&socketTimeout=10000&autoReconnect=true
+spring.jpa.database-platform=org.hibernate.dialect.MySQL5Dialect
+spring.datasource.username=root
+spring.datasource.password=root
+spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+flyway.locations=classpath:db/migration,classpath:db/migration/mysql
+
+==== Activate the new profile
+
+To activate new profile update _src/main/resources/application.properties_ file. Set _spring.profiles.active= profile-name_. In our example profile-name is mysql. 
+ 
+MySQL:
+[source]
+spring.profiles.active=mysql 
+
+==== Update database script files
+
+Devonfw has https://flywaydb.org/getstarted/[flyway] configured. Flyway is an open-source database migration tool.It strongly favors simplicity and convention over configuration.Flyway will search for script files for corresponding database. It will parse the script files and create or update corresponding tables in a database.
+
+Generally, DDL Script file is present at location _db/migration/database/1.0_. For e.g _db/migration/mysql/1.0_
+And other script files are present at location _db/migration_.
+Make sure script files are error free.
+We can set customized location for migration scripts. We need to add _flyway.locations_ property in _application.properties_. For example
+
+[source]
+flyway.locations=classpath:db/migration,classpath:db/migration/mysql
+
+Here we can mention classpath or filesystems path.
+
+You can see more examples of database configurations https://github.com/devonfw/devon/wiki/Database-Configuration-Guide[here]
 
 === Database Migration
 See link:guide-database-migration[database migration guide].
