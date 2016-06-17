@@ -762,7 +762,7 @@ flyway.locations=classpath:db/migration,classpath:db/migration/mysql
 
 Here we can mention classpath or filesystems path.
 
-You can see more examples of database configurations https://github.com/devonfw/devon/wiki/Database-Configuration-Guide[here]
+You can see more examples of database configurations link:getting-started-database-configuration.asciidoc[here]
 
 === Database Migration
 See https://github.com/oasp/oasp4j/wiki/guide-database-migration[database migration guide].
