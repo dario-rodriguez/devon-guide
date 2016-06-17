@@ -10,8 +10,7 @@ Lets say we have our application(a piece of software) and our database.Great. An
 But on most projects, this simple view of the world very quickly translates into this
 
 
-image::images/setup-and-maintain-db-schemas-with-flyway/environments.png[,scaledwidth=80%]
-image::images/oasp-app-structure/app-structure.png[App structure,width=60%]
+image::images/setup-and-maintain-db-schemas-with-flyway/environments.jpeg[,scaledwidth=80%]
 
 
 
@@ -54,18 +53,18 @@ To know which state your database is in, Flyway relies on a special metadata tab
 . When you point Flyway to an empty database, it will try to locate its metadata table. 
 
 
-image::images/setup-and-maintain-db-schemas-with-flyway/how-flyway-works-2.png[,scaledwidth=80%]
+image::images/setup-and-maintain-db-schemas-with-flyway/how-flyway-works-2.jpeg[,scaledwidth=80%]
 
 . As the database is empty, Flyway won't find it and will create it instead.Now we have a database with a single empty table called SCHEMA_VERSION by default.
 
 
-image::images/setup-and-maintain-db-schemas-with-flyway/how-flyway-works-1.png[,scaledwidth=80%]
+image::images/setup-and-maintain-db-schemas-with-flyway/how-flyway-works-1.jpeg[,scaledwidth=80%]
 
 . Immediately afterwards Flyway will begin scanning the filesystem or the classpath of the application for migrations. They can be written in either Sql or Java. 
 . The migrations are then sorted based on their version number and applied in order. As each migration gets applied, the metadata table is updated accordingly.
 
 
-image::images/setup-and-maintain-db-schemas-with-flyway/how-flyway-works-3.png[,scaledwidth=80%]
+image::images/setup-and-maintain-db-schemas-with-flyway/how-flyway-works-3.jpeg[,scaledwidth=80%]
 
 With the metadata and the initial state in place, we can now talk about migrating to newer versions. 
 
@@ -76,7 +75,7 @@ And that's it! Every time the need to evolve the database arises, whether struct
 A typical metadata table looks like below:
 
 
-image::images/devonfw-flyway-database-migration/schema-version-metadata-table.png[,scaledwidth=80%]
+image::images/setup-and-maintain-db-schemas-with-flyway/schema-version-metadata-table.png[,scaledwidth=80%]
 
 
 
