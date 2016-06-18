@@ -4,9 +4,9 @@ The OASP4J archetype generates a Maven Modules Project. It has 3 Maven modules a
 
 * https://github.com/devonfw/devon-guide/wiki/getting-started-oasp-app-structure#core-module[xxx-core]: This Maven Module Project contains the different Java classes in our application and the application configuration (beans definition, security configuration, access to database configuration, etc).
 
-* [xxx-server]: This module is responsible for packaging the application as a WAR file. It has a dependency on the core module.
+* xxx-server: This module is responsible for packaging the application as a WAR file. It has a dependency on the core module.
 
-* [pom.xml]:
+* pom.xml:
 
 ** Properties definition: Spring-boot version, Java version, server port, database port.
 
@@ -16,6 +16,7 @@ The OASP4J archetype generates a Maven Modules Project. It has 3 Maven modules a
 
 ** Maven plugin compiler to compile the application to desired Java version.
 
+The application is contained in the *core* module, so we are going to see what is contained in this module.
 
 = Core Module
 
@@ -61,6 +62,31 @@ Contains service layer of OASP4J application. The service layer is responsible t
 
 == Resources 
 
+The resources package contain the data of some specific functionality of the application. This data, can be configuration data for, e.g, database, security or another data configuration that can be accessed by the application.
+
+This package is divide the config, db, META-INF and static folder. Also we have an *application.propertie* file in this package. You can see more about OASP4 Spring Boot configuration https://github.com/devonfw/devon-guide/wiki/getting-started-understanding-oasp4j-spring-boot-config[here]. 
+
+===== config
+
+In this folder we have largely the xml configuration file of the application. This application contains also some application.properties files that represent the context of the application when we run it in the embedded Tomcat server. You can see more about the modes of run an application https://github.com/devonfw/devon-guide/wiki/getting-started-running-sample-application[here].
+
+The *cofing* folder is divided in the next sub-folders
+
+*app
+
+** batch: contains the configuration of the batch process. In the sample application, for example, we have the bill exports and products to import.
+
+** common: contains the Spring bean configuration of Dozer. You can see more about OASP4j Bean-Mapping https://github.com/oasp/oasp4j/wiki/guide-beanmapping[here]. 
+
+
+===== db
+
+
+===== META-INF
+
+===== static
+
+===== application.properties
 
 
 image::images/oasp-app-structure/config-structure.png[App structure,width=40%]
