@@ -70,26 +70,36 @@ This package is divide the config, db, META-INF and static folder. Also we have 
 
 In this folder we have largely the xml configuration file of the application. This application contains also some application.properties files that represent the context of the application when we run it in the embedded Tomcat server. You can see more about the modes of run an application https://github.com/devonfw/devon-guide/wiki/getting-started-running-sample-application[here].
 
-The *cofing* folder is divided in the next sub-folders
+image::images/oasp-app-structure/config-structure.png[App structure,width=40%]
 
-*app
+The *cofing* folder have a folder called *app* this folder is divided in the next sub-folders:
 
 ** batch: contains the configuration of the batch process. In the sample application, for example, we have the bill exports and products to import.
 
 ** common: contains the Spring bean configuration of Dozer. You can see more about OASP4j Bean-Mapping https://github.com/oasp/oasp4j/wiki/guide-beanmapping[here]. 
 
+** gui: this folder contains the *dispatcher-servlet.xml*. The DispatcherServlet will take help from ViewResolver to pickup the defined view for the request.
+
+** security: contains the access-control-schema.xml that contains the definition of groups/roles and permissions of the application.
+
+** websocket: contains the scan component package definition for websockects.
 
 ===== db
 
+This folder contains the sql files that contains the script templates to create the database schema and tables definition.
 
 ===== META-INF
 
+Contains the *orm.xml* file that allow us to declare name queries that can be called in the code of the application to do an specific sql queries.
+
 ===== static
+
+Contains the *index.html* file of the application. This view contains ,by default, a simple logout button and a the link to a list of services of the application. 
 
 ===== application.properties
 
+Contains the specific properties values of the application. This is taking in to account by the application when this is running in an external server (not the embedded).
 
-image::images/oasp-app-structure/config-structure.png[App structure,width=40%]
 
 
 == Test
