@@ -16,8 +16,6 @@ The OASP4J archetype generates a Maven Modules Project. It has 3 Maven modules a
 
 ** Maven plugin compiler to compile the application to desired Java version.
 
-The application is contained in the *core* module, so we are going to see what is contained in this module.
-
 = Core Module
 
 Core module contains the base classes and the base configuration for the application. It's divide in three package: Java, Resources and Test. 
@@ -104,5 +102,9 @@ Contains the specific properties values of the application. This is taking in to
 
 == Test (3)
 
+The package test contains all we need to test the application. It's divided in the next sub packages:
 
+** java: contains the Unit Test of the application. Allow us to keep a control of the right functionality of the application. You can see more about the Unit Test and TDD methodology https://github.com/devonfw/devon-guide/wiki/getting-started-writing-unittest-cases[here] and https://github.com/oasp/oasp4j/wiki/guide-testing[here]
+
+** resources: contains the configuration and data we need to run the test in of the application.
 
