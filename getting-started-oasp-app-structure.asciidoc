@@ -98,6 +98,7 @@ Contains the *index.html* file of the application. This view contains ,by defaul
 
 Contains the specific properties values of the application. This is taking in to account by the application when this is running in an external server (not the embedded).
 
+As you can see we have an application-<name>.properties, this kind of properties are called profile and we can active a determinate profile in application.properties depending on our needs. You can see more about Spring profiles http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-profiles.html[here]. Also you can see how to create a new database profile in OASP4j https://github.com/devonfw/devon/wiki/Database-Configuration-Guide#create-a-spring-profile[here].
 
 
 == Test (3)
@@ -107,4 +108,3 @@ The package test contains all we need to test the application. It's divided in t
 ** java: contains the Unit Test of the application. Allow us to keep a control of the right functionality of the application. You can see more about the Unit Test and TDD methodology https://github.com/devonfw/devon-guide/wiki/getting-started-writing-unittest-cases[here] and https://github.com/oasp/oasp4j/wiki/guide-testing[here]
 
 ** resources: contains the configuration and data we need to run the test in of the application.
-
