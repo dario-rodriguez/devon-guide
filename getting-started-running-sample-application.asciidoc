@@ -39,7 +39,7 @@ TODO
 
 * In the wizard panel you need to configure the server as Tomcat 8 and press Next. 
 
-It's possible that Eclipse ask you for the path of Tomcat 8. If you don't have Tomcat 8 in your distribution of Devonfw you can download it http://apache.rediris.es/tomcat/tomcat-8/v8.0.33/bin/apache-tomcat-8.0.33.zip[here] and extract the zip in the software folder of your distribution. 
+It's possible that Eclipse ask you for the path of Tomcat 8. If you don't have Tomcat 8 in your distribution of Devonfw you can download it https://tomcat.apache.org/download-80.cgi[here] and extract the zip in the software folder of your distribution. 
 
 === Step 3: Add the application in the server
 
