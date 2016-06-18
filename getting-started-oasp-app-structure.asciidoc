@@ -26,7 +26,7 @@ image::images/oasp-app-structure/app-structure.png[App structure,width=60%]
 
 Now, we are going to describe each of them. 
 
-== Java 
+== Java (1)
 
 The package java contains all Java File of the application, where we have the application and the configuration of it. This package contains the SpringBootApp and SpringBootBatchApp (main), the package general and all entity managements that we are going to create for the application. 
 
@@ -60,7 +60,7 @@ Contains the logic layer of OASP4J application. The logic layer is the heart of 
 
 Contains service layer of OASP4J application. The service layer is responsible to expose functionality of the logical layer to external consumers over a network via technical protocols. You can see more about it https://github.com/oasp/oasp4j/wiki/guide-service-layer[here].
 
-== Resources 
+== Resources (2)
 
 The resources package contain the data of some specific functionality of the application. This data, can be configuration data for, e.g, database, security or another data configuration that can be accessed by the application.
 
@@ -102,7 +102,7 @@ Contains the specific properties values of the application. This is taking in to
 
 
 
-== Test
+== Test (3)
 
 
 
