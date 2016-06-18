@@ -1,2 +1,57 @@
 = Running Sample Application
 
+We have to ways to run the restaurant sample application or whatever other OASP4J application based on Spring boot (version 2.0.0 and above):
+
+== Embedded Tomcat server
+
+All Spring boot application have their own embedded Tomcat server. This feature help us to deploy the application in the develop time without the need to create an server. To run the application with this mode you need to open Eclipse of your Devonfw distribution and follow this steps
+
+=== Step 1: Import the project
+
+TODO
+
+=== Step 2: Run the application
+
+TODO
+
+You can see it in this url
+
+[source]
+----
+http://localhost:8081/oasp4j-sample-server/
+----
+
+As you can see, this embedded server is a very comfortable way to start the application. When you run the application with this server, you need to take in to account that the application is useing the properties of the *src/main/resources/config* folder.
+
+== External Tomcat server
+
+Normally we want to deploy our application in a external server, so we can do this on Eclipse, creating a new server. The steps to run an OASP4J application in an external Tomcat server are the next:
+
+=== Step 1: Import the project
+
+TODO
+
+=== Step 2: Create new Tomcat server
+
+* Open the Server view in Eclipse if you don't have it opened (main menu -> Windows -> Show View -> Servers). 
+
+* In servers view do right click -> New -> Server 
+
+* In the wizard panel you need to configure the server as Tomcat 8 and press Next. 
+
+It's possible that Eclipse ask you for the path of Tomcat 8. If you don't have Tomcat 8 in your distribution of Devonfw you can download it http://apache.rediris.es/tomcat/tomcat-8/v8.0.33/bin/apache-tomcat-8.0.33.zip[here] and extract the zip in the software folder of your distribution. 
+
+=== Step 3: Add the application in the server
+
+Now we need to go to the Server View and do right click in your new Tomcat 8 server -> Add and Remove... -> add the oasp4j-sample-server -> Finish.
+
+=== Step 4: Run the server
+
+Now we need to press Run or Debugg in the server view with our new Tomcat server selected. And the application will be deployed by the server. You can see it in this url
+
+[source]
+----
+http://localhost:8080/oasp4j-sample-server/
+----
+
+As you can see the port is 8080, but you can modify this properties in the Tomcat server properties or in *src/main/resources/application.properties*. You need to keep into account that this are the properties that the application will use if you deploy the application in the context of an external Tomcat server.
