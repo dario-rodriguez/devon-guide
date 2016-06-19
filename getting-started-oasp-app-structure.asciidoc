@@ -2,7 +2,7 @@
 
 The OASP4J archetype generates a Maven Modules Project. It has 3 Maven modules and a pom.xml file:
 
-* https://github.com/devonfw/devon-guide/wiki/getting-started-oasp-app-structure#core-module[xxx-core]: This Maven Module Project contains the different Java classes in our application and the application configuration (beans definition, security configuration, access to database configuration, etc).
+* xxx-core: This Maven Module Project contains the different Java classes in our application and the application configuration (beans definition, security configuration, access to database configuration, etc).
 
 * xxx-server: This module is responsible for packaging the application as a WAR file. It has a dependency on the core module.
 
