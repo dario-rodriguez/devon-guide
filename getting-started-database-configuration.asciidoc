@@ -1,6 +1,7 @@
 = Database configuration
 
 In this tutorial we are going to configure our application to connect with a real database of our choice. Devon give us a very simple configuration, so we just need to add the dependency of the database libraries, create a profile, set the information of our database in the profile and activate it, update the script files , if any, as per DB syntax.
+All these steps to be done in generated(through oasp archetype) xxx-core project.
 
 == Add dependencies
 Add Dependency for database in pom.xml file. For e.g If we are configuring mysql databse in our application, then need to add below dependency in pom.xml file.
