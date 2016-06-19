@@ -27,6 +27,8 @@ All Spring boot application have their own embedded Tomcat server. This feature 
 
 === Step 1: Import the project
 
+First of all we need to import our Sample Application into our Eclipse following the next steps:
+
 1. Open Eclipse by executing "eclipse-main.bat"
 
 1. Select "File - Import"
@@ -43,23 +45,13 @@ image::images/running-sample-application/running_sample_application_2_select_fol
 +
 image::images/running-sample-application/running_sample_application_3_import_maven.png[,scaledwidth=50%]
 
-1. Select "File - Import"
-
-1. Select "Maven - Existing Maven Projects"
-
-1. Select the directory "workspaces/examples/devon"
-+
-image::images/tutorial_running_sample_2_select_folder.png[,scaledwidth=80%]
-
-1. Press "Finish"
-+
-image::images/tutorial_running_sample_3_import_maven.png[,scaledwidth=80%]
-
 1. Wait for Eclipse to finish importing the sample project. This process might take several minutes, depending on the speed of your internet connection.
 
 === Step 2: Run the application
 
-TODO
+The embedded Tomcat server of the Spring Boot Application can be running wit a simple right click on the Java file *oasp4j-sample-core/src/main/java/io/oasp/gastronomy/restaurant/SpringBootApp.java* > Run as... > 2 Java Application
+
+image::images/running-sample-application/running_sample_application_1_run_embedded_server.png[,scaledwidth=50%]
 
 You can see it in this URL
 
