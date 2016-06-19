@@ -2,7 +2,7 @@
 
 Devonfw comes with a sample application, which showcases the most common features of an OASP4J application and its proposed best practices. The sample application also serves as a final test to make sure that your environment is setup correctly. 
 
-We are going to learn how download the sample application and how run it.
+We are going to learn how download the sample application and how run it. The following steps assume that you have already setup your Devonfw environment.
 
 = Downloading Sample Application
 
@@ -27,7 +27,35 @@ All Spring boot application have their own embedded Tomcat server. This feature 
 
 === Step 1: Import the project
 
-TODO
+1. Open Eclipse by executing "eclipse-main.bat"
+
+1. Select "File - Import"
+
+1. Select "Maven - Existing Maven Projects"
++
+image::images/tutorial_running_sample_1_import_maven.png[,scaledwidth=80%]
+
+1. Select the directory "workspaces/examples/oasp4j/oasp4j-samples
++
+image::images/tutorial_running_sample_2_select_folder_oasp.png[,scaledwidth=80%]
+
+1. Press "Finish"
++
+image::images/tutorial_running_sample_3_import_maven_oasp.png[,scaledwidth=80%]
+
+1. Select "File - Import"
+
+1. Select "Maven - Existing Maven Projects"
+
+1. Select the directory "workspaces/examples/devon"
++
+image::images/tutorial_running_sample_2_select_folder.png[,scaledwidth=80%]
+
+1. Press "Finish"
++
+image::images/tutorial_running_sample_3_import_maven.png[,scaledwidth=80%]
+
+1. Wait for Eclipse to finish importing the sample project. This process might take several minutes, depending on the speed of your internet connection.
 
 === Step 2: Run the application
 
