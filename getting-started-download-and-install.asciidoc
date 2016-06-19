@@ -80,6 +80,6 @@ Enter your proxy configuration
 
 image::images/download-install/devon_guide_environment_setup_9_proxy_eclipse.png[,scaledwidth=80%]
 
-1. You now have a working Devonfw environment.
-+
+You now have a working Devonfw environment.
+
 You can find example projects inside `workspaces\examples`. In the next section you will learn how to run the Devonfw example application.
