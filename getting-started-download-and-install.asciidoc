@@ -34,7 +34,7 @@ image::images/download-install/devon_guide_environment_setup_2_create_workspace.
 
 1. If you use a proxy to connect to the Internet, you have to manually configure it in the following tools:
 
-* Maven
+*Maven*
 
 Open the file "conf/.m2/settings.xml" in an editor
 
@@ -48,7 +48,7 @@ image::images/download-install/devon_guide_environment_setup_4_proxy_maven.png[,
 
 If your proxy does not require authentication, simply remove the <username> and <password> lines.
 
-* Sencha Cmd
+*Sencha Cmd*
 
 Open the file software/Sencha/Cmd/default/sencha.cfg in an editor
 
@@ -64,7 +64,7 @@ image::images/download-install/devon_guide_environment_setup_6_proxy_sencha.png[
 
 If your proxy does not require authentication, simply remove the "-Dhttp.proxyUser", "-DhttpProxyPassword", "-Dhttps.proxyUser" and "-Dhttps.proxyPassword" parameters.
 
-* Eclipse
+*Eclipse*
 
 Open eclipse by executing "eclipse-main.bat".
 
