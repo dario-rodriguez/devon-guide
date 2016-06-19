@@ -64,7 +64,7 @@ As you can see, this embedded server is a very comfortable way to start the appl
 
 == External Tomcat server
 
-Normally we want to deploy our application in a external server, so we can do this on Eclipse, creating a new server. The steps to run an OASP4J application in an external Tomcat server are the 
+Normally we want to deploy our application in a external server, so we can do this on Eclipse, creating a new server. The steps to run an OASP4J application in an external Tomcat server are the next:
 
 === Step 1: Create new Tomcat server
 
