@@ -142,6 +142,8 @@ It is also possible to use Flyway for test data. To do so place your test data m
 ----
 Than Flyway scans the additional location for migrations and applies all in the order specified by their version. If migrations +V_01__...+ and +V_02__...+ exist and a test data migration should be applied in between you can name it +V_01_1__...+.
 
+For configuring database please refer https://github.com/devonfw/devon-guide/wiki/getting-started-database-configuration[Database Configuration].
+
 
 
 
