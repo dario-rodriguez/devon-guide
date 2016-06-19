@@ -33,15 +33,15 @@ All Spring boot application have their own embedded Tomcat server. This feature 
 
 1. Select "Maven - Existing Maven Projects"
 +
-image::images/tutorial_running_sample_1_import_maven.png[,scaledwidth=80%]
+image::images/running-sample-application/running_sample_application_1_import_maven_prject.png[,scaledwidth=80%]
 
-1. Select the directory "workspaces/examples/oasp4j/oasp4j-samples
+1. Select the directory "workspaces/examples/oasp4j/samples
 +
-image::images/tutorial_running_sample_2_select_folder_oasp.png[,scaledwidth=80%]
+image::images/running-sample-application/running_sample_application_2_import_maven_prject.png[,scaledwidth=80%]
 
 1. Press "Finish"
 +
-image::images/tutorial_running_sample_3_import_maven_oasp.png[,scaledwidth=80%]
+image::images/running-sample-application/running_sample_application_3_import_maven_prject.png[,scaledwidth=80%]
 
 1. Select "File - Import"
 
