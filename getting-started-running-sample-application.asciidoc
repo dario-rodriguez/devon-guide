@@ -37,11 +37,11 @@ image::images/running-sample-application/running_sample_application_1_import_mav
 
 1. Select the directory "workspaces/examples/oasp4j/samples
 +
-image::images/running-sample-application/running_sample_application_2_import_maven_prject.png[,scaledwidth=80%]
+image::images/running-sample-application/running_sample_application_2_select_folder_oasp.png[,scaledwidth=80%]
 
 1. Press "Finish"
 +
-image::images/running-sample-application/running_sample_application_3_import_maven_prject.png[,scaledwidth=80%]
+image::images/running-sample-application/running_sample_application_3_import_maven.png[,scaledwidth=80%]
 
 1. Select "File - Import"
 
