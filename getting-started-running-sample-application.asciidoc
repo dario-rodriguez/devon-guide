@@ -39,11 +39,11 @@ image::images/running-sample-application/running_sample_application_1_import_mav
 
 1. Select the directory "workspaces/examples/oasp4j/samples
 +
-image::images/running-sample-application/running_sample_application_2_select_folder_oasp.png[,scaledwidth=50%]
+image::images/running-sample-application/running_sample_application_2_select_folder_oasp.png[,scaled=50%]
 
 1. Press "Finish"
 +
-image::images/running-sample-application/running_sample_application_3_import_maven.png[,scaledwidth=50%]
+image::images/running-sample-application/running_sample_application_3_import_maven.png[,scaled=50%]
 
 1. Wait for Eclipse to finish importing the sample project. This process might take several minutes, depending on the speed of your internet connection.
 
@@ -51,7 +51,7 @@ image::images/running-sample-application/running_sample_application_3_import_mav
 
 The embedded Tomcat server of the Spring Boot Application can be running wit a simple right click on the Java file *oasp4j-sample-core/src/main/java/io/oasp/gastronomy/restaurant/SpringBootApp.java* > Run as... > 2 Java Application
 
-image::images/running-sample-application/running_sample_application_1_run_embedded_server.png[,scaledwidth=50%]
+image::images/running-sample-application/running_sample_application_1_run_embedded_server.png[,scaled=50%]
 
 You can see it in this URL
 
