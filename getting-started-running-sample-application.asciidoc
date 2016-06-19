@@ -53,7 +53,7 @@ The embedded Tomcat server of the Spring Boot Application can be running wit a s
 
 image::images/running-sample-application/running_sample_application_1_run_embedded_server.png[,scaledWidth=50%]
 
-You can see it in this URL
+Now you can open you favorite browser and see the Sample Application running in the next URL  
 
 [source]
 ----
@@ -64,29 +64,35 @@ As you can see, this embedded server is a very comfortable way to start the appl
 
 == External Tomcat server
 
-Normally we want to deploy our application in a external server, so we can do this on Eclipse, creating a new server. The steps to run an OASP4J application in an external Tomcat server are the next:
+Normally we want to deploy our application in a external server, so we can do this on Eclipse, creating a new server. The steps to run an OASP4J application in an external Tomcat server are the 
 
-=== Step 1: Import the project
-
-TODO
-
-=== Step 2: Create new Tomcat server
+=== Step 1: Create new Tomcat server
 
 * Open the Server view in Eclipse if you don't have it opened (main menu -> Windows -> Show View -> Servers). 
 
 * In servers view do right click -> New -> Server 
 
+image::images/running-sample-application/running_sample_application_1_new_server.png[,scaledWidth=50%]
+
 * In the wizard panel you need to configure the server as Tomcat 8 and press Next. 
+
+image::images/running-sample-application/running_sample_application_2_new_server.png[,scaledWidth=50%]
 
 It's possible that Eclipse ask you for the path of Tomcat 8. If you don't have Tomcat 8 in your distribution of Devonfw you can download it https://tomcat.apache.org/download-80.cgi[here] and extract the zip in the software folder of your distribution. 
 
-=== Step 3: Add the application in the server
+=== Step 2: Add the application in the server
 
 Now we need to go to the Server View and do right click in your new Tomcat 8 server -> Add and Remove... -> add the oasp4j-sample-server -> Finish.
 
-=== Step 4: Run the server
+image::images/running-sample-application/running_sample_application_3_new_server.png[,scaledWidth=50%]
+  
+=== Step 3: Run the server
 
-Now we need to press Run or Debugg in the server view with our new Tomcat server selected. And the application will be deployed by the server. You can see it in this url
+Now we need to press Run or Debugg in the Server View with our new Tomcat server selected. And the application will be deployed by the server. 
+
+image::images/running-sample-application/running_sample_application_4_new_server.png[,scaledWidth=50%]
+
+Now you can open you favorite browser and see the Sample Application running in the next URL 
 
 [source]
 ----
