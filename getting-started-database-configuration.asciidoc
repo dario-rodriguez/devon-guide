@@ -69,10 +69,10 @@ Here we can mention classpath or filesystems path.
 
 image::images/database-configuration/db-config4.png[,scaledwidth=80%]
 
-Once these all steps are done, start the db server, in our case (MySQL server) and run the application.Flyway will run migrations as we have set 
+Once these all steps are done, start the db server, in our case (MySQL server) and run the application.Flyway will run migrations on application startuo, as we have set "database.migration.auto=true" in application.properties file, while setting up flyway for our application.It should not be set to true in production environment.
 
 
-== Database configurations
+== Further Details on Database configurations
 === MySQL
 
 The use of the MySQL is already being illustrated in the above examples. However, as mentioned, the GPL licensed (native) MySQL driver should *not* be used in a production environment. As an alternative, the free and liberally licensed "mariaDB" (a MySQL clone) library should be used. 
