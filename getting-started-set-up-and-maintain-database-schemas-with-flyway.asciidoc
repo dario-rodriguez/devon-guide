@@ -79,7 +79,7 @@ image::images/setup-and-maintain-db-schemas-with-flyway/schema-version-metadata-
 
 
 
-== How to set up database ?
+== How to set up flyway in the project ?
 
 
 Flyway can be used standalone or can be integrated via its api to make sure the database migration takes place on startup.
