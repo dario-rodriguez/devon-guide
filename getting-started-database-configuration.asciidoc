@@ -57,7 +57,7 @@ image::images/database-configuration/db-config3.png[,scaledwidth=80%]
 
 Devon have https://flywaydb.org/getstarted/[flyway] configured. Flyway is an open-source database migration tool.It strongly favors simplicity and convention over configuration.Flyway will search for script files for corresponding database. It will parse the script files and create or update corresponding tables in a database.
 
-Generally, DDL Script file is present at location db/migration/database/1.0. For e.g db/migration/mysql/1.0
+Generally, DDL Script file is present at location db/migration/database/1.0. For e.g db/migration/mysql/1.0.This location is the one we configured in the first step in file application-{PROFILE_NAME}.properties .
 And other script files are present at location db/migration.
 Make sure script files are error  free.
 We can set customized location for migration scripts. We need to add flyway.locations property in application.properties. For example
@@ -66,6 +66,11 @@ We can set customized location for migration scripts. We need to add flyway.loca
 flyway.locations=classpath:db/migration,classpath:db/migration/mysql
 
 Here we can mention classpath or filesystems path.
+
+image::images/database-configuration/db-config4.png[,scaledwidth=80%]
+
+Once these all steps are done, start the db server, in our case (MySQL server) and run the application.Flyway will run migrations as we have set 
+
 
 == Database configurations
 === MySQL
