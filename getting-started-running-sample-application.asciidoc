@@ -99,4 +99,4 @@ Now you can open you favorite browser and see the Sample Application running in 
 http://localhost:8080/oasp4j-sample-server/
 ----
 
-As you can see the port is 8080, but you can modify this properties in the Tomcat server properties or in *src/main/resources/application.properties*. You need to keep into account that this are the properties that the application will use if you deploy the application in the context of an external Tomcat server.
+As you can see the port is 8080, but you can modify this properties in the Tomcat server properties or in *src/main/resources/application.properties*. You need to take into account that this are the properties that the application will use if you deploy the application in the context of an external Tomcat server.
