@@ -32,7 +32,7 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - link:getting-started-Data-Access-Layer[Data Access Layer] (TO EVALUATE)
 
-- link:getting-started-Crud-Operations[CRUD operations and DAO Implementation] (TO EVALUATE)
+- link:getting-started-crud-operations[CRUD operations and DAO Implementation] (TO EVALUATE)
 
 - link:getting-started-transfer-objects[Transfer Objects : ETOs and CTOs]
 
