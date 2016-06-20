@@ -41,6 +41,8 @@ To get access to the +BeanMapper+ we use this dependency in our POM:
     </dependency>
 ----
 So,  (oasp4j-beanmapping) uses dozer as dependency in its pom.xml file as shown below.
+
+
 image::images/bean-mapping-using-dozer/dozer1.png[,scalewidth=80%]
 
 == Bean-Mapper Usage
@@ -55,5 +57,6 @@ return getBeanMapper().map(person, PersonTo.class);
 So, in the above piece of code, getBeanMapper() method provides an mapper(dozer) instance , and when map () method is called, it maps PersonEntity(source object) to PersonTo(DEstination object).
 There is also additional support for mapping entire collections.
 
-Dozer has been configured as Spring bean in devonfw.
+Dozer has been configured as Spring bean in devonfw, using dependency injection.This is done in +BeanDozerConfiguration.java+ which is present in resources/common/configuration folder of xxx-core project, created using oasp4j template server archetype.
+In this class, we can give path of mapping file (dozer-mapping.xml), which is generally placed at config/app/common/dozer-mapping.xml.
 For more info on dozer, refer http://dozer.sourceforge.net/documentation/usage.html[here].
