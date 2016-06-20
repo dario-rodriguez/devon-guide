@@ -1,7 +1,7 @@
 :toc: macro
 toc::[]
 
-= Creating a CRUD functionality for an entity
+= Create CRUD functionality for an entity
 
 In this tutorial we are going to create an entity for the application and provide services for the typical Create, Read, Update and Delete operations for that entity.
 
