@@ -36,7 +36,7 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - link:getting-started-transfer-objects[Transfer Objects : ETOs and CTOs]
 
-- link:getting-started-logic-layer[Implementing Logic Layer: Manager Classes, Use cases, Business Logic]
+- link:getting-started-logic-layer[Logic Layer]
 
 - [Dozer](https://github.com/devonfw/devon/wiki/devon-guide-dozer) [OASP = [1](https://github.com/oasp/oasp4j/wiki/guide-beanmapping)]
 
