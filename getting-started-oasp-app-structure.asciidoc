@@ -12,7 +12,7 @@ The OASP4J archetype generates a Maven Modules Project. It has 3 Maven modules a
 
 ** Modules definition: Imports for 3 modules (core, EAR and server).
 
-** Dependency Management: Spring-boot, OASP4J-BOM and JUnit dependencies. Also we can include Devonfw-BOM and Devonfw dependencies.
+** Dependency Management: Spring-boot, OASP4J-BOM and JUnit dependencies. Also we can include Devonfw-BOM and Devonfw modules dependency.
 
 ** Maven plugin compiler to compile the application to desired Java version.
 
