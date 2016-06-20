@@ -18,7 +18,7 @@ The OASP4J archetype generates a Maven Modules Project. It has 3 Maven modules a
 
 = Core Module
 
-Core module contains the base classes and the base configuration for the application. It's divide in three package: Java, Resources and Test. 
+Core module contains the base classes and the base configuration for the application. It’s divided in three package: Java, Resources and Test.
 
 image::images/oasp-app-structure/app-structure.png[App structure,width=60%]
 
@@ -26,7 +26,7 @@ Now, we are going to describe each of them.
 
 == Java *(1)*
 
-The package java contains all Java File of the application, where we have the application and the configuration of it. This package contains the SpringBootApp and SpringBootBatchApp (main), the package general and all entity managements that we are going to create for the application *(3)*. You can see more about the last one https://github.com/oasp/oasp4j/wiki/tutorial-crud[here]. 
+The package java contains all Java File that implement the application and the configuration of it.
 
 === SpringBootApp and SpringBootBatchApp *(4)*
 
@@ -57,7 +57,11 @@ Contains the logic layer of OASP4J application. The logic layer is the heart of 
 ===== Service.impl.rest
 
 Contains service layer of OASP4J application. The service layer is responsible to expose functionality of the logical layer to external consumers over a network via technical protocols. You can see more about it https://github.com/oasp/oasp4j/wiki/guide-service-layer[here].
+ 
+==== Management packages *(3)*
 
+This package contains the Entities, DAOs, ETOs, CTOs, REST services, webservices, etc., definitely a CRUD operators of the application. You can see more about how to create a CRUD operators https://github.com/devonfw/devon-guide/wiki/getting-started-Crud-Operations[here].
+ 
 == Resources *(5)*
 
 The resources package contain the data of some specific functionality of the application. This data, can be configuration data for, e.g, database, security or another data configuration that can be accessed by the application.
