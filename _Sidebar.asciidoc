@@ -17,6 +17,6 @@
 * link:getting-started-Data-Access-Layer[Data Access Layer]
 * link:getting-started-crud-operations[CRUD operations and DAO Implementation]
 * link:getting-started-transfer-objects[Transfer Objects : ETOs and CTOs]
-* link:getting-started-logic-layer[Implementing Logic Layer: Manager Classes, Use cases, Business Logic]
+* link:getting-started-logic-layer[Logic Layer]
 * link:getting-started-Creating-Rest-Service[Creating Rest Service]
 * link:getting-started-Cobigen[Generating code with Cobigen]
