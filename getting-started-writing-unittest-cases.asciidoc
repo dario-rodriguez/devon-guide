@@ -6,7 +6,7 @@ In computer programming, unit testing is a software testing method by which indi
 
 === Unit Test on Eclipse
 
-In order to understand how work the Unit Test in Eclipse, we are going to create and run a simple tests.
+In order to understand how work the Unit Tests in Eclipse, we are going to create and run a simple tests.
 
 ==== Step 1: Create a new class
 
@@ -16,7 +16,7 @@ In this little tutorial we are going to create a very simple test, so we are goi
 
 In Project Explorer, over our new MyClass.java class right click > New > Other > and select JUnit Test Case. Named it MyClassTest and Source folder and package of your application where you want to create the test, e.g. `src/test/java`. 
 
-=== Step 3: First test
+=== Step 3: Implement the test
 
 In a OASP4J project we have our own Component Test, so we need to do that our new JUnit Test extends of ComponentTest of the OASP4J module test.
 
@@ -52,10 +52,40 @@ This is a very simple test that verify if the boolean value `true` is true.
 As you can see we are including the `@SpringApplicartionContext` annotation in order to define an application context to our test. 
 =====
 
+=== Step 4: Run the test
+
+Eclipse provide us with a very helpful view to test our applications. If you can't see it press in the menu Windows > Show View > Other > and select JUnit. 
+
+Now in above our test press right click > Run As > JUnit test
+
+TODO -> Add the image
+
+As you can see in the image, Eclipse show us a red rectangle because one of our test get a failure, that is marked with a blue cross. We can get a red cross if we have some fatal error as, e.g context error. 
+
+In this, we have a very simple failed because, in the test we have `assertThat(false).isTrue()` that is the same as check if `true == false`.  Now we are going to fix the failure and check the test again.
+
+[source,java]
+----
+@SpringApplicationConfiguration(classes = { SpringBootApp.class })
+public class MyClassTest extends ComponentTest {
+
+  @Test
+  public void test() {
+    assertThat(true).isTrue();
+  }
+}
+----
+
+Now we need to run the test again. And we are going to get the next result
+
+TODO -> Add the image
+
+As you can see, now the test is success and Eclipse show us a green rectangle and the test with a green check.
 
 == Test-driven development (TDD) 
 
 Test-driven development (TDD) is a software development process that relies on the repetition of a very short development cycle: first the developer writes an (initially failing) automated test case that defines a desired improvement or new function, then produces the minimum amount of code to pass that test, and finally refactors the new code to acceptable standards.
+TODO -> COMPLETE TDD AND THINK IF I REMOVE THE NEXT CONTENT BECAUSE IS A EXAMPLE MORE COMPLEX THAN THE ABOVE BUT IS ONLY ANOTHER EXAMPLE
 
 [TODO]
 
@@ -96,4 +126,3 @@ public class MyComponentTest extends Assertions {
    }
  }
 ----
-
