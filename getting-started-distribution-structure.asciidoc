@@ -41,7 +41,8 @@ All the software resources that the distribution needs are stored in this folder
 This is another directory with internal elements. In _system_ folder we can find some files related with the environment configuration.
 
 ==== workspaces
-This is the directory to store all our projects. We must keep in mind that the content of this folder will be associated with a Eclipse _.bat_ starter file through the _update-all-worksapces.bat_ script. So if we want separated Eclipse instances for two different projects we must declare these projects in separated directories within the _workspaces_ folder.
+This is the directory to store all our projects. We must keep in mind that the content of this folder will be associated with a Eclipse _.bat_ launchers files through the _update-all-worksapces.bat_ script. So if we want separated Eclipse instances for two different projects we must declare these projects in separated directories within the _workspaces_ folder.
+
 Thus if we have a _workspaces/project01_ and a _workspaces/project02_ projects the _update-all-workspaces.bat_ script will create a _eclipse-project01.bat_ starter and a _eclipse-project02.bat_ starter.
 
 ==== console.bat
