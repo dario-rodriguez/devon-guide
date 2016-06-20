@@ -3,7 +3,7 @@ toc::[]
 
 = Devonfw Distribution Structure
 == Introduction
-In this section we are going to briefly review the Devonfw distribution structure that the user may find right after download it, explaining the function of each folder and file that are included.
+In this section, we are going to briefly review the Devonfw distribution structure that user may find right after downloading the zip. In short, the function of each file and folder that are included will be explained here.
 
 So if you access to the distribution directory just after download it you should find a structure like the following:
 
