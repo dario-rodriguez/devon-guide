@@ -135,7 +135,6 @@ The global parameters are a set of parameters that works in global context, whic
 In the first devcon version we have three global parameters defined:
 
 - global parameter _help_: defined with *-h* or *--help*.
-- global parameter _no prompt_: defined with *-np* or *--noprompt*.
 - global parameter _version_: defined with *-v* or *--version*.
 
 == help
@@ -151,7 +150,6 @@ usage: devon <<module>> <<command>> [parameters...]
 Devcon is a command line tool that provides many automated tasks around
 the full life-cycle of Devon applications.
  -h,--help        show help info for each module/command
- -np,--noprompt   the process will not ask for user input
  -v,--version     show devcon version
 List of available modules:
 > help: This module shows help info about devcon
@@ -202,21 +200,6 @@ This command is to say something
  -signature   the signature
 ----
 
-== no prompt
-
-The no prompt parameter, defined with *-np* (or *--noprompt*) is a parameter to avoid the app asking for user input. As we saw in previous sections there are times where devcon can prompt the user to complete some information as needed parameters. With the *-np* parameter we avoid this situation and the app will not ask for any extra information during the process. This option can be useful in cases where we want to automate some tasks avoiding that the process hangs on waiting for an input. 
-Be careful with that option as it can result in execution errors. Imagine that in the previous example we don’t have defined the optional parameter _signature_ in the _devcon.json_ file and we execute the command without this parameter and using the *-np* option. The app will require the _signature_ parameter and, as it can not ask for parameters, this will result in an error.
-
-[source,batch]
-----
-D:\MyProject\client>devon foo saySomething -message hello -np
-Hello, this is Devcon!
-Copyright (c) 2016 Capgemini
-[ERROR] An error occurred. Message: You need to specify the following parameter/s: [-signature]
-
-D:\MyProject\client>
-----
-
 == version
 
 This is a simple option that returns the devcon running version and is defined with *-v* (or *--version*). As the _help_ option this will show the devcon version even though we have defined a command with all required parameters.
@@ -251,7 +234,6 @@ usage: devon <<module>> <<command>> [parameters...]
 Devcon is a command line tool that provides many automated tasks around
 the full life-cycle of Devon applications.
  -h,--help        show help info for each module/command
- -np,--noprompt   the process will not ask for user input
  -v,--version     show devcon version
 List of available modules:
 > help: This module shows help info about devcon
@@ -527,7 +509,6 @@ usage: devon <<module>> <<command>> [parameters...]
 Devcon is a command line tool that provides many automated tasks around
 the full life-cycle of Devon applications.
  -h,--help        show help info for each module/command
- -np,--noprompt   the process will not ask for user input
  -v,--version     show devcon version
 List of available modules:
 > help: This module shows help info about devcon
