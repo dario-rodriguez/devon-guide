@@ -16,6 +16,8 @@ mvn -DarchetypeVersion=2.0.0 -DarchetypeGroupId=io.oasp.java.templates -Darchety
 - Open Eclipse and Import the new _tutorial_ project as _Existing Maven Project_
 
 
+If you want to know more about how to create a new application you can visit the link:getting-started-creating-devonfw-application[Create New Application] section.
+
 Before continue it is important to keep in mind the packaging convention that Devonfw proposes. Devon uses a strict packaging convention to map technical layers and business components to the code. Devon uses the following Java-Package schema:
 
 [source]
