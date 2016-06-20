@@ -1,0 +1,59 @@
+= Why use Bean-Mapping?
+
+A mapping framework is useful in a layered architecture where you are creating layers of abstraction by encapsulating changes to particular data objects vs. propagating these objects to other layers (i.e. external service data objects, domain objects, data transfer objects, internal service data objects). A mapping framework is ideal for using within Mapper type classes that are responsible for mapping data from one data object to another. 
+
+For distributed systems, a side effect is the passing of domain objects between different systems. Typically, you won't want internal domain objects exposed externally and won't allow for external domain objects to bleed into your system. 
+
+Mapping between data objects has been traditionally addressed by hand coding value object assemblers (or converters) that copy data between the objects. Most programmers will develop some sort of custom mapping framework and spend countless hours and thousands of lines of code mapping to and from their different data object. 
+
+A generic mapping framework solves these problems. Dozer(which is configured and used in devonfw) is an open source mapping framework that is robust, generic, flexible, reusable, and configurable. 
+
+Typically Dozer works as shown below:
+
+image::images/bean-mapping-using-dozer/dozer-functionality-overview.png[,scalewidth=80%]
+
+
+For decoupling you sometimes need to create separate objects (beans) for a different view. E.g. for an external service you will use a link:guide-transferobject[transfer-object] instead of the link:guide-dataaccess-layer#entity[persistence entity] so internal changes to the entity do not implicitly change or break the service.. 
+
+Therefore you have the need to map similar objects what creates a copy. This also has the benefit that modifications to the copy have no side-effect on the original source object. However, to implement such mapping code by hand is very tedious and error-prone as shown below (if new properties are added to beans but not to mapping code):
+
+[source,java]
+----
+public PersonTo mapPerson(PersonEntity source) {
+  PersonTo target = new PersonTo();
+  target.setFirstName(source.getFirstName());
+  target.setLastName(source.getLastName());
+  ...
+  return target;
+}
+----
+
+Therefore we are using a +BeanMapper+ for this purpose that makes our lives a lot easier.
+
+== Bean-Mapper Dependency
+To get access to the +BeanMapper+ we use this dependency in our POM:
+ 
+[source,xml]
+----
+    <dependency>
+      <groupId>io.oasp.java</groupId>
+      <artifactId>oasp4j-beanmapping</artifactId>
+    </dependency>
+----
+So,  (oasp4j-beanmapping) uses dozer as dependency in its pom.xml file as shown below.
+image::images/bean-mapping-using-dozer/dozer1.png[,scalewidth=80%]
+
+== Bean-Mapper Usage
+Then we can get the +BeanMapper+ via link:guide-dependency-injection[dependency-injection] what we typically already provide by an abstract base class (e.g. +AbstractUc+). Now we can solve our problem very easy:
+
+[source,java]
+----
+PersonEntity person = ...;
+...
+return getBeanMapper().map(person, PersonTo.class);
+----
+So, in the above piece of code, getBeanMapper() method provides an mapper(dozer) instance , and when map () method is called, it maps PersonEntity(source object) to PersonTo(DEstination object).
+There is also additional support for mapping entire collections.
+
+Dozer has been configured as Spring bean in devonfw.
+For more info on dozer, refer http://dozer.sourceforge.net/documentation/usage.html[here].
