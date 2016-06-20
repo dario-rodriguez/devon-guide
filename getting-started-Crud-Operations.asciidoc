@@ -1,0 +1,1317 @@
+:toc: macro
+toc::[]
+
+= Creating a CRUD functionality for an entity
+
+In this tutorial we are going to create an entity for the application and provide services for the typical Create, Read, Update and Delete operations for that entity.
+
+If you want to create the application from scratch:
+
+- Launch the _console.bat_ script.
+
+- Go to a desired directory and use the Maven command
+[source]
+mvn -DarchetypeVersion=2.0.0 -DarchetypeGroupId=io.oasp.java.templates -DarchetypeArtifactId=oasp4j-template-server archetype:generate -DgroupId=com.capgemini.devonfw.application -DartifactId=tutorial -Dversion=0.1-SNAPSHOT -Dpackage=devonfw.tutorial
+
+- Open Eclipse and Import the new _tutorial_ project as _Existing Maven Project_
+
+
+Before continue it is important to keep in mind the packaging convention that Devonfw proposes. Devon uses a strict packaging convention to map technical layers and business components to the code. Devon uses the following Java-Package schema:
+
+[source]
+<basepackage>.<component>.<layer>.<scope>[.<detail>]*
+
+In our example application we find the different classes in this packages:
+
+* Entity and DAO: +devonfw.tutorial.tablemanagement.dataaccess.api[.<detail>]+
+
+* Logic: +devonfw.tutorial.tablemanagement.logic[.<detail>]+
+
+* Services: +devonfw.tutorial.tablemanagement.services[.<detail>]+
+
+This convention is based on the OASP4J conventions, which you can consult in the https://github.com/oasp/oasp4j/wiki/coding-conventions#packages[OASP Coding conventions documentation]
+
+== step 1. Adding the database schema
+As first step we are going to add the database schema to our database.
+
+In the script `resources/db/migration/V0001__Create_schema.sql` we add:
+
+[source,sql]
+----
+
+CREATE CACHED TABLE PUBLIC.RESTAURANTTABLE(
+    id BIGINT NOT NULL,
+    modificationCounter INTEGER NOT NULL,
+    number BIGINT NOT NULL CHECK (NUMBER >= 0),
+    state INTEGER,
+    waiter_id BIGINT
+);
+
+----
+
+And in the same path, we are going to create a new file to add the default data to the `RestaurantTable` created. We create `V0002__Master_data.sql` file.
+
+[source,sql]
+----
+
+INSERT INTO RESTAURANTTABLE (id, modificationCounter, number, state) VALUES (101, 1, 1, 2);
+INSERT INTO RESTAURANTTABLE (id, modificationCounter, number, state) VALUES (102, 1, 2, 0);
+INSERT INTO RESTAURANTTABLE (id, modificationCounter, number, state) VALUES (103, 1, 3, 0);
+INSERT INTO RESTAURANTTABLE (id, modificationCounter, number, state) VALUES (104, 1, 4, 0);
+INSERT INTO RESTAURANTTABLE (id, modificationCounter, number, state) VALUES (105, 1, 5, 0);
+
+----
+
+== step 2. Create the JPA entity
+We are going to create a `Table` entity and its related interface (that will be reused between all the objects involved with tables in the different layers).
+
+[NOTE]
+====
+This tutorial uses the same use-cases and scenario as the OASP4J sample application: Modelling a restaurant.
+
+Do not confuse `Table` with a DB-table. In this context, we mean a table where the guests of the restaurant are seated.
+====
+
+Create the `devonfw.tutorial.tablemanagement.common.api` package in the `tutorial-server-core` project, by right-clicking on the project, and selecting _New > Package_.
+
+Create the interface `Table` inside the `devonfw.tutorial.tablemanagement.common.api` package (you can do it by right-clicking on the package and selecting _New > Interface_), and copy & paste the following code:
+
+[source,java]
+----
+package devonfw.tutorial.tablemanagement.common.api;
+
+import devonfw.tutorial.general.common.api.ApplicationEntity;
+import devonfw.tutorial.tablemanagement.common.api.datatype.TableState;
+
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
+/**
+ * This is the interface for a table of the restaurant. It has a unique {@link #getNumber() number} can be
+ * {@link TableState#isReserved() reserved}, {@link TableState#isOccupied() occupied} and may have a
+ * {@link #getWaiterId() waiter} assigned.
+ */
+public interface Table extends ApplicationEntity {
+
+  /**
+   * @return the unique table number.
+   */
+  @NotNull
+  @Min(0)
+  Long getNumber();
+
+  /**
+   * @param number is the new {@link #getNumber() number}.
+   */
+  void setNumber(Long number);
+
+  /**
+   * @return the current {@link TableState state} of this {@link Table}.
+   */
+  TableState getState();
+
+  /**
+   * @param state is the new {@link #getState() state}.
+   */
+  void setState(TableState state);
+
+  /**
+   * @return the {@link devonfw.tutorial.staffmanagement.common.api.StaffMember#getId() ID} of the waiter
+   *         currently responsible for this table.
+   */
+  Long getWaiterId();
+
+  /**
+   * Sets the field 'waiterId'.
+   *
+   * @param waiterId New value for waiterId
+   */
+  void setWaiterId(Long waiterId);
+
+}
+----
+[NOTE]
+====
+You may have compilation errors related to _TableState_ that is not yet implemented. We will take care of that in the next step.
+====
+
+As you can see, Table extends `ApplicationEntity` class, as is recommended for standard mutable entities of an application. This class provides the necessary methods for a mutable entity (ID getter and setter basically).
+
+In the above `Table` class, we save the state of the table by using a `TableState` enum, which we will create now:
+
+Create the package `devonfw.tutorial.tablemanagement.common.api.datatype`, and inside this package, create a new class (actually an enum) called `TableState` and copy & paste the code below (as mentioned before you can use the right-click option over the _datatype_ package and select _New > Enum_.
+
+[source,java]
+----
+
+package devonfw.tutorial.tablemanagement.common.api.datatype;
+
+/**
+ * Represents the {@link devonfw.tutorial.tablemanagement.common.api.Table#getState() state} of a
+ * {@link devonfw.tutorial.tablemanagement.common.api.Table}.
+ */
+public enum TableState {
+  /** The state of a free {@link devonfw.tutorial.tablemanagement.common.api.Table}. */
+  FREE,
+
+  /** The state of a reserved {@link devonfw.tutorial.tablemanagement.common.api.Table}. */
+  RESERVED,
+
+  /** The state of a occupied {@link devonfw.tutorial.tablemanagement.common.api.Table}. */
+  OCCUPIED;
+
+  /**
+   * @return {@code true} if {@link #FREE}, {@code false} otherwise.
+   */
+  public boolean isFree() {
+
+    return (this == FREE);
+  }
+
+  /**
+   * @return {@code true} if {@link #RESERVED}, {@code false} otherwise.
+   */
+  public boolean isReserved() {
+
+    return (this == RESERVED);
+  }
+
+  /**
+   * @return {@code true} if {@link #OCCUPIED}, {@code false} otherwise.
+   */
+  public boolean isOccupied() {
+
+    return (this == OCCUPIED);
+  }
+}
+
+----
+
+[NOTE]
+====
+It is possible that Eclipse removed the import of the `TableState` enum in the `Table` interface, if you saved the file before creating the `TableState` class.
+
+If Eclipse shows errors still, after you've created the `TableState` enum, open the `Table` interface and press `Ctrl-Shift-O` to automatically fix the 'class' imports.
+====
+
+Finally, we should create the entity implementation. Create the package `devonfw.tutorial.tablemanagement.dataaccess.api`, create the class `TableEntity` inside it and paste the following code:
+
+[source,java]
+----
+
+package devonfw.tutorial.tablemanagement.dataaccess.api;
+
+import devonfw.tutorial.general.dataaccess.api.ApplicationPersistenceEntity;
+import devonfw.tutorial.tablemanagement.common.api.Table;
+import devonfw.tutorial.tablemanagement.common.api.datatype.TableState;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
+/**
+ * {@link ApplicationPersistenceEntity Entity} representing a {@link Table} of the restaurant. A table has a unique
+ * {@link #getNumber() number} can be {@link TableState#isReserved() reserved}, {@link TableState#isOccupied() occupied}
+ * and may have a {@link devonfw.tutorial.staffmanagement.dataaccess.api.StaffMemberEntity waiter}
+ * assigned.
+ */
+@Entity
+// Table is a reserved word in SQL/RDBMS and can not be used as table name
+@javax.persistence.Table(name = "RestaurantTable")
+public class TableEntity extends ApplicationPersistenceEntity implements Table {
+
+  private static final long serialVersionUID = 1L;
+
+  private Long number;
+
+  private Long waiterId;
+
+  private TableState state;
+
+  @Override
+  @Column(unique = true)
+  public Long getNumber() {
+
+    return this.number;
+  }
+
+  @Override
+  public void setNumber(Long number) {
+
+    this.number = number;
+  }
+
+  @Override
+  @Column(name = "waiter_id")
+  public Long getWaiterId() {
+
+    return this.waiterId;
+  }
+
+  @Override
+  public void setWaiterId(Long waiterId) {
+
+    this.waiterId = waiterId;
+  }
+
+  @Override
+  public TableState getState() {
+
+    return this.state;
+  }
+
+  @Override
+  public void setState(TableState state) {
+
+    this.state = state;
+  }
+
+}
+
+----
+
+
+=== Validation
+
+We want tables to never have negative numbers, so we are going to add a validation to our `TableEntity`. Change the definition of the `getNumber` method of the `TableEntity` class as follows:
+
+[source,java]
+----
+
+  @Min(0)
+  @Column(unique = true)
+  public Long getNumber() {
+
+    return this.number;
+  }
+----
+
+[NOTE]
+====
+You may need to solve the import of the @Min annotation by right clicking over the annotation and selecting _import javax.validation.constraints.Min_.
+You can read more about validation in https://github.com/oasp-forge/oasp4j-wiki/wiki/guide-validation[the OASP guide about validation]
+====
+
+== step 2. Creating persistence layer
+
+Data Acccess Objects (DAOs) are part of the persistence layer. They are responsible for a specific entity and should be named as <Entity>Dao[Impl]. The DAO offers the so called CRUD-functionalities (create, retrieve, update, delete) for the corresponding entity. Additionally a DAO may offer advanced operations such as search or locking methods.
+
+For each DAO there is an interface named <Entity>Dao that defines the API. For CRUD support and common naming methods we derive it from the interface `devonfw.tutorial.general.dataaccess.api.dao.ApplicationDao`, which was automatically generated while using the OASP4J archetype to generate your application
+
+[NOTE]
+====
+For the sake of simplicity, in the rest of this tutorial, we will no longer specifically tell you to create java packages for new java classes.
+
+Instead, we ask you to pay attention to the first line of each new java file, and create, if necessary, the class' package.
+====
+
+Create the following DAO interface for our `Table` entity:
+
+.TableDao.java
+
+[source,java]
+----
+
+package devonfw.tutorial.tablemanagement.dataaccess.api.dao;
+
+import devonfw.tutorial.general.dataaccess.api.dao.ApplicationDao;
+import devonfw.tutorial.tablemanagement.dataaccess.api.TableEntity;
+import io.oasp.module.jpa.dataaccess.api.MasterDataDao;
+
+import java.util.List;
+
+/**
+ * {@link ApplicationDao Data Access Object} for {@link TableEntity} entity.
+ */
+public interface TableDao extends ApplicationDao<TableEntity>, MasterDataDao<TableEntity> {
+
+  /**
+   * Returns a list of free restaurant tables.
+   *
+   * @return {@link List} of free restaurant {@link TableEntity}s
+   */
+  List<TableEntity> getFreeTables();
+
+
+}
+
+----
+
+=== Defining querys
+
+Before we proceed to the implementation of this DAO interface, we will create the SQL query.
+
+OASP4J advises to specify all queries in one mapping file called _orm.xml_ located in _src/main/resources/META-INF_. So we are going to create a query to return all free tables that we will use in `TableDaoImpl`.
+
+.src/main/resources/META-INF/orm.xml
+[source,xml]
+----
+
+<!--?xml version="1.0" encoding="UTF-8"?-->
+<entity-mappings version="1.0" xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemalocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd">
+
+  <named-query name="get.free.tables">
+    <query><!--[CDATA[SELECT t FROM TableEntity t WHERE t.state = devonfw.tutorial.tablemanagement.common.api.datatype.TableState.FREE]]--></query>
+  </named-query>
+
+</entity-mappings>
+
+----
+
+To avoid redundant occurrences of the query name we are going to use a constants class where we are going to define the constants for each named query:
+
+.NamedQueries.java
+[source,java]
+----
+
+package devonfw.tutorial.general.common.api.constants;
+
+/**
+ * Constants of the named queries defined in ``NamedQueries.xml``.
+ *
+ */
+public abstract class NamedQueries {
+
+  // put your query names from NamedQueries.xml as constants here
+  /** @see devonfw.tutorial.tablemanagement.dataaccess.impl.dao.TableDaoImpl#getFreeTables() */
+  public static final String GET_FREE_TABLES = "get.free.tables";
+
+}
+
+----
+
+Note that changing the name of the java constant can be done easily with refactoring (right-clicking over the property and _Refactor > Rename_. Further you can trace where the query is used by searching the references of the constant.
+
+=== Implementation of DAO interface
+
+Implementing a DAO is quite simple. We create a class named <Entity>DaoImpl that extends _ApplicationMasterDataDaoImpl_ class and implements our DAO interface.
+
+This is the DAO implementation for our `TableDao` interface:
+
+.TableDaoImpl.java
+
+[source,java]
+----
+
+package devonfw.tutorial.tablemanagement.dataaccess.impl.dao;
+
+import java.util.List;
+
+import javax.inject.Named;
+import javax.persistence.Query;
+
+import devonfw.tutorial.general.common.api.constants.NamedQueries;
+import devonfw.tutorial.general.dataaccess.base.dao.ApplicationMasterDataDaoImpl;
+import devonfw.tutorial.tablemanagement.dataaccess.api.TableEntity;
+import devonfw.tutorial.tablemanagement.dataaccess.api.dao.TableDao;
+
+/**
+ * Implementation of {@link TableDao}.
+ */
+@Named
+public class TableDaoImpl extends ApplicationMasterDataDaoImpl<TableEntity> implements TableDao {
+
+  /**
+   * The constructor.
+   */
+  public TableDaoImpl() {
+
+    super();
+  }
+
+  @Override
+  public Class<TableEntity> getEntityClass() {
+
+    return TableEntity.class;
+  }
+
+  @Override
+  public List<TableEntity> getFreeTables() {
+
+    Query query = getEntityManager().createNamedQuery(NamedQueries.GET_FREE_TABLES, TableEntity.class);
+    return query.getResultList();
+  }
+
+}
+
+----
+
+As you can see _ApplicationMasterDataDaoImpl_ already implements the CRUD operations so you only have to implement the additional methods that you have declared in your <entity>Dao interface.
+
+
+== step 3. Business logic
+
+The business logic of our application is defined in the logic layer, as proposed by the OASP4J Guide.
+
+The logic layer also maps entities from the dataaccess layer to/from transfer objects, so we do not expose internal details of the application's implementation to higher layers.
+
+In Devonfw applications, there are several different types of _Transfer Objects_ (short TO). One is the _Entity Transfer Object_ (ETO) used to transfer a representation of an Entity.
+
+As a first step, we will define an ETO for the Table entity, to be used in the interface of our logic layer.
+
+Create the following file:
+
+.TableEto.java
+
+[source,java]
+----
+package devonfw.tutorial.tablemanagement.logic.api.to;
+
+import devonfw.tutorial.general.common.api.to.AbstractEto;
+import devonfw.tutorial.tablemanagement.common.api.Table;
+import devonfw.tutorial.tablemanagement.common.api.datatype.TableState;
+
+import javax.validation.constraints.Max;
+
+/**
+ * {@link AbstractEto ETO} for {@link Table}.
+ */
+public class TableEto extends AbstractEto implements Table {
+
+  private static final long serialVersionUID = 1L;
+
+  private Long waiterId;
+
+  @Max(value = 1000)
+  private Long number;
+
+  private TableState state;
+
+  /**
+   * The constructor.
+   */
+  public TableEto() {
+
+    super();
+  }
+
+  @Override
+  public Long getNumber() {
+
+    return this.number;
+  }
+
+  @Override
+  public void setNumber(Long number) {
+
+    this.number = number;
+  }
+
+  @Override
+  public Long getWaiterId() {
+
+    return this.waiterId;
+  }
+
+  @Override
+  public void setWaiterId(Long waiterId) {
+
+    this.waiterId = waiterId;
+  }
+
+  @Override
+  public TableState getState() {
+
+    return this.state;
+  }
+
+  @Override
+  public void setState(TableState state) {
+
+    this.state = state;
+  }
+
+  @Override
+  public int hashCode() {
+
+    final int prime = 31;
+    int result = super.hashCode();
+    result = prime * result + ((this.state == null) ? 0 : this.state.hashCode());
+    result = prime * result + ((this.waiterId == null) ? 0 : this.waiterId.hashCode());
+    return result;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+
+    if (this == obj) {
+      return true;
+    }
+    if (obj == null) {
+      return false;
+    }
+    if (getClass() != obj.getClass()) {
+      return false;
+    }
+    if (!super.equals(obj)) {
+      return false;
+    }
+    TableEto other = (TableEto) obj;
+    if (this.state != other.state) {
+      return false;
+    }
+    if (this.waiterId == null) {
+      if (other.waiterId != null) {
+        return false;
+      }
+    } else if (!this.waiterId.equals(other.waiterId)) {
+      return false;
+    }
+    return true;
+  }
+}
+
+----
+
+In Devonfw, we define CRUD logic into a `<Entity>management` class. So we are going to create our Tablemanagement interface and implementation:
+
+.Tablemanagement.java
+[source,java]
+----
+
+package devonfw.tutorial.tablemanagement.logic.api;
+
+import devonfw.tutorial.tablemanagement.logic.api.to.TableEto;
+
+import java.util.List;
+
+import javax.validation.Valid;
+
+/**
+ * Interface for TableManagement component.
+ *
+ */
+public interface Tablemanagement {
+
+  /**
+   * Returns a restaurant table by its id 'id'.
+   *
+   * @param id The id 'id' of the restaurant table.
+   * @return The restaurant {@link TableEto} with id 'id'
+   */
+  TableEto findTable(Long id);
+
+  /**
+   * Returns a list of all existing restaurant tables.
+   *
+   * @return {@link List} of all existing restaurant {@link TableEto}s
+   */
+  List<TableEto> findAllTables();
+
+  /**
+   * Returns a list of all existing free restaurant tables.
+   *
+   * @return {@link List} of all existing free restaurant {@link TableEto}s
+   */
+  List<TableEto> findFreeTables();
+
+  /**
+   * Deletes a restaurant table from the database by its id 'id'.
+   *
+   * @param tableId Id of the restaurant table to delete
+   */
+  void deleteTable(Long tableId);
+
+  /**
+   * Creates a new restaurant table and store it in the database.
+   *
+   * @param table the {@link TableEto} to create.
+   * @return the new {@link TableEto} that has been saved with ID and version.
+   */
+  TableEto saveTable(@Valid TableEto table);
+}
+
+----
+
+.TablemanagementImpl.java
+[source,java]
+----
+
+package devonfw.tutorial.tablemanagement.logic.impl;
+
+import devonfw.tutorial.general.common.api.constants.PermissionConstants;
+import devonfw.tutorial.general.common.api.exception.IllegalEntityStateException;
+import devonfw.tutorial.general.logic.base.AbstractComponentFacade;
+import devonfw.tutorial.tablemanagement.common.api.datatype.TableState;
+import devonfw.tutorial.tablemanagement.dataaccess.api.TableEntity;
+import devonfw.tutorial.tablemanagement.dataaccess.api.dao.TableDao;
+import devonfw.tutorial.tablemanagement.logic.api.Tablemanagement;
+import devonfw.tutorial.tablemanagement.logic.api.to.TableEto;
+
+import java.util.List;
+import java.util.Objects;
+
+import javax.annotation.security.RolesAllowed;
+import javax.inject.Inject;
+import javax.inject.Named;
+import javax.validation.Valid;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+/**
+ * Implementation of {@link Tablemanagement}.
+ */
+@Named
+public class TablemanagementImpl extends AbstractComponentFacade implements Tablemanagement {
+
+  /** Logger instance. */
+  private static final Logger LOG = LoggerFactory.getLogger(TablemanagementImpl.class);
+
+  /** @see #getTableDao() */
+  private TableDao tableDao;
+
+  /**
+   * The constructor.
+   */
+  public TablemanagementImpl() {
+    super();
+  }
+
+  @Override
+  @RolesAllowed(PermissionConstants.FIND_TABLE)
+  public TableEto findTable(Long id) {
+
+    LOG.debug("Get table with id '" + id + "' from database.");
+    return getBeanMapper().map(getTableDao().findOne(id), TableEto.class);
+  }
+
+  @Override
+  @RolesAllowed(PermissionConstants.FIND_TABLE)
+  public List<TableEto> findAllTables() {
+
+    LOG.debug("Get all restaurant tables from database.");
+    List<TableEntity> tables = getTableDao().findAll();
+    return getBeanMapper().mapList(tables, TableEto.class);
+  }
+
+  @Override
+  @RolesAllowed(PermissionConstants.FIND_TABLE)
+  public List<TableEto> findFreeTables() {
+
+    LOG.debug("Get all free restaurant tables from database.");
+
+    List<TableEntity> tables = getTableDao().getFreeTables();
+    return getBeanMapper().mapList(tables, TableEto.class);
+  }
+
+  @Override
+  @RolesAllowed(PermissionConstants.DELETE_TABLE)
+  public void deleteTable(Long tableId) {
+
+    TableEntity table = getTableDao().find(tableId);
+
+    if (!table.getState().isFree()) {
+      throw new IllegalEntityStateException(table, table.getState());
+    }
+
+    getTableDao().delete(table);
+  }
+
+  @Override
+  @RolesAllowed(PermissionConstants.SAVE_TABLE)
+  public TableEto saveTable(@Valid TableEto table) {
+
+    Objects.requireNonNull(table, "table");
+
+    TableEntity tableEntity = getBeanMapper().map(table, TableEntity.class);
+    // initialize
+    if (tableEntity.getState() == null) {
+      tableEntity.setState(TableState.FREE);
+    }
+
+    getTableDao().save(tableEntity);
+    LOG.debug("Table with id '{}' has been created.", tableEntity.getId());
+    return getBeanMapper().map(tableEntity, TableEto.class);
+  }
+
+  /**
+   * @return the {@link TableDao} instance.
+   */
+  public TableDao getTableDao() {
+
+    return this.tableDao;
+  }
+
+  /**
+   * @param tableDao the {@link TableDao} to {@link Inject}.
+   */
+  @Inject
+  public void setTableDao(TableDao tableDao) {
+
+    this.tableDao = tableDao;
+  }
+
+}
+
+----
+
+[NOTE]
+====
+You may have problems with the _PermissionConstants_ properties because are not implemented yet. We will do that in the next step.
+====
+
+At this point we have defined all the necessary classes in the logic layer, so we have our API ready, with the exception of finishing its security aspect.
+
+=== Securing the application
+
+OASP4J proposes role-based authorization to cope with the authorization of executing use cases of an application. OASP4J use the _JSR250_ annotations, mainly _@RolesAllowed_, as you have seen, for authorizing method calls against the permissions defined in the annotation body.
+
+So, finally, we have to create a class to declare the actual roles we use as values for the `@RolesAllowed` annotation:
+
+[source,java]
+----
+package devonfw.tutorial.general.common.api.constants;
+
+/**
+ * Contains constants for the keys of all
+ * {@link io.oasp.module.security.common.api.accesscontrol.AccessControlPermission}s.
+ *
+ */
+public abstract class PermissionConstants {
+
+  /** {@link io.oasp.module.security.common.api.accesscontrol.AccessControlPermission} to retrieve table. */
+  public static final String FIND_TABLE = "FindTable";
+
+  /** {@link io.oasp.module.security.common.api.accesscontrol.AccessControlPermission} to save table. */
+  public static final String SAVE_TABLE = "SaveTable";
+
+  /** {@link io.oasp.module.security.common.api.accesscontrol.AccessControlPermission} to remove table. */
+  public static final String DELETE_TABLE = "DeleteTable";
+}
+----
+
+== step 4. Creating REST endpoints
+
+Web applications need to get data from the server, so we have to expose the methods defined in the logic layer to these applications. We need a class that exposes methods as URLs to allow the applications to get the data. By convention, we call this class `<Entity>managementRestServiceImpl`.
+
+This is an example of a REST API for our `Table` use case using JAX-RS.
+
+Also note that the implementation does not follow the dogmatic _RESTFUL_ approach as Devonfw proposes a more pragmatic way to use REST. Please refer to the guide https://github.com/devonfw/devon-guide/wiki/getting-started-Creating-Rest-Service[Creating Rest Service] for more information on the subject.
+
+
+.TablemanagementRestServiceImpl.java
+[source,java]
+----
+package devonfw.tutorial.tablemanagement.service.impl.rest;
+
+import java.util.List;
+
+import javax.inject.Inject;
+import javax.inject.Named;
+import javax.ws.rs.BadRequestException;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.NotFoundException;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+import org.springframework.transaction.annotation.Transactional;
+
+import devonfw.tutorial.tablemanagement.logic.api.Tablemanagement;
+import devonfw.tutorial.tablemanagement.logic.api.to.TableEto;
+
+/**
+ * 
+ * The service class for REST calls in order to execute the methods in {@link Tablemanagement}.
+ */
+
+@Path("/tablemanagement/v1") // <2>
+@Named("TablemanagementRestService")
+@Consumes(MediaType.APPLICATION_JSON) // <1>
+@Produces(MediaType.APPLICATION_JSON)
+@Transactional
+public class TablemanagementRestServiceImpl {
+
+  private Tablemanagement tableManagement;
+
+  /**
+   * 
+   * This method sets the field <tt>tableManagement</tt>.
+   * 
+   *
+   * 
+   * @param tableManagement the new value of the field tableManagement
+   */
+
+  @Inject
+  public void setTableManagement(Tablemanagement tableManagement) {
+
+    this.tableManagement = tableManagement;
+
+  }
+
+  /**
+   * 
+   * Delegates to {@link Tablemanagement#findTable}.
+   * 
+   *
+   * 
+   * @param id the ID of the {@link TableEto}
+   * 
+   * @return the {@link TableEto}
+   */
+
+  @GET
+  @Path("/table/{id}/")
+  public TableEto getTable(@PathParam("id") String id) {
+
+    Long idAsLong;
+
+    if (id == null) {
+
+      throw new BadRequestException("missing id");
+
+    }
+
+    try {
+
+      idAsLong = Long.parseLong(id);
+
+    } catch (NumberFormatException e) {
+
+      throw new BadRequestException("id is not a number");
+
+    } catch (NotFoundException e) {
+
+      throw new BadRequestException("table not found");
+
+    }
+
+    return this.tableManagement.findTable(idAsLong);
+
+  }
+
+  /**
+   * 
+   * Delegates to {@link Tablemanagement#findAllTables}.
+   * 
+   *
+   * 
+   * @return list of all existing restaurant {@link TableEto}s
+   */
+
+  @GET
+  @Path("/table/")
+  public List<TableEto> getAllTables() {
+
+    List<TableEto> allTables = this.tableManagement.findAllTables();
+
+    return allTables;
+
+  }
+
+  /**
+   * 
+   * Delegates to {@link Tablemanagement#findFreeTables}.
+   * 
+   *
+   * 
+   * @return list of all existing free {@link TableEto}s
+   */
+
+  @GET
+  @Path("/freetables/")
+  public List<TableEto> getFreeTables() {
+
+    return this.tableManagement.findFreeTables();
+
+  }
+
+  /**
+   * 
+   * Delegates to {@link Tablemanagement#saveTable}.
+   * 
+   *
+   * 
+   * @param table the {@link TableEto} to be created
+   * 
+   * @return the recently created {@link TableEto}
+   */
+
+  @POST
+  @Path("/table/")
+  public TableEto saveTable(TableEto table) {
+
+    return this.tableManagement.saveTable(table);
+
+  }
+
+  /**
+   * 
+   * Delegates to {@link Tablemanagement#deleteTable}.
+   * 
+   *
+   * 
+   * @param id ID of the {@link TableEto} to be deleted
+   */
+
+  @DELETE
+  @Path("/table/{id}/")
+  public void deleteTable(@PathParam("id") Long id) {
+
+    this.tableManagement.deleteTable(id);
+
+  }
+
+}
+----
+
+<1> We send and receive the information in JSON format.
+<2> We specify the version of the entire API inside its path.
+
+As you can see, we have defined the REST URLs for our `Table` user case. Now, for example, you can find all tables on this URL:
+
+[source]
+----
+http://<server>:<port>/application-name/services/rest/tablemanagement/v1/table/
+----
+
+=== DTO conversion
+
+In the logic API, the methods of the classes should return Data Transfer Object (DTO) instead of entities. So, in OASP4J we have a mechanism to convert the entities into DTOs.
+
+This is an example of how to convert an entity into a DTO:
+
+[source,java]
+----
+    // Conversion for lists
+    getBeanMapper().mapList(tableList, TableDto.class);
+
+    // Conversion for objects
+    getBeanMapper().map(table, TableDto.class);
+----
+
+In the example, we use the function _getBeanMapper()_. This function provides us an API to convert entities into DTOs. In the logic layer, we only have to extend the class `AbstractComponentFacade` to get access to this functionality.
+
+== step 5. Adding pagination
+
+To add pagination support to our Table CRUD, the first step is creating a new Table TO that extends the `SearchCriteriaTo` class. This class forms the foundation for every request which needs search or pagination funcionality.
+
+.TableSearchCriteriaTo.java
+[source,java]
+----
+
+package devonfw.tutorial.tablemanagement.logic.api.to;
+
+import io.oasp.module.jpa.common.api.to.SearchCriteriaTo;
+
+import devonfw.tutorial.tablemanagement.common.api.datatype.TableState;
+
+/**
+ * 
+ * This is the {@link SearchCriteriaTo search criteria} {@link net.sf.mmm.util.transferobject.api.TransferObject TO}
+ */
+
+public class TableSearchCriteriaTo extends SearchCriteriaTo {
+
+  /** UID for serialization. */
+
+  private static final long serialVersionUID = 1L;
+
+  private Long waiterId;
+
+  private Long number;
+
+  private TableState state;
+
+  /**
+   * 
+   * The constructor.
+   */
+
+  public TableSearchCriteriaTo() {
+
+    super();
+
+  }
+
+  /**
+   * 
+   * @return waiterId
+   */
+
+  public Long getWaiterId() {
+
+    return this.waiterId;
+
+  }
+
+  /**
+   * 
+   * @param waiterId the waiterId to set
+   */
+
+  public void setWaiterId(Long waiterId) {
+
+    this.waiterId = waiterId;
+
+  }
+
+  /**
+   * 
+   * @return state
+   */
+
+  public TableState getState() {
+
+    return this.state;
+
+  }
+
+  /**
+   * 
+   * @param state the state to set
+   */
+
+  public void setState(TableState state) {
+
+    this.state = state;
+
+  }
+
+  /**
+   * 
+   * @return number
+   */
+
+  public Long getNumber() {
+
+    return this.number;
+
+  }
+
+  /**
+   * 
+   * @param number the number to set
+   */
+
+  public void setNumber(Long number) {
+
+    this.number = number;
+
+  }
+
+}
+
+----
+
+Now we will create a new POST REST endpoint (pagination request have to be POST) in our `TablemanagementRestServiceImpl` class.
+
+[source,java]
+----
+  /**
+   * Delegates to {@link Tablemanagement#findTableEtos}.
+   *
+   * @param searchCriteriaTo the pagination and search criteria to be used for finding tables.
+   * @return the {@link PaginatedListTo list} of matching {@link TableEto}s.
+   */
+  @Path("/table/search")
+  @POST
+  public PaginatedListTo<TableEto> findTablesByPost(TableSearchCriteriaTo searchCriteriaTo) {
+
+    return this.tableManagement.findTableEtos(searchCriteriaTo);
+  }
+----
+
+[NOTE]
+====
+Make sure to press `Ctrl-Shift-O` after inserting this new method, to make Eclipse auto-import the dependencies of `PaginatedListTo` and `TableSearchCriteriaTo`.
+====
+
+Consequently we have to declare this new method `findTableEtos` in the table management classes in our logic layer:
+
+.Tablemanagement.java
+[source,java]
+----
+
+/**
+   * Returns a list of restaurant tables matching the search criteria.
+   *
+   * @param criteria the {@link TableSearchCriteriaTo}.
+   * @return the {@link List} of matching {@link TableEto}s.
+   */
+  PaginatedListTo<TableEto> findTableEtos(TableSearchCriteriaTo criteria);
+
+----
+
+.TablemanagementImpl.java
+[source,java]
+----
+
+  @Override
+  public PaginatedListTo<TableEto> findTableEtos(TableSearchCriteriaTo criteria) {
+    criteria.limitMaximumPageSize(MAXIMUM_HIT_LIMIT); // <1>
+    PaginatedListTo<TableEntity> tables = getTableDao().findTables(criteria);
+
+    return mapPaginatedEntityList(tables, TableEto.class);
+  }
+
+----
+<1> As you can see, we have limited the maximum results per page to prevent clients from requesting pages with too big a size.
+
+And finally, we have to define our pagination method in our DAO class.
+
+.TableDao.java
+[source,java]
+----
+
+/**
+   * Finds the {@link TableEntity orders} matching the given {@link TableSearchCriteriaTo}.
+   *
+   * @param criteria is the {@link TableSearchCriteriaTo}.
+   * @return the {@link List} with the matching {@link TableEntity} objects.
+   */
+  PaginatedListTo<TableEntity> findTables(TableSearchCriteriaTo criteria);
+
+----
+
+.TableDaoImpl.java
+[source,java]
+----
+
+ @Override
+  public PaginatedListTo<TableEntity> findTables(TableSearchCriteriaTo criteria) {
+
+    TableEntity table = Alias.alias(TableEntity.class);
+    EntityPathBase<TableEntity> alias = Alias.$(table);
+    JPAQuery query = new JPAQuery(getEntityManager()).from(alias);
+
+    Long waiterId = criteria.getWaiterId();
+    if (waiterId != null) {
+      query.where(Alias.$(table.getWaiterId()).eq(waiterId));
+    }
+    Long number = criteria.getNumber();
+    if (number != null) {
+      query.where(Alias.$(table.getNumber()).eq(number));
+    }
+    TableState state = criteria.getState();
+    if (state != null) {
+      query.where(Alias.$(table.getState()).eq(state));
+    }
+
+    return findPaginated(criteria, query, alias);
+  }
+
+----
+
+[NOTE]
+====
+While auto-completing the new imports using `Ctrl-Shift-O` after adding the above methods, select `com.mysema.query.alias` as the import for the `Alias` class.
+====
+
+In this case, we have used QueryDSL to create the query. You can read more about QueryDSL at http://www.querydsl.com/[www.querydsl.com].
+
+== step 6. Sorting the results
+
+In OASP4J exists a special TO (Transfer Object) called ´OrderByTo` to transmit sorting parameters from client to server. This is the JSON format that the server expects when using this TO:
+
+[source,javascript]
+----
+
+{
+    sort: [
+        {
+            name:"sortingCriteria1",
+            direction:"ASC"
+        },
+        {
+            name:"sortingCriteria2",
+            direction:"DESC"
+        },
+        ...
+    ]
+}
+
+----
+
+Devon proposes to use POST as the HTTP method for endpoints implementing search or pagination support.
+
+By default, in Devon, `SearchCriteriaTo` class is already embedding this sorting TO, so we only need to manage sorting in `TableDaoImpl.java` because our pagination method does not need any modification.
+
+If our method needs sorting but not pagination we need to manually add to our own transfer object the following variable (and its setter and getter methods):
+
+[source,java]
+----
+
+ private List<OrderByTo> sort;
+
+----
+
+We are going to modify the method `findTables` in our `TableDaoImpl`. Insert the following line right before the final `return` statement:
+
+[source,java]
+----
+  // Add order by fields
+  addOrderBy(query, alias, table, criteria.getSort());
+----
+
+Now add the following method to `TableDaoImpl`:
+
+[source,java]
+----
+  private void addOrderBy(JPAQuery query, EntityPathBase<TableEntity> alias, TableEntity table, List<OrderByTo> sort) {
+
+      if (sort != null && !sort.isEmpty()) {
+          for (OrderByTo orderEntry : sort) {
+              if ("number".equals(orderEntry.getName())) {
+
+                  if (OrderDirection.ASC.equals(orderEntry.getDirection())) {
+                      query.orderBy(Alias.$(table.getNumber()).asc());
+                  } else {
+                      query.orderBy(Alias.$(table.getNumber()).desc());
+                  }
+
+              } else if ("waiterId".equals(orderEntry.getName())) {
+
+                  if (OrderDirection.ASC.equals(orderEntry.getDirection())) {
+                      query.orderBy(Alias.$(table.getWaiterId()).asc());
+                  } else {
+                      query.orderBy(Alias.$(table.getWaiterId()).desc());
+                  }
+
+              } else if ("state".equals(orderEntry.getName())) {
+
+                  if (OrderDirection.ASC.equals(orderEntry.getDirection())) {
+                      query.orderBy(Alias.$(table.getState()).asc());
+                  } else {
+                      query.orderBy(Alias.$(table.getState()).desc());
+                  }
+
+              }
+          }
+      }
+  }
+
+----
+
+As you can see, we have added a private method to add sorting filter to our query depending on the sort parameters received.
+
+== step 7. Testing the example
+
+In order to test the example we are going to use the user `chief` to obtain the tables. To be able to access to that data we need first to grant permissions to the `chief` user. We can do it specifying the role and the permissions in the _access-control-schema.xml_ file located in _src/main/resources/config/app/security/_.
+
+[source,xml]
+----
+  <group id="Chief" type="role">
+    <permissions>
+      <permission id="FindTable"/>
+    </permissions>
+  </group>
+----
+
+Now if we run the application we can access to the tables data with the URL 
+
+----
+http://<server>/<app>/services/rest/tablemanagement/v1/table/
+----
+
+And, after logging as `chief`, the server response should be:
+
+[source,json]
+----
+[{"id":101,"modificationCounter":1,"revision":null,"waiterId":null,"number":1,"state":"OCCUPIED"},{"id":102,"modificationCounter":1,"revision":null,"waiterId":null,"number":2,"state":"FREE"},{"id":103,"modificationCounter":1,"revision":null,"waiterId":null,"number":3,"state":"FREE"},{"id":104,"modificationCounter":1,"revision":null,"waiterId":null,"number":4,"state":"FREE"},{"id":105,"modificationCounter":1,"revision":null,"waiterId":null,"number":5,"state":"FREE"}]
+----
