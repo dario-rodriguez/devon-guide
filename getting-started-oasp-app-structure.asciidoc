@@ -27,17 +27,17 @@ image::images/oasp-app-structure/app-structure.png[App structure,width=60%]
 
 Now, we are going to describe each of them. 
 
-== Java *(1)*
+== Java (1)
 
 The package java contains all Java File that implement the application and the configuration of it.
 
-=== SpringBootApp and SpringBootBatchApp *(4)*
+=== SpringBootApp and SpringBootBatchApp (4)
 
 *SpringBootApp* is the class that contains the main method to run the Spring Boot application. Spring Boot is responsible for scan the project and find the beans and configuration of the application. So this is the most important class in the application, because it's the application per se. You can read more about Spring Boot http://docs.spring.io/spring-boot/docs/current/reference/html/[here].
 
 *SpringBootBatchApp* this class is responsible for run the batch process of the application. You can see more about the batch process in OASP4J project https://github.com/oasp/oasp4j/wiki/guide-batch-layer[here].
 
-=== General *(2)*
+=== General (2)
 
 The *general* package contains all Java files of OASP4J application. It's divided in the next sub-packages:
 
@@ -61,11 +61,11 @@ Contains the logic layer of OASP4J application. The logic layer is the heart of 
 
 Contains the service layer of OASP4J application. The service layer is responsible to expose functionality of the logical layer to external consumers over a network via technical protocols. You can see more about it https://github.com/oasp/oasp4j/wiki/guide-service-layer[here].
  
-==== Management packages *(3)*
+==== Management packages (3)
 
 This package contains the Entities, DAOs, ETOs, CTOs, REST services, web services, etc., definitely a CRUD operators of the application. You can see more about how to create a CRUD operators in OASP4J project https://github.com/devonfw/devon-guide/wiki/getting-started-Crud-Operations[here].
  
-== Resources *(5)*
+== Resources (5)
 
 The resources package contain the data of some specific functionality of the application. This data, can be configuration data for, e.g, database, security or another data configuration that can be accessed by the application.
 
@@ -111,9 +111,9 @@ As you can see we have an application-<name>.properties, this kind of properties
 
 The package test contains all we need to test the application. It's divided in the next sub packages:
 
-** java *(6)*: contains the Unit Test of the application. Allow us to keep a control of the right functionality of the application. You can see more about the Unit Test and TDD methodology https://github.com/devonfw/devon-guide/wiki/getting-started-writing-unittest-cases[here] and https://github.com/oasp/oasp4j/wiki/guide-testing[here]
+** java (6): contains the Unit Test of the application. Allow us to keep a control of the right functionality of the application. You can see more about the Unit Test and TDD methodology https://github.com/devonfw/devon-guide/wiki/getting-started-writing-unittest-cases[here] and https://github.com/oasp/oasp4j/wiki/guide-testing[here]
 
-** resources *(7)*: contains the configuration and data we need to run the test in of the application.
+** resources (7): contains the configuration and data we need to run the test in of the application.
 
 = Server Module
 
