@@ -14,7 +14,7 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - link:getting-started-running-sample-application[Running Sample Application]
 
-- link:getting-started-distribution-structure[Devonfw Distribution Structure]
+- link:getting-started-distribution-structure[Devonfw Distribution Structure] (TO EVALUATE)
 
 - link:getting-started-creating-new-devonfw-application[Create New Application]
 
