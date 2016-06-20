@@ -14,7 +14,7 @@ MySQL:
  	<artifactId>mysql-connector-java</artifactId>
 </dependency>
 
-image::images/database-configuration/db-config1.png
+image::images/database-configuration/db-config1.png[,scalewidth=80%]
 
 *Note*: this driver should NOT be used in a production environment because of license issues. See down for an alternative.
 
