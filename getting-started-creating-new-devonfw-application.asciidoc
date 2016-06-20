@@ -79,7 +79,11 @@ image::images/create-new-app/devon-guide-newapp-choose-archetype.PNG[,scaledwidt
 
 ==== Step 3 - Configure the application properties
 
-Now you need to fill the Group Id, Artifact Id, Version and Package for your project. If you want to add an EAR generation mechanism to your project, you should fill the property earProjectName with the value Artifact Id + "-ear". For example, "sampleapp-ear". If you only want to WAR generation, you can remove the property earProjectName.
+Now you need to fill the Group Id, Artifact Id, Version and Package for your project. 
+
+If you want to add an EAR generation mechanism to your project, you should fill the property earProjectName with the value Artifact Id + "-ear". 
+
+For example, "sampleapp-ear". If you only want to WAR generation, you can remove the property earProjectName.
 
 image::images/create-new-app/devon-guide-newapp-archetype-parameters.PNG[,scaledwidth=80%]
 [EAR]
