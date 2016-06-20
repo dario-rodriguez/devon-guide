@@ -9,7 +9,7 @@ So, if you have access to the distribution directory just after downloading it, 
 
 image::images/devonfw-dist-structure/devonfw-dist-structure-01.png[,scalewidth=80%]
 
-== Explaining the structure
+== Understanding the structure
 
 As you can see, we have some folders and some executable _.bat_ files. In this step, we must focus in the _create-or-update-workspace.bat_ and the _update-all-workspaces.bat_ these are the scripts which we must execute to obtain the whole Devonfw structure:
 
