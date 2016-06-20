@@ -55,13 +55,12 @@ This script is already explained link:getting-started-distribution-structure#exp
 This is a file for internal usage and records the logs of the _create-or-update-workspace.bat_ and the _update-all-workspaces.bat_ scripts.
 
 ==== eclipse-<project>.bat
-These files are used to have different Eclipse instances related to the different projects located into the _workspaces_ directory. So for each project in the _workspaces_ directory the _update-all-workspaces.bat_ script will create a Eclipse launcher with structure _eclipse-<projectName>.bat_. In this way we can have different Eclipse environments with different configurations related to the different projects of the _workspace_ directory.
+These files are used to have different Eclipse instances related to the different projects located into the _workspaces_ directory. So for each project in the _workspaces_ directory the _update-all-workspaces.bat_ script will create an Eclipse launcher with structure _eclipse-<projectName>.bat_. In this way we can have different Eclipse environments with different configurations related to the different projects of the _workspace_ directory.
 
 ==== s2-create.bat & s2-init.bat
 These scripts are related to the _Shared Services_ funcionality included in Devonfw. 
 The _s2-init.bat_ configurates the _settings.xml_ file to connect to an Artifactory Repository.
-The _s2.create.bat_ generates a new project in the _workspaces_ directory and does a checkout of a Subversion repository inside.
-For more info see the Shared Services documentation.
+The _s2.create.bat_ generates a new project in the _workspaces_ directory and does a checkout of a Subversion repository inside. Each script needs to be launched from the distribution's cmd (launching the _console.bat_ script) and need some parameters to work properly. For more info see the Shared Services documentation.
 
 ==== update-all-workspaces.bat
 This script is already explained link:getting-started-distribution-structure#explaining-the-structure[at the beginning of this chapter].
