@@ -5,19 +5,19 @@ toc::[]
 == Introduction
 In this section, we are going to briefly review the Devonfw distribution structure that user may find right after downloading the zip. In short, the function of each file and folder that are included will be explained here.
 
-So if you access to the distribution directory just after download it you should find a structure like the following:
+So, if you have access to the distribution directory just after downloading it, you should find following structure:
 
 image::images/devonfw-dist-structure/devonfw-dist-structure-01.png[,scalewidth=80%]
 
 == Explaining the structure
 
-As you can see we have some folders and some executable _.bat_ files. In this step we must focus in the _create-or-update-workspace.bat_ and the _update-all-workspaces.bat_ that are the scripts that we must execute to obtain the whole Devonfw structure:
+As you can see, we have some folders and some executable _.bat_ files. In this step, we must focus in the _create-or-update-workspace.bat_ and the _update-all-workspaces.bat_ these are the scripts which we must execute to obtain the whole Devonfw structure:
 
 - The *create-or-update-workspace.bat* file will create the _conf_ directory that stores the Maven local repository and two configuration files (the _settings.json_ with distribution info and the _settings.xml_ with the Maven connection settings). Alongside with that it will create the _eclipse-main.bat_ to start Eclipse.
 
 - The *update-all-workspaces.bat* file sets some Eclipse preferences for workspaces and creates all the Eclipse _.bat_ launchers related to the projects in the _workspace_ directory.
 
-So after executing these two scripts the structure will be like the following
+So after executing these two scripts, following structure will be generated:
 
 image::images/devonfw-dist-structure/devonfw-dist-structure-02.png[,scalewidth=80%]
 
