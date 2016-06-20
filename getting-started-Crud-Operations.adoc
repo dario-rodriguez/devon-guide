@@ -747,20 +747,19 @@ public class TablemanagementImpl extends AbstractComponentFacade implements Tabl
 
 [NOTE]
 ====
-You may have problems with some PermissionConstants properties
+You may have problems with the _PermissionConstants_ properties because are not implemented yet. We will do that in the next step.
 ====
 
 At this point we have defined all the necessary classes in the logic layer, so we have our API ready, with the exception of finishing its security aspect.
 
 === Securing the application
 
-OASP proposes role-based authorization to cope with the authorization of executing use cases of an application. OASP use the JSR250 annotations, mainly @RolesAllowed, as you have seen, for authorizing method calls against the permissions defined in the annotation body.
+OASP4J proposes role-based authorization to cope with the authorization of executing use cases of an application. OASP4J use the _JSR250_ annotations, mainly _@RolesAllowed_, as you have seen, for authorizing method calls against the permissions defined in the annotation body.
 
 So, finally, we have to create a class to declare the actual roles we use as values for the `@RolesAllowed` annotation:
 
 [source,java]
 ----
-
 package devonfw.tutorial.general.common.api.constants;
 
 /**
@@ -779,7 +778,6 @@ public abstract class PermissionConstants {
   /** {@link io.oasp.module.security.common.api.accesscontrol.AccessControlPermission} to remove table. */
   public static final String DELETE_TABLE = "DeleteTable";
 }
-
 ----
 
 == step 4. Creating REST endpoints
@@ -788,7 +786,7 @@ Web applications need to get data from the server, so we have to expose the meth
 
 This is an example of a REST API for our `Table` use case using JAX-RS.
 
-Also note that the implementation does not follow the dogmatic +RESTFUL+ approach as Devon proposes a more pragmatic way to use REST. Please refer to the OASP4J Guide's  https://github.com/oasp-forge/oasp4j-wiki/wiki/guide-service-layer[service layer] chapter for more information on the subject.
+Also note that the implementation does not follow the dogmatic _RESTFUL_ approach as Devonfw proposes a more pragmatic way to use REST. Please refer to the guide https://github.com/devonfw/devon-guide/wiki/getting-started-Creating-Rest-Service[Creating Rest Service] for more information on the subject.
 
 
 .TablemanagementRestServiceImpl.java
@@ -961,10 +959,11 @@ public class TablemanagementRestServiceImpl {
 
 }
 ----
+
 <1> We send and receive the information in JSON format.
 <2> We specify the version of the entire API inside its path.
 
-As you can see, we have defined the REST URLs for our Table user case. Now, for example, you can find all tables on this URL:
+As you can see, we have defined the REST URLs for our `Table` user case. Now, for example, you can find all tables on this URL:
 
 [source]
 ----
@@ -973,7 +972,7 @@ http://<server>:<port>/application-name/services/rest/tablemanagement/v1/table/
 
 === DTO conversion
 
-In the logic API, the methods of the classes should return Data Transfer Object (DTO) instead of entities. So, in OASP we have a mechanism to convert the entities into DTOs.
+In the logic API, the methods of the classes should return Data Transfer Object (DTO) instead of entities. So, in OASP4J we have a mechanism to convert the entities into DTOs.
 
 This is an example of how to convert an entity into a DTO:
 
@@ -984,10 +983,9 @@ This is an example of how to convert an entity into a DTO:
 
     // Conversion for objects
     getBeanMapper().map(table, TableDto.class);
-
 ----
 
-In the example, we use the function +getBeanMapper()+. This function provides us an API to convert entities into DTOs. In the logic layer, we only have to extend the class +AbstractComponentFacade+ to get access to this functionality.
+In the example, we use the function _getBeanMapper()_. This function provides us an API to convert entities into DTOs. In the logic layer, we only have to extend the class `AbstractComponentFacade` to get access to this functionality.
 
 == step 5. Adding pagination
 
@@ -1105,7 +1103,6 @@ Now we will create a new POST REST endpoint (pagination request have to be POST)
 
 [source,java]
 ----
-
   /**
    * Delegates to {@link Tablemanagement#findTableEtos}.
    *
@@ -1118,7 +1115,6 @@ Now we will create a new POST REST endpoint (pagination request have to be POST)
 
     return this.tableManagement.findTableEtos(searchCriteriaTo);
   }
-
 ----
 
 [NOTE]
@@ -1126,7 +1122,7 @@ Now we will create a new POST REST endpoint (pagination request have to be POST)
 Make sure to press `Ctrl-Shift-O` after inserting this new method, to make Eclipse auto-import the dependencies of `PaginatedListTo` and `TableSearchCriteriaTo`.
 ====
 
-Consequently we have to declare this new method in the table management classes in our logic layer:
+Consequently we have to declare this new method `findTableEtos` in the table management classes in our logic layer:
 
 .Tablemanagement.java
 [source,java]
@@ -1204,14 +1200,14 @@ And finally, we have to define our pagination method in our DAO class.
 
 [NOTE]
 ====
-While auto-completing the new imports using `Ctrl-Shift-O` after adding the above methods, select `com.mysema.query.alias.Alias` as the import for the `Alias` class.
+While auto-completing the new imports using `Ctrl-Shift-O` after adding the above methods, select `com.mysema.query.alias` as the import for the `Alias` class.
 ====
 
 In this case, we have used QueryDSL to create the query. You can read more about QueryDSL at http://www.querydsl.com/[www.querydsl.com].
 
 == step 6. Sorting the results
 
-In Devon exists a special TO (Transfer Object) called ´OrderByTo` to transmit sorting parameters from client to server. This is the JSON format that the server expects when using this TO:
+In OASP4J exists a special TO (Transfer Object) called ´OrderByTo` to transmit sorting parameters from client to server. This is the JSON format that the server expects when using this TO:
 
 [source,javascript]
 ----
@@ -1292,4 +1288,30 @@ Now add the following method to `TableDaoImpl`:
 
 ----
 
-As you can see, we have added a private method to add sorting filter to our query depending on the sort params received.
+As you can see, we have added a private method to add sorting filter to our query depending on the sort parameters received.
+
+== step 7. Testing the example
+
+In order to test the example we are going to use the user `chief` to obtain the tables. To be able to access to that data we need first to grant permissions to the `chief` user. We can do it specifying the role and the permissions in the _access-control-schema.xml_ file located in _src/main/resources/config/app/security/_.
+
+[source,xml]
+----
+  <group id="Chief" type="role">
+    <permissions>
+      <permission id="FindTable"/>
+    </permissions>
+  </group>
+----
+
+Now if we run the application we can access to the tables data with the URL 
+
+----
+http://<server>/<app>/services/rest/tablemanagement/v1/table/
+----
+
+And, after logging as `chief`, the server response should be:
+
+[source,json]
+----
+[{"id":101,"modificationCounter":1,"revision":null,"waiterId":null,"number":1,"state":"OCCUPIED"},{"id":102,"modificationCounter":1,"revision":null,"waiterId":null,"number":2,"state":"FREE"},{"id":103,"modificationCounter":1,"revision":null,"waiterId":null,"number":3,"state":"FREE"},{"id":104,"modificationCounter":1,"revision":null,"waiterId":null,"number":4,"state":"FREE"},{"id":105,"modificationCounter":1,"revision":null,"waiterId":null,"number":5,"state":"FREE"}]
+----
