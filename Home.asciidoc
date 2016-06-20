@@ -10,7 +10,7 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - link:getting-started-download-and-install[Download and Install Devonfw]
 
-- link:getting-started-the-devon-ide[The Devonfw IDE]
+- link:getting-started-the-devon-ide[The Devon IDE]
 
 - link:getting-started-running-sample-application[Running Sample Application]
 
