@@ -11,11 +11,11 @@ image::images/devonfw-dist-structure/devonfw-dist-structure-01.png[,scalewidth=8
 
 == Explaining the structure
 
-As you can see we have some folders and some executable _.bat_ files. In this step we must focus in the _create-or-update-workspace.bat_ and the _update-all-workspaces.bat_ that are the scripts that we must execute to obtein the whole Devonfw structure:
+As you can see we have some folders and some executable _.bat_ files. In this step we must focus in the _create-or-update-workspace.bat_ and the _update-all-workspaces.bat_ that are the scripts that we must execute to obtain the whole Devonfw structure:
 
 - The *create-or-update-workspace.bat* file will create the _conf_ directory that stores the Maven local repository and two configuration files (the _settings.json_ with distribution info and the _settings.xml_ with the Maven connection settings). Alongside with that it will create the _eclipse-main.bat_ to start Eclipse.
 
-- The *update-all-workspaces.bat* file sets some Eclipse preferences for workspaces and creates all the Eclipse _.bat_ starters related to the projects in the _workspace_ directory.
+- The *update-all-workspaces.bat* file sets some Eclipse preferences for workspaces and creates all the Eclipse _.bat_ launchers related to the projects in the _workspace_ directory.
 
 So after executing these two scripts the structure will be like the following
 
@@ -45,10 +45,10 @@ This is the directory to store all our projects. We must keep in mind that the c
 Thus if we have a _workspaces/project01_ and a _workspaces/project02_ projects the _update-all-workspaces.bat_ script will create a _eclipse-project01.bat_ starter and a _eclipse-project02.bat_ starter.
 
 ==== console.bat
-This is the script that launches the distribution's _cmd_. That means that within this _cmd_ we have access to the software located in the _sofware_ folder so we can use the tools "installed" in that folder although we don't have these installed in our machine. So is important to always use this _cmd_ (lunching the _console.bat_ script) to use the software related to the distribution.
+This is the script that launches the distribution's _cmd_. That means that within this _cmd_ we have access to the software located in the _software_ folder so we can use the tools "installed" in that folder although we don't have these installed in our machine. So is important to always use this _cmd_ (lunching the _console.bat_ script) to use the software related to the distribution.
 
 ==== create-or-update-workspace.bat
-This script is already explained link:getting-started-distribution-structure#Explaining-the-stucture[at the beginning of this chapter].
+This script is already explained link:getting-started-distribution-structure#explaining-the-structure[at the beginning of this chapter].
 
 ==== EclipseConfigurator.log
 This is a file for internal usage and records the logs of the _create-or-update-workspace.bat_ and the _update-all-workspaces.bat_ scripts.
@@ -63,7 +63,7 @@ The _s2.create.bat_ generates a new project in the _workspaces_ directory and do
 For more info see the Shared Services documentation.
 
 ==== update-all-workspaces.bat
-This script is already explained link:getting-started-distribution-structure#Explaining-the-stucture[at the beginning of this chapter].
+This script is already explained link:getting-started-distribution-structure#explaining-the-structure[at the beginning of this chapter].
 
 ==== variables.bat
 This is another script related to the internal functionality of the distribution. The script stores some variables that are used internally by the distribution scripts.
