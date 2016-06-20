@@ -2,7 +2,7 @@
 
 ==== Pablo
 
-- ~~In https://github.com/devonfw/devon-guide/wiki/getting-started-Creating-Rest-Service#metadata[Creating-Rest-Service]. *Data-Access Layer Guide* points to a non yet implemented page in Devon guide (fix it when implementation is done).~~
+- <strike>In https://github.com/devonfw/devon-guide/wiki/getting-started-Creating-Rest-Service#metadata[Creating-Rest-Service]. *Data-Access Layer Guide* points to a non yet implemented page in Devon guide (fix it when implementation is done).</strike>
 
 - In https://github.com/devonfw/devon-guide/wiki/getting-started-Cobigen[Cobigen section] link "In the earlier chapter about CRUD..." with the related section of this guide (not created yet).
 
