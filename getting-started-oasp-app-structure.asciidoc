@@ -108,3 +108,15 @@ The package test contains all we need to test the application. It's divided in t
 ** java *(6)*: contains the Unit Test of the application. Allow us to keep a control of the right functionality of the application. You can see more about the Unit Test and TDD methodology https://github.com/devonfw/devon-guide/wiki/getting-started-writing-unittest-cases[here] and https://github.com/oasp/oasp4j/wiki/guide-testing[here]
 
 ** resources *(7)*: contains the configuration and data we need to run the test in of the application.
+
+= Server Module
+
+This module is contains two important files:
+
+* lockback.xml: This file is in the resources folder and it is the responsible to configure the log.
+
+* pom.xml: This file has Maven configuration for packaging the application as a WAR. Also, this file has a profile to package the JavaScript client ZIP file into the WAR.
+
+= EAR Module
+
+In some cases we can create a EAR module to our project. This module only contains a pom.xml file to packaging the application as EAR from the WAR generated.
