@@ -1,5 +1,62 @@
 = Writing Unit Test Cases
 
+== Unit Test
+
+In computer programming, unit testing is a software testing method by which individual units of source code, sets of one or more computer program modules together with associated control data, usage procedures, and operating procedures, are tested to determine whether they are fit for use. Intuitively, one can view a unit as the smallest testable part of an application. That's all we need to know to understand what is a Unit Test and its importance, for more information visit https://en.wikipedia.org/wiki/Unit_testing[wikipedia].
+
+=== Unit Test on Eclipse
+
+In order to understand how work the Unit Test in Eclipse, we are going to create and run a simple tests.
+
+==== Step 1: Create a new class
+
+In this little tutorial we are going to create a very simple test, so we are going to create a sample class with the name MyClass.java (you can https://github.com/devonfw/devon-guide/wiki/getting-started-creating-new-devonfw-application[create a new application] if you need). In Eclipse do right click in some the package of the application > New > Class. Named it MyClass and press Finish.
+
+==== Step 2: Create a JUnit test
+
+In Project Explorer, over our new MyClass.java class right click > New > Other > and select JUnit Test Case. Named it MyClassTest and Source folder and package of your application where you want to create the test, e.g. `src/test/java`. 
+
+=== Step 3: First test
+
+In a OASP4J project we have our own Component Test, so we need to do that our new JUnit Test extends of ComponentTest of the OASP4J module test.
+
+Fist of all check if you have the dependency of the module in your pom.xml
+
+[source,xml]
+----
+<dependency>
+  <groupId>io.oasp.java.modules</groupId>
+  <artifactId>oasp4j-test</artifactId>
+  <scope>test</scope>
+</dependency>
+----
+
+Now we can modify our JUnit Test.
+
+[source,java]
+----
+@SpringApplicationConfiguration(classes = { SpringBootApp.class })
+public class MyClassTest extends ComponentTest {
+
+  @Test
+  public void test() {
+    assertThat(false).isTrue();
+  }
+}
+----
+
+This is a very simple test that verify if the boolean value `true` is true.
+
+[NOTE]
+=====
+As you can see we are including the `@SpringApplicartionContext` annotation in order to define an application context to our test. 
+=====
+
+
+== Test-driven development (TDD) 
+
+Test-driven development (TDD) is a software development process that relies on the repetition of a very short development cycle: first the developer writes an (initially failing) automated test case that defines a desired improvement or new function, then produces the minimum amount of code to pass that test, and finally refactors the new code to acceptable standards.
+
 [TODO]
 
 === Module Tests
