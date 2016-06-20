@@ -120,3 +120,5 @@ This module is contains two important files:
 = EAR Module
 
 In some cases we can create a EAR module to our project. This module only contains a pom.xml file to packaging the application as EAR from the WAR generated.
+
+You can see more about how to create a new application https://github.com/devonfw/devon-guide/wiki/getting-started-creating-new-devonfw-application[here].
