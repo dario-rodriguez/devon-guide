@@ -4,7 +4,7 @@
 * link:getting-started-introduction-to-devonfw[Introduction to Devonfw]
 * link:devcon-user-guide[Devcon - User Guide]
 * link:getting-started-download-and-install[Download and Install Devonfw]
-* link:getting-started-the-devon-ide[The Devonfw IDE]
+* link:getting-started-the-devon-ide[The Devon IDE]
 * link:getting-started-running-sample-application[Running Sample Application]
 * link:getting-started-distribution-structure[Devonfw Distribution Structure]
 * link:getting-started-creating-new-devonfw-application[Create New Application]
