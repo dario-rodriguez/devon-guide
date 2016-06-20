@@ -31,7 +31,7 @@ In our example application we find the different classes in this packages:
 
 This convention is based on the OASP4J conventions, which you can consult in the https://github.com/oasp/oasp4j/wiki/coding-conventions#packages[OASP Coding conventions documentation]
 
-== step 1. Adding the database schema
+== step 1. Add the database schema
 As first step we are going to add the database schema to our database.
 
 In the script `resources/db/migration/V0001__Create_schema.sql` we add:
@@ -291,9 +291,9 @@ You may need to solve the import of the @Min annotation by right clicking over t
 You can read more about validation in https://github.com/oasp-forge/oasp4j-wiki/wiki/guide-validation[the OASP guide about validation]
 ====
 
-== step 3. Creating persistence layer
+== step 3. Create persistence layer
 
-Data Acccess Objects (DAOs) are part of the persistence layer. They are responsible for a specific entity and should be named as <Entity>Dao[Impl]. The DAO offers the so called CRUD-functionalities (create, retrieve, update, delete) for the corresponding entity. Additionally a DAO may offer advanced operations such as search or locking methods.
+Data Access Objects (DAOs) are part of the persistence layer. They are responsible for a specific entity and should be named as <Entity>Dao[Impl]. The DAO offers the so called CRUD-functionalities (create, retrieve, update, delete) for the corresponding entity. Additionally a DAO may offer advanced operations such as search or locking methods.
 
 For each DAO there is an interface named <Entity>Dao that defines the API. For CRUD support and common naming methods we derive it from the interface `devonfw.tutorial.general.dataaccess.api.dao.ApplicationDao`, which was automatically generated while using the OASP4J archetype to generate your application
 
@@ -336,7 +336,7 @@ public interface TableDao extends ApplicationDao<TableEntity>, MasterDataDao<Tab
 
 ----
 
-=== Defining querys
+=== Define querys
 
 Before we proceed to the implementation of this DAO interface, we will create the SQL query.
 
@@ -752,7 +752,7 @@ You may have problems with the _PermissionConstants_ properties because are not 
 
 At this point we have defined all the necessary classes in the logic layer, so we have our API ready, with the exception of finishing its security aspect.
 
-=== Securing the application
+=== Secure the application
 
 OASP4J proposes role-based authorization to cope with the authorization of executing use cases of an application. OASP4J use the _JSR250_ annotations, mainly _@RolesAllowed_, as you have seen, for authorizing method calls against the permissions defined in the annotation body.
 
@@ -780,7 +780,7 @@ public abstract class PermissionConstants {
 }
 ----
 
-== step 5. Creating REST endpoints
+== step 5. Create REST endpoints
 
 Web applications need to get data from the server, so we have to expose the methods defined in the logic layer to these applications. We need a class that exposes methods as URLs to allow the applications to get the data. By convention, we call this class `<Entity>managementRestServiceImpl`.
 
@@ -987,7 +987,7 @@ This is an example of how to convert an entity into a DTO:
 
 In the example, we use the function _getBeanMapper()_. This function provides us an API to convert entities into DTOs. In the logic layer, we only have to extend the class `AbstractComponentFacade` to get access to this functionality.
 
-== step 6. Adding pagination
+== step 6. Add pagination
 
 To add pagination support to our Table CRUD, the first step is creating a new Table TO that extends the `SearchCriteriaTo` class. This class forms the foundation for every request which needs search or pagination funcionality.
 
@@ -1205,7 +1205,7 @@ While auto-completing the new imports using `Ctrl-Shift-O` after adding the abov
 
 In this case, we have used QueryDSL to create the query. You can read more about QueryDSL at http://www.querydsl.com/[www.querydsl.com].
 
-== step 7. Sorting the results
+== step 7. Sort the results
 
 In OASP4J exists a special TO (Transfer Object) called ´OrderByTo` to transmit sorting parameters from client to server. This is the JSON format that the server expects when using this TO:
 
@@ -1290,7 +1290,7 @@ Now add the following method to `TableDaoImpl`:
 
 As you can see, we have added a private method to add sorting filter to our query depending on the sort parameters received.
 
-== step 8. Testing the example
+== step 8. Test the example
 
 In order to test the example we are going to use the user `chief` to obtain the tables. To be able to access to that data we need first to grant permissions to the `chief` user. We can do it specifying the role and the permissions in the _access-control-schema.xml_ file located in _src/main/resources/config/app/security/_.
 
