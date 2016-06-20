@@ -14,7 +14,7 @@ image::images/setup-and-maintain-db-schemas-with-flyway/environments.png[,scaled
 
 
 
-We not only have to deal with one copy of environment, but with several. This presents a number of challenges in maintain the databases across various environments. 
+We not only have to deal with one copy of environment, but with several. This presents a number of challenges to maintain the databases across various environments. 
 
 Many projects still rely on manually applied sql scripts. And sometimes not even that (a quick sql statement here or there to fix a problem). And soon many questions arise:
 
