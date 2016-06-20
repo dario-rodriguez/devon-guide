@@ -43,7 +43,7 @@ This is another directory with internal elements. In _system_ folder we can find
 ==== workspaces
 This is the directory to store all our projects. We must keep in mind that the content of this folder will be associated with a Eclipse _.bat_ launchers files through the _update-all-worksapces.bat_ script. So if we want separated Eclipse instances for two different projects we must declare these projects in separated directories within the _workspaces_ folder.
 
-Thus if we have a _workspaces/project01_ and a _workspaces/project02_ projects the _update-all-workspaces.bat_ script will create a _eclipse-project01.bat_ starter and a _eclipse-project02.bat_ starter.
+Thus if we have a _workspaces/project01_ and a _workspaces/project02_ projects the _update-all-workspaces.bat_ script will create a _eclipse-project01.bat_ launcher and a _eclipse-project02.bat_ launcher in the root folder of the distribution so we can access to a different Eclipse instances with different configurations for each project.
 
 ==== console.bat
 This is the script that launches the distribution's _cmd_. That means that within this _cmd_ we have access to the software located in the _software_ folder so we can use the tools "installed" in that folder although we don't have these installed in our machine. So is important to always use this _cmd_ (lunching the _console.bat_ script) to use the software related to the distribution.
