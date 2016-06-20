@@ -27,4 +27,4 @@ Finally, there are typically transfer-objects for data that is never persistent.
 The link:getting-started-logic-layer[logic layer] defines these transfer-objects (ETOs, CTOs, etc.) and will only pass such objects instead of link:getting-started-Data-Access-Layer#entity[persistent entities].
 
 == Service-Transfer-Objects
-If we need to do link:getting-started-Creating-Rest-Service#versioning[service versioning] and support previous APIs or for external services with a different view on the data, we create separate transfer-objects to keep the service API stable (see link:guide-service-layer[service layer]).
+If we need to do link:getting-started-Creating-Rest-Service#versioning[service versioning] and support previous APIs or for external services with a different view on the data, we create separate transfer-objects to keep the service API stable (see link:getting-started-Creating-Rest-Service[service layer]).
