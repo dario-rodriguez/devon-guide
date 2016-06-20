@@ -2,6 +2,4 @@
 
 ==== Pablo
 
-- In https://github.com/devonfw/devon-guide/wiki/getting-started-Cobigen[Cobigen section] link "In the earlier chapter about CRUD..." with the related section of this guide (not created yet).
-
 - In  https://github.com/devonfw/devon-guide/wiki/getting-started-distribution-structure[Distribution structure] --> For more info see the Shared Services documentation --> needs a lint to the Shared Services documentation.
