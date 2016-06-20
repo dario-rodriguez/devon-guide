@@ -14,7 +14,7 @@ To use the archetype provided by oasp4j you can choose between 2 alternatives, c
 
 ==== Step 1: Open the console
 
-Open the Devonfw console by executing the batch file "console.bat" from the Devon distribution. This will open a command prompt preconfigured automatically to use the software and configuration provided by the Devonfw distribution.
+Open the Devonfw console by executing the batch file "console.bat" from the Devonfw distribution. This will open a command prompt preconfigured automatically to use the software and configuration provided by the Devonfw distribution.
 
 ==== Step 3: Change the directory
 
@@ -31,10 +31,9 @@ This is the default location on Devonfw to create new applications. You can use 
 
 To create a new application you need to execute one of the following commands:
 
-+
-* WAR packaging (arguments before archetype:generate identify the Devon archetype):
-+
 
+** WAR packaging (arguments before archetype:generate identify the OASP4J archetype):
++
 [source,bash]
 ---- 
 mvn -DarchetypeVersion=<OASP4J-VERSION> -DarchetypeGroupId=io.oasp.java.templates -DarchetypeArtifactId=oasp4j-template-server archetype:generate -DgroupId=<APPLICATION-GROUP-ID> -DartifactId=<APPLICATION-ARTIFACT-ID> -Dversion=<APPLICATION-VERSION> -Dpackage=<APPLICATION-PACKAGE-NAME>
@@ -46,8 +45,8 @@ For example
 ---- 
 mvn -DarchetypeVersion=2.0.0 -DarchetypeGroupId=io.oasp.java.templates -DarchetypeArtifactId=oasp4j-template-server archetype:generate -DgroupId=io.oasp.application -DartifactId=sampleapp -Dversion=0.1-SNAPSHOT -Dpackage=io.oasp.application.sampleapp
 ---- 
-+
-* And for combined WAR and EAR packaging (arguments before archetype:generate identify the Devon archetype):
+
+** And for combined WAR and EAR packaging (arguments before archetype:generate identify the OASP4J archetype):
 +
 [source]
 ---- 
