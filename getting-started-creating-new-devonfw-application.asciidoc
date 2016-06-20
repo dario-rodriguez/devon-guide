@@ -92,4 +92,4 @@ image::images/create-new-app/devon-guide-newapp-archetype-parameters.PNG[,scaled
 
 == What is generated
 
-You can read more about the structure of a OASP4J application [here].
+You can read more about the structure of a OASP4J application https://github.com/devonfw/devon-guide/wiki/getting-started-oasp-app-structure[here].
