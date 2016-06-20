@@ -17,4 +17,54 @@ As you can see we have some folders and some executable _.bat_ files. In this st
 
 - The *update-all-workspaces.bat* file sets some Eclipse preferences for workspaces and creates all the Eclipse _.bat_ starters related to the projects in the _workspace_ directory.
 
-So after executing these two scripts the
+So after executing these two scripts the structure will be like the following
+
+image::images/devonfw-dist-structure/devonfw-dist-structure-02.png[,scalewidth=80%]
+
+Now we have the new _conf_ directory as expected, and the _eclipse-main.bat_ and the _eclipse-examples.bat_ related the the _main_ and _examples_ directories within the _workspaces_ folder.
+
+This is the final structure so we can start explaining each element.
+
+==== conf
+As we previously mentioned this directory is created executing the _create-or-update-workspace.bat_. This is the directory where Maven will store its local repository, in a _.m2/repository_ path. In addition to that in the _conf_ directory we can find two settings files. The _settings.json_ with distribution info and the _settings.xml_ with the Maven connection settings.
+
+==== scripts
+This folder stores the scripts referenced in the _.bat_ files in the root directory. These are scripts related to internal tasks of the distribution.
+
+==== settings
+Like the _scripts_ folder this is another directory that stores elements of the internal functionality of the distribution. In the settings folder we can find configuration files of the different software included in the distribution like Eclipse, Maven, Sonarqube and several more.
+
+==== software
+All the software resources that the distribution needs are stored in this folder. Internally the distribution will search here for available software so all the programs, plugins and tools needed by the distribution must be located in this directory.
+
+==== system
+This is another directory with internal elements. In _system_ folder we can find some files related with the environment configuration.
+
+==== workspaces
+This is the directory to store all our projects. We must keep in mind that the content of this folder will be associated with a Eclipse _.bat_ starter file through the _update-all-worksapces.bat_ script. So if we want separated Eclipse instances for two different projects we must declare these projects in separated directories within the _workspaces_ folder.
+Thus if we have a _workspaces/project01_ and a _workspaces/project02_ projects the _update-all-workspaces.bat_ script will create a _eclipse-project01.bat_ starter and a _eclipse-project02.bat_ starter.
+
+==== console.bat
+This is the script that launches the distribution's _cmd_. That means that within this _cmd_ we have access to the software located in the _sofware_ folder so we can use the tools "installed" in that folder although we don't have these installed in our machine. So is important to always use this _cmd_ (lunching the _console.bat_ script) to use the software related to the distribution.
+
+==== create-or-update-workspace.bat
+This script is already explained link:getting-started-distribution-structure#Explaining-the-stucture[at the beginning of this chapter].
+
+==== EclipseConfigurator.log
+This is a file for internal usage and records the logs of the _create-or-update-workspace.bat_ and the _update-all-workspaces.bat_ scripts.
+
+==== eclipse-<project>.bat
+These files are used to have different Eclipse instances related to the different projects located into the _workspaces_ directory. So for each project in the _workspaces_ directory the _update-all-workspaces.bat_ script will create a Eclipse launcher with structure _eclipse-<projectName>.bat_. In this way we can have different Eclipse environments with different configurations related to the different projects of the _workspace_ directory.
+
+==== s2-create.bat & s2-init.bat
+These scripts are related to the _Shared Services_ funcionality included in Devonfw. 
+The _s2-init.bat_ configurates the _settings.xml_ file to connect to an Artifactory Repository.
+The _s2.create.bat_ generates a new project in the _workspaces_ directory and does a checkout of a Subversion repository inside.
+For more info see the Shared Services documentation.
+
+==== update-all-workspaces.bat
+This script is already explained link:getting-started-distribution-structure#Explaining-the-stucture[at the beginning of this chapter].
+
+==== variables.bat
+This is another script related to the internal functionality of the distribution. The script stores some variables that are used internally by the distribution scripts.
+
