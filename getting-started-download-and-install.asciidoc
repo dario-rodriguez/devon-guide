@@ -20,7 +20,7 @@ Download latest Devonfw distribution from https://coconet.capgemini.com/sf/frs/d
 
 == Prepare the workspace
 
-1. Unzip the Devonfw distribution into a directory of your choosing. The path to the directory should contain no spaces, to prevent problems with some of the tools.
+1. Unzip the Devonfw distribution into a directory of your choice. The path to the directory should contain no spaces, to prevent problems with some of the tools.
 
 1. Run the batch file "create-or-update-workspace.bat".
 
