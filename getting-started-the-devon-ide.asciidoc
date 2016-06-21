@@ -8,7 +8,7 @@ toc::[]
 The Devon IDE is the general name for two distinct versions of a customized Eclipse which comes in a Open Source variant, called OASP4J-IDE, and a more extended version included in the "Devon Dist" which is only available for Capgemini engagements.
 
 === Features & advantages
-The goal to have a but powerful solution which simplifies the installation, configuration and maintenance of the development IDE. As it is being included in the distribution, the IDE is ready to be used and some specific configuration of certain plugins only takes a few  minutes.
+Devonfw comes with a fully featured IDE in order to simplify the installation, configuration and maintenance of this instrumental part of the development environment. As it is being included in the distribution, the IDE is ready to be used and some specific configuration of certain plugins only takes a few  minutes.
 
 image::images/devon-ide/integrated-ide.png[Integrated IDE]
 
