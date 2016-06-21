@@ -126,16 +126,6 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
  
 - [Internationalization](https://github.com/devonfw/devon/wiki/devon-guide-angular-i18n) (TODO)
 
-# Security; Defense in depth
-
-- [Security: protection against XSS / untrusted input](https://github.com/devonfw/devon/wiki/devon-guide-security-protection-ageinst-xss-untrused) (TODO) 
-
-- [Security: protection against SQL injection](https://github.com/devonfw/devon/wiki/devon-guide-security-protection-ageinst-sql-injection) (TODO) 
-
-
-# TO INCLUDE Capabilities / Features Devon Template  (where to put ???)
-
-
 # MAYBE to include
 
 - [Internationalization](https://github.com/devonfw/devon/wiki/devon-guide-i18n) [OASP = [1](https://github.com/oasp/oasp4j/wiki/guide-i18n)]
