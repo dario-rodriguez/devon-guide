@@ -69,7 +69,7 @@ image::images/devon-ide/checkstyle2.png["checkstyle2", width = "800" , link="ima
 
 &#160; +
 
-
+[start=2]
 . Select the Checkstyle section within the properties dialog .
 
 
@@ -80,7 +80,7 @@ image::images/devon-ide/checkstyle3.png["checkstyle3", width = "800" , link="ima
 &#160; +
 
 
-
+[start=3]
 . Activate Checkstyle for your project by selecting the Checkstyle active for this project check box and press OK
 
 
