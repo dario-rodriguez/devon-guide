@@ -34,7 +34,7 @@ Since an application’s code can greatly vary, and every program can be written
 
 http://eclipse-cs.sourceforge.net/[CheckStyle] is a Open Source development tool to help you ensure that your Java code adheres to a set of coding standards. Checkstyle does this by inspecting your Java source code and pointing out items that deviate from a defined set of coding rules.
 
-With the Checkstyle IDE Plugin your code is constantly inspected for coding standard deviations. Within the Eclipse workbench you are immediately notified of problems via the Eclipse Problems View and source code annotations similar to compiler errors or warnings.
+With the Checkstyle IDE Plugin, your code is constantly inspected for coding standard deviations. Within the Eclipse workbench, you are immediately notified with the problems via the Eclipse Problems View and source code annotations similar to compiler errors or warnings.
 This ensures an extremely short feedback loop right at the developers fingertips.
 
 ==== Why use it?
@@ -42,12 +42,12 @@ This ensures an extremely short feedback loop right at the developers fingertips
 If your development team consists of more than one person, then obviously a common ground for coding standards (formatting rules, line lengths etc.) must be agreed upon - even if it is just for practical reasons to avoid superficial, format related merge conflicts.
 Checkstyle Plugin helps you define and easily apply those common rules.
 
-The plugin uses a project builder to check your project files with Checkstyle. Assuming the IDE Auto-Build feature is enabled each modification of a project file will immediately get checked by Checkstyle on file save - giving you immediate feedback about the changes you made. To use a simple analogy, the Checkstyle Plug-in works very much like a compiler but instead of producing .class files it produces warnings where your code violates the Checkstyle rules. The discovered deviations are accessible in the Eclipse Problems View, as code editor annotations and via additional Checkstyle violations views.
+The plugin uses a project builder to check your project files with Checkstyle. Assuming the IDE Auto-Build feature is enabled each modification of a project file will immediately get checked by Checkstyle on file save - giving you immediate feedback about the changes you made. To use a simple analogy, the Checkstyle Plug-in works very much like a compiler but instead of producing .class files, it produces warnings where the code violates Checkstyle rules. The discovered deviations are accessible in the Eclipse Problems View, as code editor annotations and via additional Checkstyle violations views.
 
 ==== Installation
 
 After IDE installation, IDE provides default checkstyle configuration file which has certain check rules specified .
-The set of rules used to check your code is highly configurable. A Checkstyle configuration specifies which check rules are validated against your code and with which severity violations will be reported. Once defined a Checkstyle configuration can be used across multiple projects. The IDE comes with several pre-defined Checkstyle configurations.
+The set of rules used to check the code is highly configurable. A Checkstyle configuration specifies which check rules are validated against the code and with which severity violations will be reported. Once defined a Checkstyle configuration can be used across multiple projects. The IDE comes with several pre-defined Checkstyle configurations.
 You can create custom configurations using the plugin's Checkstyle configuration editor or even use an existing Checkstyle configuration file from an external location.
 
 You can see violations in your workspace as shown in below figure.
