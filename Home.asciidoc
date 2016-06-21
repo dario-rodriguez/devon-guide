@@ -34,6 +34,8 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - link:getting-started-crud-operations[CRUD operations and DAO Implementation] (TO EVALUATE)
 
+- link:getting-started-Cobigen[Generating code with Cobigen] (TO EVALUATE)
+
 - link:getting-started-transfer-objects[Transfer Objects : ETOs and CTOs]
 
 - link:getting-started-logic-layer[Logic Layer]
@@ -42,7 +44,7 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - link:getting-started-Creating-Rest-Service[Creating Rest Service] (TO EVALUATE)
 
-- link:getting-started-Cobigen[Generating code with Cobigen] (TO EVALUATE)
+
 
 ## Cookbook 
 - [Security: Login & roles, auth& authorisation](https://github.com/devonfw/devon/wiki/devon-guide-security) [OASP = [1](https://github.com/oasp/oasp4j/wiki/guide-security)]
