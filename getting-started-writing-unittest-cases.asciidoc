@@ -222,6 +222,5 @@ image::images/writing-unittest-cases/getting-started-writing-unittest-cases-TDD-
 
 Finally we have our first application implemented with TDD methodology!
 
-As you can see, in this tutorial we have a very simple application, so we don't need another round of the TDD cycle, but in a real application, we need to do this cycle all times we need to get the success result.
-
+As you can see, in this tutorial we have a very simple application, so we don’t need another round of the TDD cycle, but in a real application, we need to do this cycle the times we need to get the success result.
 
