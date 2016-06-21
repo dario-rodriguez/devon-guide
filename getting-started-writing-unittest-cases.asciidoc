@@ -10,15 +10,15 @@ In order to understand how work the Unit Tests in Eclipse, we are going to creat
 
 ==== Step 1: Create a new class
 
-In this little tutorial we are going to create a very simple test, so we are going to create a sample class with the name MyClass.java (you can https://github.com/devonfw/devon-guide/wiki/getting-started-creating-new-devonfw-application[create a new application] if you need). In Eclipse do right click in some the package of the application > New > Class. Named it MyClass and press Finish.
+In this little tutorial we are going to create a very simple test. For this, we are going to create a class with the name MyClass.java (you can https://github.com/devonfw/devon-guide/wiki/getting-started-creating-new-devonfw-application[create a new application] if you need). In Eclipse do right click in the package of the application > New > Class. Name it MyClass and press Finish.
 
 ==== Step 2: Create a JUnit test
 
-In Project Explorer, over our new MyClass.java class right click > New > Other > and select JUnit Test Case. Named it MyClassTest and Source folder and package of your application where you want to create the test, e.g. `src/test/java`. 
+In Project Explorer, over our new MyClass.java class, we need to do right click > New > Other > and select JUnit Test Case. Name it MyClassTest (name by default) and select source folder and package of your application where you want to create the test, e.g. `src/test/java` (this is a good practice). 
 
 === Step 3: Implement the test
 
-In a OASP4J project we have our own Component Test, so we need to do that our new JUnit Test extends of ComponentTest of the OASP4J module test.
+In a OASP4J project we have our own Component Test methods, so we need to do that our new JUnit Test extends of ComponentTest of the OASP4J module test.
 
 Fist of all check if you have the dependency of the module in your pom.xml
 
@@ -45,24 +45,32 @@ public class MyClassTest extends ComponentTest {
 }
 ----
 
-This is a very simple test that verify if the boolean value `true` is true.
+This is a very simple test that verify if the boolean value `true` is true. And is the case to start testing OASP4J application.
 
 [NOTE]
 =====
-As you can see we are including the `@SpringApplicartionContext` annotation in order to define an application context to our test. 
+As you can see we are including the `@SpringApplicartionContext` annotation in order to define an application context to our test. Without the context the application, the test get a fatal error, because you can't test a non-running application. 
+
+We can include a configuration location in the last annotation, if we need it, or use `@ContextConfiguration(locations = { "classpath:my-bean-context.xml" })`. For this tutorial it's unnecessary because our test is the most very simple test we can do.
 =====
 
 === Step 4: Run the test
 
-Eclipse provide us with a very helpful view to test our applications. If you can't see it press in the menu Windows > Show View > Other > and select JUnit. 
+Eclipse provide us with a very helpful view to test our applications. If you can't see it press in the menu: Windows > Show View > Other > and select JUnit. 
 
-Now in above our test press right click > Run As > JUnit test
+Now, over our test, press right click > Run As > JUnit test
 
-TODO -> Add the image
+image::images/writing-unittest-cases/getting-started-writing-unittest-cases-failed.png[,scaledwidth=80%]
 
-As you can see in the image, Eclipse show us a red rectangle because one of our test get a failure, that is marked with a blue cross. We can get a red cross if we have some fatal error as, e.g context error. 
+TODO -> Add the image into the repository
 
-In this, we have a very simple failed because, in the test we have `assertThat(false).isTrue()` that is the same as check if `true == false`.  Now we are going to fix the failure and check the test again.
+As you can see in the image, Eclipse show us a red rectangle because one of the test of our test class get a failure (in this case we have a single test). The failures test are marked with a blue cross. We can get three marks:
+
+* Red cross: the test has some fatal error as, e.g context error, null pointer exceptions, etc.
+* Blue cross: the test fail in some test method like `asserThan()` (like our case)
+* Green check: the test is OK
+
+In this, we have a very simple failure, because in the test we have `assertThat(false).isTrue()` that is the same as check if `true == false`. Now, we are going to fix the failure and run the test again.
 
 [source,java]
 ----
@@ -78,51 +86,44 @@ public class MyClassTest extends ComponentTest {
 
 Now we need to run the test again. And we are going to get the next result
 
-TODO -> Add the image
+image::images/writing-unittest-cases/getting-started-writing-unittest-cases-ok.png[,scaledwidth=80%]
+
+TODO -> Add the image into the repository
 
 As you can see, now the test is success and Eclipse show us a green rectangle and the test with a green check.
+
+Now we can start testing all our applications 
 
 == Test-driven development (TDD) 
 
 Test-driven development (TDD) is a software development process that relies on the repetition of a very short development cycle: first the developer writes an (initially failing) automated test case that defines a desired improvement or new function, then produces the minimum amount of code to pass that test, and finally refactors the new code to acceptable standards.
-TODO -> COMPLETE TDD AND THINK IF I REMOVE THE NEXT CONTENT BECAUSE IS A EXAMPLE MORE COMPLEX THAN THE ABOVE BUT IS ONLY ANOTHER EXAMPLE
 
-[TODO]
+The procedure of doing TDD is following:
 
-=== Module Tests
-POJOs allow for plain and simple testing
+* Write a test
+* Run all tests
+* Write the implementation code
+* Run all tests
+* Refactor
 
-----
-myComponent = new MyComponentImpl();
-myComponent.setOtherComponent(other);
-----
+Now, that we know how to create, write and run a test, we can start understanding the last steps. Let's to see how to work with TDD with a little tutorial.
 
-a combination with Mocking-Framework (Mockito) possible
+=== Step 1: Write a test
 
-=== Component & Integration Tests
+The idea is very simple, we are going to create first the tests for the classes that we are going to implement after.
 
-* Spring-Test integrates Spring with JUnit
-* Spring configurations, injections, etc. can be properly tested
-* Single CDI beans or configurations can be overridden for testing
-* Performance: Setting up the context (container) can be slow
-** Spring-test reuses context if multiple tests use same configuration
+=== Step 2: Run all tests
 
 
-=== JUnit-Test with Spring-Test
 
-----
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:beans-test-service-base.xml" })
-@TestExecutionListeners({DependencyInjectionTestExecutionListener.class, TransactionalTestExecutionListener.class, WebContextTestExecutionListener.class, DirtiesContextTestExecutionListener.class})
-public class MyComponentTest extends Assertions {
+=== Step 3: Write the implementation code
 
-   @Inject
-   private MyComponent myComponent;
- 
-   @Test
-   public void test() {
-      Result result = this.myComponent.calculate(Constants.MAGIC_INPUT);
-      assertThat(result).isEqualTo(getExpectedResult());
-   }
- }
-----
+
+
+=== Step 4: Run all tests
+
+
+
+=== Step 5: Refactor
+
+
