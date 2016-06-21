@@ -16,7 +16,7 @@ In this little tutorial we are going to create a very simple test. For this, we 
 
 In Project Explorer, over our new MyClass.java class, we need to do right click > New > Other > and select JUnit Test Case. Name it MyClassTest (name by default) and select source folder and package of your application where you want to create the test, e.g. `src/test/java` (this is a good practice). 
 
-=== Step 3: Implement the test
+==== Step 3: Implement the test
 
 In a OASP4J project we have our own Component Test methods, so we need to do that our new JUnit Test extends of ComponentTest of the OASP4J module test.
 
@@ -54,7 +54,7 @@ As you can see we are including the `@SpringApplicartionContext` annotation in o
 We can include a configuration location in the last annotation, if we need it, or use `@ContextConfiguration(locations = { "classpath:my-bean-context.xml" })`. For this tutorial it's unnecessary because our test is the most very simple test we can do.
 =====
 
-=== Step 4: Run the test
+==== Step 4: Run the test
 
 Eclipse provide us with a very helpful view to test our applications. If you can't see it press in the menu: Windows > Show View > Other > and select JUnit. 
 
@@ -106,7 +106,7 @@ Now, that we know how to create, write and run a test, we can start understandin
 
 The goal is create a very simple calculator that have 2 methods: add(int,int) and sub(int,int).
 
-=== Step 1: Create a test
+==== Step 1: Create a test
 
 The idea is very simple, we are going to create first the tests for the class that we are going to implement after. That allow us to get the control of the result of our work and verify from the beginning that our code is correct.
 
@@ -151,7 +151,7 @@ public class CalculatorTest extends ComponentTest {
 }
 ----
 
-=== Step 2: Run the test
+==== Step 2: Run the test
 
 Run the test and this should be the result
 
@@ -166,7 +166,7 @@ The fact is that this is more a metaphoric step, we are implementing this tests 
 As you can see in the methods `add()` and `sub()` we are returning an `Object`, this is because if the methods return an `int` now, we get a "red error" of `NullPointerException` instead of "blue error" of `assetThat()`. It's just for this tutorial.
 =====
 
-=== Step 3: Write the implementation code
+==== Step 3: Write the implementation code
 
 For now, we have a very awesome test and an awful implementation of our Calculator, so we need to implement it now.
 
@@ -187,7 +187,7 @@ Lest's go to implement the method `add()` and see what's happen
 }
 ----
 
-=== Step 4: Run the test
+==== Step 4: Run the test
 
 If you run now the test you get the next result
 
@@ -195,7 +195,7 @@ image::images/writing-unittest-cases/getting-started-writing-unittest-cases-TDD-
 
 Now we have a success result for the method `add()` and a failure result for the method `sub()`. As you can see it's not necessary that we get all test OK to run the tests, we can check whenever we want the result of the test and work to satisfy it. This is, again the idea of TDD.
 
-=== Step 5: Refactor
+==== Step 5: Refactor
 
 Now we finally we need to implement the method `sub()`
 
@@ -214,7 +214,7 @@ public class Calculator {
 }
 ----
 
-=== Step 5: Run the test (return to step 2)
+==== Step 6: Run the test (return to step 2)
 
 If we run now the application we can see the next result
 
