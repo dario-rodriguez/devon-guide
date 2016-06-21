@@ -21,3 +21,4 @@
 * link:getting-started-transfer-objects[Transfer Objects : ETOs and CTOs]
 * link:getting-started-logic-layer[Logic Layer]
 * link:getting-started-Creating-Rest-Service[Creating Rest Service]
+* link:getting-started-deployment-on-tomcat[Deployment on Tomcat (Client/Server)]
