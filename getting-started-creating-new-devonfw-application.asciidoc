@@ -16,9 +16,9 @@ To use the archetype provided by oasp4j you can choose between 2 alternatives, c
 
 Open the Devonfw console by executing the batch file "console.bat" from the Devonfw distribution. This will open a command prompt preconfigured automatically to use the software and configuration provided by the Devonfw distribution.
 
-==== Step 3: Change the directory
+==== Step 2: Change the directory
 
-You can create the project wherever you want, but is a good practice create the projects into your workspace. So, in the console, change to the directory "workspaces\main".
+You can create the project wherever you want, but it is a good practice to create the projects into your workspace. So, in the console, change to the directory "workspaces\main".
 
 [source,bash]
 ----
@@ -27,7 +27,7 @@ cd workspaces\main
 
 This is the default location on Devonfw to create new applications. You can use your own workspaces if you have it.
 
-==== Step 4: Create the new application
+==== Step 3: Create the new application
 
 To create a new application you need to execute one of the following commands:
 
