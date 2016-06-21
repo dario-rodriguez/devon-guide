@@ -44,7 +44,7 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - link:getting-started-Creating-Rest-Service[Creating Rest Service] (TO EVALUATE)
 
-- [Deployment on Tomcat (client / server)](https://github.com/devonfw/devon/wiki/devon-guide-deployment-tomcat) [Project packaging (Spring Boot / War) (client / server)](https://github.com/devonfw/devon/wiki/devon-guide-project-packaging) [Devon = [1](https://github.com/devonfw/devon/wiki/tutorial-packaging), [2](https://github.com/devonfw/devon/wiki/tutorial-devon-jspackaging)] - [OASP = [1](https://github.com/oasp/oasp4j/wiki/tutorial-packaging)](TODO)
+- link:getting-started-deployment-on-tomcat[Deployment on Tomcat (Client/Server)] (TO EVALUATE)
 
 
 ## Cookbook 
