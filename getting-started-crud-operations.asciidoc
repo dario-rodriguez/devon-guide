@@ -16,7 +16,7 @@ mvn -DarchetypeVersion=2.0.0 -DarchetypeGroupId=io.oasp.java.templates -Darchety
 - Open Eclipse and Import the new _tutorial_ project as _Existing Maven Project_
 
 
-Before continue it is important to keep in mind the packaging convention that Devonfw proposes. Devon uses a strict packaging convention to map technical layers and business components to the code. Devon uses the following Java-Package schema:
+Before continue it is important to keep in mind the packaging convention that Devonfw proposes. Devonfw uses a strict packaging convention to map technical layers and business components to the code. Devonfw uses the following Java-Package schema:
 
 [source]
 <basepackage>.<component>.<layer>.<scope>[.<detail>]*
@@ -29,7 +29,7 @@ In our example application we find the different classes in this packages:
 
 * Services: +devonfw.tutorial.tablemanagement.services[.<detail>]+
 
-This convention is based on the OASP4J conventions, which you can consult in the https://github.com/oasp/oasp4j/wiki/coding-conventions#packages[OASP Coding conventions documentation]
+This convention is based on the OASP4J conventions, which you can consult in the https://github.com/oasp/oasp4j/wiki/coding-conventions#packages[OASP4J Coding conventions documentation]
 
 == step 1. Add the database schema
 As first step we are going to add the database schema to our database.
@@ -288,7 +288,7 @@ We want tables to never have negative numbers, so we are going to add a validati
 [NOTE]
 ====
 You may need to solve the import of the @Min annotation by right clicking over the annotation and selecting _import javax.validation.constraints.Min_.
-You can read more about validation in https://github.com/oasp-forge/oasp4j-wiki/wiki/guide-validation[the OASP guide about validation]
+You can read more about validation in https://github.com/oasp-forge/oasp4j-wiki/wiki/guide-validation[the OASP4J guide about validation]
 ====
 
 == step 3. Create persistence layer
@@ -1228,9 +1228,9 @@ In OASP4J exists a special TO (Transfer Object) called ´OrderByTo` to transmit 
 
 ----
 
-Devon proposes to use POST as the HTTP method for endpoints implementing search or pagination support.
+Devonfw proposes to use POST as the HTTP method for endpoints implementing search or pagination support.
 
-By default, in Devon, `SearchCriteriaTo` class is already embedding this sorting TO, so we only need to manage sorting in `TableDaoImpl.java` because our pagination method does not need any modification.
+By default, in Devonfw, `SearchCriteriaTo` class is already embedding this sorting TO, so we only need to manage sorting in `TableDaoImpl.java` because our pagination method does not need any modification.
 
 If our method needs sorting but not pagination we need to manually add to our own transfer object the following variable (and its setter and getter methods):
 
