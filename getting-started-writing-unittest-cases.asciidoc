@@ -218,7 +218,7 @@ public class Calculator {
 
 If we run now the application we can see the next result
 
-image::images/writing-unittest-cases/getting-started-writing-unittest-cases-TDD-OK.png[,scaledwidth=80%]
+image::images/writing-unittest-cases/getting-started-writing-unittest-cases-TDD-ok.png[,scaledwidth=80%]
 
 Finally we have our first application implemented with TDD methodology!
 
