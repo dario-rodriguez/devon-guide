@@ -44,6 +44,7 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - link:getting-started-Creating-Rest-Service[Creating Rest Service] (TO EVALUATE)
 
+- [Deployment on Tomcat (client / server)](https://github.com/devonfw/devon/wiki/devon-guide-deployment-tomcat) [Project packaging (Spring Boot / War) (client / server)](https://github.com/devonfw/devon/wiki/devon-guide-project-packaging) [Devon = [1](https://github.com/devonfw/devon/wiki/tutorial-packaging), [2](https://github.com/devonfw/devon/wiki/tutorial-devon-jspackaging)] - [OASP = [1](https://github.com/oasp/oasp4j/wiki/tutorial-packaging)](TODO)
 
 
 ## Cookbook 
@@ -54,10 +55,6 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 - [WS*, client and server](https://github.com/devonfw/devon/wiki/devon-guide-ws-client-server) (TODO) [OASP = [1](https://github.com/oasp/oasp4j/wiki/decision-service-framework)]
 
 - [Batch](https://github.com/devonfw/devon/wiki/devon-guide-batch-layer) [OASP = [1](https://github.com/oasp/oasp4j/wiki/guide-batch-layer)]
-
-- [JMS](https://github.com/devonfw/devon/wiki/devon-guide-jms) (TODO) 
-
-- [File Upload / download](https://github.com/devonfw/devon/wiki/devon-guide-file-update-download) (TODO) 
 
 - [Websockets](https://github.com/devonfw/devon/wiki/devon-guide-websockets) 
 
@@ -128,15 +125,6 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 - [Security](https://github.com/devonfw/devon/wiki/devon-guide-angular-security)
  
 - [Internationalization](https://github.com/devonfw/devon/wiki/devon-guide-angular-i18n) (TODO)
-
-# Deployment
-
-- [Project packaging (Spring Boot / War) (client / server)](https://github.com/devonfw/devon/wiki/devon-guide-project-packaging) [Devon = [1](https://github.com/devonfw/devon/wiki/tutorial-packaging), [2](https://github.com/devonfw/devon/wiki/tutorial-devon-jspackaging)] - [OASP = [1](https://github.com/oasp/oasp4j/wiki/tutorial-packaging)]
-
-- [Deployment on Tomcat (client / server)](https://github.com/devonfw/devon/wiki/devon-guide-deployment-tomcat) (TODO) 
-
-- [Deployment on Wildfly (JBoss) (client / server)](https://github.com/devonfw/devon/wiki/devon-guide-deployment-wildfly) (TODO) 
-
 
 # Security; Defense in depth
 
