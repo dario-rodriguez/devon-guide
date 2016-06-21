@@ -12,7 +12,7 @@ The goal to have a but powerful solution which simplifies the installation, conf
 
 image::images/devon-ide/integrated-ide.png[Integrated IDE]
 
-As with the remainder of the distribution, the advantage of this approach is that you can have as many instances of the oasp4j-ide "installed" on your machine for different projects with different tools, tool versions and configurations. No physical installation and no tweaking of your operating system. "Installations" of the Devon distribution do not interfere with each other nor with other installed software.
+As with the remainder of the distribution, the advantage of this approach is that you can have as many instances of the oasp4j-ide "installed" on your machine for different projects with different tools, tool versions and configurations. No physical installation and no tweaking of your operating system required. "Installations" of the Devon distribution do not interfere with each other nor with other installed software.
 
 === Multiple Workspaces
 There is inbuilt support for working with different workspaces on different branches. Create and update new workspaces with a few clicks. You can see the workspace name in the title-bar of your IDE so you do not get confused and work on the right branch.
