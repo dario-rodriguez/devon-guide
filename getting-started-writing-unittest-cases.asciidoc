@@ -105,7 +105,7 @@ The procedure of doing TDD is following:
 * Run all tests
 * Refactor
 
-== TDD tutorial with Eclipse
+=== TDD tutorial with Eclipse
 
 Now, that we know how to create, write and run a test, we can start understanding the last steps with a tutorial in order to get the most clear idea about TDD.
 
