@@ -38,7 +38,7 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - link:getting-started-logic-layer[Logic Layer]
 
-- link:getting-started-bean-mapping-using-dozer[Bean Mapper : Dozer]
+- link:getting-started-bean-mapping-using-dozer[Bean Mapping using Dozer]
 
 - link:getting-started-Creating-Rest-Service[Creating Rest Service] (TO EVALUATE)
 
