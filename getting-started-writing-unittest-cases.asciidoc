@@ -1,3 +1,6 @@
+:toc: macro
+toc::[]
+
 = Writing Unit Test Cases
 
 == Unit Test
