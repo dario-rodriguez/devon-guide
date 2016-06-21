@@ -3,13 +3,13 @@ toc::[]
 
 = Environment Setup
 
-In this section you will learn how to setup the Devonfw environment, so you have everything setup to start working on your first project based on Devonfw.
+In this section, you will learn how to setup the Devonfw environment and start working on first project based on Devonfw.
 
 The Devonfw environment contains all software and tools necessary to develop applications with Devonfw.
 
 == Pre-requisites
 
-In order to setup your environment, you need the following pre-requisites:
+In order to setup the environment, following are the pre-requisites:
 
 * Internet connection (including details of your proxy configuration, if necessary)
 * 2GB of free disk space
@@ -20,7 +20,7 @@ Download latest Devonfw distribution from https://coconet.capgemini.com/sf/frs/d
 
 == Prepare the workspace
 
-1. Unzip the Devonfw distribution into a directory of your choice. The path to the directory should contain no spaces, to prevent problems with some of the tools.
+1. Unzip the Devonfw distribution into a directory of your choice. *The path to the Devonfw distribution directory should contain no spaces*, to prevent problems with some of the tools.
 
 1. Run the batch file "create-or-update-workspace.bat".
 
@@ -80,6 +80,6 @@ Enter your proxy configuration
 
 image::images/download-install/devon_guide_environment_setup_9_proxy_eclipse.png[,scaledwidth=80%]
 
-You now have a working Devonfw environment.
+The working Devonfw environment is ready!
 
 You can find example projects inside `workspaces\examples`. You can learn how to run the Devonfw example application https://github.com/devonfw/devon-guide/wiki/getting-started-running-sample-application[here].
