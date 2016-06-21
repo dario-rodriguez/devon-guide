@@ -62,8 +62,6 @@ Now, over our test, press right click > Run As > JUnit test
 
 image::images/writing-unittest-cases/getting-started-writing-unittest-cases-failed.png[,scaledwidth=80%]
 
-TODO -> Add the image into the repository
-
 As you can see in the image, Eclipse show us a red rectangle because one of the test of our test class get a failure (in this case we have a single test). The failures test are marked with a blue cross. We can get three marks:
 
 * Red cross: the test has some fatal error as, e.g context error, null pointer exceptions, etc.
@@ -88,8 +86,6 @@ Now we need to run the test again. And we are going to get the next result
 
 image::images/writing-unittest-cases/getting-started-writing-unittest-cases-ok.png[,scaledwidth=80%]
 
-TODO -> Add the image into the repository
-
 As you can see, now the test is success and Eclipse show us a green rectangle and the test with a green check.
 
 Now we can start testing all our applications 
@@ -100,30 +96,132 @@ Test-driven development (TDD) is a software development process that relies on t
 
 The procedure of doing TDD is following:
 
-* Write a test
+* Create a test
 * Run all tests
 * Write the implementation code
 * Run all tests
 * Refactor
 
-Now, that we know how to create, write and run a test, we can start understanding the last steps. Let's to see how to work with TDD with a little tutorial.
+Now, that we know how to create, write and run a test, we can start understanding the last steps with a tutorial in order to get the most clear idea about TDD.
 
-=== Step 1: Write a test
+The goal is create a very simple calculator that have 2 methods: add(int,int) and sub(int,int).
 
-The idea is very simple, we are going to create first the tests for the classes that we are going to implement after.
+=== Step 1: Create a test
 
-=== Step 2: Run all tests
+The idea is very simple, we are going to create first the tests for the class that we are going to implement after. That allow us to get the control of the result of our work and verify from the beginning that our code is correct.
 
+We need to create a test called `CalculatorTest` in our test package and our class `Calculator` in our java package. 
 
+In this test class we are going to include a variable of our class Calculator and the test to the future add() and sub() methods of Calculator class.
+
+Calculator.java
+[source,java]
+----
+public class Calculator {
+  public Calculator() {}
+
+  public Object add(int a, int b) {
+    return null;
+  }
+
+  public Object sub(int a, int b) {
+    return null;
+  }
+}
+----
+
+As you can see in this case we have the wire of our calculator, in this case the implementations is very simple but you can scale this to a very big application. Now we need to include in the class CalculatTest the result we want to get when we finish the implementation of our Calculator.
+
+CalculatorTest.java
+[source,java]
+----
+@SpringApplicationConfiguration(classes = { SpringBootApp.class })
+public class CalculatorTest extends ComponentTest {
+  private Calculator calculator = new Calculator();
+
+  @Test
+  public void addTest() {
+    assertThat(this.calculator.add(1, 2)).isEqualTo(3);
+  }
+
+  @Test
+  public void subTest() {
+    assertThat(this.calculator.sub(1, 2)).isEqualTo(-1);
+  }
+}
+----
+
+=== Step 2: Run the test
+
+Run the test and this should be the result
+
+image::images/writing-unittest-cases/getting-started-writing-unittest-cases-TDD-failed.png[,scaledwidth=80%]
+
+As you can see the test get some failures, is the expected because the Calculator doesn't work yet. 
+
+The fact is that this is more a metaphoric step, we are implementing this tests and is obvious that we will get errors if we run it. But this is the cycle of TDD, we write the test that it will, obviously, fail and we write the code that satisfy this test and don't get error. That help us to make sure that our code is strong and success the test.
+
+[NOTE]
+=====
+As you can see in the methods `add()` and `sub()` we are returning an `Object`, this is because if the methods return an `int` now, we get a "red error" of `NullPointerException` instead of "blue error" of `assetThat()`. It's just for this tutorial.
+=====
 
 === Step 3: Write the implementation code
 
+For now, we have a very awesome test and an awful implementation of our Calculator, so we need to implement it now.
 
+Lest's go to implement the method `add()` and see what's happen
 
-=== Step 4: Run all tests
+[source,java]
+----
+ public class Calculator {
+  public Calculator() {}
 
+  public int add(int a, int b) {
+    return a + b;
+  }
 
+  public Object sub(int a, int b) {
+    return null;
+  }
+}
+----
+
+=== Step 4: Run the test
+
+If you run now the test you get the next result
+
+image::images/writing-unittest-cases/getting-started-writing-unittest-cases-TDD-failed2.png[,scaledwidth=80%]
+
+Now we have a success result for the method `add()` and a failure result for the method `sub()`. As you can see it's not necessary that we get all test OK to run the tests, we can check whenever we want the result of the test and work to satisfy it. This is, again the idea of TDD.
 
 === Step 5: Refactor
+
+Now we finally we need to implement the method `sub()`
+
+[source,java]
+----
+public class Calculator {
+  public Calculator() {}
+
+  public int add(int a, int b) { 
+    return a + b;
+  }
+
+  public int sub(int a, int b) { 
+    return a - b;
+  }
+}
+----
+
+=== Step 5: Run the test (return to step 2)
+
+If we run now the application we can see the next result
+
+image::images/writing-unittest-cases/getting-started-writing-unittest-cases-TDD-OK.png[,scaledwidth=80%]
+
+Finally we have our first application implemented with TDD methodology!
+
+As you can see, in this tutorial we have a very simple application, so we don't need another round of the TDD cycle, but in a real application, we need to do this cycle all times we need to get the success result.
 
 
