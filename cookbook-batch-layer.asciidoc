@@ -108,7 +108,7 @@ In real world scheduling of batches is not as simple as it first might look like
 * Input files or those created by batches have to be copied from one node to another.
 * Scheduling batch executing could get complex easily (quarterly jobs, run job on first workday of a month, ...)
 
-For OASP we propose the batches themselves should not mess around with details of batch administration.
+For Devonfw we propose the batches themselves should not mess around with details of batch administration.
 Likewise your application should not do so.
 
 Batch administration should be externalized to a dedicated batch administration service or scheduler.
@@ -195,23 +195,23 @@ For configuring batches, we recommend not to use annotations (would not work ver
 
 For explanations on how these XML files are build in general, have a look at the http://docs.spring.io/spring/docs/current/spring-framework-reference/html/beans.html#beans-beanfactory[spring documentation].
 
-There is, however, some general configuration needed for all batches, for which we use JavaConfig, as it is also used for the setup of all other layers. You can find an example of such a configuration in the samples/core project: BeansBatchConfig. In this section, we will explain the most important parts of this class.
+There is, however, some general configuration needed for all batches, for which we use JavaConfig, as it is also used for the setup of all other layers. You can find an example of such a configuration in the example application (_oasp4j-samples-core_ project): BeansBatchConfig. In this section, we will explain the most important parts of this class.
 
-The jobRepository is used to update the meta data tables.
+The _jobRepository_ is used to update the meta data tables.
 
 The database type can optionally be set on the jobRepository for correctly handling database specific things using the setDatabaseType method. Possible values are oracle, mysql, postgres, ...
 
 If the size of all three columns, which per default have a length limitation of 2500, has been increased as proposed xref:failure-information[here], the property maxVarCharLength should be adjusted accordingly using the corresponding setter method in order to actually utilize the additional space.
 
-The jobExplorer offers methods for reading from the meta data tables in addition to those methods provided by the jobRepository, e.g. getting the last executions of a batch.
+The _jobExplorer_ offers methods for reading from the meta data tables in addition to those methods provided by the jobRepository, e.g. getting the last executions of a batch.
 
-The jobLauncher is used to actually start batches.
+The _jobLauncher_ is used to actually start batches.
 
 We use our own implementation (JobLauncherWithAdditionalRestartCapabilities) here, which can be found in the module modules/batch (oasp4j-batch). It enables a special form of restarting a batch ("restart from scratch", see the section on xref:restarts[restarts] for further details).
 
-The jobRegistry is basically a map, which contains all batch jobs. It is filled by the bean of type JobRegistryBeanPostProcessor automatically.
+The _jobRegistry_ is basically a map, which contains all batch jobs. It is filled by the bean of type JobRegistryBeanPostProcessor automatically.
 
-A JobParametersIncremeter (bean "incrementer") can be used to generate unique parameters, see xref:restarts[restarts] and xref:parameters[parameters] for further details. It should be configured manually for each batch job, see example batch below, otherwise exceptions might occur when starting batches.
+A _JobParametersIncremeter_ (bean "incrementer") can be used to generate unique parameters, see xref:restarts[restarts] and xref:parameters[parameters] for further details. It should be configured manually for each batch job, see example batch below, otherwise exceptions might occur when starting batches.
 
 [[example-batch]]
 === Example-Batch
@@ -418,7 +418,7 @@ The approach of using pagination for ItemReader's should not be used when items 
 
 A simple solution for such scenarios would be to introduce a new flag 'processed' for the entities read if that is an option (as it is also done in the example batch). The query should be rewritten then so that only unprocessed items are read (additionally limiting the result set size to the number of items to be processed in the current chunk, but not more).
 
-Note that most of the standard implementations provided by Spring Batch do not fit to the layering approach in OASP applications, as these mostly require direct access to an EntityManager or a JDBC connection for example.  You should think twice when using them an break the layering concept.
+Note that most of the standard implementations provided by Spring Batch do not fit to the layering approach in OASP4J applications, as these mostly require direct access to an EntityManager or a JDBC connection for example.  You should think twice when using them an break the layering concept.
 
 ===== Reading from Files
 
@@ -827,7 +827,7 @@ Note that when using the +launchJob()+ method, the batch execution will never be
 
 This is not true for the method +launchJob(JobParameters)+ however, which will result in an exception if the test is executed twice or a batch is executed in two different tests with the same parameters.
 
-We will add methods for appropriately handling this situation in future releases of OASP. Until then you can help yourself by using the method +getUniqueJobParameters()+ and then add all required parameters to those parameters returned by the method (as shown in the section on xref:parameters[parameters]). 
+We will add methods for appropriately handling this situation in future releases of Devonfw. Until then you can help yourself by using the method +getUniqueJobParameters()+ and then add all required parameters to those parameters returned by the method (as shown in the section on xref:parameters[parameters]). 
 
 Also note that even if skips occurred, the ExitStatus is still COMPLETED. That is one reason why you should always checks weather the batch did what it was supposed to do or not.
 
