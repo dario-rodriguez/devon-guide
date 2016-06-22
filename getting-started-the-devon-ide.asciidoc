@@ -10,7 +10,7 @@ The Devon IDE is the general name for two distinct versions of a customized Ecli
 === Features & advantages
 Devonfw comes with a fully featured IDE in order to simplify the installation, configuration and maintenance of this instrumental part of the development environment. As it is being included in the distribution, the IDE is ready to be used and some specific configuration of certain plugins only takes a few  minutes.
 
-image::images/devon-ide/integrated-ide.png[,scaledwidth=80%,Integrated IDE]
+image::images/devon-ide/integrated-ide.png[,width="450",Integrated IDE]
 
 As with the remainder of the distribution, the advantage of this approach is that you can have as many instances of the oasp4j-ide "installed" on your machine for different projects with different tools, tool versions and configurations. No physical installation and no tweaking of your operating system required. "Installations" of the Devon distribution do not interfere with each other nor with other installed software.
 
@@ -20,7 +20,7 @@ There is inbuilt support for working with different workspaces on different bran
 == Cobigen
 In the Devon distribution we have a code generator to create CRUD code, called *Cobigen*. This is a generic incremental generator for end to end code generation tasks, mostly used in Java projects. Due to a template-based approach, CobiGen generates any set of text-based documents and document fragments.
 
-image::images/devon-ide/cobigen.png[,scaledwidth=80%,Cobigen]
+image::images/devon-ide/cobigen.png[,width="450",Cobigen]
 
 Cobigen is distributed in the Devon distribution as an Eclipse plugin, and is available to all Devon developers for Capgemini engagements. Due to the importance of this component and the scope of its functionality, it is fully described https://github.com/devonfw/devon-guide/wiki/getting-started-Cobigen[here].
 
@@ -129,19 +129,19 @@ OASP4J IDE comes preinstalled with FindBugs plugin.
 
 You can configure that FindBugs should run automatically for a selected project. For this right-click on a project and select Properties from the popup menu. via the project properties. Select FindBugs → Run automatically  as shown below.
 
-image::images/devon-ide/FindBugs1.png[,scaledwidth=80%,configure FindBugs]
+image::images/devon-ide/FindBugs1.png[,width="450",configure FindBugs]
 
 
 To run the error analysis of FindBugs on a project, right-click on it and select the Find Bugs... → Find Bugs menu entry.
 
-image::images/devon-ide/FindBugs2.png[,scaledwidth=80%,error analysis]
+image::images/devon-ide/FindBugs2.png[,width="450",error analysis]
 
 Plugin provides specialized views to see the reported error messages. Select Window → Show View → Other... to access the views.
 The FindBugs error messages are also displayed in the Problems view or as decorators in the Package Explorer view.
 
-image::images/devon-ide/FindBugs3.png[,scaledwidth=80%,ShowView bug Explorer]
+image::images/devon-ide/FindBugs3.png[,width="450",ShowView bug Explorer]
 
-image::images/devon-ide/FindBugs4.png[,scaledwidth=80%,bug Explorer]
+image::images/devon-ide/FindBugs4.png[,width="450",bug Explorer]
 
 === SonarQube
 
