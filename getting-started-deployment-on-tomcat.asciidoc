@@ -1,30 +1,102 @@
 :toc: macro
+
 toc::[]
 
+
 = Deployment on Tomcat (Client/Server)
+Once we have a functional server and client applications we may want to package both in the same _.war_ file. To do that we are going to show the needed steps.
 
-=== Deploy standalone server with embedded Tomcat 8
-The preferred way is the standalone execution via the spring boot framework within eclipse. In this scenario, the spring boot framework runs the sample application using an embedded tomcat server.
+== General description of the packaging process
+The application packaging is based on _Maven_ _package_ functionality. The general overview of the packaging process is as follows:
 
-Open eclipse and find class io.oasp.gastronomy.restaurant.SpringBootApp. This class configures the application and contains the main-method to start the sample application.
+image::images/devonfw-deployment/tutorial_devon_jspackaging_process.png[scalewidth=60%,align="center"]
 
-Select the class and click the left mouse button. In the subsequent open context menu select the entry 'Run as => Java Application' (or 'Debug as ...').
+== Preparing the client
 
-image::images/eclipse-run-as.png[width="813", high="390", align="center"]
+Firstly (1), both client applications (the Sencha and the Angular one) should contain a _java_ directory with a _pom.xml_ file which executes the build process (the "production" build, creating a single, compressed Javascript file from all the application files) through the command (2) `mvn install`. We must verify that the information about the _groupId_, the _artifactId_ and the _version_ are provided within the _pom.xml_ file where we should find something like
+[source,xml]
+----
+...
+<groupId>com.capgemini.devonfw</groupId>
+<artifactId>extjs-sample</artifactId>
+<version>1.0.0-SNAPSHOT</version>
+...
+----
 
-The application should start. Additional configuration settings are not necessary.
+So from the client application, in the _java_ directory we launch the command
 
-Once started, the OASP server applications runs on http://localhost:8081 with /oasp4j-sample-server/ as _context-root_. 
+[source]
+----
+myClientApp\java>mvn install
+----
 
-* Base url: http://localhost:8081/oasp4j-sample-server[http://localhost:8081/oasp4j-sample-server]
-* Service list: http://localhost:8081/oasp4j-sample-server/services[http://localhost:8081/oasp4j-sample-server/services]
+After that, if the process goes right, the client app should have been "installed" in the local Maven repository of our environment so in the _\conf\.m2\repository\com\capgemini\devonfw\extjs-sample\1.0.0-SNAPSHOT_ directory we should find the _.jar_ file with the client app packaged
 
-The _contex-path_ and/or _server port_ can be changed by setting the corresponding properties in the _application.properties_ file:
+image::images/devonfw-deployment/tutorial_devon_jspackaging_process02.png[scalewidth=60%,align="center"]
 
-[source, java]
-server.port=8081
-server.context-path=/oasp4j-sample-server
- 
-It is also possible to start the application without eclipse with the following maven command '..\samples\core\>mvn spring-boot:run', but this is not the preferred way. The command must be executed within the core project, otherwise the maven 'spring boot' plugin is not available.
+== Preparing the server
+The Java server application contains a _pom.xml_ file (3). In this _pom.xml_ file we should add the dependency to the _.jar_ client that we have just created using the references to the _groupId_, _artifactId_ and _version_ that we have spefified in the client _pom.xml_.
 
-Important: If you are always and ever working with the embedded Tomcat deployment, you may remove the https://github.com/oasp/oasp4j/blob/develop/samples/core/src/main/java/io/oasp/gastronomy/restaurant/general/configuration/ServletInitializer.java[ServletInitializer] Configuration from your application. This will speed up startup time by a factor of 2.
+So in the _pom.xml_ file of our server project we should add:
+[source,xml]
+----
+    <dependency>
+      <groupId>com.capgemini.devonfw</groupId>
+      <artifactId>extjs-sample</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+      <type>zip</type>
+      <classifier>web</classifier>
+      <scope>runtime</scope>
+    </dependency>
+----
+
+And in the plugins of the _pom.xml_ we should add a reference to the package again within the _<overlay>_ tag: 
+[source,xml]
+----
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <configuration>
+          <overlays>
+            <overlay>
+              <groupId>com.capgemini.devonfw</groupId>
+              <artifactId>extjs-sample</artifactId>
+              <type>zip</type>
+              <classifier>web</classifier>
+              <targetPath>jsclient</targetPath>
+            </overlay>
+          </overlays>
+        </configuration>
+      </plugin>
+----
+
+Now we have to define a Maven profile so in Eclipse, over the server project we should right-click and select _Maven > Select Maven Profile_. In the subsequent window we should select the _jsclient_ option.
+
+image::images/devonfw-deployment/tutorial_devon_jspackaging_process03.png[scalewidth=60%,align="center"]
+
+Then we have to add some unsecured resources in the method _configure(HttpSecurity http)_ of the _../general/configuration/WebSecurityConfig.java_ class. 
+
+Edit the _unsecureResources_ to have something like that:
+[source,java]
+----
+@Override
+  public void configure(HttpSecurity http) throws Exception {
+
+    String[] unsecuredResources =
+        new String[] { "/login", "/security/**", "/services/rest/login", "/services/rest/logout", "/jsclient/**", "/websocket/**"};
+    
+    (...)
+
+}
+----
+
+== Packaging the apps
+Finally we are going to package both client and server applications into the same _.war_ file. To do that we must execute the `package` Maven command (4) from within the projects root directory (the parent of the server project).
+
+[source]
+----
+mvn package -Pjsclient
+----
+
+
+
