@@ -25,4 +25,6 @@
 
 == Cookbook
 
-* link:cookbook-security-layer[Security: authentication and authorization]
+* link:cookbook-security-layer[Security: authentication and authorization
+* link:cookbook-batch-layer[Batch Layer]
+* link:cookbook-websocket[WebSocket]
