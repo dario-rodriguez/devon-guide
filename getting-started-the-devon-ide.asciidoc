@@ -10,7 +10,7 @@ The Devon IDE is the general name for two distinct versions of a customized Ecli
 === Features & advantages
 Devonfw comes with a fully featured IDE in order to simplify the installation, configuration and maintenance of this instrumental part of the development environment. As it is being included in the distribution, the IDE is ready to be used and some specific configuration of certain plugins only takes a few  minutes.
 
-image::images/devon-ide/integrated-ide.png[,width="450",Integrated IDE]
+image::images/devon-ide/integrated-ide.png[,width="600",Integrated IDE]
 
 As with the remainder of the distribution, the advantage of this approach is that you can have as many instances of the oasp4j-ide "installed" on your machine for different projects with different tools, tool versions and configurations. No physical installation and no tweaking of your operating system required. "Installations" of the Devon distribution do not interfere with each other nor with other installed software.
 
