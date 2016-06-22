@@ -36,7 +36,7 @@ Let's to see how we can customized our own Configuration Class
 
 In Devon, the Configuration Classes reside in the folder `src/main/general/configuration/` and it's recommended that include the new Configuration Classes here. This is just to keep a clear structure of our projects, the fact is you can include the Configuration Classes in wherever place in the project, it is responsible of Spring Boot scan the application.
 
-image::images/devonfw-getting-started-conf/devon_guide_configuration_getting_started_configuration_folder.PNG[,scaledwidth=80%]
+image::images/devonfw-getting-started-conf/devon_guide_configuration_getting_started_configuration_folder.PNG[,width="250"]
 
 Therefore, we need to create our Configuration Class, for example src/main/general/configuration/MyConfigurationClass.java
 
