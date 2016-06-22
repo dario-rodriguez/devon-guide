@@ -8,7 +8,6 @@ This document contains the Getting Started topics of the Devonfw.
 
 TODO
 
-* ???? - ????
 * Devonfw - v2.1.0 
 
 **Authors:**
