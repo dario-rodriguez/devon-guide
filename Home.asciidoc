@@ -48,7 +48,7 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 
 ## Cookbook 
-- [Security: Login & roles, auth& authorisation](https://github.com/devonfw/devon/wiki/devon-guide-security) [OASP = [1](https://github.com/oasp/oasp4j/wiki/guide-security)]
+- link:cookbook-security-layer[Security: authentication and authorization] (TO EVALUATE)
 
 - [ReST, client](https://github.com/devonfw/devon/wiki/devon-guide-rest-client) [OASP = [1](https://github.com/oasp/oasp4j/wiki/guide-service-layer#rest)]
 
