@@ -1,0 +1,128 @@
+= Devonfw -- Getting Started
+
+[preface]
+== Document Description
+This document contains the Getting Started topics of the Devonfw.
+
+**Current versions:**
+
+TODO
+
+* ???? - ????
+* Devonfw - v2.1.0 
+
+**Authors:**
+
+TODO
+
+:leveloffset: 2
+[preface]
+include::getting-started-introduction-to-devonfw[]
+
+:leveloffset: 0
+:toc:
+
+:leveloffset: 1
+include::devcon-user-guide[]
+
+:leveloffset: 0
+:toc:
+
+:leveloffset: 1
+include::getting-started-download-and-install[]
+
+:leveloffset: 0
+:toc:
+
+:leveloffset: 1
+include::getting-started-the-devon-ide[]
+
+:leveloffset: 0
+:toc:
+
+:leveloffset: 1
+include::getting-started-running-sample-application[]
+
+:leveloffset: 0
+:toc:
+
+:leveloffset: 1
+include::getting-started-distribution-structure[]
+
+:leveloffset: 0
+:toc:
+
+:leveloffset: 1
+include::getting-started-creating-new-devonfw-application[]
+
+:leveloffset: 0
+:toc:
+
+:leveloffset: 1
+include::getting-started-oasp-app-structure[]
+
+:leveloffset: 0
+:toc:
+
+:leveloffset: 1
+include::getting-started-understanding-oasp4j-spring-boot-config[]
+
+:leveloffset: 0
+:toc:
+
+:leveloffset: 1
+include::getting-started-database-configuration[]
+
+:leveloffset: 0
+:toc:
+
+:leveloffset: 1
+include::getting-started-flyway-database-migration[]
+
+:leveloffset: 0
+:toc:
+
+:leveloffset: 1
+include::getting-started-writing-unittest-cases[]
+
+:leveloffset: 0
+:toc:
+
+:leveloffset: 1
+include::getting-started-logging-and-auditing[]
+
+:leveloffset: 0
+:toc:
+
+:leveloffset: 1
+include::getting-started-Data-Access-Layer[]
+
+:leveloffset: 0
+:toc:
+
+:leveloffset: 1
+include::getting-started-Crud-Operations[]
+
+:leveloffset: 0
+:toc:
+
+:leveloffset: 1
+include::getting-started-transfer-objects[]
+
+:leveloffset: 0
+:toc:
+
+:leveloffset: 1
+include::getting-started-logic-layer[]
+
+:leveloffset: 0
+:toc:
+
+:leveloffset: 1
+include::getting-started-Creating-Rest-Service[]
+
+:leveloffset: 0
+:toc:
+
+:leveloffset: 1
+include::getting-started-Cobigen[]
