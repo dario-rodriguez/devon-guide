@@ -29,7 +29,7 @@ Devonfw contains:
 
 The following picture shows main building blocks of the platform.
 
-image::images/introduction/devon_buildingblocks.png[Devonfw Building blocks]
+image::images/introduction/devon_buildingblocks.png[, width="450", width="450",Devonfw Building blocks]
 
 Devonfw uses a state-of-the-art open source core reference architecture for the server (today considered as commodity in the IT-industry) and on top of it an ever increasing number of high-value assets that are Capgemini IP. Why do we use an open source core?: in some countries of the SBU clients only accept open source stacks (most to mention customers who want to stay vendor-independent by principle), so being open is a market need. This also is the rationale for providing a open source reference architecture for the client built with AngularJs (open source itself). The picture above shows the open-source parts of devonfw on the left.
 

@@ -22,3 +22,9 @@
 * link:getting-started-logic-layer[Logic Layer]
 * link:getting-started-Creating-Rest-Service[Creating Rest Service]
 * link:getting-started-deployment-on-tomcat[Deployment on Tomcat (Client/Server)]
+
+== Cookbook
+
+* link:cookbook-security-layer[Security: Authentication and Authorization]
+* link:cookbook-batch-layer[Batch Layer]
+* link:cookbook-websocket[WebSocket]
