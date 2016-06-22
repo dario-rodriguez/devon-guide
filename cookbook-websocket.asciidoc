@@ -44,5 +44,5 @@ The `configureMessageBroker()` method overrides the default method in `WebSocket
 
 The `registerStompEndpoints` registers the "/websocket/positions" endpoint and enables SockJS fallback options so that alternative messaging options may be used if WebSocket is not available. SockJS is a Javascript library which provides websocket like object for browsers and provides cross browser compatibility and support for STOMP protocol. SockJS works in the way that we need to provide URL to connect with message broker and then get the stomp client to communicate. https://stomp.github.io/[STOMP] is Streaming Text Oriented Messaging Protocol. A STOMP client communicates to a message broker which supports STOMP protocol. STOMP uses different commands like connect, send, subscribe, disconnect, etc. to communicate.
 
-You can see a complete example of how to build n interactive web application using WebSocket https://spring.io/guides/gs/messaging-stomp-websocket/[here] 
+You can see a complete example of how to build an interactive web application using WebSocket https://spring.io/guides/gs/messaging-stomp-websocket/[here] 
 
