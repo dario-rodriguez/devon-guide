@@ -40,4 +40,4 @@ We need to check all pages and check if all follow this structure.
 
 -> Page getting-started-logging-and-auditing - More than one =
 
-* The size of the images and links of this image -> the max size we need to use is [width="450", link="https://github.com/devonfw/devon-guide/wiki/<image>"], if you need to use less go ahead but never more than 
+* The size of the images and links of this image -> the max size we need to use is [,width="450", link="https://github.com/devonfw/devon-guide/wiki/<image>"], if you need to use less go ahead but never more than 
