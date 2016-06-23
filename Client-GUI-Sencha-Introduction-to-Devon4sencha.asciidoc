@@ -13,6 +13,7 @@ Devon4Sencha builds on top of Sencha libraries to further standardize the way ap
 
 * Basic application template
 * Basic layout for a tabbed based interface
+* Security (CORS)
 * Login and session management
 * Internationalization
 * Better organization of source code (following Sencha MVC pattern)
