@@ -1,0 +1,238 @@
+:toc: macro
+toc::[]
+
+
+= WebServices (JAX WS)
+
+
+== What are Webservices?
+
+A Web Service can be defined by following ways:
+
+* is a client server application or application component for communication.
+* method of communication between two devices over network.
+* is a software system for interoperable machine to machine communication.
+* is a collection of standards or protocols for exchanging information between two devices or application.
+
+
+image::images/webservices(Jax-WS)/webservices.png[,scaledwidth=80%]
+
+
+
+As you can see in the figure, java, .net or PHP applications can communicate with other applications through web service over the network. For example, java application can interact with Java, .Net and PHP applications. So web service is a language independent way of communication.
+
+There are mainly two types of web services.
+1.SOAP web services.
+2.RESTful web services.
+
+Here, we will describe more about JAX-WS (SOAP based) webServices.
+
+
+== Why use WebServices?
+
+*Exposing the Existing Function on the network*
+
+A web service is a unit of managed code that can be remotely invoked using HTTP, that is, it can be activated using HTTP requests. Web services allows you to expose the functionality of your existing code over the network. Once it is exposed on the network, other application can use the functionality of your program.
+
+*Interoperability*
+
+Web services allow various applications to talk to each other and share data and services among themselves. Other applications can also use the web services. For example, a VB or .NET application can talk to Java web services and vice versa. Web services are used to make the application platform and technology independent.
+
+*Standardized Protocol*
+
+Web services use standardized industry standard protocol for the communication. All the four layers (Service Transport, XML Messaging, Service Description, and Service Discovery layers) use well-defined protocols in the web services protocol stack. This standardization of protocol stack gives the business many advantages such as a wide range of choices, reduction in the cost due to competition, and increase in the quality.
+
+*Low Cost of Communication*
+
+Web services use SOAP over HTTP protocol, so you can use your existing low-cost internet for implementing web services. This solution is much less costly compared to proprietary solutions like EDI/B2B. Besides SOAP over HTTP, web services can also be implemented on other reliable transport mechanisms like FTP.
+
+== Characteristics of WebServices
+
+*XML-Based*
+
+Web Services uses XML at data representation and data transportation layers. Using XML eliminates any networking, operating system, or platform binding. Web Services based applications are highly interoperable application at their core level.
+
+*Loosely Coupled*
+
+A consumer of a web service is not tied to that web service directly. The web service interface can change over time without compromising the client's ability to interact with the service. A tightly coupled system implies that the client and server logic are closely tied to one another, implying that if one interface changes, the other must be updated. Adopting a loosely coupled architecture tends to make software systems more manageable and allows simpler integration between different systems.
+
+*Coarse-Grained*
+
+Object-oriented technologies such as Java expose their services through individual methods. An individual method is too fine an operation to provide any useful capability at a corporate level. Building a Java program from scratch requires the creation of several fine-grained methods that are then composed into a coarse-grained service that is consumed by either a client or another service.
+
+Businesses and the interfaces that they expose should be coarse-grained. Web services technology provides a natural way of defining coarse-grained services that access the right amount of business logic.
+
+*Ability to be Synchronous or Asynchronous*
+
+Synchronicity refers to the binding of the client to the execution of the service. In synchronous invocations, the client blocks and waits for the service to complete its operation before continuing. Asynchronous operations allow a client to invoke a service and then execute other functions.
+
+Asynchronous clients retrieve their result at a later point in time, while synchronous clients receive their result when the service has completed. Asynchronous capability is a key factor in enabling loosely coupled systems.
+
+== Components of SOAP based WebService:
+
+There are three major web service components.
+. SOAP
+. WSDL
+. UDDI
+
+
+*SOAP*
+
+SOAP is an acronym for Simple Object Access Protocol.
+
+SOAP is a XML-based protocol for accessing web services.
+
+SOAP is a W3C recommendation for communication between applications.
+
+SOAP is XML based, so it is platform independent and language independent. In other words, it can be used with Java, .Net or PHP language on any platform.
+
+
+*WSDL*
+
+WSDL is an acronym for Web Services Description Language.
+
+WSDL is a xml document containing information about web services such as method name, method parameter and how to access it.
+
+WSDL is a part of UDDI. It acts as a interface between web service applications.
+
+WSDL is pronounced as “wiz-dull”.
+
+
+*UDDI*
+
+UDDI is an acronym for Universal Description, Discovery and Integration.
+
+UDDI is a XML based framework for describing, discovering and integrating web services.
+
+UDDI is a directory of web service interfaces described by WSDL, containing information about web services.
+
+
+== Apache CXF and JAX WS 
+
+
+CXF implements the JAX-WS APIs which make building web services easy. JAX-WS encompasses many different areas:
+* Generating WSDL from Java classes and generating Java classes from WSDL
+* Provider API which allows you to create simple messaging receiving server endpoints
+* Dispatch API which allows you to send raw XML messages to server endpoints.
+* Spring integration.
+* It supports Restful services too.
+
+In devonfw , we use Apache CXF implementation of JAX WS.
+
+
+== How webservice is created and used with apache cxf.
+
+*Developing the service*
+
+This can be done in two ways Code first and contract first. We will be using the code first approach.
+
+Here is an example in case you define a code-first service.
+We define a regular interface to define the API of the service and annotate it with JAX-WS annotations:
+[source,java]
+--------
+@WebService
+public interface TablemanagmentWebService {
+
+  @WebMethod
+  @WebResult(name = "message")
+  TableEto getTable(@WebParam(name = "id") String id);
+
+}
+--------
+And here is a simple implementation of the service:
+[source,java]
+--------
+@Named("TablemanagementWebService")
+@WebService(endpointInterface = "io.oasp.gastronomy.restaurant.tablemanagement.service.api.ws.TablemanagmentWebService")
+public class TablemanagementWebServiceImpl implements TablemanagmentWebService {
+
+  private Tablemanagement tableManagement;
+
+  @Override
+  public TableEto getTable(String id) {
+
+    return this.tableManagement.findTable(id);
+  }
+--------
+If you look at the above interface you can tell that it is a normal java interface with exception of three annotation
+
+* @WebService – This is an annotation JAXWS library. It turns a normal POJO into a webservice. In our case the annotation is placed right above the interface definition and it notifies that TablemanagmentWebService is not a normal interface rather an webservice interface or SEI. 
+* @WebMethod – This annotation is optional and is mainly used to provide a name attribute to the public method in wsdl.
+* @WebResult - The @WebResult annotation allows you to specify the properties of the generated wsdl:part that is generated for the method's return value.
+
+
+
+The @WebService annotation on the implementation class lets CXF know which interface to use when creating WSDL. In this case its simply our TablemanagmentWebService interface.
+Finally we have to register our service implementation in the spring in our  @Configuration-annotated Class. There we´ll initialize CXF and our end point. SO this, @Configuration-annotated Class that is ServiceConfiguration.java can be found in src/general/configuration of xxx-core project.
+
+[source,java]
+--------
+@Configuration
+@EnableWs
+@ImportResource({ "classpath:META-INF/cxf/cxf.xml" /* , "classpath:META-INF/cxf/cxf-servlet.xml" */ })
+public class ServiceConfiguration extends WsConfigurerAdapter {
+@Bean(name = "cxf")
+  public SpringBus springBus() {
+
+    return new SpringBus();
+  }
+
+   @Bean
+  public ServletRegistrationBean servletRegistrationBean() {
+
+    CXFServlet cxfServlet = new CXFServlet();
+    ServletRegistrationBean servletRegistration = new ServletRegistrationBean(cxfServlet, URL_PATH_SERVICES + "/*");
+    return servletRegistration;
+  }
+    // BEGIN ARCHETYPE SKIP
+  @Bean
+  public Endpoint tableManagement() {
+
+    EndpointImpl endpoint = new EndpointImpl(springBus(), new TablemanagementWebServiceImpl());
+    endpoint.publish("/TablemanagementWebService");
+    return endpoint;
+  }
+  // END ARCHETYPE SKIP
+}
+--------
+
+
+
+We see the beans SpringBus and ServletRegistrationBean inside our @Configuration-Class.
+We need to Configure it to return an instance of org.apache.cxf.jaxws.EndpointImpl, which we forward to the SpringBus and our implementor via constructor-arg:
+
+Furthermore we have to use the .publish-Method of our org.apache.cxf.jaxws.EndpointImpl to define the last part of our WebService-URI.
+
+If you now fire up application, with SpringBoot, a browser should show our TablemanagementWebService beneath “Available SOAP services”, when we point it to url, where webservice is hosted, say in this case  (http://localhost:8081/oasp4j-sample-server/services/) – including all  available web service methods.
+
+== Soap Custom Mapping
+
+In order to map custom https://github.com/oasp/oasp4j/wiki/guide-datatype[datatypes] or other types that do not follow the Java bean conventions, you need to write adapters for JAXB https://github.com/oasp/oasp4j/wiki/guide-xml[XML]).
+
+== SOAP Testing
+
+For testing SOAP services manually we strongly recommend http://www.soapui.org/[SoapUI].
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
