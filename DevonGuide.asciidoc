@@ -45,9 +45,9 @@ include::devcon-user-guide[]
 :leveloffset: 0
 :toc:
 
-== Getting Started
-
+== Getting Started 
 :leveloffset: 2
+
 include::getting-started-download-and-install[]
 
 <<<<
@@ -96,7 +96,11 @@ include::getting-started-Data-Access-Layer[]
 
 <<<<
 
-include::getting-started-Crud-Operations[]
+include::getting-started-crud-operations[]
+
+<<<<
+
+include::getting-started-Cobigen[]
 
 <<<<
 
@@ -108,27 +112,32 @@ include::getting-started-logic-layer[]
 
 <<<<
 
+include::getting-started-bean-mapping-using-dozer[]
+
+<<<<
+
 include::getting-started-Creating-Rest-Service[]
 
 <<<<
 
-include::getting-started-Cobigen[]
+include::getting-started-deployment-on-tomcat[]
 
 :leveloffset: 0 
+
 == CookBook 
+
 :leveloffset: 2
 
+include::cookbook-security-layer[]
 
+<<<<
 
-:leveloffset: 0 
-== Client GUI Sencha 
-:leveloffset: 2
+include::cookbook-JAX-WS-WebServices[]
 
+<<<<
 
+include::cookbook-batch-layer[]
 
-:leveloffset: 0 
-== Client GUI Angular 
-:leveloffset: 2
+<<<<
 
-
-
+include::cookbook-websocket[]
