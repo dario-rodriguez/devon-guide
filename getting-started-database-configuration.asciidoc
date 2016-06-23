@@ -16,7 +16,7 @@ MySQL:
  	<artifactId>mysql-connector-java</artifactId>
 </dependency>
 
-image::images/database-configuration/db-config1.png[,scaledwidth=80%]
+image::images/database-configuration/db-config1.png[,width="450",link="images/database-configuration/db-config1.png"]
 
 *Note*: this driver should NOT be used in a production environment because of license issues. See down for an alternative.
 
@@ -41,7 +41,7 @@ spring.datasource.driver-class-name=com.mysql.jdbc.Driver
 flyway.locations=classpath:db/migration,classpath:db/migration/MySQL
 
 
-image::images/database-configuration/db-config2.png[,scaledwidth=80%]
+image::images/database-configuration/db-config2.png[,scaledwidth="450",link="images/database-configuration/db-config2.png"]
 
 == Activate the new profile
 
@@ -52,7 +52,7 @@ MySQL:
 spring.profiles.active=mysql 
 
 
-image::images/database-configuration/db-config3.png[,scaledwidth=80%]
+image::images/database-configuration/db-config3.png[,scaledwidth="450",link="images/database-configuration/db-config3.png"]
 
 
 
