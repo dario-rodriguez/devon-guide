@@ -59,7 +59,7 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - link:Client-GUI-Sencha-Introduction-to-Devon4sencha[Introduction to Devon4sencha]
 
-- [Define/explain Sechna Workspace & Sencha Cmd](https://github.com/devonfw/devon/wiki/devon-guide-sencha-workspace-cmd)
+- link:Client-GUI-Sencha-Workspace-and-Sencha-Cmd[Sencha Workspace & Sencha Cmd]
 
 - [Create a new Sencha App](https://github.com/devonfw/devon/wiki/devon-guide-sencha-newapp)
 
