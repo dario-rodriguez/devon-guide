@@ -55,7 +55,7 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - link:cookbook-websocket[WebSocket]
 
-## Client GUI Sencha
+## Client GUI Sencha Getting Started
 
 - link:Client-GUI-Sencha-Introduction-to-Devon4sencha[Introduction to Devon4sencha]
 
