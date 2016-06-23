@@ -34,7 +34,7 @@ Using Cobigen, you can save most of these steps, and get a working result in far
 
 Cobigen needs a starting point to generate the code of a CRUD case. In this example the starting point is the `StaffMemberEntity` class, modelling a member of the staff of our restaurant. So we are going to create a CRUD for the new `StaffMemberEntity` class.
 
-=== Step 1: Entity creation
+==== Step 1: Entity creation
 
 We are going to create a `StaffMember` entity. First, we are going to add the database schema to our database.
 
@@ -146,7 +146,7 @@ public class StaffMemberEntity extends ApplicationPersistenceEntity {
 
 ----
 
-=== Step 2: Generate classes
+==== Step 2: Generate classes
 
 To generate the rest of the classes concerning the StaffMember CRUD, we only have to do a right click on the `TableEntity.java` class in Eclipse Project Explorer and select "CobiGen ' Generate".
 
@@ -188,7 +188,7 @@ Cobigen also works incrementally. Cobigen merges your changes and updates all cl
  
 In OASP4J applications the roles and permissions are defined by the _PermissionConstants_ class. The content of this class is bound with the permissions defined in the _access-control-schema.xml_ file. Cobigen let us to automatically generate (or update) the content of the _PermissionConstants_ class from the _access-control-schema.xml_ content. To achieve this we only have to follow two simple steps. 
 
-=== Step 1: Define the permissions and roles
+==== Step 1: Define the permissions and roles
 
 In Eclipse open the _access-control-schema.xml_ located in _/oasp4j-sample-core/src/main/resources/config/app/security/access-control-schema.xml_ and define the permissions to the roles or group of roles like:
 
@@ -204,7 +204,7 @@ In Eclipse open the _access-control-schema.xml_ located in _/oasp4j-sample-core/
   </group>
 ----
 
-=== Step 2: Generate the PermissionConstants class
+==== Step 2: Generate the PermissionConstants class
 
 Right click on the _access-control-schema.xml_ and select _Cobigen > Generate..._
 
