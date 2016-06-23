@@ -18,7 +18,7 @@ Open the Devonfw console by executing the batch file "console.bat" from the Devo
 
 ==== Step 2: Change the directory
 
-You can create the project wherever you want, but it is a good practice to create the projects into your _workspace_ directory. So, in the console, change to the directory "workspaces\main".
+You can create the project wherever you want, but it is a good practice to create the projects into your `workspace` directory. So, in the console, change to the directory `workspaces\main`.
 
 [source,bash]
 ----
@@ -66,11 +66,11 @@ To create a new application with Eclipse, you should have installed https://coco
 
 ==== Step 1 - Create a new Maven Project
 
-Open Eclipse in of a Devonfw distribution, by executing the batch file "eclipse-main.bat", and go to File > New > Maven Project. If you don't see the option, click File > New > Other and use the filter to search the option Maven Project
+Open Eclipse from a Devonfw distribution, by executing the batch file "eclipse-main.bat", and go to _File > New > Maven Project_. If you don't see the option, click _File > New > Other_ and use the filter to search the option _Maven Project_
 
 ==== Step 2 -  Choose the archetype
 
-In the New Maven Project wizard you need to choose the oas4j-template-server archetype, just like the image.
+In the New Maven Project wizard you need to choose the _oas4j-template-server archetype_, just like the image.
 
 image::images/create-new-app/devon-guide-newapp-choose-archetype.PNG[,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/create-new-app/devon-guide-newapp-choose-archetype.PNG"]
 
@@ -78,11 +78,11 @@ image::images/create-new-app/devon-guide-newapp-choose-archetype.PNG[,width="450
 
 ==== Step 3 - Configure the application properties
 
-Now you need to fill the Group Id, Artifact Id, Version and Package for your project. 
+Now you need to fill the _Group Id_, _Artifact Id_, _Version_ and _Package_ for your project. 
 
-If you want to add an EAR generation mechanism to your project, you should fill the property earProjectName with the value Artifact Id + "-ear". For example, "sampleapp-ear". 
+If you want to add an EAR generation mechanism to your project, you should fill the property _earProjectName_ with the value _Artifact Id_ + "-ear". For example, "sampleapp-ear". 
 
-If you only want a WAR generation, you can remove the property earProjectName.
+If you only want a WAR generation, you can remove the property _earProjectName_.
 
 image::images/create-new-app/devon-guide-newapp-archetype-parameters.PNG[,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/create-new-app/devon-guide-newapp-archetype-parameters.PNG"]
 [EAR]
