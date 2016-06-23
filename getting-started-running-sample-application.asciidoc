@@ -52,7 +52,7 @@ image::images/running-sample-application/running_sample_application_3_import_mav
 
 ==== Step 2: Run the application
 
-The embedded Tomcat server of the Spring Boot Application can be running wit a simple right click on the Java file *oasp4j-sample-core/src/main/java/io/oasp/gastronomy/restaurant/SpringBootApp.java* > Run as... > 2 Java Application
+The embedded Tomcat server of the Spring Boot Application can be running with a simple right click on the Java file *oasp4j-sample-core/src/main/java/io/oasp/gastronomy/restaurant/SpringBootApp.java* > Run as... > 2 Java Application
 
 image::images/running-sample-application/running_sample_application_1_run_embedded_server.png[, width="450", link="https://github.com/devonfw/devon-guide/wiki/images/running-sample-application/running_sample_application_1_run_embedded_server.png",]
 
