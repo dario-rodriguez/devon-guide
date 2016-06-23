@@ -176,7 +176,7 @@ Afterwards, click on "Finish" to let CobiGen do its work.
 ====
 It is possible that you will see a final dialog containing some warnings about ambigous imports. You should review the mentioned files, and fix the imports yourself.
 
-image::images/devonfw-cobigen/devon_guide_cobigen_4_warnings.png[,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/devonfw-cobigen/devon_guide_cobigen_4_warnings.png"]
+image::images/devonfw-cobigen/devon_guide_cobigen_4_warnings.png[,width="350", link="https://github.com/devonfw/devon-guide/wiki/images/devonfw-cobigen/devon_guide_cobigen_4_warnings.png"]
 
 In many cases, the imports are easily fixable by letting Eclipse auto-complete them by pressing "Ctrl-Shift-O".
 
