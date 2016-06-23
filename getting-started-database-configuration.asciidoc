@@ -1,3 +1,6 @@
+:toc: macro
+toc::[]
+
 = Database configuration
 
 In this tutorial we are going to configure our application to connect with a real database of our choice. Devonfw give us a very simple configuration, so we just need to add the dependency of the database libraries, create a profile, set the information of our database in the profile and activate it, update the script files , if any, as per DB syntax.
@@ -10,11 +13,13 @@ Add Dependency for database in pom.xml file. For e.g If we are configuring mysql
 
 MySQL:
  
-[source]
+[source,xml]
+----
 <dependency>
  	<groupId>mysql</groupId>
  	<artifactId>mysql-connector-java</artifactId>
 </dependency>
+----
 
 image::images/database-configuration/db-config1.png[,width="450",link="images/database-configuration/db-config1.png"]
 
@@ -32,6 +37,7 @@ Add database configuration in application-{PROFILE_NAME}.properties file. For e.
 
 MySQL:
 [source]
+----
 spring.jpa.database=mysql
 spring.datasource.url=jdbc:mysql://localhost:3306/restaurant?user=root&password=root&connectTimeout=10000&socketTimeout=10000&autoReconnect=true
 spring.jpa.database-platform=org.hibernate.dialect.MySQL5Dialect
@@ -39,7 +45,7 @@ spring.datasource.username=root
 spring.datasource.password=root
 spring.datasource.driver-class-name=com.mysql.jdbc.Driver
 flyway.locations=classpath:db/migration,classpath:db/migration/MySQL
-
+----
 
 image::images/database-configuration/db-config2.png[,scaledwidth="450",link="images/database-configuration/db-config2.png"]
 
@@ -49,8 +55,9 @@ To activate new profile update src/main/resources/application.properties file. S
  
 MySQL:
 [source]
+----
 spring.profiles.active=mysql 
-
+----
 
 image::images/database-configuration/db-config3.png[,scaledwidth="450",link="images/database-configuration/db-config3.png"]
 
@@ -64,17 +71,21 @@ The use of the MySQL is already being illustrated in the above examples. However
 
 The dependency declaration consists of:
 
-[source]
+[source,xml]
+----
 <dependency>
     <groupId>org.mariadb.jdbc</groupId>
     <artifactId>mariadb-java-client</artifactId>
     <version>1.2.3</version>
 </dependency> 
+----
 
 And the library can be used like MySQL but with a slight change to the configuration:
 
 [source]
+----
 spring.datasource.driver-class-name=org.mariadb.jdbc.Driver
+----
 
 === PostgreSQL 
 
@@ -89,7 +100,7 @@ The dependency declaration consists of:
 
 Ultimately, the following configuration must be used in order to use the postgresql driver and database:
 [source]
-
+----
 spring.jpa.database=postgresql
 spring.datasource.url=jdbc:postgresql://localhost:5432/<db name>
 spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
@@ -97,6 +108,7 @@ spring.datasource.username=postgres
 spring.datasource.password=<password set at time of installation>
 spring.datasource.driver-class-name=org.postgresql.Driver
 flyway.locations=classpath:db/migration,classpath:db/migration/postgres
+----
 
 === Microsoft MSSQL Server
 
@@ -104,17 +116,21 @@ The Microsoft JDBC drivers are *not* available on Maven Central; http://www.micr
  
 Once downloaded they should be installed in the local Maven repository (.m2 folder on the local machine). That can be done with the command:
 
-[source]
+[source,batch]
+----
 mvn install:install-file -DgroupId=com.microsoft.sqlserver -DartifactId=sqljdbc4 -Dversion=<version> -Dpackaging=jar -DgeneratePom=true -Dfile=<driver JAR file>
+----
 
 Once installed, the library must be added to the project pom.xml file. The dependency declaration is
 
-[source]
+[source,xml]
+----
  <dependency>
     <groupId>com.microsoft.sqlserver</groupId>
     <artifactId>sqljdbc4</artifactId>
     <version>4.0</version>
   </dependency>
+----
 
 Ultimately, the following configuration must be used in order to use the MSSQL server driver and database:
 
