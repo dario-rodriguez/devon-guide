@@ -1,0 +1,168 @@
+:toc: macro
+toc::[]
+
+= Application architecture
+
+Sencha provides support for both MVC and MVVM application architectures.
+
+== MVC (Model, View, Controller):
+
+* User interacts with **Views**, which display data held in **Models**
+* Those interactions are monitored by a **Controller**, which then responds to the interactions by updating the **View** and **Model**, as necesary
+* **Controllers** will contain the application logic
+* **Models** are an interface to data
+* The application is easier to test and mantain.  Code is more reusable
+
+image::images/client-gui-sencha/mvcArchitecture.png[Sencha,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/mvcArchitecture.png"]
+
+== MVVM (Model, View, Controller, ViewModel, ViewController):
+
+* Features an abstraction of a **View** called the **ViewModel**. The ViewModel coordinates the changes between a Model’s data and the View’s presentation of that data using a technique called **“data binding”**
+* The result is that the **Model** and framework perform as much work as possible, minimizing or eliminating application logic that directly manipulates the **View**
+
+= Structure of a Sencha application
+
+With these objects in place, Sencha also defines a clean way to structure the application by having each kind of object in separate folders. 
+
+
+== Models
+
+The *models* contain the data for the application with some powerful abstractions to retrieve information from the back-end. *Models* have fields defined and associations to other *models* or *stores* which are collections of *models*.
+
+*Models* and *stores* are used by the framework for some controls such as *combo*, *list* and *grid*.
+
+== Views
+
+Views are the objects responsible for displaying the data to the user. They contain no logic and have to deal with formatting and internationalization of messages within the components.
+
+Sencha *views* can be created in two ways:
+
+* Programmatic
+* Declarative
+
+The most common way to define views is *declarative*, by using Javascript objects that represent the controls with their properties and other child components.
+
+For example:
+
+[source,javascript]
+----
+{
+  xtype: 'panel'
+  title: 'parent panel title',
+  items: [{
+    xtype: 'textfield',
+    labelField: 'Label for input',
+  },{
+    xtype: 'button',
+    text: 'send'
+  }]
+}
+----
+
+In this example a component of type `panel` is defined with a `textfield` and a `button` in it. Please note that the behaviour of the button is not specified here.
+
+
+== Controllers
+
+The controllers are typically the objects responsible for driving the logic of the application, listening to events of the view controls and modifying the underlying model. They are also in charge of rendering new views in response to application state changes.
+
+From version 5 ExtJS this role is usually assumed by the *ViewControllers* and normal *Controllers* are more similar to a *service* pattern on other frameworks. They are typically singletons that are initialized on application launch and are not associated to a concrete view.
+
+In Devon applications, controllers are used for:
+
+* Create *rest endpoint* helper methods on initialization.
+* Listening for global events
+* Declaring view dependencies
+* Instantiating view components
+* Specify internationalization bundles
+
+[source,javascript]
+----
+Ext.define('Sample.controller.table.TablesController', {
+extend: 'Ext.app.Controller',
+
+//Create rest endpoint helper methods on initialization
+init: function() {
+  Devon.Ajax.define({
+    'tablemanagement.table': {
+      url: 'tablemanagement/v1/table/{id}'
+    },
+    'tablemanagement.search': {
+      url: 'tablemanagement/v1/table/search',
+      pagination : true
+    }
+  });
+},
+
+//Listening for global events
+config: {
+  listen: {
+    global: {
+      eventOpenTableList: 'onMenuOpenTables',
+      eventTableAdd: 'onTableAdd'
+    }
+  }
+},
+
+//Declaring view dependencies
+requires:[
+  'Sample.view.table.i18n.Table_en_EN',
+  'Sample.view.table.i18n.Table_es_ES',
+  'Sample.view.table.TableList',
+  'Sample.view.table.TableCrud',
+  'Sample.view.table.TableEdit'
+],
+
+//Instantiating view components
+onTableEditOrder: function(tableSelected) {
+  var id = tableSelected.id;
+  var panel = new Sample.view.table.TableEdit({
+    title: i18n.tableEdit.title + id,
+    viewModel: {
+      data: {
+        tableId: id
+      }
+    }
+  });
+  Devon.App.openInContentPanel(panel, {id:id});
+}
+});
+----
+
+== ViewController
+
+This kind of object is associated to a component view and listens to events of its controls. There is an instance of a *viewController* for each instance of a view so they are created/destroyed as required.
+
+Events of the components of a view are routed to methods of its *ViewController* and the logic of the application is executed.
+
+Usually this means dealing with input control values, calling services of the back-end (maybe through the use of a global *Controller* ) and modifying the *model*.
+
+With this results, the view is modified to reflect those changes.
+
+== ViewModel
+
+The place to store information for a view is the ViewModel. This object contains not only instance data but also *calculated* fields based on other *viewModel*. All this information can be referenced on the view object by means of the *binding* capabilities of the Sencha Framework. One ViewModel object instance is associated to each View instance and they share lifespan.
+
+
+[source,javascript]
+----
+Ext.define('Sample.view.table.TableEditVM', {
+  extend: 'Ext.app.ViewModel',
+  alias: 'viewmodel.table-edit-model',
+  data: {
+    orderInfo: null
+  }
+});
+
+Ext.define("Sample.view.table.TableEdit", {
+  extend: "Ext.panel.Panel",
+  viewModel: {
+        type: "table-edit-model"
+  },
+  bind : {
+    loading : '{!orderInfo}'
+  }
+});
+----
+
+In this sample the loading mask and text will be displayed/hidden according to the value of the viewModel `orderInfo` data property. This is something that usually requires calling the show/hide methods of the mask object programmatically and by using the MVVM model, this greatly simplified.
