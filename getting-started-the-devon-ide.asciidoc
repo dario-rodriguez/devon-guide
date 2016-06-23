@@ -7,7 +7,7 @@ toc::[]
 
 The Devon IDE is the general name for two distinct versions of a customized Eclipse which comes in a Open Source variant, called OASP4J-IDE, and a more extended version included in the "Devon Dist" which is only available for Capgemini engagements.
 
-=== Features & advantages
+=== Features and advantages
 Devonfw comes with a fully featured IDE in order to simplify the installation, configuration and maintenance of this instrumental part of the development environment. As it is being included in the distribution, the IDE is ready to be used and some specific configuration of certain plugins only takes a few  minutes.
 
 image::images/devon-ide/integrated-ide.png["Integrated IDE",width="450", link="images/devon-ide/integrated-ide.png"]
@@ -30,14 +30,14 @@ Since an application’s code can greatly vary, and every program can be written
 
 === CheckStyle
 
-==== What is CheckStyle?
+==== What is CheckStyle
 
 http://eclipse-cs.sourceforge.net/[CheckStyle] is a Open Source development tool to help you ensure that your Java code adheres to a set of coding standards. Checkstyle does this by inspecting your Java source code and pointing out items that deviate from a defined set of coding rules.
 
 With the Checkstyle IDE Plugin, your code is constantly inspected for coding standard deviations. Within the Eclipse workbench, you are immediately notified with the problems via the Eclipse Problems View and source code annotations similar to compiler errors or warnings.
 This ensures an extremely short feedback loop right at the developers fingertips.
 
-==== Why use CheckStyle?
+==== Why use CheckStyle
 
 If your development team consists of more than one person, then obviously a common ground for coding standards (formatting rules, line lengths etc.) must be agreed upon - even if it is just for practical reasons to avoid superficial, format related merge conflicts.
 Checkstyle Plugin helps you define and easily apply those common rules.
@@ -94,11 +94,11 @@ Also note the editor annotations - they are there to make it even easier to see 
 
 === FindBugs:
 
-==== What is FindBugs?
+==== What is FindBugs
 
 http://findbugs.sourceforge.net/[FindBugs]is an open source project for a static analysis of the Java bytecode to identify potential software bugs. Findbugs provides early feedback about potential errors in the code.
 
-==== Why use FindBugs?
+==== Why use FindBugs
 
 It scans your code for bugs, breaking down the list of bugs in your code into a ranked list on a 20-point scale. The lower the number, the more hardcore the bug.This helps the developer to access these problems early in the development phase.
 
@@ -124,12 +124,13 @@ image::images/devon-ide/FindBugs4.png["bug Explorer",width="450",link="images/de
 
 === SonarQube
 
-==== what is SonarQube?
+==== what is SonarQube
 
 http://www.sonarqube.org/[SonarQube] is an open platform to manage code quality.
 SonarQube is a web-based application. Rules, alerts, thresholds, exclusions, settings can be configured online. By leveraging its database, SonarQube not only allows to combine metrics altogether but also to mix them with historical measures.
 
-==== Why use SonarQube?
+==== Why use SonarQube
+
 It covers seven aspects of code quality like junits, coding rules,comments,complexity,duplications, architecture and design and potential bugs.
 SonarQube has got a very efficient way of navigating, a balance between high-level view, dashboard and defect hunting tools. This enables to quickly uncover projects and / or components that are in analysis to establish action plans.
 
@@ -200,13 +201,13 @@ image::images/devon-ide/sonarQube-issues-view.png["sonarQube-issues-view", width
 Or you can go to link http://loclahost:9000 and login with admin as id and admin as password and goto Dashboard.you can see all the statistics of analysis of the configured projects on sonar server.
 
 === Soap UI
-==== What is soap UI?
+==== What is soap UI
 
 SoapUI is an open-source web service testing application for service-oriented architectures (SOA) and representational state transfers (REST). Its functionality covers web service inspection, invoking, development, simulation and mocking, functional testing, load and compliance testing.
 OASP4J IDE comes preinstalled with this plugin.
 Note: There is no update site for this tool.
 
-==== Why use Soap UI?
+==== Why use Soap UI
 
 SoapUI is a free and open source cross-platform Functional Testing solution. With an easy-to-use graphical interface, and enterprise-class features, SoapUI allows you to easily and rapidly create and execute automated functional, regression, compliance, and load tests. In a single test environment, SoapUI provides complete test coverage and supports all the standard protocols and technologies.For more details see https://www.soapui.org/about-soapui/what-is-soapui.html[here] .
 
