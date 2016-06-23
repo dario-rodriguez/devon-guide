@@ -19,61 +19,61 @@ The OASP4J archetype generates a Maven Modules Project. It has 3 Maven modules a
 
 ** Maven plugin compiler to compile the application to desired Java version.
 
-= Core Module
+== Core Module
 
 Core module contains the base classes and the base configuration for the application. It’s divided in three package: Java, Resources and Test.
 
-image::images/oasp-app-structure/app-structure.png[App structure,width=60%]
+image::images/oasp-app-structure/app-structure.png["App structure",width="450",link="images/oasp-app-structure/app-structure.png"]
 
 Now, we are going to describe each of them. 
 
-== Java 
+=== Java 
 
 The package java contains all Java File that implement the application and the configuration of it.
 
-=== SpringBootApp and SpringBootBatchApp 
+==== SpringBootApp and SpringBootBatchApp 
 
 *SpringBootApp* is the class that contains the main method to run the Spring Boot application. Spring Boot is responsible for scan the project and find the beans and configuration of the application. So this is the most important class in the application, because it's the application per se. You can read more about Spring Boot http://docs.spring.io/spring-boot/docs/current/reference/html/[here].
 
 *SpringBootBatchApp* this class is responsible for run the batch process of the application. You can see more about the batch process in OASP4J project https://github.com/oasp/oasp4j/wiki/guide-batch-layer[here].
 
-=== General 
+==== General 
 
 The *general* package contains all Java files of OASP4J application. It's divided in the next sub-packages:
 
-===== Common
+====== Common
 
 Contains the reusable Java components of the OASP4J application. 
 
-===== Dataaccess
+====== Dataaccess
 
 This package contains the Java files that compose the Data Access layer of OASP4J application. You can see more about this layer https://github.com/oasp/oasp4j/wiki/guide-dataaccess-layer[here].
 
-===== Gui.api
+====== Gui.api
 
 Contains the Java class that has the login page controller of OASP4J application.
 
-===== Logic
+====== Logic
 
 Contains the logic layer of OASP4J application. The logic layer is the heart of the application and contains the main business logic. You can see more about it https://github.com/oasp/oasp4j/wiki/guide-logic-layer[here].
 
-===== Service.impl.rest
+====== Service.impl.rest
 
 Contains the service layer of OASP4J application. The service layer is responsible to expose functionality of the logical layer to external consumers over a network via technical protocols. You can see more about it https://github.com/oasp/oasp4j/wiki/guide-service-layer[here].
  
-==== Management packages 
+===== Management packages 
 
 This package contains the Entities, DAOs, ETOs, CTOs, REST services, web services, etc., definitely a CRUD operators of the application. You can see more about how to create a CRUD operators in OASP4J project https://github.com/devonfw/devon-guide/wiki/getting-started-Crud-Operations[here].
  
-== Resources 
+=== Resources 
 
 The resources package contain the data of some specific functionality of the application. This data, can be configuration data for, e.g, database, security or another data configuration that can be accessed by the application.
 
 This package is divided in config, db, META-INF and static folder. Also we have an *application.propertie* file in this package. You can see more about OASP4J Spring Boot configuration https://github.com/devonfw/devon-guide/wiki/getting-started-understanding-oasp4j-spring-boot-config[here]. 
 
-image::images/oasp-app-structure/config-structure.png[App structure,width=40%]
+image::images/oasp-app-structure/config-structure.png["App structure 2",width="450",link="images/oasp-app-structure/config-structure.png"]
 
-===== config
+====== config
 
 In this folder we have largely the xml configuration file of the application. This application contains also some *application.properties* files that represent the context of the application when we run it with the embedded Tomcat server. You can see more about how to run an OASP4J application https://github.com/devonfw/devon-guide/wiki/getting-started-running-sample-application[here].
 
@@ -89,25 +89,25 @@ The *config* folder have a folder called *app* this folder is divided in the nex
 
 ** websocket: contains the scan component package definition for websockects.
 
-===== db
+====== db
 
 This folder contains the SQL files that contains the script templates to create the database schema and tables definition.
 
-===== META-INF
+====== META-INF
 
 Contains the *orm.xml* file that allow us to declare name queries that can be called in the code of the application to do an specific SQL queries.
 
-===== static
+====== static
 
 Contains the *index.html* file of the application. This view contains ,by default, a simple logout button and a the link to a list of services of the application. 
 
-===== application.properties
+====== application.properties
 
 Contains the specific properties values of the application. This is taking in to account by the application when this is running in an https://github.com/devonfw/devon-guide/wiki/getting-started-running-sample-application#external-tomcat-server[external server] (not the embedded).
 
 As you can see we have an application-<name>.properties, this kind of properties are called profile and we can active a determinate profile in *application.properties* depending on our needs. You can see more about Spring profiles http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-profiles.html[here]. Also you can see how to create a new database profile in OASP4j https://github.com/devonfw/devon/wiki/Database-Configuration-Guide#create-a-spring-profile[here], in order to have a example to better understand.
 
-== Test
+=== Test
 
 The package test contains all we need to test the application. It's divided in the next sub packages:
 
@@ -115,7 +115,7 @@ The package test contains all we need to test the application. It's divided in t
 
 ** resources: contains the configuration and data we need to run the test in of the application.
 
-= Server Module
+== Server Module
 
 This module contains two important files:
 
@@ -123,7 +123,7 @@ This module contains two important files:
 
 * pom.xml: This file has Maven configuration for packaging the application as a WAR. Also, this file has a profile to package the JavaScript client ZIP file into the WAR.
 
-= EAR Module
+== EAR Module
 
 In some cases we can create a EAR module to our project. This module only contains a pom.xml file to packaging the application as EAR from the WAR generated.
 
