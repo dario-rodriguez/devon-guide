@@ -50,8 +50,7 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 ## Cookbook 
 - link:cookbook-security-layer[Security: Authentication and Authorization] (TO EVALUATE)
 
-- [WS*, client and server](https://github.com/devonfw/devon/wiki/devon-guide-ws-client-server) (TODO) [OASP = [1](https://github.com/oasp/oasp4j/wiki/decision-service-framework)]
-
+- link:cookbook-JAX-WS-WebServices[WebServices]
 - link:cookbook-batch-layer[Batch Layer]
 
 - link:cookbook-websocket[WebSocket]

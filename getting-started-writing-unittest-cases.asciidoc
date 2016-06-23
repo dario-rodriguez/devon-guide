@@ -156,7 +156,7 @@ public class CalculatorTest extends ComponentTest {
 }
 ----
 
-==== Step 2: Run the test
+==== Step 2: Run the test new test
 
 Run the test and this should be the result
 
@@ -192,7 +192,7 @@ Lest's go to implement the method `add()` and see what's happen
 }
 ----
 
-==== Step 4: Run the test
+==== Step 4: Run the test (again)
 
 If you run now the test you get the next result
 
