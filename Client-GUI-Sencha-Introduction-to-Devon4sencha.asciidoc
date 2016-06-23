@@ -3,7 +3,7 @@ toc::[]
 
 # Introduction to Devon4sencha
 
-image::images/devonfw-small.png[,width="450",Devonfw, link="https://github.com/devonfw/devon-guide/wiki/images/devonfw-small.png"]
+image::images/devonfw-small.png[,width="450",Devonfw, link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/sencha.png"]
 
 Devon4Sencha is an alternative view layer for web applications developed with Devon Framework. It is based on the proprietary libraries developed by http://www.sencha.com[Sencha]. As it requires a license for commercial applications it won't be provided as Open Source (The companion OASP project).
 
