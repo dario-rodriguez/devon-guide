@@ -1,8 +1,5 @@
 # Pending tasks for Devon guide
 
-==== Pablo
-
-- In https://github.com/devonfw/devon-guide/wiki/getting-started-distribution-structure[Distribution structure] --> For more info see the Shared Services documentation --> needs a lint to the Shared Services documentation.
 
 ==== For all
 
@@ -32,14 +29,7 @@ We need to check all pages and check if all follow this structure.
 
 * List of pages and compilation errors:
 
--> Page getting-started-the-devon-ide - IDs (titles), IDs (images)
-  
--> Page getting-started-running-sample-application - More than one =
-   
--> Page getting-started-oasp-app-structure - More than one =
 
--> Page getting-started-writing-unittest-cases - IDs (titles)
 
--> Page getting-started-logging-and-auditing - More than one =
 
 * The size of the images and links of this image -> the max size we need to use is [,width="450", link="https://github.com/devonfw/devon-guide/wiki/<image>"], if you need to use less go ahead but never more than 
