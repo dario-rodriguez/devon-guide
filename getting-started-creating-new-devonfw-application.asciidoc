@@ -73,7 +73,7 @@ Open Eclipse in of a Devonfw distribution, by executing the batch file "eclipse-
 
 In the New Maven Project wizard you need to choose the oas4j-template-server archetype, just like the image.
 
-image::images/create-new-app/devon-guide-newapp-choose-archetype.PNG[,scaledwidth=80%]
+image::images/create-new-app/devon-guide-newapp-choose-archetype.PNG[,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/create-new-app/devon-guide-newapp-choose-archetype.PNG"]
 
 [Archetype]
 
@@ -85,7 +85,7 @@ If you want to add an EAR generation mechanism to your project, you should fill 
 
 If you only want a WAR generation, you can remove the property earProjectName.
 
-image::images/create-new-app/devon-guide-newapp-archetype-parameters.PNG[,scaledwidth=80%]
+image::images/create-new-app/devon-guide-newapp-archetype-parameters.PNG[,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/create-new-app/devon-guide-newapp-archetype-parameters.PNG"]
 [EAR]
 
 * Finish the Eclipse assistant and you are ready to start your project.
