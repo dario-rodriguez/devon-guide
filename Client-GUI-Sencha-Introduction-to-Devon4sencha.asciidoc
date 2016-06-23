@@ -2,9 +2,7 @@
 toc::[]
 
 # Introduction to Devon4sencha
-
 image::images/client-gui-sencha/sencha.png[Sencha,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/sencha.png"]
-
 Devon4Sencha is an alternative view layer for web applications developed with Devon Framework. It is based on the proprietary libraries developed by http://www.sencha.com[Sencha]. As it requires a license for commercial applications it won't be provided as Open Source (The companion OASP project).
 
 These libraries provide support for creating SPA (Single Page Applications) with a very rich set of components for both desktop and mobile. They also provide a clear programming model based on the MVC and MVVM patterns. Visit their http://www.sencha.com[website] for more examples on this.
@@ -18,3 +16,13 @@ Devon4Sencha builds on top of Sencha libraries to further standardize the way ap
 * Internationalization
 * Better organization of source code (following Sencha MVC pattern)
 * Ajax communication simplification
+
+## Legal considerations
+
+Devon4Sencha is based on Sencha Javascript libraries that are not free and this has to be taken into consideration before starting with a project.
+
+The license model for Sencha is "per developer" and each engagement should take care of having enough licenses for developers working on the view layer.
+
+Client should be informed of this fact and may be provided with licenses also if they retain the IP for the project developed within Capgemini.
+
+Complete this section with support from legal department.
