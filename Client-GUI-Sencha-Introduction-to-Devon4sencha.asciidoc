@@ -16,3 +16,13 @@ Devon4Sencha builds on top of Sencha libraries to further standardize the way ap
 * Internationalization
 * Better organization of source code (following Sencha MVC pattern)
 * Ajax communication simplification
+
+## Legal considerations
+
+Devon4Sencha is based on Sencha Javascript libraries that are not free and this has to be taken into consideration before starting with a project.
+
+The license model for Sencha is "per developer" and each engagement should take care of having enough licenses for developers working on the view layer.
+
+Client should be informed of this fact and may be provided with licenses also if they retain the IP for the project developed within Capgemini.
+
+Complete this section with support from legal department.
