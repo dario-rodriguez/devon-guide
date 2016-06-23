@@ -41,7 +41,7 @@ spring.datasource.driver-class-name=com.mysql.jdbc.Driver
 flyway.locations=classpath:db/migration,classpath:db/migration/MySQL
 
 
-image::images/database-configuration/db-config2.png[,scaledwidth="450",link="images/database-configuration/db-config2.png"]
+image::images/database-configuration/db-config2.png[,width="450",link="images/database-configuration/db-config2.png"]
 
 == Activate the new profile
 
@@ -52,7 +52,7 @@ MySQL:
 spring.profiles.active=mysql 
 
 
-image::images/database-configuration/db-config3.png[,scaledwidth="450",link="images/database-configuration/db-config3.png"]
+image::images/database-configuration/db-config3.png[,width="450",link="images/database-configuration/db-config3.png"]
 
 
 
