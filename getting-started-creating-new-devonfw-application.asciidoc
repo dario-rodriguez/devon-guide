@@ -50,8 +50,7 @@ mvn -DarchetypeVersion=2.0.0 -DarchetypeGroupId=io.oasp.java.templates -Darchety
 +
 [source]
 ---- 
-mvn -DarchetypeVersion=2.0.0 -DarchetypeGroupId=io.oasp.java.templates -DarchetypeArtifactId=oasp4j-template-server archetype:generate -DgroupId=io.oasp.application -DartifactId=sampleapp -Dversion=0.1-SNAPSHOT -Dpackage=io.oasp.application.sampleapp 
--DearProjectName=enterprise-ear
+mvn -DarchetypeVersion=2.0.0 -DarchetypeGroupId=io.oasp.java.templates -DarchetypeArtifactId=oasp4j-template-server archetype:generate -DgroupId=io.oasp.application -DartifactId=sampleapp -Dversion=0.1-SNAPSHOT -Dpackage=io.oasp.application.sampleapp -DearProjectName=enterprise-ear
 ---- 
 
 This will create a new directory inside `workspaces\main` with the name of your application with the created application inside.
