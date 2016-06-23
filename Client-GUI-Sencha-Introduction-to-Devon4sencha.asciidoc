@@ -56,5 +56,3 @@ Devon4Sencha is based on Sencha Javascript libraries that are not free and this 
 The license model for Sencha is "per developer" and each engagement should take care of having enough licenses for developers working on the view layer.
 
 Client should be informed of this fact and may be provided with licenses also if they retain the IP for the project developed within Capgemini.
-
-Complete this section with support from legal department.
