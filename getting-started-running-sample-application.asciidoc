@@ -9,7 +9,7 @@ This section explains how to download the sample application and run it. Setup D
 
 == Downloading Sample Application
 
-First of all, download or clone the application from the https://github.com/oasp/oasp4j[, width="450", link="https://github.com/devonfw/devon-guide/wiki/",GitHub repository]. We recommend to use the Git Bash to work with our repository of GitHub. You can download Git and Git Bash for Windows system https://git-for-windows.github.io/[here]. Also you can learn more about the best practices of work with Git and GitHub on Devonfw https://github.com/devonfw/devon/wiki/devon-guide-working-with-git-and-github[here].
+First of all, download or clone the application from the https://github.com/oasp/oasp4j[GitHub repository]. We recommend to use the Git Bash to work with our repository of GitHub. You can download Git and Git Bash for Windows system https://git-for-windows.github.io/[here]. Also you can learn more about the best practices of work with Git and GitHub on Devonfw https://github.com/devonfw/devon/wiki/devon-guide-working-with-git-and-github[here].
 
 To clone the repository, open the Git Bash console and run the following command:
 
@@ -52,7 +52,7 @@ image::images/running-sample-application/running_sample_application_3_import_mav
 
 ==== Step 2: Run the application
 
-The embedded Tomcat server of the Spring Boot Application can be running wit a simple right click on the Java file *oasp4j-sample-core/src/main/java/io/oasp/gastronomy/restaurant/SpringBootApp.java* > Run as... > 2 Java Application
+The embedded Tomcat server of the Spring Boot Application can be running with a simple right click on the Java file *oasp4j-sample-core/src/main/java/io/oasp/gastronomy/restaurant/SpringBootApp.java* > Run as... > 2 Java Application
 
 image::images/running-sample-application/running_sample_application_1_run_embedded_server.png[, width="450", link="https://github.com/devonfw/devon-guide/wiki/images/running-sample-application/running_sample_application_1_run_embedded_server.png",]
 
@@ -63,7 +63,7 @@ Now you can open you favorite browser and see the Sample Application running in 
 http://localhost:8081/oasp4j-sample-server/
 ----
 
-As you can see, this embedded server is a very comfortable way to start the application. When you run the application with this server, you need to take in to account that the application is useing the properties of the *src/main/resources/config* folder.
+As you can see, this embedded server is a very comfortable way to start the application. When you run the application with this server, you need to take in to account that the application is using the properties of the _application.properties_ file in the *src/main/resources/config* folder.
 
 === External Tomcat server
 
@@ -102,4 +102,4 @@ Now you can open you favorite browser and see the Sample Application running in 
 http://localhost:8080/oasp4j-sample-server/
 ----
 
-As you can see the port is 8080, but you can modify this properties in the Tomcat server properties or in *src/main/resources/application.properties*. You need to take into account that this are the properties that the application will use if you deploy the application in the context of an external Tomcat server.
+As you can see the port is 8080, but you can modify this properties in the Tomcat server properties (double click over the server in the _Servers_ view) or in *src/main/resources/application.properties*. You need to take into account that this are the properties that the application will use if you deploy the application in the context of an external Tomcat server.

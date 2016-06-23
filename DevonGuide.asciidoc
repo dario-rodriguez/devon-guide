@@ -20,7 +20,7 @@ This document contains the complete compendium of the https://troom.capgemini.co
 
 **Authors:**
   
-Core, Jhonatan Ariel <jhonatan-ariel.core@capgemini.com@capgemini.com>
+Core, Jhonatan Ariel <jhonatan-ariel.core@capgemini.com>
 
 Parra Dominguez, Pablo <pablo.parra-dominguez@capgemini.com>
 

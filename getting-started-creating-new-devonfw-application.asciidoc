@@ -18,7 +18,7 @@ Open the Devonfw console by executing the batch file "console.bat" from the Devo
 
 ==== Step 2: Change the directory
 
-You can create the project wherever you want, but it is a good practice to create the projects into your workspace. So, in the console, change to the directory "workspaces\main".
+You can create the project wherever you want, but it is a good practice to create the projects into your _workspace_ directory. So, in the console, change to the directory "workspaces\main".
 
 [source,bash]
 ----
