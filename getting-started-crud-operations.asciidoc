@@ -966,7 +966,7 @@ This is an example of how to convert an entity into a DTO:
 
 In the example, we use the function _getBeanMapper()_. This function provides us an API to convert entities into DTOs. In the logic layer, we only have to extend the class `AbstractComponentFacade` to get access to this functionality.
 
-== step 6. Add pagination
+== Step 6: Add pagination
 
 To add pagination support to our Table CRUD, the first step is creating a new Table TO that extends the `SearchCriteriaTo` class. This class forms the foundation for every request which needs search or pagination funcionality.
 
@@ -1184,7 +1184,7 @@ While auto-completing the new imports using `Ctrl-Shift-O` after adding the abov
 
 In this case, we have used QueryDSL to create the query. You can read more about QueryDSL at http://www.querydsl.com/[www.querydsl.com].
 
-== step 7. Sort the results
+== Step 7: Sort the results
 
 In OASP4J exists a special TO (Transfer Object) called ´OrderByTo` to transmit sorting parameters from client to server. This is the JSON format that the server expects when using this TO:
 
@@ -1269,7 +1269,7 @@ Now add the following method to `TableDaoImpl`:
 
 As you can see, we have added a private method to add sorting filter to our query depending on the sort parameters received.
 
-== step 8. Test the example
+== Step 8: Test the example
 
 In order to test the example we are going to use the user `chief` to obtain the tables. To be able to access to that data we need first to grant permissions to the `chief` user. We can do it specifying the role and the permissions in the _access-control-schema.xml_ file located in _src/main/resources/config/app/security/_.
 
