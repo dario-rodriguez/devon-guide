@@ -40,3 +40,4 @@ We need to check all pages and check if all follow this structure.
 
 -> Page getting-started-logging-and-auditing - More than one =
 
+* The size of the images -> the max size we need to use is [width="450"], if you need to use less go ahead but never more than 450! 
