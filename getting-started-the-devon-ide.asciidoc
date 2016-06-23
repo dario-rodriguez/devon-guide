@@ -20,7 +20,7 @@ There is inbuilt support for working with different workspaces on different bran
 == Cobigen
 In the Devon distribution we have a code generator to create CRUD code, called *Cobigen*. This is a generic incremental generator for end to end code generation tasks, mostly used in Java projects. Due to a template-based approach, CobiGen generates any set of text-based documents and document fragments.
 
-image::images/devon-ide/cobigen.png[,width="450",Cobigen]
+image::images/devon-ide/cobigen.png[,width="450",link="images/devon-ide/cobigen.png"]
 
 Cobigen is distributed in the Devon distribution as an Eclipse plugin, and is available to all Devon developers for Capgemini engagements. Due to the importance of this component and the scope of its functionality, it is fully described https://github.com/devonfw/devon-guide/wiki/getting-started-Cobigen[here].
 
@@ -37,14 +37,14 @@ http://eclipse-cs.sourceforge.net/[CheckStyle] is a Open Source development tool
 With the Checkstyle IDE Plugin, your code is constantly inspected for coding standard deviations. Within the Eclipse workbench, you are immediately notified with the problems via the Eclipse Problems View and source code annotations similar to compiler errors or warnings.
 This ensures an extremely short feedback loop right at the developers fingertips.
 
-==== Why use it?
+==== Why use CheckStyle?
 
 If your development team consists of more than one person, then obviously a common ground for coding standards (formatting rules, line lengths etc.) must be agreed upon - even if it is just for practical reasons to avoid superficial, format related merge conflicts.
 Checkstyle Plugin helps you define and easily apply those common rules.
 
 The plugin uses a project builder to check your project files with Checkstyle. Assuming the IDE Auto-Build feature is enabled each modification of a project file will immediately get checked by Checkstyle on file save - giving you immediate feedback about the changes you made. To use a simple analogy, the Checkstyle Plug-in works very much like a compiler but instead of producing .class files, it produces warnings where the code violates Checkstyle rules. The discovered deviations are accessible in the Eclipse Problems View, as code editor annotations and via additional Checkstyle violations views.
 
-==== Installation
+==== Installation of CheckStyle
 
 After IDE installation, IDE provides default checkstyle configuration file which has certain check rules specified .
 The set of rules used to check the code is highly configurable. A Checkstyle configuration specifies which check rules are validated against the code and with which severity violations will be reported. Once defined a Checkstyle configuration can be used across multiple projects. The IDE comes with several pre-defined Checkstyle configurations.
@@ -52,44 +52,28 @@ You can create custom configurations using the plugin's Checkstyle configuration
 
 You can see violations in your workspace as shown in below figure.
 
-[[img-checkstyle]]
-.Depicts-Checkstyle-Violations
-image::images/devon-ide/checkstyle.png["checkstyle", width = "450" , link="images/checkstyle.png"]
+image::images/devon-ide/checkstyle.png["checkstyle", width = "450" , link="images/devon-ide/checkstyle.png"]
 
-&#160; +
 
 ==== Usage
 So, once projects are created, follow steps mentioned below, to activate checkstyle:
 
+[start=1]
 . Open the properties of the project you want to get checked.
 
-[[img-checkstyle]]
-.Click-on-properties
-image::images/devon-ide/checkstyle2.png["checkstyle2", width = "450" , link="images/checkstyle2.png"]
-
-&#160; +
+image::images/devon-ide/checkstyle2.png["checkstyle2", width = "450" , link="images/devon-ide/checkstyle2.png"]
 
 [start=2]
 . Select the Checkstyle section within the properties dialog .
 
-
-[[img-checkstyle3]]
-.select-checkstyle
-image::images/devon-ide/checkstyle3.png["checkstyle3", width = "450" , link="images/checkstyle3.png"]
-
-&#160; +
+image::images/devon-ide/checkstyle3.png["checkstyle3", width = "450" , link="images/devon-ide/checkstyle3.png"]
 
 
 [start=3]
 . Activate Checkstyle for your project by selecting the Checkstyle active for this project check box and press OK
 
 
-[[img-checkstyle4]]
-.Activate-checkstyle
-image::images/devon-ide/checkstyle4.png["checkstyle4", width = "450" , link="images/checkstyle4.png"]
-
-&#160; +
-
+image::images/devon-ide/checkstyle4.png["checkstyle4", width = "450" , link="images/devon-ide/checkstyle4.png"]
 
 
 
@@ -99,12 +83,7 @@ After Checkstyle has finished checking your code please look into your Eclipse P
 There should be some warnings from Checkstyle. This warnings point to the code locations where your code violates the preconfigured Checks configuration.
 
 
-[[img-checkstyle5]]
-.view-checkstyle
-image::images/devon-ide/checkstyle5.png["checkstyle5", width = "450" , link="images/checkstyle5.png"]
-
-&#160; +
-
+image::images/devon-ide/checkstyle5.png["checkstyle5", width = "450" , link="images/devon-ide/checkstyle5.png"]
 
 
 
@@ -119,29 +98,29 @@ Also note the editor annotations - they are there to make it even easier to see 
 
 http://findbugs.sourceforge.net/[FindBugs]is an open source project for a static analysis of the Java bytecode to identify potential software bugs. Findbugs provides early feedback about potential errors in the code.
 
-==== Why use it?
+==== Why use FindBugs?
 
 It scans your code for bugs, breaking down the list of bugs in your code into a ranked list on a 20-point scale. The lower the number, the more hardcore the bug.This helps the developer to access these problems early in the development phase.
 
-==== Installation and Usage.
+==== Installation and Usage of FindBugs
 
 OASP4J IDE comes preinstalled with FindBugs plugin.
 
 You can configure that FindBugs should run automatically for a selected project. For this right-click on a project and select Properties from the popup menu. via the project properties. Select FindBugs → Run automatically  as shown below.
 
-image::images/devon-ide/FindBugs1.png[,width="450",configure FindBugs]
+image::images/devon-ide/FindBugs1.png["configure FindBugs",width="450",link="images/devon-ide/FindBugs1.png"]
 
 
 To run the error analysis of FindBugs on a project, right-click on it and select the Find Bugs... → Find Bugs menu entry.
 
-image::images/devon-ide/FindBugs2.png[,width="450",error analysis]
+image::images/devon-ide/FindBugs2.png["error analysis",width="450",link="images/devon-ide/FindBugs2.png"]
 
 Plugin provides specialized views to see the reported error messages. Select Window → Show View → Other... to access the views.
 The FindBugs error messages are also displayed in the Problems view or as decorators in the Package Explorer view.
 
-image::images/devon-ide/FindBugs3.png[,width="450",ShowView bug Explorer]
+image::images/devon-ide/FindBugs3.png["ShowView bug Explorer",width="450",link="images/devon-ide/FindBugs3.png"]
 
-image::images/devon-ide/FindBugs4.png[,width="450",bug Explorer]
+image::images/devon-ide/FindBugs4.png["bug Explorer",width="450",link="images/devon-ide/FindBugs4.png"]
 
 === SonarQube
 
@@ -150,11 +129,11 @@ image::images/devon-ide/FindBugs4.png[,width="450",bug Explorer]
 http://www.sonarqube.org/[SonarQube] is an open platform to manage code quality.
 SonarQube is a web-based application. Rules, alerts, thresholds, exclusions, settings can be configured online. By leveraging its database, SonarQube not only allows to combine metrics altogether but also to mix them with historical measures.
 
-==== Why use it?
+==== Why use SonarQube?
 It covers seven aspects of code quality like junits, coding rules,comments,complexity,duplications, architecture and design and potential bugs.
 SonarQube has got a very efficient way of navigating, a balance between high-level view, dashboard and defect hunting tools. This enables to quickly uncover projects and / or components that are in analysis to establish action plans.
 
-==== Installation and usage:
+==== Installation and usage of SonarQube
 
 OASP4J IDE comes preinstalled with SonarQube.
 To configure it , please follow below steps:
@@ -166,32 +145,22 @@ Once your project exists in SonarQube, you're ready to get started with SonarQub
 
 Go to Window > Preferences > SonarQube > Servers.
 
-[[img-sonarqube1]]
-.Configure_in_IDE
-image::images/devon-ide/sonarqube1.png["sonarqube1", width = "450" , link="images/sonarqube1.png"]
+image::images/devon-ide/sonarqube1.png["sonarqube1", width = "450" , link="images/devon-ide/sonarqube1.png"]
 
-&#160; +
 
 SonarQube in Eclipse is pre-configured to access a local SonarQube server listening on http://localhost:9000/.
 You can edit this server, delete it or add new ones.By default, user and password is "admin".If sonar service is started properly, test connection will give you successful result.
 
 Linking a project to one analysed on sonar server.
 
-[[img-associate-sonarqube]]
-.associate-sonarqube
-image::images/devon-ide/associate-sonarqube.png["associate-sonarqube", width = "450" , link="images/associate-sonarqube.png"]
+image::images/devon-ide/associate-sonarqube.png["associate-sonarqube", width = "450" , link="images/devon-ide/associate-sonarqube.png"]
 
-&#160; +
 
 
 In the SonarQube project text field, start typing the name of the project and select it in the list box:
 
+image::images/devon-ide/link-with-project.png["link-with-project", width = "450" , link="images/devon-ide/link-with-project.png"]
 
-[[img-link-with-project]]
-.link-with-project
-image::images/devon-ide/link-with-project.png["link-with-project", width = "450" , link="images/link-with-project.png"]
-
-&#160; +
 
 Click on Finish. Your project is now associated to one analyzed on your SonarQube server.
 
@@ -201,49 +170,31 @@ At any time, it is possible to change the project association.
 
 To do so, right-click on the project in the Project Explorer, and then SonarQube > Change Project Association...:
 
-[[img-change-link-with-project]]
-.change-link-with-project
-image::images/devon-ide/change-link-with-project.png["change-link-with-project", width = "450" , link="images/change-link-with-project.png"]
+image::images/devon-ide/change-link-with-project.png["change-link-with-project", width = "450" , link="images/devon-ide/change-link-with-project.png"]
 
-&#160; +
 
 *Unlinking a Project*
 
 To do so, right-click on the project in the Project Explorer, and then SonarQube > Remove SonarQube Nature.
 
-[[img-unlink-with-project]]
-.unlink-with-project
-image::images/devon-ide/unlink-with-project.png["unlink-with-project", width = "450" , link="images/unlink-with-project.png"]
-
-&#160; +
+image::images/devon-ide/unlink-with-project.png["unlink-with-project", width = "450" , link="images/devon-ide/unlink-with-project.png"]
 
 
 *Advanced Configuration*
 
 Additional settings (such as markers for new issues) are available through Window > Preferences > SonarQube
 
-[[img-eclipse-settings]]
-.eclipse-settings
-image::images/devon-ide/eclipse-settings.png["eclipse-settings", width = "450" , link="images/eclipse-settings.png"]
+image::images/devon-ide/eclipse-settings.png["eclipse-settings", width = "450" , link="images/devon-ide/eclipse-settings.png"]
 
-&#160; +
 
 To analyse a project, right click on project , select SonarQube->Analyse.
 
-[[img-analyse-project]]
-.Analyse-project
-image::images/devon-ide/analyse-project.png["analyse-project", width = "450" , link="images/analyse-project.png"]
-
-&#160; +
+image::images/devon-ide/analyse-project.png["analyse-project", width = "450" , link="images/devon-ide/analyse-project.png"]
 
 To look for sonarqube analysed issue, go to Window->Show View-> Others->SonarQube->SonarQube Issues.
 Now you can see issues in soanrqube issues tab as shown
 
-[[img-sonarQube-issues-view]]
-.SonarQube-issues-view
-image::images/devon-ide/sonarQube-issues-view.png["sonarQube-issues-view", width = "450" , link="images/sonarQube-issues-view.png"]
-
-&#160; +
+image::images/devon-ide/sonarQube-issues-view.png["sonarQube-issues-view", width = "450" , link="images/devon-ide/sonarQube-issues-view.png"]
 
 
 Or you can go to link http://loclahost:9000 and login with admin as id and admin as password and goto Dashboard.you can see all the statistics of analysis of the configured projects on sonar server.
@@ -255,59 +206,42 @@ SoapUI is an open-source web service testing application for service-oriented ar
 OASP4J IDE comes preinstalled with this plugin.
 Note: There is no update site for this tool.
 
-==== Why use it?
+==== Why use Soap UI?
 
 SoapUI is a free and open source cross-platform Functional Testing solution. With an easy-to-use graphical interface, and enterprise-class features, SoapUI allows you to easily and rapidly create and execute automated functional, regression, compliance, and load tests. In a single test environment, SoapUI provides complete test coverage and supports all the standard protocols and technologies.For more details see https://www.soapui.org/about-soapui/what-is-soapui.html[here] .
 
-==== Installation and Usage:
+==== Installation and Usage of Soap UI
 
 
 As soon as , IDE is configured, soapUI can be seen in Windows->Preferences.
 
 
-[[img-soap-preferences]]
-.soap-preferences
-image::images/devon-ide/soap-preferences.png["soap-preferences", width = "450" , link="images/soap-preferences.png"]
+image::images/devon-ide/soap-preferences.png["soap-preferences", width = "450" , link="images/devon-ide/soap-preferences.png"]
 
-&#160; +
 
 Soap ui Perspective can be opened as shown in below pictures
 
 
-[[img-soap-perspective]]
-.soap-perspective
-image::images/devon-ide/soap-perspective.png["soap-perspective", width = "450" , link="images/soap-perspective.png"]
+image::images/devon-ide/soap-perspective.png["soap-perspective", width = "450" , link="images/devon-ide/soap-perspective.png"]
 
-&#160; +
 
 *Creating new Project*
 
 Once Soap UI perspective is opened, right click on projects and "select New Soap UI Project"
 
-[[img-soap-new-project]]
-.soap-new-project
-image::images/devon-ide/soap-new-project.png["soap-new-project", width = "450" , link="images/soap-new-project.png"]
-
-&#160; +
+image::images/devon-ide/soap-new-project.png["soap-new-project", width = "450" , link="images/devon-ide/soap-new-project.png"]
 
 
 Once above option is selected, a new dialog is opened as shown below:
 
 
-[[img-soap-create-new-project]]
-.soap-create-new-project
-image::images/devon-ide/soap-create-new-project.png["soap-create-new-project", width = "450" , link="images/soap-create-new-project.png"]
-
-&#160; +
+image::images/devon-ide/soap-create-new-project.png["soap-create-new-project", width = "450" , link="images/devon-ide/soap-create-new-project.png"]
 
 
 Provide initial wsdl and project name, and your soap project is created and ready for testing your webservice.
 
-[[img-soap-req-response]]
-.soap-req-response
-image::images/devon-ide/soap-req-response.png["soap-req-response", width = "450" , link="images/soap-req-response.png"]
+image::images/devon-ide/soap-req-response.png["soap-req-response", width = "450" , link="images/devon-ide/soap-req-response.png"]
 
-&#160; +
 
 So, once project is created, and if "create Requests" option is selected , while creation of project, a new request with all the details mentioned in provided WSDL is created.
 

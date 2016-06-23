@@ -139,7 +139,7 @@ In the first devcon version we have three global parameters defined:
 - global parameter _help_: defined with *-h* or *--help*.
 - global parameter _version_: defined with *-v* or *--version*.
 
-==== help
+==== _help_ parameter
 The global parameter _help_ is very useful to show overall help info of devcon or also for showing more detailed info of each module and command supported.
 For example if we know nothing about how to start with devcon the option *-h* (or *--help*) will show a summary of the devcon usage, listing the global parameters and the available modules alongside a brief description of each one.  
 
@@ -202,7 +202,7 @@ This command is to say something
  -signature   the signature
 ----
 
-==== version
+==== _version_ parameter
 
 This is a simple option that returns the devcon running version and is defined with *-v* (or *--version*). As the _help_ option this will show the devcon version even though we have defined a command with all required parameters.
 
@@ -460,7 +460,7 @@ The oasp4j command needs only one parameter:
 
 - *path*: the location where the repository should be cloned.
 
-===== _Example of usage
+===== _github oasp4j_ example of usage
 
 A simple example of usage for this command would be the following
 
