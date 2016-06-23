@@ -1,13 +1,15 @@
 :toc: macro
 toc::[]
 
-# Introduction
+
+
+= Devcon User Guide
 
 The Devon Console, Devcon, is a cross-platform command line tool running on the JVM that provides many automated tasks around the full life-cycle of Devon applications, from installing the basic working environment and generating a new project, to running a test server and deploying an application to production.
 
 Devcon is the easiest way to use Devonfw. With a focus on project automation, easy command execution and declarative configuration, it gets out of your way and lets you focus on your code.
 
-# Devcon structure
+== Devcon structure
 
 Devcon is based on three basic elements:
 
@@ -20,7 +22,7 @@ Devcon is based on three basic elements:
 So Devcon is a tool based on modules where each module groups several commands related to the module functionality and each command may need parameters to work in one way or another. 
 Each command is used to accomplish one task and may need some parameters in order to achieve its goal. These parameters can be mandatory or optional. The mandatory parameters must be provided by the user when launching the command and the optional parameters can be provided by the user in the same way but if not, they can be read from a configuration file. Apart from this we can use global parameters that are independent from the modules and commands and that will be helpful in order to obtain devcon information (like help) or other basic configuration features, these parameters will be explained later.
 
-# Devcon basic usage
+== Devcon basic usage
 
 Accordingly with the defined structure the devcon usage is based on the definition of each of its element: module, command and parameters. So in the command line we must specify each of these elements in the correct order:
 
@@ -29,21 +31,21 @@ Accordingly with the defined structure the devcon usage is based on the definiti
 devon [module] [command] [parameters ...]
 ----
 
-- the module will be the first word after the “devon” keyword.
+- the module will be the first word after the "devon" keyword.
 
-- the command will be the second word after the “devon” keyword.
+- the command will be the second word after the "devon" keyword.
 
 - the parameters are the rest of the elements defined after the command.
 
-= Defining the module and the command
+=== Defining the module and the command
 
-Both module and command are defined by an identifier that is the ‘name’ that the module or command have assigned in devcon.
+Both module and command are defined by an identifier that is the 'name' that the module or command have assigned in devcon.
 
-= Defining the parameters
+=== Defining the parameters
 
 The parameter definition is divided in two parts. The first one is the parameters identifier that is the _name_ that the parameter has assigned within the devcon app *preceded by a single dash*. The second part of the parameter definition is the parameter value.
 
-= Basic example
+=== Basic example
 
 Thus a basic example of a devcon line command would be
 
@@ -62,14 +64,14 @@ where:
 
 - *hello* is the value for the _message_ parameter.
 
-= Parameters
+=== Parameters
 
 As we mentioned before from the point of view of the commands we have two types of parameters: the mandatory parameters and the optional parameters. 
 The mandatory parameters must be provided by the user specifying the parameter identifier and the value in the command line. The optional parameters must be also provided to the app but, if the user do not specify it, devcon will try to find the parameter value in a related configuration file. In case the parameter is not defined either the command line or in the configuration file devcon will prompt the user for the parameter value.
 
-== Optional parameters in _devon.json_ file
+==== Optional parameters in _devon.json_ file
 
-In the case of the optional parameters if we don’t specify the value when launching the command devcon will search for a _devon.json_ file in order to find the value of the optional parameter. Devcon will start searching from the directory from which the command has been launched and will climb the directory tree until the config file is found.
+In the case of the optional parameters if we don't specify the value when launching the command devcon will search for a _devon.json_ file in order to find the value of the optional parameter. Devcon will start searching from the directory from which the command has been launched and will climb the directory tree until the config file is found.
 The _devon.json_ file is a configuration file that defines some properties to be used by devcon in some processes. To define the value for optional parameters we can use the _optionalParameters_ property, that is a JSON object with the definition of each optional parameter
 
 [source,json]
@@ -104,7 +106,7 @@ hello
 John
 ----
 
-But if don’t provide the _signature_ parameter
+But if don't provide the _signature_ parameter
 
 [source,batch]
 ---- 
@@ -128,7 +130,7 @@ c:\MyProject\test>devon foo saySomething -message hello
 Please introduce the value for missing parameter signature:|
 ----
 
-= Global parameters
+=== Global parameters
 
 Devcon handles a third type of parameter that has nothing to do with command parameters. We are referring to the global parameters.
 The global parameters are a set of parameters that works in global context, which means that will affect the behaviour of the command in the first phase, before launching the command module itself. 
@@ -137,7 +139,7 @@ In the first devcon version we have three global parameters defined:
 - global parameter _help_: defined with *-h* or *--help*.
 - global parameter _version_: defined with *-v* or *--version*.
 
-== help
+==== help
 The global parameter _help_ is very useful to show overall help info of devcon or also for showing more detailed info of each module and command supported.
 For example if we know nothing about how to start with devcon the option *-h* (or *--help*) will show a summary of the devcon usage, listing the global parameters and the available modules alongside a brief description of each one.  
 
@@ -200,7 +202,7 @@ This command is to say something
  -signature   the signature
 ----
 
-== version
+==== version
 
 This is a simple option that returns the devcon running version and is defined with *-v* (or *--version*). As the _help_ option this will show the devcon version even though we have defined a command with all required parameters.
 
@@ -220,7 +222,7 @@ Copyright (c) 2016 Capgemini
 devcon v.0.1.0
 ----
 
-# First steps with devcon
+== First steps with devcon
 
 In this section we are going to show the basic steps to start using devcon from scratch. To do that we can use the global option _-h_ (help) in order to figure out which commands and parameters we need to define but in a very first approach only the command _devon_ will be enough.
 So the first step will be look for a module that fits our requirements. As we just mentioned we can do so with the _help_ option (defined as _-h_ or _--help_) or, as we also mentioned before, with a simple command _devon_. If we do not specify any information we will see a summary of the general help information, a example of usage and a list with global parameters and the available modules.
@@ -294,10 +296,10 @@ With all that information we can launch a fully functional command like the foll
 D:\>devon dist install -user john -password 1234 -path D:\Temp\MyDistribution -type devondist
 ----
 
-Regarding the order of the command parameters, devcon will order them internally so we don’t have to concern about that point and we can specify them in the order we want, the only requirement is that all mandatory parameters are provided.
+Regarding the order of the command parameters, devcon will order them internally so we don't have to concern about that point and we can specify them in the order we want, the only requirement is that all mandatory parameters are provided.
 
 
-# Modules
+== Modules
 
 In the introduction of this guide we mentioned that Devcon is a tool based on modules that group commands so the different functionalities are stored in these modules that act as utilities containers.
 The first version of devcon has been released with the following modules
@@ -321,20 +323,20 @@ but in your current Devcon version more modules may have been included. You can 
 devon -h 
 ----
 
-= dist
+=== dist
 
 The _dist_ module is responsible for the tasks related with the distribution which means all the functionalities surrounding the configuration of the Devon distribution, including the obtention of the distribution itself.
 The module _dist_ consists of two parameters: _install_ and _s2_.
 
-== dist install
+==== dist install
 
 The _install_ command downloads a distribution from a Team Forge repository and after that extracts the file in a location defined by the user.
 
-=== Requirements
+===== _dist install_ requirements
 
 A user with permissions to download files from Team Forge repository.
 
-=== Parameters
+===== _dist install_ parameters
 
 The _install_ parameter needs four parameters to work properly:
 
@@ -346,7 +348,7 @@ The _install_ parameter needs four parameters to work properly:
 
 - *type*: the type of distribution. The options are _'oaspide'_ to download a oasp4j based distribution or _'devondist'_ to download a Devon based distribution.
 
-=== Example of usage
+===== _dist install_ example of usage
 A simple example of usage for this command would be the following
 
 [source,batch]
@@ -366,14 +368,14 @@ Copyright (c) 2016 Capgemini
 
 You must have in mind that this process can take a while, specially depending on your connection to the internet.
 
-== dist s2
+==== dist s2
 
 The _s2_ command has been developed to automate the configuration process to use Devon as a Shared Service. This configuration is based on launching two scripts included in the Devon distributions, the _s2-init.bat_ and the _s2-create.bat_.
 The _*s2-init.bat*_ is responsible for configuring the _settings.xml_ file (located in the _conf/.m2_ directory). Basically enables the connection of _Maven_ with the _Artifactory_ repository, where the Devon IP modules are stored, and adds the user credentials for this connection.
 
 The _*s2-create.bat*_ creates a new project in the workspace of the distribution, and does a checkout of a Subversion repository inside this new project. Finally the script creates a Eclipse _.bat_ starter related to the new project.
 
-=== Requirements
+===== _dist s2_ requirements
 
 An _Artifactory_ user with permissions to download files from the repository.
 
@@ -390,7 +392,7 @@ The command will search for this file to get the root directory where the script
 
 Apart from this the _settings.xml_ file needs to be compatible with the Shared Services autoconfiguration script (_s2-init.bat_).
  
-=== Parameters
+===== _dist s2_ parameters
 
 So the _s2_ command needs six parameters to be able to complete the two phases:
 
@@ -406,7 +408,7 @@ So the _s2_ command needs six parameters to be able to complete the two phases:
 
 - *svnurl*: the url of the project in the Subversion repository 
 
-=== Example of usage
+===== _dist s2_ example of usage
 
 A simple example of usage for this command would be the following
 
@@ -428,37 +430,37 @@ Finished creating/updating workspace: "TestProject"
 After this a new _TestProject_ directory must have been created in the _workspaces_ directory and in the distribution root a new _eclipse-testproject.bat_ script must have been created too.
 
 
-= doc
+=== doc
 
 With this module we can access in a straightforward way to the documentation to get started with Devon framework. The commands of this module show information related with different components of Devon even opening in the default browser the sites related with them.
 
-- ```doc devon```: Opens the Devon site in the default web browser.
+- `doc devon`: Opens the Devon site in the default web browser.
 
-- ```doc devonguide```: Opens the Devon Guide in the default web browser.
+- `doc devonguide`: Opens the Devon Guide in the default web browser.
 
-- ```doc getstarted```: Opens the ‘Getting started’ guide of Devon framework.
+- `doc getstarted`: Opens the 'Getting started' guide of Devon framework.
 
-- ```doc links```: Shows a brief description of Devon framework and lists a set of links related to it like the public site, introduction videos, the Yammer group and so forth.
+- `doc links`: Shows a brief description of Devon framework and lists a set of links related to it like the public site, introduction videos, the Yammer group and so forth.
 
-- ```doc oasp4jguide```: Opens the OASP4J guide.
+- `doc oasp4jguide`: Opens the OASP4J guide.
 
-- ```doc sencha```: Opens the Sencha Ext JS 6 documentation site.  
+- `doc sencha`: Opens the Sencha Ext JS 6 documentation site.  
 
-= github
+=== github
 
 This module is implemented to facilitate getting the Github code from OASP4J and Devon repositories. It has only two commands, one to get the OAPS4J code and other to get the Devon code.
 
-== github oasp4j
+==== github oasp4j
 
 This command clones the oasp4j repository to the path that the user specifies in the parameters.
 
-=== Parameters
+===== _github oasp4j_ parameters
 
 The oasp4j command needs only one parameter:
 
 - *path*: the location where the repository should be cloned.
 
-=== Example of usage
+===== _Example of usage
 
 A simple example of usage for this command would be the following
 
@@ -467,15 +469,15 @@ A simple example of usage for this command would be the following
 D:\>devon github oasp4j -path C:\Projects\oasp4j
 ----
 
-== github devoncode
+==== github devoncode
 
 This command clones the Devon repository to the path specified in the path parameter.
 
-=== Requirements
+===== _github devoncode_ requirements
 
 A github user with download permissions over the Devon repository.
 
-=== Parameters
+===== _github devoncode_ parameters
 
 The _devoncode_ command needs three parameters:
 
@@ -485,7 +487,7 @@ The _devoncode_ command needs three parameters:
 
 - *password*: the password of the github user.
 
-=== Example of usage
+===== _github devoncode_ example of usage
 
 A simple example of usage for this command would be the following
 
@@ -494,11 +496,11 @@ A simple example of usage for this command would be the following
 D:\>devon github devoncode -path C:\Projects\devon -user John_g -pass 12345
 ----
 
-= help
+=== help
 
-The help module is responsible for showing the help info to facilitate the user the knowledge to use the tool. It has only one command, the _guide_ command, that doesn’t need any parameter and that basically prints a summary of the devcon general usage with a list of the global options and a list with the available modules
+The help module is responsible for showing the help info to facilitate the user the knowledge to use the tool. It has only one command, the _guide_ command, that doesn't need any parameter and that basically prints a summary of the devcon general usage with a list of the global options and a list with the available modules
 
-=== Example of usage
+==== _help_ example of usage
 
 [source,batch]
 ----
@@ -521,22 +523,25 @@ List of available modules:
 
 If you have follow this guide you can realize that the result is the same that is shown with other options as ```devon``` or ```devon -h```. This is because these options internally are using this module _help_.
 
-= sencha
+=== sencha
 
 _Sencha_ is a pure JavaScript application framework for building interactive cross platform web applications and is the view layer for web applications developed with Devon Framework. This module encapsulates the _Sencha Cmd_ functionality that is a command line tool to automate tasks around _Sencha_ apps.
 
-== sencha run
+==== sencha run
 
 This command compiles in DEBUG mode and then runs the internal Sencha web server. Is the equivalent to the _Sencha Cmd_'s ```sencha app watch``` and does not need any parameter.
 
-=== Requirements
+===== _sencha run_ requirements
 
-We should launch the command from a Devon4Sencha project which is defined by a devon.json file with parameter ‘type’ setted to ‘Devon4Sencha’
+We should launch the command from a Devon4Sencha project which is defined by a _devon.json_ file with parameter 'type' setted to 'Devon4Sencha'
 
+[source,json]
+----
 { "version": "2.0.0",
-  "type":"Devon4Secha"}
+  "type":"Devon4Sencha"}
+----
 
-=== Example of usage
+===== _sencha run_ example of usage
 
 A simple example of usage for this command would be the following
 
@@ -545,15 +550,15 @@ A simple example of usage for this command would be the following
 D:\devon-dist\workspaces\senchaProject>devon sencha run
 ----
 
-= workspace
+=== workspace
 
 This module handles all tasks related to distribution workspaces.
 
-== workspace create
+==== workspace create
 
 This command automates the creation of new workspaces within the distribution with the default configuration including a new Eclipse _.bat_ starter related to the new project.
 
-=== Parameters
+===== _workspace create_ parameters
 
 The create command needs two parameters:
 
@@ -561,7 +566,7 @@ The create command needs two parameters:
 
 - *foldername*: the name for the new workspace.
 
-=== Example of usage
+===== _workspace create_ example of usage
 
 A simple example of usage for this command would be the following
 
