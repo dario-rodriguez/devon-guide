@@ -1,0 +1,59 @@
+:toc: macro
+toc::[]
+
+# Sencha Cmd
+
+To make your Devon4sencha application development easy, you will find, included in the Devon distribution, a tool called Sencha Cmd. It's available for Windows, Mac, and Linux.
+
+http://www.sencha.com/products/sencha-cmd/#overview[Sencha Cmd] is a cross-platform command line tool that provides many automated tasks around the full life-cycle of your applications from generating a new project to deploying an application to production.
+
+It provides a collection of powerful features that work together and in conjunction with the Sencha Ext JS and Sencha Touch frameworks like code generation, javascript compiler, workspace management, mobile native packaging, build scripts, theming and so on.
+
+The workspace management feature allows the import of the Devon4sencha package the applications needs, like `devon-extjs` package.
+
+During application development, we can use the `sencha app watch` feature for compile and test the application on a browser. This command must be launched from the application root folder and starts a web server with the client application ready to access from the browser.
+
+Sencha Cmd is not a must for Devon4sencha development application, but using it makes your life easier. So, it's highly recommended to use it.
+  
+# Workspaces
+
+With http://docs.sencha.com/cmd/5.x/workspaces.html[Sencha Cmd Workspaces] we can share code and packages between Sencha applications. This is useful because Sencha distribution files occupy quite a bit of disk space.
+
+The easiest way to create a Sencha CMD workspace for your application is simply copying the example workspace of devon4sencha (copy the complete directory at `workspaces\examples\devon4sencha` into `workspaces\main\<NAME OF YOUR PROJECT>` and delete the example application's directory called `ExtSample`.
+
+You can also create a workspace from scratch:
+
+* Create the workspace:
+[source]
+----
+sencha generate workspace /path/to/workspace
+----
+* Copy *ExtJS* distribution to `/path/to/workspace/ext`.
+* Copy *devon4sencha* package from the example workspace to `/path/to/workspace/packages/devon-extjs`.
+* Copy application template `StarterTemplate` from the example workspace to `/path/to/workspace/StarterTemplate`.
+* Now, we can create several applications that share the ExtJS distribution and *devon4sencha* package:
+[source]
+----
+sencha generate app -ext --starter StarterTemplate MyApp1 /path/to/workspace/MyApp1
+sencha generate app -ext --starter StarterTemplate MyApp2 /path/to/workspace/MyApp2
+----
+
+## Sencha packages
+
+With http://docs.sencha.com/cmd/5.x/cmd_packages/cmd_packages.html[Sencha Cmd packages] we can share and distribute code between Sencha applications. For example, *devon4sencha* is distributed as a Sencha Cmd package that can be shared between applications.
+
+This code will be automatically added to the final application when building the application with Sencha Cmd.
+
+
+## Sencha reloading
+
+During application development, we can use the http://www.sencha.com/products/sencha-cmd/#overview[Sencha Cmd] *app watch* feature to compile and test the application in a browser. This command must be launched from the application root folder.
+
+
+[source]
+----
+$ sencha app watch
+
+----
+
+Any code changes to the application files will be detected by Sencha Cmd and it will update the application being served. It requires a manual refresh on the browser though to effectively see the changes.
