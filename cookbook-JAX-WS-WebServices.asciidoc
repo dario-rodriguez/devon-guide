@@ -120,7 +120,7 @@ CXF implements the JAX-WS APIs which make building web services easy. JAX-WS enc
 In devonfw , we use Apache CXF implementation of JAX WS.
 
 
-== How webservice is created and used with apache cxf.
+== Creation of WebService using Apache CXF.
 
 *Developing the service*
 
