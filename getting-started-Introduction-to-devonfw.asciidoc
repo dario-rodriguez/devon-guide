@@ -5,7 +5,7 @@ toc::[]
 
 ## Welcome to Devonfw
 
-image::images/devonfw-small.png[,width="450",Devonfw]
+image::images/devonfw-small.png[,width="450",Devonfw, link="https://github.com/devonfw/devon-guide/wiki/images/devonfw-small.png"]
 
 Welcome to *Devonfw*, the Devon Framework. This is a product of the CSD industrialization effort to bring a standardized platform for custom software development within Capgemini APPS2. This platform is aimed at engagements where clients do not force the use of a determined technology so we can offer a better alternative coming from our experience as a group.
 
@@ -29,7 +29,7 @@ Devonfw contains:
 
 The following picture shows main building blocks of the platform.
 
-image::images/introduction/devon_buildingblocks.png[,width="450",Devonfw Building blocks]
+image::images/introduction/devon_buildingblocks.png[,width="450",Devonfw Building blocks,link="https://github.com/devonfw/devon-guide/wiki/images/introduction/devon_buildingblocks.png"]
 
 Devonfw uses a state-of-the-art open source core reference architecture for the server (today considered as commodity in the IT-industry) and on top of it an ever increasing number of high-value assets that are Capgemini IP. Why do we use an open source core?: in some countries of the SBU clients only accept open source stacks (most to mention customers who want to stay vendor-independent by principle), so being open is a market need. This also is the rationale for providing a open source reference architecture for the client built with AngularJs (open source itself). The picture above shows the open-source parts of devonfw on the left.
 
