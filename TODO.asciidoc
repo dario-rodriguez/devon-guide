@@ -30,12 +30,6 @@ We need to check all pages and check if all follow this structure.
 
 * List of pages and compilation errors:
 
--> Page devcon-user-guide - Forbidden double quotation marks, IDs (titles), more than one =
-
-	Example of usage
-	Parameters
-	Requirements  
-
 -> Page getting-started-the-devon-ide - IDs (titles), IDs (images)
   
 -> Page getting-started-running-sample-application - More than one =
