@@ -3,7 +3,7 @@ toc::[]
 
 = Project Layout
 
-The layout of folder/files recommended to work with a Sencha project in a MVC fashion is as follows:
+The layout of folder/files recommended to work with a Sencha project in a MVVM fashion is as follows:
 
 image::images/client-gui-sencha/structure.PNG[App Structure,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/structure.PNG"]
 
