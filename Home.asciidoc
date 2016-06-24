@@ -28,7 +28,7 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - link:getting-started-writing-unittest-cases[Writing Unit Test Cases] (REVIEWED)
 
-- link:getting-started-logging-and-auditing[Logging and Auditing] (REVIEWING...)
+- link:getting-started-logging-and-auditing[Logging and Auditing] (REVIEWED)
 
 - link:getting-started-Data-Access-Layer[Data Access Layer]
 
@@ -40,7 +40,7 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - link:getting-started-logic-layer[Logic Layer] (REVIEWED)
 
-- link:getting-started-bean-mapping-using-dozer[Bean Mapping using Dozer] 
+- link:getting-started-bean-mapping-using-dozer[Bean Mapping using Dozer] (REVIEWING...)
 
 - link:getting-started-Creating-Rest-Service[Creating Rest Service] (REVIEWED)
 
