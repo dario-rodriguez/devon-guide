@@ -95,7 +95,7 @@ WSDL is a xml document containing information about web services such as method 
 
 WSDL is a part of UDDI. It acts as a interface between web service applications.
 
-WSDL is pronounced as “wiz-dull”.
+WSDL is pronounced as "wiz-dull".
 
 
 *UDDI*
@@ -203,7 +203,7 @@ We need to Configure it to return an instance of org.apache.cxf.jaxws.EndpointIm
 
 Furthermore we have to use the .publish-Method of our org.apache.cxf.jaxws.EndpointImpl to define the last part of our WebService-URI.
 
-If you now fire up application, with SpringBoot, a browser should show our TablemanagementWebService beneath “Available SOAP services”, when we point it to url, where webservice is hosted, say in this case  (http://localhost:8081/oasp4j-sample-server/services/) – including all  available web service methods.
+If you now fire up application, with SpringBoot, a browser should show our TablemanagementWebService beneath "Available SOAP services", when we point it to url, where webservice is hosted, say in this case  (http://localhost:8081/oasp4j-sample-server/services/) – including all  available web service methods.
 
 == Soap Custom Mapping
 
