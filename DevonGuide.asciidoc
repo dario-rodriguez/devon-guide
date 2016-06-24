@@ -49,7 +49,10 @@ include::getting-started-the-devon-ide[]
 include::getting-started-running-sample-application[]
  
 <<<<
+ 
+include::getting-started-distribution-structure[]
 
+<<<<
 
 include::getting-started-creating-new-devonfw-application[]
 
