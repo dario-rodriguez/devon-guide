@@ -22,9 +22,9 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - link:getting-started-understanding-oasp4j-spring-boot-config[Understanding the OASP4J & Spring Boot Configuration](REVIEWED)
 
-- link:getting-started-database-configuration[Database Configuration] (REVIEWING...)
+- link:getting-started-database-configuration[Database Configuration] (REVIEWED)
 
-- link:getting-started-flyway-database-migration[Setting up and maintaining database schemas with Flyway]
+- link:getting-started-flyway-database-migration[Setting up and maintaining database schemas with Flyway] (REVIEWING...)
 
 - link:getting-started-writing-unittest-cases[Writing Unit Test Cases]
 

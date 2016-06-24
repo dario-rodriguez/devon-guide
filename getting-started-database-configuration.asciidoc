@@ -3,13 +3,13 @@ toc::[]
 
 = Database configuration
 
-In this tutorial we are going to configure our application to connect with a real database of our choice. Devonfw give us a very simple configuration, so we just need to add the dependency of the database libraries, create a profile, set the information of our database in the profile and activate it, update the script files , if any, as per DB syntax.
-All these steps to be done in generated(through oasp4j-template server archetype), xxx-core project.
+In this tutorial we are going to configure our application to connect with a real database of our choice. Devonfw give us a very simple configuration, so we just need to add the dependency of the database libraries, create a profile, set the information of our database in the profile and activate it, update the script files, if any, as per DB syntax.
+All these steps to be done in generated (through oasp4j-template server archetype), xxx-core project.
 By default, it comes with http://www.h2database.com/html/quickstart.html[h2] database configured.If we want to configure another db like MySQL, MS SQL or PostGre SQL, refer below sections.
 
 
 == Add dependencies
-Add Dependency for database in pom.xml file. For e.g If we are configuring mysql databse in our application, then need to add below dependency in pom.xml file.
+Add Dependency for database in _pom.xml_ file. For e.g If we are configuring mysql databse in our application, then we need to add below dependency.
 
 MySQL:
  
@@ -27,13 +27,13 @@ image::images/database-configuration/db-config1.png[,width="450",link="images/da
 
 == Create a Spring Profile
 
-Spring Profile provides a way to segregate parts of your application configuration and make it only available in certain environments. In our case, we're going to create a profile to your database configuration.
+Spring Profile provides a way to segregate parts of our application configuration and make it only available in certain environments. In our case, we're going to create a profile to our database configuration.
 
-Create a file in src/main/resources/config named application-{PROFILE_NAME}.properties. The name of the profile isn't important, for this example we named it application-mysql.properties.
+Create a file in `src/main/resources/config` named _application-{PROFILE_NAME}.properties_. The name of the profile isn't important, for this example we named it _application-mysql.properties_.
 
 == Set the database configuration
 
-Add database configuration in application-{PROFILE_NAME}.properties file. For e.g
+Add database configuration in _application-{PROFILE_NAME}.properties_ file. For e.g
 
 MySQL:
 [source]
@@ -51,7 +51,7 @@ image::images/database-configuration/db-config2.png[,width="450",link="images/da
 
 == Activate the new profile
 
-To activate new profile update src/main/resources/application.properties file. Set spring.profiles.active= profile-name. In our example profile-name is mysql. 
+To activate new profile update `src/main/resources/application.properties` file. Set _spring.profiles.active= profile-name_. In our example profile-name is _mysql_. 
  
 MySQL:
 [source]
@@ -114,14 +114,14 @@ flyway.locations=classpath:db/migration,classpath:db/migration/postgres
 
 The Microsoft JDBC drivers are *not* available on Maven Central; http://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=11774[ they need to be downloaded from the Microsoft site.]
  
-Once downloaded they should be installed in the local Maven repository (.m2 folder on the local machine). That can be done with the command:
+Once downloaded they should be installed in the local Maven repository (_.m2_ folder on the local machine). That can be done with the command:
 
 [source,batch]
 ----
 mvn install:install-file -DgroupId=com.microsoft.sqlserver -DartifactId=sqljdbc4 -Dversion=<version> -Dpackaging=jar -DgeneratePom=true -Dfile=<driver JAR file>
 ----
 
-Once installed, the library must be added to the project pom.xml file. The dependency declaration is
+Once installed, the library must be added to the project's _pom.xml_ file. The dependency declaration should be something like
 
 [source,xml]
 ----
@@ -143,6 +143,6 @@ spring.datasource.password=root
 spring.datasource.driver-class-name=com.microsoft.sqlserver.jdbc.SQLServerDriver
 
 
-(replace "root" with your actual username / password)
+(replace _root_ with your actual username / password)
 
 For further information see: https://wiki.jasig.org/pages/viewpage.action?pageId=57578731[MS SQL Server and MS JDBC Driver ]
