@@ -93,7 +93,7 @@ image::images/devon4sencha-badPractices/global-variable-III.png[,width="200",Glo
     
 image::images/devon4sencha-badPractices/global-variable-IV.png[,width="200",Global variable]
 
-image::images/devon4sencha-badPractices/global-variable-V.png[,width="200",Global variable]
+image::images/devon4sencha-badPractices/global-variable-v.png[,width="200",Global variable]
 
 image::images/devon4sencha-badPractices/global-variable-I.png[,width="200",Global variable]
 
