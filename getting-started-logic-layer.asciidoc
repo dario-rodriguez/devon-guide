@@ -68,7 +68,7 @@ As the picture above illustrates, the necessary link:getting-started-Data-Access
 
  
 == Passing Parameters Among Components
-link:getting-started-Data-Access-Layer#entity[Entities] have to be detached for the reasons of data sovereignty, if entities are passed among components or link:https://github.com/oasp/oasp4j/wiki/architecture#technical-architecture[layers] (to service layer). For further details see link:https://github.com/oasp/oasp4j/wiki/guide-beanmapping[Bean-Mapping]. Therefore we are using link:https://github.com/oasp/oasp4j/wiki/guide-transferobject[transfer-objects] (TO) with the same attributes as the entity that is persisted. The packages are:
+link:getting-started-Data-Access-Layer#entity[Entities] have to be detached for the reasons of data sovereignty, if entities are passed among components or link:https://github.com/oasp/oasp4j/wiki/architecture#technical-architecture[layers] (to service layer). For further details see https://github.com/devonfw/devon-guide/wiki/getting-started-bean-mapping-using-dozer[Bean-Mapping]. Therefore we are using link:https://github.com/oasp/oasp4j/wiki/guide-transferobject[transfer-objects] (TO) with the same attributes as the entity that is persisted. The packages are:
 
 [cols="1,3"]
 |===
