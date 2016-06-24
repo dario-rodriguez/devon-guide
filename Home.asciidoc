@@ -44,7 +44,7 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - link:getting-started-Creating-Rest-Service[Creating Rest Service] (TO EVALUATE) (REVIEWED)
 
-- link:getting-started-deployment-on-tomcat[Deployment on Tomcat (Client/Server)] (TO EVALUAT(REVIEWING.)
+- link:getting-started-deployment-on-tomcat[Deployment on Tomcat (Client/Server)] (TO EVALUAT(REVIEWED.)
 
 
 ## Cookbook 
