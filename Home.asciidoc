@@ -61,13 +61,13 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - link:Client-GUI-Sencha-Workspace-and-Sencha-Cmd[Sencha Workspace & Sencha Cmd]
 
+- link:Client-GUI-Sencha-Anatomy-of-a-Devon4sencha-application[Anatomy of a Devon4sencha application]
+
 - [Create a new Sencha App](https://github.com/devonfw/devon/wiki/devon-guide-sencha-newapp)
 
 - [Create a new page](https://github.com/devonfw/devon/wiki/devon-guide-sencha-page)
 
 - [Create a new CRUD page](https://github.com/devonfw/devon/wiki/devon-guide-sencha-crud)
-
-- [Explain Sencha app structure](https://github.com/devonfw/devon/wiki/devon-guide-sencha-app-structure) 
 
 - [Explain Sencha app main template structure](https://github.com/devonfw/devon/wiki/devon-guide-sencha-app-maintemplate)
 
