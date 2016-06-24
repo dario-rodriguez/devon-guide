@@ -10,7 +10,7 @@ A generic mapping framework solves these problems. Dozer(which is configured and
 
 Typically Dozer works as shown below:
 
-image::images/bean-mapping-using-dozer/dozer-functionality-overview.png[,scalewidth=80%]
+image::images/bean-mapping-using-dozer/dozer-functionality-overview.png[,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/bean-mapping-using-dozer/dozer-functionality-overview.png"]
 
 
 For decoupling you sometimes need to create separate objects (beans) for a different view. E.g. for an external service you will use a link:guide-transferobject[transfer-object] instead of the link:guide-dataaccess-layer#entity[persistence entity] so internal changes to the entity do not implicitly change or break the service.. 
@@ -43,7 +43,7 @@ To get access to the +BeanMapper+ we use this dependency in our POM:
 So,  (oasp4j-beanmapping) uses dozer as dependency in its pom.xml file as shown below.
 
 
-image::images/bean-mapping-using-dozer/dozer1.png[,scalewidth=80%]
+image::images/bean-mapping-using-dozer/dozer1.png[,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/bean-mapping-using-dozer/dozer1.png"]
 
 == Bean-Mapper Usage
 Then we can get the +BeanMapper+ via link:guide-dependency-injection[dependency-injection] what we typically already provide by an abstract base class (e.g. +AbstractUc+). Now we can solve our problem very easy:

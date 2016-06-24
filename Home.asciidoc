@@ -4,23 +4,23 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 ## Getting Started
 
-- link:getting-started-introduction-to-devonfw[Introduction to Devonfw]
+- link:getting-started-introduction-to-devonfw[Introduction to Devonfw] (REVIEWED)
 
 - link:devcon-user-guide[Devcon - User Guide] (TO EVALUATE)
 
-- link:getting-started-download-and-install[Download and Install Devonfw]
+- link:getting-started-download-and-install[Download and Install Devonfw] (REVIEWED)
 
-- link:getting-started-the-devon-ide[The Devon IDE]
+- link:getting-started-the-devon-ide[The Devon IDE] (REVIEWED)
 
-- link:getting-started-running-sample-application[Running Sample Application]
+- link:getting-started-running-sample-application[Running Sample Application] (REVIEWED)
 
 - link:getting-started-distribution-structure[Devonfw Distribution Structure] (TO EVALUATE)
 
-- link:getting-started-creating-new-devonfw-application[Create New Application]
+- link:getting-started-creating-new-devonfw-application[Create New Application] (REVIEWED)
 
-- link:getting-started-oasp-app-structure[OASP4J Application Structure]
+- link:getting-started-oasp-app-structure[OASP4J Application Structure] (REVIEWED)
 
-- link:getting-started-understanding-oasp4j-spring-boot-config[Understanding the OASP4J & Spring Boot Configuration]
+- link:getting-started-understanding-oasp4j-spring-boot-config[Understanding the OASP4J & Spring Boot Configuration](REVIEWING...)
 
 - link:getting-started-database-configuration[Database Configuration]
 
@@ -63,6 +63,8 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - link:Client-GUI-Sencha-Anatomy-of-a-Devon4sencha-application[Anatomy of a Devon4sencha application]
 
+- link:Client-GUI-Sencha-running-sample-application[Running Sample Application]
+
 - [Create a new Sencha App](https://github.com/devonfw/devon/wiki/devon-guide-sencha-newapp)
 
 - [Create a new page](https://github.com/devonfw/devon/wiki/devon-guide-sencha-page)
@@ -96,6 +98,13 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 - [Error processing](https://github.com/devonfw/devon/wiki/devon-guide-sencha-error-processing)
 
 - [Internationalization](https://github.com/devonfw/devon/wiki/devon-guide-sencha-i18n)
+
+- Devon4Sencha Best Practices
+
+* link:devon4Sencha-bad-practices[Bad Practices]
+* link:devon4Sencha-tools[Tools]
+* link:devon4Sencha-code-review[Code Review]
+* link:devon4Sencha-test[Test]
 
 ## Client GUI Angular (TODO: define chapters) 
 

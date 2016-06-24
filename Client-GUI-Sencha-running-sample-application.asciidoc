@@ -1,0 +1,41 @@
+:toc: macro
+toc::[]
+
+= Devon4sencha Sample application
+
+Devon comes with a sample java application simulating the backend for a restaurant application. Devon4sencha's sample application completes the restaurant application with a user-friendly UI.
+
+== Running the sample restaurant application
+
+The following steps assume that you already have setup your Devon environment, and that you have the devonfw-sample-server running on a server on port 8081. Refer to the Devonfw Server documentation for instructions on how to setup the Devon environment or the devon sample application.
+
+1. Open a Devon command prompt by executing the batch file `console.bat`.
++
+image::images/client-gui-sencha/tutorial_running_sample_1_console.png[Running Sample 1,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/tutorial_running_sample_1_console.png"]
+
+1. Enter the `workspaces\examples\devon4sencha\ExtSample` directory
++
+image::images/client-gui-sencha/tutorial_running_sample_2_directory.png[Running Sample 2,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/tutorial_running_sample_2_directory.png"]
+
+1. Execute the  the command `sencha app watch`. It might take some time the first time you run this command.
++
+This command will compile the devon4sencha sample application and start a webserver to serve it and will automatically recompile the application if it detects any changes to the application's files.
++
+On first run, you probably will see something similar to the image below. We do not distribute ExtJS itself with our sample application. Instead, the ExtJS SDK is downloaded on first use if not already available.
++
+image::images/client-gui-sencha/tutorial_running_sample_3_downloading_ext.png[Running Sample 3,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/tutorial_running_sample_3_downloading_ext.png"]
++
+If you have a valid ExtJS license, you can simply copy the ExtJS 6 SDK into `workspaces\examples\devon4sencha\ext` and it will automatically get picked up.
++
+[NOTE]
+====
+If you see an error while executing this command, first try to delete the local sencha repository located at `<DEVON ENVIRONMENT>\software\Sencha\Cmd\default\repo`. If there was a problem downloading the ExtJS SDK, the local repository sometimes gets stuck in a bad state, and the easiest solution is to just delete it, causing everything to be re-downloaded.
+====
+
+1. As soon as you see `Waiting for changes...`, the application has been compiled and is ready.
++
+image::images/client-gui-sencha/tutorial_running_sample_3_1_watch_finished.png[Running Sample 3,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/tutorial_running_sample_3_1_watch_finished.png"]
+
+1. Open http://localhost:1841/ExtSample/[] in a browser. Use `waiter` as both user and password.
++
+image::images/client-gui-sencha/tutorial_running_sample_4_app.png[Running Sample 4,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/tutorial_running_sample_4_app.png"]

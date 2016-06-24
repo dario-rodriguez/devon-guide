@@ -1,8 +1,8 @@
 = Devonfw Guide 
 Jhonatan Core <jhcore@capgemini.com>
-v2.1.0
+v2.0.0
 
-:imagesdir: ./
+:imagesdir: ./images
 :footnote: test footnote from asciidoc
 :productname: test productname from asciidoc
 
@@ -15,22 +15,12 @@ This document contains the complete compendium of the https://troom.capgemini.co
 
 **Current versions:**
 
-* Devonfw - v2.0.0 
-* Devonfw - v2.1.0 
+* https://coconet.capgemini.com/sf/frs/do/downloadFile/projects.apps2_devon/frs.devon_distribution.1_0_0/frs43015?dl=1[Devonfw Tutorial - v1.0.0] 
+* Devonfw - v2.0.0
 
 **Authors:**
   
-Core, Jhonatan Ariel <jhonatan-ariel.core@capgemini.com>
-
-Parra Dominguez, Pablo <pablo.parra-dominguez@capgemini.com>
-
-Van Der Kleijn, Iwan Rochus <iwan-rochus.van-der-kleijn@capgemini.com> 
-  
-Birajdar, Manjiri Nandkumar <manjiri-nandkumar.birajdar@capgemini.com>
-
-Belorkar, Priyanka <priyanka.belorkar@capgemini.com>
-
-
+https://troom.capgemini.com/sites/vcc/devon/getstarted.aspx[_Devonfw_] Team, Capgemini  
 
 :leveloffset: 1
 [preface]
