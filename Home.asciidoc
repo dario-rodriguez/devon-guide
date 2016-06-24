@@ -40,7 +40,7 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - link:getting-started-logic-layer[Logic Layer] (REVIEWED)
 
-- link:getting-started-bean-mapping-using-dozer[Bean Mapping using Dozer] (REVIEWING...)
+- link:getting-started-bean-mapping-using-dozer[Bean Mapping using Dozer] (REVIEWED)
 
 - link:getting-started-Creating-Rest-Service[Creating Rest Service] (REVIEWED)
 
