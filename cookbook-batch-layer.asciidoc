@@ -837,7 +837,7 @@ For complex batch jobs individual steps can be tested. For example to test a +cr
 
 [source,java]
 ----
-JobExecution jobExecution = getJobLauncherTestUtils(this.billExportJob).launchStep(“createCsvFile”);
+JobExecution jobExecution = getJobLauncherTestUtils(this.billExportJob).launchStep("createCsvFile");
 ---- 
 
 ===== Validating Output Files
