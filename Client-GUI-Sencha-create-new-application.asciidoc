@@ -1,0 +1,75 @@
+:toc: macro
+toc::[]
+
+= Creating a new application
+
+For creating a new application, we start by creating a Sencha CMD workspace to host our project files. Copy the example workspace at `workspaces\examples\devon4sencha` and then remove the sample application by deleting the directory `ExtSample`.
+
+Then we are set to automate the application creation with the help of Sencha Cmd. We provide an application template, which already integrates Devon4sencha in your new application. Use it by issuing the following command inside of your Sencha workspace:
+
+[source]
+----
+sencha generate app -ext --starter StarterTemplate <NAME OF YOUR APP> <DIRECTORY FOR YOUR APP>
+----
+
+This will generate the structure of the project with the basic setup of a devon4sencha application.
+
+In our case, for this guide purpose, the name of the app will be **demo** and the directory for the app will be **demo** as well.
+This will generate the structure of the project with the basic setup of a devon4sencha application.
+
+The application has been created using the template StarterTemplate.   This template is located in the workspace:
+
+<devon_distribution>\workspaces\examples\devon4sencha\StarterTemplate
+
+Once the application has been created we are going to open our development IDE.   Although you can use any simple text editor to write the Ext JS code, using the IDEs definitely makes it a bit easier.   These are some of the IDEs recommended:
+
+* Visual Studio Code
+* Atom
+* Sublime
+* Notepad++
+* WebStorm
+
+In this guide we are going to use Visual Studio Code.   You can download it from their https://code.visualstudio.com/Download[website]
+
+With the Visual Studio Code we have to open the folder of our application.  Then we click File->Open Folder and we check ‘demo’ as is the folder of the application.
+
+image::images/client-gui-sencha/openVSCode.png[Open VSCode,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/openVSCode.png"]
+
+We should be seeing a file structure like this one:
+
+image::images/client-gui-sencha/VSCodeAppStructure.png[VSCode App Structure,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/VSCodeAppStructure.png"]
+
+You can learn more about the Devon4sencha app structure here.
+
+For this guide, we are going to use the same backend as in the sample application so we have to change the path of the server in the ConfigDevelopment.js file:
+
+[source]
+----
+window.Config.server = 'http://localhost:8081/devonfw-sample-server/services/rest/';
+window.Config.CORSEnabled = true;
+----
+
+For your particular application, please change here the url to point your server side.
+In case you are trying to point a new Devonfw Server application, you should change the CORS configuration in the server-side:
+
+* 	Open the file <project_name>-core//src/main/resources/application.properties and change the property ‘security.cors.enabled’.  By default is false and you should change it to true.
+* 	Stop SpringBoot and start it again.
+
+image::images/client-gui-sencha/CORSserver.png[Changing CORS Server,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/CORSserver.png"]
+
+We can already run the application from the command line by entering our app's directory and issuing:
+
+[source,bash]
+----
+sencha app watch
+----
+
+The result should be the same login page as in the sample application:
+
+image::images/client-gui-sencha/tutorial_running_sample_4_app.png[Running Sample 4,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/tutorial_running_sample_4_app.png"]
+
+If we click the Login button we will enter into the demo application:
+
+image::images/client-gui-sencha/AppTemplate.png[App Template,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/AppTemplate.png"]
+
+This is what Devon4Sencha provides by default as a Template for the client application.
