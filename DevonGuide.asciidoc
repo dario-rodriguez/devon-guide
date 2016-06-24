@@ -24,7 +24,7 @@ https://troom.capgemini.com/sites/vcc/devon/getstarted.aspx[_Devonfw_] Team, Cap
 
 :leveloffset: 1
 [preface]
-include::getting-started-introduction-to-devonfw[]
+include::getting-started-Introduction-to-devonfw[]
 
 :leveloffset: 0
 :toc:
