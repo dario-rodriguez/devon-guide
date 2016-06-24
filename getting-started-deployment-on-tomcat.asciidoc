@@ -1,5 +1,4 @@
-:toc: macro
-
+:toc: macro 
 toc::[]
 
 
@@ -9,7 +8,7 @@ Once we have a functional server and client applications we may want to package 
 == General description of the packaging process
 The application packaging is based on _Maven_ _package_ functionality. The general overview of the packaging process is as follows:
 
-image::images/devonfw-deployment/tutorial_devon_jspackaging_process.png[scalewidth=60%,align="center"]
+image::images/devonfw-deployment/tutorial_devon_jspackaging_process.png[,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devonfw-deployment/tutorial_devon_jspackaging_process.png"]
 
 == Preparing the client
 
@@ -32,7 +31,7 @@ myClientApp\java>mvn install
 
 After that, if the process goes right, the client app should have been "installed" in the local Maven repository of our environment so in the _\conf\.m2\repository\com\capgemini\devonfw\extjs-sample\1.0.0-SNAPSHOT_ directory we should find the _.jar_ file with the client app packaged
 
-image::images/devonfw-deployment/tutorial_devon_jspackaging_process02.png[scalewidth=60%,align="center"]
+image::images/devonfw-deployment/tutorial_devon_jspackaging_process02.png[,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devonfw-deployment/tutorial_devon_jspackaging_process02.png"]
 
 == Preparing the server
 The Java server application contains a _pom.xml_ file (3). In this _pom.xml_ file we should add the dependency to the _.jar_ client that we have just created using the references to the _groupId_, _artifactId_ and _version_ that we have spefified in the client _pom.xml_.
@@ -72,7 +71,7 @@ And in the plugins of the _pom.xml_ we should add a reference to the package aga
 
 Now we have to define a Maven profile so in Eclipse, over the server project we should right-click and select _Maven > Select Maven Profile_. In the subsequent window we should select the _jsclient_ option.
 
-image::images/devonfw-deployment/tutorial_devon_jspackaging_process03.png[scalewidth=60%,align="center"]
+image::images/devonfw-deployment/tutorial_devon_jspackaging_process03.png[,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devonfw-deployment/tutorial_devon_jspackaging_process03.png"]
 
 Then we have to add some unsecured resources in the method _configure(HttpSecurity http)_ of the _../general/configuration/WebSecurityConfig.java_ class. 
 
