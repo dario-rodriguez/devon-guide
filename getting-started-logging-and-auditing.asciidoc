@@ -9,7 +9,7 @@ We use http://www.slf4j.org/[SLF4J] as API for logging. The recommended implemen
 === Usage
 
 ==== Maven Integration
-In the +pom.xml+ of your application add this dependency (that also adds transitive dependencies to SLF4J and logback):
+In the _pom.xml_ of your application add this dependency (that also adds transitive dependencies to SLF4J and logback):
 [source,xml]
 ----
 <dependency>
@@ -20,9 +20,9 @@ In the +pom.xml+ of your application add this dependency (that also adds transit
 ----
 
 ==== Configuration
-The configuration file is +logback.xml+ and is to put in the directory +src/main/resources+ of your main application. For details consult the http://logback.qos.ch/manual/configuration.html[logback configuration manual]. OASP4J provides a production ready configuration https://raw.githubusercontent.com/oasp/oasp4j/develop/samples/server/src/main/resources/logback.xml[here]. Simply copy this configuration into your application in order to benefit from the provided xref:operations[operational] and xref:security[] aspects. We do not include the configuration into the +oasp4j-logging+ module to give you the freedom of customizations (e.g. tune log levels for components and integrated products and libraries of your application).
+The configuration file is _logback.xml_ and is to put in the directory `src/main/resources` of your main application. For details consult the http://logback.qos.ch/manual/configuration.html[logback configuration manual]. OASP4J provides a production ready configuration https://raw.githubusercontent.com/oasp/oasp4j/develop/samples/server/src/main/resources/logback.xml[here]. Simply copy this configuration into your application in order to benefit from the provided xref:operations[operational] and xref:security[] aspects. We do not include the configuration into the _oasp4j-logging_ module to give you the freedom of customizations (e.g. tune log levels for components and integrated products and libraries of your application).
 
-The provided +logback.xml+ is configured to use variables defined on the +config/application.properties+ file. On our example, the log files path point to +../logs/+ in order to log to tomcat log directory when starting tomcat on the bin folder. Change it according to your custom needs.
+The provided _logback.xml_ is configured to use variables defined on the _config/application.properties_ file. On our example, the log files path point to _../logs/_ in order to log to tomcat log directory when starting tomcat on the bin folder. Change it according to your custom needs.
 
 .config/application.properties
 [source, properties]
@@ -31,13 +31,15 @@ log.dir=../logs/
 ----
 
 ==== Logger Access
-The general pattern for accessing loggers from your code is a static logger instance per class. We pre-configured the development environment so you can just type +LOG+ and hit +[ctrl][space]+ (and then +[arrow up]+) to insert the code pattern line into your class:
+The general pattern for accessing loggers from your code is a static logger instance per class. We pre-configured the development environment so you can just type _LOG_ and hit _[ctrl][space]_ (and then _[arrow up]_) to insert the code pattern line into your class:
 
 [source,java]
+----
 public class MyClass {
   private static final Logger LOG = LoggerFactory.getLogger(MyClass.class);
   ...
 }
+----
 
 Please note that in this case we are not using injection pattern but use the convenient static alternative. This is already a common solution and also has performance benefits.
 
@@ -55,7 +57,7 @@ We use a common understanding of the log-levels as illustrated by the following 
 | DEBUG | Development information that provides additional context for debugging problems. | No direct reaction required. Used for analysis. | development and testing
 | TRACE | Like DEBUG but exhaustive information and for code that is run very frequently. Will typically cause large log-files. | No direct reaction required. Used for problem analysis. | none (turned off by default)
 |=======================
-Exceptions (with their stacktrace) should only be logged on +FATAL+ or +ERROR+ level. For business exceptions typically a +WARNING+ including the message of the exception is sufficient.
+Exceptions (with their stacktrace) should only be logged on _FATAL_ or _ERROR_ level. For business exceptions typically a _WARNING_ including the message of the exception is sufficient.
 
 === Operations
 
@@ -81,16 +83,18 @@ The log file name pattern is as follows:
 | <TIMESTAMP>   |  +YYYY-MM-DD_HH00+   |  date of log file
 |=======================
 Example:
-+error_log_mywebserver01_myapp_2013-09-16_0900.log+
+_error_log_mywebserver01_myapp_2013-09-16_0900.log_
 
-Error log from +mywebserver01+ at application +myapp+ at 16th September 2013 9pm.
+Error log from _mywebserver01_ at application _myapp_ at 16th September 2013 9pm.
 
 ==== Output format
 
 We use the following output format for all log entries to ensure that searching and filtering of log entries work consistent for all logfiles:
 
 [source]
+----
  [D: <timestamp>] [P: <priority (Level)>] [C: <NDC>][T: <thread>][L: <logger name>]-[M: <message>]
+----
 
    * *D*: Date ( ISO8601: 2013-09-05 16:40:36,464)
    * *P*: Priority (the log level)
@@ -101,7 +105,9 @@ We use the following output format for all log entries to ensure that searching 
 
 Example: 
 [source]
+----
  [D: 2013-09-05 16:40:36,464] [P: DEBUG] [C: 12345] [T: main] [L: my.package.MyClass]-[M: My message...]
+----
 
 === Security
 In order to prevent https://www.owasp.org/index.php/Log_Forging[log forging] attacks we provide a special appender for logback in https://github.com/oasp/oasp4j/tree/oasp4j-logging[oasp4j-logging]. If you use it (see xref:configuration[]) you are safe from such attacks.
@@ -111,7 +117,7 @@ In order to correlate separate HTTP requests to services belonging to the same u
 
 == Auditing with Hibernate Envers
 
-For database auditing we use http://envers.jboss.org/[hibernate envers]. If you want to use auditing ensure you have the following dependency in your +pom.xml+:
+For database auditing we use http://envers.jboss.org/[hibernate envers]. If you want to use auditing ensure you have the following dependency in your _pom.xml_ file:
 [source,xml]
 ----
 <dependency>
@@ -120,7 +126,7 @@ For database auditing we use http://envers.jboss.org/[hibernate envers]. If you 
 </dependency>
 ----
 
-Make sure that entity manager (configured in +beans-jpa.xml+) also scans the package from the +oasp4j-jpa[-envers]+ module in order to work properly.
+Make sure that entity manager (configured in _beans-jpa.xml_) also scans the package from the _oasp4j-jpa[-envers]_ module in order to work properly.
 [source,xml]
 ----
 ...
@@ -131,11 +137,11 @@ Make sure that entity manager (configured in +beans-jpa.xml+) also scans the pac
   </list>
 ----
 
-Now let your DAO implementation extend from +AbstractRevisionedDao+ instead of +AbstractDao+ and your DAO interface extend from +[Application]RevisionedDao+ instead of +[Application]Dao+.
+Now let your DAO implementation extend from _AbstractRevisionedDao_ instead of _AbstractDao_ and your DAO interface extend from _[Application]RevisionedDao_ instead of _[Application]Dao_.
 
-The DAO now has a method +getRevisionHistory(entity)+ available to get a list of revisions for a given entity and a method +load(id, revision)+ to load a specific revision of an entity with the given ID.
+The DAO now has a method _getRevisionHistory(entity)_ available to get a list of revisions for a given entity and a method _load(id, revision)_ to load a specific revision of an entity with the given ID.
 
-To enable auditing for a entity simply place the +@Audited+ annotation to your entity and all entity classes it extends from.
+To enable auditing for a entity simply place the _@Audited_ annotation to your entity and all entity classes it extends from.
 [source,java]
 ----
 @Entity(name = "Drink")
@@ -144,13 +150,13 @@ public class DrinkEntity extends ProductEntity implements Drink {
 ...
 ----
 
-When auditing is enabled for an entity an additional database table is used to store all changes to the entity table and a corresponding revision number. This table is called +<ENTITY_NAME>_AUD+ per default. Another table called +REVINFO+ is used to store all revisions. Make sure that these tables are available. They can be generated by hibernate with the following property (only for development environments).
+When auditing is enabled for an entity an additional database table is used to store all changes to the entity table and a corresponding revision number. This table is called _<ENTITY_NAME>_AUD_ per default. Another table called _REVINFO_ is used to store all revisions. Make sure that these tables are available. They can be generated by _Hibernate_ with the following property (only for development environments).
 [source, properties]
 ----
   database.hibernate.hbm2ddl.auto=create
 ----
 
-Another possibility is to put them in your link:guide-database-migration[database migration] scripts like so.
+Another possibility is to put them in your link:getting-started-flyway-database-migration[database migration] scripts like so.
 [source, sql]
 ----
 CREATE CACHED TABLE PUBLIC.REVINFO(
