@@ -24,11 +24,11 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - link:getting-started-database-configuration[Database Configuration] (REVIEWED)
 
-- link:getting-started-flyway-database-migration[Setting up and maintaining database schemas with Flyway](REVIEWED)
+- link:getting-started-flyway-database-migration[Setting up and maintaining database schemas with Flyway] (REVIEWED)
 
-- link:getting-started-writing-unittest-cases[Writing Unit Test Cases](REVIEWED)
+- link:getting-started-writing-unittest-cases[Writing Unit Test Cases] (REVIEWED)
 
-- link:getting-started-logging-and-auditing[Logging and Auditing](REVIEWING...)
+- link:getting-started-logging-and-auditing[Logging and Auditing] (REVIEWING...)
 
 - link:getting-started-Data-Access-Layer[Data Access Layer]
 
@@ -42,9 +42,9 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - link:getting-started-bean-mapping-using-dozer[Bean Mapping using Dozer] 
 
-- link:getting-started-Creating-Rest-Service[Creating Rest Service] (TO EVALUATE) (REVIEWED)
+- link:getting-started-Creating-Rest-Service[Creating Rest Service] (REVIEWED)
 
-- link:getting-started-deployment-on-tomcat[Deployment on Tomcat (Client/Server)](REVIEWED.)
+- link:getting-started-deployment-on-tomcat[Deployment on Tomcat (Client/Server)] (REVIEWED)
 
 
 ## Cookbook 
