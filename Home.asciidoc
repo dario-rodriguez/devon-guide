@@ -6,7 +6,7 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - link:getting-started-introduction-to-devonfw[Introduction to Devonfw] (REVIEWED)
 
-- link:devcon-user-guide[Devcon - User Guide] (TO EVALUATE)
+- link:devcon-user-guide[Devcon - User Guide]
 
 - link:getting-started-download-and-install[Download and Install Devonfw] (REVIEWED)
 
@@ -14,7 +14,7 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - link:getting-started-running-sample-application[Running Sample Application] (REVIEWED)
 
-- link:getting-started-distribution-structure[Devonfw Distribution Structure] (TO EVALUATE)
+- link:getting-started-distribution-structure[Devonfw Distribution Structure]
 
 - link:getting-started-creating-new-devonfw-application[Create New Application] (REVIEWED)
 
@@ -24,17 +24,17 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - link:getting-started-database-configuration[Database Configuration] (REVIEWED)
 
-- link:getting-started-flyway-database-migration[Setting up and maintaining database schemas with Flyway](REVIEWED)
+- link:getting-started-flyway-database-migration[Setting up and maintaining database schemas with Flyway] (REVIEWED)
 
-- link:getting-started-writing-unittest-cases[Writing Unit Test Cases](REVIEWING...)
+- link:getting-started-writing-unittest-cases[Writing Unit Test Cases] (REVIEWED)
 
-- link:getting-started-logging-and-auditing[Logging and Auditing]
+- link:getting-started-logging-and-auditing[Logging and Auditing] (REVIEWING...)
 
-- link:getting-started-Data-Access-Layer[Data Access Layer] (TO EVALUATE)
+- link:getting-started-Data-Access-Layer[Data Access Layer]
 
-- link:getting-started-crud-operations[CRUD operations and DAO Implementation] (TO EVALUATE)
+- link:getting-started-crud-operations[CRUD operations and DAO Implementation]
 
-- link:getting-started-Cobigen[Generating code with Cobigen] (TO EVALUATE)
+- link:getting-started-Cobigen[Generating code with Cobigen]
 
 - link:getting-started-transfer-objects[Transfer Objects : ETOs and CTOs] (REVIEWED)
 
@@ -42,13 +42,13 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - link:getting-started-bean-mapping-using-dozer[Bean Mapping using Dozer] 
 
-- link:getting-started-Creating-Rest-Service[Creating Rest Service] (TO EVALUATE) (REVIEWED)
+- link:getting-started-Creating-Rest-Service[Creating Rest Service] (REVIEWED)
 
-- link:getting-started-deployment-on-tomcat[Deployment on Tomcat (Client/Server)] (TO EVALUAT(REVIEWED.)
+- link:getting-started-deployment-on-tomcat[Deployment on Tomcat (Client/Server)] (REVIEWED)
 
 
 ## Cookbook 
-- link:cookbook-security-layer[Security: Authentication and Authorization] (TO EVALUATE)
+- link:cookbook-security-layer[Security: Authentication and Authorization]
 
 - link:cookbook-JAX-WS-WebServices[JAX WS WebServices]
 - link:cookbook-batch-layer[Batch Layer]
