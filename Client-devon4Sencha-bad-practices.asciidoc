@@ -13,9 +13,9 @@
 * Nested blocks of code should not be left empty.
 * Sections of code should not be “commented out”.
 
-image::images/devon4sencha-badPractices/bad-practice-commaI.png[,width="250",Bad Practices Comma]
+image::images/devon4sencha-badPractices/bad-practice-commaI.PNG[width="250",Bad Practices Comma]
 
-image::images/devon4sencha-badPractices/bad-practice-commaII.PNG[,width="250",Bad Practices Comma]
+image::images/devon4sencha-badPractices/bad-practice-commaII.PNG[width="250",Bad Practices Comma]
 
 == Excessive or unnecessary nesting of component structures
 
