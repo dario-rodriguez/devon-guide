@@ -1,7 +1,7 @@
 :toc: macro
 toc::[]
 
-= Creating a new application
+# Creating a new application
 
 For creating a new application, we start by creating a Sencha CMD workspace to host our project files. Copy the example workspace at `workspaces\examples\devon4sencha` and then remove the sample application by deleting the directory `ExtSample`.
 
