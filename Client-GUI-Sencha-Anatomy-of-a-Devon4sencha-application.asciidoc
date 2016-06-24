@@ -150,6 +150,8 @@ Having Controllers and ViewControllers could be a bit confusing.  Let's have a l
 
 image::images/client-gui-sencha/mvcArchitectureDevon.png[Devon4Sencha MVVM,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/mvcArchitectureDevon.png"]
 
+A Devon4sencha application will have different Controllers that will be in charge of control of several views related to the same business logic.   Each of these Views will have its own ViewController and ViewModel.   That ViewController will be in charge of managing specific events for that particular View.
+
 == ViewModel
 
 The place to store information for a view is the ViewModel. This object contains not only instance data but also *calculated* fields based on other *viewModel*. All this information can be referenced on the view object by means of the *binding* capabilities of the Sencha Framework. One ViewModel object instance is associated to each View instance and they share lifespan.
