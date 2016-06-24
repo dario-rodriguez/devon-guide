@@ -1,11 +1,11 @@
 :toc: macro
 toc::[]
 
-= Devon4sencha Sample application
+# Devon4sencha Sample application
 
 Devon comes with a sample java application simulating the backend for a restaurant application. Devon4sencha's sample application completes the restaurant application with a user-friendly UI.
 
-== Running the sample restaurant application
+## Running the sample restaurant application
 
 The following steps assume that you already have setup your Devon environment, and that you have the devonfw-sample-server running on a server on port 8081. Refer to the Devonfw Server documentation for instructions on how to setup the Devon environment or the devon sample application.
 
