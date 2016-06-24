@@ -33,7 +33,7 @@ In this guide we are going to use Visual Studio Code.   You can download it from
 
 With the Visual Studio Code we have to open the folder of our application.  Then we click File->Open Folder and we check ‘demo’ as is the folder of the application.
 
-image::images/client-gui-sencha/openVSCode.png[Open VSCode,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/openVSCode.png"]
+image::images/client-gui-sencha/openVSCode.PNG[Open VSCode,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/openVSCode.PNG"]
 
 We should be seeing a file structure like this one:
 
@@ -55,7 +55,7 @@ In case you are trying to point a new Devonfw Server application, you should cha
 * 	Open the file <project_name>-core//src/main/resources/application.properties and change the property ‘security.cors.enabled’.  By default is false and you should change it to true.
 * 	Stop SpringBoot and start it again.
 
-image::images/client-gui-sencha/CORSserver.png[Changing CORS Server,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/CORSserver.png"]
+image::images/client-gui-sencha/CORSserver.PNG[Changing CORS Server,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/CORSserver.PNG"]
 
 We can already run the application from the command line by entering our app's directory and issuing:
 
@@ -70,6 +70,6 @@ image::images/client-gui-sencha/tutorial_running_sample_4_app.png[Running Sample
 
 If we click the Login button we will enter into the demo application:
 
-image::images/client-gui-sencha/AppTemplate.png[App Template,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/AppTemplate.png"]
+image::images/client-gui-sencha/AppTemplate.PNG[App Template,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/AppTemplate.PNG"]
 
 This is what Devon4Sencha provides by default as a Template for the client application.
