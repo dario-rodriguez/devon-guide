@@ -97,6 +97,13 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - [Internationalization](https://github.com/devonfw/devon/wiki/devon-guide-sencha-i18n)
 
+- Devon4Sencha Best Practices
+
+* link:devon4Sencha-bad-practices[Bad Practices]
+* Tools
+* Code Review
+* Test
+
 ## Client GUI Angular (TODO: define chapters) 
 
 - [Introduction](https://github.com/devonfw/devon/wiki/devon-guide-angular-introduction) 
