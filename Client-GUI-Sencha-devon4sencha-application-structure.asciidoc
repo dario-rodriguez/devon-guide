@@ -1,7 +1,7 @@
 :toc: macro
 toc::[]
 
-= Project Layout
+# Project Layout
 
 The layout of folder/files recommended to work with a Sencha project in a MVVM fashion is as follows:
 
@@ -20,7 +20,7 @@ image::images/client-gui-sencha/ConfigFile.PNG[Config.js,width="450", link="http
 
 * **Folder packages**: In this folder resides the devon4sencha package that meets the application requirements.  In \packages\local\devon-extjs you can find what Devon4Sencha builds on top of Sencha libraries.
 
-= Main Template
+# Main Template
 
 Devon4Sencha provides the basis for creating SPA (Single Page Applications) both for desktop and mobile clients. 
 
@@ -60,13 +60,13 @@ Another concern for the *viewport* is to contain references to *global* data tha
 This can be useful for example for  https://github.com/devonfw/devon4sencha/wiki/guide-devon4sencha-security[controlling visibility of controls based on user roles]
 
 
-== Displaying pages
+## Displaying pages
 
 The main template for Devon applications is based on a tabbed layout. This is very convenient and makes for very productive applications since several entities can be opened at the same time and the user can switch easily between them.
 
 Displaying pages on this template is only a matter to add children panels to this `tabbar` which can be addressed by its alias `main-content` or by using the Devon method `Devon.App.openInContentPanel` (see jsdoc for more information on the usage of this method)
 
-=== Closing pages with forms without losing input data
+### Closing pages with forms without losing input data
 
 Devon framework offers the `Devon.plugin.PreventDataLoss` plugin valid only for `Ext.form.Panel` objects. This plugin alerts the user about losing data when the form has been edited on screen and hasn't been saved, before closing a page or window.
 This plugin can be used as shown below:
