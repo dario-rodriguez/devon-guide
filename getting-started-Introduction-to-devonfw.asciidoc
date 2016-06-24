@@ -5,7 +5,7 @@ toc::[]
 
 ## Welcome to Devonfw
 
-image::images/devonfw-small.png[,width="450",Devonfw, link="https://github.com/devonfw/devon-guide/wiki/images/devonfw-small.png"]
+image::images/devonfw-small.png[,align="center",width="200",Devonfw, link="https://github.com/devonfw/devon-guide/wiki/images/devonfw-small.png"]
 
 Welcome to *Devonfw*, the Devon Framework. This is a product of the CSD industrialization effort to bring a standardized platform for custom software development within Capgemini APPS2. This platform is aimed at engagements where clients do not force the use of a determined technology so we can offer a better alternative coming from our experience as a group.
 

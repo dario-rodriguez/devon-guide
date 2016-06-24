@@ -13,25 +13,32 @@ Sencha provides support for both MVC and MVVM application architectures.
 * **Models** are an interface to data
 * The application is easier to test and mantain.  Code is more reusable
 
-image::images/client-gui-sencha/mvcArchitecture.png[Sencha,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/mvcArchitecture.png"]
+image::images/client-gui-sencha/mvcArchitecture.png[MVC,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/mvcArchitecture.png"]
 
 == MVVM (Model, View, Controller, ViewModel, ViewController):
 
 * Features an abstraction of a **View** called the **ViewModel**. The ViewModel coordinates the changes between a Model’s data and the View’s presentation of that data using a technique called **“data binding”**
 * The result is that the **Model** and framework perform as much work as possible, minimizing or eliminating application logic that directly manipulates the **View**
 
-= Structure of a Sencha application
+image::images/client-gui-sencha/mvvmArchitecture.png[MVVM,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/mvvmArchitecture.png"]
+
+= Structure of a Devon4sencha application
 
 With these objects in place, Sencha also defines a clean way to structure the application by having each kind of object in separate folders. 
 
+Devon4sencha follows the MVVM architecture.
 
-== Models
+== Model
 
 The *models* contain the data for the application with some powerful abstractions to retrieve information from the back-end. *Models* have fields defined and associations to other *models* or *stores* which are collections of *models*.
 
 *Models* and *stores* are used by the framework for some controls such as *combo*, *list* and *grid*.
 
-== Views
+== Store
+
+A Store is a client side cache of records (instances of a Model class). Stores provide functions for sorting, filtering and querying the records contained within. 
+
+== View
 
 Views are the objects responsible for displaying the data to the user. They contain no logic and have to deal with formatting and internationalization of messages within the components.
 
@@ -62,7 +69,7 @@ For example:
 In this example a component of type `panel` is defined with a `textfield` and a `button` in it. Please note that the behaviour of the button is not specified here.
 
 
-== Controllers
+== Controller
 
 The controllers are typically the objects responsible for driving the logic of the application, listening to events of the view controls and modifying the underlying model. They are also in charge of rendering new views in response to application state changes.
 
@@ -138,6 +145,12 @@ Events of the components of a view are routed to methods of its *ViewController*
 Usually this means dealing with input control values, calling services of the back-end (maybe through the use of a global *Controller* ) and modifying the *model*.
 
 With this results, the view is modified to reflect those changes.
+
+Having Controllers and ViewControllers could be a bit confusing.  Let's have a look at the image below in order to clearly understand how these concetps are organized in a Devon4sencha application:
+
+image::images/client-gui-sencha/mvcArchitectureDevon.png[Devon4Sencha MVVM,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/mvcArchitectureDevon.png"]
+
+A Devon4sencha application will have different Controllers.  Each of them will control several views related to the same business logic.   Each of these Views will have its own ViewController and ViewModel.   That ViewController will be in charge of managing specific events for that particular View.
 
 == ViewModel
 
