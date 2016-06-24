@@ -248,4 +248,3 @@ Click in _Advance Health Check_
 image::images/devonfw-cobigen/devon_guide_cobigen_7_error.png[,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/devonfw-cobigen/devon_guide_cobigen_7_error.png"]
 
 Now upgrade the template to _constants/security_permissions_ and press _OK_. You now should be able to use Cobigen to generate the _PermissionConstants_ class content.
-====
