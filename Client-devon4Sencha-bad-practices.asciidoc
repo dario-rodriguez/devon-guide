@@ -25,11 +25,11 @@ image::images/devon4sencha-badPractices/bad-practice-commaII.png[,width="250",Ba
 
 * **Example**: Panel that contains a single grid. Panel is unnecessary.  The extra panel can be eliminated.  Forms, trees, tab panels and grids all extend from Panel, so you should especially watch for unnecessary nesting conditions
 
-image::images/devon4sencha-badPractices/bad-panel-grid.PNG[,width="300",Bad Panel Grid]
+image::images/devon4sencha-badPractices/bad-panel-grid.png[,width="300",Bad Panel Grid]
 
     fig:Example 1A BAD: The panel is unnecessary.
 
-image::images/devon4sencha-badPractices/good-panel-grid.PNG[,width="300",Good Panel Grid]    
+image::images/devon4sencha-badPractices/good-panel-grid.png[,width="300",Good Panel Grid]    
     fig:Example 1B Good: The grid is already a panel, so just use any panel properties directly on the grid.
     
     
@@ -61,12 +61,12 @@ Is initialized and is simply reused each time.
 * However, if the grid is destroyed, the context
 Menu will still exist.
 
-image::images/devon4sencha-badPractices/unused-components-solution.PNG[,width="450",Unused Components solution]
+image::images/devon4sencha-badPractices/unused-components-solution.png[,width="450",Unused Components solution]
 
 - *Best solution*
 * Context menu is destroyed when the grid is destroyed.
 
-image::images/devon4sencha-badPractices/unused-components-Best-solution.PNG[,width="450",Unused Components Best solution]
+image::images/devon4sencha-badPractices/unused-components-Best-solution.png[,width="450",Unused Components Best solution]
 
 
 == Poor folder structure for source code
@@ -74,11 +74,11 @@ image::images/devon4sencha-badPractices/unused-components-Best-solution.PNG[,wid
 
 fig: Poor folder structure.
 
-image::images/devon4sencha-badPractices/poor-folder-stucture.PNG[,width="200",Poor folder structure]
+image::images/devon4sencha-badPractices/poor-folder-stucture.png[,width="200",Poor folder structure]
 
 fig: Folder structure to follow.
 
-image::images/devon4sencha-badPractices/good-folder-stucture.PNG[,width="200",good folder structure]
+image::images/devon4sencha-badPractices/good-folder-stucture.png[,width="200",good folder structure]
 
 == Use of global variables
 * Name collisions and hard to debug.
@@ -86,31 +86,31 @@ image::images/devon4sencha-badPractices/good-folder-stucture.PNG[,width="200",go
 
     Instead of 
 
-image::images/devon4sencha-badPractices/global-variable-III.PNG[,width="200",Global variable]
+image::images/devon4sencha-badPractices/global-variable-III.png[,width="200",Global variable]
 
     We use 
     
     
-image::images/devon4sencha-badPractices/global-variable-IV.PNG[,width="200",Global variable]
+image::images/devon4sencha-badPractices/global-variable-IV.png[,width="200",Global variable]
 
-image::images/devon4sencha-badPractices/global-variable-V.PNG[,width="200",Global variable]
+image::images/devon4sencha-badPractices/global-variable-V.png[,width="200",Global variable]
 
-image::images/devon4sencha-badPractices/global-variable-I.PNG[,width="200",Global variable]
+image::images/devon4sencha-badPractices/global-variable-I.png[,width="200",Global variable]
 
-image::images/devon4sencha-badPractices/global-variable-II.PNG[,width="200",Global variable]
+image::images/devon4sencha-badPractices/global-variable-II.png[,width="200",Global variable]
 
 == Use of “id”
 * Use of id’s on components is not recommended.
 * Each id must be unique.
 
-image::images/devon4sencha-badPractices/use-of-id-I.PNG[,width="300",Use of Id]
+image::images/devon4sencha-badPractices/use-of-id-I.png[,width="300",Use of Id]
 
 * Replace by “itemId” Resolves the name conflict and we can
 still get a reference to the component.
 
-image::images/devon4sencha-badPractices/replace-by-itemId-I.PNG[,width="200",replace by Item Id]
+image::images/devon4sencha-badPractices/replace-by-itemId-I.png[,width="200",replace by Item Id]
 
-image::images/devon4sencha-badPractices/replace-by-itemId-II.PNG[,width="300",replace by Item Id]
+image::images/devon4sencha-badPractices/replace-by-itemId-II.png[,width="300",replace by Item Id]
 
 == Unreliable referencing of components
 * Code that relies on component positioning in order to get a reference.
@@ -118,9 +118,9 @@ image::images/devon4sencha-badPractices/replace-by-itemId-II.PNG[,width="300",re
 * It should be avoided as the code can easily be broken if any items are added, removed or nested within a different
 component.
 
-image::images/devon4sencha-badPractices/unreliable-reference.PNG[,width="300",Unreliable reference]
+image::images/devon4sencha-badPractices/unreliable-reference.png[,width="300",Unreliable reference]
 
-image::images/devon4sencha-badPractices/unreliable-reference-correction.PNG[,width="300",Unreliable reference Correction]
+image::images/devon4sencha-badPractices/unreliable-reference-correction.png[,width="300",Unreliable reference Correction]
 
 == Failing to follow upper/lowercase naming conventions
 * Avoid confusion and keep your code clean.
@@ -128,22 +128,22 @@ image::images/devon4sencha-badPractices/unreliable-reference-correction.PNG[,wid
 
  fig: Wrong upper lower naming convention.
  
-image::images/devon4sencha-badPractices/upper-lower-naming-convention.PNG[,width="300",upper lower naming convention]
+image::images/devon4sencha-badPractices/upper-lower-naming-convention.png[,width="300",upper lower naming convention]
 
 
     fig: Correct upper lower naming convention .
 
-image::images/devon4sencha-badPractices/upper-lower-naming-convention-correction.PNG[,width="300",upper lower naming convention correction]
+image::images/devon4sencha-badPractices/upper-lower-naming-convention-correction.png[,width="300",upper lower naming convention correction]
 
 == Making your code more complicated than necessary.
 * Each value is loaded individually.
 
-image::images/devon4sencha-badPractices/complecated-code.PNG[,width="300",complecated-code]
+image::images/devon4sencha-badPractices/complecated-code.png[,width="300",complecated-code]
 
 * Use “loadRecord” method.
 * Review all of a component’s methods and examples to make sure you are using simple and proper techniques.
 
-image::images/devon4sencha-badPractices/load-record.PNG[,width="300",load-record]
+image::images/devon4sencha-badPractices/load-record.png[,width="300",load-record]
 
 == Nesting callbacks == nightmare
 * Pyramidal code.
@@ -154,11 +154,11 @@ image::images/devon4sencha-badPractices/load-record.PNG[,width="300",load-record
 - Follow
 - Debug
 
-image::images/devon4sencha-badPractices/nesting-callbacks.PNG[,width="300",nesting callbacks]
+image::images/devon4sencha-badPractices/nesting-callbacks.png[,width="300",nesting callbacks]
 
 * Use “scope”.
 
-image::images/devon4sencha-badPractices/nesting-callbacks-scope.PNG[,width="300",nesting callbacks scope]
+image::images/devon4sencha-badPractices/nesting-callbacks-scope.png[,width="300",nesting callbacks scope]
 
 == Caching and references
 * Wrong use of object references.
@@ -176,9 +176,9 @@ image::images/devon4sencha-badPractices/nesting-callbacks-scope.PNG[,width="300"
 - JavaScript performance playground.
 - Aims to provide an easy way to create and share test cases, comparing the performance of different JavaScript snippets by running benchmarks.
 
-image::images/devon4sencha-badPractices/caching-and-references-I.PNG[,width="300",caching-and-references-I]
+image::images/devon4sencha-badPractices/caching-and-references-I.png[,width="300",caching-and-references-I]
 
-image::images/devon4sencha-badPractices/caching-and-references-II.PNG[,width="300",caching-and-references-II]
+image::images/devon4sencha-badPractices/caching-and-references-II.png[,width="300",caching-and-references-II]
 
 == Identation
 * Code impossible to follow
@@ -186,12 +186,12 @@ image::images/devon4sencha-badPractices/caching-and-references-II.PNG[,width="30
 - Inconsistent
 - Waste
 
-image::images/devon4sencha-badPractices/Improperly-idented-code.PNG[,width="300",Improperly-idented-code]
+image::images/devon4sencha-badPractices/Improperly-idented-code.png[,width="300",Improperly-idented-code]
 
 
 * Always code for readability.
 
-image::images/devon4sencha-badPractices/indented-code.PNG[,width="300",indented-code]
+image::images/devon4sencha-badPractices/indented-code.png[,width="300",indented-code]
 
 == One class per file
 * Avoid files with more than 1000 lines of code.
@@ -202,16 +202,16 @@ image::images/devon4sencha-badPractices/indented-code.PNG[,width="300",indented-
 - Abstraction!
 - Development loader / Production builder.
 
-image::images/devon4sencha-badPractices/one-class-per-file.PNG[,width="300",indented-code]
+image::images/devon4sencha-badPractices/one-class-per-file.png[,width="300",indented-code]
 
 == Too much work to return
 * Make it easy!
 
-image::images/devon4sencha-badPractices/too-much-work-I.PNG[,width="300",too-much-work-I]
+image::images/devon4sencha-badPractices/too-much-work-I.png[,width="300",too-much-work-I]
 
-image::images/devon4sencha-badPractices/too-much-work-II.PNG[,width="300",too-much-work-II]
+image::images/devon4sencha-badPractices/too-much-work-II.png[,width="300",too-much-work-II]
 
-image::images/devon4sencha-badPractices/too-much-work-III.PNG[,width="300",too-much-work-III]
+image::images/devon4sencha-badPractices/too-much-work-III.png[,width="300",too-much-work-III]
 
 == Comments/Documentation
 
@@ -220,7 +220,7 @@ image::images/devon4sencha-badPractices/too-much-work-III.PNG[,width="300",too-m
 - Variables with unmeaningful names
 - Impossible to figure out what the is the intent of this code.
 
-image::images/devon4sencha-badPractices/comments-documentation-I.PNG[,width="300",comments-documentation-I]
+image::images/devon4sencha-badPractices/comments-documentation-I.png[,width="300",comments-documentation-I]
 
 * Best practice
 - Comment top-level structures.
@@ -231,27 +231,27 @@ image::images/devon4sencha-badPractices/comments-documentation-I.PNG[,width="300
 - JSDuck – https://github.com/senchalabs/jsduck/wiki[https://github.com/senchalabs/jsduck/wiki]
 - API documentation generator for Sencha.
 
-image::images/devon4sencha-badPractices/js-duck.PNG[,width="300",js-duck]
+image::images/devon4sencha-badPractices/js-duck.png[,width="300",js-duck]
 
 == “===“ “!==“ instead of “==“ “!=“
 
 * Comparator operations
 - When you receive data in a json structure and you are not sure about what you are getting you should be more restrictive.
 
-image::images/devon4sencha-badPractices/comparator-operation.PNG[,width="300",comparator-operation]
+image::images/devon4sencha-badPractices/comparator-operation.png[,width="300",comparator-operation]
 
 == Be lazy
 
 * Bad practice: Initialization of all three panels.
 
-image::images/devon4sencha-badPractices/be-lazy-badPractice.PNG[,width="200",be-lazy-badPractice]
+image::images/devon4sencha-badPractices/be-lazy-badPractice.png[,width="200",be-lazy-badPractice]
 
 * Best practice
 - Lazy initialization: Add items/views only when necessary
 - Lazy rendering: Save the browser some time!
 - Reuse things: Save yourself some time!
 
-image::images/devon4sencha-badPractices/bill-gate-says.PNG[,width="200",bill-gate-says]
+image::images/devon4sencha-badPractices/bill-gate-says.png[,width="200",bill-gate-says]
 
 == Knowing this!
 
@@ -265,9 +265,9 @@ image::images/devon4sencha-badPractices/bill-gate-says.PNG[,width="200",bill-gat
 
 2. When a function is executed via an object key,the execution context (“this”) is the object.
 
-image::images/devon4sencha-badPractices/knowing-this-I.PNG[,width="200",knowing-this-I]
+image::images/devon4sencha-badPractices/knowing-this-I.png[,width="200",knowing-this-I]
 
-image::images/devon4sencha-badPractices/knowing-this-II.PNG[,width="200",knowing-this-II]
+image::images/devon4sencha-badPractices/knowing-this-II.png[,width="200",knowing-this-II]
 
 == Additional resources
 
