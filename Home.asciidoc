@@ -36,15 +36,15 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - link:getting-started-Cobigen[Generating code with Cobigen] (TO EVALUATE)
 
-- link:getting-started-transfer-objects[Transfer Objects : ETOs and CTOs]
+- link:getting-started-transfer-objects[Transfer Objects : ETOs and CTOs] (REVIEWED)
 
-- link:getting-started-logic-layer[Logic Layer]
+- link:getting-started-logic-layer[Logic Layer] (REVIEWED)
 
-- link:getting-started-bean-mapping-using-dozer[Bean Mapping using Dozer]
+- link:getting-started-bean-mapping-using-dozer[Bean Mapping using Dozer] 
 
-- link:getting-started-Creating-Rest-Service[Creating Rest Service] (TO EVALUATE)
+- link:getting-started-Creating-Rest-Service[Creating Rest Service] (TO EVALUATE) (REVIEWED)
 
-- link:getting-started-deployment-on-tomcat[Deployment on Tomcat (Client/Server)] (TO EVALUATE)
+- link:getting-started-deployment-on-tomcat[Deployment on Tomcat (Client/Server)] (TO EVALUAT(REVIEWING.)
 
 
 ## Cookbook 
@@ -65,7 +65,7 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - link:Client-GUI-Sencha-running-sample-application[Running Sample Application]
 
-- [Create a new Sencha App](https://github.com/devonfw/devon/wiki/devon-guide-sencha-newapp)
+- link:Client-GUI-Sencha-create-new-application[Create New Devon4sencha Application]
 
 - [Create a new page](https://github.com/devonfw/devon/wiki/devon-guide-sencha-page)
 
