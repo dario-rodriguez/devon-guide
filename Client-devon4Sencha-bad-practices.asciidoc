@@ -53,7 +53,7 @@ created is seen on the page.
 * Memory utilization will keep increasing
 Slower operation / browser crash.
 
-image::images/devon4sencha-badPractices/unused-components.PNG[,width="450",Unused Components]
+image::images/devon4sencha-badPractices/unused-components.png[,width="450",Unused Components]
 
 - *Better solution*
 * Context menu is created once when grid
