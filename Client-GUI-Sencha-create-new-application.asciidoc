@@ -39,7 +39,7 @@ We should be seeing a file structure like this one:
 
 image::images/client-gui-sencha/VSCodeAppStructure.png[VSCode App Structure,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/VSCodeAppStructure.png"]
 
-You can learn more about the Devon4sencha app structure here.
+You can learn more about the Devon4sencha app structure https://github.com/devonfw/devon-guide/wiki/Client-GUI-Sencha-devon4sencha-application-structure[here].
 
 For this guide, we are going to use the same backend as in the sample application so we have to change the path of the server in the ConfigDevelopment.js file:
 
