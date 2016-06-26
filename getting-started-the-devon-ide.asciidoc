@@ -92,7 +92,7 @@ On the left hand side of the editor an icon is shown for each line that contains
 Also note the editor annotations - they are there to make it even easier to see where the problems are.
 
 
-=== FindBugs:
+=== FindBugs
 
 ==== What is FindBugs
 
