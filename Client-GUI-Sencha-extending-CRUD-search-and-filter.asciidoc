@@ -1,0 +1,161 @@
+:toc: macro
+toc::[]
+
+# 	Extending the CRUD: searching and filtering tables
+
+Now we are going to add some filters to our view so that we can search and filter the records of the grid.   First of all, we have to define the search panel in our `TableListV.js`:
+
+[source,javascript]
+----
+initComponent: function() {
+		Ext.apply(this, {
+		items : [
+			this.search(),
+			this.grid()
+		]
+		});
+		this.callParent(arguments);
+	},
+	
+	search : function(){
+        return {
+            xtype:'form',
+            reference:'form',
+            title:'Filters',
+            border:true,
+            collapsible:true,
+            layout:{
+                type:'hbox',
+                align:'top'
+            },
+            margin : 10,
+            defaults:{ margin : 10 },
+            items : [{
+                xtype:'panel',
+                border:false,
+                layout:{type:'vbox',align:'stretch'},
+                flex:5,
+                items:[{
+                   xtype:'numberfield',
+			reference:'number',
+			fieldLabel:i18n.tableEdit.number,
+                   bind:'{filters.number}',
+			minValue:1,
+                   labelWidth:80,
+                   tabIndex:1,
+                   flex:1
+                }]
+            },{
+                xtype: 'panel',
+                border:false,
+                layout:{type:'vbox',align:'stretch'},
+                flex:5,
+                items:[{
+                    	xtype:'combo',
+				reference:'state',
+				fieldLabel:i18n.tableEdit.state,
+				tabIndex:2,
+				queryMode: 'local',
+				displayField: 'code',
+				valueField: 'code',
+				name: 'state',
+				bind: {
+					store: '{states}',
+					value: '{filters.state}'
+				}
+                }]
+            }],
+            bbar:[
+                '->',
+                {
+                    xtype:'button',
+                    text:'Search',
+                    width:80,
+                    listeners:{
+                        click:'doSearch'
+                    }
+                },{
+                    xtype:'button',
+                    text:'Clean',
+                    width:80,
+                    listeners:{
+                        click:'doClean'
+                    }
+                }
+            ]
+        };
+    },
+----
+
+We have to extend the ViewModel for the view so we edit `TableListVM.js` adding the filters.  Also, we have to add the store for the state of the table we want to filter:
+
+[source,javascript]
+----
+Ext.define('demo.view.table.TableListVM', {
+	extend: 'Ext.app.ViewModel',
+	alias: 'viewmodel.table-tables',
+	requires : ['demo.model.table.TableM'],
+	data: {
+		selectedItem: false,
+		filters:{
+            number: null,
+            state: null
+        }
+	},
+	stores: {
+		tables: {
+			model: 'demo.model.table.TableM',
+			pageSize: 3,
+			proxy: {
+				type : 'tablemanagement.search'
+			},
+			autoLoad:true
+		},
+		states: {
+			fields: ['code'],
+			data:[
+				{'code':'FREE'},
+				{'code':'OCCUPIED'},
+				{'code':'RESERVED'}
+			]
+		}
+	}
+});
+----
+
+Navigate to the view in our browser.  We can see that we have created a collapsible panel above the grid with two fields and two buttons:
+
+image::images/client-gui-sencha/searching.PNG[Searching,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/searching.PNG"]
+
+Now it is time to define what we are going to do with these buttons we have just created.  So we edit `TableListVC.js` to create the functions doSearch and doClean:
+
+[source,javascript]
+----
+doSearch: function(){
+	    var grid = this.lookupReference('tablesgrid');
+        var store = grid.getStore();
+        var form = this.lookupReference('form');
+
+        if(!form.isValid()){
+            return;
+        }
+
+        store.load({
+            params : this.getViewModel().data.filters
+        });
+	},
+
+doClean: function(){
+		var grid = this.lookupReference('tablesgrid');
+        var form = this.lookupReference('form');
+
+        grid.getStore().removeAll();
+        form.getForm().reset();		
+	}
+----
+
+Check the changes in the application.
+
+Now, we can see that if we filter by number or state in the grid we only see the records that match with these filters.
+
+image::images/client-gui-sencha/searching2.PNG[Filtering,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/searching2.PNG"]
