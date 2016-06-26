@@ -136,10 +136,10 @@ SonarQube has got a very efficient way of navigating, a balance between high-lev
 
 ==== Installation and usage of SonarQube
 
-OASP4J IDE comes preinstalled with SonarQube.
+IDE comes preinstalled with SonarQube.
 To configure it , please follow below steps:
 
-First of all, you need to start sonar service.For that , from softwares folder in extracted from OASP4j IDE zip, choose sonarqube->bin-><choose appropriate folder according to your OS>-->and execute startSonar bat file.
+First of all, you need to start sonar service. For that , go to software folder which is extracted from Devon-dist zip, choose sonarqube->bin-><choose appropriate folder according to your OS>-->and execute startSonar bat file.
 
 If your project is not already under analysis, you'll need to declare it through the SonarQube web interface as described http://docs.sonarqube.org/display/SONAR/Project+Existence[here].
 Once your project exists in SonarQube, you're ready to get started with SonarQube in Eclipse.
