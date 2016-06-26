@@ -5,7 +5,7 @@ toc::[]
 
 The OASP4J archetype generates a Maven Modules Project. It has 3 Maven modules and a _pom.xml_ file:
 
-* xxx-core: This Maven Module Project contains the different Java classes in our application and the application configuration (beans definition, security configuration, access to database configuration, etc).
+* xxx-core: This Maven Module Project contains the different Java classes and the application configuration (beans definition, security configuration, access to database configuration, etc).
 
 * xxx-server: This module is responsible for packaging the application as a WAR file. It has a dependency on the core module.
 
@@ -25,7 +25,7 @@ The Core module of the project contains the base classes and the base configurat
 
 image::images/oasp-app-structure/app-structure.png["App structure",width="450",link="images/oasp-app-structure/app-structure.png"]
 
-Now, we are going to describe each of them. 
+Following section explains each of the package in detail:
 
 === Java 
 
@@ -33,21 +33,21 @@ The _java_ package contains all Java files that implement the application and it
 
 ==== SpringBootApp and SpringBootBatchApp 
 
-*SpringBootApp* is the class that contains the main method to run the Spring Boot application. Spring Boot is responsible for scan the project and find the beans and configuration of the application. So this is the most important class in the application, because it's the application per se. You can read more about Spring Boot http://docs.spring.io/spring-boot/docs/current/reference/html/[here].
+*SpringBootApp* is the class that contains the main method to run the Spring Boot application. Spring Boot is responsible to scan the project and find the beans and configuration of the application. Therefore, this is the most important class in the application as it's the basis for running the application. Read more about Spring Boot http://docs.spring.io/spring-boot/docs/current/reference/html/[here].
 
-*SpringBootBatchApp* this class is responsible for run the batch process of the application. You can see more about the batch process in OASP4J project link:cookbook-batch-layer[here].
+*SpringBootBatchApp* class is responsible to run the batch process of the application. Find more about the batch process in OASP4J project link:cookbook-batch-layer[here].
 
 ==== General 
 
-The *general* package contains all Java files of OASP4J application. It's divided in the next sub-packages:
+The *general* package contains all Java files of OASP4J application. It is further divided in the following sub-packages:
 
 ====== Common
 
-Contains the reusable Java components of the OASP4J application. 
+Contains the reusable Java components of OASP4J application. 
 
 ====== Dataaccess
 
-This package contains the Java files that compose the Data Access layer of OASP4J application. You can see more about this layer link:getting-started-Data-Access-Layer[here].
+This package contains the Java files that compose the Data Access layer of OASP4J application. Find more about this layer link:getting-started-Data-Access-Layer[here].
 
 ====== Gui.api
 
@@ -55,33 +55,33 @@ Contains the Java class that has the login page controller of OASP4J application
 
 ====== Logic
 
-Contains the logic layer of OASP4J application. The logic layer is the heart of the application and contains the main business logic. You can see more about it link:getting-started-logic-layer[here].
+Contains the logic layer of OASP4J application. The logic layer is the heart of the application and contains the main business logic. Find more about it link:getting-started-logic-layer[here].
 
 ====== Service.impl.rest
 
-Contains the service layer of OASP4J application. The service layer is responsible for exposing the functionality of the logical layer to external consumers over a network via technical protocols. You can see more about it link:getting-started-Creating-Rest-Service[here].
+Contains the service layer of OASP4J application. The service layer is responsible for exposing the functionality of the logical layer to external consumers over a network via technical protocols. Find more about it link:getting-started-Creating-Rest-Service[here].
  
 ==== Management packages 
 
-This packages contains the use cases in which the logic of the application is divided. Each management package defines the Entities, DAOs, ETOs, CTOs, REST services, web services and the CRUD operators related to its use case. You can see more about how to create a CRUD operators in OASP4J project link:getting-started-crud-operations[here].
+This packages contains the use cases in which the logic of the application is divided. Each management package defines the Entities, DAOs, ETOs, CTOs, REST services, web services and the CRUD operators related to its use case. Find more about how to create a CRUD operators in OASP4J project link:getting-started-crud-operations[here].
  
 === Resources 
 
-The resources package contains the data related to some specific functionality of the application. This data can be both configuration files (database, security) and other resources that the application may need like template files or content files.
+The resources package contains the data related to some specific functionality of the application. This data can be both configuration files (database, security) and other resources that the application may need such as template files or content files.
 
-This package is divided in four folders: _config_, _db_, _META-INF_ and _static_. Also we have an *application.properties* file in this package. You can see more about OASP4J Spring Boot configuration link:getting-started-understanding-oasp4j-spring-boot-config[here]. 
+This package is divided in four folders: _config_, _db_, _META-INF_ and _static_. This package also contains *application.properties* file. Read more about OASP4J Spring Boot configuration link:getting-started-understanding-oasp4j-spring-boot-config[here]. 
 
 image::images/oasp-app-structure/config-structure.png["App structure 2",width="450",link="images/oasp-app-structure/config-structure.png"]
 
 ====== config
 
-In this folder we have largely the xml configuration file of the application. This application contains also some *application.properties* files that represent the context of the application when we run it with the embedded Tomcat server. You can see more about how to run an OASP4J application link:getting-started-running-sample-application[here].
+This folder contains mostly all the xml configuration file of the application. This folder also contains some *application.properties* files that represents the context of the application while running it with the embedded Tomcat server. See more about how to run an OASP4J application link:getting-started-running-sample-application[here].
 
-The *config* folder has a folder called *app* this folder is divided in the next sub-folders:
+The *config* folder has a folder called *app* this folder is divided in the following sub-folders:
 
 ** batch: contains the configuration of the batch process. In the Sample Application, for example, we have the bill exports and products to import.
 
-** common: contains the Spring bean configuration of http://dozer.sourceforge.net/documentation/about.html[Dozer]. You can see more about OASP4j Bean-Mapping https://github.com/oasp/oasp4j/wiki/guide-beanmapping[here]. 
+** common: contains the Spring bean configuration of http://dozer.sourceforge.net/documentation/about.html[Dozer]. find more about OASP4j Bean-Mapping https://github.com/oasp/oasp4j/wiki/guide-beanmapping[here]. 
 
 ** gui: this folder contains the *dispatcher-servlet.xml*. The _DispatcherServlet_ will take help from _ViewResolver_ to pickup the defined view for the request.
 
@@ -91,7 +91,7 @@ The *config* folder has a folder called *app* this folder is divided in the next
 
 ====== db
 
-This folder contains the SQL files that contains the script templates to create the database schema and tables definition.
+This folder holds the SQL files which contains the script templates to create the database schema and tables definition.
 
 ====== META-INF
 
@@ -105,26 +105,26 @@ Contains the *index.html* file of the application. This view contains ,by defaul
 
 Contains the specific properties values of the application. This file is taked into account by the application when running in an link:getting-started-running-sample-application#external-tomcat-server[external server] (not the embedded).
 
-As you can see we have an application-<name>.properties, this kind of properties are called profile and we can active a determinate profile in *application.properties* depending on our needs. You can see more about Spring profiles http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-profiles.html[here]. Also you can see how to create a new database profile in OASP4j getting-started-database-configuration#create-a-spring-profile[here], in order to have a example to better understand.
+As you can see we have an application-<name>.properties, this kind of properties are called profile and we can active a determinate profile in *application.properties* as required. See more about Spring profiles http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-profiles.html[here]. Also, find how to create a new database profile in OASP4j getting-started-database-configuration#create-a-spring-profile[here], in order to understand better.
 
 === Test
 
-The package test contains all we need to test the application. It's divided in the next sub packages:
+The package test contains all that is required to test the application. It is divided in the following sub packages:
 
-** java: contains the Unit Tests of the application that will allow us to keep control of the right functionality of the application. You can see more about the Unit Test and TDD methodology link:getting-started-writing-unittest-cases[here] and https://github.com/oasp/oasp4j/wiki/guide-testing[here]
+** java: contains the Unit Tests of the application that will allow us to keep control of the right functionality of the application. Find more about the Unit Test and TDD methodology link:getting-started-writing-unittest-cases[here] and https://github.com/oasp/oasp4j/wiki/guide-testing[here]
 
-** resources: contains the configuration and data we need to run the test in of the application.
+** resources: contains the configuration and data that is required to run the test cases.
 
 == Server Module
 
 This module contains two important files:
 
-* lockback.xml: This file is in the _resources_ folder and it is responsible for configuring the log.
+* lockback.xml: This file is in the _resources_ folder and responsible for configuring the log.
 
 * pom.xml: This file has Maven configuration for packaging the application as a WAR. Also, this file has a profile to package the JavaScript client ZIP file into the WAR.
 
 == EAR Module
 
-In some cases we can create an EAR module to our project. This module only contains a _pom.xml_ file to packaging the application as EAR from the generated WAR.
+In some cases, we can create an EAR module in project. This module only contains a _pom.xml_ file to package the application as EAR from the generated WAR.
 
-You can see more about how to create a new application link:getting-started-creating-new-devonfw-application[here].
+Find more about how to create a new application link:getting-started-creating-new-devonfw-application[here].
