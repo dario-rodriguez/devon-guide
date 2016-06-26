@@ -17,7 +17,7 @@ image::images/setup-and-maintain-db-schemas-with-flyway/environments.png[,width=
 
 We not only have to deal with one copy of environment, but with several. This presents a number of challenges to maintain the databases across various environments. 
 
-Many projects still rely on manually applied sql scripts. And sometimes not even that (a quick sql statement here or there to fix a problem). And soon many questions arise:
+Many projects still rely on manually applied sql scripts and sometimes not even that (a quick sql statement here or there to fix a problem). And soon many questions arise:
 
 
 
@@ -45,10 +45,9 @@ They allow you to:
 
 
 
-== How it works for setting up database and maintaining it?
+== How it works?
 
-To know which state your database is in, Flyway relies on a special metadata table for all its internal bookkeeping. 
-
+To know which state database is in, Flyway relies on a special metadata table for all its internal bookkeeping.
 
 
 * When you point Flyway to an empty database, it will try to locate its metadata table. 
@@ -56,14 +55,13 @@ To know which state your database is in, Flyway relies on a special metadata tab
 
 image::images/setup-and-maintain-db-schemas-with-flyway/how-flyway-works-2.png[,width="450",link="images/setup-and-maintain-db-schemas-with-flyway/how-flyway-works-2.png"]
 
-* As the database is empty, Flyway won't find it and will create it instead.Now we have a database with a single empty table called SCHEMA_VERSION by default.
-
+* As the database is empty, Flyway won't find it and will create it instead. Now we have a database with a single empty table called SCHEMA_VERSION by default.
 
 image::images/setup-and-maintain-db-schemas-with-flyway/how-flyway-works-1.png[,width="450",link="images/setup-and-maintain-db-schemas-with-flyway/how-flyway-works-1.png"]
 
 * Immediately afterwards Flyway will begin scanning the filesystem or the classpath of the application for migrations. They can be written in either Sql or Java. 
-* The migrations are then sorted based on their version number and applied in order. As each migration gets applied, the metadata table is updated accordingly.
 
+* The migrations are then sorted based on their version number and applied in order. As each migration gets applied, the metadata table is updated accordingly.
 
 image::images/setup-and-maintain-db-schemas-with-flyway/how-flyway-works-3.png[,width="450",link="images/setup-and-maintain-db-schemas-with-flyway/how-flyway-works-3.png"]
 
@@ -135,22 +133,22 @@ CREATE TABLE STAFFMEMBER(
 ----
 
 
-It is also possible to use Flyway for test data. To do so place your test data migrations in +src/main/resources/db/test-data/+ and set property
+It is also possible to use Flyway for test data. To do so, place your test data migrations in +src/main/resources/db/test-data/+ and set property
 
 [source, properties]
 ----
   database.migration.testdata = true
 ----
-Than Flyway scans the additional location for migrations and applies all in the order specified by their version. If migrations +V_01__...+ and +V_02__...+ exist and a test data migration should be applied in between you can name it +V_01_1__...+.
+Than Flyway scans the additional location for migrations and applies all in the order specified by their version. If migrations +V_01__...+ and +V_02__...+ exist and a test data migration should be applied, in between you can name it +V_01_1__...+.
 
 
 == Update database script files
 
-Devon have https://flywaydb.org/getstarted/[flyway] configured. Flyway is an open-source database migration tool.It strongly favors simplicity and convention over configuration.Flyway will search for script files for corresponding database. It will parse the script files and create or update corresponding tables in a database.
+Devon have https://flywaydb.org/getstarted/[flyway] configured. Flyway will search for script files for corresponding database. It will parse the script files and create or update corresponding tables in a database.
 
-Generally, DDL Script file is present at location db/migration/database/1.0. For e.g db/migration/mysql/1.0.This location is the one we configured in the first step in file application-{PROFILE_NAME}.properties .
+Generally, DDL Script file is present at location db/migration/database/1.0. For e.g db/migration/mysql/1.0. This location is the one we configured in the first step in file application-{PROFILE_NAME}.properties .
 And other script files are present at location db/migration.
-Make sure script files are error  free.
+Make sure script files are error free.
 We can set customized location for migration scripts. We need to add flyway.locations property in application.properties. For example
 
 [source]
@@ -160,14 +158,6 @@ Here we can mention classpath or filesystems path.
 
 image::images/database-configuration/db-config4.png[,width="450",link="images/database-configuration/db-config4.png"]
 
-Once these all steps are done, start the db server, in our case (MySQL server) and run the application.Flyway will run migrations on application startuo, as we have set "database.migration.auto=true" in application.properties file, while setting up flyway for our application.It should not be set to true in production environment.
+Once these all steps are done, start the db server, in our case (MySQL server) and run the application. Flyway will run migrations on application startup, as we have set "database.migration.auto=true" in application.properties file, while setting up flyway for our application. It should not be set to true in production environment.
 
 For configuring database please refer https://github.com/devonfw/devon-guide/wiki/getting-started-database-configuration[Database Configuration].
-
-
-
-
- 
-
- 
-
