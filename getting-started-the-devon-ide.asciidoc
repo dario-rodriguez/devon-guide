@@ -169,7 +169,7 @@ Click on Finish. Your project is now associated to one analyzed on your SonarQub
 
 At any time, it is possible to change the project association.
 
-To do so, right-click on the project in the Project Explorer, and then SonarQube > Change Project Association...:
+To do so, right-click on the project in the Project Explorer, and then SonarQube > Change Project Association.
 
 image::images/devon-ide/change-link-with-project.png["change-link-with-project", width = "450" , link="images/devon-ide/change-link-with-project.png"]
 
