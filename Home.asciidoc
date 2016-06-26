@@ -73,7 +73,7 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - link:Client-GUI-Sencha-create-new-page[Create a new page]
 
-- [Create a new CRUD page](https://github.com/devonfw/devon/wiki/devon-guide-sencha-crud)
+- link:Client-GUI-Sencha-create-a-CRUD-page[Create a new CRUD page]
 
 - [Defining an Ext component](https://github.com/devonfw/devon/wiki/devon-guide-sencha-define-ext-component) 
 
