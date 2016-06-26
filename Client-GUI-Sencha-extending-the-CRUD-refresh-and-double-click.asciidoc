@@ -1,0 +1,80 @@
+:toc: macro
+toc::[]
+
+# Extending the CRUD
+
+##  Refreshing the grid after changing some tables
+
+When we add or edit a table, we should refresh the grid so that we can see the changes without closing the tab panel and open the grid again.   For that reason, we have to create an event `eventTablesChanged` in `TableEditVC.js`.   Every time we click the submit button, window will close and we will see the grid data updated:
+
+[source,javascript]
+----
+onTableEditSubmit: function() {
+		var form = this.lookupReference('panel');
+		var params = form.getValues();
+		Devon.rest.tablemanagement.table.post({
+			scope: this,
+			jsonData : params,
+			success: function(){
+			    //Fire event table changed
+        		    Ext.GlobalEvents.fireEvent('eventTablesChanged');
+
+			    //Fire close event
+			    var parent =  this.getView().up();
+	…
+----
+
+Then, when we click on the submit button, we will fire the `eventTablesChanged` event.   So, we need some point in our application which captures that event.   In our case, in the view-controller `TableListVC.js` we add this:
+
+[source,javascript]
+----
+Ext.define('demo.view.table.TableListVC', {
+    extend: 'Ext.app.ViewController',
+    alias: 'controller.tablelist',
+	
+    listen: {
+        global: {
+            eventTablesChanged: 'onTablesChanged'
+        }
+    },
+
+		    onAddClick: function() {
+        Ext.GlobalEvents.fireEvent('eventTableAdd');
+    },
+	…
+----
+
+After that, in the same file, `TableListVC.js`, we define the function `onTablesChanged` that is going to refresh the grid:
+
+[source,javascript]
+----
+onTablesChanged: function() {
+        this.refreshGrid();
+}
+----
+
+Navigate to our application and check how the grid is refreshed after add or edit a table.
+
+## Double-click functionality
+
+If we want to edit a table we have to select the table in the grid and then click on `Edit` button.   We are going to do the same just with a `double-click` on the table.
+
+First of all, we need a listener for the grid in `TableListV.js`:
+
+[source,javascript]
+----
+listeners: {
+    beforeitemdblclick: 'onEditDblclick'
+}
+----
+
+Then, in `TableListVC.js` we add the function:
+
+[source,javascript]
+----
+onEditDblclick: function(view, record, item, index, e, eOpts) {
+        Ext.GlobalEvents.fireEvent('eventTableEdit', record.get('id'));
+}
+----
+
+Navigate to our application and check how the `double-click` event works.

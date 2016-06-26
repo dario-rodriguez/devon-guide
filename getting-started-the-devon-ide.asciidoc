@@ -12,7 +12,7 @@ Devonfw comes with a fully featured IDE in order to simplify the installation, c
 
 image::images/devon-ide/integrated-ide.png["Integrated IDE",width="450", link="images/devon-ide/integrated-ide.png"]
 
-As with the remainder of the distribution, the advantage of this approach is that you can have as many instances of the oasp4j-ide "installed" on your machine for different projects with different tools, tool versions and configurations. No physical installation and no tweaking of your operating system required. "Installations" of the Devon distribution do not interfere with each other nor with other installed software.
+As with the remainder of the distribution, the advantage of this approach is that you can have as many instances of the -ide "installed" on your machine for different projects with different tools, tool versions and configurations. No physical installation and no tweaking of your operating system required. "Installations" of the Devon distribution do not interfere with each other nor with other installed software.
 
 === Multiple Workspaces
 There is inbuilt support for working with different workspaces on different branches. Create and update new workspaces with a few clicks. You can see the workspace name in the title-bar of your IDE so you do not get confused and work on the right branch.
@@ -42,7 +42,7 @@ This ensures an extremely short feedback loop right at the developers fingertips
 If your development team consists of more than one person, then obviously a common ground for coding standards (formatting rules, line lengths etc.) must be agreed upon - even if it is just for practical reasons to avoid superficial, format related merge conflicts.
 Checkstyle Plugin helps you define and easily apply those common rules.
 
-The plugin uses a project builder to check your project files with Checkstyle. Assuming the IDE Auto-Build feature is enabled each modification of a project file will immediately get checked by Checkstyle on file save - giving you immediate feedback about the changes you made. To use a simple analogy, the Checkstyle Plug-in works very much like a compiler but instead of producing .class files, it produces warnings where the code violates Checkstyle rules. The discovered deviations are accessible in the Eclipse Problems View, as code editor annotations and via additional Checkstyle violations views.
+The plugin uses a project builder to check your project files with Checkstyle. Assuming the IDE Auto-Build feature is enabled, each modification of a project file will immediately get checked by Checkstyle on file save - giving you immediate feedback about the changes you made. To use a simple analogy, the Checkstyle Plug-in works very much like a compiler but instead of producing .class files, it produces warnings where the code violates Checkstyle rules. The discovered deviations are accessible in the Eclipse Problems View, as code editor annotations and via additional Checkstyle violations views.
 
 ==== Installation of CheckStyle
 
@@ -92,7 +92,7 @@ On the left hand side of the editor an icon is shown for each line that contains
 Also note the editor annotations - they are there to make it even easier to see where the problems are.
 
 
-=== FindBugs:
+=== FindBugs
 
 ==== What is FindBugs
 
@@ -104,7 +104,7 @@ It scans your code for bugs, breaking down the list of bugs in your code into a 
 
 ==== Installation and Usage of FindBugs
 
-OASP4J IDE comes preinstalled with FindBugs plugin.
+IDE comes preinstalled with FindBugs plugin.
 
 You can configure that FindBugs should run automatically for a selected project. For this right-click on a project and select Properties from the popup menu. via the project properties. Select FindBugs → Run automatically  as shown below.
 
@@ -136,10 +136,10 @@ SonarQube has got a very efficient way of navigating, a balance between high-lev
 
 ==== Installation and usage of SonarQube
 
-OASP4J IDE comes preinstalled with SonarQube.
+IDE comes preinstalled with SonarQube.
 To configure it , please follow below steps:
 
-First of all, you need to start sonar service.For that , from softwares folder in extracted from OASP4j IDE zip, choose sonarqube->bin-><choose appropriate folder according to your OS>-->and execute startSonar bat file.
+First of all, you need to start sonar service. For that , go to software folder which is extracted from Devon-dist zip, choose sonarqube->bin-><choose appropriate folder according to your OS>-->and execute startSonar bat file.
 
 If your project is not already under analysis, you'll need to declare it through the SonarQube web interface as described http://docs.sonarqube.org/display/SONAR/Project+Existence[here].
 Once your project exists in SonarQube, you're ready to get started with SonarQube in Eclipse.
@@ -169,7 +169,7 @@ Click on Finish. Your project is now associated to one analyzed on your SonarQub
 
 At any time, it is possible to change the project association.
 
-To do so, right-click on the project in the Project Explorer, and then SonarQube > Change Project Association...:
+To do so, right-click on the project in the Project Explorer, and then SonarQube > Change Project Association.
 
 image::images/devon-ide/change-link-with-project.png["change-link-with-project", width = "450" , link="images/devon-ide/change-link-with-project.png"]
 
@@ -204,7 +204,7 @@ Or you can go to link http://loclahost:9000 and login with admin as id and admin
 ==== What is soap UI
 
 SoapUI is an open-source web service testing application for service-oriented architectures (SOA) and representational state transfers (REST). Its functionality covers web service inspection, invoking, development, simulation and mocking, functional testing, load and compliance testing.
-OASP4J IDE comes preinstalled with this plugin.
+IDE comes preinstalled with this plugin.
 Note: There is no update site for this tool.
 
 ==== Why use Soap UI

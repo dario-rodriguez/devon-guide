@@ -75,6 +75,12 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - link:Client-GUI-Sencha-create-a-CRUD-page[Create a new CRUD page]
 
+- link:Client-GUI-Sencha-completing-CRUD-example[Completing CRUD example (Create, Read, Update and Delete)]
+
+- link:Client-GUI-Sencha-extending-the-CRUD-refresh-and-double-click[Extending the CRUD: Refresh and double-click]
+
+- link:Client-GUI-Sencha-extending-the-CRUD-viewModels[Extending the CRUD: ViewModels]
+
 - [Defining an Ext component](https://github.com/devonfw/devon/wiki/devon-guide-sencha-define-ext-component) 
 
 - [Creating Tests and Mocks (Jasmin & Simlets) TDD](https://github.com/devonfw/devon/wiki/devon-guide-sencha-creating-tests-mocks) (TODO) 
