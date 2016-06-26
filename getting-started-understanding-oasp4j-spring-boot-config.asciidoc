@@ -3,9 +3,9 @@ toc::[]
 
 = Understanding the OASP4J & Spring Boot Configuration
 
-An application needs to be configurable in order to allow internal setup, like CDI (Context and Dependency Injection), but also to allow externalized configuration of a deployed package (e.g. integration into runtime environment). Using http://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/[Spring Boot] we rely on a comprehensive configuration approach following a "convention over configuration" pattern. This guide adds on to this by detailed instructions and best-practices how to deal with configurations.
+An application needs to be configured in order to allow internal setup such as CDI (Context and Dependency Injection), but also to allow externalized configuration of a deployed package (e.g. integration into runtime environment). Using http://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/[Spring Boot], we rely on a comprehensive configuration approach following a "convention over configuration" pattern. This guide adds on to this by detailed instructions and best-practices to deal with configurations.
 
-In general we distinguish the following kinds of configuration that are explained in the following sections:
+In general, we distinguish the following kinds of configuration that are explained in the following sections:
 
 * xref:internal-application-configuration[Internal Application configuration] maintained by developers
 * xref:externalized-environment-configuration[Externalized Environment configuration] maintained by operators
@@ -13,13 +13,13 @@ In general we distinguish the following kinds of configuration that are explaine
 
 == Internal Application Configuration
 
-The application configuration contains all internal settings and wiring of the application (bean wiring, database mappings, etc.) and is maintained by the application developers at development time. There usually is a main configuration registered with main Spring Boot App, but differing configurations to support automated test of the application can be defined using profiles (not detailed in this guide).
+The application configuration contains all internal settings and wiring of the application (bean wiring, database mappings, etc.) and is maintained by the application developers at development time. Usually, there is a main configuration registered with main Spring Boot App, but differing configurations to support automated test of the application can be defined using profiles (not detailed in this guide).
 
-As we will see the web.xml, as the place for all web related configuration, is not at all used anymore to configure the web app. It is empty. So, let's see how we can configure our Devon based on Spring Boot applications!
+web.xml is referred as a place for all web related configuration but now it is no more used to configure the web app. It is empty. Therefore, let's discuss how we can configure Devon based on Spring Boot applications!
 
 === Standard beans configuration
 
-For basic bean configuration we rely on spring boot using mainly configuration classes and occasionally xml-configuration files. Some key principle to understand Spring Boot auto-configuration features:
+For basic bean configuration, we rely on spring boot mainly using configuration classes and occasionally xml-configuration files. Following are some of the key principles to understand Spring Boot auto-configuration features:
 
 * Spring Boot auto-configuration attempts to automatically configure your Spring application based on the jar dependencies and annotated components found in your source code. 
 
@@ -62,9 +62,9 @@ With the annotation _@Configuration_ Spring Boot will manage our class as a conf
 
 ==== Step 2: Including properties
 
-As we can see in the last step we have a Configuration Class that configures a simple bean (MyBean) so now we are going to see how we can set values to our configuration.
+In the last step, we have a Configuration Class that configures a simple bean (MyBean). Let's see how we can set values as per our configuration.
 
-There are several ways of setting the parameters value
+There are several ways of setting the parameters value:
 
 * Initialize the variable in the code.
 
@@ -77,11 +77,11 @@ public float   propertie3 = 0.0f;
 (...)
 ----
 
-Obviously, this is the most simple way to define the parameteres but isn't a good practice so we recommend to use some of the next ways with to define values in our configuration.
+Obviously, this is the most simple way to define the parameters but isn't a good practice so we recommend to use some of the next ways with to defined values in configuration.
 
 * Using _@Value_ annotation and _application.properties_ file
 
-First we need to define the properties in the _application.properties_ file. We can define the properties in _/main/resources/application.properties_ or in _/main/resources/config/application.properties_. If we are running the server with the embedded Tomcat of the application, we can use the both files, but if we are deploying the application on a external Tomcat we need to define our properties in the first one. 
+First, we need to define the properties in the _application.properties_ file. We can define the properties in _/main/resources/application.properties_ or in _/main/resources/config/application.properties_. If we are running the server with the embedded Tomcat of the application, we can use the both files, but if we are deploying the application on a external Tomcat, we need to define our properties in the first one. 
 
 image::images/devonfw-getting-started-conf/devon_guide_configuration_getting_started_application.properties_files.PNG[,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/devonfw-getting-started-conf/devon_guide_configuration_getting_started_application.properties_files.PNG"]
 
@@ -124,7 +124,7 @@ public class MyConfigurationClass{
 }
 ----
 
-As you can see, now Spring Boot will map in the variables the value of the properties under the prefix "mybean". Therefore, we just need to include these in the _application.properties_ file as we did in the _@Value_ example.
+Now, Spring Boot maps the variables to the value of the properties under the prefix "mybean". Therefore, we just need to include these in the _application.properties_ file as we did in the _@Value_ example.
 
 
 
@@ -181,9 +181,9 @@ Where to actually put a tailored application.properties file after deployment de
 * dedicated tomcat (one tomcat per app): put a tailored copy of `application.properties` into `tomcat/lib/config`
 * tomcat serving a number of apps (requires expanding the wars): put a tailored copy of application.properties into `tomcat/webapps/<app>/WEB-INF/classes/config`
 
-In this `application.properties` you only define the minimum properties that are environment specific and inherit everything else from the bundled `src/main/resources/application.properties`. In any case, make very sure that the classloader will find the file.
+In this `application.properties`, only define the minimum properties that are environment specific and inherit everything else from the bundled `src/main/resources/application.properties`. In any case, make very sure that the classloader will find the file.
 
-Make sure your properties are thoroughly documented by providing a comment to each property. This inline documentation is most valuable for your operating department. 
+Make sure that properties are thoroughly documented by providing a comment to each property. This inline documentation is most valuable for your operating department. 
 
 === Business Configuration
 The business configuration contains all business configuration values of the application, which can be edited by administrators through the GUI. The business configuration values are stored in the database in key/value pairs.
@@ -196,7 +196,7 @@ The database table `business_configuration` has the following columns:
 * Property value
 * Description
 
-According to the entries in this table, the administrative GUI shows a generic form to change business configuration. The hierachy of the properties determines the place in the GUI, so the GUI bundles properties from the same hierarchy level and name. `Boolean` values are shown as checkboxes, `integer` and `string` values as text fields. The properties are read and saved in a typed form, an error is raised if you try to save a `string` in an `integer` property for example.
+According to the entries in this table, the administrative GUI shows a generic form to change business configuration. The hierarchy of the properties determines the place in the GUI, so the GUI bundles properties from the same hierarchy level and name. `Boolean` values are shown as checkboxes, `integer` and `string` values as text fields. The properties are read and saved in a typed form, an error is raised if you try to save a `string` in an `integer` property for example.
 
 We recommend the following base layout for the hierarchical business configuration:
 
