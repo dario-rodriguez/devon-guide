@@ -81,6 +81,8 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - link:Client-GUI-Sencha-extending-the-CRUD-viewModels[Extending the CRUD: ViewModels]
 
+- link:Client-GUI-Sencha-extending-CRUD-pagination[Extending the CRUD: Pagination]
+
 - [Defining an Ext component](https://github.com/devonfw/devon/wiki/devon-guide-sencha-define-ext-component) 
 
 - [Creating Tests and Mocks (Jasmin & Simlets) TDD](https://github.com/devonfw/devon/wiki/devon-guide-sencha-creating-tests-mocks) (TODO) 
