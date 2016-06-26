@@ -1,0 +1,107 @@
+:toc: macro
+toc::[]
+
+# Pagination
+
+We have completed the CRUD example, but as we can see, our grid can contain a lot of records and we want to manage this amount of data in a better way.   For that purpose we should pagine our grid in oder to organize the information properly.    Devon4sencha provides a plugin for the pagination of the grids.
+
+To use the pagination plugin in our sample we need to:
+
+* 	Define a new REST endpoint for the paginated operation in the server. We are going to modify REST endpoints definition section in `TablesController.js` adding a new endpoint with the special flag pagination activated:
+
+[source,javascript]
+----
+init: function() {
+		Devon.Ajax.define({
+			'tablemanagement.table': {
+				url: 'tablemanagement/v1/table/{id}'
+			},
+			'tablemanagement.search': {
+				url: 'tablemanagement/v1/table/search',
+				pagination : true
+			}
+		});
+	},
+----
+
+* Add the rest end point to the tables store in the file `TableListVM.js`:
+
+[source,javascript]
+----
+stores: {
+		tables: {
+			model: 'demo.model.table.TableM',
+			pageSize: 3,
+			proxy: {
+				type : 'tablemanagement.search'
+			},
+			autoLoad:true
+		}
+	}
+----
+
+What we are doing here is to change the rest operation to obtain the data paginated.   Also, we are defining the amount of records that we will have in each page, in this case 3.
+
+* Add the plugin pagination to the grid. We are going to add this plugin to `TableListV.js`:
+
+[source,javascript]
+----
+xtype: 'grid',
+reference: 'tablesgrid',
+plugins:['pagination'],
+----
+
+* Add dependencies to the List view. We need to require Devon pagination plugin. We add a dependency to `TableListV.js`:
+
+[source,javascript]
+----
+requires: [
+	'Ext.grid.Panel',
+	'Devon.grid.plugin.Pagination',
+	'demo.view.table.TableListVM',
+	'demo.view.table.TableListVC'
+],
+----
+
+Navigate to the demo application and check the output
+
+The result should be like this:
+
+image::images/client-gui-sencha/pagination.PNG[Pagination,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/pagination.PNG"]
+
+If we open the folder `packages\local\devon-extjs\src\grid\plugin` we can see the source code for this plugin in the file `Pagination.js`:
+
+[source,javascript]
+----
+Ext.define('Devon.grid.plugin.Pagination', {
+    extend: 'Ext.plugin.Abstract',
+    alias: 'plugin.pagination',
+
+    requires: [
+        'Ext.grid.Panel',
+        'Ext.toolbar.Paging'
+    ],
+
+    init: function(grid) {
+        var me = this;
+
+        // If we do not find a binding store, we throw an error
+        if (!grid || !grid.getInitialConfig() || !grid.getInitialConfig().bind || !grid.getInitialConfig().bind.store) {
+            Devon.Log.error("Not found binding for store");
+            throw ("Not found binding for store");
+        }
+
+        var pagingCfg = {
+            bind: {
+                store: grid.getInitialConfig().bind.store
+            },
+            dock: 'bottom'
+        };
+
+        grid.addDocked(Ext.create('Ext.toolbar.Paging', pagingCfg));
+
+        me.callParent(arguments);
+    }
+
+});
+----
