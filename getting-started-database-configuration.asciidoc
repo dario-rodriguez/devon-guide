@@ -3,13 +3,13 @@ toc::[]
 
 = Database configuration
 
-In this tutorial we are going to configure our application to connect with a real database of our choice. Devonfw give us a very simple configuration, so we just need to add the dependency of the database libraries, create a profile, set the information of our database in the profile and activate it, update the script files, if any, as per DB syntax.
+In this tutorial, we are going to configure our application to connect with a real database of our choice. Devonfw give us a very simple configuration, so we just need to add the dependency of the database libraries, create a profile, set the information of our database in the profile and activate it, update the script files, if any, as per DB syntax.
 All these steps to be done in generated (through oasp4j-template server archetype), xxx-core project.
-By default, it comes with http://www.h2database.com/html/quickstart.html[h2] database configured.If we want to configure another db like MySQL, MS SQL or PostGre SQL, refer below sections.
+By default, it comes with http://www.h2database.com/html/quickstart.html[h2] database configured. If we want to configure another db like MySQL, MS SQL or PostGre SQL, refer below sections.
 
 
 == Add dependencies
-Add Dependency for database in _pom.xml_ file. For e.g If we are configuring mysql databse in our application, then we need to add below dependency.
+Add Dependency for database in _pom.xml_ file. For e.g to configure mysql database, add following dependency.
 
 MySQL:
  
@@ -51,7 +51,7 @@ image::images/database-configuration/db-config2.png[,width="450",link="images/da
 
 == Activate the new profile
 
-To activate new profile update `src/main/resources/application.properties` file. Set _spring.profiles.active= profile-name_. In our example profile-name is _mysql_. 
+To activate new profile, update `src/main/resources/application.properties` file. Set _spring.profiles.active= profile-name_. In our example profile-name is _mysql_. 
  
 MySQL:
 [source]
@@ -64,10 +64,10 @@ image::images/database-configuration/db-config3.png[,width="450",link="images/da
 
 
 
-== Further Details on Database configurations
+== Further Details on Database Configurations
 === MySQL
 
-The use of the MySQL is already being illustrated in the above examples. However, as mentioned, the GPL licensed (native) MySQL driver should *not* be used in a production environment. As an alternative, the free and liberally licensed "mariaDB" (a MySQL clone) library should be used. 
+The use of the MySQL is already being illustrated in the above examples. However, as mentioned, the GPL licensed (native) MySQL driver should *not* be used in a production environment. As an alternative, the free and liberally licensed "mariaDB" (a MySQL clone) library could be used. 
 
 The dependency declaration consists of:
 
@@ -80,7 +80,7 @@ The dependency declaration consists of:
 </dependency> 
 ----
 
-And the library can be used like MySQL but with a slight change to the configuration:
+And the library can be used such as MySQL but with a slight change in the configuration:
 
 [source]
 ----
@@ -114,7 +114,7 @@ flyway.locations=classpath:db/migration,classpath:db/migration/postgres
 
 The Microsoft JDBC drivers are *not* available on Maven Central; http://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=11774[ they need to be downloaded from the Microsoft site.]
  
-Once downloaded they should be installed in the local Maven repository (_.m2_ folder on the local machine). That can be done with the command:
+Once downloaded, they should be installed in the local Maven repository (_.m2_ folder on the local machine). That can be done with the following command:
 
 [source,batch]
 ----
