@@ -1,0 +1,321 @@
+:toc: macro
+toc::[]
+
+# Creating a CRUD page
+
+In this section a complete CRUD (Create, Retrieve, Update, Delete) entity example is developed with Devon4sencha step by step. We are going to do a CRUD for a `table` entity.
+
+## CRUD Packaging
+
+As an overview, these are the folders and files structure we need for the example.
+
+[source]
+----
+app/
++- controller/
+|  +- table/
+|    +- TableController.js
++-- model
+|   +- table
+|      +- TableM.js
++- store
+|   +- table
+|      +- TableS.js
++- view
+|   +- table
+|      +- TableEditV.js
+|      +- TableEditVC.js
+|      +- TableEditVM.js
+|      +- TableListV.js
+|      +- TableListVC.js
+|      +- TableListVM.js
+|      +- i18n
+|          +- Table_en_EN.js
+----
+
+## Step 1: Add a CRUD page to the application menu
+
+The first step is to add a new item to our application menu. 
+
+The code of the `Menu.js` file in the path `app/view/main/` should be:
+
+[source,javascript]
+----
+Ext.define('demo.view.main.Menu', {
+    extend: 'Ext.Panel',
+
+    alias: 'widget.main-menu',
+
+    requires: [
+        'Ext.toolbar.Toolbar',
+
+        //by default use the Devon VC for this menu
+        'Devon.view.main.MenuVC'
+    ],
+    
+    items: [{
+        xtype: 'toolbar',
+        items: [{
+            text: 'Tables', // i18n.main.menu.tables,
+            eventName: 'eventOpenTableList'
+        }]
+    }],
+
+    controller: 'main-menu',
+    cls:'main-menu',
+    buttonAlign:'left',
+    buttons: [{
+            text: 'page1', //i18n
+            eventName: 'eventOpenPage1'
+        },{
+            text: 'My new page',
+            eventName: 'eventOpenMyNewPage'
+        }
+    ]
+});
+----
+
+We are adding a new item in the menu, with an internationalized text (later we will talk about internationalization). When this menu option will be pressed, an event `eventOpenTableList` will be fired so we need an object to listen for this event: The controller.
+
+## Step 2: Controller, a view factory and REST endpoints definition 
+
+Now, we are going to create a global controller to manage all global logic about the different table´s views. Basically, this controller will be a factory to create instances of table´s views and it will have the REST endpoints definition.
+
+A Controller is also needed besides a ViewController because the later is tightly coupled to a view and only exists when the view exists... so there has to be someplace responsible to instantiate the view.
+
+Controllers in Sencha are global and we try to decouple between controllers by using events and not referencing each other directly. This helps us to modularize applications.
+
+We create a `TableController.js` file in the path `app/controller/table` with the follow content:
+
+[source,javascript]
+----
+Ext.define('demo.controller.table.TableController', {
+	extend: 'Ext.app.Controller',
+	/*view requires*/
+	requires:[
+		'demo.view.table.i18n.Table_en_EN',
+		'demo.view.table.TableListV'
+	],
+	/*Global events listeners definition*/
+	config: {
+		listen: {
+			global: {
+				eventOpenTableList: 'onMenuOpenTables'
+			}
+		}
+	},
+	/*Rest end points definition*/
+	init: function() {
+		Devon.Ajax.define({
+			'tablemanagement.table': {
+				url: 'tablemanagement/v1/table/{id}'
+			}
+		});
+	},
+	/*Create a view when a global event is fired*/
+	onMenuOpenTables: function() {
+		var tables = new demo.view.table.TableListV();
+		Devon.App.openInContentPanel(tables);
+	}
+});
+----
+
+As we can see, TableController is listening for the `eventOpenTableList` event and when it will be fired, the controller will call the function `onMenuOpenTables` to create an instance of the view `TableListV` (we will define this view later). In addition, we have defined functions to create instances of `TableEditV`.
+Also, we have defined one REST endpoint to do CRUD operations.
+
+We have to include in Application.js the new Controller we have just created:
+
+[source,javascript]
+----
+Ext.define('demo.Application', {
+    extend: 'Devon.App',
+    
+    controllers: [
+      'demo.controller.main.MainController',
+      'demo.controller.page1.Page1Controller',
+      'demo.controller.table.TableController'
+    ],
+
+    name: 'demo',
+
+    stores: [
+        // TODO: add global / shared stores here
+    ],
+    
+    launch: function () {
+        // TODO - Launch the application
+    }
+});
+----
+
+## Step 3: Create a model
+
+Before we create the views, we are going to define the table model. This model contains the definition of every field in a table object.
+We create the file `TableM.js` in the path `app/model/table/` .
+
+[source,javascript]
+----
+
+Ext.define('demo.model.table.TableM', {
+	extend: 'Ext.data.Model',
+	fields: [
+		{ name: 'id', type: 'int' },
+		{ name: 'number', type: 'int', allowNull: true },
+		{ name: 'state', type: 'auto' }
+	]
+});
+
+----
+
+[NOTE]
+====
+Sometimes you may have a type int property in your model and it could be `null` . Sencha, by default, assigns the value '0' (zero) to this property, so if you do not fill this property and you send to the server the model, you will send a zero value in this property instead of null value. The solution for this is add `allowNull` property to the int model propertie with true value. Example:
+
+[source,javascript]
+----
+
+{ name: 'number', type: 'int', allowNull: true }
+
+----
+
+
+====
+## Step 4: Create the Store
+
+Ext.data.Store can be thought of as a collection of records, or Ext.data.Model instances.
+
+Create the file `TableS` in app/store/table folder:
+
+[source,javascript]
+----
+Ext.define('demo.store.table.TableS',{
+    extend:'Ext.data.Store',
+    requires:['demo.model.table.TableM'],
+    model:'demo.model.table.TableM',
+    alias:'store.table',
+    storeId:'miStore',
+    autoLoad:true,
+    proxy:{
+        type: 'rest',
+        url: 'http://localhost:8081/devonfw-sample-server/services/rest/tablemanagement/v1/table',
+        withCredentials: true
+    }
+});
+----
+
+We have to include in `Application.js` the new Store we have just created:
+
+[source,javascript]
+----
+Ext.define('demo.Application', {
+    extend: 'Devon.App',
+    
+    controllers: [
+      'demo.controller.main.MainController',
+      'demo.controller.page1.Page1Controller',
+      'demo.controller.table.TableController'
+    ],
+
+    name: 'demo',
+
+    stores: [
+        'demo.store.table.TableS'
+    ],
+    
+    launch: function () {
+        // TODO - Launch the application
+    }
+});
+----
+
+## Step 5: Create the view and viewController
+
+We are going to start by creating the view that lists the tables.
+
+The first step is to create a `TableListV.js` in the path `app/view/table/` that contains the reference to the ViewController.
+
+[source,javascript]
+---- 
+Ext.define("demo.view.table.TableListV", {
+	extend: "Ext.panel.Panel",
+	alias: 'widget.tables',
+	/*view requires*/
+	requires: [
+		'Ext.grid.Panel',
+		'demo.view.table.TableListVC'
+	],
+	title: i18n.tables.title,
+	/*View controller reference*/
+	controller: "tablelist",
+	closable: true,
+	initComponent: function() {
+		Ext.apply(this, {
+		items : [
+			this.grid()
+		]
+		});
+		this.callParent(arguments);
+	},
+
+	grid : function() {
+		return {
+			xtype: 'grid',
+			reference: 'tablesgrid',
+			flex: 1,
+			padding: '0 10 10 10',
+			allowDeselect: true,
+			store:this.getStore(),
+			columns: [{
+				text: i18n.tables.grid.number,
+				dataIndex: 'number'
+			}, {
+				text: i18n.tables.grid.state,
+				dataIndex: 'state',
+				flex: 1
+			}]
+		}
+	},
+	getStore:function(){
+		return Ext.create('store.table', {name:'storetable_'+Math.random()});
+	}
+});
+----
+
+Now, the ViewController.  Create the file `TableListVC.js` in the folder `app/view/table/`:
+
+[source,javascript]
+---- 
+Ext.define('demo.view.table.TableListVC', {
+	extend: 'Ext.app.ViewController',
+	alias: 'controller.tablelist'
+});
+----
+
+## Step 6: Create i18n literals
+
+In order to properly have the application internationalized, it is mandatory to define the bundle of messages for each language to support.
+
+In the different views, we have defined the texts, in function of the value of some properties defined in a special i18n object. For every group of views (in this case, tables views), we need to create another file called `Table_<language code>_<country code>.js`. So we are going to create a file `Table_en_EN.js` in the `path app/view/table/i18n/`.
+
+[source,javascript]
+----
+Ext.define('demo.view.table.i18n.Table_en_EN',{
+	extend:'Devon.I18nBundle',
+	singleton:true,
+	i18n:{
+		tables: {
+			title: 'Tables',
+			html:'List of tables for the restaurant demo',
+			grid: {
+				number: 'NUMBER',
+				state: 'STATE'
+			}
+		}
+	}
+});
+----
+
+Navigate to our application in the browser and check the changes we have just made.  The result should be like this one:
+
+image::images/client-gui-sencha/CRUD.PNG[CRUD,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/CRUD.PNG"]
+
