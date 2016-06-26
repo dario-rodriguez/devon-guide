@@ -29,3 +29,12 @@
 * link:cookbook-batch-layer[Batch Layer]
 * link:cookbook-websocket[WebSocket]
 * link:cookbook-JAX-WS-WebServices[JAX WS WebServices]
+
+== Client GUI Sencha
+
+* link:Client-GUI-Sencha-Introduction-to-Devon4sencha[Introduction to Devon4sencha]
+* link:Client-GUI-Sencha-Workspace-and-Sencha-Cmd[Sencha Workspace & Sencha Cmd]
+* link:Client-GUI-Sencha-Anatomy-of-a-Devon4sencha-application[Anatomy of a Devon4sencha application]
+* link:Client-GUI-Sencha-running-sample-application[Running Sample Application]
+* link:Client-GUI-Sencha-create-new-application[Create New Devon4sencha Application]
+* link:Client-GUI-Sencha-devon4sencha-application-structure[Devon4sencha application structure]
