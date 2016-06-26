@@ -104,7 +104,7 @@ It scans your code for bugs, breaking down the list of bugs in your code into a 
 
 ==== Installation and Usage of FindBugs
 
-OASP4J IDE comes preinstalled with FindBugs plugin.
+IDE comes preinstalled with FindBugs plugin.
 
 You can configure that FindBugs should run automatically for a selected project. For this right-click on a project and select Properties from the popup menu. via the project properties. Select FindBugs → Run automatically  as shown below.
 
