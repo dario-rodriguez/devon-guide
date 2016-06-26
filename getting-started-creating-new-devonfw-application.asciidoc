@@ -5,10 +5,9 @@ toc::[]
 
 == Running the archetype
 
-In order to create a new application you must use the archetype provided by oasp4j who uses the maven archetype functionality.
+In order to create a new application, you must use the archetype provided by devon who uses the maven archetype functionality.
 
-To use the archetype provided by oasp4j you can choose between 2 alternatives, create it from command line or, in more visual manner, within eclipse.
-
+To use the archetype, there are 2 alternatives, one is to create it from command line or, in more visual manner, within eclipse.
 
 === From command Line
 
@@ -18,14 +17,14 @@ Open the Devonfw console by executing the batch file "console.bat" from the Devo
 
 ==== Step 2: Change the directory
 
-You can create the project wherever you want, but it is a good practice to create the projects into your `workspace` directory. So, in the console, change to the directory `workspaces\main`.
+You can create the project wherever you want, but it is a good practice to create the projects into your `workspace` directory. Therefore, run the following command in the console to change to the directory to `workspaces\main`.
 
 [source,bash]
 ----
 cd workspaces\main
 ----
 
-This is the default location on Devonfw to create new applications. You can use your own workspaces if you have it.
+This is the default location on Devonfw to create new applications. It is also possible to have your own workspace.
 
 ==== Step 3: Create the new application
 
@@ -62,7 +61,7 @@ This will create a new directory inside `workspaces\main` with the name of your 
 If you use a proxy to connect to the Internet, the following will not work, as Eclipse has a known bug where the archetype discovery does not work behind a proxy. In this case, please use the command line version documented above.
 ====
 
-To create a new application with Eclipse, you should have installed https://coconet.capgemini.com/sf/frs/do/listReleases/projects.apps2_devon/frs.devon_distribution[Devonfw distribution]. After that, you should follow this Eclipse steps to create your application:
+To create a new application with Eclipse, you should have installed https://coconet.capgemini.com/sf/frs/do/listReleases/projects.apps2_devon/frs.devon_distribution[Devonfw distribution]. Then follow below steps to create new application:
 
 ==== Step 1 - Create a new Maven Project
 
@@ -70,7 +69,7 @@ Open Eclipse from a Devonfw distribution, by executing the batch file "eclipse-m
 
 ==== Step 2 -  Choose the archetype
 
-In the New Maven Project wizard you need to choose the _oas4j-template-server archetype_, just like the image.
+In the New Maven Project wizard you need to choose the _oas4j-template-server archetype_, as shown in below image.
 
 image::images/create-new-app/devon-guide-newapp-choose-archetype.PNG[,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/create-new-app/devon-guide-newapp-choose-archetype.PNG"]
 
@@ -78,7 +77,7 @@ image::images/create-new-app/devon-guide-newapp-choose-archetype.PNG[,width="450
 
 ==== Step 3 - Configure the application properties
 
-Now you need to fill the _Group Id_, _Artifact Id_, _Version_ and _Package_ for your project. 
+Fill the _Group Id_, _Artifact Id_, _Version_ and _Package_ for your project. 
 
 If you want to add an EAR generation mechanism to your project, you should fill the property _earProjectName_ with the value _Artifact Id_ + "-ear". For example, "sampleapp-ear". 
 
@@ -87,7 +86,7 @@ If you only want a WAR generation, you can remove the property _earProjectName_.
 image::images/create-new-app/devon-guide-newapp-archetype-parameters.PNG[,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/create-new-app/devon-guide-newapp-archetype-parameters.PNG"]
 [EAR]
 
-* Finish the Eclipse assistant and you are ready to start your project.
+* Click on the Finish button and your project is ready for execution.
 
 == What is generated
 
