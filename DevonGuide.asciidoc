@@ -58,10 +58,6 @@ include::getting-started-creating-new-devonfw-application[]
 
 <<<<
 
-include::getting-started-oasp-app-structure[]
-
-<<<<
-
 include::getting-started-understanding-oasp4j-spring-boot-config[]
 
 <<<<
