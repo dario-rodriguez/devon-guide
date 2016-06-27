@@ -89,7 +89,7 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - link:Client-GUI-Sencha-extending-CRUD-change-state-table[Extending the CRUD: Changing the state of a table]
 
-- link:Client-GUI-Sencha-extending-CRUD-edit-menu-order[Extending the CRUD: Editing menu order
+- link:Client-GUI-Sencha-extending-CRUD-edit-menu-order[Extending the CRUD: Editing menu order]
 
 - [Defining an Ext component](https://github.com/devonfw/devon/wiki/devon-guide-sencha-define-ext-component) 
 
