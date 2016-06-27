@@ -1,1 +1,44 @@
-Devon4Sencha Tools.
+:toc: macro
+toc::[]
+
+# Devon4Sencha Tools.
+
+## Code Analysis Tools
+
+- *There are a couple of tools you can
+use to analyse
+your code. Popular tools for JavaScript development are:*
+
+
+1. JSLint – http://www.jslint.com/[http://www.jslint.com/]
+
+* A JavaScript syntax checker and validator on coding rules.
+
+2. JSHint – http://jshint.com/[http://jshint.com/]
+
+* A community driven fork of JSLint, which is not as
+strict as JSLint.
+
+
+
+- *There are many plugins available for IDE’s and editors to check the JavaScript code while writing using the above tools.*
+
+## Analysing code with Sencha Cmd
+
+- Every time when you run a sencha app build or sencha
+app build testing on the command-line, it will validate your JavaScript code.Lint errors will show up as parse warnings in your console.
+
+- Not only it checks your JavaScript errors, it will also check your Sass stylesheet for errors, before compiling it to production ready CSS.
+
+image::images/devon4sencha-badPractices/tools/analyzing-code-with-sencha-cmd.png[,width="250",Bad Practices Comma]
+
+## Sonar for JavaScript
+- The JavaScript plugin enables analysis and reporting on JavaScript projects.
+
+- More information: 
+* http://docs.sonarqube.org/display/PLUG/JavaScript+Plugin[http://docs.sonarqube.org/display/PLUG/JavaScript+Plugin]
+
+image::images/devon4sencha-badPractices/tools/sonar-qube.png[,width="250",Bad Practices Comma]
+
+image::images/devon4sencha-badPractices/tools/sonar-for-javascript.png[,width="250",Bad Practices Comma]
+
