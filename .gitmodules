@@ -1,0 +1,3 @@
+[submodule "oasp4js"]
+	path = oasp4js
+	url = https://github.com/oasp/oasp4js.wiki.git
