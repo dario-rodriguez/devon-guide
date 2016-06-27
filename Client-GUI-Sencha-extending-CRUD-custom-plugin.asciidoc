@@ -1,0 +1,104 @@
+:toc: macro
+toc::[]
+
+# Extending the CRUD: Custom plugin
+
+We have seen how to use the plugins that are provided by default by Sencha as the cellediting or rowediting plugins.
+
+Now, we are going to see a simple example of how to create our own plugin.  For this purpose we want to create a plugin to manage the permissions of specific functionalities depending on the roles of the user logged in the application.  Therefore, depending on the roles the buttons will be hidden or shown.
+
+We just need to create a new file, for instance, `demo/plugins/SecureAccess.js` where we will manage :
+
+[source,javascript]
+----
+Ext.define('demo.plugins.SecureAccess', {
+    extend: 'Ext.plugin.Abstract',
+    alias: 'plugin.secureaccess',
+
+    requires: [
+        'Ext.button.Button',
+        'Ext.toolbar.Toolbar'
+    ],
+    
+
+    init : function(component) {
+        
+        if(Devon.Security && Devon.Security.currentUser && Devon.Security.currentUser.roles){
+            var userRoles = Devon.Security.currentUser.roles;
+            
+            var roleInList = function(componentRoles){
+                for(var rol in componentRoles){
+                    if(userRoles[componentRoles[rol]]){
+                       return true;
+                    }
+                }
+                
+                return false;
+            };
+            
+            
+            if (component.items && component.items.items) {
+                var items = component.items.items;
+                
+                for(var pos in items){
+                    var item = items[pos];
+                    
+                    if(item.roles && !roleInList(item.roles)){
+                        item.hide();
+                    }
+                    
+                }
+                
+            }
+            
+        }
+
+    }
+});
+----
+
+Now, we have to add the plugin recently created to use the functionality. For example, we can apply this behaviour for allowing or disallowing add, edit and delete tables in our application. 
+   
+In the file `TableListV.js` add the reference to the plugin the in requires property:
+
+[source,javascript]
+----
+requires: [
+        'Ext.grid.Panel',
+        'Devon.grid.plugin.Pagination',
+        'demo.plugins.SecureAccess',
+        'demo.view.table.TableListVM',
+        'demo.view.table.TableListVC'
+    ],
+----
+
+Then, in the toolbar of the grid we add the plugin and the roles for the buttons: 
+
+[source,javascript]
+----
+tbar: {
+            plugins:['secureaccess'],
+            items: [{
+                text: i18n.tables.buttons.add,
+                handler: 'onAddClick',
+                roles:['WAITER']
+            }, {
+                text: i18n.tables.buttons.edit,
+                bind: {
+                    disabled: '{!selectedItem}'
+                },
+                roles:['WAITER'],
+                handler: 'onEditClick'
+            }, {
+                text: i18n.tables.buttons.del,
+                roles:['CHIEF'],
+                bind: {
+                    disabled: '{!selectedItem}'
+                },
+                handler: 'onDeleteClick'
+…
+----
+
+Navigate to the application and check how the buttons appear or disappear depending on the user and the roles.  Try with `waiter` and `chief`.
+The user waiter should be able to add and edit tables.
+The user chief should be able to do all the functionalities.
