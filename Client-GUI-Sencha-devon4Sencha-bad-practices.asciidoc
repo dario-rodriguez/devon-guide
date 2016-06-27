@@ -34,11 +34,11 @@ toc::[]
 
 
 
-image::images/devon4sencha-badPractices/bad-practices/bad-practice-commaI.png[,width="250",Bad Practices Comma]
+image::images/devon4sencha-badPractices/bad-practices/bad-practice-commaI.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/bad-practice-commaI.png"]
 
 
 
-image::images/devon4sencha-badPractices/bad-practices/bad-practice-commaII.png[,width="250",Bad Practices Comma]
+image::images/devon4sencha-badPractices/bad-practices/bad-practice-commaII.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/bad-practice-commaII.png"]
 
 
 
@@ -58,7 +58,7 @@ image::images/devon4sencha-badPractices/bad-practices/bad-practice-commaII.png[,
 
 
 
-image::images/devon4sencha-badPractices/bad-practices/bad-panel-grid.png[,width="300",Bad Panel Grid]
+image::images/devon4sencha-badPractices/bad-practices/bad-panel-grid.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/bad-panel-grid.png"]
 
 
 
@@ -66,7 +66,7 @@ image::images/devon4sencha-badPractices/bad-practices/bad-panel-grid.png[,width=
 
 
 
-image::images/devon4sencha-badPractices/bad-practices/good-panel-grid.png[,width="300",Good Panel Grid]    
+image::images/devon4sencha-badPractices/bad-practices/good-panel-grid.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/good-panel-grid.png"]    
 
     fig:Example 1B Good: The grid is already a panel, so just use any panel properties directly on the grid.
 
@@ -114,7 +114,7 @@ Slower operation / browser crash.
 
 
 
-image::images/devon4sencha-badPractices/bad-practices/unused-components.png[,width="450",Unused Components]
+image::images/devon4sencha-badPractices/bad-practices/unused-components.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/unused-components.png"]
 
 
 
@@ -130,7 +130,7 @@ Menu will still exist.
 
 
 
-image::images/devon4sencha-badPractices/bad-practices/unused-components-solution.png[,width="450",Unused Components solution]
+image::images/devon4sencha-badPractices/bad-practices/unused-components-solution.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/unused-components-solution.png"]
 
 
 
@@ -140,7 +140,7 @@ image::images/devon4sencha-badPractices/bad-practices/unused-components-solution
 
 
 
-image::images/devon4sencha-badPractices/bad-practices/unused-components-Best-solution.png[,width="450",Unused Components Best solution]
+image::images/devon4sencha-badPractices/bad-practices/unused-components-Best-solution.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/unused-components-Best-solution.png]
 
 
 
@@ -156,7 +156,8 @@ fig: Poor folder structure.
 
 
 
-image::images/devon4sencha-badPractices/bad-practices/poor-folder-stucture.png[,width="200",Poor folder structure]
+image::images/devon4sencha-badPractices/bad-practices/poor-folder-stucture.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/poor-folder-stucture.png]
+
 
 
 
@@ -164,7 +165,7 @@ fig: Folder structure to follow.
 
 
 
-image::images/devon4sencha-badPractices/bad-practices/good-folder-stucture.png[,width="200",good folder structure]
+image::images/devon4sencha-badPractices/bad-practices/good-folder-stucture.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/good-folder-stucture.png]
 
 
 
@@ -180,7 +181,7 @@ image::images/devon4sencha-badPractices/bad-practices/good-folder-stucture.png[,
 
 
 
-image::images/devon4sencha-badPractices/bad-practices/global-variable-III.png[,width="200",Global variable]
+image::images/devon4sencha-badPractices/bad-practices/global-variable-III.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/global-variable-III.png]
 
 
 
@@ -190,19 +191,19 @@ image::images/devon4sencha-badPractices/bad-practices/global-variable-III.png[,w
 
     
 
-image::images/devon4sencha-badPractices/bad-practices/global-variable-IV.png[,width="200",Global variable]
+image::images/devon4sencha-badPractices/bad-practices/global-variable-IV.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/global-variable-IV.png]
 
 
 
-image::images/devon4sencha-badPractices/bad-practices/global-variable-v.png[,width="200",Global variable]
+image::images/devon4sencha-badPractices/bad-practices/global-variable-v.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/global-variable-v.png]
 
 
 
-image::images/devon4sencha-badPractices/bad-practices/global-variable-I.png[,width="200",Global variable]
+image::images/devon4sencha-badPractices/bad-practices/global-variable-I.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/global-variable-I.png]
 
 
 
-image::images/devon4sencha-badPractices/bad-practices/global-variable-II.png[,width="200",Global variable]
+image::images/devon4sencha-badPractices/bad-practices/global-variable-II.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/global-variable-II.png]
 
 
 
@@ -214,7 +215,7 @@ image::images/devon4sencha-badPractices/bad-practices/global-variable-II.png[,wi
 
 
 
-image::images/devon4sencha-badPractices/bad-practices/use-of-id-I.png[,width="300",Use of Id]
+image::images/devon4sencha-badPractices/bad-practices/use-of-id-I.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/use-of-id-I.png]
 
 
 
@@ -224,11 +225,11 @@ still get a reference to the component.
 
 
 
-image::images/devon4sencha-badPractices/bad-practices/replace-by-itemId-I.png[,width="200",replace by Item Id]
+image::images/devon4sencha-badPractices/bad-practices/replace-by-itemId-I.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/replace-by-itemId-I.png]
 
 
 
-image::images/devon4sencha-badPractices/bad-practices/replace-by-itemId-II.png[,width="300",replace by Item Id]
+image::images/devon4sencha-badPractices/bad-practices/replace-by-itemId-II.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/replace-by-itemId-II.png]
 
 
 
@@ -244,11 +245,11 @@ component.
 
 
 
-image::images/devon4sencha-badPractices/bad-practices/unreliable-reference.png[,width="300",Unreliable reference]
+image::images/devon4sencha-badPractices/bad-practices/unreliable-reference.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/unreliable-reference.png]
 
 
 
-image::images/devon4sencha-badPractices/bad-practices/unreliable-reference-correction.png[,width="300",Unreliable reference Correction]
+image::images/devon4sencha-badPractices/bad-practices/unreliable-reference-correction.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/unreliable-reference-correction.png]
 
 
 
@@ -264,7 +265,7 @@ image::images/devon4sencha-badPractices/bad-practices/unreliable-reference-corre
 
  
 
-image::images/devon4sencha-badPractices/bad-practices/upper-lower-naming-convention.png[,width="300",upper lower naming convention]
+image::images/devon4sencha-badPractices/bad-practices/upper-lower-naming-convention.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/upper-lower-naming-convention.png]
 
 
 
@@ -274,7 +275,7 @@ image::images/devon4sencha-badPractices/bad-practices/upper-lower-naming-convent
 
 
 
-image::images/devon4sencha-badPractices/bad-practices/upper-lower-naming-convention-correction.png[,width="300",upper lower naming convention correction]
+image::images/devon4sencha-badPractices/bad-practices/upper-lower-naming-convention-correction.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/upper-lower-naming-convention-correction.png]
 
 
 
@@ -284,7 +285,7 @@ image::images/devon4sencha-badPractices/bad-practices/upper-lower-naming-convent
 
 
 
-image::images/devon4sencha-badPractices/bad-practices/complecated-code.png[,width="300",complecated-code]
+image::images/devon4sencha-badPractices/bad-practices/complecated-code.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/complecated-code.png]
 
 
 
@@ -294,11 +295,11 @@ image::images/devon4sencha-badPractices/bad-practices/complecated-code.png[,widt
 
 
 
-image::images/devon4sencha-badPractices/bad-practices/load-record.png[,width="300",load-record]
+image::images/devon4sencha-badPractices/bad-practices/load-record.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/load-record.png]
 
 
 
-== Nesting callbacks == nightmare
+== Nesting callbacks are a nightmare
 
 * Pyramidal code.
 
@@ -316,7 +317,7 @@ image::images/devon4sencha-badPractices/bad-practices/load-record.png[,width="30
 
 
 
-image::images/devon4sencha-badPractices/bad-practices/nesting-callbacks.png[,width="300",nesting callbacks]
+image::images/devon4sencha-badPractices/bad-practices/nesting-callbacks.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/nesting-callbacks.png]
 
 
 
@@ -324,7 +325,7 @@ image::images/devon4sencha-badPractices/bad-practices/nesting-callbacks.png[,wid
 
 
 
-image::images/devon4sencha-badPractices/bad-practices/nesting-callbacks-scope.png[,width="300",nesting callbacks scope]
+image::images/devon4sencha-badPractices/bad-practices/nesting-callbacks-scope.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/nesting-callbacks-scope.png]
 
 
 
@@ -360,11 +361,11 @@ image::images/devon4sencha-badPractices/bad-practices/nesting-callbacks-scope.pn
 
 
 
-image::images/devon4sencha-badPractices/bad-practices/caching-and-references-I.png[,width="300",caching-and-references-I]
+image::images/devon4sencha-badPractices/bad-practices/caching-and-references-I.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/caching-and-references-I.png]
 
 
 
-image::images/devon4sencha-badPractices/bad-practices/caching-and-references-II.png[,width="300",caching-and-references-II]
+image::images/devon4sencha-badPractices/bad-practices/caching-and-references-II.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/caching-and-references-II.png]
 
 
 
@@ -380,7 +381,7 @@ image::images/devon4sencha-badPractices/bad-practices/caching-and-references-II.
 
 
 
-image::images/devon4sencha-badPractices/bad-practices/Improperly-idented-code.png[,width="300",Improperly-idented-code]
+image::images/devon4sencha-badPractices/bad-practices/Improperly-idented-code.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/Improperly-idented-code.png]
 
 
 
@@ -390,7 +391,7 @@ image::images/devon4sencha-badPractices/bad-practices/Improperly-idented-code.pn
 
 
 
-image::images/devon4sencha-badPractices/bad-practices/indented-code.png[,width="300",indented-code]
+image::images/devon4sencha-badPractices/bad-practices/indented-code.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/indented-code.png]
 
 
 
@@ -412,7 +413,7 @@ image::images/devon4sencha-badPractices/bad-practices/indented-code.png[,width="
 
 
 
-image::images/devon4sencha-badPractices/bad-practices/one-class-per-file.png[,width="300",indented-code]
+image::images/devon4sencha-badPractices/bad-practices/one-class-per-file.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/one-class-per-file.png]
 
 
 
@@ -422,19 +423,19 @@ image::images/devon4sencha-badPractices/bad-practices/one-class-per-file.png[,wi
 
 
 
-image::images/devon4sencha-badPractices/bad-practices/too-much-work-I.png[,width="300",too-much-work-I]
+image::images/devon4sencha-badPractices/bad-practices/too-much-work-I.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/too-much-work-I.png]
 
 
 
-image::images/devon4sencha-badPractices/bad-practices/too-much-work-II.png[,width="300",too-much-work-II]
+image::images/devon4sencha-badPractices/bad-practices/too-much-work-II.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/too-much-work-II.png]
 
 
 
-image::images/devon4sencha-badPractices/bad-practices/too-much-work-III.png[,width="300",too-much-work-III]
+image::images/devon4sencha-badPractices/bad-practices/too-much-work-III.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/too-much-work-III.png]
 
 
 
-== Comments/Documentation
+== Comments or Documentation
 
 
 
@@ -448,7 +449,7 @@ image::images/devon4sencha-badPractices/bad-practices/too-much-work-III.png[,wid
 
 
 
-image::images/devon4sencha-badPractices/bad-practices/comments-documentation-I.png[,width="300",comments-documentation-I]
+image::images/devon4sencha-badPractices/bad-practices/comments-documentation-I.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/comments-documentation-I.png]
 
 
 
@@ -470,7 +471,7 @@ image::images/devon4sencha-badPractices/bad-practices/comments-documentation-I.p
 
 
 
-image::images/devon4sencha-badPractices/bad-practices/js-duck.png[,width="300",js-duck]
+image::images/devon4sencha-badPractices/bad-practices/js-duck.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/js-duck.png]
 
 
 
@@ -484,7 +485,7 @@ image::images/devon4sencha-badPractices/bad-practices/js-duck.png[,width="300",j
 
 
 
-image::images/devon4sencha-badPractices/bad-practices/comparator-operation.png[,width="300",comparator-operation]
+image::images/devon4sencha-badPractices/bad-practices/comparator-operation.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/comparator-operation.png]
 
 
 
@@ -496,7 +497,7 @@ image::images/devon4sencha-badPractices/bad-practices/comparator-operation.png[,
 
 
 
-image::images/devon4sencha-badPractices/bad-practices/be-lazy-badPractice.png[,width="200",be-lazy-badPractice]
+image::images/devon4sencha-badPractices/bad-practices/be-lazy-badPractice.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/be-lazy-badPractice.png]
 
 
 
@@ -510,7 +511,7 @@ image::images/devon4sencha-badPractices/bad-practices/be-lazy-badPractice.png[,w
 
 
 
-image::images/devon4sencha-badPractices/bad-practices/bill-gate-says.png[,width="200",bill-gate-says]
+image::images/devon4sencha-badPractices/bad-practices/bill-gate-says.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/bill-gate-says.png]
 
 
 
@@ -538,11 +539,11 @@ image::images/devon4sencha-badPractices/bad-practices/bill-gate-says.png[,width=
 
 
 
-image::images/devon4sencha-badPractices/bad-practices/knowing-this-I.png[,width="200",knowing-this-I]
+image::images/devon4sencha-badPractices/bad-practices/knowing-this-I.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/knowing-this-I.png]
 
 
 
-image::images/devon4sencha-badPractices/bad-practices/knowing-this-II.png[,width="200",knowing-this-II]
+image::images/devon4sencha-badPractices/bad-practices/knowing-this-II.png[[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/knowing-this-II.png]
 
 
 
