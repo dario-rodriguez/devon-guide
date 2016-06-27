@@ -14,7 +14,7 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - link:getting-started-running-sample-application[Running Sample Application] (REVIEWED)
 
-- link:getting-started-distribution-structure[Devonfw Distribution Structure]
+- link:getting-started-distribution-structure[Devonfw Distribution Structure](REVIEWING...)
 
 - link:getting-started-creating-new-devonfw-application[Create New Application] (REVIEWED)
 
@@ -34,7 +34,7 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - link:getting-started-crud-operations[CRUD operations and DAO Implementation](REVIEWED)
 
-- link:getting-started-Cobigen[Generating code with Cobigen](REVIEWING....)
+- link:getting-started-Cobigen[Generating code with Cobigen](REVIEWED)
 
 - link:getting-started-transfer-objects[Transfer Objects : ETOs and CTOs] (REVIEWED)
 
