@@ -55,7 +55,7 @@ Both execute batches as a "simple" standalone process (instantiating a new JVM a
 
 For starting a batch job, the following parameters are required:
 
-===== jobPath(s)
+===== jobPath
 
 The location of the JavaConfig classes (usually annotated with @Configuration or @SpringBootApplication) and/or XML files that will be used to create an +ApplicationContext+.
 
