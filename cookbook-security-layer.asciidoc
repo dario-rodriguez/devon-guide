@@ -148,7 +148,7 @@ The access model provided by oasp4j-security follows this suggestions:
 The OASP4J applications provide a ready to use module _oasp4j-security_ that is based on http://projects.spring.io/spring-security/[spring-security] and makes your life a lot easier.
 
 .OASP4J Security Model
-image::images/security-layer/Security-AccessControl.png["access-control", width="450", link="images/security-layer/Security-AccessControl.png"]
+image::images/security-layer/Security-AccessControl.png["access-control",align="center",width="450", link="images/security-layer/Security-AccessControl.png"]
 
 The diagram shows the model of _oasp4j-security_ that separates two different aspects:
 
