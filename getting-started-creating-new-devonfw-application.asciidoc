@@ -44,14 +44,14 @@ For example
 ---- 
 mvn -DarchetypeVersion=2.0.0 -DarchetypeGroupId=io.oasp.java.templates -DarchetypeArtifactId=oasp4j-template-server archetype:generate -DgroupId=io.oasp.application -DartifactId=sampleapp -Dversion=0.1-SNAPSHOT -Dpackage=io.oasp.application.sampleapp
 ---- 
-
+//////////////////////////////////////////
 ** And for combined WAR and EAR packaging (arguments before archetype:generate identify the OASP4J archetype):
 +
 [source]
 ---- 
 mvn -DarchetypeVersion=2.0.0 -DarchetypeGroupId=io.oasp.java.templates -DarchetypeArtifactId=oasp4j-template-server archetype:generate -DgroupId=io.oasp.application -DartifactId=sampleapp -Dversion=0.1-SNAPSHOT -Dpackage=io.oasp.application.sampleapp -DearProjectName=enterprise-ear
 ---- 
-
+//////////////////////////////////////////
 This will create a new directory inside `workspaces\main` with the name of your application with the created application inside.
 
 === From Eclipse
@@ -78,11 +78,11 @@ image::images/create-new-app/devon-guide-newapp-choose-archetype.PNG[,width="450
 ==== Step 3 - Configure the application properties
 
 Fill the _Group Id_, _Artifact Id_, _Version_ and _Package_ for your project. 
-
+//////////////////////////////////////////
 If you want to add an EAR generation mechanism to your project, you should fill the property _earProjectName_ with the value _Artifact Id_ + "-ear". For example, "sampleapp-ear". 
 
 If you only want a WAR generation, you can remove the property _earProjectName_.
-
+//////////////////////////////////////////
 image::images/create-new-app/devon-guide-newapp-archetype-parameters.PNG[,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/create-new-app/devon-guide-newapp-archetype-parameters.PNG"]
 [EAR]
 
