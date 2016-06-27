@@ -1,0 +1,412 @@
+:toc: macro
+toc::[]
+
+# Extending the CRUD: Editing menu order
+
+## Create Edit Order View
+
+In this section we are going to order some dishes from a menu for the tables that we have in our system.   For this purpose we add a new button in the grid named `Edit Order`.   When we click this button it opens a new tab panel showing two grids, one with the menu information and the other one with the dishes ordered for the table.
+
+Add the button `Edit Order` editing the tile `TableListV.js`:
+
+[source,javascript]
+----
+{
+	text: i18n.tables.buttons.editOrder,
+	bind: {
+		disabled: '{!selectedItem}'
+	},
+	handler: 'onEditOrderClick'
+}
+----
+
+Edit the file `TableListVC.js` to add the function `onEditOrderClick`:
+
+[source,javascript]
+----
+onEditOrderClick: function() {
+        var rec = this.getViewModel().get('selectedItem');
+        Ext.GlobalEvents.fireEvent('eventTableEditOrder', {
+            id: rec.id
+        });
+    }
+----
+
+Edit the file `TableController` to add the listener for the event `eventTableEditOrder`:
+
+[source,javascript]
+----
+config: {
+        listen: {
+            global: {
+                eventOpenTableList: 'onMenuOpenTables',
+                eventTableAdd: 'onTableAdd',
+                eventTableEdit: 'onTableEdit',
+                eventTableEditOrder: 'onTableEditOrder'
+            }
+        }
+    },
+----
+
+Then, in the same file, add the definition of the function:
+
+[source,javascript]
+----
+onTableEditOrder: function(tableSelected) {
+        var id = tableSelected.id;
+        var panel = new demo.view.table.TableOrderV({
+            title: i18n.tableOrder.title + id,
+            viewModel: {
+                data: {
+                    tableId: id
+                }
+            }
+        });
+        Devon.App.openInContentPanel(panel, {
+            id: id
+        });
+    },
+----
+
+Create the **View** with the file `TableOrderV.js` in the path `app/view/table`:
+
+[source,javascript]
+----
+Ext.define("demo.view.table.TableOrderV", {
+    extend: "Ext.panel.Panel",
+    alias: 'widget.tableorder',
+
+    requires: [
+        'demo.view.table.TableOrderVM',
+        'demo.view.table.TableOrderVC'
+    ],
+
+    controller: "table-order-controller",
+
+    viewModel: {
+        type: "table-order-model"
+    },
+
+    closable: true,
+    
+    initComponent: function() {
+		Ext.apply(this, {
+		items : [
+            this.header(),
+			this.gridMenu(),
+            this.gridOrder()
+		]
+		});
+		this.callParent(arguments);
+	},
+    
+    header: function(){
+        return {
+            padding: 10,
+            bind: {
+                html: i18n.tableOrder.html + '{tableId}'
+            },
+            border: false
+        }
+    },
+    
+    gridMenu: function(){
+        return {
+            xtype: 'grid',
+            title: 'Menu',
+            reference: 'menugrid',
+            allowDeselect: true,
+            columns: [{
+                text: i18n.tableOrder.grid.number,
+                dataIndex: 'id'
+            }, {
+                text: i18n.tableOrder.grid.title,
+                dataIndex: 'description',
+                flex: 1
+            }, {
+                text: i18n.tableOrder.grid.price,
+                dataIndex: 'price'
+            }],
+            bind: {
+                store: '{menu}',
+                selection: '{selectedMenuItem}'
+            },
+            bbar: {
+                items: [{
+                        text: i18n.tableOrder.add,
+                        bind: {
+                            disabled: '{!selectedMenuItem}'
+                        },
+                        handler: 'addOrder'
+                    }
+                ]
+            }
+        }
+    },
+    
+    gridOrder: function(){
+        return {
+            xtype: 'grid',
+            title: 'Orders',
+            reference: 'ordergrid',
+            allowDeselect: true,
+            columns: [{
+                dataIndex: 'id',
+                hidden: true
+            }, {
+                text: i18n.tableOrder.grid.title,
+                dataIndex: 'description',
+                flex: 1
+            }, {
+                text: i18n.tableOrder.grid.price,
+                dataIndex: 'price'
+            }],
+            bind: {
+                store: '{order}',
+                selection: '{selectedOrderItem}'
+            },
+            bbar: {
+                items: [{
+                        text: i18n.tableOrder.remove,
+                        bind: {
+                            disabled: '{!selectedOrderItem}'
+                        },
+                        handler: 'orderRemove'
+                    },
+                    '->', {
+                        text: i18n.tableOrder.submit,
+                        handler: 'tableOrderSubmit'
+                    }, {
+                        text: i18n.tableOrder.cancel,
+                        handler: 'tableOrderCancel'
+                    }
+                ]
+            }
+        }
+    }
+});
+----
+
+Create the **ViewModel** with the file `TableOrderVM.js`:
+
+[source,javascript]
+----
+Ext.define('demo.view.table.TableOrderVM', {
+    extend: 'Ext.app.ViewModel',
+    requires: [
+    ],
+    alias: 'viewmodel.table-order-model',
+
+    data: {
+        selectedMenuItem: false,
+        selectedOrderItem: false
+    },
+
+    stores: {
+        menu: {
+            fields: ['id','description','price'],
+			data:[
+				{'id': 1, 'description':'Coke', 'price':'3.99'},
+				{'id': 2, 'description':'Water', 'price':'1.99'},
+				{'id': 3, 'description':'Orange Juice', 'price':'4.99'},
+                		{'id': 4, 'description':'Salad', 'price':'7.99'},
+                		{'id': 5, 'description':'Chicken', 'price':'8.99'}
+			]
+        },
+        order: {
+            fields: ['id','offerId','description','price'],
+			data:[
+				
+			]
+        }
+    }
+});
+----
+
+Create the **ViewController** with the file `TableOrderVC.js`:
+
+[source,javascript]
+----
+Ext.define('demo.view.table.TableOrderVC', {
+    extend: 'Ext.app.ViewController',
+    alias: 'controller.table-order-controller',
+
+    control: {
+        'tableorder': {
+            afterrender: 'onAfterRender'
+        }
+    },
+
+    onAfterRender: function() {  
+        /* */
+    },
+
+    tableOrderCancel: function() {
+        this.tableOrderClose();
+    },
+
+    tableOrderClose: function() {
+        this.getView().destroy();
+    },
+
+    tableOrderSubmit: function() {
+        /* TODO Submit Orders for the table */
+    },
+
+    orderRemove: function() {
+        var model = this.getViewModel();
+        var orders = model.get("order");
+        var selectedItem = model.get("selectedOrderItem");
+
+        orders.remove(selectedItem);
+    },
+
+    addOrder: function() {
+        var vm = this.getViewModel();
+        var selectedMenu = vm.get("selectedMenuItem");
+
+        vm.get("order").add({
+            id: null,
+            offerId: selectedMenu.get("id"),
+            description: selectedMenu.get("description"),
+            price: selectedMenu.get("price")
+        });
+    }
+});
+----
+
+Edit the file `Table_en_EN.js` to add the new messages:
+
+[source,javascript]
+----
+tableOrder: {
+            title: 'Table: ',
+            newTitle: 'New table',
+            status: 'STATUS',
+            orderPos: 'Order Positions:',
+            add: 'Add',
+            remove: 'Remove',
+            submit: 'Submit',
+            cancel: 'Cancel',
+            html: 'Details for table #',
+            grid: {
+                number: 'Number',
+                title: 'Title',
+                status: ' STATUS',
+                price: 'Price',
+                comment: 'Comment'
+            }
+        },
+----
+
+Edit the file `TableController.js` adding the new view in the `requires` property:
+
+[source,javascript]
+----
+requires:[
+		'demo.view.table.i18n.Table_en_EN',
+		'demo.view.table.TableListV',
+		'demo.view.table.TableEditV',
+		'demo.view.table.TableOrderV'
+	],
+----
+
+Navigate to the application and check the result
+
+After all these steps if we check the result on the browser we will see two grids, one with the information about the menu and the other one with the information about what we have ordered for that table.   When we select one item from the `Menu` grid we can add that item on the `Orders` grid so we can complete our order.
+
+image::images/client-gui-sencha/editOrder.PNG[Edit order,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/editOrder.PNG"]
+
+image::images/client-gui-sencha/editOrderView.PNG[Edit order View,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/editOrderView.PNG"]
+
+## Drag and drop
+
+We are going to change our sample a bit.   Instead of using the button `Add` to add some dish or drink to our order, we are going to do it using the `Drag and drop` functionality that ExtJS provides.
+
+The only thing we have to do is to define in our grids the configuration for the drag and drop.  
+
+Include in the first grid, in the file `TableOrderV.js`, the following code:
+
+[source,javascript]
+----
+viewConfig: {
+                plugins: {
+                    ptype: 'gridviewdragdrop',
+                    dragGroup: 'firstGridDDGroup',
+                    dropGroup: 'secondGridDDGroup'
+                }
+            },
+----
+
+Then, in the other grid we have to add the following code:
+
+[source,javascript]
+----
+viewConfig: {
+                plugins: {
+                    ptype: 'gridviewdragdrop',
+                    dragGroup: 'secondGridDDGroup',
+                    dropGroup: 'firstGridDDGroup'
+                }
+            },
+----
+
+Navigate to our application and check that now we can drag and drop elements from the two grids.   
+
+In our case, what we want is to drag only from the first grid and drop in the second one.   So we have to edit our configuration for this purpose.
+
+Edit the configuration of the first grid adding the property `enableDrop` with the value to false:
+
+[source,javascript]
+----
+viewConfig: {
+                plugins: {
+                    ptype: 'gridviewdragdrop',
+                    dragGroup: 'firstGridDDGroup',
+                    dropGroup: 'secondGridDDGroup',
+                    enableDrop: false
+                }
+            },
+----
+
+Edit the configuration of the second one adding the property `enableDrag` with value to false:
+
+[source,javascript]
+----
+viewConfig: {
+                plugins: {
+                    ptype: 'gridviewdragdrop',
+                    dragGroup: 'secondGridDDGroup',
+                    dropGroup: 'firstGridDDGroup',
+                    enableDrag: false
+                }
+            },
+----
+
+Check the changes. Now, we can only drag from the first grid and drop to the second one.
+
+Besides this, what we want is to drag from the first grid but keep the record in the grid as we can have the same item more than once.   In order to do this we need to edit the configuration of the `Order` grid, the second grid.   We have to add a listener for the drop in the configuration of the drag and drop:
+
+[source,javascript]
+----
+listeners: {
+    drop: 'restoreMenu'
+}
+----
+
+When the drop is launched we are going to execute the function `restoreMenu`.   In our ViewController `TableOrderVC.js` we have to define the function:
+
+[source,javascript]
+----
+restoreMenu: function(node, data, dropRec, dropPosition){
+        var record = data.records[0].data;
+        var vm = this.getViewModel();
+        vm.get("menu").add(record);
+    }
+----
+
+We are adding again the element that we have just dropped from the first grid.
+
+Navigate to the application to check the results
+
+image::images/client-gui-sencha/editOrderDragDrop.PNG[Edit Order Drag Drop,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/editOrderDragDrop.PNG"]
