@@ -23,7 +23,9 @@ toc::[]
 
 * Automatic tests
 
-* See also:http://saucelabs.com/[http://saucelabs.com] and http://www.browserstack.com/[http://www.browserstack.com/]
+* See also 
+1. https://saucelabs.com/ and 
+2. http://www.browserstack.com/
 
 
 
@@ -52,7 +54,7 @@ toc::[]
 - *HP UFT*
 
 == Sencha Test
-* *Sencha Test* –https://www.sencha.com/blog/sencha-test-is-now-generally-available[https://www.sencha.com/blog/sencha-test-is-now-generally-available]
+* *Sencha Test* https://www.sencha.com/blog/sencha-test-is-now-generally-available]
 
 * Helps existing and new Ext JS developers to release quality applications.
 
