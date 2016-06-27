@@ -252,9 +252,7 @@ image::images/devon4sencha-badPractices/bad-practices/unreliable-reference-corre
 
 
 
-== Failing to follow upper/lowercase naming conventions
-
-
+== Failing to follow upper or lowercase naming conventions
 
 * Avoid confusion and keep your code clean.
 

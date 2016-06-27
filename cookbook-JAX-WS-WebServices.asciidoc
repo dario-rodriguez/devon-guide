@@ -5,7 +5,7 @@ toc::[]
 = WebServices (JAX WS)
 
 
-== What are Webservices?
+== What are Webservices
 
 A Web Service can be defined by following ways:
 
@@ -28,7 +28,7 @@ There are mainly two types of web services.
 Here, we will describe more about JAX-WS (SOAP based) webServices.
 
 
-== Why use WebServices?
+== Why use WebServices
 
 *Exposing the Existing Function on the network*
 

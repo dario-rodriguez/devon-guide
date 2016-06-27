@@ -54,18 +54,6 @@ include::getting-started-distribution-structure[]
 
 <<<<
 
-include::getting-started-creating-new-devonfw-application[]
-
-<<<<
- 
-include::getting-started-oasp-app-structure[]
-
-<<<<
-
-include::getting-started-understanding-oasp4j-spring-boot-config[]
-
-<<<<
-
 include::getting-started-database-configuration[]
 
 <<<<
@@ -79,55 +67,3 @@ include::getting-started-writing-unittest-cases[]
 <<<<
 
 include::getting-started-logging-and-auditing[]
-
-<<<<
-
-include::getting-started-Data-Access-Layer[]
-
-<<<<
-
-include::getting-started-crud-operations[]
-
-<<<<
-
-include::getting-started-Cobigen[]
-
-<<<<
-
-include::getting-started-transfer-objects[]
-
-<<<<
-
-include::getting-started-logic-layer[]
-
-<<<<
-
-include::getting-started-bean-mapping-using-dozer[]
-
-<<<<
-
-include::getting-started-Creating-Rest-Service[]
-
-<<<<
-
-include::getting-started-deployment-on-tomcat[]
-
-:leveloffset: 0 
-
-== CookBook 
-
-:leveloffset: 2
-
-include::cookbook-security-layer[]
-
-<<<<
-
-include::cookbook-JAX-WS-WebServices[]
-
-<<<<
-
-include::cookbook-batch-layer[]
-
-<<<<
-
-include::cookbook-websocket[]
