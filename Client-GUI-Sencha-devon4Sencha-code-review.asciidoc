@@ -84,7 +84,7 @@ as we need to be to check the expected functionality?
 * Developers can ensures issues, comments and decisions are recorded in a database, and provides a comfortable workspace for actually performing code inspections.
 
 
-image::images/devon4sencha-badPractices/code-review/code-review-tools.png[,width="250",code review tools]
+image::images/devon4sencha-badPractices/code-review/code-review-tools.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/code-review/code-review-tools.png"]
 
 
 - *Collaborator*
@@ -93,4 +93,4 @@ image::images/devon4sencha-badPractices/code-review/code-review-tools.png[,width
 
 * It allows teams to peer review code, user stories and test plans in a transparent, collaborative framework&nbsp;-- instantly keeping the entire team up to speed on changes made to the code.
 
-image::images/devon4sencha-badPractices/code-review/code-review-tools-collaborator.png[,width="250",code review tools collaborator]
+image::images/devon4sencha-badPractices/code-review/code-review-tools-collaborator.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/code-review/code-review-tools-collaborator.png"]

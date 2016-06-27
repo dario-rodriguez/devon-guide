@@ -30,7 +30,7 @@ app build testing on the command-line, it will validate your JavaScript code.Lin
 
 - Not only it checks your JavaScript errors, it will also check your Sass stylesheet for errors, before compiling it to production ready CSS.
 
-image::images/devon4sencha-badPractices/tools/analyzing-code-with-sencha-cmd.png[,width="250",Bad Practices Comma]
+image::images/devon4sencha-badPractices/tools/analyzing-code-with-sencha-cmd.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/tools/analyzing-code-with-sencha-cmd.png"]
 
 ## Sonar for JavaScript
 - The JavaScript plugin enables analysis and reporting on JavaScript projects.
@@ -38,7 +38,7 @@ image::images/devon4sencha-badPractices/tools/analyzing-code-with-sencha-cmd.png
 - More information: 
 * http://docs.sonarqube.org/display/PLUG/JavaScript+Plugin[http://docs.sonarqube.org/display/PLUG/JavaScript+Plugin]
 
-image::images/devon4sencha-badPractices/tools/sonar-qube.png[,width="250",Sonar Qube]
+image::images/devon4sencha-badPractices/tools/sonar-qube.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/tools/sonar-qube.png"]
 
-image::images/devon4sencha-badPractices/tools/sonar-for-javascript.png[,width="250",Sonar Qube for javaScript]
+image::images/devon4sencha-badPractices/tools/sonar-for-javascript.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/tools/sonar-for-javascript.png"]
 
