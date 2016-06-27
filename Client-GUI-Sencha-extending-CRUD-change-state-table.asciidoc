@@ -1,0 +1,142 @@
+:toc: macro
+toc::[]
+
+# Extending the CRUD: Change the state of a table
+
+We are going to extend our sample application changing the state of the tables.  For that purpose we have to add some buttons to be able to do the actions of changing between states.
+
+First of all, we have to edit the file `TableListV.js` to add these buttons:
+
+[source,javascript]
+----
+, {
+	text: i18n.tables.buttons.reserve,
+	handler: 'onMarkAsReserved',
+	bind: {
+		disabled: '{!canReserve}'
+	}
+}, {
+	text: i18n.tables.buttons.cancel,
+	handler: 'onCancelReserve',
+	bind: {
+		disabled: '{!canCancel}'
+	}
+	
+}, {
+	text: i18n.tables.buttons.occupy,
+	handler: 'onMarkAsOccupied',
+	bind: {
+		disabled: '{!canOcuppy}'
+	}
+
+}, {
+	text: i18n.tables.buttons.free,
+	handler: 'onMarkAsFree',
+	bind: {
+		disabled: '{!canFree}'
+	}
+}
+----
+
+We have added new buttons to the grid.   Now, we have to add to the file `Table_en_EN.js` the messages for these buttons:
+
+[source,javascript]
+----
+buttons: {
+add: 'Add',
+edit: 'Edit',
+editOrder: 'Edit Order',
+del: 'Delete',
+deleteMsg: '¿Are you sure you want to delete this Table?',
+refresh: 'Refresh',
+reserve: 'Reserve',
+cancel: 'Cancel Reservation',
+occupy: 'Occupy',
+free: 'Free'
+}
+----
+
+As we have seen before in our View, we will be able to find out if a button have to be enabled or not depending on the information of our ViewModel.   Edit the file `TableListVM.js` to add some formulas to our ViewModel:
+
+[source,javascript]
+----
+formulas: {
+        canReserve: function(get) {
+            var table = get('selectedItem');
+            if (!table) {
+                return false;
+            }
+            return table.get("state") == demo.model.table.TableM.state.FREE;
+        },
+        canCancel: function(get) {
+            var table = get('selectedItem');
+            if (!table) {
+                return false;
+            }
+
+            return table.get("state") == demo.model.table.TableM.state.RESERVED;
+        },
+        canOcuppy: function(get) {
+            var table = get('selectedItem');
+            if (!table) {
+                return false;
+            }
+            var state = table.get("state");
+            return state == demo.model.table.TableM.state.RESERVED || state == demo.model.table.TableM.state.FREE;
+        },
+        canFree: function(get) {
+            var table = get('selectedItem');
+            if (!table) {
+                return false;
+            }
+            return table.get("state") == demo.model.table.TableM.state.OCCUPIED;
+        }
+
+    }
+----
+
+Navigate to our application and check the changes
+
+Now, if we check our sample, we will see that when we select a record from the grid the buttons enabled and disabled depending on the logic we have just added.
+
+image::images/client-gui-sencha/changeState1.PNG[Change State,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/changeState1.PNG"]
+
+The last step is to add the functions of these buttons in the file `TableListVC.js`:
+
+[source,javascript]
+----
+markSelectedAs: function(status) {
+        var me = this;
+        var table = me.getViewModel().get('selectedItem').data;
+        table.state = status;
+
+        Devon.rest.tablemanagement.table.post({
+            scope: me,
+            jsonData: table,
+            success: function(){
+                Ext.GlobalEvents.fireEvent('eventTablesChanged');
+            }
+        });
+
+    },
+
+    onMarkAsOccupied: function() {
+        this.markSelectedAs(demo.model.table.TableM.state.OCCUPIED);
+    },
+
+    onMarkAsFree: function() {
+        this.markSelectedAs(demo.model.table.TableM.state.FREE);
+    },
+
+    onMarkAsReserved: function() {
+        this.markSelectedAs(demo.model.table.TableM.state.RESERVED);
+    },
+
+    onCancelReserve: function() {
+        this.markSelectedAs(demo.model.table.TableM.state.FREE);
+    }
+----
+
+Each time one of these buttons is pressed, the state of the table will change depending on the previous state.
+
+Navigate to the application and change the state of the tables
