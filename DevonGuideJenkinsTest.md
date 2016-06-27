@@ -1,0 +1,81 @@
+= Devonfw Guide 
+Jhonatan Core <jhcore@capgemini.com>
+v2.0.0
+
+:imagesdir: ./images
+:footnote: test footnote from asciidoc
+:productname: test productname from asciidoc
+
+[preface]
+== Document Description
+https://troom.capgemini.com/sites/vcc/devon/getstarted.aspx[_Devonfw_] provides a solution to building applications which combine best-in-class frameworks and libraries as well as industry proven practices and code conventions.
+It massively speeds up development, reduces risks and helps you to deliver better results.
+
+This document contains the complete compendium of the https://troom.capgemini.com/sites/vcc/devon/getstarted.aspx[_Devonfw_]. From this link you will also find the latest release or nightly snapshot of this documentation.
+
+**Current versions:**
+
+* https://coconet.capgemini.com/sf/frs/do/downloadFile/projects.apps2_devon/frs.devon_distribution.1_0_0/frs43015?dl=1[Devonfw Tutorial - v1.0.0] 
+* Devonfw - v2.0.0
+
+**Authors:**
+  
+https://troom.capgemini.com/sites/vcc/devon/getstarted.aspx[_Devonfw_] Team, Capgemini  
+
+:leveloffset: 1
+[preface]
+include::getting-started-Introduction-to-devonfw[]
+
+:leveloffset: 0
+:toc:
+
+:leveloffset: 1
+include::devcon-user-guide[]
+
+:leveloffset: 0
+:toc:
+
+== Getting Started 
+:leveloffset: 2
+
+include::getting-started-download-and-install[]
+
+<<<<
+ 
+include::getting-started-the-devon-ide[]
+
+<<<<
+ 
+include::getting-started-running-sample-application[]
+ 
+<<<<
+ 
+include::getting-started-distribution-structure[]
+
+<<<<
+
+include::getting-started-creating-new-devonfw-application[]
+
+<<<<
+ 
+include::getting-started-oasp-app-structure[]
+
+<<<<
+
+include::getting-started-understanding-oasp4j-spring-boot-config[]
+
+<<<<
+
+include::getting-started-database-configuration[]
+
+<<<<
+
+include::getting-started-flyway-database-migration[]
+
+<<<<
+
+include::getting-started-writing-unittest-cases[]
+
+<<<<
+
+include::getting-started-logging-and-auditing[]
