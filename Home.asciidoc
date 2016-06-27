@@ -32,9 +32,9 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - link:getting-started-Data-Access-Layer[Data Access Layer](REVIEWED)
 
-- link:getting-started-crud-operations[CRUD operations and DAO Implementation](REVIEWING...)
+- link:getting-started-crud-operations[CRUD operations and DAO Implementation](REVIEWED)
 
-- link:getting-started-Cobigen[Generating code with Cobigen]
+- link:getting-started-Cobigen[Generating code with Cobigen](REVIEWING....)
 
 - link:getting-started-transfer-objects[Transfer Objects : ETOs and CTOs] (REVIEWED)
 
