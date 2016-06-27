@@ -13,7 +13,7 @@ The OASP4J archetype generates a Maven Modules Project. It has 3 Maven modules a
 
 ** Properties definition: Spring-boot version, Java version, server port, database port.
 
-** Modules definition: Imports for 3 modules (core, EAR and server).
+** Modules definition: Imports for modules (core and server).
 
 ** Dependency Management: Spring-boot, OASP4J-BOM and JUnit dependencies. Also we can include Devonfw-BOM and Devonfw modules dependency.
 
@@ -122,9 +122,3 @@ This module contains two important files:
 * lockback.xml: This file is in the _resources_ folder and responsible for configuring the log.
 
 * pom.xml: This file has Maven configuration for packaging the application as a WAR. Also, this file has a profile to package the JavaScript client ZIP file into the WAR.
-
-== EAR Module
-
-In some cases, we can create an EAR module in project. This module only contains a _pom.xml_ file to package the application as EAR from the generated WAR.
-
-Find more about how to create a new application link:getting-started-creating-new-devonfw-application[here].
