@@ -65,11 +65,12 @@ The interesting part is, that there is a login-processing-url, which should be a
 Spring Security will automatically redirect any unauthorized access to the defined login-page. After sucuessful login, the user will be redirected to the original requested URL. The only pitfall is, that anchors in the request URL will not be transmitted to server and thus cannot be restored after successful login. Therefore the oasp4j-security module provides the RetainAnchorFilter, which is able to inject javascript code to the source page and to the target page of any redirection. Using javascript this filter is able to retrieve the requested anchors and store them into a cookie. Heading the target URL this cookie will be used to restore the original anchors again.
 
 To enable this mechanism you have to integrate the RetainAnchorFilter as follows:
-First, declare the filter with 
 
-* `storeUrlPattern`: an regular expression matching the URL, where anchors should be stored
-* `restoreUrlPattern`: an regular expression matching the URL, where anchors should be restored
-* `cookieName`: the name of the cookie to save the anchors in the intermediate time
+First, declare the filter with: 
+
+* `storeUrlPattern` a regular expression matching the URL, where anchors should be stored
+* `restoreUrlPattern` a regular expression matching the URL, where anchors should be restored
+* `cookieName` the name of the cookie to save the anchors in the intermediate time
 
 [source,xml]
 ----
@@ -144,15 +145,15 @@ The access model provided by oasp4j-security follows this suggestions:
 
 === oasp4j-security
 
-The OASP provides a ready to use module +oasp4j-security+ that is based on http://projects.spring.io/spring-security/[spring-security] and makes your life a lot easier.
+The OASP4J applications provide a ready to use module _oasp4j-security_ that is based on http://projects.spring.io/spring-security/[spring-security] and makes your life a lot easier.
 
 .OASP4J Security Model
-image::images/Security-AccessControl.png["access-control", width="450", link="images/Security-AccessControl.png"]
+image::images/security-layer/Security-AccessControl.png["access-control", width="450", link="images/security-layer/Security-AccessControl.png"]
 
-The diagram shows the model of +oasp4j-security+ that separates two different aspects:
+The diagram shows the model of _oasp4j-security_ that separates two different aspects:
 
 * The _Indentity- and Access-Management_ is provided by according products and typically already available in the enterprise landscape (e.g. an active directory). It provides a hierarchy of _primary access control objects_ (roles and groups) of a user. An administrator can grant and revoke permissions (indirectly) via this way.
-* The application security is using +oasp4j-security+ defines a hierarchy of _secondary access control objects_ (groups and permissions) in the file +access-control-schema.xml+ (see https://github.com/oasp/oasp4j/blob/develop/oasp4j-samples/oasp4j-sample-core/src/main/resources/config/app/security/access-control-schema.xml[example from sample app]). This hierarchy defines the application internal access control schema that should be an implementation secret of the application. Only the top-level access control objects are public and define the interface to map from the primary to secondary access control objects. This mapping is simply done by using the same names for access control objects to match.
+* The application security is using _oasp4j-security_ and defines a hierarchy of _secondary access control objects_ (groups and permissions) in the file _access-control-schema.xml_ (see https://github.com/oasp/oasp4j/blob/develop/samples/core/src/main/resources/config/app/security/access-control-schema.xml[example from sample app]). This hierarchy defines the application internal access control schema that should be an implementation secret of the application. Only the top-level access control objects are public and define the interface to map from the primary to secondary access control objects. This mapping is simply done by using the same names for access control objects to match.
 
 ==== Access Control Schema
 
@@ -168,7 +169,7 @@ The `oasp4j-security` module provides a simple and efficient way to define permi
 |Access Control|`AccessControl`| Super type that represents a tree of `AccessControlGroups` and `AccessControlPermissions`. If a principal "has" a `AccessControl` he also "has" all `AccessControls` with according permissions in the spanned sub-tree.
 |=======================
 
-.Example access-control-schema.xml
+.Example _access-control-schema.xml_
 [source,xml]
 ----
 <?xml version="1.0" encoding="UTF-8"?>
@@ -256,7 +257,7 @@ The authorization (in terms of Spring security "access management") can be enabl
 
 ==== Configuration on Java Method level
 As state of the art oasp4j will focus on role-based authorization to cope with authorization for executing use case of an application. 
-We will use the JSR250 annotations, mainly `@RolesAllowed`, for authorizing method calls against the permissions defined in the annotation body. This has to be done for each use-case method in logic layer. Here is an example:
+We will use the _JSR250_ annotations, mainly `@RolesAllowed`, for authorizing method calls against the permissions defined in the annotation body. This has to be done for each use-case method in logic layer. Here is an example:
 
 [source,java]
 ----
@@ -269,7 +270,7 @@ public class UcFindTableImpl extends AbstractTableUc implements UcFindTable {
   }
 }
 ----
-Now this method can only be called if a user is logged-in that has the permission `FIND_TABLE`.
+Now this method can only be called if the user that is logged-in has the permission `FIND_TABLE`.
 
 //////////////////////////////////////////
 JH: IMHO too much options causing confusion. When necessary one can still study the spring-sec documentation.
@@ -308,7 +309,7 @@ We address these common threats individually in _security_ sections of our techn
 |*Thread*|*Protection*|*Link to details*
 |https://www.owasp.org/index.php/Top_10_2013-A1-Injection[A1 Injection]
 |validate input, escape output, use proper frameworks
-|link:guide-dataaccess-layer#security[data-access-layer guide]
+|link:getting-started-Data-Access-Layer#security[data-access-layer guide]
 
 |https://www.owasp.org/index.php/Top_10_2013-A2-Broken_Authentication_and_Session_Management[A2 Broken Authentication and Session Management]
 |encrypt all channels, use a central identity management with strong password-policy
@@ -316,11 +317,11 @@ We address these common threats individually in _security_ sections of our techn
 
 |https://www.owasp.org/index.php/Top_10_2013-A3-Cross-Site_Scripting_(XSS)[A3 XSS]
 |prevent injection (see A1) for HTML, JavaScript and CSS and understand same-origin-policy
-|link:guide-client-layer#security[client-layer]
+|link:https://github.com/oasp/oasp4j/wiki/guide-client-layer[client-layer]
 
 |https://www.owasp.org/index.php/Top_10_2013-A4-Insecure_Direct_Object_References[A4 Insecure Direct Object References]
 |Using direct object references (IDs) only with appropriate authorization
-|link:guide-logic-layer#direct-object-references[logic-layer]
+|link:getting-started-logic-layer[logic-layer]
 
 |https://www.owasp.org/index.php/Top_10_2013-A5-Security_Misconfiguration[A5 Security Misconfiguration]
 |Use OASP application template and guides to avoid
@@ -328,15 +329,15 @@ We address these common threats individually in _security_ sections of our techn
 
 |https://www.owasp.org/index.php/Top_10_2013-A6-Sensitive_Data_Exposure[A6 Sensitive Data Exposure]
 |Use secured exception facade, design your data model accordingly
-|link:guide-service-layer#rest-exception-handling[REST exception handling]
+|link:getting-started-Creating-Rest-Service#rest-exception-handling[REST exception handling]
 
 |https://www.owasp.org/index.php/Top_10_2013-A7-Missing_Function_Level_Access_Control[A7 Missing Function Level Access Control]
 |Ensure proper authorization for all use-cases, use `@DenyAll` als default to enforce
-|xref:method-authorization[Method authorization]
+|xref:authorization[Method authorization]
 
 |https://www.owasp.org/index.php/Top_10_2013-A8-Cross-Site_Request_Forgery_(CSRF)[A8 CSRF]
 |secure mutable service operations with an explicit CSRF security token sent in HTTP header and verified on the server
-|link:guide-service-layer#csrf[service-layer security]
+|link:getting-started-Creating-Rest-Service#csrf[service-layer security]
 
 |https://www.owasp.org/index.php/Top_10_2013-A9-Using_Components_with_Known_Vulnerabilities[A9 Using Components with Known Vulnerabilities]
 |subscribe to security newsletters, recheck products and their versions continuously, use OASP dependency management
