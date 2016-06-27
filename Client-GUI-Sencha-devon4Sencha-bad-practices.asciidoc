@@ -126,6 +126,7 @@ image::images/devon4sencha-badPractices/unreliable-reference.png[,width="300",Un
 image::images/devon4sencha-badPractices/unreliable-reference-correction.png[,width="300",Unreliable reference Correction]
 
 == Failing to follow upper/lowercase naming conventions
+
 * Avoid confusion and keep your code clean.
 * Additionally, if you are firing any custom events, the name of the event should be all lowercase.
 
