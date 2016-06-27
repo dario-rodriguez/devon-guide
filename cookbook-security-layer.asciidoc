@@ -321,7 +321,7 @@ We address these common threats individually in _security_ sections of our techn
 
 |https://www.owasp.org/index.php/Top_10_2013-A4-Insecure_Direct_Object_References[A4 Insecure Direct Object References]
 |Using direct object references (IDs) only with appropriate authorization
-|link:getting-started-logic-layer[logic-layer]
+|link:getting-started-logic-layer#security[logic-layer]
 
 |https://www.owasp.org/index.php/Top_10_2013-A5-Security_Misconfiguration[A5 Security Misconfiguration]
 |Use OASP application template and guides to avoid
