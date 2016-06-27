@@ -1,1 +1,96 @@
-Devon4Sencha code review.
+:toc: macro
+toc::[]
+
+= Devon4Sencha code review.
+
+== Benefits
+
+* Gain validation of your approach
+* Increase Team Skills
+* Improve code quality
+* Increase code maintainability
+* Improve code testability
+* Find bugs
+
+== Best practices
+1. [underline]#*Architecture / Design*#
+
+* Single responsibility principle : A class should have
+one-and-only-one responsibility.
+* Code duplication.
+* Code left in a better state than found.
+* Potential bugs.
+* Error handling :Are errors handled gracefuly and explicity where necessary?
+* Efficiency
+
+2. [underline]#*Style*#
+
+* Method names
+* Variable names
+* Function length
+* Class length
+* File length
+* Docstrings : For complex methods,is there a docstring explaining them?
+* Commented code : Good idea to remove any commented out lines.
+* Number of method arguments : Do they have 3 or fewer arguments?
+* Readability : Is the code easy to understand?
+
+3. [underline]#*Testing*#
+* Test coverage : Are the tests thoughtful? Do they cover the failure conditions? Are the easy to read?
+
+* Testing at the right level : Are we as low a level
+as we need to be to check the expected functionality?
+
+*  Meet requirements : 
+1)Usually as part of the end of a review.2)Take a look at the requirements of the story, task or bug.
+
+4. [underline]#*Review your own code first*#
+* Did I leave a comment or TODO in?
+*Does that variable name make sense?
+* … and anything else that we have seen above.
+
+
+== How to handle code reviews
+
+- Ask questions
+* How does this method work?
+
+- Compliment/reinforce good practices
+* Reward developers for growth and effort
+
+- Discuss in person for more detailed points
+
+- Explain reasoning
+* Ask if there’s a better alternative and justify why
+
+- Make it about the code
+* Make discussions about the code, not about the developer. It’s about improving the quality of the code.
+
+- Suggest importance of fixes
+* It makes the results of a review clear and actionable.
+
+== On mindset
+- As developers, we are responsible for making both working and maintainable code.
+- Improving the maintainability of the code can be just as important as fixing the line of code that caused the bug.
+
+- Keep an open mind during code reviews.
+
+== Code review tools
+
+- *Codestriker*
+
+* Free & open source web application that help developer to web based code reviewing.
+
+* Developers can ensures issues, comments and decisions are recorded in a database, and provides a comfortable workspace for actually performing code inspections.
+
+
+image::images/devon4sencha-badPractices/code-review/code-review-tools.png[,width="250",code review tools]
+
+
+- *Collaborator*
+
+* Code review tool that helps development, testing and management teams work together to produce high quality code. 
+
+* It allows teams to peer review code, user stories and test plans in a transparent, collaborative framework&nbsp;-- instantly keeping the entire team up to speed on changes made to the code.
+
+image::images/devon4sencha-badPractices/code-review/code-review-tools-collaborator.png[,width="250",code review tools collaborator]
