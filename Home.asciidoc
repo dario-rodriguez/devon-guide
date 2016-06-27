@@ -6,7 +6,7 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - link:getting-started-introduction-to-devonfw[Introduction to Devonfw] (REVIEWED)
 
-- link:devcon-user-guide[Devcon - User Guide]
+- link:devcon-user-guide[Devcon - User Guide](REVIEWING..)
 
 - link:getting-started-download-and-install[Download and Install Devonfw] (REVIEWED)
 
@@ -14,7 +14,7 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - link:getting-started-running-sample-application[Running Sample Application] (REVIEWED)
 
-- link:getting-started-distribution-structure[Devonfw Distribution Structure](REVIEWING...)
+- link:getting-started-distribution-structure[Devonfw Distribution Structure](REVIEWED)
 
 - link:getting-started-creating-new-devonfw-application[Create New Application] (REVIEWED)
 
