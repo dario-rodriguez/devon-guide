@@ -540,11 +540,11 @@ image::images/devon4sencha-badPractices/bad-practices/bill-gate-says.png[,width=
 
 
 
-image::images/devon4sencha-badPractices/bad-practices/bad-practices/knowing-this-I.png[,width="200",knowing-this-I]
+image::images/devon4sencha-badPractices/bad-practices/knowing-this-I.png[,width="200",knowing-this-I]
 
 
 
-image::images/devon4sencha-badPractices/bad-practices/bad-practices/knowing-this-II.png[,width="200",knowing-this-II]
+image::images/devon4sencha-badPractices/bad-practices/knowing-this-II.png[,width="200",knowing-this-II]
 
 
 
