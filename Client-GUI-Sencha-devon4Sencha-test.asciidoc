@@ -1,1 +1,75 @@
-Devon4Sencha test.
+:toc: macro
+toc::[]
+
+= Devon4Sencha test.
+
+== Tools for testing your Sencha code
+
+- *Jasmine* – http://jasmine.github.io/[http://jasmine.github.io/]
+
+* Open source unit testing framework for JavaScript
+
+* Unit Test attempt to isolate small pieces of code and objectively verify application logic.
+
+* Aims to run on any JavaScript-enabled platform, to not intrude on the application nor the IDE, and to have easy-to-read syntax.
+
+* See also: https://vimeo.com/18100173[https://vimeo.com/18100173]
+
+- *Siesta* – http://www.bryntum.com/products/siesta[http://www.bryntum.com/products/siesta]
+
+* Test any JavaScript code and also perform testing of the DOM and simulate user interactions.
+
+* UI test attempt to subjectively verify that elements on the screen behave (and often look) as expected statically and dynamically.
+
+* Automatic tests
+
+* See also:http://saucelabs.com/[http://saucelabs.com] and http://www.browserstack.com/[http://www.browserstack.com/]
+
+
+
+- *Sahi* - http://sahipro.com/[http://sahipro.com/]
+
+* Works on Every browser.
+
+* Stable & Easy to maintain automation.
+
+* Framework & Technology agnostic.
+
+* Fast Parallel batch playback
+
+* AJAX timeout? Not with Sahi
+
+* Impressive Reports & Logs
+
+* Simple powerful scripting
+
+* Inbuilt Excel framework
+
+* Smart accessor identification
+
+
+
+- *HP UFT*
+
+== Sencha Test
+* *Sencha Test* –https://www.sencha.com/blog/sencha-test-is-now-generally-available[https://www.sencha.com/blog/sencha-test-is-now-generally-available]
+
+* Helps existing and new Ext JS developers to release quality applications.
+
+* Perform cross-browser and cross-platform testing using one comprehensive solution.
+
+* Significantly reduce your software release cycles.
+
+* Sencha Test integrates some of the leading open source test frameworks, including Jasmine and Istanbul.
+
+* Sencha Test components:
+
+image::images/devon4sencha-badPractices/testing/sencha-test-I.png[,width="250",Sencha Test I]
+
+
+- *Sencha Test* – https://www.sencha.com/blog/sencha-test-is-now-generally-available[https://www.sencha.com/blog/sencha-test-is-now-generally-available]
+
+* Supported browsers and Platforms.
+
+
+image::images/devon4sencha-badPractices/testing/sencha-test-II.png[,width="250",Sencha Test II]
