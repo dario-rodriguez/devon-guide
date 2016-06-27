@@ -1,0 +1,422 @@
+:toc: macro
+toc::[]
+
+# Extending the CRUD: Grid editable
+
+In this section, we are going to develop a grid that allows the modification of its fields without having to open a new window.
+
+## Creating the grid
+
+We are going to create a list of employees and edit the cells of the grid.
+
+* **Step 1**: First of all, create a new component in the menu `app/view/main/menu.js`.
+
+[source,javascript]
+----
+items: [{
+        xtype: 'toolbar',
+        items: [{
+            text: 'Tables', // i18n.main.menu.tables,
+            eventName: 'eventOpenTableList'
+        },{
+            text: 'Employees', // i18n.main.menu.employees,
+            eventName: 'eventOpenEmployeeView'
+        }]
+    }],
+----
+
+* **Step 2**: The next step is to create the general **controller** that will listen to the event from the menu and will trigger it in order to create the new view.
+
+Create the file `app/controller/employee/EmployeesController.js`:
+
+[source,javascript]
+----
+Ext.define('demo.controller.employee.EmployeeController', {
+	extend: 'Ext.app.Controller',
+	/*view requires*/
+	requires:[
+		'demo.view.employee.i18n.Employee_en_EN',
+		'demo.view.employee.EmployeeV'
+	],
+
+	/*Global events listeners definition*/
+	config: {
+        listen: {
+            global: {
+                eventOpenEmployeeView: 'onMenuOpenEmployee'
+            }
+        }
+    },
+
+	/*Create a view when a global event is fired*/
+	
+	onMenuOpenEmployee: function(options) {
+		var employees = new demo.view.employee.EmployeeV(options);
+		Devon.App.openInContentPanel(employees);
+	}
+});
+----
+
+* **Step 3**: Add the controller in the file `Application.js`:
+
+[source,javascript]
+----
+controllers: [
+   'demo.controller.main.MainController',
+   'demo.controller.page1.Page1Controller',
+   'demo.controller.table.TableController',
+   'demo.controller.employee.EmployeeController'
+],
+----
+
+* **Step 4**: Create the View Model. 
+
+Create the file `app/view/employee/EmployeeVM.js`:
+
+[source,javascript]
+----
+Ext.define('demo.view.employee.EmployeeVM', {
+    extend: 'Ext.app.ViewModel',
+    alias: 'viewmodel.employees',
+
+    data: {
+        
+    },
+    
+    stores: {
+        employees: {
+            fields: ['id','name','rol'],
+			data:[
+				{'id': 1, 'name':'Anthony Jonhson', 'rol':'waiter'},
+				{'id': 2, 'name':'Allen Davis', 'rol':'barkeeper'},
+				{'id': 3, 'name':'Robert Paul Juice', 'rol':'chief'},
+                {'id': 4, 'name':'Michael Thompson', 'rol':'barman'},
+                {'id': 5, 'name':'John Stone', 'rol':'cook'}
+			]
+        }
+    }
+});
+----
+
+* **Step 5**: Then, create the view for the list of employees
+
+Create the file `app/view/employee/EmployeeV.js`:
+
+[source,javascript]
+----
+Ext.define("demo.view.employee.EmployeeV", {
+	extend: "Ext.panel.Panel",
+	alias: 'widget.employees',
+	requires: [
+	    'Ext.grid.Panel',
+	    'demo.view.employee.EmployeeVM'
+	],
+
+	viewModel: {
+	    type: "employees"
+	},
+	layout: {
+		type: 'vbox',
+		align: 'stretch'
+	},
+	title: i18n.employees.title,
+	closable: true,
+	initComponent: function() {
+		Ext.apply(this, {
+		items : [this.grid()]
+		});
+		this.callParent(arguments);
+	},
+	
+	grid: function(){
+        return {
+            xtype: 'grid',
+            reference: 'grid',
+		 title: i18n.employees.title,
+		 flex:1,
+		 margin: 10,
+            allowDeselect: true,
+            columns: [{
+                text: i18n.employees.grid.name,
+                dataIndex: 'name',
+                flex: 1
+            }, {
+                text: i18n.employees.grid.rol,
+                dataIndex: 'rol'
+            }],
+            bind: {
+                store: '{employees}'
+            }
+        }
+    }
+});
+----
+
+* **Step 6**: Finally, we have to create the file with the internationalizated texts.
+
+Create the file `app/view/employee/i18n/Employee_en_EN.js`:
+
+[source,javascript]
+----
+Ext.define('demo.view.employee.i18n.Employee_en_EN',{
+	extend:'Devon.I18nBundle',
+	singleton:true,
+	i18n:{
+		employees: {
+			title: 'Employees',
+			grid:{
+				name: 'Name',
+				rol: 'Rol'
+			}
+		}
+
+	}
+});
+----
+
+Now, check the output and see that we have created a list of employees:
+
+image::images/client-gui-sencha/employees.PNG[Employees,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/employees.PNG"]
+
+## Cellediting plugin
+
+Once the base of our view is defined with a list of employees, we are going to add some functionality to have an editable grid.
+First of all, we are going to add a plugin to our grid in order to edit cells.
+
+Edit the file `app/view/employee/EmployeeV.js`:
+
+[source,javascript]
+----
+grid: function(){
+        return {
+            xtype: 'grid',
+            reference: 'grid',
+		 title: i18n.employees.title,
+		 flex:1,
+		 margin: 10,
+            allowDeselect: true,
+		 plugins: {
+		     ptype: 'cellediting',
+		     clicksToEdit: 2
+		 },
+            columns: [{
+…
+----
+
+Now, we can configure column by column the editor type that we want for each of them.  By default, if any type of editor has been specified (textfield, numberfield, datefield, etc.) the type will be `textfield`.
+
+Let's add a textfield editor to the `Name column`.
+Edit the file `app/view/employee/EmployeeV.js`:
+
+[source,javascript]
+----
+columns: [{
+    text: i18n.employees.grid.name,
+    dataIndex: 'name',
+    flex: 1,
+ 	editor: {
+        allowBlank: false
+	}
+},{
+    text: i18n.employees.grid.rol,
+    dataIndex: 'rol'
+}
+----
+
+Check that we can edit the column `Name`:
+
+image::images/client-gui-sencha/editEmployeeCell.PNG[Cellediting,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/editEmployeeCell.PNG"]
+
+### Combobox as an editing cell
+
+Modify the column `Rol` to be editable as a `combobox` component.
+
+Add a new store in the file `app/view/employee/EmployeeVM.js`:
+
+[source,javascript]
+----
+stores: {
+        employees: {
+            fields: ['id','name','rol'],
+			data:[
+				{'id': 1, 'name':'Anthony Jonhson', 'rol':'waiter'},
+				{'id': 2, 'name':'Allen Davis', 'rol':'barkeeper'},
+				{'id': 3, 'name':'Robert Paul Juice', 'rol':'chief'},
+                {'id': 4, 'name':'Michael Thompson', 'rol':'barman'},
+                {'id': 5, 'name':'John Stone', 'rol':'cook'}
+			]
+        },
+        roles: {
+            fields: ['rol'],
+			data:[
+				{'rol':'waiter'},
+				{'rol':'barkeeper'},
+				{'rol':'chief'},
+                {'rol':'barman'},
+                {'rol':'cook'}
+			]
+        }
+    }
+----
+
+Modify the column `Rol` in `app/view/employee/EmployeeV.js`:
+
+[source,javascript]
+----
+columns: [{
+    text: i18n.employees.grid.name,
+    dataIndex: 'name',
+    flex: 1,
+	editor: {
+        allowBlank: false
+	}
+}, {
+    text: i18n.employees.grid.rol,
+    dataIndex: 'rol',
+	editor:{
+	    xtype: 'combobox',
+        bind: {
+		store: '{roles}'
+	    },
+	    displayField: 'rol',
+	    valueField: 'rol',
+        editable: false,
+	    queryMode: 'local',
+        forceSelection: true,
+        triggerAction: 'all',
+	    allowBlank: false
+	}
+}],
+----
+
+Check the output in the screen with the changes we have made:
+
+image::images/client-gui-sencha/editingCombo.PNG[Cellediting Combobox,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/editingCombo.PNG"]
+
+### Dirty
+
+Note that, after editing a cell, it shows a red mark.  It indicates that the cell is `dirty`, it means that the changes have not been confirmed.  For that purpose, after editing the grid we should send the data to the server to confirm it or just commit the change in the view.
+
+The first option is the most usual.  However, for this example, we are going to take the second option.
+
+Modify the file `app/view/employee/EmployeeV.js` adding a listener to commit the change in the grid:
+
+[source,javascript]
+----
+grid: function(){
+        return {
+            xtype: 'grid',
+            reference: 'grid',
+		 …
+
+            bind: {
+                store: '{employees}'
+            },
+		 listeners:{
+		    edit: function(editor, e) {				
+			e.record.commit();
+		    }	
+		 }
+        }
+    }
+----
+
+We could have created a **ViewController** to manage the listener but we have decided to simplify the example and show another way to treat the event.
+
+Navigate to the application and check that there is not red mark anymore after editing a cell.
+
+## Rowediting plugin
+
+In this example we allow to edit the grid cell by cell, but if we want to edit the whole row at a time, we just have to change the type of plugin used.
+
+Modify the type of plugin in the view `app/view/employee/EmployeeV.js`:
+
+[source,javascript]
+----
+plugins: {
+    ptype: 'rowediting',
+	clicksToEdit: 2
+},
+----
+
+Navigate to the application and check the new behaviour when editing the grid:
+
+image::images/client-gui-sencha/rowediting.PNG[Rowediting,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/rowediting.PNG"]
+
+## Add empty records
+
+Now, we want to add new records to the store.
+
+We are going to add a button `Add` in the bbar property of the grid and create an empty record for our store.   As the grid is editable we would fill the data and have a new record for our employee list.
+
+* **Step 1**: The first step is to create a new button in the grid:
+
+[source,javascript]
+----
+bbar: {
+                items: [{
+                        text: i18n.employees.add,
+                        handler: 'addEmployee'
+                    }
+                ]
+            },
+----
+
+* **Step 2**: Create the **viewController** `EmployeeVC.js` in `app/view/employee/` folder:
+
+[source,javascript]
+----
+Ext.define('demo.view.employee.EmployeeVC', {
+    extend: 'Ext.app.ViewController',
+    alias: 'controller.employee-controller',
+
+    addEmployee: function() {  
+        var vm = this.getViewModel();
+
+        vm.get("employees").add({
+            id: null,
+            name: null,
+            rol: null
+        });
+    }
+});
+----
+
+* **Step 3**: Add the reference in the file `Employee_en_EN.js` for the button:
+
+[source,javascript]
+----
+Ext.define('demo.view.employee.i18n.Employee_en_EN',{
+	extend:'Devon.I18nBundle',
+	singleton:true,
+	i18n:{
+		employees: {
+			title: 'Employees',
+			grid:{
+				name: 'Name',
+				rol: 'Rol'
+			},
+			add: 'Add'
+		}
+
+	}
+});
+----
+
+* **Step 4**: Finally, add the reference of the **ViewController** in the view:
+
+[source,javascript]
+----
+requires: [
+	    'Ext.grid.Panel',
+	    'demo.view.employee.EmployeeVM',
+		'demo.view.employee.EmployeeVC'
+	],
+
+	viewModel: {
+	    type: "employees"
+	},
+	controller: 'employee-controller',
+----
+
+Navigate to the application and check that when we click on the button `Add` a new empty record is created in the grid ready to be edited.
