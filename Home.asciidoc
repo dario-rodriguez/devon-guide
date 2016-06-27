@@ -30,9 +30,9 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - link:getting-started-logging-and-auditing[Logging and Auditing] (REVIEWED)
 
-- link:getting-started-Data-Access-Layer[Data Access Layer](REVIEWING....)
+- link:getting-started-Data-Access-Layer[Data Access Layer](REVIEWED)
 
-- link:getting-started-crud-operations[CRUD operations and DAO Implementation]
+- link:getting-started-crud-operations[CRUD operations and DAO Implementation](REVIEWING...)
 
 - link:getting-started-Cobigen[Generating code with Cobigen]
 
