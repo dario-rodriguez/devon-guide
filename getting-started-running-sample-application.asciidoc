@@ -3,7 +3,7 @@ toc::[]
 
 = Sample Application
 
-Devonfw comes with a sample application, which showcases the most common features of an Devon application and its proposed best practices. The sample application also serves as a final test to make sure that your environment is setup correctly. 
+Devonfw comes with a sample application, which showcases the most common features of a Devonfw application and its proposed best practices. The sample application also serves as a final test to make sure that your environment is setup correctly. 
 
 This section explains how to download the sample application and run it. Setup Devonfw environment and follow the below steps:
 
@@ -22,7 +22,7 @@ Now, let's discuss how to run the Sample Application.
 
 == Running Sample Application
 
-We can run the application in two ways or whatever other Devon application based on Spring boot: https://github.com/devonfw/devon-guide/wiki/getting-started-running-sample-application#embedded-tomcat-server[Running with the embedded Tomcat 8 server of Spring Boot] or https://github.com/devonfw/devon-guide/wiki/getting-started-running-sample-application#external-tomcat-server[using an external Tomcat 8 server].
+We can run the application in two ways or whatever other Devonfw application based on Spring boot: https://github.com/devonfw/devon-guide/wiki/getting-started-running-sample-application#embedded-tomcat-server[Running with the embedded Tomcat 8 server of Spring Boot] or https://github.com/devonfw/devon-guide/wiki/getting-started-running-sample-application#external-tomcat-server[using an external Tomcat 8 server].
 
 === Embedded Tomcat server
 
