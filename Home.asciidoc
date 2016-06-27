@@ -111,7 +111,7 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - [Security](https://github.com/devonfw/devon/wiki/devon-guide-sencha-security)
 
-- [Explanation & modifying Sencha Theme](https://github.com/devonfw/devon/wiki/devon-guide-sencha-theme) (TODO) 
+- link:Client-GUI-Sencha-theming[Sencha Theming] 
 
 - [Error processing](https://github.com/devonfw/devon/wiki/devon-guide-sencha-error-processing)
 
