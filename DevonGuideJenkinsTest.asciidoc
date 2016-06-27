@@ -47,23 +47,3 @@ include::getting-started-the-devon-ide[]
 <<<<
  
 include::getting-started-running-sample-application[]
- 
-<<<<
- 
-include::getting-started-distribution-structure[]
-
-<<<<
-
-include::getting-started-database-configuration[]
-
-<<<<
-
-include::getting-started-flyway-database-migration[]
-
-<<<<
-
-include::getting-started-writing-unittest-cases[]
-
-<<<<
-
-include::getting-started-logging-and-auditing[]
