@@ -6,7 +6,7 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - link:getting-started-introduction-to-devonfw[Introduction to Devonfw] (REVIEWED)
 
-- link:devcon-user-guide[Devcon - User Guide](REVIEWING..)
+- link:devcon-user-guide[Devcon - User Guide](REVIEWED)
 
 - link:getting-started-download-and-install[Download and Install Devonfw] (REVIEWED)
 
