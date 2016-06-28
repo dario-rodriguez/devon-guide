@@ -116,37 +116,19 @@ image::images/devon4sencha-badPractices/bad-practices/good-folder-stucture.png[G
 
 * We should hold “properties” in a class and then reference them with getters and setters.
 
-
-
     Instead of 
 
-
-
-image::images/devon4sencha-badPractices/bad-practices/global-variable-III.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/global-variable-III.png"]
-
-
+image::images/devon4sencha-badPractices/bad-practices/global-variable-III.png[Global Variable 1,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/global-variable-III.png"]
 
     We use 
 
-    
+image::images/devon4sencha-badPractices/bad-practices/global-variable-I.png[Global variable 2,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/global-variable-I.png"]
 
-    
+image::images/devon4sencha-badPractices/bad-practices/global-variable-II.png[Global variable 3,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/global-variable-II.png"]
 
-image::images/devon4sencha-badPractices/bad-practices/global-variable-IV.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/global-variable-IV.png"]
+image::images/devon4sencha-badPractices/bad-practices/global-variable-IV.png[Global Variable 4,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/global-variable-IV.png"]
 
-
-
-image::images/devon4sencha-badPractices/bad-practices/global-variable-v.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/global-variable-v.png"]
-
-
-
-image::images/devon4sencha-badPractices/bad-practices/global-variable-I.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/global-variable-I.png"]
-
-
-
-image::images/devon4sencha-badPractices/bad-practices/global-variable-II.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/global-variable-II.png"]
-
-
+image::images/devon4sencha-badPractices/bad-practices/global-variable-v.png[Global variable 5,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/global-variable-v.png"]
 
 == Use of “id”
 
@@ -154,45 +136,23 @@ image::images/devon4sencha-badPractices/bad-practices/global-variable-II.png[Dis
 
 * Each id must be unique.
 
+image::images/devon4sencha-badPractices/bad-practices/use-of-id-I.png[Use of id 1,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/use-of-id-I.png"]
 
+* Replace by “itemId” resolves the name conflict and we can still get a reference to the component.
 
-image::images/devon4sencha-badPractices/bad-practices/use-of-id-I.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/use-of-id-I.png"]
+image::images/devon4sencha-badPractices/bad-practices/replace-by-itemId-I.png[Use of id 2,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/replace-by-itemId-I.png"]
 
-
-
-* Replace by “itemId” Resolves the name conflict and we can
-
-still get a reference to the component.
-
-
-
-image::images/devon4sencha-badPractices/bad-practices/replace-by-itemId-I.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/replace-by-itemId-I.png"]
-
-
-
-image::images/devon4sencha-badPractices/bad-practices/replace-by-itemId-II.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/replace-by-itemId-II.png"]
-
-
+image::images/devon4sencha-badPractices/bad-practices/replace-by-itemId-II.png[Use of id 3,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/replace-by-itemId-II.png"]
 
 == Unreliable referencing of components
 
 * Code that relies on component positioning in order to get a reference.
 
+* It should be avoided as the code can easily be broken if any items are added, removed or nested within a different component.
 
+image::images/devon4sencha-badPractices/bad-practices/unreliable-reference.png[Unreliable reference,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/unreliable-reference.png"]
 
-* It should be avoided as the code can easily be broken if any items are added, removed or nested within a different
-
-component.
-
-
-
-image::images/devon4sencha-badPractices/bad-practices/unreliable-reference.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/unreliable-reference.png"]
-
-
-
-image::images/devon4sencha-badPractices/bad-practices/unreliable-reference-correction.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/unreliable-reference-correction.png"]
-
-
+image::images/devon4sencha-badPractices/bad-practices/unreliable-reference-correction.png[Unreliable reference 2,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/unreliable-reference-correction.png"]
 
 == Failing to follow upper or lowercase naming conventions
 
@@ -200,51 +160,31 @@ image::images/devon4sencha-badPractices/bad-practices/unreliable-reference-corre
 
 * Additionally, if you are firing any custom events, the name of the event should be all lowercase.
 
+ Wrong upper lower naming convention
 
+image::images/devon4sencha-badPractices/bad-practices/upper-lower-naming-convention.png[Naming convention 1,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/upper-lower-naming-convention.png"]
 
- fig: Wrong upper lower naming convention.
+    Correct upper lower naming convention
 
- 
-
-image::images/devon4sencha-badPractices/bad-practices/upper-lower-naming-convention.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/upper-lower-naming-convention.png"]
-
-
-
-
-
-    fig: Correct upper lower naming convention .
-
-
-
-image::images/devon4sencha-badPractices/bad-practices/upper-lower-naming-convention-correction.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/upper-lower-naming-convention-correction.png"]
-
-
+image::images/devon4sencha-badPractices/bad-practices/upper-lower-naming-convention-correction.png[Naming convention 2,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/upper-lower-naming-convention-correction.png"]
 
 == Making your code more complicated than necessary.
 
-* Each value is loaded individually.
+* Each value is loaded individually
 
+image::images/devon4sencha-badPractices/bad-practices/complecated-code.png[Complicated code 1,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/complecated-code.png"]
 
-
-image::images/devon4sencha-badPractices/bad-practices/complecated-code.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/complecated-code.png"]
-
-
-
-* Use “loadRecord” method.
+* Use “loadRecord” method
 
 * Review all of a component’s methods and examples to make sure you are using simple and proper techniques.
 
-
-
-image::images/devon4sencha-badPractices/bad-practices/load-record.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/load-record.png"]
-
-
+image::images/devon4sencha-badPractices/bad-practices/load-record.png[Complicated code 2,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/load-record.png"]
 
 == Nesting callbacks are a nightmare
 
-* Pyramidal code.
+* Pyramidal code
 
-* Will cost problems in the future.
+* Will cost problems in the future
 
 * Difficult to
 
@@ -256,33 +196,24 @@ image::images/devon4sencha-badPractices/bad-practices/load-record.png[Disable Bu
 
 - Debug
 
+image::images/devon4sencha-badPractices/bad-practices/nesting-callbacks.png[Nesting callbacks 1,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/nesting-callbacks.png"]
 
+* Use “scope”
 
-image::images/devon4sencha-badPractices/bad-practices/nesting-callbacks.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/nesting-callbacks.png"]
-
-
-
-* Use “scope”.
-
-
-
-image::images/devon4sencha-badPractices/bad-practices/nesting-callbacks-scope.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/nesting-callbacks-scope.png"]
-
-
+image::images/devon4sencha-badPractices/bad-practices/nesting-callbacks-scope.png[Nesting callbacks 2,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/nesting-callbacks-scope.png"]
 
 == Caching and references
 
 * Wrong use of object references.
 
-- Loop accessing an object.
+** Loop accessing an object.
 
-- Repetition of accessing to the object.
+** Repetition of accessing to the object.
 
-- Use references! 1)Store object in a variable.2)Improvement of application performance.
+** Use references! 
 
-
-
-
+*** Store object in a variable.
+*** Improvement of application performance.
 
 * Avoid using:
 
@@ -292,23 +223,17 @@ image::images/devon4sencha-badPractices/bad-practices/nesting-callbacks-scope.pn
 
 - and other global queries.
 
-
-
 * jsPerf
 
 - JavaScript performance playground.
 
 - Aims to provide an easy way to create and share test cases, comparing the performance of different JavaScript snippets by running benchmarks.
 
+- http://jsperf.com
 
+image::images/devon4sencha-badPractices/bad-practices/caching-and-references-I.png[Caching and references 1,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/caching-and-references-I.png"]
 
-image::images/devon4sencha-badPractices/bad-practices/caching-and-references-I.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/caching-and-references-I.png"]
-
-
-
-image::images/devon4sencha-badPractices/bad-practices/caching-and-references-II.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/caching-and-references-II.png"]
-
-
+image::images/devon4sencha-badPractices/bad-practices/caching-and-references-II.png[Caching and references 2,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/caching-and-references-II.png"]
 
 == Identation
 
@@ -320,27 +245,19 @@ image::images/devon4sencha-badPractices/bad-practices/caching-and-references-II.
 
 - Waste
 
-
-
-image::images/devon4sencha-badPractices/bad-practices/Improperly-idented-code.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/Improperly-idented-code.png"]
-
-
-
-
+image::images/devon4sencha-badPractices/bad-practices/Improperly-idented-code.png[Identation 1,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/Improperly-idented-code.png"]
 
 * Always code for readability.
 
-
-
-image::images/devon4sencha-badPractices/bad-practices/indented-code.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/indented-code.png"]
-
-
+image::images/devon4sencha-badPractices/bad-practices/indented-code.png[Identation 2,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/indented-code.png"]
 
 == One class per file
 
 * Avoid files with more than 1000 lines of code.
 
-- Difficult to maintain.
+- Difficult to maintain
+
+image::images/devon4sencha-badPractices/bad-practices/one-class-per-file.png[One class per file,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/one-class-per-file.png"]
 
 - Organize your file system.
 
@@ -352,33 +269,17 @@ image::images/devon4sencha-badPractices/bad-practices/indented-code.png[Disable 
 
 - Development loader / Production builder.
 
-
-
-image::images/devon4sencha-badPractices/bad-practices/one-class-per-file.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/one-class-per-file.png"]
-
-
-
 == Too much work to return
 
 * Make it easy!
 
+image::images/devon4sencha-badPractices/bad-practices/too-much-work-I.png[Make it easy 1,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/too-much-work-I.png"]
 
+image::images/devon4sencha-badPractices/bad-practices/too-much-work-II.png[Make it easy 2,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/too-much-work-II.png"]
 
-image::images/devon4sencha-badPractices/bad-practices/too-much-work-I.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/too-much-work-I.png"]
-
-
-
-image::images/devon4sencha-badPractices/bad-practices/too-much-work-II.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/too-much-work-II.png"]
-
-
-
-image::images/devon4sencha-badPractices/bad-practices/too-much-work-III.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/too-much-work-III.png"]
-
-
+image::images/devon4sencha-badPractices/bad-practices/too-much-work-III.png[Make it easy 3,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/too-much-work-III.png"]
 
 == Comments or Documentation
-
-
 
 * Bad practice
 
@@ -386,13 +287,9 @@ image::images/devon4sencha-badPractices/bad-practices/too-much-work-III.png[Disa
 
 - Variables with unmeaningful names
 
-- Impossible to figure out what the is the intent of this code.
+- Impossible to figure out what the is the intent of this code
 
-
-
-image::images/devon4sencha-badPractices/bad-practices/comments-documentation-I.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/comments-documentation-I.png"]
-
-
+image::images/devon4sencha-badPractices/bad-practices/comments-documentation-I.png[Documentation 1,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/comments-documentation-I.png"]
 
 * Best practice
 
@@ -402,45 +299,27 @@ image::images/devon4sencha-badPractices/bad-practices/comments-documentation-I.p
 
 - Add notes whenever logic is not obvious.
 
-
-
 * Build your docs into a searchable tool.
 
 - JSDuck – https://github.com/senchalabs/jsduck/wiki[https://github.com/senchalabs/jsduck/wiki]
 
 - API documentation generator for Sencha.
 
-
-
-image::images/devon4sencha-badPractices/bad-practices/js-duck.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/js-duck.png"]
-
-
+image::images/devon4sencha-badPractices/bad-practices/js-duck.png[Documentation 2,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/js-duck.png"]
 
 == “===“ “!==“ instead of “==“ “!=“
-
-
 
 * Comparator operations
 
 - When you receive data in a json structure and you are not sure about what you are getting you should be more restrictive.
 
-
-
-image::images/devon4sencha-badPractices/bad-practices/comparator-operation.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/comparator-operation.png"]
-
-
+image::images/devon4sencha-badPractices/bad-practices/comparator-operation.png[Operators,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/comparator-operation.png"]
 
 == Be lazy
 
+* Bad practice: Initialization of all three panels
 
-
-* Bad practice: Initialization of all three panels.
-
-
-
-image::images/devon4sencha-badPractices/bad-practices/be-lazy-badPractice.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/be-lazy-badPractice.png"]
-
-
+image::images/devon4sencha-badPractices/bad-practices/be-lazy-badPractice.png[Be lazy,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/be-lazy-badPractice.png"]
 
 * Best practice
 
@@ -450,61 +329,35 @@ image::images/devon4sencha-badPractices/bad-practices/be-lazy-badPractice.png[Di
 
 - Reuse things: Save yourself some time!
 
-
-
-image::images/devon4sencha-badPractices/bad-practices/bill-gate-says.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/bill-gate-says.png"]
-
-
+image::images/devon4sencha-badPractices/bad-practices/bill-gate-says.png[Be lazy 2,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/bill-gate-says.png"]
 
 == Knowing this!
 
-
-
 * This
 
-
-
-- Describes the actual object application is executing.
+- Describes the actual object application is executing
 
 - Defines context and scope.
-
-
 
 * Two rules for this:
 
 1. When a function is executed via a *var* reference, the default execution context (“this”) is *window*
 
+2. When a function is executed via an object key, the execution context (“this”) is the object.
 
+image::images/devon4sencha-badPractices/bad-practices/knowing-this-I.png[Knowing This,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/knowing-this-I.png"]
 
-2. When a function is executed via an object key,the execution context (“this”) is the object.
-
-
-
-image::images/devon4sencha-badPractices/bad-practices/knowing-this-I.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/knowing-this-I.png"]
-
-
-
-image::images/devon4sencha-badPractices/bad-practices/knowing-this-II.png[[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/knowing-this-II.png"]
-
-
+image::images/devon4sencha-badPractices/bad-practices/knowing-this-II.png[[Knowing This 2,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/knowing-this-II.png"]
 
 == Additional resources
-
-
-
-
 
 * “Maintainable JavaScript” by Nicholas Zacha
 
 -  http://www.slideshare.net/nzakas/maintainable-javascript-2012
 
-
-
 * “Code Conventions for JS” by Douglass Crockford
 
 -  http://javascript.crockford.com/code.html
-
-
 
 * “JavaScript Performance Tips & Tricks” by Grgur Grisogono
 
