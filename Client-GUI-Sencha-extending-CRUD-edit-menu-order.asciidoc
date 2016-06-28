@@ -12,11 +12,11 @@ Add the button `Edit Order` editing the tile `TableListV.js`:
 [source,javascript]
 ----
 {
-	text: i18n.tables.buttons.editOrder,
-	bind: {
-		disabled: '{!selectedItem}'
-	},
-	handler: 'onEditOrderClick'
+    text: i18n.tables.buttons.editOrder,
+    bind: {
+        disabled: '{!selectedItem}'
+    },
+    handler: 'onEditOrderClick'
 }
 ----
 
@@ -24,7 +24,7 @@ Edit the file `TableListVC.js` to add the function `onEditOrderClick`:
 
 [source,javascript]
 ----
-onEditOrderClick: function() {
+    onEditOrderClick: function() {
         var rec = this.getViewModel().get('selectedItem');
         Ext.GlobalEvents.fireEvent('eventTableEditOrder', {
             id: rec.id
@@ -36,7 +36,7 @@ Edit the file `TableController` to add the listener for the event `eventTableEdi
 
 [source,javascript]
 ----
-config: {
+    config: {
         listen: {
             global: {
                 eventOpenTableList: 'onMenuOpenTables',
@@ -52,7 +52,7 @@ Then, in the same file, add the definition of the function:
 
 [source,javascript]
 ----
-onTableEditOrder: function(tableSelected) {
+    onTableEditOrder: function(tableSelected) {
         var id = tableSelected.id;
         var panel = new demo.view.table.TableOrderV({
             title: i18n.tableOrder.title + id,
@@ -90,15 +90,15 @@ Ext.define("demo.view.table.TableOrderV", {
     closable: true,
     
     initComponent: function() {
-		Ext.apply(this, {
-		items : [
+        Ext.apply(this, {
+        items : [
             this.header(),
-			this.gridMenu(),
+            this.gridMenu(),
             this.gridOrder()
-		]
-		});
-		this.callParent(arguments);
-	},
+        ]
+        });
+        this.callParent(arguments);
+    },
     
     header: function(){
         return {
@@ -205,19 +205,19 @@ Ext.define('demo.view.table.TableOrderVM', {
     stores: {
         menu: {
             fields: ['id','description','price'],
-			data:[
-				{'id': 1, 'description':'Coke', 'price':'3.99'},
-				{'id': 2, 'description':'Water', 'price':'1.99'},
-				{'id': 3, 'description':'Orange Juice', 'price':'4.99'},
-                		{'id': 4, 'description':'Salad', 'price':'7.99'},
-                		{'id': 5, 'description':'Chicken', 'price':'8.99'}
-			]
+            data:[
+                {'id': 1, 'description':'Coke', 'price':'3.99'},
+                {'id': 2, 'description':'Water', 'price':'1.99'},
+                {'id': 3, 'description':'Orange Juice', 'price':'4.99'},
+                {'id': 4, 'description':'Salad', 'price':'7.99'},
+                {'id': 5, 'description':'Chicken', 'price':'8.99'}
+            ]
         },
         order: {
             fields: ['id','offerId','description','price'],
-			data:[
-				
-			]
+            data:[
+                
+            ]
         }
     }
 });
@@ -279,7 +279,7 @@ Edit the file `Table_en_EN.js` to add the new messages:
 
 [source,javascript]
 ----
-tableOrder: {
+        tableOrder: {
             title: 'Table: ',
             newTitle: 'New table',
             status: 'STATUS',
@@ -303,12 +303,12 @@ Edit the file `TableController.js` adding the new view in the `requires` propert
 
 [source,javascript]
 ----
-requires:[
-		'demo.view.table.i18n.Table_en_EN',
-		'demo.view.table.TableListV',
-		'demo.view.table.TableEditV',
-		'demo.view.table.TableOrderV'
-	],
+    requires:[
+        'demo.view.table.i18n.Table_en_EN',
+        'demo.view.table.TableListV',
+        'demo.view.table.TableEditV',
+        'demo.view.table.TableOrderV'
+    ],
 ----
 
 Navigate to the application and check the result
@@ -329,26 +329,26 @@ Include in the first grid, in the file `TableOrderV.js`, the following code:
 
 [source,javascript]
 ----
-viewConfig: {
-                plugins: {
-                    ptype: 'gridviewdragdrop',
-                    dragGroup: 'firstGridDDGroup',
-                    dropGroup: 'secondGridDDGroup'
-                }
-            },
+    viewConfig: {
+        plugins: {
+            ptype: 'gridviewdragdrop',
+            dragGroup: 'firstGridDDGroup',
+            dropGroup: 'secondGridDDGroup'
+        }
+    },
 ----
 
 Then, in the other grid we have to add the following code:
 
 [source,javascript]
 ----
-viewConfig: {
-                plugins: {
-                    ptype: 'gridviewdragdrop',
-                    dragGroup: 'secondGridDDGroup',
-                    dropGroup: 'firstGridDDGroup'
-                }
-            },
+    viewConfig: {
+        plugins: {
+            ptype: 'gridviewdragdrop',
+            dragGroup: 'secondGridDDGroup',
+            dropGroup: 'firstGridDDGroup'
+        }
+    },
 ----
 
 Navigate to our application and check that now we can drag and drop elements from the two grids.   
@@ -359,14 +359,14 @@ Edit the configuration of the first grid adding the property `enableDrop` with t
 
 [source,javascript]
 ----
-viewConfig: {
-                plugins: {
-                    ptype: 'gridviewdragdrop',
-                    dragGroup: 'firstGridDDGroup',
-                    dropGroup: 'secondGridDDGroup',
-                    enableDrop: false
-                }
-            },
+    viewConfig: {
+        plugins: {
+            ptype: 'gridviewdragdrop',
+            dragGroup: 'firstGridDDGroup',
+            dropGroup: 'secondGridDDGroup',
+            enableDrop: false
+        }
+    },
 ----
 
 Edit the configuration of the second one adding the property `enableDrag` with value to false:
@@ -374,13 +374,13 @@ Edit the configuration of the second one adding the property `enableDrag` with v
 [source,javascript]
 ----
 viewConfig: {
-                plugins: {
-                    ptype: 'gridviewdragdrop',
-                    dragGroup: 'secondGridDDGroup',
-                    dropGroup: 'firstGridDDGroup',
-                    enableDrag: false
-                }
-            },
+    plugins: {
+        ptype: 'gridviewdragdrop',
+        dragGroup: 'secondGridDDGroup',
+        dropGroup: 'firstGridDDGroup',
+        enableDrag: false
+    }
+},
 ----
 
 Check the changes. Now, we can only drag from the first grid and drop to the second one.
@@ -398,7 +398,7 @@ When the drop is launched we are going to execute the function `restoreMenu`.   
 
 [source,javascript]
 ----
-restoreMenu: function(node, data, dropRec, dropPosition){
+    restoreMenu: function(node, data, dropRec, dropPosition){
         var record = data.records[0].data;
         var vm = this.getViewModel();
         vm.get("menu").add(record);
