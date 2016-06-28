@@ -57,18 +57,18 @@ The problem arises because we are trying two things on the requests:
 
 This will result on the page loading and the browser showing the following error on the DevTools console:
 
-image::images/devon4sencha/cors/devtool-console.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha/cors/devtool-console.png"]
+image::images/devon4sencha/cors/devon_guide_CORS_example_error.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha/cors/devon_guide_CORS_example_error.png"]
 
 
 To solve it:
 
 1. Install it from the Google WebStore
 
-image::images/devon4sencha/cors/force-cors.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha/cors/force-cors.png"]
+image::images/devon4sencha/cors/devon_guide_CORS_example_ForceCORS.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha/cors/devon_guide_CORS_example_ForceCORS.png"]
 
 2. Configure it
 
-image::images/devon4sencha/cors/force-cors-setting.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha/cors/force-cors-setting.png"]
+image::images/devon4sencha/cors/devon_guide_CORS_example_configuration.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha/cors/devon_guide_CORS_example_configuration.png"]
 
 This way we "simulate" that the server side is adding the needed CORS headers to the Ajax response.
 
