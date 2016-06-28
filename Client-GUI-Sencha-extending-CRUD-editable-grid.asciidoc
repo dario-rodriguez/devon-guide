@@ -13,7 +13,7 @@ We are going to create a list of employees and edit the cells of the grid.
 
 [source,javascript]
 ----
-items: [{
+    items: [{
         xtype: 'toolbar',
         items: [{
             text: 'Tables', // i18n.main.menu.tables,
@@ -32,15 +32,15 @@ Create the file `app/controller/employee/EmployeesController.js`:
 [source,javascript]
 ----
 Ext.define('demo.controller.employee.EmployeeController', {
-	extend: 'Ext.app.Controller',
-	/*view requires*/
-	requires:[
-		'demo.view.employee.i18n.Employee_en_EN',
-		'demo.view.employee.EmployeeV'
-	],
+    extend: 'Ext.app.Controller',
+    /*view requires*/
+    requires:[
+        'demo.view.employee.i18n.Employee_en_EN',
+        'demo.view.employee.EmployeeV'
+    ],
 
-	/*Global events listeners definition*/
-	config: {
+    /*Global events listeners definition*/
+    config: {
         listen: {
             global: {
                 eventOpenEmployeeView: 'onMenuOpenEmployee'
@@ -48,12 +48,12 @@ Ext.define('demo.controller.employee.EmployeeController', {
         }
     },
 
-	/*Create a view when a global event is fired*/
-	
-	onMenuOpenEmployee: function(options) {
-		var employees = new demo.view.employee.EmployeeV(options);
-		Devon.App.openInContentPanel(employees);
-	}
+    /*Create a view when a global event is fired*/
+    
+    onMenuOpenEmployee: function(options) {
+        var employees = new demo.view.employee.EmployeeV(options);
+        Devon.App.openInContentPanel(employees);
+    }
 });
 ----
 
@@ -86,13 +86,13 @@ Ext.define('demo.view.employee.EmployeeVM', {
     stores: {
         employees: {
             fields: ['id','name','rol'],
-			data:[
-				{'id': 1, 'name':'Anthony Jonhson', 'rol':'waiter'},
-				{'id': 2, 'name':'Allen Davis', 'rol':'barkeeper'},
-				{'id': 3, 'name':'Robert Paul Juice', 'rol':'chief'},
+            data:[
+                {'id': 1, 'name':'Anthony Jonhson', 'rol':'waiter'},
+                {'id': 2, 'name':'Allen Davis', 'rol':'barkeeper'},
+                {'id': 3, 'name':'Robert Paul Juice', 'rol':'chief'},
                 {'id': 4, 'name':'Michael Thompson', 'rol':'barman'},
                 {'id': 5, 'name':'John Stone', 'rol':'cook'}
-			]
+            ]
         }
     }
 });
@@ -105,36 +105,36 @@ Create the file `app/view/employee/EmployeeV.js`:
 [source,javascript]
 ----
 Ext.define("demo.view.employee.EmployeeV", {
-	extend: "Ext.panel.Panel",
-	alias: 'widget.employees',
-	requires: [
-	    'Ext.grid.Panel',
-	    'demo.view.employee.EmployeeVM'
-	],
+    extend: "Ext.panel.Panel",
+    alias: 'widget.employees',
+    requires: [
+        'Ext.grid.Panel',
+        'demo.view.employee.EmployeeVM'
+    ],
 
-	viewModel: {
-	    type: "employees"
-	},
-	layout: {
-		type: 'vbox',
-		align: 'stretch'
-	},
-	title: i18n.employees.title,
-	closable: true,
-	initComponent: function() {
-		Ext.apply(this, {
-		items : [this.grid()]
-		});
-		this.callParent(arguments);
-	},
-	
-	grid: function(){
+    viewModel: {
+        type: "employees"
+    },
+    layout: {
+        type: 'vbox',
+        align: 'stretch'
+    },
+    title: i18n.employees.title,
+    closable: true,
+    initComponent: function() {
+        Ext.apply(this, {
+        items : [this.grid()]
+        });
+        this.callParent(arguments);
+    },
+    
+    grid: function(){
         return {
             xtype: 'grid',
             reference: 'grid',
-		 title: i18n.employees.title,
-		 flex:1,
-		 margin: 10,
+            title: i18n.employees.title,
+            flex:1,
+            margin: 10,
             allowDeselect: true,
             columns: [{
                 text: i18n.employees.grid.name,
@@ -159,18 +159,18 @@ Create the file `app/view/employee/i18n/Employee_en_EN.js`:
 [source,javascript]
 ----
 Ext.define('demo.view.employee.i18n.Employee_en_EN',{
-	extend:'Devon.I18nBundle',
-	singleton:true,
-	i18n:{
-		employees: {
-			title: 'Employees',
-			grid:{
-				name: 'Name',
-				rol: 'Rol'
-			}
-		}
+    extend:'Devon.I18nBundle',
+    singleton:true,
+    i18n:{
+        employees: {
+            title: 'Employees',
+            grid:{
+                name: 'Name',
+                rol: 'Rol'
+            }
+        }
 
-	}
+    }
 });
 ----
 
@@ -187,20 +187,20 @@ Edit the file `app/view/employee/EmployeeV.js`:
 
 [source,javascript]
 ----
-grid: function(){
+    grid: function(){
         return {
             xtype: 'grid',
             reference: 'grid',
-		 title: i18n.employees.title,
-		 flex:1,
-		 margin: 10,
+            title: i18n.employees.title,
+            flex:1,
+            margin: 10,
             allowDeselect: true,
-		 plugins: {
-		     ptype: 'cellediting',
-		     clicksToEdit: 2
-		 },
+            plugins: {
+                ptype: 'cellediting',
+                clicksToEdit: 2
+            },
             columns: [{
-…
+    …
 ----
 
 Now, we can configure column by column the editor type that we want for each of them.  By default, if any type of editor has been specified (textfield, numberfield, datefield, etc.) the type will be `textfield`.
@@ -214,9 +214,9 @@ columns: [{
     text: i18n.employees.grid.name,
     dataIndex: 'name',
     flex: 1,
- 	editor: {
+    editor: {
         allowBlank: false
-	}
+    }
 },{
     text: i18n.employees.grid.rol,
     dataIndex: 'rol'
@@ -235,26 +235,26 @@ Add a new store in the file `app/view/employee/EmployeeVM.js`:
 
 [source,javascript]
 ----
-stores: {
+    stores: {
         employees: {
             fields: ['id','name','rol'],
-			data:[
-				{'id': 1, 'name':'Anthony Jonhson', 'rol':'waiter'},
-				{'id': 2, 'name':'Allen Davis', 'rol':'barkeeper'},
-				{'id': 3, 'name':'Robert Paul Juice', 'rol':'chief'},
+            data:[
+                {'id': 1, 'name':'Anthony Jonhson', 'rol':'waiter'},
+                {'id': 2, 'name':'Allen Davis', 'rol':'barkeeper'},
+                {'id': 3, 'name':'Robert Paul Juice', 'rol':'chief'},
                 {'id': 4, 'name':'Michael Thompson', 'rol':'barman'},
                 {'id': 5, 'name':'John Stone', 'rol':'cook'}
-			]
+            ]
         },
         roles: {
             fields: ['rol'],
-			data:[
-				{'rol':'waiter'},
-				{'rol':'barkeeper'},
-				{'rol':'chief'},
+            data:[
+                {'rol':'waiter'},
+                {'rol':'barkeeper'},
+                {'rol':'chief'},
                 {'rol':'barman'},
                 {'rol':'cook'}
-			]
+            ]
         }
     }
 ----
@@ -267,25 +267,25 @@ columns: [{
     text: i18n.employees.grid.name,
     dataIndex: 'name',
     flex: 1,
-	editor: {
+    editor: {
         allowBlank: false
-	}
+    }
 }, {
     text: i18n.employees.grid.rol,
     dataIndex: 'rol',
-	editor:{
-	    xtype: 'combobox',
+    editor:{
+        xtype: 'combobox',
         bind: {
-		store: '{roles}'
-	    },
-	    displayField: 'rol',
-	    valueField: 'rol',
+            store: '{roles}'
+        },
+        displayField: 'rol',
+        valueField: 'rol',
         editable: false,
-	    queryMode: 'local',
+        queryMode: 'local',
         forceSelection: true,
         triggerAction: 'all',
-	    allowBlank: false
-	}
+        allowBlank: false
+    }
 }],
 ----
 
@@ -303,20 +303,20 @@ Modify the file `app/view/employee/EmployeeV.js` adding a listener to commit the
 
 [source,javascript]
 ----
-grid: function(){
+    grid: function(){
         return {
             xtype: 'grid',
             reference: 'grid',
-		 …
+         …
 
             bind: {
                 store: '{employees}'
             },
-		 listeners:{
-		    edit: function(editor, e) {				
-			e.record.commit();
-		    }	
-		 }
+            listeners:{
+                edit: function(editor, e) {                
+                e.record.commit();
+            }    
+         }
         }
     }
 ----
@@ -335,7 +335,7 @@ Modify the type of plugin in the view `app/view/employee/EmployeeV.js`:
 ----
 plugins: {
     ptype: 'rowediting',
-	clicksToEdit: 2
+    clicksToEdit: 2
 },
 ----
 
@@ -354,12 +354,12 @@ We are going to add a button `Add` in the bbar property of the grid and create a
 [source,javascript]
 ----
 bbar: {
-                items: [{
-                        text: i18n.employees.add,
-                        handler: 'addEmployee'
-                    }
-                ]
-            },
+    items: [{
+        text: i18n.employees.add,
+        handler: 'addEmployee'
+    }
+    ]
+},
 ----
 
 * **Step 2**: Create the **viewController** `EmployeeVC.js` in `app/view/employee/` folder:
@@ -387,19 +387,18 @@ Ext.define('demo.view.employee.EmployeeVC', {
 [source,javascript]
 ----
 Ext.define('demo.view.employee.i18n.Employee_en_EN',{
-	extend:'Devon.I18nBundle',
-	singleton:true,
-	i18n:{
-		employees: {
-			title: 'Employees',
-			grid:{
-				name: 'Name',
-				rol: 'Rol'
-			},
-			add: 'Add'
-		}
-
-	}
+    extend:'Devon.I18nBundle',
+    singleton:true,
+    i18n:{
+        employees: {
+            title: 'Employees',
+            grid:{
+                name: 'Name',
+                rol: 'Rol'
+            },
+            add: 'Add'
+        }
+    }
 });
 ----
 
@@ -407,16 +406,16 @@ Ext.define('demo.view.employee.i18n.Employee_en_EN',{
 
 [source,javascript]
 ----
-requires: [
-	    'Ext.grid.Panel',
-	    'demo.view.employee.EmployeeVM',
-		'demo.view.employee.EmployeeVC'
-	],
+    requires: [
+        'Ext.grid.Panel',
+        'demo.view.employee.EmployeeVM',
+        'demo.view.employee.EmployeeVC'
+    ],
 
-	viewModel: {
-	    type: "employees"
-	},
-	controller: 'employee-controller',
+    viewModel: {
+        type: "employees"
+    },
+    controller: 'employee-controller',
 ----
 
 Navigate to the application and check that when we click on the button `Add` a new empty record is created in the grid ready to be edited.
