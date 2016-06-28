@@ -7,7 +7,7 @@ We understand batch processing as bulk-oriented, non-interactive, typically long
 
 OASP4J uses link:http://projects.spring.io/spring-batch/[Spring Batch] as batch framework. 
 
-This guide explains how Spring Batch is used in OASP4J applications. Please note that it is not jet fully consistent concerning batches with the sample application. You should adhere to this guide by now.
+This guide explains how Spring Batch is used in OASP4J applications. Please note that it is not yet, fully consistent concerning batches with the sample application. You should adhere to this guide for now.
 
 == Batch architecture
 
