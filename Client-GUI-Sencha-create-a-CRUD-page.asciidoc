@@ -90,33 +90,33 @@ We create a `TableController.js` file in the path `app/controller/table` with th
 [source,javascript]
 ----
 Ext.define('demo.controller.table.TableController', {
-	extend: 'Ext.app.Controller',
-	/*view requires*/
-	requires:[
-		'demo.view.table.i18n.Table_en_EN',
-		'demo.view.table.TableListV'
-	],
-	/*Global events listeners definition*/
-	config: {
-		listen: {
-			global: {
-				eventOpenTableList: 'onMenuOpenTables'
-			}
-		}
-	},
-	/*Rest end points definition*/
-	init: function() {
-		Devon.Ajax.define({
-			'tablemanagement.table': {
-				url: 'tablemanagement/v1/table/{id}'
-			}
-		});
-	},
-	/*Create a view when a global event is fired*/
-	onMenuOpenTables: function() {
-		var tables = new demo.view.table.TableListV();
-		Devon.App.openInContentPanel(tables);
-	}
+    extend: 'Ext.app.Controller',
+    /*view requires*/
+    requires:[
+        'demo.view.table.i18n.Table_en_EN',
+        'demo.view.table.TableListV'
+    ],
+    /*Global events listeners definition*/
+    config: {
+        listen: {
+            global: {
+                eventOpenTableList: 'onMenuOpenTables'
+            }
+        }
+    },
+    /*Rest end points definition*/
+    init: function() {
+        Devon.Ajax.define({
+            'tablemanagement.table': {
+                url: 'tablemanagement/v1/table/{id}'
+            }
+        });
+    },
+    /*Create a view when a global event is fired*/
+    onMenuOpenTables: function() {
+        var tables = new demo.view.table.TableListV();
+        Devon.App.openInContentPanel(tables);
+    }
 });
 ----
 
@@ -155,16 +155,14 @@ We create the file `TableM.js` in the path `app/model/table/` .
 
 [source,javascript]
 ----
-
 Ext.define('demo.model.table.TableM', {
-	extend: 'Ext.data.Model',
-	fields: [
-		{ name: 'id', type: 'int' },
-		{ name: 'number', type: 'int', allowNull: true },
-		{ name: 'state', type: 'auto' }
-	]
+    extend: 'Ext.data.Model',
+    fields: [
+        { name: 'id', type: 'int' },
+        { name: 'number', type: 'int', allowNull: true },
+        { name: 'state', type: 'auto' }
+    ]
 });
-
 ----
 
 [NOTE]
@@ -237,47 +235,47 @@ The first step is to create a `TableListV.js` in the path `app/view/table/` that
 [source,javascript]
 ---- 
 Ext.define("demo.view.table.TableListV", {
-	extend: "Ext.panel.Panel",
-	alias: 'widget.tables',
-	/*view requires*/
-	requires: [
-		'Ext.grid.Panel',
-		'demo.view.table.TableListVC'
-	],
-	title: i18n.tables.title,
-	/*View controller reference*/
-	controller: "tablelist",
-	closable: true,
-	initComponent: function() {
-		Ext.apply(this, {
-		items : [
-			this.grid()
-		]
-		});
-		this.callParent(arguments);
-	},
+    extend: "Ext.panel.Panel",
+    alias: 'widget.tables',
+    /*view requires*/
+    requires: [
+        'Ext.grid.Panel',
+        'demo.view.table.TableListVC'
+    ],
+    title: i18n.tables.title,
+    /*View controller reference*/
+    controller: "tablelist",
+    closable: true,
+    initComponent: function() {
+        Ext.apply(this, {
+        items : [
+            this.grid()
+        ]
+        });
+        this.callParent(arguments);
+    },
 
-	grid : function() {
-		return {
-			xtype: 'grid',
-			reference: 'tablesgrid',
-			flex: 1,
-			padding: '0 10 10 10',
-			allowDeselect: true,
-			store:this.getStore(),
-			columns: [{
-				text: i18n.tables.grid.number,
-				dataIndex: 'number'
-			}, {
-				text: i18n.tables.grid.state,
-				dataIndex: 'state',
-				flex: 1
-			}]
-		}
-	},
-	getStore:function(){
-		return Ext.create('store.table', {name:'storetable_'+Math.random()});
-	}
+    grid : function() {
+        return {
+            xtype: 'grid',
+            reference: 'tablesgrid',
+            flex: 1,
+            padding: '0 10 10 10',
+            allowDeselect: true,
+            store:this.getStore(),
+            columns: [{
+                text: i18n.tables.grid.number,
+                dataIndex: 'number'
+            }, {
+                text: i18n.tables.grid.state,
+                dataIndex: 'state',
+                flex: 1
+            }]
+        }
+    },
+    getStore:function(){
+        return Ext.create('store.table', {name:'storetable_'+Math.random()});
+    }
 });
 ----
 
@@ -286,8 +284,8 @@ Now, the ViewController.  Create the file `TableListVC.js` in the folder `app/vi
 [source,javascript]
 ---- 
 Ext.define('demo.view.table.TableListVC', {
-	extend: 'Ext.app.ViewController',
-	alias: 'controller.tablelist'
+    extend: 'Ext.app.ViewController',
+    alias: 'controller.tablelist'
 });
 ----
 
@@ -300,18 +298,18 @@ In the different views, we have defined the texts, in function of the value of s
 [source,javascript]
 ----
 Ext.define('demo.view.table.i18n.Table_en_EN',{
-	extend:'Devon.I18nBundle',
-	singleton:true,
-	i18n:{
-		tables: {
-			title: 'Tables',
-			html:'List of tables for the restaurant demo',
-			grid: {
-				number: 'NUMBER',
-				state: 'STATE'
-			}
-		}
-	}
+    extend:'Devon.I18nBundle',
+    singleton:true,
+    i18n:{
+        tables: {
+            title: 'Tables',
+            html:'List of tables for the restaurant demo',
+            grid: {
+                number: 'NUMBER',
+                state: 'STATE'
+            }
+        }
+    }
 });
 ----
 
