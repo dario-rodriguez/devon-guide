@@ -84,7 +84,7 @@ Create the file 'RestautantStatusVC.js' in 'app/view/main/':
 [source,javascript]
 ----
 Ext.define('demo.view.main.RestaurantStatusVC', {
-	extend: 'Ext.app.ViewController',
+    extend: 'Ext.app.ViewController',
 
     alias: 'controller.main-res-status',
 
@@ -132,16 +132,16 @@ Then, the next step is to edit the file `Main_en_EN.js` to update the messages f
 
 [source,javascript]
 ----
-restaurantStatus:{
-        	title:'Restaurant',
-        	tables: 'Tables',
-            positions: 'Positions',
-            free : 'Free',
-            occupied : 'Occupied',
-            reserved : 'Reserved',
-            assigned : 'Assigned',
-            total : 'Total'
-        }
+    restaurantStatus:{
+        title:'Restaurant',
+        tables: 'Tables',
+        positions: 'Positions',
+        free : 'Free',
+        occupied : 'Occupied',
+        reserved : 'Reserved',
+        assigned : 'Assigned',
+        total : 'Total'
+    }
 ----
 
 As we have created a new view in our application, we have to add the reference of this view in the ‘requires’ property of the `MainController.js`.  
@@ -150,7 +150,7 @@ So, we edit the `MainController` to add the reference to the `RestaurantStatus` 
 
 [source,javascript]
 ----
-requires: [
+    requires: [
         'demo.view.main.i18n.Main_en_EN',
         'demo.view.main.LeftSidePanel',
         'demo.view.main.Content',
@@ -165,22 +165,22 @@ The next step is to edit the file `TableM.js` to add some static text about the 
 [source,javascript]
 ----
 Ext.define('demo.model.table.TableM', {
-	extend: 'Ext.data.Model',
-	
-	statics: {
+    extend: 'Ext.data.Model',
+    
+    statics: {
         state: {
             OCCUPIED: 'OCCUPIED',
             FREE: 'FREE',
             RESERVED: 'RESERVED'           
         }
     },
-	
-	fields: [
-		{ name: 'id', type: 'int' },
-		{ name: 'number', type: 'int', allowNull: true },
-		{ name: 'state', type: 'auto' },
-		{ name: 'modificationCounter', type: 'int', allowNull: true}
-	]
+    
+    fields: [
+        { name: 'id', type: 'int' },
+        { name: 'number', type: 'int', allowNull: true },
+        { name: 'state', type: 'auto' },
+        { name: 'modificationCounter', type: 'int', allowNull: true}
+    ]
 });
 ----
 
@@ -194,7 +194,7 @@ Now, we want to add some functionality to be able to show the table view with th
 
 [source,javascript]
 ----
-listeners: {
+    listeners: {
         select: 'onSelect'
     }
 ----
@@ -203,7 +203,7 @@ As we have added the event we have to edit the file `RestaurantStatusVC.js` to c
 
 [source,javascript]
 ----
-onSelect : function(tree, record){
+    onSelect : function(tree, record){
     	if(record.isLeaf()){
     	    var nodeId=record.getId();
     	    if(Ext.String.startsWith(nodeId,'table')){
@@ -222,10 +222,10 @@ Then, we have to edit the controller to give the view the options we have just s
 
 [source,javascript]
 ----
-onMenuOpenTables: function(options) {
-		var tables = new demo.view.table.TableListV(options);
-		Devon.App.openInContentPanel(tables);
-	},
+    onMenuOpenTables: function(options) {
+        var tables = new demo.view.table.TableListV(options);
+        Devon.App.openInContentPanel(tables);
+    },
 ----
 
 Now, we are providing these configuration options to the view.   
@@ -233,18 +233,18 @@ The next step is to use these options when the view is rendered.   In order to d
 
 [source,javascript]
 ----
-listen: {
+    listen: {
         global: {
             eventTablesChanged: 'onTablesChanged'
         },
-	    component: {
+        component: {
             'tables': {
                 'afterrender':'onAfterRender'
             }
         }
     },
 
-onAfterRender: function(panel){
+    onAfterRender: function(panel){
         var stateFilter=this.getView().stateFilter;
         if(stateFilter) this.getViewModel().set('stateFilter',{state:stateFilter});
         else this.getViewModel().set('stateFilter',{state:null});
@@ -257,20 +257,19 @@ Edit the file `TableListVM.js` to add the state param:
 
 [source,javascript]
 ----
-tables: {
-		model: 'demo.model.table.TableM',
-		pageSize: 3,
-		proxy: {
-                type: 'tablemanagement.search',
-                extraParams:'{stateFilter}'
-            },
-            autoLoad: true,
-            remoteSort:true,
-            remoteFilter:true,
-            sorters: {property:'number', direction:'ASC'}
-	},
+    tables: {
+        model: 'demo.model.table.TableM',
+        pageSize: 3,
+        proxy: {
+            type: 'tablemanagement.search',
+            extraParams:'{stateFilter}'
+        },
+        autoLoad: true,
+        remoteSort:true,
+        remoteFilter:true,
+        sorters: {property:'number', direction:'ASC'}
+    },
 ----
-
 
 Besides adding the `extraParams` property to the proxy request, we have configured other properties:
 
