@@ -47,7 +47,7 @@ as we need to be to check the expected functionality?
 
 4. [underline]#*Review your own code first*#
 * Did I leave a comment or TODO in?
-*Does that variable name make sense?
+* Does that variable name make sense?
 * … and anything else that we have seen above.
 
 
