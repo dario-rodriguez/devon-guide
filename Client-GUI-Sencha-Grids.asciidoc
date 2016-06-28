@@ -1,0 +1,94 @@
+:toc: macro
+toc::[]
+
+= Grids
+
+Ext.grid.Panel is one of the centerpieces of Ext JS. It’s an incredibly versatile component that provides an easy way to display, sort, group, and edit data.
+
+== Basic Grid Panel
+
+image::images/devon4sencha/grids/basic-grid-panel.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha/grids/basic-grid-panel.png"]
+
+Let’s get started by creating a basic Ext.grid.Panel. Here’s all you need to know to get a simple grid up and running:
+
+=== Model and Store
+
+Ext.grid.Panel is simply a component that displays data contained in a Ext.data.Store. Ext.data.Store can be thought of as a collection of records, or Ext.data.Model instances.
+
+The benefit of this setup is separating our concerns. Ext.grid.Panel is only concerned with displaying the data, while Ext.data.Store takes care of fetching and saving the data using Ext.data.proxy.Proxy.
+
+First, we need to define a Ext.data.Model. A model is just a collection of fields that represents a type of data. Let’s define a model that represents a “User”:
+
+[source,java]
+----
+Ext.define('User', {
+    extend: 'Ext.data.Model',
+    fields: [ 'name', 'email', 'phone' ]
+});
+----
+
+Next let’s create a Ext.data.Store that contains several “User” instances.
+
+[source,java]
+----
+var userStore = Ext.create('Ext.data.Store', {
+    model: 'User',
+    data: [
+        { name: 'Lisa', email: 'lisa@simpsons.com', phone: '555-111-1224' },
+        { name: 'Bart', email: 'bart@simpsons.com', phone: '555-222-1234' },
+        { name: 'Homer', email: 'homer@simpsons.com', phone: '555-222-1244' },
+        { name: 'Marge', email: 'marge@simpsons.com', phone: '555-222-1254' }
+    ]
+});
+----
+
+For sake of ease, we configured Ext.data.Store to load its data inline. In a real world application, you would most likely configure the Ext.data.Store to use an Ext.data.proxy.Proxy to load data from the server.
+
+=== Grid Panel
+
+Now, we have a model, which defines our data structure. We have also loaded several model instances into an Ext.data.Store. Now we’re ready to display the data using Ext.grid.Panel.
+
+In this example, we configured the Grid with renderTo to immediately render the Grid into the HTML document.
+
+In many situations, the grid will be a descendant of Ext.container.Viewport, which means rendering is already handled.
+
+[source,java]
+----
+Ext.create('Ext.grid.Panel', {
+    renderTo: document.body,
+    store: userStore,
+    width: 400,
+    height: 200,
+    title: 'Application Users',
+    columns: [
+        {
+            text: 'Name',
+            width: 100,
+            sortable: false,
+            hideable: false,
+            dataIndex: 'name'
+        },
+        {
+            text: 'Email Address',
+            width: 150,
+            dataIndex: 'email',
+            hidden: true
+        },
+        {
+            text: 'Phone Number',
+            flex: 1,
+            dataIndex: 'phone'
+        }
+    ]
+});
+----
+
+And that’s all there is to it.
+
+We just created an Ext.grid.Panel that renders itself to the body element. We also told the Grid panel to get its data from the userStore that we previously created.
+
+Finally, we defined the Grid panel’s columns and gave them a dataIndex property. This dataIndex associates a field from our model to a column.
+
+The “Name” column has a fixed width of “100px” and has sorting and hiding disabled. The “Email Address” column is hidden by default (it can be shown again by using the menu on any other column header). Finally, the “Phone Number” column flexes to fit the remainder of the Grid panel’s total width.
+
+To know more about Grids visit https://docs.sencha.com/extjs/5.0/components/grids.html[sencha] website.

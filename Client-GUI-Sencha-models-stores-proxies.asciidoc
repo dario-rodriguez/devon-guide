@@ -1,0 +1,153 @@
+:toc: macro
+toc::[]
+
+== Sencha data package
+
+Sencha provides a powerful data package with *models*, *stores* and *associations*. But this power comes with added complexity added that usually doesn't justify the price.
+
+For example, the Sencha way of loading an entity is by providing a `proxy` to a `model` and calling the `load` method. This fires an asynchronous operation that when resolved, completes with the `model` being populated with the information from the server.
+
+`Models` and `stores` are useful for some controls of the Sencha framework like combo, list, grid or form.
+
+
+[source,javascript]
+----
+// Table model is configured with a rest proxy
+ 
+new Sample.model.table.Table().load(123, {
+  success: function(){
+    // model is loaded, proceed with logic
+  }
+});
+----
+
+
+In Devon we usually recommend explicitly calling a "*rest endpoint*" and create the `model` in the callback (if necessary, maybe you can work with the returned data without really creating a `model`)
+
+[source,javascript]
+----
+Devon.rest.tablemanagement.table.get({
+  params : { id : 123 },
+  success: function(data){
+     // work with data or... create a model
+     var model = new Sample.model.table.Table(data);
+  }
+});
+----
+
+Things get a bit complicated when dealing with `associations` between nested models. Reading a nested structure into a model is an easy task but "writing" back this nested structure is not. Usually it is better to work with good plain old Javascript objects and use a "rest endpoint" to do the communication with the server.
+
+== Devon.restproxy
+
+When defining rest endpoints through the `Devon.Ajax.define` method, it also defines a Rest proxy with the same type as the key of the endpoint. For example for this endpoint:
+
+[source,javascript]
+----
+Devon.Ajax.define({
+    'tablemanagement.table' : {
+        url: 'tablemanagement/v1/table/{id}'
+    }
+});
+----
+
+An Ajax proxy is created of type `Devon.restproxy.tablemanagement.table` with an alias of `proxy.tablemanagement.table` that can be used by combos or grids. For example, when loading a combo through a viewModel object on the Sample application:
+
+[source,javascript]
+----
+Ext.define('Sample.view.table.TableEditVM', {
+	extend: 'Ext.app.ViewModel',
+	...
+	stores: {
+		offers: {
+			model: 'Sample.model.Offer',
+			proxy : {
+				type: 'tablemanagement.offer'
+			},
+			autoLoad: true
+		}
+	}
+});
+----
+
+This proxy follows the convention in Devon to use POST for performing read requests that contain additional filters or pagination and sorting information.
+
+== Pagination
+When we have a lot of results for a ´READ´ operation, we can not show all the results at the same time due to performance issues. The solution is to paginate the results.
+In Sencha, we can define a http://docs.sencha.com/extjs/5.1/5.1.1-apidocs/\#!/api/Ext.data.Store[paginated data store] setting `pageSize` with a number greater than 0. 
+The user can navigate between data pages with the pagination toolbar of a http://docs.sencha.com/extjs/5.1/5.1.1-apidocs/\#!/api/Ext.grid.Panel[Sencha grid component].
+
+So, to use pagination you only have to configure three components in Devon4Sencha:
+
+* *REST endpoint*: Activating `pagination` flag in the controller REST endpoing definition. For example:
+
+[source, javascript]
+----
+init: function() {
+    Devon.Ajax.define({
+        'tablemanagement.search': {
+            url: 'tablemanagement/v1/table/search',
+            pagination : true
+        },
+        ...
+    });
+}
+----
+
+* *Store*: Configure a store class with the paginated rest endpoint proxy and a value for `pageSize` greater than 0:
+
+[source, javascript]
+----
+stores: {
+  tables: {
+    model: 'Sample.model.table.Table',
+    pageSize: 3,
+    proxy: {
+      type : 'tablemanagement.search'
+    },
+    autoLoad:true
+  }
+}
+----
+
+* *Grid*. Add pagination plugin. This plugin adds a pagination toolbar to a grid and binds the grid store to the pagination toolbar. For example:
+
+[source, javascript]
+----
+{
+    xtype: 'grid',
+    bind: {
+        store: '{tables}'
+    },
+    plugins:['pagination'],
+    ...
+}
+----
+
+== Sorting
+
+By default, http://docs.sencha.com/extjs/5.1/5.1.1-apidocs/\#!/api/Ext.grid.Panel[Sencha grid component] allows the user to sort the visible data from the grid by clicking on the header columns.
+We can activate the store property `remoteSort` if we want to implement sorting in the back-end:
+
+[source, javascript]
+----
+stores: {
+  tables: {
+    model: 'Sample.model.table.Table',
+    pageSize: 3,
+    proxy: {
+      type : 'tablemanagement.search'
+    },
+    remoteSort : true,
+    autoLoad:true
+  }
+}
+----
+
+The `remoteSort` property, makes Sencha framework to send the additional params on the body request object to the back-end:
+
+[source, javascript]
+----
+sort: "[{"property":"state","direction":"ASC"}]"
+----
+
+Where property has the name of the model `property` for the column selected and `direction` has the value "ASC" (ascending) or "DESC" (descending).

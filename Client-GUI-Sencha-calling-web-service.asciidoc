@@ -1,0 +1,185 @@
+:toc: macro
+toc::[]
+
+= Rest endpoints
+
+Devon architecture for web applications is based on the standard JAX-RS for communication between client and server. The recommended use of REST is of a more "practical" approach and it is not oriented to *pure*  RESTful (also known as hypermedia or http://en.wikipedia.org/wiki/HATEOAS[HATEOAS]) thus simplifying the programming both on the client and server side. (Please consult the platform guide for more information).
+
+
+For easing the communication from Javascript code to the back-end, Devon provides helpers to define Rest endpoints as Javascript objects with methods to do a GET/POST/PUT/DELETE operations.
+
+These Rest endoints are usually created on the *Controllers*, so they get instanciated at application launch and then can be used within other *Controller* and *ViewController* instances.
+
+On the sample application the *Rest endpoints* used for all the table related operations are created on the global Table Controller:
+
+[source,javascript]
+.Sample.controller.table.TableController.js
+----	
+init: function() {
+  Devon.Ajax.define({
+    'tablemanagement.table': {
+       url: 'tablemanagement/v1/table/{id}'
+    },
+    'salesmanagement.order': {
+      url: 'salesmanagement/v1/order'
+    }
+  });
+ },
+----
+
+These helper objects can be used in other controllers by calling get/post/put/delete methods following a similar syntax to the `Ext.Ajax.request` function.
+
+* `Devon.rest.tablemanagement.table.get`
+* `Devon.rest.tablemanagement.table.put`
+* `Devon.rest.tablemanagement.table.post`
+* `Devon.rest.tablemanagement.table.delete`
+
+[source,javascript]
+----
+getTable: function(id) {
+  Devon.rest.tablemanagement.table.get({
+    scope: this,
+    uriParams: {
+      id: id
+    },
+    success: function(data, response, options){
+       // work with response data
+    }
+  });
+},
+----
+
+Here a GET request is made by the client to the following url:
+
+----
+[BASE_URL]/tablemanagement/v1/table/123
+----
+
+The `Devon.Ajax.define` objects wrap `Ext.Ajax.request` methods with some added functionality:
+* URL template resolution
+* Automatic JSON response decode
+* Default failure function
+
+== URL template resolution
+
+The `url` parameter used to define a route is treated as an `Ext.XTemplate` that is resolved with the `uriParams` property when the method is called.
+
+This way an URL like `/someurl/{id}` is converted to `/someurl/123` when called with `uriParams:{id:123}`. If there is no `id` property on the parameters it becomes blank string so what you get is `/someurl/`.
+
+This is useful because allows us to reuse the same URL for both GET and POST requests. Remember that a GET request usually specifies the entity id on the path.
+
+For example, to create or update an entity we make a post request:
+
+[source,javascript]
+----
+Devon.rest.tablemanagement.table.post({
+    scope: this,
+    jsonData: {
+      id: 123,
+      name: "John",
+      rol: "admin"
+    }
+});
+----
+
+which will lead to the following request to the server:
+
+----
+HTTP POST /tablemanagement/v1/table
+Content-Type: application/json
+
+{ "id" : 123, "name": "john", "rol": "admin" }
+----
+
+== Query string
+
+Any part of the url is subject to url substitution. It is therefore possible to add a so-called query string just by adding this, in parametrized format, to the url template. This way an URL template like 
+
+----
+[BASE_URL]/someurl/{id}?format={docformat}
+----
+
+is converted to the url
+
+----
+[BASE_URL]/someurl/123?format=pdf
+----
+
+when called with uriParams 
+
+----
+{id:123, docformat: "pdf"}
+----
+
+
+== Alternative PUT format
+
+An usual case for PUT operations if to address an individual resource on the URL by using its ID and sending the data on the body payload.
+
+----
+HTTP PUT /someurl/123
+Content-Type: application/json
+
+{ 
+  "name" : "john",
+  "rol" : "admin"
+}
+----
+
+This can be easily accomplished by using `uriParams` and `jsonData` when calling the function.
+
+[source,javascript]
+----
+Devon.rest.tablemanagement.table.put({
+    scope: this,
+    uriParams : { id : 123} ,
+    jsonData: {
+      name: "John",
+      rol: "admin"
+    }
+});
+----
+
+== Automatic JSON response decode
+
+On the original `Ext.Ajax.request` function, the `success` callback property function takes 2 parameters ( response and opts). The first thing to do during this callback is usually decoding the `response.responseText` property of the response object from JSON to a Javascript object.
+
+As JSON is assumed as the default communication between client and server, Devon helper methods already do this and introduce the decoded Javascript object as first parameter to the success function.
+
+This makes easier also to delegate in a more clean way to other functions defined on the same *controller* and avoid the so called "callback pyramid of doom"
+
+for example:
+
+[source,javascript]
+----
+getTable: function(id) {
+    Devon.rest.tablemanagement.table.get({
+	scope: this,                             //<1>
+	uriParams: { id: 123 },
+	success: this.loadOrder          //<2>
+    });
+},
+
+loadOrder: function(table, response, opts) {            //<3>
+    // table is already a Javascript object
+}
+----
+<1> scope for the success function
+<2> delegate to loadOrder function on the same class
+<3> You usually doesn't need to declare and use response and opts in the callback
+
+== Base Url configuration
+
+All the rest endpoints of the application are configured to use the same base url configured in the https://github.com/devonfw/devon4sencha/wiki/guide-devon4sencha-project-layout#global-javascript-configuration-properties[Config.js] settings file with the *server* property:
+[source,javascript]
+----
+window.Config={
+  ...
+  server : '/devonfw-sample-server/services/rest/',
+  ...
+};
+----
+
+
+
+

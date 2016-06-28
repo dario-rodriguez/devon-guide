@@ -1,0 +1,62 @@
+:toc: macro
+toc::[]
+
+= Error processing
+
+Devon's Sencha layer has it's own mechanism to manage received errors from the server when performing Ajax requests. Devon has two features for related to error management:
+
+* Show an alert message for errors not processed by the application
+* Show an error message in forms fields
+
+
+First here it is an example of an error message received from server when validation exception occurs:
+
+[source,javascript]
+----
+{
+    "message" : "{number=[must be less than or equal to 1000]}",
+    "errors":{
+        "tablenumber":[
+             "must be less than or equal to 1000"
+        ]
+    },
+    "uuid":"55293fcd-ff38-4440-ad4c-8cd48eec7cac",
+    "code":"ValidationError"
+}
+
+----
+
+The `errors` key has the messages for every field that has errors in a view. In this example case, the field with errors is `tablenumber`.
+
+Having standardized this format for Devon applications allows us to create automatic processing of messages. By using Devon REST endpoints to accessing the server, if we receive in the JSON response the field `errors`, Devon will manage the exception as a form validation exception, and if we don´t received the field `errors`, Devon will show a default alert message.
+
+In case the application wants to manage the processing of the errors in its own way, it should provide a `failure` property to the REST endpoint method call.
+
+In the case that we received the field `errors`, Devon will perform a search in the current view for a component with the same `reference` property as the error key (`reference` it is a Sencha property to distinguish a component from other component) and it will mark as invalid the component, showing the message received alongside.
+ 
+In our example, Devon will find a component that has as a `reference` property with value `"number"` and it will mark it as invalid.
+By default, Devon starts searching for components to match with the error validation key from the top of the view, although you can tell Devon where to start the search with the property `failureReferenceView`. The value of the property `failureReferenceView` also has to be the value of a view component reference property.
+
+[source,javascript]
+.SampleViewController.js
+----
+    Devon.rest.tablemanagement.table.post({
+        scope: this,
+        jsonData : vm.get('table'),
+        failureReferenceView: 'panel',
+        success: this.tableCrudClose
+    });
+----
+
+Of course, you can override Devon exception management defining a failure function. In that case, when the server responds with an error, Devon will call user failure function and user should manage the error.
+
+[source,javascript]
+.SampleViewController.js
+----
+    Devon.rest.tablemanagement.table.post({
+        scope: this,
+        jsonData : vm.get('table'),
+        success: this.tableCrudClose,
+        failure: this.myFailureFn,
+    });
+----

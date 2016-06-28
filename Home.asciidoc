@@ -97,31 +97,31 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - link:Client-GUI-Sencha-extending-CRUD-custom-plugin[Extending the CRUD: Custom plugin]
 
-- [Defining an Ext component](https://github.com/devonfw/devon/wiki/devon-guide-sencha-define-ext-component) 
+- link:Client-GUI-Sencha-define-ext-component[Defining an Ext component]
 
 - [Creating Tests and Mocks (Jasmin & Simlets) TDD](https://github.com/devonfw/devon/wiki/devon-guide-sencha-creating-tests-mocks) (TODO) 
 
-- [Calling web services](https://github.com/devonfw/devon/wiki/devon-guide-sencha-calling-web-service)
+- link:Client-GUI-Sencha-calling-web-service[Calling web services]
 
-- [Models, Stores and Proxies](https://github.com/devonfw/devon/wiki/devon-guide-sencha-models-stores-proxies) 
+- link:Client-GUI-Sencha-models-stores-proxies[Models, Stores and Proxies]
 
-- [Panels & Windows](https://github.com/devonfw/devon/wiki/devon-guide-sencha-panels-windows)
+- link:Client-GUI-Sencha-panels-windows[Panels & Windows]
 
-- [Layouts & positioning](https://github.com/devonfw/devon/wiki/devon-guide-sencha-layouts-positioning)
+- link:Client-GUI-Sencha-layouts-positioning[Layouts & positioning]
 
-- [Grids](https://github.com/devonfw/devon/wiki/devon-guide-sencha-grids)
+- link:Client-GUI-Sencha-Grids[Grids]
 
-- [Forms](https://github.com/devonfw/devon/wiki/devon-guide-sencha-forms)
+- link:Client-GUI-Sencha-Forms[Forms]
 
-- [CORS & protection against Cross Site Scription (XSS)](https://github.com/devonfw/devon/wiki/devon-guide-sencha-cors) 
+- link:Client-GUI-Sencha-cors[CORS & protection against Cross Site Scription (XSS]
 
-- [Security](https://github.com/devonfw/devon/wiki/devon-guide-sencha-security)
+- link:Client-GUI-Sencha-security[Security]
 
 - link:Client-GUI-Sencha-theming[Sencha Theming] 
 
-- [Error processing](https://github.com/devonfw/devon/wiki/devon-guide-sencha-error-processing)
+- link:Client-GUI-Sencha-error-processing[Error processing] 
 
-- [Internationalization](https://github.com/devonfw/devon/wiki/devon-guide-sencha-i18n)
+- link:Client-GUI-Sencha-i18n[Internationalization] 
 
 - Devon4Sencha Best Practices
 
