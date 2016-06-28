@@ -7,17 +7,17 @@ Now we are going to add some filters to our view so that we can search and filte
 
 [source,javascript]
 ----
-initComponent: function() {
-		Ext.apply(this, {
-		items : [
-			this.search(),
-			this.grid()
-		]
-		});
-		this.callParent(arguments);
-	},
-	
-	search : function(){
+    initComponent: function() {
+        Ext.apply(this, {
+        items : [
+            this.search(),
+            this.grid()
+        ]
+        });
+        this.callParent(arguments);
+    },
+    
+    search : function(){
         return {
             xtype:'form',
             reference:'form',
@@ -37,10 +37,10 @@ initComponent: function() {
                 flex:5,
                 items:[{
                    xtype:'numberfield',
-			reference:'number',
-			fieldLabel:i18n.tableEdit.number,
+            reference:'number',
+            fieldLabel:i18n.tableEdit.number,
                    bind:'{filters.number}',
-			minValue:1,
+            minValue:1,
                    labelWidth:80,
                    tabIndex:1,
                    flex:1
@@ -51,18 +51,18 @@ initComponent: function() {
                 layout:{type:'vbox',align:'stretch'},
                 flex:5,
                 items:[{
-                    	xtype:'combo',
-				reference:'state',
-				fieldLabel:i18n.tableEdit.state,
-				tabIndex:2,
-				queryMode: 'local',
-				displayField: 'code',
-				valueField: 'code',
-				name: 'state',
-				bind: {
-					store: '{states}',
-					value: '{filters.state}'
-				}
+                        xtype:'combo',
+                reference:'state',
+                fieldLabel:i18n.tableEdit.state,
+                tabIndex:2,
+                queryMode: 'local',
+                displayField: 'code',
+                valueField: 'code',
+                name: 'state',
+                bind: {
+                    store: '{states}',
+                    value: '{filters.state}'
+                }
                 }]
             }],
             bbar:[
@@ -92,34 +92,34 @@ We have to extend the ViewModel for the view so we edit `TableListVM.js` adding 
 [source,javascript]
 ----
 Ext.define('demo.view.table.TableListVM', {
-	extend: 'Ext.app.ViewModel',
-	alias: 'viewmodel.table-tables',
-	requires : ['demo.model.table.TableM'],
-	data: {
-		selectedItem: false,
-		filters:{
+    extend: 'Ext.app.ViewModel',
+    alias: 'viewmodel.table-tables',
+    requires : ['demo.model.table.TableM'],
+    data: {
+        selectedItem: false,
+        filters:{
             number: null,
             state: null
         }
-	},
-	stores: {
-		tables: {
-			model: 'demo.model.table.TableM',
-			pageSize: 3,
-			proxy: {
-				type : 'tablemanagement.search'
-			},
-			autoLoad:true
-		},
-		states: {
-			fields: ['code'],
-			data:[
-				{'code':'FREE'},
-				{'code':'OCCUPIED'},
-				{'code':'RESERVED'}
-			]
-		}
-	}
+    },
+    stores: {
+        tables: {
+            model: 'demo.model.table.TableM',
+            pageSize: 3,
+            proxy: {
+                type : 'tablemanagement.search'
+            },
+            autoLoad:true
+        },
+        states: {
+            fields: ['code'],
+            data:[
+                {'code':'FREE'},
+                {'code':'OCCUPIED'},
+                {'code':'RESERVED'}
+            ]
+        }
+    }
 });
 ----
 
@@ -131,8 +131,8 @@ Now it is time to define what we are going to do with these buttons we have just
 
 [source,javascript]
 ----
-doSearch: function(){
-	    var grid = this.lookupReference('tablesgrid');
+    doSearch: function(){
+        var grid = this.lookupReference('tablesgrid');
         var store = grid.getStore();
         var form = this.lookupReference('form');
 
@@ -143,15 +143,15 @@ doSearch: function(){
         store.load({
             params : this.getViewModel().data.filters
         });
-	},
+    },
 
-doClean: function(){
-		var grid = this.lookupReference('tablesgrid');
+    doClean: function(){
+        var grid = this.lookupReference('tablesgrid');
         var form = this.lookupReference('form');
 
         grid.getStore().removeAll();
-        form.getForm().reset();		
-	}
+        form.getForm().reset();        
+    }
 ----
 
 Check the changes in the application.
