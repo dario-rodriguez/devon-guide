@@ -29,7 +29,7 @@ Batches should invoke use cases in the logic layer for doing their work.
 Only "batch specific" technical aspects should be implemented in the batch layer.
 
 ==========================
-Example:
+> Example:
 For a batch, which imports product data from a CSV file this means that all code for actually reading and parsing the CSV input file is implemented in the batch layer.
 The batch calls the use case "create product" in the logic layer for actually creating the products for each line read from the CSV input file.
 ==========================
@@ -49,7 +49,7 @@ It is a typical design decision you have to take when designing your specific ba
 
 Spring Batch provides a simple command line API for execution and parameterization of batches, the `CommandLineJobRunner`. It is not jet fully compatible with Spring Boot, however. For those using Spring Boot OASP4J provides the `SpringBootBatchCommandLine` with similar functionalities.
 
-Both execute batches as a "simple" standalone process (instantiating a new JVM and creating a new ApplicationContext).
+Both execute batches as a "simple" standalone process (instantiating a new JVM and creating a new _ApplicationContext_).
 
 ==== Starting a Batch Job
 
@@ -57,7 +57,7 @@ For starting a batch job, the following parameters are required:
 
 ===== jobPath
 
-The location of the JavaConfig classes (usually annotated with @Configuration or @SpringBootApplication) and/or XML files that will be used to create an +ApplicationContext+.
+The location of the JavaConfig classes (usually annotated with _@Configuration_ or _@SpringBootApplication_) and/or XML files that will be used to create an _ApplicationContext_.
 
 The CommandLineJobRunner only accepts one class/file, which must contain everything needed to run a job (potentially by referencing other classes/files), the SpringBootBatchCommandLine, however, expects that there are two paths given: one for the general batch setup and one for the XML file containing the batch job to be executed.
 
