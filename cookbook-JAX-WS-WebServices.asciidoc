@@ -208,7 +208,7 @@ We need to Configure it to return an instance of `org.apache.cxf.jaxws.EndpointI
 
 Furthermore we have to use the _.publish_ method of our `org.apache.cxf.jaxws.EndpointImpl` to define the last part of our WebService-URI.
 
-If you now fire up the sample application with link:getting-started-running-sample-application#step-2-run-the-application[SpringBoot], opening a browser and going to URL where the webservice is hosted
+If you now fire up the sample application with link:getting-started-running-sample-application#step-2-run-the-application[SpringBoot], opening a browser and going to the URL where the webservice is hosted
 
 [source]
 ----
