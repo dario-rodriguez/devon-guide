@@ -42,7 +42,8 @@ one-and-only-one responsibility.
 as we need to be to check the expected functionality?
 
 *  Meet requirements : 
-1)Usually as part of the end of a review.2)Take a look at the requirements of the story, task or bug.
+** Usually as part of the end of a review
+** Take a look at the requirements of the story, task or bug.
 
 4. [underline]#*Review your own code first*#
 * Did I leave a comment or TODO in?
