@@ -15,7 +15,7 @@ A Web Service can be defined by following ways:
 * is a collection of standards or protocols for exchanging information between two devices or application.
 
 
-image::images/webservices(Jax-WS)/webservices.png[,scaledwidth=80%]
+image::images/jax-ws-webservices/web-services.png[,scaledwidth=80%]
 
 
 
