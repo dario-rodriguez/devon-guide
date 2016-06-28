@@ -16,30 +16,25 @@ toc::[]
 
 * Difficult to debug
 
-* Unused function parameters should be removed.
+image::images/devon4sencha-badPractices/bad-practices/bad-practice-commaI.png[Trailing Coma 1,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/bad-practice-commaI.png"]
 
-* Functions should not be too complex.
+image::images/devon4sencha-badPractices/bad-practices/bad-practice-commaII.png[Trailing Coma 2,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/bad-practice-commaII.png"]
 
-* Unused local variables should be removed.
+- Unused function parameters should be removed.
 
-* Control structures should use always curly brackets.
+- Functions should not be too complex.
 
-* Variables should not be redeclared.
+- Unused local variables should be removed.
 
-* Each statement should end with a semicolon.
+- Control structures should use always curly brackets.
 
-* Nested blocks of code should not be left empty.
+- Variables should not be redeclared.
 
-* Sections of code should not be “commented out”.
+- Each statement should end with a semicolon.
 
+- Nested blocks of code should not be left empty.
 
-
-image::images/devon4sencha-badPractices/bad-practices/bad-practice-commaI.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/bad-practice-commaI.png"]
-
-
-
-image::images/devon4sencha-badPractices/bad-practices/bad-practice-commaII.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/bad-practice-commaII.png"]
-
+- Sections of code should not be “commented out”.
 
 
 == Excessive or unnecessary nesting of component structures
@@ -58,116 +53,62 @@ image::images/devon4sencha-badPractices/bad-practices/bad-practice-commaII.png[D
 
 
 
-image::images/devon4sencha-badPractices/bad-practices/bad-panel-grid.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/bad-panel-grid.png"]
+image::images/devon4sencha-badPractices/bad-practices/bad-panel-grid.png[Bad panel grid,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/bad-panel-grid.png"]
 
 
 
-    fig:Example 1A BAD: The panel is unnecessary.
+    Example 1A BAD: The panel is unnecessary.
 
 
 
-image::images/devon4sencha-badPractices/bad-practices/good-panel-grid.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/good-panel-grid.png"]    
+image::images/devon4sencha-badPractices/bad-practices/good-panel-grid.png[Good panel grid,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/good-panel-grid.png"]    
 
-    fig:Example 1B Good: The grid is already a panel, so just use any panel properties directly on the grid.
+    Example 1B Good: The grid is already a panel, so just use any panel properties directly on the grid.
 
-    
-
-    
-
-
-
+   
 == Memory leaks caused by failure to cleanup unused components 
 
+* *Why my app is getting slower and slower?*
 
+* *Failure to cleanup unused components as user navigates*
 
-* *Why my app is getting slower and slower?.*
+** Each time user right-clicks on a grid row a new context menu is created
 
-* *Failure to cleanup unused components as user navigates.*
+** If the user keeps this app open and clicks hundreds of times, hundreds of context menus will never be destroyed
 
+** To the developer and user, the apps “looks” visually correct because only the last context menu created is seen on the page
 
+** Memory utilization will keep increasing 
+** Slower operation / browser crash
 
-* Each time user right-clicks on a grid row
+image::images/devon4sencha-badPractices/bad-practices/unused-components.png[Unused components 1,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/unused-components.png"]
 
-a new context menu is created.
+* *Better solution*
 
+** Context menu is created once when grid is initialized and is simply reused each time
 
+** However, if the grid is destroyed, the context menu will still exist
 
-* If the user keeps this app open and clicks
+image::images/devon4sencha-badPractices/bad-practices/unused-components-solution.png[Unused components 2,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/unused-components-solution.png"]
 
-hundreds of times, hundreds of context menus
+* *Best solution*
 
-will never be destroyed.
+** Context menu is destroyed when the grid is destroyed
 
-
-
-* To the developer and user, the apps “looks”
-
-visually correct because only the last context menu
-
-created is seen on the page.
-
-
-
-* Memory utilization will keep increasing
-
-Slower operation / browser crash.
-
-
-
-image::images/devon4sencha-badPractices/bad-practices/unused-components.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/unused-components.png"]
-
-
-
-- *Better solution*
-
-* Context menu is created once when grid
-
-Is initialized and is simply reused each time.
-
-* However, if the grid is destroyed, the context
-
-Menu will still exist.
-
-
-
-image::images/devon4sencha-badPractices/bad-practices/unused-components-solution.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/unused-components-solution.png"]
-
-
-
-- *Best solution*
-
-* Context menu is destroyed when the grid is destroyed.
-
-
-
-image::images/devon4sencha-badPractices/bad-practices/unused-components-Best-solution.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/unused-components-Best-solution.png"]
-
-
-
-
+image::images/devon4sencha-badPractices/bad-practices/unused-components-Best-solution.png[Unused components 3,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/unused-components-Best-solution.png"]
 
 == Poor folder structure for source code
 
-* Doesn’t affect performance or operation, but it makes it difficult to follow the structure of the app.
+* Doesn’t affect performance or operation, but it makes it difficult to follow the structure of the app
 
 
+    Example 1A BAD: Poor folder estructure:
 
-fig: Poor folder structure.
+image::images/devon4sencha-badPractices/bad-practices/poor-folder-stucture.png[Bad folder estructure,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/poor-folder-stucture.png"]
 
+    Example 1B Good: Folder estructure to follow:
 
-
-image::images/devon4sencha-badPractices/bad-practices/poor-folder-stucture.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/poor-folder-stucture.png"]
-
-
-
-
-fig: Folder structure to follow.
-
-
-
-image::images/devon4sencha-badPractices/bad-practices/good-folder-stucture.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/good-folder-stucture.png"]
-
-
+image::images/devon4sencha-badPractices/bad-practices/good-folder-stucture.png[Good folder estructure,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/good-folder-stucture.png"]
 
 == Use of global variables
 
