@@ -10,18 +10,18 @@ When we add or edit a table, we should refresh the grid so that we can see the c
 [source,javascript]
 ----
 onTableEditSubmit: function() {
-		var form = this.lookupReference('panel');
-		var params = form.getValues();
-		Devon.rest.tablemanagement.table.post({
-			scope: this,
-			jsonData : params,
-			success: function(){
-			    //Fire event table changed
-        		    Ext.GlobalEvents.fireEvent('eventTablesChanged');
+    var form = this.lookupReference('panel');
+    var params = form.getValues();
+    Devon.rest.tablemanagement.table.post({
+        scope: this,
+        jsonData : params,
+        success: function(){
+            //Fire event table changed
+            Ext.GlobalEvents.fireEvent('eventTablesChanged');
 
-			    //Fire close event
-			    var parent =  this.getView().up();
-	…
+            //Fire close event
+            var parent =  this.getView().up();
+    …
 ----
 
 Then, when we click on the submit button, we will fire the `eventTablesChanged` event.   So, we need some point in our application which captures that event.   In our case, in the view-controller `TableListVC.js` we add this:
@@ -31,17 +31,17 @@ Then, when we click on the submit button, we will fire the `eventTablesChanged` 
 Ext.define('demo.view.table.TableListVC', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.tablelist',
-	
+    
     listen: {
         global: {
             eventTablesChanged: 'onTablesChanged'
         }
     },
 
-		    onAddClick: function() {
+    onAddClick: function() {
         Ext.GlobalEvents.fireEvent('eventTableAdd');
     },
-	…
+    …
 ----
 
 After that, in the same file, `TableListVC.js`, we define the function `onTablesChanged` that is going to refresh the grid:
@@ -49,7 +49,7 @@ After that, in the same file, `TableListVC.js`, we define the function `onTables
 [source,javascript]
 ----
 onTablesChanged: function() {
-        this.refreshGrid();
+    this.refreshGrid();
 }
 ----
 
