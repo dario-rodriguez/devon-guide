@@ -10,12 +10,12 @@ We create in app/view/table the file `TableListVM.js`:
 [source,javascript]
 ----
 Ext.define('demo.view.table.TableListVM', {
-	extend: 'Ext.app.ViewModel',
-	alias: 'viewmodel.table-tables',
-	requires : ['demo.model.table.TableM'],
-	data: {
-		selectedItem: false
-	}
+    extend: 'Ext.app.ViewModel',
+    alias: 'viewmodel.table-tables',
+    requires : ['demo.model.table.TableM'],
+    data: {
+        selectedItem: false
+    }
 });
 ----
 
@@ -24,59 +24,59 @@ In our `TableListV.js` we are going to use the `selectedItem` property in the gr
 [source,javascript]
 ----
 requires: [
-		'Ext.grid.Panel',
-		'demo.view.table.TableListVM',
-		'demo.view.table.TableListVC'
+    'Ext.grid.Panel',
+    'demo.view.table.TableListVM',
+    'demo.view.table.TableListVC'
 ],
 
 viewModel: {
-		type: "table-tables"
+    type: "table-tables"
 },
 
 …
 
-grid : function() {
-		return {
-			xtype: 'grid',
-			reference: 'tablesgrid',
-			flex: 1,
-			padding: '0 10 10 10',
-			allowDeselect: true,
-			store:this.getStore(),
-			bind: {
-				selection: '{selectedItem}'
-			},
-			columns: [{
-				text: i18n.tables.grid.number,
-				dataIndex: 'number'
-			}, {
-				text: i18n.tables.grid.state,
-				dataIndex: 'state',
-				flex: 1
-			}],
-			tbar: {
-				items: [{
-					text: i18n.tables.buttons.add,
-					handler: 'onAddClick'
-				}, {
-					text: i18n.tables.buttons.edit,
-					bind: {
-						disabled: '{!selectedItem}'
-					},
-					handler: 'onEditClick'
-				}, {
-					text: i18n.tables.buttons.del,
-					bind: {
-						disabled: '{!selectedItem}'
-					},
-					handler: 'onDeleteClick'
-				}]
-			},
-			listeners: {
-				beforeitemdblclick: 'onEditDblclick'
-			}
-		}
-	},
+    grid : function() {
+        return {
+            xtype: 'grid',
+            reference: 'tablesgrid',
+            flex: 1,
+            padding: '0 10 10 10',
+            allowDeselect: true,
+            store:this.getStore(),
+            bind: {
+                selection: '{selectedItem}'
+            },
+            columns: [{
+                text: i18n.tables.grid.number,
+                dataIndex: 'number'
+            }, {
+                text: i18n.tables.grid.state,
+                dataIndex: 'state',
+                flex: 1
+            }],
+            tbar: {
+                items: [{
+                    text: i18n.tables.buttons.add,
+                    handler: 'onAddClick'
+                }, {
+                    text: i18n.tables.buttons.edit,
+                    bind: {
+                        disabled: '{!selectedItem}'
+                    },
+                    handler: 'onEditClick'
+                }, {
+                    text: i18n.tables.buttons.del,
+                    bind: {
+                        disabled: '{!selectedItem}'
+                    },
+                    handler: 'onDeleteClick'
+                }]
+            },
+            listeners: {
+                beforeitemdblclick: 'onEditDblclick'
+            }
+        }
+    },
 ----
 
 We can observe in the grid that if we haven’t selected any record in the grid, the `Edit` and `Delete` buttons are disabled.   On the contrary, if we select one record, the two buttons are enabled.   With the ViewModel every time that the property `selectedItem` change, the value is updated in the ViewModel.
@@ -85,29 +85,29 @@ We also can use the property `selectedItem` to get the selected record and simpl
 
 [source,javascript]
 ----
-onEditClick: function() {
-	var rec = this.getViewModel().get('selectedItem');
-    var id = rec.data.id;
-	Ext.GlobalEvents.fireEvent('eventTableEdit', id);
-},
-onDeleteClick: function() {
-		var me = this;
-		Ext.MessageBox.confirm('Confirmar', i18n.main.deleteConfirmMsg,
-			function(buttonPressed) {
-				if (buttonPressed == 'no' || buttonPressed == 'cancel') {
-					return;
-				}
-				var rec = me.getViewModel().get('selectedItem');
-				Devon.rest.tablemanagement.table.del({
-					scope: me,
-					uriParams: {
-						id: rowSelected.get('id')
-					},
-					success: me.refreshGrid
-				});
-			}
-		);
-	},
+    onEditClick: function() {
+        var rec = this.getViewModel().get('selectedItem');
+        var id = rec.data.id;
+        Ext.GlobalEvents.fireEvent('eventTableEdit', id);
+    },
+    onDeleteClick: function() {
+        var me = this;
+        Ext.MessageBox.confirm('Confirmar', i18n.main.deleteConfirmMsg,
+            function(buttonPressed) {
+                if (buttonPressed == 'no' || buttonPressed == 'cancel') {
+                    return;
+                }
+                var rec = me.getViewModel().get('selectedItem');
+                Devon.rest.tablemanagement.table.del({
+                    scope: me,
+                    uriParams: {
+                        id: rowSelected.get('id')
+                    },
+                    success: me.refreshGrid
+                });
+            }
+        );
+    },
 ----
 
 Test the demo application. We will see that it is working as before.
@@ -121,21 +121,21 @@ Besides that, we can add to our ViewModel `TableListVM.js` the store we have def
 [source,javascript]
 ----
 Ext.define('demo.view.table.TableListVM', {
-	extend: 'Ext.app.ViewModel',
-	alias: 'viewmodel.table-tables',
-	requires : ['demo.model.table.TableM'],
-	data: {
-		selectedItem: false
-	},
-	stores: {
-		tables: {
-			model: 'demo.model.table.TableM',
-			proxy: {
-				type : 'tablemanagement.table'
-			},
-			autoLoad:true
-		}
-	}
+    extend: 'Ext.app.ViewModel',
+    alias: 'viewmodel.table-tables',
+    requires : ['demo.model.table.TableM'],
+    data: {
+        selectedItem: false
+    },
+    stores: {
+        tables: {
+            model: 'demo.model.table.TableM',
+            proxy: {
+                type : 'tablemanagement.table'
+            },
+            autoLoad:true
+        }
+    }
 });
 ----
 
@@ -144,8 +144,8 @@ As we have changed the way we define the store for the Table example, we have to
 [source,javascript]
 ----
 bind: {
-	store: '{tables}',
-	selection: '{selectedItem}'
+    store: '{tables}',
+    selection: '{selectedItem}'
 },
 ----
 
@@ -156,7 +156,7 @@ Then, we can delete our `TableS.js` and delete the function getStore() in `Table
 [source,javascript]
 ----
 /*getStore:function(){
-	return Ext.create('store.table', {name:'storetable_'+Math.random()});
+    return Ext.create('store.table', {name:'storetable_'+Math.random()});
 }*/
 ----
 
@@ -174,14 +174,14 @@ So, we have to include in our controller, `TableController.js` the definition of
 
 [source,javascript]
 ----
-/*Rest end points definition*/
-	init: function() {
-		Devon.Ajax.define({
-			'tablemanagement.table': {
-				url: 'tablemanagement/v1/table/{id}'
-			}
-		});
-	},
+    /*Rest end points definition*/
+    init: function() {
+        Devon.Ajax.define({
+            'tablemanagement.table': {
+                url: 'tablemanagement/v1/table/{id}'
+            }
+        });
+    },
 ----
 
 We also have to delete in the file `Application.js` the reference to the store:
@@ -218,26 +218,26 @@ Now, it is time for the edition window.  So, we are going to create the ViewMode
 [source,javascript]
 ----
 Ext.define('demo.view.table.TableEditVM', {
-	extend: 'Ext.app.ViewModel',
-	alias: 'viewmodel.table-edit-model',
-	data: {
-		table:{
-			id: null,
-			number: null,
-			state:null ,
-			modificationCounter: null
-		}
-	},
-	stores: {
-		states: {
-			fields: ['code'],
-			data:[
-				{'code':'FREE'},
-				{'code':'OCCUPIED'},
-				{'code':'RESERVED'}
-			]
-		}
-	}
+    extend: 'Ext.app.ViewModel',
+    alias: 'viewmodel.table-edit-model',
+    data: {
+        table:{
+            id: null,
+            number: null,
+            state:null ,
+            modificationCounter: null
+        }
+    },
+    stores: {
+        states: {
+            fields: ['code'],
+            data:[
+                {'code':'FREE'},
+                {'code':'OCCUPIED'},
+                {'code':'RESERVED'}
+            ]
+        }
+    }
 });
 ----
 
@@ -248,74 +248,74 @@ First of all, we have to define the reference to the ViewModel and include it in
 [source,javascript]
 ----
 requires: [
-		'Ext.grid.Panel',
-		'demo.view.table.TableEditVM',
-		'demo.view.table.TableEditVC'
-	],
-	controller: "table-edit-controller",
-	viewModel: {
-		type: "table-edit-model"
-	},
+    'Ext.grid.Panel',
+    'demo.view.table.TableEditVM',
+    'demo.view.table.TableEditVC'
+],
+controller: "table-edit-controller",
+viewModel: {
+    type: "table-edit-model"
+},
 ----
 
 After defining the ViewModel that we are going to use for this view, we have to use the properties defined in it.   So, the formpanel now should be like this:
 
 [source,javascript]
 ----
-formpanel : function(){
-		return {
-			xtype:'form',
-			reference:'panel',
-			defaults:{ margin : 5 },
-			items : [{
-				xtype:'hiddenfield',
-				reference:'id',
-				name: 'id',
-				bind:{
-					value:'{table.id}'
-				}
-			},{
-				xtype:'numberfield',
-				reference:'number',
-				fieldLabel:i18n.tableEdit.number,
-				tabIndex:1,
-				minValue:1,
-				name: 'number',
-				bind:{
-					value:'{table.number}'
-				}
-			},{
-				xtype:'combo',
-				reference:'state',
-				fieldLabel:i18n.tableEdit.state,
-				tabIndex:2,
-				queryMode: 'local',
-				displayField: 'code',
-				valueField: 'code',
-				name: 'state',
-				bind: {
-					store: '{states}',
-					value: '{table.state}'
-				}
-			},{
-				xtype:'hiddenfield',
-				reference:'modificationCounter',
-				name: 'modificationCounter',
+    formpanel : function(){
+        return {
+            xtype:'form',
+            reference:'panel',
+            defaults:{ margin : 5 },
+            items : [{
+                xtype:'hiddenfield',
+                reference:'id',
+                name: 'id',
+                bind:{
+                    value:'{table.id}'
+                }
+            },{
+                xtype:'numberfield',
+                reference:'number',
+                fieldLabel:i18n.tableEdit.number,
+                tabIndex:1,
+                minValue:1,
+                name: 'number',
+                bind:{
+                    value:'{table.number}'
+                }
+            },{
+                xtype:'combo',
+                reference:'state',
+                fieldLabel:i18n.tableEdit.state,
+                tabIndex:2,
+                queryMode: 'local',
+                displayField: 'code',
+                valueField: 'code',
+                name: 'state',
+                bind: {
+                    store: '{states}',
+                    value: '{table.state}'
+                }
+            },{
+                xtype:'hiddenfield',
+                reference:'modificationCounter',
+                name: 'modificationCounter',
                           bind:{
-					value:'{table.modificationCounter}'
-				}
-			}],
-			bbar: [
-				'->', {
-					text: i18n.tableEdit.submit,
-					handler: 'onTableEditSubmit'
-				}, {
-					text: i18n.tableEdit.cancel,
-					handler: 'onTableEditCancel'
-				}
-			]
-		}
-	},
+                    value:'{table.modificationCounter}'
+                }
+            }],
+            bbar: [
+                '->', {
+                    text: i18n.tableEdit.submit,
+                    handler: 'onTableEditSubmit'
+                }, {
+                    text: i18n.tableEdit.cancel,
+                    handler: 'onTableEditCancel'
+                }
+            ]
+        }
+    },
 ----
 
 As we can see, we don’t need to define the store for the field `state` in this view.   We have defined the store in the ViewModel so what we do here is use that store.   Then, we can delete the definition for the state store:
@@ -323,14 +323,14 @@ As we can see, we don’t need to define the store for the field `state` in this
 [source,javascript]
 ----
 /*getStore: function(){
-	return Ext.create('Ext.data.Store', {
-		fields: ['code'],
-		data:[
-			{'code':'FREE'},
-			{'code':'OCCUPIED'},
-			{'code':'RESERVED'}
-		]
-	});
+    return Ext.create('Ext.data.Store', {
+        fields: ['code'],
+        data:[
+            {'code':'FREE'},
+            {'code':'OCCUPIED'},
+            {'code':'RESERVED'}
+        ]
+    });
 }*/
 ----
 
@@ -338,57 +338,57 @@ Now, in the ViewController `TableEditVC.js` we can use the ViewModel to get the 
 
 [source,javascript]
 ----
-onTableEditSubmit: function() {
-		var vm = this.getViewModel();
-		Devon.rest.tablemanagement.table.post({
-			scope: this,
-			jsonData : vm.get('table'),
-			success: function(){
-			//Fire event table changed
-        		Ext.GlobalEvents.fireEvent('eventTablesChanged');
-		
-				//Fire close event
-				var parent =  this.getView().up();
-				
-				//If window we fire event
-				if(parent.xtype=='window'){
-					parent.fireEvent('eventDone', parent);
-				}
-				//If tabpanel, we close the tab
-				else{
-					this.getView().close();
-				}
-			}
-		});
-	},
+    onTableEditSubmit: function() {
+        var vm = this.getViewModel();
+        Devon.rest.tablemanagement.table.post({
+            scope: this,
+            jsonData : vm.get('table'),
+            success: function(){
+            //Fire event table changed
+                Ext.GlobalEvents.fireEvent('eventTablesChanged');
+        
+                //Fire close event
+                var parent =  this.getView().up();
+                
+                //If window we fire event
+                if(parent.xtype=='window'){
+                    parent.fireEvent('eventDone', parent);
+                }
+                //If tabpanel, we close the tab
+                else{
+                    this.getView().close();
+                }
+            }
+        });
+    },
 ----
 
 Instead of getting the data from the form, we get the data from the ViewModel.  The same we do with the function `onAfterRender`:
 
 [source,javascript]
 ----
-onAfterRender: function(view) {
-		var parentParams = view.params || {};
-		if(parentParams.id){	
-			Devon.rest.tablemanagement.table.get({
-				scope: this,
-				uriParams: {
-					id: parentParams.id
-				},
-				success: function(table){
-					var vm = this.getViewModel();
-					vm.set('table', table);
-				}
-			});
-		}
-	},
+    onAfterRender: function(view) {
+        var parentParams = view.params || {};
+        if(parentParams.id){    
+            Devon.rest.tablemanagement.table.get({
+                scope: this,
+                uriParams: {
+                    id: parentParams.id
+                },
+                success: function(table){
+                    var vm = this.getViewModel();
+                    vm.set('table', table);
+                }
+            });
+        }
+    },
 ----
 
 As we can see, we get the value of the identifier of the table using the parameters of the view.  Instead of doing that, we can use a ViewModel created for that purpose.   So, in our `TableController.js` we have to send the parameters using a ViewModel:
 
 [source,javascript]
 ----
-openAddEditWindow: function(idValue){
+    openAddEditWindow: function(idValue){
         var title = idValue ? 'Edit Table' : 'New Table';
         
         var window = Ext.create('Ext.window.Window', {
@@ -402,10 +402,10 @@ openAddEditWindow: function(idValue){
             items: [{
                 xtype:'tableedit',
                 viewModel: {
-				data: {
-					tableId: idValue
-				}
-            	}
+                data: {
+                    tableId: idValue
+                }
+                }
             }],
             listeners: {
                 scope: this,
@@ -419,21 +419,21 @@ Now, we are using a ViewModel even to send parameters to the window.   Then, in 
 
 [source,javascript]
 ----
-onAfterRender: function() {
-		var vm = this.getViewModel();
-		var id = vm.get("tableId");
-		if(id){	
-			Devon.rest.tablemanagement.table.get({
-				scope: this,
-				uriParams: {
-					id: id
-				},
-				success: function(table){
-					vm.set('table', table);
-				}
-			});
-		}
-	},
+    onAfterRender: function() {
+        var vm = this.getViewModel();
+        var id = vm.get("tableId");
+        if(id){    
+            Devon.rest.tablemanagement.table.get({
+                scope: this,
+                uriParams: {
+                    id: id
+                },
+                success: function(table){
+                    vm.set('table', table);
+                }
+            });
+        }
+    },
 ----
 
 Navigate to the browser and check that everything is working as before so we can add or edit tables without any problem:
