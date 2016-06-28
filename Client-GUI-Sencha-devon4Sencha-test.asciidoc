@@ -66,7 +66,7 @@ toc::[]
 
 * Sencha Test components:
 
-image::images/devon4sencha-badPractices/testing/sencha-test-I.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/testing/sencha-test-I.png"]
+image::images/devon4sencha-badPractices/testing/sencha-test-I.png[Sencha Test 1,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/testing/sencha-test-I.png"]
 
 
 - *Sencha Test* – https://www.sencha.com/blog/sencha-test-is-now-generally-available[https://www.sencha.com/blog/sencha-test-is-now-generally-available]
@@ -74,4 +74,4 @@ image::images/devon4sencha-badPractices/testing/sencha-test-I.png[Disable Button
 * Supported browsers and Platforms.
 
 
-image::images/devon4sencha-badPractices/testing/sencha-test-II.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/testing/sencha-test-II.png"]
+image::images/devon4sencha-badPractices/testing/sencha-test-II.png[Sencha Test 2,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/testing/sencha-test-II.png"]
