@@ -51,7 +51,7 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 - link:cookbook-security-layer[Security: Authentication and Authorization] (REVIEWED)
 
 - link:cookbook-JAX-WS-WebServices[JAX WS WebServices] (REVIEWING...)
-- link:cookbook-batch-layer[Batch Layer]
+- link:cookbook-batch-layer[Batch Layer](REVIEWING...)
 
 - link:cookbook-websocket[WebSocket]
 
