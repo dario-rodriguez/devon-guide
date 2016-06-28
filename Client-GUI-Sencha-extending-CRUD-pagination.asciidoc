@@ -11,33 +11,33 @@ To use the pagination plugin in our sample we need to:
 
 [source,javascript]
 ----
-init: function() {
-		Devon.Ajax.define({
-			'tablemanagement.table': {
-				url: 'tablemanagement/v1/table/{id}'
-			},
-			'tablemanagement.search': {
-				url: 'tablemanagement/v1/table/search',
-				pagination : true
-			}
-		});
-	},
+    init: function() {
+        Devon.Ajax.define({
+            'tablemanagement.table': {
+                url: 'tablemanagement/v1/table/{id}'
+            },
+            'tablemanagement.search': {
+                url: 'tablemanagement/v1/table/search',
+                pagination : true
+            }
+        });
+    },
 ----
 
 * Add the rest end point to the tables store in the file `TableListVM.js`:
 
 [source,javascript]
 ----
-stores: {
-		tables: {
-			model: 'demo.model.table.TableM',
-			pageSize: 3,
-			proxy: {
-				type : 'tablemanagement.search'
-			},
-			autoLoad:true
-		}
-	}
+    stores: {
+        tables: {
+            model: 'demo.model.table.TableM',
+            pageSize: 3,
+            proxy: {
+                type : 'tablemanagement.search'
+            },
+            autoLoad:true
+        }
+    }
 ----
 
 What we are doing here is to change the rest operation to obtain the data paginated.   Also, we are defining the amount of records that we will have in each page, in this case 3.
@@ -56,10 +56,10 @@ plugins:['pagination'],
 [source,javascript]
 ----
 requires: [
-	'Ext.grid.Panel',
-	'Devon.grid.plugin.Pagination',
-	'demo.view.table.TableListVM',
-	'demo.view.table.TableListVC'
+    'Ext.grid.Panel',
+    'Devon.grid.plugin.Pagination',
+    'demo.view.table.TableListVM',
+    'demo.view.table.TableListVC'
 ],
 ----
 
