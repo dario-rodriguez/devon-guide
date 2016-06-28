@@ -9,37 +9,37 @@ First of all, we define the following properties in the grid in `TableListV.js` 
 
 [source,javascript]
 ----
-grid : function() {
-		return {
-			xtype: 'grid',
-			reference: 'tablesgrid',
-			flex: 1,
-			padding: '0 10 10 10',
-			allowDeselect: true,
-			store:this.getStore(),
-			columns: [{
-				text: i18n.tables.grid.number,
-				dataIndex: 'number'
-			}, {
-				text: i18n.tables.grid.state,
-				dataIndex: 'state',
-				flex: 1
-			}],			
-			tbar: {
-				items: [{
-						text: i18n.tables.buttons.add,
-						handler: 'onAddClick'
-					}, {
-						text: i18n.tables.buttons.edit,
-						handler: 'onEditClick'
-					}, {
-						text: i18n.tables.buttons.del,
-						handler: 'onDeleteClick'
-				}]
-			}
+grid: function() {
+    return {
+        xtype: 'grid',
+        reference: 'tablesgrid',
+        flex: 1,
+        padding: '0 10 10 10',
+        allowDeselect: true,
+        store: this.getStore(),
+        columns: [{
+            text: i18n.tables.grid.number,
+            dataIndex: 'number'
+        }, {
+            text: i18n.tables.grid.state,
+            dataIndex: 'state',
+            flex: 1
+        }],
+        tbar: {
+            items: [{
+                text: i18n.tables.buttons.add,
+                handler: 'onAddClick'
+            }, {
+                text: i18n.tables.buttons.edit,
+                handler: 'onEditClick'
+            }, {
+                text: i18n.tables.buttons.del,
+                handler: 'onDeleteClick'
+            }]
+        }
 
-		}
-	},
+    }
+},
 ----
 
 Then, we have to change the `TableListVC.js` to add the functionality that we need for our view:
