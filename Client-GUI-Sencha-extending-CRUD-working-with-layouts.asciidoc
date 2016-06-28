@@ -15,7 +15,7 @@ In order to get that output we should make some changes in our code.
 
 [source,javascript]
 ----
- layout: {
+    layout: {
         type: 'vbox',
         align: 'stretch'
     },
@@ -26,21 +26,20 @@ and creating a new panel to englobe the two grids with the layout 'hbox' so they
 [source,javascript]
 ----
 {
-                xtype: 'panel',
-                layout: {
-                    type: 'hbox',
-                    align: 'stretch'
-                },
-                flex: 1,
-                padding: 10,
-                border: false,
-                items: [
-                    this.gridMenu(),
-                    this.gridOrder()
-                ]
-            }
+    xtype: 'panel',
+    layout: {
+        type: 'hbox',
+        align: 'stretch'
+    },
+    flex: 1,
+    padding: 10,
+    border: false,
+    items: [
+        this.gridMenu(),
+        this.gridOrder()
+    ]
+}
 ----
-
 
 This is the complete code for the view with the changes mentioned above:
 
@@ -68,8 +67,8 @@ Ext.define("demo.view.table.TableOrderV", {
     closable: true,
     
     initComponent: function() {
-		Ext.apply(this, {
-		items : [
+        Ext.apply(this, {
+        items : [
             this.header(),
             {
                 xtype: 'panel',
@@ -85,10 +84,10 @@ Ext.define("demo.view.table.TableOrderV", {
                     this.gridOrder()
                 ]
             }
-		]
-		});
-		this.callParent(arguments);
-	},
+        ]
+        });
+        this.callParent(arguments);
+    },
     
     header: function(){
         return {
@@ -132,22 +131,22 @@ Ext.define("demo.view.table.TableOrderV", {
                 }
             },
             tbar: {
-				items: [{
-					text: i18n.tables.buttons.add,
-					handler: 'onAddMenuClick'
-				}, {
-					text: i18n.tables.buttons.edit,
-					bind: {
-						disabled: '{!selectedMenuItem}'
-					},
-					handler: 'onEditMenuClick'
-				}, {
-					text: i18n.tables.buttons.del,
-					bind: {
-						disabled: '{!selectedMenuItem}'
-					},
-					handler: 'onDeleteMenuClick'
-				}]
+                items: [{
+                    text: i18n.tables.buttons.add,
+                    handler: 'onAddMenuClick'
+                }, {
+                    text: i18n.tables.buttons.edit,
+                    bind: {
+                        disabled: '{!selectedMenuItem}'
+                    },
+                    handler: 'onEditMenuClick'
+                }, {
+                    text: i18n.tables.buttons.del,
+                    bind: {
+                        disabled: '{!selectedMenuItem}'
+                    },
+                    handler: 'onDeleteMenuClick'
+                }]
             },
             bbar: {
                 items: [{
@@ -159,9 +158,9 @@ Ext.define("demo.view.table.TableOrderV", {
                     }
                 ]
             },
-			listeners: {
-				beforeitemdblclick: 'onEditMenuDblclick'
-			}
+            listeners: {
+                beforeitemdblclick: 'onEditMenuDblclick'
+            }
         }
     },
     
