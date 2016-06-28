@@ -71,6 +71,7 @@ Asynchronous clients retrieve their result at a later point in time, while synch
 == Components of SOAP based WebService:
 
 There are three major web service components.
+
 . SOAP
 . WSDL
 . UDDI
@@ -111,6 +112,7 @@ UDDI is a directory of web service interfaces described by WSDL, containing info
 
 
 CXF implements the JAX-WS APIs which make building web services easy. JAX-WS encompasses many different areas:
+
 * Generating WSDL from Java classes and generating Java classes from WSDL
 * Provider API which allows you to create simple messaging receiving server endpoints
 * Dispatch API which allows you to send raw XML messages to server endpoints.
@@ -120,13 +122,13 @@ CXF implements the JAX-WS APIs which make building web services easy. JAX-WS enc
 In devonfw , we use Apache CXF implementation of JAX WS.
 
 
-== Creation of WebService using Apache CXF.
+== Creation of WebService using Apache CXF
 
 *Developing the service*
 
-This can be done in two ways Code first and contract first. We will be using the code first approach.
+This can be done in two ways: _code-first_ and _contract-first_. We will be using the _code-first_ approach.
 
-Here is an example in case you define a code-first service.
+Here is an example in case you define a _code-first_ service.
 We define a regular interface to define the API of the service and annotate it with JAX-WS annotations:
 [source,java]
 --------
@@ -156,14 +158,15 @@ public class TablemanagementWebServiceImpl implements TablemanagmentWebService {
 --------
 If you look at the above interface you can tell that it is a normal java interface with exception of three annotation
 
-* @WebService – This is an annotation JAXWS library. It turns a normal POJO into a webservice. In our case the annotation is placed right above the interface definition and it notifies that TablemanagmentWebService is not a normal interface rather an webservice interface or SEI. 
-* @WebMethod – This annotation is optional and is mainly used to provide a name attribute to the public method in wsdl.
-* @WebResult - The @WebResult annotation allows you to specify the properties of the generated wsdl:part that is generated for the method's return value.
+* _@WebService_ – Specifies that the JWS file implements a Web Service turning a normal https://en.wikipedia.org/wiki/Plain_Old_Java_Object[POJO] into a webservice. In our case the annotation is placed right above the interface definition and it notifies that TablemanagmentWebService is not a normal interface rather an webservice interface or SEI. 
+* _@WebMethod_ – This annotation is optional and is mainly used to provide a name attribute to the public method in wsdl.
+* _@WebResult_ - The @WebResult annotation allows you to specify the properties of the generated wsdl:part that is generated for the method's return value.
 
 
 
-The @WebService annotation on the implementation class lets CXF know which interface to use when creating WSDL. In this case its simply our TablemanagmentWebService interface.
-Finally we have to register our service implementation in the spring in our  @Configuration-annotated Class. There we´ll initialize CXF and our end point. SO this, @Configuration-annotated Class that is ServiceConfiguration.java can be found in src/general/configuration of xxx-core project.
+The _@WebService_ annotation on the implementation class lets CXF know which interface to use when creating WSDL. In this case its simply our _TablemanagmentWebService_ interface.
+
+Finally we have to register our service implementation in the spring in our _@Configuration_-annotated Class. There we´ll initialize CXF and our end point. So this, _@Configuration_-annotated Class that is _ServiceConfiguration.java_ can be found within the sample app in `src/main/java/io.oasp.gastronomy.restaurant/general/configuration` of xxx-core project.
 
 [source,java]
 --------
@@ -171,20 +174,22 @@ Finally we have to register our service implementation in the spring in our  @Co
 @EnableWs
 @ImportResource({ "classpath:META-INF/cxf/cxf.xml" /* , "classpath:META-INF/cxf/cxf-servlet.xml" */ })
 public class ServiceConfiguration extends WsConfigurerAdapter {
-@Bean(name = "cxf")
+  
+  @Bean(name = "cxf")
   public SpringBus springBus() {
 
     return new SpringBus();
   }
 
-   @Bean
+  @Bean
   public ServletRegistrationBean servletRegistrationBean() {
 
     CXFServlet cxfServlet = new CXFServlet();
     ServletRegistrationBean servletRegistration = new ServletRegistrationBean(cxfServlet, URL_PATH_SERVICES + "/*");
     return servletRegistration;
   }
-    // BEGIN ARCHETYPE SKIP
+
+  // BEGIN ARCHETYPE SKIP
   @Bean
   public Endpoint tableManagement() {
 
@@ -198,12 +203,19 @@ public class ServiceConfiguration extends WsConfigurerAdapter {
 
 
 
-We see the beans SpringBus and ServletRegistrationBean inside our @Configuration-Class.
-We need to Configure it to return an instance of org.apache.cxf.jaxws.EndpointImpl, which we forward to the SpringBus and our implementor via constructor-arg:
+We see the beans _SpringBus_ and _ServletRegistrationBean_ inside our _@Configuration_-Class.
+We need to Configure it to return an instance of `org.apache.cxf.jaxws.EndpointImpl`, which we forward to the _SpringBus_ and our implementor via constructor-arg:
 
-Furthermore we have to use the .publish-Method of our org.apache.cxf.jaxws.EndpointImpl to define the last part of our WebService-URI.
+Furthermore we have to use the _.publish_ method of our `org.apache.cxf.jaxws.EndpointImpl` to define the last part of our WebService-URI.
 
-If you now fire up application, with SpringBoot, a browser should show our TablemanagementWebService beneath "Available SOAP services", when we point it to url, where webservice is hosted, say in this case  (http://localhost:8081/oasp4j-sample-server/services/) – including all  available web service methods.
+If you now fire up the sample application with link:getting-started-running-sample-application[SpringBoot] opening a browser and going to URL where the webservice is hosted
+
+[source]
+----
+http://localhost:8081/oasp4j-sample-server/services/
+----
+
+you should see our _TablemanagementService_ beneath "Available SOAP services" including all available webservice methods.
 
 == Soap Custom Mapping
 
@@ -212,27 +224,3 @@ In order to map custom https://github.com/oasp/oasp4j/wiki/guide-datatype[dataty
 == SOAP Testing
 
 For testing SOAP services manually we strongly recommend http://www.soapui.org/[SoapUI].
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
