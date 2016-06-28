@@ -10,31 +10,31 @@ First of all, we have to edit the file `TableListV.js` to add these buttons:
 [source,javascript]
 ----
 , {
-	text: i18n.tables.buttons.reserve,
-	handler: 'onMarkAsReserved',
-	bind: {
-		disabled: '{!canReserve}'
-	}
+    text: i18n.tables.buttons.reserve,
+    handler: 'onMarkAsReserved',
+    bind: {
+        disabled: '{!canReserve}'
+    }
 }, {
-	text: i18n.tables.buttons.cancel,
-	handler: 'onCancelReserve',
-	bind: {
-		disabled: '{!canCancel}'
-	}
-	
+    text: i18n.tables.buttons.cancel,
+    handler: 'onCancelReserve',
+    bind: {
+        disabled: '{!canCancel}'
+    }
+    
 }, {
-	text: i18n.tables.buttons.occupy,
-	handler: 'onMarkAsOccupied',
-	bind: {
-		disabled: '{!canOcuppy}'
-	}
+    text: i18n.tables.buttons.occupy,
+    handler: 'onMarkAsOccupied',
+    bind: {
+        disabled: '{!canOcuppy}'
+    }
 
 }, {
-	text: i18n.tables.buttons.free,
-	handler: 'onMarkAsFree',
-	bind: {
-		disabled: '{!canFree}'
-	}
+    text: i18n.tables.buttons.free,
+    handler: 'onMarkAsFree',
+    bind: {
+        disabled: '{!canFree}'
+    }
 }
 ----
 
@@ -43,16 +43,16 @@ We have added new buttons to the grid.   Now, we have to add to the file `Table_
 [source,javascript]
 ----
 buttons: {
-add: 'Add',
-edit: 'Edit',
-editOrder: 'Edit Order',
-del: 'Delete',
-deleteMsg: '¿Are you sure you want to delete this Table?',
-refresh: 'Refresh',
-reserve: 'Reserve',
-cancel: 'Cancel Reservation',
-occupy: 'Occupy',
-free: 'Free'
+    add: 'Add',
+    edit: 'Edit',
+    editOrder: 'Edit Order',
+    del: 'Delete',
+    deleteMsg: '¿Are you sure you want to delete this Table?',
+    refresh: 'Refresh',
+    reserve: 'Reserve',
+    cancel: 'Cancel Reservation',
+    occupy: 'Occupy',
+    free: 'Free'
 }
 ----
 
@@ -60,7 +60,7 @@ As we have seen before in our View, we will be able to find out if a button have
 
 [source,javascript]
 ----
-formulas: {
+    formulas: {
         canReserve: function(get) {
             var table = get('selectedItem');
             if (!table) {
@@ -105,7 +105,7 @@ The last step is to add the functions of these buttons in the file `TableListVC.
 
 [source,javascript]
 ----
-markSelectedAs: function(status) {
+    markSelectedAs: function(status) {
         var me = this;
         var table = me.getViewModel().get('selectedItem').data;
         table.state = status;
