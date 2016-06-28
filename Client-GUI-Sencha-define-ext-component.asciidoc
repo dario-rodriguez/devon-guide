@@ -2,14 +2,28 @@
 
 toc::[]
 
+# The class system
 
-= Components
+Ext JS provides a number of functions that make it simple to create and work with classes.
+The following are the classes in the Ext JS 6 class system:
+
+* Ext
+* Ext.Base
+* Ext.Class
+* Ext.ClassManager
+* Ext.Loader
+
+## Ext
+
+Ext is a global singleton object that encapsulates all classes, singletons, and utility methods in the Sencha library. Many commonly used utility functions are defined in Ext. It also provides shortcuts to frequently used methods in other classes.
+
+# Components
 
 An Ext JS application’s UI is made up of one or many widgets called Components. All Components are subclasses of the Ext.Component class which allows them to participate in automated lifecycle management including instantiation, rendering, sizing and positioning, and destruction. Ext JS provides a wide range of useful Components out of the box, and any Component can easily be extended to create a customized Component.
 
 To know more about Components visit https://docs.sencha.com/extjs/6.0/core_concepts/components.html[Sencha] wesite.
 
-= Creating Custom Components
+# Creating Custom Components
 
 == Composition or Extension
 
