@@ -47,38 +47,38 @@ Then, we have to change the `TableListVC.js` to add the functionality that we ne
 [source,javascript]
 ----
 Ext.define('demo.view.table.TableListVC', {
-	extend: 'Ext.app.ViewController',
-	alias: 'controller.tablelist',
-	
-	onAddClick: function() {
-		Ext.GlobalEvents.fireEvent('eventTableAdd');
-	},
-	onEditClick: function() {
-		var grid = this.lookupReference('tablesgrid');
+    extend: 'Ext.app.ViewController',
+    alias: 'controller.tablelist',
+
+    onAddClick: function() {
+        Ext.GlobalEvents.fireEvent('eventTableAdd');
+    },
+    onEditClick: function() {
+        var grid = this.lookupReference('tablesgrid');
         var rowSelected = grid.getSelectionModel().selected.items[0];
         var id = rowSelected.data.id;
-		Ext.GlobalEvents.fireEvent('eventTableEdit', id);
-	},
-	onDeleteClick: function() {
-		var me = this;
-		Ext.MessageBox.confirm('Confirmar', i18n.tables.buttons.deleteMsg,
-			function(buttonPressed) {
-				if (buttonPressed == 'no' || buttonPressed == 'cancel') {
-					return;
-				}
-				var grid = me.lookupReference('tablesgrid');
-				var rowSelected = grid.getSelectionModel().selected.items[0];
-				Devon.rest.tablemanagement.table.del({
-					scope: me,
-					withCredentials: true,
-					uriParams: {
-						id: rowSelected.get('id')
-					},
-					success: me.refreshGrid
-				});
-			}
-		);
-	},
+        Ext.GlobalEvents.fireEvent('eventTableEdit', id);
+    },
+    onDeleteClick: function() {
+        var me = this;
+        Ext.MessageBox.confirm('Confirmar', i18n.tables.buttons.deleteMsg,
+            function(buttonPressed) {
+                if (buttonPressed == 'no' || buttonPressed == 'cancel') {
+                    return;
+                }
+                var grid = me.lookupReference('tablesgrid');
+                var rowSelected = grid.getSelectionModel().selected.items[0];
+                Devon.rest.tablemanagement.table.del({
+                    scope: me,
+                    withCredentials: true,
+                    uriParams: {
+                        id: rowSelected.get('id')
+                    },
+                    success: me.refreshGrid
+                });
+            }
+        );
+    },
 
     refreshGrid: function() {
         var grid = this.lookupReference('tablesgrid');
