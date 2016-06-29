@@ -87,7 +87,7 @@ A security threat are https://www.owasp.org/index.php/Top_10_2013-A4-Insecure_Di
 * avoid direct object references at all
 * ensure that direct object references are secure
 
-Especially when using REST, direct object references via technical IDs are common sense. This implies that you have a proper link:https://github.com/oasp/oasp4j/wiki/guide-security#authorization[authorization] in place. This is especially tricky when your authorization does not only rely on the type of the data and according static permissions but also on the data itself. Vulnerabilities for this threat can easily happen by design flaws and inadvertence. Here an example from our sample application:
+Especially when using REST, direct object references via technical IDs are common sense. This implies that you have a proper link:https://github.com/devonfw/devon-guide/wiki/cookbook-security-layer#authorization[authorization] in place. This is especially tricky when your authorization does not only rely on the type of the data and according static permissions but also on the data itself. Vulnerabilities for this threat can easily happen by design flaws and inadvertence. Here an example from our sample application:
 
 .TablemanagementImpl.java
 [source,java]
