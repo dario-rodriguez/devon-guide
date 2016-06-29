@@ -684,7 +684,7 @@ Use one of the types if you want to modify the entity later on, for read only ac
 As you might have noticed, the behavior of Hibernate deviates from what one would expect by looking at the _LockModeType_ (especially _LockModeType.READ_ should not cause a `select ... for update` to be issued). The framework actually deviates from what is http://docs.oracle.com/javaee/6/api/javax/persistence/LockModeType.html[specified] in the JPA for unknown reasons.
 
 === Database Auditing
-See https://github.com/oasp/oasp4j/wiki/guide-auditing[auditing guide].
+See https://github.com/devonfw/devon-guide/wiki/getting-started-logging-and-auditing#auditing-with-hibernate-envers[auditing guide].
 
 === Testing Entities and DAOs
 See https://github.com/oasp/oasp4j/wiki/guide-testing[testing guide].
