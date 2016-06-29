@@ -90,7 +90,7 @@ As you can see, now the test ends successfully and Eclipse show us a green recta
 
 With this knowledge base we can start testing all our applications. 
 
-== Test-driven development -TDD- 
+== Test-driven development (TDD)
 
 Test-driven development (TDD) is a software development process that relies on the repetition of a very short development cycle: first the developer writes an (initially failing) automated test case that defines a desired improvement or new function, then produces the minimum amount of code to pass that test, and finally refactors the new code to acceptable standards.
 
