@@ -672,7 +672,7 @@ Assume an entity _A_ contains a collection of _B_ entities. Should there be a lo
 According to KISS our recommendation is that the user gets an error displayed that tells him to do his change again on the recent data. Try to design your system and the work processing in a way to keep such conflicts rare.
 
 ==== Pessimistic Locking
-For back-end https://github.com/oasp/oasp4j/wiki/guide-service-layer[services] and especially for https://github.com/oasp/oasp4j/wiki/guide-batch-layer[batches] optimistic locking is not suitable. A human user shall not cause a large batch process to fail because he was editing the same entity. Therefore such use-cases use pessimistic locking what gives them a kind of priority over the human users.
+For back-end https://github.com/devonfw/devon-guide/wiki/getting-started-Creating-Rest-Service[services] and especially for https://github.com/devonfw/devon-guide/wiki/cookbook-batch-layer[batches] optimistic locking is not suitable. A human user shall not cause a large batch process to fail because he was editing the same entity. Therefore such use-cases use pessimistic locking what gives them a kind of priority over the human users.
 In your xref:data-access-object[DAO] implementation you can provide methods that do pessimistic locking via http://docs.oracle.com/javaee/6/api/javax/persistence/EntityManager.html[_EntityManager_] operations that take a http://docs.oracle.com/javaee/6/api/javax/persistence/LockModeType.html[_LockModeType_]. Here is a simple example:
 [source,java]
 ----
