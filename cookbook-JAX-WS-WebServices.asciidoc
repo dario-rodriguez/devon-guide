@@ -9,10 +9,10 @@ toc::[]
 
 A Web Service can be defined by following ways:
 
-* is a client server application or application component for communication.
-* method of communication between two devices over network.
-* is a software system for interoperable machine to machine communication.
-* is a collection of standards or protocols for exchanging information between two devices or application.
+* a client server application or application component for communication.
+* a method of communication between two devices over network.
+* a software system for interoperable machine to machine communication.
+* a collection of standards or protocols for exchanging information between two devices or application.
 
 
 image::images/jax-ws-webservices/web-services.png[,scaledwidth=80%]
@@ -22,8 +22,9 @@ image::images/jax-ws-webservices/web-services.png[,scaledwidth=80%]
 As you can see in the figure, java, .net or PHP applications can communicate with other applications through web service over the network. For example, java application can interact with Java, .Net and PHP applications. So web service is a language independent way of communication.
 
 There are mainly two types of web services.
-1.SOAP web services.
-2.RESTful web services.
+
+. SOAP web services.
+. RESTful web services.
 
 Here, we will describe more about JAX-WS (SOAP based) webServices.
 
