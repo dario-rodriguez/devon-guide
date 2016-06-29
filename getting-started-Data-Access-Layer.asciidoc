@@ -697,7 +697,7 @@ We strongly recommend these principles:
 * Keep your entities simple and avoid putting advanced logic into entity methods.
 
 == Database Configuration
-The https://github.com/oasp/oasp4j/wiki/guide-configuration[configuration] for Spring and Hibernate is already provided by OASP4J in our sample application and the application template. So you only need to worry about a few things to customize.
+The https://github.com/devonfw/devon-guide/wiki/getting-started-understanding-oasp4j-spring-boot-config[configuration] for Spring and Hibernate is already provided by OASP4J in our sample application and the application template. So you only need to worry about a few things to customize.
 
 === Database System and Access
 Obviously you need to configure which type of database you want to use as well as the location and credentials to access it. To configure a new database we must follow next steps 
