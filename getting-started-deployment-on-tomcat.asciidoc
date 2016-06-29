@@ -3,7 +3,7 @@ toc::[]
 
 
 = Deployment on Tomcat (Client/Server)
-Once we have a functional server and client applications we may want to package both in the same _.war_ file. To do that we are going to show the needed steps.
+After setting up functional server and client applications, we may want to package both in the same _.war_ file. To package the single war, follow the given steps.
 
 == General description of the packaging process
 The application packaging is based on _Maven_ _package_ functionality. The general overview of the packaging process is as follows:
