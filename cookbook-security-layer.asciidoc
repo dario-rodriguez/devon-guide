@@ -349,7 +349,7 @@ We address these common threats individually in _security_ sections of our techn
 
 |https://www.owasp.org/index.php/Log_Forging[Log-Forging]
 |Escape newlines in log messages
-|link:guide-logging#security[logging security]
+|link:getting-started-logging-and-auditing#security[logging security]
 |=======================
 
 Tool for testing your web application against vulnerabilities: https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project[OWASP Zed Attack Proxy Project]
