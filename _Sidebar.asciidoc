@@ -26,9 +26,9 @@
 == Cookbook
 
 * link:cookbook-security-layer[Security: Authentication and Authorization]
+* link:cookbook-JAX-WS-WebServices[JAX-WS Web Services]
 * link:cookbook-batch-layer[Batch Layer]
 * link:cookbook-websocket[WebSocket]
-* link:cookbook-JAX-WS-WebServices[JAX-WS Web Services]
 
 == Client GUI Sencha
 
