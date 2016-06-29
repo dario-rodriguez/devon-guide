@@ -389,3 +389,42 @@ Use the `chief` user and try to delete a record from the tables grid
 
 Later we will see how to disable some buttons depending on the user that is connected in that moment.   With this we will be providing security to the application.
 
+# Extending the CRUD
+
+include::Client-GUI-Sencha-extending-the-CRUD-refresh-and-double-click[]
+
+<<<<
+
+include::Client-GUI-Sencha-extending-the-CRUD-viewModels[]
+
+<<<<
+
+include::Client-GUI-Sencha-extending-CRUD-pagination[]
+
+<<<<
+
+include::Client-GUI-Sencha-extending-CRUD-search-and-filter[]
+
+<<<<
+
+include::Client-GUI-Sencha-extending-CRUD-add-an-inbox[]
+
+<<<<
+
+include::Client-GUI-Sencha-extending-CRUD-change-state-table[]
+
+<<<<
+
+include::Client-GUI-Sencha-extending-CRUD-edit-menu-order[]
+
+<<<<
+
+include::Client-GUI-Sencha-extending-CRUD-working-with-layouts[]
+
+<<<<
+
+include::Client-GUI-Sencha-extending-CRUD-editable-grid[]
+
+<<<<
+
+include::Client-GUI-Sencha-extending-CRUD-custom-plugin[]
