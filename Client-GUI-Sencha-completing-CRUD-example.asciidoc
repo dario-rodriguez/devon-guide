@@ -391,6 +391,8 @@ Later we will see how to disable some buttons depending on the user that is conn
 
 # Extending the CRUD
 
+In the following chapters we are going to extend the CRUD adding some functionalities.
+
 include::Client-GUI-Sencha-extending-the-CRUD-refresh-and-double-click[]
 
 <<<<
