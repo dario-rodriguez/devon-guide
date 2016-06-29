@@ -660,7 +660,7 @@ The concurrency control defines the way concurrent access to the same data of a 
 
 A remaining anomaly is when two stakeholders concurrently access a record, do some changes and write them back to the database. The JPA addresses this with different locking strategies (see http://www.objectdb.com/java/jpa/persistence/lock[here] or https://weblogs.java.net/blog/2009/07/30/jpa-20-concurrency-and-locking[here]).
 
-As a best practice we are using optimistic locking for regular end-user https://github.com/oasp/oasp4j/wiki/guide-service-layer[services] (OLTP) and pessimistic locking for https://github.com/oasp/oasp4j/wiki/guide-batch-layer[batches].
+As a best practice we are using optimistic locking for regular end-user https://github.com/oasp/oasp4j/wiki/guide-service-layer[services] (OLTP) and pessimistic locking for https://github.com/devonfw/devon-guide/wiki/getting-started-Creating-Rest-Service [batches].
 
 ==== Optimistic Locking
 The class _io.oasp.module.jpa.persistence.api.AbstractPersistenceEntity_ already provides optimistic locking via a _modificationCounter_ with the _@Version_ annotation. Therefore JPA takes care of optimistic locking for you. When entities are transferred to clients, modified and sent back for update you need to ensure the _modificationCounter_ is part of the game. If you follow our guides about https://github.com/oasp/oasp4j/wiki/guide-transferobject[transfer-objects] and https://github.com/oasp/oasp4j/wiki/guide-service-layer[services] this will also work out of the box.
