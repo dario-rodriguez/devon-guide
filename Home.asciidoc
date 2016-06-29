@@ -26,6 +26,8 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 - link:getting-started-flyway-database-migration[Setting up and maintaining database schemas with Flyway]
 
+- link:getting-started-bean-mapping-using-dozer[Bean Mapping using Dozer]
+
 - link:getting-started-writing-unittest-cases[Writing Unit Test Cases]
 
 - link:getting-started-logging-and-auditing[Logging and Auditing]
@@ -39,8 +41,6 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 - link:getting-started-transfer-objects[Transfer Objects : ETOs and CTOs]
 
 - link:getting-started-logic-layer[Logic Layer]
-
-- link:getting-started-bean-mapping-using-dozer[Bean Mapping using Dozer]
 
 - link:getting-started-Creating-Rest-Service[Creating Rest Service]
 
