@@ -76,29 +76,7 @@
 
 - link:Client-GUI-Sencha-completing-CRUD-example[Completing CRUD example (Create, Read, Update and Delete)]
 
-- link:Client-GUI-Sencha-extending-the-CRUD-refresh-and-double-click[Extending the CRUD: Refresh and double-click]
-
-- link:Client-GUI-Sencha-extending-the-CRUD-viewModels[Extending the CRUD: ViewModels]
-
-- link:Client-GUI-Sencha-extending-CRUD-pagination[Extending the CRUD: Pagination]
-
-- link:Client-GUI-Sencha-extending-CRUD-search-and-filter[Extending the CRUD: Searching and filtering]
-
-- link:Client-GUI-Sencha-extending-CRUD-add-an-inbox[Extending the CRUD: Adding an inbox to search tables]
-
-- link:Client-GUI-Sencha-extending-CRUD-change-state-table[Extending the CRUD: Changing the state of a table]
-
-- link:Client-GUI-Sencha-extending-CRUD-edit-menu-order[Extending the CRUD: Editing menu order]
-
-- link:Client-GUI-Sencha-extending-CRUD-working-with-layouts[Extending the CRUD: Working with layouts]
-
-- link:Client-GUI-Sencha-extending-CRUD-editable-grid[Extending the CRUD: Grid editable]
-
-- link:Client-GUI-Sencha-extending-CRUD-custom-plugin[Extending the CRUD: Custom plugin]
-
 - link:Client-GUI-Sencha-define-ext-component[Defining an Ext component]
-
-- [Creating Tests and Mocks (Jasmin & Simlets) TDD](https://github.com/devonfw/devon/wiki/devon-guide-sencha-creating-tests-mocks) (TODO) 
 
 - link:Client-GUI-Sencha-calling-web-service[Calling web services]
 
