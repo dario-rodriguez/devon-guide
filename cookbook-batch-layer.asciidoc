@@ -15,11 +15,11 @@ In this chapter we will describe the overall architecture (especially concerning
 
 === Layering
 
-Batches are implemented in the batch layer. The batch layer is responsible for batch processes, whereas the business logic is implemented in the logic layer in. Compared to the link:getting-started-Creating-Rest-Service[service layer] you may understand the batch layer just as a different way of accessing the business logic.
+Batches are implemented in the batch layer. The batch layer is responsible for batch processes, whereas the business logic is implemented in the logic layer. Compared to the link:getting-started-Creating-Rest-Service[service layer] you may understand the batch layer just as a different way of accessing the business logic.
 From a component point of view each batch is implemented as a subcomponent in the corresponding business component.
 The business component is defined by the link:https://github.com/oasp/oasp4j/wiki/architecture#business-architecture[business architecture].
 
-Let's make an example for that. The sample application implements a batch for exporting bills. This bill-export-batch belongs to the salesmanagement business component.
+Let's make an example for that. The sample application implements a batch for exporting bills. This bill-export-batch belongs to the sales management business component.
 So the bill-export-batch is implemented in the following package:
 
 [source]
@@ -47,7 +47,7 @@ It is a typical design decision you have to take when designing your specific ba
 [[start-and-stop-batch]]
 ==== Starting and Stopping Batches
 
-Spring Batch provides a simple command line API for execution and parameterization of batches, the `CommandLineJobRunner`. It is not jet fully compatible with Spring Boot, however. For those using Spring Boot OASP4J provides the `SpringBootBatchCommandLine` with similar functionalities.
+Spring Batch provides a simple command line API for execution and parameterization of batches, the `CommandLineJobRunner`. However, it is not yet fully compatible with Spring Boot. For those using Spring Boot OASP4J provides the `SpringBootBatchCommandLine` with similar functionalities.
 
 Both execute batches as a "simple" standalone process (instantiating a new JVM and creating a new _ApplicationContext_).
 
