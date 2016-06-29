@@ -4,56 +4,57 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 
 ## Getting Started
 
-- link:getting-started-introduction-to-devonfw[Introduction to Devonfw] (REVIEWED)
+- link:getting-started-introduction-to-devonfw[Introduction to Devonfw]
 
-- link:devcon-user-guide[Devcon - User Guide](REVIEWED)
+- link:devcon-user-guide[Devcon - User Guide]
 
-- link:getting-started-download-and-install[Download and Install Devonfw] (REVIEWED)
+- link:getting-started-download-and-install[Download and Install Devonfw]
 
-- link:getting-started-the-devon-ide[The Devon IDE] (REVIEWED)
+- link:getting-started-the-devon-ide[The Devon IDE]
 
-- link:getting-started-running-sample-application[Running Sample Application] (REVIEWED)
+- link:getting-started-running-sample-application[Running Sample Application]
 
-- link:getting-started-distribution-structure[Devonfw Distribution Structure](REVIEWED)
+- link:getting-started-distribution-structure[Devonfw Distribution Structure]
 
-- link:getting-started-creating-new-devonfw-application[Create New Application] (REVIEWED)
+- link:getting-started-creating-new-devonfw-application[Create New Application]
 
-- link:getting-started-oasp-app-structure[OASP4J Application Structure] (REVIEWED)
+- link:getting-started-oasp-app-structure[OASP4J Application Structure]
 
-- link:getting-started-understanding-oasp4j-spring-boot-config[Understanding the OASP4J & Spring Boot Configuration](REVIEWED)
+- link:getting-started-understanding-oasp4j-spring-boot-config[Understanding the OASP4J & Spring Boot Configuration]
 
-- link:getting-started-database-configuration[Database Configuration] (REVIEWED)
+- link:getting-started-database-configuration[Database Configuration]
 
-- link:getting-started-flyway-database-migration[Setting up and maintaining database schemas with Flyway] (REVIEWED)
+- link:getting-started-flyway-database-migration[Setting up and maintaining database schemas with Flyway]
 
-- link:getting-started-writing-unittest-cases[Writing Unit Test Cases] (REVIEWED)
+- link:getting-started-writing-unittest-cases[Writing Unit Test Cases]
 
-- link:getting-started-logging-and-auditing[Logging and Auditing] (REVIEWED)
+- link:getting-started-logging-and-auditing[Logging and Auditing]
 
-- link:getting-started-Data-Access-Layer[Data Access Layer](REVIEWED)
+- link:getting-started-Data-Access-Layer[Data Access Layer]
 
-- link:getting-started-crud-operations[CRUD operations and DAO Implementation](REVIEWED)
+- link:getting-started-crud-operations[CRUD operations and DAO Implementation]
 
-- link:getting-started-Cobigen[Generating code with Cobigen](REVIEWED)
+- link:getting-started-Cobigen[Generating code with Cobigen]
 
-- link:getting-started-transfer-objects[Transfer Objects : ETOs and CTOs] (REVIEWED)
+- link:getting-started-transfer-objects[Transfer Objects : ETOs and CTOs]
 
-- link:getting-started-logic-layer[Logic Layer] (REVIEWED)
+- link:getting-started-logic-layer[Logic Layer]
 
-- link:getting-started-bean-mapping-using-dozer[Bean Mapping using Dozer] (REVIEWED)
+- link:getting-started-bean-mapping-using-dozer[Bean Mapping using Dozer]
 
-- link:getting-started-Creating-Rest-Service[Creating Rest Service] (REVIEWED)
+- link:getting-started-Creating-Rest-Service[Creating Rest Service]
 
-- link:getting-started-deployment-on-tomcat[Deployment on Tomcat (Client/Server)] (REVIEWED)
+- link:getting-started-deployment-on-tomcat[Deployment on Tomcat (Client/Server)] 
 
 
 ## Cookbook 
-- link:cookbook-security-layer[Security: Authentication and Authorization] (REVIEWED)
+- link:cookbook-security-layer[Security: Authentication and Authorization]
 
-- link:cookbook-JAX-WS-WebServices[JAX WS WebServices] (REVIEWED)
-- link:cookbook-batch-layer[Batch Layer](REVIEWED)
+- link:cookbook-JAX-WS-WebServices[JAX WS WebServices]
 
-- link:cookbook-websocket[WebSocket](REVIEWED)
+- link:cookbook-batch-layer[Batch Layer]
+
+- link:cookbook-websocket[WebSocket]
 
 ## Client GUI Sencha Getting Started
 
@@ -130,7 +131,7 @@ link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2Ty
 * link:Client-GUI-Sencha-devon4Sencha-code-review[Code Review]
 * link:Client-GUI-Sencha-devon4Sencha-test[Test]
 
-## Client GUI Angular (TODO: define chapters) 
+## Client GUI Angular
 
 - [Introduction](https://github.com/devonfw/devon/wiki/devon-guide-angular-introduction) 
 
