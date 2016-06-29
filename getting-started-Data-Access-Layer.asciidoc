@@ -766,7 +766,7 @@ See https://github.com/oasp/oasp4j/wiki/guide-database-migration[database migrat
 
 == Security
 === SQL-Injection
-A common https://github.com/oasp/oasp4j/wiki/guide-security[security] threat is http://en.wikipedia.org/wiki/SQL_injection[SQL-injection]. Never build queries with string concatenation or your code might be vulnerable as in the following example:
+A common https://github.com/devonfw/devon-guide/wiki/cookbook-security-layer[security] threat is http://en.wikipedia.org/wiki/SQL_injection[SQL-injection]. Never build queries with string concatenation or your code might be vulnerable as in the following example:
 [source, java]
 ----
   String query = "Select op from OrderPosition op where op.comment = " + userInput;
