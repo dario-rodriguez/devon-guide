@@ -128,6 +128,3 @@
 * link:Client-GUI-Sencha-devon4Sencha-tools[Tools]
 * link:Client-GUI-Sencha-devon4Sencha-code-review[Code Review]
 * link:Client-GUI-Sencha-devon4Sencha-test[Test]
-
-# TODO
-Link to https://github.com/devonfw/devon-guide/wiki/TODO[Pending Tasks] page
