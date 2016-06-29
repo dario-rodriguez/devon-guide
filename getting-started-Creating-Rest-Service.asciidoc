@@ -3,7 +3,7 @@ toc::[]
 
 = Service Layer
 
-The service layer is responsible to expose functionality of the link:https://github.com/oasp/oasp4j/wiki/guide-logic-layer[logical layer] to external consumers over a network via xref:protocol[technical protocols].
+The service layer is responsible to expose functionality of the link:https://github.com/devonfw/devon-guide/wiki/getting-started-logic-layer[logical layer] to external consumers over a network via xref:protocol[technical protocols].
 
 == Types of Services
 
@@ -26,9 +26,9 @@ The choices for technology and protocols will depend on the type of service. The
 [options="header"]
 |=======================
 |*Aspect*                     |*External Service*|*Back-end Service*|*JS-Client Service*|*Java-Client Service*
-|xref:versioning[*versioning*]|required          |required          |not required       |not required
-|xref:interoperability[*interoperability*]|mandatory         |not required      |implicit           |not required
-|xref:protocol[recommended *protocol*]|xref:soap[SOAP] or xref:rest[REST]|xref:rest[REST]|xref:rest[REST]+JSON|xref:rest[REST]
+|xref:versioning[*Versioning*]|required          |required          |not required       |not required
+|xref:interoperability[*Interoperability*]|mandatory         |not required      |implicit           |not required
+|xref:protocol[recommended *Protocol*]|xref:soap[SOAP] or xref:rest[REST]|xref:rest[REST]|xref:rest[REST]+JSON|xref:rest[REST]
 |=======================
 
 == Versioning
@@ -132,7 +132,7 @@ public class TableManagementRestServiceImpl implements RestService {
   // ...
 }
 --------
-Here we can see a REST service for the https://github.com/oasp/oasp4j/wiki/architecture#business-architecture[business component] +tablemanagement+. The method _getTable_ can be accessed via HTTP GET (see _@GET_) under the URL path _tablemanagement/table/{id}_ (see _@Path_ annotations) where _{id}_ is the ID of the requested table and will be extracted from the URL and provided as parameter _id_ to the method _getTable_. It will return its result (_TableBo_) as JSON (see _@Produces_). As you can see it delegates to the https://github.com/oasp/oasp4j/wiki/guide-logic-layer[logic] component _tableManagement_ that contains the actual business logic while the service itself only contains mapping code and general input validation. Further you can see the _@RolesAllowed_ for https://github.com/oasp/oasp4j/wiki/guide-security[security]. The REST service implementation is a regular CDI bean that can use https://github.com/oasp/oasp4j/wiki/guide-dependency-injection[dependency injection].
+Here we can see a REST service for the https://github.com/oasp/oasp4j/wiki/architecture#business-architecture[business component] +tablemanagement+. The method _getTable_ can be accessed via HTTP GET (see _@GET_) under the URL path _tablemanagement/table/{id}_ (see _@Path_ annotations) where _{id}_ is the ID of the requested table and will be extracted from the URL and provided as parameter _id_ to the method _getTable_. It will return its result (_TableBo_) as JSON (see _@Produces_). As you can see it delegates to the https://github.com/devonfw/devon-guide/wiki/getting-started-logic-layer[logic] component _tableManagement_ that contains the actual business logic while the service itself only contains mapping code and general input validation. Further you can see the _@RolesAllowed_ for https://github.com/devonfw/devon-guide/wiki/cookbook-security-layer[security]. The REST service implementation is a regular CDI bean that can use https://github.com/oasp/oasp4j/wiki/guide-dependency-injection[dependency injection].
 
 NOTE: With JAX-RS it is important to make sure that each service method is annotated with the proper HTTP method (+@GET+,+@POST+,etc.) to avoid unnecessary debugging. So you should take care not to forget to specify one of these annotations.
 
@@ -190,7 +190,7 @@ OASP4J has support for the following metadata in REST service invocations:
 [options="header"]
 |=======
 |Name |Description| Further information
-|Correlation ID |A unique identifier to associate different requests belonging to the same session / action| link:devonfw-logging-and-auditing[Logging guide]
+|Correlation ID |A unique identifier to associate different requests belonging to the same session / action| link:getting-started-logging-and-auditing[Logging guide]
 |Validation errors |Standardized format for a service to communicate validation errors to the client| Server-side validation is documented in the link:https://github.com/oasp/oasp4j/wiki/guide-validation[Validation guide].
 
 The protocol to communicate these validation errors to the client is discussed at https://github.com/oasp/oasp4j/issues/218
@@ -473,7 +473,7 @@ The +implementor+ attribute references an existing bean with the ID +Tablemanage
 
 ==== SOAP Custom Mapping
 
-In order to map custom https://github.com/oasp/oasp4j/wiki/guide-datatype[datatypes] or other types that do not follow the Java bean conventions, you need to write adapters for JAXB (see link:guide-xml[XML]).
+In order to map custom https://github.com/oasp/oasp4j/wiki/guide-datatype[datatypes] or other types that do not follow the Java bean conventions, you need to write adapters for JAXB (see https://github.com/oasp/oasp4j/wiki/guide-xml[XML]).
 
 ==== SOAP Testing
 
@@ -496,7 +496,7 @@ complete, no redundancy, minimal
 * *coarse-grained* +
 Service provides rather large operations (save entire entity or set of entities rather than individual attributes)
 * *atomic* +
-Process individual entities (for processing large sets of data use a link:guide-batch-layer[batch] instead of a service)
+Process individual entities (for processing large sets of data use a link:cookbook-batch-layer[batch] instead of a service)
 * *simplicity* +
 avoid polymorphism, RPC methods with unique name per signature and no overloading, avoid attachments (consider separate download service), etc.
 
