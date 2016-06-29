@@ -1,7 +1,7 @@
 :toc: macro
 toc::[]
 
-= Database configuration
+= Database Configuration
 
 In this tutorial, we are going to configure our application to connect with a real database of our choice. Devonfw give us a very simple configuration, so we just need to add the dependency of the database libraries, create a profile, set the information of our database in the profile and activate it, update the script files, if any, as per DB syntax.
 All these steps to be done in generated (through oasp4j-template server archetype), xxx-core project.
