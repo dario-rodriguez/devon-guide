@@ -48,7 +48,7 @@
 ## Cookbook 
 - link:cookbook-security-layer[Security: Authentication and Authorization]
 
-- link:cookbook-JAX-WS-WebServices[JAX WS WebServices]
+- link:cookbook-JAX-WS-WebServices[JAX-WS Web Services]
 
 - link:cookbook-batch-layer[Batch Layer]
 
