@@ -81,7 +81,7 @@ The *config* folder has a folder called *app* this folder is divided in the foll
 
 ** batch: contains the configuration of the batch process. In the Sample Application, for example, we have the bill exports and products to import.
 
-** common: contains the Spring bean configuration of http://dozer.sourceforge.net/documentation/about.html[Dozer]. find more about OASP4j Bean-Mapping https://github.com/oasp/oasp4j/wiki/guide-beanmapping[here]. 
+** common: contains the Spring bean configuration of http://dozer.sourceforge.net/documentation/about.html[Dozer]. find more about OASP4j Bean-Mapping https://github.com/devonfw/devon-guide/wiki/getting-started-bean-mapping-using-dozer[here]. 
 
 ** gui: this folder contains the *dispatcher-servlet.xml*. The _DispatcherServlet_ will take help from _ViewResolver_ to pickup the defined view for the request.
 
