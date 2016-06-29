@@ -276,7 +276,7 @@ Please be aware that code-generation can be painful especially with large teams.
 ----
 
 ==== Using Wildcards
-For flexible queries it is often required to allow wildcards (especially in xref:dynamic_queries[dynamic queries]). While users intuitively expect glob syntax the SQL and JPQL standards work different. Therefore a mapping is required (see http://m-m-m.sourceforge.net/apidocs/net/sf/mmm/persistence/api/jpql/JpqlSyntax.html#PATTERN_VALUE[here]).
+For flexible queries it is often required to allow wildcards (especially in xref:dynamic queries[dynamic queries]). While users intuitively expect glob syntax the SQL and JPQL standards work different. Therefore a mapping is required (see http://m-m-m.sourceforge.net/apidocs/net/sf/mmm/persistence/api/jpql/JpqlSyntax.html#PATTERN_VALUE[here]).
 
 ==== Pagination
 The OASP4J provides the method _findPaginated_ in _AbstractGenericDao_ that executes a given query (for now only QueryDSL is supported) with pagination parameters based on _SearchCriteriaTo_. So all you need to do is derive your individual search criteria objects from _SearchCriteriaTo_, prepare a QueryDSL-query with the needed custom search criterias, and call _findPaginated_. Here is an example from our sample application:
