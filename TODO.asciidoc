@@ -33,3 +33,14 @@ We need to check all pages and check if all follow this structure.
 
 
 * The size of the images and links of this image -> the max size we need to use is [,width="450", link="https://github.com/devonfw/devon-guide/wiki/<image>"], if you need to use less go ahead but never more than 
+
+# MAYBE to include
+
+- [Internationalization](https://github.com/devonfw/devon/wiki/devon-guide-i18n) [OASP = [1](https://github.com/oasp/oasp4j/wiki/guide-i18n)]
+
+- [Responsabilities/legal](https://github.com/devonfw/devon/wiki/devon-guide-responsabilities) [Devon = [1](https://github.com/devonfw/devon/wiki/devon-responsibilities)] - [OASP = [1](http://oasp.github.io/terms-of-use.html)]
+
+- [BLOB](https://github.com/devonfw/devon/wiki/devon-guide-blob-support) [OASP = [1](https://github.com/oasp/oasp4j/wiki/guide-BLOB-support)]
+
+- [Migration from older versions](https://github.com/devonfw/devon/wiki/devon-guide-migration-from-oasp4j-1.5.0-to-2.0.0)  [OASP = [1](https://github.com/oasp/oasp4j/wiki/Migration-Guide-from-OASP4j-1.5.0-to-OASP4j-2.0.0)]
+
