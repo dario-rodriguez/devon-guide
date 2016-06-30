@@ -583,7 +583,7 @@ The _@Embedded_ annotation needs to be used for embedded attributes. Note that i
 Moreover, if the database tables are created automatically by Hibernate and a primitive data type is used in the embeddable (in the example this would be the case if _int_ is used instead of _Integer_ as data type for the _zipCode_), there will be a _not null_ constraint on the corresponding column (reason: a primitive data type can never be null in java, so hibernate always introduces a _not null_ constraint). This constraint would be violated if one tries to insert a 
 _StaffMember_ without an _Address_ object (this might be considered as a bug in Hibernate).
       
-Another way to realize the one table mapping are Hibernate UserType's, as described http://tedyoung.me/2012/02/07/custom-user-types-with-jpa-and-spring/[here].
+Another way to realize the one table mapping are Hibernate UserType's, as described https://theodoreyoung.wordpress.com/2012/02/07/custom-user-types-with-jpa-and-spring/[here].
 
 === Inheritance
 Just like normal java classes, xref:entity[entity] classes can inherit from others. The only difference is that you need to specify how to map a subtype hierarchy to database tables. 
