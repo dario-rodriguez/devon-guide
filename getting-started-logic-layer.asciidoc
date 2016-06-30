@@ -7,7 +7,7 @@ The logic layer is the heart of the application and contains the main business l
 According to the OAPS4J link:https://github.com/oasp/oasp4j/wiki/architecture#business-architecture[business architecture] we should divide an application into _business components_. The _component part_ assigned to the logic layer contains the functional use-cases the business component is responsible for. For further understanding consult the link:https://github.com/oasp/oasp4j/wiki/architecture#application-architecture[application architecture].
 
 == Component Interface
-A component may consist of several xref:use-case[Use Cases] but is only accessed by the next higher layer or other components through one interface, i.e. by using one _Spring bean_. 
+A component may consist of several use cases but is only accessed by the next higher layer or other components through one interface, i.e. by using one _Spring bean_. 
 
 If the implementation of the component interface gets too complex it is recommended to further sub-divide it in separate use-case-interfaces to be aggregated in the main component interface. This suits for better maintainability.
 			
