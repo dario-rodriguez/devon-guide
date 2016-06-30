@@ -61,7 +61,7 @@
 * link:Client-GUI-Sencha-devon4Sencha-code-review[Code Review]
 * link:Client-GUI-Sencha-devon4Sencha-test[Test]
 
-## Client GUI Sencha Getting Started
+## The Presentation Layer: Getting Started with Devon4Sencha
 
 - link:Client-GUI-Sencha-Introduction-to-Devon4sencha[Introduction to Devon4sencha]
 
