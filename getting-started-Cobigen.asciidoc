@@ -73,6 +73,7 @@ package devonfw.tutorial.staffmanagement.dataaccess.api;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 import devonfw.tutorial.general.dataaccess.api.ApplicationPersistenceEntity;
 
@@ -84,6 +85,7 @@ import devonfw.tutorial.general.dataaccess.api.ApplicationPersistenceEntity;
  */
 
 @Entity(name = "StaffMember")
+@Table(name = "StaffMember")
 public class StaffMemberEntity extends ApplicationPersistenceEntity {
 
   private static final long serialVersionUID = 1L;
