@@ -771,7 +771,7 @@ Further possibilities for optimizations are query (plan) optimization and adding
 
 === Testing
 
-The Section link:guide-testing[Testing] covers how to unit and integration test in detail. Therefore we focus here on testing batches.
+This section covers how to unit and integration test in detail. Therefore we focus here on testing batches.
 
 In order for the unit test to run a batch job the unit test class must extends the +AbstractSpringBatchIntegrationTest+ class. Two annotations are used to load the job's ApplicationContext:
 

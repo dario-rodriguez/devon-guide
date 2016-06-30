@@ -94,7 +94,7 @@ Finally we are going to package both client and server applications into the sam
 
 [source]
 ----
-mvn package -Pjsclient
+mvn package -P jsclient
 ----
 
 
