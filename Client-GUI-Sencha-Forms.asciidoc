@@ -10,7 +10,7 @@ Under the hood a Form Panel wraps a Basic Form which handles all of its input fi
 
 == Basic Form Panel
 
-To start off, here’s how to create a simple Form that collects user data:
+To start off, here's how to create a simple Form that collects user data:
 
 
 [source,java]
@@ -40,12 +40,12 @@ Ext.create('Ext.form.Panel', {
 });
 ----
 
-This Form renders itself to the document body and has three Fields - “First Name”, “Last Name”, and “Date of Birth”. Fields are added to the Form Panel using the items configuration.
+This Form renders itself to the document body and has three Fields - "First Name", "Last Name", and "Date of Birth". Fields are added to the Form Panel using the items configuration.
 
 The fieldLabel configuration defines what text will appear in the label next to the field, and the name configuration becomes the name attribute of the underlying HTML field.
 
-Notice how this Form Panel has a defaultType of ‘textfield’. This means that any of its items that do not have an xtype specified (the “First Name” and “Last Name” fields in this example), are Text Fields.
+Notice how this Form Panel has a defaultType of ‘textfield'. This means that any of its items that do not have an xtype specified (the "First Name" and "Last Name" fields in this example), are Text Fields.
 
-The “Date of Birth” field, on the other hand, has its xtype explicitly configured as ‘datefield’, which makes it a Date Field. Date Fields expect to only contain valid date data and come with a DatePicker for selecting a date.
+The "Date of Birth" field, on the other hand, has its xtype explicitly configured as ‘datefield', which makes it a Date Field. Date Fields expect to only contain valid date data and come with a DatePicker for selecting a date.
 
 To know more about Forms visit https://docs.sencha.com/extjs/5.0/components/forms.html[sencha] website.

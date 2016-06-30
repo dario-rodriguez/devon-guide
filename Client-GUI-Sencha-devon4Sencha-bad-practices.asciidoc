@@ -1,13 +1,8 @@
-:toc: macro
-
+:toc: macro 
 toc::[]
-
-
-
+ 
 = Devon4Sencha bad practices
-
-
-
+ 
 == Bad formed code
 
 - *Trailing coma*
@@ -34,33 +29,20 @@ image::images/devon4sencha-badPractices/bad-practices/bad-practice-commaII.png[T
 
 - Nested blocks of code should not be left empty.
 
-- Sections of code should not be “commented out”.
-
-
+- Sections of code should not be "commented out".
+ 
 == Excessive or unnecessary nesting of component structures
-
-
-
+  
 * One of the most common mistakes developers make is nesting components for no reason.
-
-
-
+ 
 * Doing this hurts performance and can also cause oddities such as double borders or unexpected layout behavior.
-
-
-
+ 
 * **Example**: Panel that contains a single grid. Panel is unnecessary.  The extra panel can be eliminated.  Forms, trees, tab panels and grids all extend from Panel, so you should especially watch for unnecessary nesting conditions
-
-
-
+ 
 image::images/devon4sencha-badPractices/bad-practices/bad-panel-grid.png[Bad panel grid,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/bad-panel-grid.png"]
-
-
-
+ 
     Example 1A BAD: The panel is unnecessary.
-
-
-
+  
 image::images/devon4sencha-badPractices/bad-practices/good-panel-grid.png[Good panel grid,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/good-panel-grid.png"]    
 
     Example 1B Good: The grid is already a panel, so just use any panel properties directly on the grid.
@@ -76,7 +58,7 @@ image::images/devon4sencha-badPractices/bad-practices/good-panel-grid.png[Good p
 
 ** If the user keeps this app open and clicks hundreds of times, hundreds of context menus will never be destroyed
 
-** To the developer and user, the apps “looks” visually correct because only the last context menu created is seen on the page
+** To the developer and user, the apps "looks" visually correct because only the last context menu created is seen on the page
 
 ** Memory utilization will keep increasing 
 ** Slower operation / browser crash
@@ -99,7 +81,7 @@ image::images/devon4sencha-badPractices/bad-practices/unused-components-Best-sol
 
 == Poor folder structure for source code
 
-* Doesn’t affect performance or operation, but it makes it difficult to follow the structure of the app
+* Doesn't affect performance or operation, but it makes it difficult to follow the structure of the app
 
 
     Example 1A BAD: Poor folder estructure:
@@ -114,7 +96,7 @@ image::images/devon4sencha-badPractices/bad-practices/good-folder-stucture.png[G
 
 * Name collisions and hard to debug.
 
-* We should hold “properties” in a class and then reference them with getters and setters.
+* We should hold "properties" in a class and then reference them with getters and setters.
 
     Instead of 
 
@@ -130,15 +112,15 @@ image::images/devon4sencha-badPractices/bad-practices/global-variable-IV.png[Glo
 
 image::images/devon4sencha-badPractices/bad-practices/global-variable-v.png[Global variable 5,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/global-variable-v.png"]
 
-== Use of “id”
+== Use of "id"
 
-* Use of id’s on components is not recommended.
+* Use of id's on components is not recommended.
 
 * Each id must be unique.
 
 image::images/devon4sencha-badPractices/bad-practices/use-of-id-I.png[Use of id 1,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/use-of-id-I.png"]
 
-* Replace by “itemId” resolves the name conflict and we can still get a reference to the component.
+* Replace by "itemId" resolves the name conflict and we can still get a reference to the component.
 
 image::images/devon4sencha-badPractices/bad-practices/replace-by-itemId-I.png[Use of id 2,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/replace-by-itemId-I.png"]
 
@@ -174,9 +156,9 @@ image::images/devon4sencha-badPractices/bad-practices/upper-lower-naming-convent
 
 image::images/devon4sencha-badPractices/bad-practices/complecated-code.png[Complicated code 1,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/complecated-code.png"]
 
-* Use “loadRecord” method
+* Use "loadRecord" method
 
-* Review all of a component’s methods and examples to make sure you are using simple and proper techniques.
+* Review all of a component's methods and examples to make sure you are using simple and proper techniques.
 
 image::images/devon4sencha-badPractices/bad-practices/load-record.png[Complicated code 2,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/load-record.png"]
 
@@ -198,7 +180,7 @@ image::images/devon4sencha-badPractices/bad-practices/load-record.png[Complicate
 
 image::images/devon4sencha-badPractices/bad-practices/nesting-callbacks.png[Nesting callbacks 1,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/nesting-callbacks.png"]
 
-* Use “scope”
+* Use "scope"
 
 image::images/devon4sencha-badPractices/bad-practices/nesting-callbacks-scope.png[Nesting callbacks 2,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/nesting-callbacks-scope.png"]
 
@@ -295,7 +277,7 @@ image::images/devon4sencha-badPractices/bad-practices/comments-documentation-I.p
 
 - Comment top-level structures.
 
-- Use meaningful names : “Self-commenting” code.
+- Use meaningful names : "Self-commenting" code.
 
 - Add notes whenever logic is not obvious.
 
@@ -307,7 +289,7 @@ image::images/devon4sencha-badPractices/bad-practices/comments-documentation-I.p
 
 image::images/devon4sencha-badPractices/bad-practices/js-duck.png[Documentation 2,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/js-duck.png"]
 
-== “===“ “!==“ instead of “==“ “!=“
+== "===" "!==" instead of "==" "!="
 
 * Comparator operations
 
@@ -341,9 +323,9 @@ image::images/devon4sencha-badPractices/bad-practices/bill-gate-says.png[Be lazy
 
 * Two rules for this:
 
-1. When a function is executed via a *var* reference, the default execution context (“this”) is *window*
+1. When a function is executed via a *var* reference, the default execution context ("this") is *window*
 
-2. When a function is executed via an object key, the execution context (“this”) is the object.
+2. When a function is executed via an object key, the execution context ("this") is the object.
 
 image::images/devon4sencha-badPractices/bad-practices/knowing-this-I.png[Knowing This,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/knowing-this-I.png"]
 
@@ -351,14 +333,14 @@ image::images/devon4sencha-badPractices/bad-practices/knowing-this-II.png[[Knowi
 
 == Additional resources
 
-* “Maintainable JavaScript” by Nicholas Zacha
+* "Maintainable JavaScript" by Nicholas Zacha
 
 -  http://www.slideshare.net/nzakas/maintainable-javascript-2012
 
-* “Code Conventions for JS” by Douglass Crockford
+* "Code Conventions for JS" by Douglass Crockford
 
 -  http://javascript.crockford.com/code.html
 
-* “JavaScript Performance Tips & Tricks” by Grgur Grisogono
+* "JavaScript Performance Tips & Tricks" by Grgur Grisogono
 
 -  http://moduscreate.com/javascript-performance-tips-tricks/

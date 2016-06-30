@@ -5,7 +5,7 @@ toc::[]
 
 Windows are a Panel subclass designed to float above all other components in an application. Windows are a great way to present a popup-style context view to the end user. Used judiciously, windows can be a great way to present a lot of information without intruding on the other views occupying the screen real estate.
 
-By default, windows will be rendered to the document body (document.body), though they may also be rendered to an HTML element using the renderTo config option. You can also add windows as child components of a container. Windows added as a child item will not participate in the component’s layout, but will be hidden when the parent container is hidden and destroyed when the parent container is destroyed. The window will also have access to the parent container’s view model data and view controller logic.
+By default, windows will be rendered to the document body (document.body), though they may also be rendered to an HTML element using the renderTo config option. You can also add windows as child components of a container. Windows added as a child item will not participate in the component's layout, but will be hidden when the parent container is hidden and destroyed when the parent container is destroyed. The window will also have access to the parent container's view model data and view controller logic.
 
 Note: For more information on view controller event handling and data binding via the view model see the view controller and view model guides.
 
@@ -28,7 +28,7 @@ var win = Ext.create({
 win.show(); // once created, call show to display the window
 ----
 
-When showing a window you can have it appear as though it’s emerging from an existin component or DOM element. Simply configure the window with animateTarget and set the element or component you want the window to pop up from.
+When showing a window you can have it appear as though it's emerging from an existin component or DOM element. Simply configure the window with animateTarget and set the element or component you want the window to pop up from.
 
 [source,java]
 ----
@@ -53,7 +53,7 @@ var win = Ext.create({
 }); 
 ----
 
-If you want to show a window as soon as it’s created you can use the autoShow config option.
+If you want to show a window as soon as it's created you can use the autoShow config option.
 
 [source,java]
 ----
@@ -69,7 +69,7 @@ Ext.create({
 }); 
 ----
 
-Often times when you show a window you’ll want to restrict the user from interacting with the components residing beneath the window. This is easily done with the modal config option. Setting modal: true creates a semi-transparent overlay between the window and the application components below. The modal overlay intercepts all user interactions and redirects the user back to the context window.
+Often times when you show a window you'll want to restrict the user from interacting with the components residing beneath the window. This is easily done with the modal config option. Setting modal: true creates a semi-transparent overlay between the window and the application components below. The modal overlay intercepts all user interactions and redirects the user back to the context window.
 
 [source,java]
 ----
@@ -154,7 +154,7 @@ Ext.create({
 }); 
 ----
 
-Windows are draggable by default by clicking and dragging the window header. The window itself is not dragged, but rather a proxy representation of itself that indicates where the window will be dropped once the drag operation is complete. The window will drag outside of the owning container / element unless constrained. You have a couple of options available for preventing the window from being dragged outside its owning container. First, you can configure the window with constrain: true to prevent the window header or body from dragging outside the owner element’s boundaries.
+Windows are draggable by default by clicking and dragging the window header. The window itself is not dragged, but rather a proxy representation of itself that indicates where the window will be dropped once the drag operation is complete. The window will drag outside of the owning container / element unless constrained. You have a couple of options available for preventing the window from being dragged outside its owning container. First, you can configure the window with constrain: true to prevent the window header or body from dragging outside the owner element's boundaries.
 
 Note: You can prevent the window from being draggable by setting the draggable config option to false.
 
@@ -173,7 +173,7 @@ Ext.create({
 }); 
 ----
 
-Alternatively, you can specify that only the window’s header is to be constrained. By using constrainHeader: true the window’s header cannot be dragged outside of the owning container.
+Alternatively, you can specify that only the window's header is to be constrained. By using constrainHeader: true the window's header cannot be dragged outside of the owning container.
 
 [source,java]
 ----
@@ -208,7 +208,7 @@ Ext.create({
 }); 
 ----
 
-Windows are resizable by default allowing you to resize the window by dragging a corner or any side in order to change the dimensions of the window. You can prohibit resizing by setting resizable: false. Or, if the use case dictates, you can pass a config object for the underlying resizer class to further qualify the resizing options. Of if all you want to stipulate is the handles users have available for resizing you can set the resizeHandles config option with the positions you’d like the resize handles to appear.
+Windows are resizable by default allowing you to resize the window by dragging a corner or any side in order to change the dimensions of the window. You can prohibit resizing by setting resizable: false. Or, if the use case dictates, you can pass a config object for the underlying resizer class to further qualify the resizing options. Of if all you want to stipulate is the handles users have available for resizing you can set the resizeHandles config option with the positions you'd like the resize handles to appear.
 
 [source,java]
 ---- 
@@ -225,7 +225,7 @@ Ext.create({
 }); 
 ----
 
-Floating components have a shadow under them to visually emphasize the fact that these components sit above other components in the application. The shadow will appear on the sides and bottom of the window by default. Or, you can specify the shadow config as “sides” in order to show the shadow on all 4 sides or as “drop” to direct the shadow to appear on the bottom-right. The shadowOffset config determines the “height” of the window by setting how far the shadow is from the window element. If a shadow is not the right visual choice for your application you can set shadow: false to prevent the shadow altogether.
+Floating components have a shadow under them to visually emphasize the fact that these components sit above other components in the application. The shadow will appear on the sides and bottom of the window by default. Or, you can specify the shadow config as "sides" in order to show the shadow on all 4 sides or as "drop" to direct the shadow to appear on the bottom-right. The shadowOffset config determines the "height" of the window by setting how far the shadow is from the window element. If a shadow is not the right visual choice for your application you can set shadow: false to prevent the shadow altogether.
 
 [source,java]
 ----
@@ -242,13 +242,13 @@ Ext.create({
 }); 
 ----
 
-Windows are designed as closable by default. This means that in the window’s header there will be a close icon that when clicked will either destroy or hide the window. By default, the window will be destroyed when closed. If your use case for the window requires it to be hidden rather than destroyed you can configure closeAction: ‘hide’.
+Windows are designed as closable by default. This means that in the window's header there will be a close icon that when clicked will either destroy or hide the window. By default, the window will be destroyed when closed. If your use case for the window requires it to be hidden rather than destroyed you can configure closeAction: ‘hide'.
 By hiding the window you can just show it again later without having to re-create it.
 
-Once a window is shown and focused it may also be closed by pressing the “escape” key.
-To prevent the escape key from closing the window you can configure the onEsc option with an alternate function or “Ext.emptyFn” to prevent any action from taking place when the escape key is pressed. To prevent a window from being closed by the user at all you can configure it with closable: false.
+Once a window is shown and focused it may also be closed by pressing the "escape" key.
+To prevent the escape key from closing the window you can configure the onEsc option with an alternate function or "Ext.emptyFn" to prevent any action from taking place when the escape key is pressed. To prevent a window from being closed by the user at all you can configure it with closable: false.
 
-Note: With the closable config option set to false the user will not see the close icon in the window header and pressing the escape key will have no effect. The window is, however, still closable programmatically using window’s close method.
+Note: With the closable config option set to false the user will not see the close icon in the window header and pressing the escape key will have no effect. The window is, however, still closable programmatically using window's close method.
 
 [source,java]
 ----
@@ -265,7 +265,7 @@ Ext.create({
     }]
 }); 
 ----
-The window API makes it easy to maximize, restore, and minimize a window panel simiar to the application windows you may be used to on a desktop machine. The maximize config option displays a maximize button in the panel header that when clicked will cause the window to take up the space of the container / element it’s rendered within. Once maximized, the maximize button changes to a restore button that when clicked will restore the window back to the size and position it was prior to being maximized.
+The window API makes it easy to maximize, restore, and minimize a window panel simiar to the application windows you may be used to on a desktop machine. The maximize config option displays a maximize button in the panel header that when clicked will cause the window to take up the space of the container / element it's rendered within. Once maximized, the maximize button changes to a restore button that when clicked will restore the window back to the size and position it was prior to being maximized.
 
 Note: The window may also be configured as maximized: true to start the window out as maximized when created.
 
@@ -286,7 +286,7 @@ Ext.create({
 }); 
 ----
 
-The minimizable config option displays the minimize icon in the header, but itself does not add additional functionality. For the minimize tool to do something when clicked you’ll need to add your own logic to the minimize method. In the following example we have a button that when clicked shows the maximizable and minimizable window. Clicking the minimize tool will hide the window.
+The minimizable config option displays the minimize icon in the header, but itself does not add additional functionality. For the minimize tool to do something when clicked you'll need to add your own logic to the minimize method. In the following example we have a button that when clicked shows the maximizable and minimizable window. Clicking the minimize tool will hide the window.
 
 [source,java]
 ----

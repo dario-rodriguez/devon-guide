@@ -10,7 +10,7 @@ An Ext JS application UI is made up of Components (See the Components Guide for 
 
 image::images/devon4sencha/layouts-positioning/devon_guide_sencha_layout_positioning.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha/layouts-positioning/devon_guide_sencha_layout_positioning.png"]
 
-The most commonly used Container is Panel. Let’s take a look at how being a Container allows a Panel to contain other Components:
+The most commonly used Container is Panel. Let's take a look at how being a Container allows a Panel to contain other Components:
 
 [source,java]
 ----
@@ -38,13 +38,13 @@ Ext.create('Ext.panel.Panel', {
 
 We just created a Panel that renders itself to the document body, and we used the items config to add two child Panels to our Container Panel.
 
-= Layouts
+# Layouts
 
-Every container has a layout that manages the sizing and positioning of its child Components. In this section we’re going to discuss how to configure a Container to use a specific type of Layout, and how the layout system keeps everything in sync.
+Every container has a layout that manages the sizing and positioning of its child Components. In this section we're going to discuss how to configure a Container to use a specific type of Layout, and how the layout system keeps everything in sync.
 
 == Using Layouts
 
-In the above example we did not specify a layout for the Container Panel. Notice how the child Panels are laid out one after the other, just as normal block elements would be in the DOM. This happens because the default layout for all Containers is Auto Layout. Auto Layout does not specify any special positioning or sizing rules for child elements. Let’s assume, for example, we want our two child Panels to be positioned side by side, and to each take up exactly 50% of the width of the Container - we can use a Column Layout simply by providing a layout config on the Container:
+In the above example we did not specify a layout for the Container Panel. Notice how the child Panels are laid out one after the other, just as normal block elements would be in the DOM. This happens because the default layout for all Containers is Auto Layout. Auto Layout does not specify any special positioning or sizing rules for child elements. Let's assume, for example, we want our two child Panels to be positioned side by side, and to each take up exactly 50% of the width of the Container - we can use a Column Layout simply by providing a layout config on the Container:
 
 [source,java]
 ----

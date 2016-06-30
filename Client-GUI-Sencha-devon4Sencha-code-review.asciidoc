@@ -49,8 +49,7 @@ as we need to be to check the expected functionality?
 * Did I leave a comment or TODO in?
 * Does that variable name make sense?
 * … and anything else that we have seen above.
-
-
+ 
 == How to handle code reviews
 
 - Ask questions
@@ -62,10 +61,10 @@ as we need to be to check the expected functionality?
 - Discuss in person for more detailed points
 
 - Explain reasoning
-* Ask if there’s a better alternative and justify why
+* Ask if there's a better alternative and justify why
 
 - Make it about the code
-* Make discussions about the code, not about the developer. It’s about improving the quality of the code.
+* Make discussions about the code, not about the developer. It's about improving the quality of the code.
 
 - Suggest importance of fixes
 * It makes the results of a review clear and actionable.
@@ -83,15 +82,13 @@ as we need to be to check the expected functionality?
 * Free & open source web application that help developer to web based code reviewing.
 
 * Developers can ensures issues, comments and decisions are recorded in a database, and provides a comfortable workspace for actually performing code inspections.
-
-
+ 
 image::images/devon4sencha-badPractices/code-review/code-review-tools.png[Review Tools 1,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/code-review/code-review-tools.png"]
-
-
+ 
 - *Collaborator*
 
 * Code review tool that helps development, testing and management teams work together to produce high quality code. 
 
-* It allows teams to peer review code, user stories and test plans in a transparent, collaborative framework&nbsp;-- instantly keeping the entire team up to speed on changes made to the code.
+* It allows teams to peer review code, user stories and test plans in a transparent, collaborative framework instantly keeping the entire team up to speed on changes made to the code.
 
 image::images/devon4sencha-badPractices/code-review/code-review-tools-collaborator.png[Review Tools 2,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/code-review/code-review-tools-collaborator.png"]

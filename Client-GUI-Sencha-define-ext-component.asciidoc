@@ -2,7 +2,7 @@
 
 toc::[]
 
-# The class system
+= The class system
 
 Ext JS provides a number of functions that make it simple to create and work with classes.
 The following are the classes in the Ext JS 6 class system:
@@ -13,13 +13,13 @@ The following are the classes in the Ext JS 6 class system:
 * Ext.ClassManager
 * Ext.Loader
 
-## Ext
+== Ext
 
 Ext is a global singleton object that encapsulates all classes, singletons, and utility methods in the Sencha library. Many commonly used utility functions are defined in Ext. It also provides shortcuts to frequently used methods in other classes.
 
 # Components
 
-An Ext JS application’s UI is made up of one or many widgets called Components. All Components are subclasses of the Ext.Component class which allows them to participate in automated lifecycle management including instantiation, rendering, sizing and positioning, and destruction. Ext JS provides a wide range of useful Components out of the box, and any Component can easily be extended to create a customized Component.
+An Ext JS application's UI is made up of one or many widgets called Components. All Components are subclasses of the Ext.Component class which allows them to participate in automated lifecycle management including instantiation, rendering, sizing and positioning, and destruction. Ext JS provides a wide range of useful Components out of the box, and any Component can easily be extended to create a customized Component.
 
 To know more about Components visit https://docs.sencha.com/extjs/6.0/core_concepts/components.html[Sencha] wesite.
 
@@ -60,13 +60,13 @@ Template Methods
 
 Ext JS uses the Template method pattern to delegate to subclasses, behavior which is specific only to that subclass.
 
-This means each class in the inheritance chain may “contribute” an extra piece of logic to certain phases in the Component’s lifecycle. Each class implements its own special behavior while allowing the other classes in the inheritance chain to continue to contribute their own logic.
+This means each class in the inheritance chain may "contribute" an extra piece of logic to certain phases in the Component's lifecycle. Each class implements its own special behavior while allowing the other classes in the inheritance chain to continue to contribute their own logic.
 
-An example is the render function. render is a method defined in Component. It is responsible for initiating the rendering phase of the Component lifecycle. render must not be overridden, but it calls onRender during processing to allow the subclass implementor to add an onRender method to perform class-specific processing. Every onRender method must call its superclass’ onRender method before “contributing” its extra logic.
+An example is the render function. render is a method defined in Component. It is responsible for initiating the rendering phase of the Component lifecycle. render must not be overridden, but it calls onRender during processing to allow the subclass implementor to add an onRender method to perform class-specific processing. Every onRender method must call its superclass' onRender method before "contributing" its extra logic.
 
 The diagram below illustrates the functioning of the onRender template method.
 
-The render method is called (This is done by a Container’s layout manager). This method may not be overridden and is implemented by the Ext base class. It calls this.onRender which is the implementation within the current subclass (if implemented). This calls the superclass version which calls its superclass version etc. Eventually, each class has contributed its functionality, and control returns to the render function.
+The render method is called (This is done by a Container's layout manager). This method may not be overridden and is implemented by the Ext base class. It calls this.onRender which is the implementation within the current subclass (if implemented). This calls the superclass version which calls its superclass version etc. Eventually, each class has contributed its functionality, and control returns to the render function.
 
 
 
@@ -92,20 +92,20 @@ Below are the template methods that can be implemented by subclasses of Componen
 
 - initComponent This method is invoked by the constructor. It is used to initialize data, set up configurations, and attach event handlers.
 - beforeShow This method is invoked before the Component is shown.
-- onShow Allows addition of behavior to the show operation. After calling the superclass’s onShow, the Component will be visible.
+- onShow Allows addition of behavior to the show operation. After calling the superclass's onShow, the Component will be visible.
 - afterShow This method is invoked after the Component is shown.
 - onShowComplete This method is invoked after the afterShow method is complete
-- onHide Allows addition of behavior to the hide operation. After calling the superclass’s onHide, the Component will be hidden.
+- onHide Allows addition of behavior to the hide operation. After calling the superclass's onHide, the Component will be hidden.
 - afterHide This method is invoked after the Component has been hidden
 - onRender Allows addition of behavior to the rendering phase.
-- afterRender Allows addition of behavior after rendering is complete. At this stage the Component’s Element will have been styled according to the configuration, will have had any configured CSS class names added, and will be in the configured visibility and the configured enable state.
-- onEnable Allows addition of behavior to the enable operation. After calling the superclass’s onEnable, the Component will be enabled.
-- onDisable Allows addition of behavior to the disable operation. After calling the superclass’s onDisable, the Component will be disabled.
-- onAdded Allows addition of behavior when a Component is added to a Container. At this stage, the Component is in the parent Container’s collection of child items. After calling the superclass’s onAdded, the ownerCt reference will be present, and if configured with a ref, the refOwner will be set.
-- onRemoved Allows addition of behavior when a Component is removed from its parent Container. At this stage, the Component has been removed from its parent Container’s collection of child items, but has not been destroyed (It will be destroyed if the parent Container’s autoDestroy is true, or if the remove call was passed a truthy second parameter). After calling the superclass’s onRemoved, the ownerCt and the refOwner will not be present.
+- afterRender Allows addition of behavior after rendering is complete. At this stage the Component's Element will have been styled according to the configuration, will have had any configured CSS class names added, and will be in the configured visibility and the configured enable state.
+- onEnable Allows addition of behavior to the enable operation. After calling the superclass's onEnable, the Component will be enabled.
+- onDisable Allows addition of behavior to the disable operation. After calling the superclass's onDisable, the Component will be disabled.
+- onAdded Allows addition of behavior when a Component is added to a Container. At this stage, the Component is in the parent Container's collection of child items. After calling the superclass's onAdded, the ownerCt reference will be present, and if configured with a ref, the refOwner will be set.
+- onRemoved Allows addition of behavior when a Component is removed from its parent Container. At this stage, the Component has been removed from its parent Container's collection of child items, but has not been destroyed (It will be destroyed if the parent Container's autoDestroy is true, or if the remove call was passed a truthy second parameter). After calling the superclass's onRemoved, the ownerCt and the refOwner will not be present.
 - onResize Allows addition of behavior to the resize operation.
 - onPosition Allows addition of behavior to the position operation.
-- onDestroy Allows addition of behavior to the destroy operation. After calling the superclass’s onDestroy, the Component will be destroyed.
+- onDestroy Allows addition of behavior to the destroy operation. After calling the superclass's onDestroy, the Component will be destroyed.
 - beforeDestroy This method is invoked before the Component is destroyed.
 - afterSetPosition This method is invoked after the Components position has been set.
 - afterComponentLayout This method is invoked after the Component is laid out.
@@ -129,7 +129,7 @@ If these are not needed, then using a Panel is a waste of resources.
 
 == Component
 
-If the required UI Component does not need to contain any other Components, that is, if it just to encapsulate some form of HTML which performs the requirements, then extending Ext.Component is appropriate. For example, the following class is a Component that wraps an HTML image element, and allows setting and getting of the image’s src attribute. It also fires a load event when the image is loaded:
+If the required UI Component does not need to contain any other Components, that is, if it just to encapsulate some form of HTML which performs the requirements, then extending Ext.Component is appropriate. For example, the following class is a Component that wraps an HTML image element, and allows setting and getting of the image's src attribute. It also fires a load event when the image is loaded:
 
 [source,java]
 ----
@@ -168,7 +168,7 @@ Ext.define('Ext.ux.Image', {
     }
 });
 ----
-
+
 Usage:
 [source,java]
 ----

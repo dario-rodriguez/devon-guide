@@ -17,7 +17,7 @@ image::images/client-gui-sencha/mvcArchitecture.png[MVC,width="450", link="https
 
 ## MVVM (Model, View, Controller, ViewModel, ViewController):
 
-* Features an abstraction of a **View** called the **ViewModel**. The ViewModel coordinates the changes between a Model’s data and the View’s presentation of that data using a technique called **“data binding”**
+* Features an abstraction of a **View** called the **ViewModel**. The ViewModel coordinates the changes between a Model's data and the View's presentation of that data using a technique called **"data binding"**
 * The result is that the **Model** and framework perform as much work as possible, minimizing or eliminating application logic that directly manipulates the **View**
 
 image::images/client-gui-sencha/mvvmArchitecture.png[MVVM,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/mvvmArchitecture.png"]
