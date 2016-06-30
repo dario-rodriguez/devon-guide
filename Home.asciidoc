@@ -54,6 +54,13 @@
 
 - link:cookbook-websocket[WebSocket]
 
+- Devon4Sencha Best Practices
+
+* link:Client-GUI-Sencha-devon4Sencha-bad-practices[Bad Practices]
+* link:Client-GUI-Sencha-devon4Sencha-tools[Tools]
+* link:Client-GUI-Sencha-devon4Sencha-code-review[Code Review]
+* link:Client-GUI-Sencha-devon4Sencha-test[Test]
+
 ## Client GUI Sencha Getting Started
 
 - link:Client-GUI-Sencha-Introduction-to-Devon4sencha[Introduction to Devon4sencha]
@@ -99,10 +106,3 @@
 - link:Client-GUI-Sencha-error-processing[Error processing] 
 
 - link:Client-GUI-Sencha-i18n[Internationalization] 
-
-- Devon4Sencha Best Practices
-
-* link:Client-GUI-Sencha-devon4Sencha-bad-practices[Bad Practices]
-* link:Client-GUI-Sencha-devon4Sencha-tools[Tools]
-* link:Client-GUI-Sencha-devon4Sencha-code-review[Code Review]
-* link:Client-GUI-Sencha-devon4Sencha-test[Test]
