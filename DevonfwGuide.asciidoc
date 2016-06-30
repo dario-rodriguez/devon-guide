@@ -132,6 +132,8 @@ include::cookbook-batch-layer[]
 
 include::cookbook-websocket[] 
 
+:leveloffset: 0 
+
 == Client GUI Sencha Getting Started 
 
 :leveloffset: 2
