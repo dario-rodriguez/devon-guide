@@ -134,7 +134,7 @@ include::cookbook-websocket[]
 
 :leveloffset: 0 
 
-== Client GUI Sencha Getting Started 
+== The Presentation Layer: Getting started with Devon4Sencha 
 
 :leveloffset: 2
 
