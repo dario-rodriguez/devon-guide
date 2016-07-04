@@ -16,7 +16,7 @@ This structure is understood by Sencha Cmd in order to provide facilities to wor
 * **File app.json**: Sencha Cmd configuration file.
 * **File Config.js**: Config javascript configuration properties. It contains all configuration properties needed by the application like internationalization, REST URL endpoints, etc. This file must be loaded before the rest of the application (app.json takes care of this).   For example:
 
-image::images/client-gui-sencha/ConfigFile.PNG[Config.js,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/ConfigFile.PNG"]
+image::images/client-gui-sencha/ConfigFile.PNG[,align="center",width="250",Config.js, link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/ConfigFile.PNG"]
 
 * **Folder packages**: In this folder resides the devon4sencha package that meets the application requirements.  In \packages\local\devon-extjs you can find what Devon4Sencha builds on top of Sencha libraries.
 
