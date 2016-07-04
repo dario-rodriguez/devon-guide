@@ -86,11 +86,11 @@ image::images/devon4sencha-badPractices/bad-practices/unused-components-Best-sol
 
     Example 1A BAD: Poor folder estructure:
 
-image::images/devon4sencha-badPractices/bad-practices/poor-folder-stucture.png[Bad folder estructure,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/poor-folder-stucture.png"]
+image::images/devon4sencha-badPractices/bad-practices/poor-folder-stucture.png[Bad folder estructure,width="400",height="350",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/poor-folder-stucture.png"]
 
     Example 1B Good: Folder estructure to follow:
 
-image::images/devon4sencha-badPractices/bad-practices/good-folder-stucture.png[Good folder estructure,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/good-folder-stucture.png"]
+image::images/devon4sencha-badPractices/bad-practices/good-folder-stucture.png[Good folder estructure,width="400",height="350",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/good-folder-stucture.png"]
 
 == Use of global variables
 
@@ -100,13 +100,13 @@ image::images/devon4sencha-badPractices/bad-practices/good-folder-stucture.png[G
 
     Instead of 
 
-image::images/devon4sencha-badPractices/bad-practices/global-variable-III.png[Global Variable 1,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/global-variable-III.png"]
+image::images/devon4sencha-badPractices/bad-practices/global-variable-III.png[Global Variable 1,width="200",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/global-variable-III.png"]
 
     We use 
 
-image::images/devon4sencha-badPractices/bad-practices/global-variable-I.png[Global variable 2,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/global-variable-I.png"]
+image::images/devon4sencha-badPractices/bad-practices/global-variable-I.png[Global variable 2,width="400",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/global-variable-I.png"]
 
-image::images/devon4sencha-badPractices/bad-practices/global-variable-II.png[Global variable 3,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/global-variable-II.png"]
+image::images/devon4sencha-badPractices/bad-practices/global-variable-II.png[Global variable 3,width="400",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/global-variable-II.png"]
 
 image::images/devon4sencha-badPractices/bad-practices/global-variable-IV.png[Global Variable 4,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/global-variable-IV.png"]
 
