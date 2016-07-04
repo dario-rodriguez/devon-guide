@@ -11,9 +11,9 @@ toc::[]
 
 * Difficult to debug
 
-image::images/devon4sencha-badPractices/bad-practices/bad-practice-commaI.png[Trailing Coma 1,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/bad-practice-commaI.png"]
+image::images/devon4sencha-badPractices/bad-practices/bad-practice-commaI.png[Trailing Coma 1,width="200",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/bad-practice-commaI.png"]
 
-image::images/devon4sencha-badPractices/bad-practices/bad-practice-commaII.png[Trailing Coma 2,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/bad-practice-commaII.png"]
+image::images/devon4sencha-badPractices/bad-practices/bad-practice-commaII.png[Trailing Coma 2,width="250",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/bad-practice-commaII.png"]
 
 - Unused function parameters should be removed.
 
@@ -38,12 +38,52 @@ image::images/devon4sencha-badPractices/bad-practices/bad-practice-commaII.png[T
 * Doing this hurts performance and can also cause oddities such as double borders or unexpected layout behavior.
  
 * **Example**: Panel that contains a single grid. Panel is unnecessary.  The extra panel can be eliminated.  Forms, trees, tab panels and grids all extend from Panel, so you should especially watch for unnecessary nesting conditions
- 
-image::images/devon4sencha-badPractices/bad-practices/bad-panel-grid.png[Bad panel grid,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/bad-panel-grid.png"]
+
+[source,javascript]
+----
+items: [{
+
+    xtype: 'panel',
+
+    title: 'My Cool Grid',
+
+    layout: 'fit',
+
+    items: [{
+
+        xtype: 'grid',
+
+        store: 'Mystore',
+
+        columns: [{...
+        }]
+
+    }]
+
+}]
+----
+
  
     Example 1A BAD: The panel is unnecessary.
-  
-image::images/devon4sencha-badPractices/bad-practices/good-panel-grid.png[Good panel grid,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/good-panel-grid.png"]    
+    
+    
+    
+[source,javascript]    
+----
+layout: 'fit',
+
+    items: [{
+        xtype: 'grid',
+        title: 'My cool Grid',
+        store: 'Mystore',
+        columns: [{...
+        }]
+
+    }]
+
+}]
+----
+      
 
     Example 1B Good: The grid is already a panel, so just use any panel properties directly on the grid.
 
@@ -99,18 +139,37 @@ image::images/devon4sencha-badPractices/bad-practices/good-folder-stucture.png[G
 * We should hold "properties" in a class and then reference them with getters and setters.
 
     Instead of 
-
-image::images/devon4sencha-badPractices/bad-practices/global-variable-III.png[Global Variable 1,width="200",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/global-variable-III.png"]
+[source,javascript] 
+----
+MyLastCustomer= 123456;
+----
 
     We use 
 
-image::images/devon4sencha-badPractices/bad-practices/global-variable-I.png[Global variable 2,width="400",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/global-variable-I.png"]
+image::images/devon4sencha-badPractices/bad-practices/global-variable-I.png[Global variable 2,width="300",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/global-variable-I.png"]
 
-image::images/devon4sencha-badPractices/bad-practices/global-variable-II.png[Global variable 3,width="400",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/global-variable-II.png"]
+[source,javascript] 
+----
+Ext.define('MyApp.config.Runtime', {
+    singleton: true,
+    config: {
+        myLastCustomer: 0 // initialize to 0
+    },
 
-image::images/devon4sencha-badPractices/bad-practices/global-variable-IV.png[Global Variable 4,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/global-variable-IV.png"]
+    constuctor: function(config) {
+        this.initConfig(config);
+    }
+}
+});
+----
 
-image::images/devon4sencha-badPractices/bad-practices/global-variable-v.png[Global variable 5,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/global-variable-v.png"]
+[source,javascript] 
+----
+MyApp.config.setMyLastCustomer(12345);
+
+MyApp.config.getMyLastCustomer();
+----
+
 
 == Use of "id"
 
@@ -122,9 +181,37 @@ image::images/devon4sencha-badPractices/bad-practices/use-of-id-I.png[Use of id 
 
 * Replace by "itemId" resolves the name conflict and we can still get a reference to the component.
 
-image::images/devon4sencha-badPractices/bad-practices/replace-by-itemId-I.png[Use of id 2,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/replace-by-itemId-I.png"]
+[source,javascript] 
+----
+xtype: 'toolbar',
+    itemId: 'picturetoolbar',
+    items: [{
+        text: 'Save Picture',
+        itemId: 'savebutton'
+    }]
 
-image::images/devon4sencha-badPractices/bad-practices/replace-by-itemId-II.png[Use of id 3,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/replace-by-itemId-II.png"]
+// somewhere else in the code
+
+xtype: 'toolbar',
+    itemId: 'ordertoolbar',
+    items: [{
+        text: 'Save Order',
+        itemId: 'savebutton'
+    }]
+
+----
+
+[source,javascript]
+----
+var pictureSaveButton = Ext.ComponentQuery.query('#picturetoolbar > #savebutton')[0];
+
+var orderSaveButton = Ext.ComponentQuery.query('#ordertoolbar > #savebutton')[0];
+
+// assuming we have a reference to the "picturetoolbar" as picToolbar
+
+picToolbar.down('#savebutton');
+----
+
 
 == Unreliable referencing of components
 
@@ -132,9 +219,18 @@ image::images/devon4sencha-badPractices/bad-practices/replace-by-itemId-II.png[U
 
 * It should be avoided as the code can easily be broken if any items are added, removed or nested within a different component.
 
-image::images/devon4sencha-badPractices/bad-practices/unreliable-reference.png[Unreliable reference,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/unreliable-reference.png"]
+[source,javascript]
+----
+var mySaveButton = myToolbar.items.getAt(2);
+var myWindow = myToolbar.ownerCt;
+----
 
-image::images/devon4sencha-badPractices/bad-practices/unreliable-reference-correction.png[Unreliable reference 2,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/unreliable-reference-correction.png"]
+[source,javascript]
+----
+var mySaveButton = myToolbar.down('#savebutton');
+var myWindow = myToolbar.up('window');
+----
+
 
 == Failing to follow upper or lowercase naming conventions
 
@@ -144,23 +240,99 @@ image::images/devon4sencha-badPractices/bad-practices/unreliable-reference-corre
 
  Wrong upper lower naming convention
 
-image::images/devon4sencha-badPractices/bad-practices/upper-lower-naming-convention.png[Naming convention 1,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/upper-lower-naming-convention.png"]
+
+[source,javascript]
+----
+Ext.define('MyApp.view.customerList', {
+    extend: 'Ext.grid.Panel',
+    alias: 'widget.CustomerList',
+    MyCustomConfig: 'xyz',
+    initComponent: function() {
+
+        Ext.apply(this, {
+            store: 'Customers',
+            ...
+
+        });
+        this.callParent(arguments);
+    }
+});
+----
+
+
 
     Correct upper lower naming convention
 
-image::images/devon4sencha-badPractices/bad-practices/upper-lower-naming-convention-correction.png[Naming convention 2,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/upper-lower-naming-convention-correction.png"]
+
+
+[source,javascript]
+----
+Ext.define('MyApp.view.CustomerList', {
+    extend: 'Ext.grid.Panel',
+    alias: 'widget.customerList',
+    MyCustomConfig: 'xyz',
+    initComponent: function() {
+
+        Ext.apply(this, {
+            store: 'Customers',
+            ...
+
+        });
+        this.callParent(arguments);
+    }
+});
+----
+
 
 == Making your code more complicated than necessary.
 
 * Each value is loaded individually
 
-image::images/devon4sencha-badPractices/bad-practices/complecated-code.png[Complicated code 1,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/complecated-code.png"]
+
+[source,javascript]
+----
+//suppose the following fields exist within a form 
+items: [{
+    fieldLable: 'User',
+    itemId: 'username'
+}, {
+    fieldLable: 'Email',
+    itemId: 'email'
+}, {
+    fieldLable: 'Home Address',
+    itemId: 'address'
+}];
+
+//you could load the values from a record into each form field individually 
+
+myForm.down('#username').setValue(record.get('UserName'));
+myForm.down('#email').setValue(record.get('Email'));
+myForm.down('#address').setValue(record.get('Address'));
+----
+
 
 * Use "loadRecord" method
 
 * Review all of a component's methods and examples to make sure you are using simple and proper techniques.
 
-image::images/devon4sencha-badPractices/bad-practices/load-record.png[Complicated code 2,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/load-record.png"]
+
+[source,javascript]
+----
+items: [{
+    fieldLable: 'User',
+    name: 'UserName'
+}, {
+    fieldLable: 'Email',
+    name: 'Email'
+}, {
+    fieldLable: 'Home Address',
+    name: 'Address'
+}];
+
+myForm.loadRecord(record);
+
+----
+
 
 == Nesting callbacks are a nightmare
 
