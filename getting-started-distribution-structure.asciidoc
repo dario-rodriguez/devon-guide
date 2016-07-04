@@ -21,7 +21,7 @@ So after executing these two scripts, following structure will be generated:
 
 image::images/devonfw-dist-structure/devonfw-dist-structure-02.png["Structure after scripts",width="450", link="https://github.com/devonfw/devon-guide/wiki/images/devonfw-dist-structure/devonfw-dist-structure-02.png"]
 
-Now we have the new _conf_ directory as expected, and the _eclipse-main.bat_ and the _eclipse-examples.bat_ related the the _main_ and _examples_ directories within the _workspaces_ folder.
+Now we have the new _conf_ directory as expected, and the _eclipse-main.bat_ and the _eclipse-examples.bat_ related to the _main_ and _examples_ directories within the _workspaces_ folder.
 
 This is the final structure. Following is the detailed explanation for each file and folder: 
 
