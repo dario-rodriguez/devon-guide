@@ -2,7 +2,7 @@
 toc::[]
 
 # Introduction to Devon4sencha
-image::images/client-gui-sencha/sencha.png[Sencha,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/sencha.png"]
+image::images/client-gui-sencha/sencha.png[,align="center",width="200",Sencha,link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/sencha.png"]
 Devon4Sencha is an alternative view layer for web applications developed with Devon Framework. It is based on the proprietary libraries developed by http://www.sencha.com[Sencha]. As it requires a license for commercial applications it won't be provided as Open Source (The companion OASP project).
 
 These libraries provide support for creating SPA (Single Page Applications) with a very rich set of components for both desktop and mobile. They also provide a clear programming model based on the MVC and MVVM patterns. Sencha also has an excellent documentation for all the APIs in the framework.  Visit their http://www.sencha.com[website] for more examples on this.
