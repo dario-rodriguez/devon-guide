@@ -11,9 +11,24 @@ toc::[]
 
 * Difficult to debug
 
-image::images/devon4sencha-badPractices/bad-practices/bad-practice-commaI.png[Trailing Coma 1,width="200",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/bad-practice-commaI.png"]
+[source, javascript]
+----
+var myObject = {
+    foo: 1,
+    bar: 'value',
+    traillingComma: true,
+};
+----
 
-image::images/devon4sencha-badPractices/bad-practices/bad-practice-commaII.png[Trailing Coma 2,width="250",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/bad-practice-commaII.png"]
+
+[source, javascript]
+----
+var me = this,
+    store = me.getStore(),
+    firstRec = store.getAt(0) //<-- missing comma
+accidentalGlobal = true;
+----
+
 
 - Unused function parameters should be removed.
 
@@ -103,7 +118,34 @@ layout: 'fit',
 ** Memory utilization will keep increasing 
 ** Slower operation / browser crash
 
-image::images/devon4sencha-badPractices/bad-practices/unused-components.png[Unused components 1,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/unused-components.png"]
+
+[source,javascript]
+----
+Ext.define('MyApp.view.MyGrid', {
+    extend: 'Ext.grid.Panel',
+    columns: [{...
+    }],
+    store: 'MyStore',
+    initComponent: function() {
+        this.callParent(arguments);
+        this.on({
+            scope: this,
+            itemcontextmenu: this.onItemContextMenu
+        });
+    },
+
+    onItemContextMenu: function(view, rec, item, index, event) {
+        event.stopEvent();
+        Ext.create('Ext.menu.Menu', {
+            items: [{
+                text: 'Do Something'
+            }]
+        }).showAt(event.getXY());
+
+    }
+});
+----
+
 
 * *Better solution*
 
@@ -111,13 +153,100 @@ image::images/devon4sencha-badPractices/bad-practices/unused-components.png[Unus
 
 ** However, if the grid is destroyed, the context menu will still exist
 
-image::images/devon4sencha-badPractices/bad-practices/unused-components-solution.png[Unused components 2,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/unused-components-solution.png"]
+
+[source,javascript]
+----
+Ext.define('MyApp.view.MyGrid', {
+    extend: 'Ext.grid.Panel',
+    columns: [{...
+    }],
+    store: 'MyStore',
+    columns: [{...
+    }],
+  
+    initComponent: function() {
+        this.menu = this.buildMenu();
+        this.callParent(arguments);
+        this.on({
+            scope: this,
+            itemcontextmenu: this.onItemContextMenu
+        });
+    },
+
+
+    buildMenu: function() {
+        return Ext.create('Ext.menu.Menu', {
+            items: [{
+                text: 'Do something'
+            }]
+        });
+    },
+  
+  
+
+    onItemContextMenu: function(view, rec, item, index, event) {
+        event.stopEvent();
+        Ext.create('Ext.menu.Menu', {
+            items: [{
+                text: 'Do Something'
+            }]
+        }).showAt(event.getXY());
+
+    }
+});
+----
+
 
 * *Best solution*
 
 ** Context menu is destroyed when the grid is destroyed
 
-image::images/devon4sencha-badPractices/bad-practices/unused-components-Best-solution.png[Unused components 3,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/unused-components-Best-solution.png"]
+[source,javascript]
+----
+Ext.define('MyApp.view.MyGrid', {
+    extend: 'Ext.grid.Panel',
+    columns: [{...
+    }],
+    store: 'MyStore',
+    columns: [{...
+    }],
+
+    initComponent: function() {
+        this.menu = this.buildMenu();
+        this.callParent(arguments);
+        this.on({
+            scope: this,
+            itemcontextmenu: this.onItemContextMenu
+        });
+    },
+
+
+    buildMenu: function() {
+        return Ext.create('Ext.menu.Menu', {
+            items: [{
+                text: 'Do something'
+            }]
+        });
+    },
+
+
+    onDestroy: function() {
+        this.menu.destroy();
+        this.callParent(arguments);
+    },
+
+
+    onItemContextMenu: function(view, rec, item, index, event) {
+        event.stopEvent();
+        Ext.create('Ext.menu.Menu', {
+            items: [{
+                text: 'Do Something'
+            }]
+        }).showAt(event.getXY());
+
+    }
+});
+----
 
 == Poor folder structure for source code
 
@@ -171,13 +300,32 @@ MyApp.config.getMyLastCustomer();
 ----
 
 
+
 == Use of "id"
 
 * Use of id's on components is not recommended.
 
 * Each id must be unique.
 
-image::images/devon4sencha-badPractices/bad-practices/use-of-id-I.png[Use of id 1,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/use-of-id-I.png"]
+[source,javascript]
+----
+//here we define the first save button 
+xtype: 'toolbar',
+    items: [{
+        text: 'Save Picture',
+        id: 'savebutton'
+    }]
+
+
+//somewhere else in the code we have another component with an id of 'savebutton'
+
+xtype: 'toolbar',
+    items: [{
+        text: 'Save Order',
+        id: 'savebutton'
+    }]
+----
+
 
 * Replace by "itemId" resolves the name conflict and we can still get a reference to the component.
 
@@ -350,11 +498,74 @@ myForm.loadRecord(record);
 
 - Debug
 
-image::images/devon4sencha-badPractices/bad-practices/nesting-callbacks.png[Nesting callbacks 1,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/nesting-callbacks.png"]
+[source, javascript]
+----
+Ext.Ajax.request({
+    url: 'someUrl.php',
+    success: function(response) {
+        // Do work here 
+        Ext.Ajax.request({
+            url: 'anotherUrl.php',
+            success: function(response) {
+                // Do more work here 
+                Ext.Ajax.request({
+                    url: 'yetAnotherUrl.php',
+                    success: function(response) {
+                        // Do yet more work here 
+                        Ext.Ajax.request({
+                            url: 'yetAnotherUrl.php',
+                            success: function(response) {
+                                // This is pretty rediculous.
+                            }
+
+                        });
+                    }
+                });
+            }
+
+        });
+    }
+});
+----
+
+
 
 * Use "scope"
 
-image::images/devon4sencha-badPractices/bad-practices/nesting-callbacks-scope.png[Nesting callbacks 2,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/nesting-callbacks-scope.png"]
+[source,javascript]
+----
+getPeople: function(people) {
+        Ext.Ajax.request({
+            url: 'people.php',
+            method: 'GET',
+            params: people,
+            scope: this,
+            success: this.onAfterGetPeople
+        });
+    },
+
+    onAfterGetPeople: function(response) {
+        // Do some work here 
+
+        var jsonData = Ext.decode(response.responseText);
+        this.getDepartments(jsonData.departments);
+    },
+
+    getDepartments: function(departments) {
+        Ext.Ajax.request({
+            url: 'departments.php',
+            method: 'GET',
+            params: 'departments',
+            scope: this,
+            success: this.onAfterGetDepartments
+        });
+    }
+
+onAfterGetDepartments: function(response) {
+    // Do more work
+}
+----
+
 
 == Caching and references
 
@@ -385,9 +596,29 @@ image::images/devon4sencha-badPractices/bad-practices/nesting-callbacks-scope.pn
 
 - http://jsperf.com
 
-image::images/devon4sencha-badPractices/bad-practices/caching-and-references-I.png[Caching and references 1,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/caching-and-references-I.png"]
+[source,javascript]
+----
+for (var i = 0; i < 1000; i++) {
+  globalVar.some.ridiculous.chain.method();
+  globalVar.some.ridiculous.chain.value = 'foobar';
 
-image::images/devon4sencha-badPractices/bad-practices/caching-and-references-II.png[Caching and references 2,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/caching-and-references-II.png"]
+// you get the idea 
+
+}
+----
+
+[source,javascript]
+----
+var localReference = globalVar.some.ridiculous.chain;
+
+for (var i = 0; i < 1000; i++) {
+    localReference.method();
+    localReference.value = 'foobar';
+
+    //you get the idea
+}
+----
+
 
 == Identation
 
@@ -403,7 +634,18 @@ image::images/devon4sencha-badPractices/bad-practices/Improperly-idented-code.pn
 
 * Always code for readability.
 
-image::images/devon4sencha-badPractices/bad-practices/indented-code.png[Identation 2,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/indented-code.png"]
+[source, javascript]
+----
+if (!this.isReadable()) {
+    this.refactorWith({
+        properIndentation: true,
+        optimizedCodeForReadability: true
+    });
+
+    else {
+        this.beHappy();
+    }
+----
 
 == One class per file
 
@@ -427,11 +669,44 @@ image::images/devon4sencha-badPractices/bad-practices/one-class-per-file.png[One
 
 * Make it easy!
 
-image::images/devon4sencha-badPractices/bad-practices/too-much-work-I.png[Make it easy 1,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/too-much-work-I.png"]
+* *This code is not wrong but could be better*
 
-image::images/devon4sencha-badPractices/bad-practices/too-much-work-II.png[Make it easy 2,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/too-much-work-II.png"]
+[source,javascript]
+----
+testSomeVal: function(someVal) {
+        if (someVal <= 2) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+----
 
-image::images/devon4sencha-badPractices/bad-practices/too-much-work-III.png[Make it easy 3,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/too-much-work-III.png"]
+* *We are starting to get there.*
+
+[source,javascript]
+----
+testSomeVal: function(someVal) {
+        return (someVal <= 2) ? true : false;
+    }
+----
+
+
+* *Yup, this is it !*
+
+[source,javascript]
+----
+ testSomeVal: function(someVal) {
+        return someVal <= 2; // May be hard to read at first glance.
+    }
+
+
+    testSomeVal: function(someVal) {
+        return (someVal <= 2); // Add brances for readability
+    }
+----
+
+
 
 == Comments or Documentation
 
@@ -473,7 +748,24 @@ image::images/devon4sencha-badPractices/bad-practices/comparator-operation.png[O
 
 * Bad practice: Initialization of all three panels
 
-image::images/devon4sencha-badPractices/bad-practices/be-lazy-badPractice.png[Be lazy,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/be-lazy-badPractice.png"]
+[source,javascript]
+----
+{
+    xtype: 'container',
+    layout: 'card',
+    items: [{
+        xtype: 'panel',
+        title: 'Card One'
+    }, {
+        xtype: 'panel',
+        title: 'Card Two'
+    }, {
+        xtype: 'panel',
+        title: 'Card Three'
+    }]
+}
+----
+
 
 * Best practice
 
@@ -499,9 +791,25 @@ image::images/devon4sencha-badPractices/bad-practices/bill-gate-says.png[Be lazy
 
 2. When a function is executed via an object key, the execution context ("this") is the object.
 
-image::images/devon4sencha-badPractices/bad-practices/knowing-this-I.png[Knowing This,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/knowing-this-I.png"]
 
-image::images/devon4sencha-badPractices/bad-practices/knowing-this-II.png[[Knowing This 2,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/knowing-this-II.png"]
+[source,javascript]
+----
+var myFn = function() {
+    console.log(this)
+};
+myFn();
+----
+
+[source,javascript]
+----
+var person = {
+    name: 'jay',
+    getName: function() {
+        console.log(this);
+    }
+};
+person.getName();
+----
 
 == Additional resources
 
