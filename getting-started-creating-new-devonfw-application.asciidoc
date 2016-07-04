@@ -73,6 +73,16 @@ In the New Maven Project wizard you need to choose the _oas4j-template-server ar
 
 image::images/create-new-app/devon-guide-newapp-choose-archetype.PNG[,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/create-new-app/devon-guide-newapp-choose-archetype.PNG"]
 
+[NOTE]
+====
+If you are not able to have access to the archetype even after checking the _Include snapshot archetypes_ option try adding manually the archetype repository. You can do it with the _Configure_ button located next to the _Catalogs_ dropdown and then clicking the _Add Remote Catalog_ button. Finally you will need to add the repository URL _https://repo1.maven.org/maven2_ and as _Description_ you can use _Maven Central_.
+
+image::images/create-new-app/devon-guide-newapp-add-archetype.PNG[,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/create-new-app/devon-guide-newapp-add-archetype.PNG"]
+
+Use the _Verify_ button to check the connection. After that you should see a message with the amount of found archetypes.   
+====
+
+
 [Archetype]
 
 ==== Step 3 - Configure the application properties
