@@ -732,9 +732,34 @@ testSomeVal: function(someVal) {
 
 - Variables with unmeaningful names
 
-- Impossible to figure out what the is the intent of this code
+- Impossible to figure out what is the intent of this code
 
-image::images/devon4sencha-badPractices/bad-practices/comments-documentation-I.png[Documentation 1,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/comments-documentation-I.png"]
+
+[source,javascript]
+----
+var bs_note = 1;
+var arr_p = new Array();
+for (var j=0; j<6; j++)
+{
+	if (!isNaN(tmp[j] && bs_note)
+	{
+		arr_p[j] = '<div class=\"oo-str\"></div>';
+		bs_note = 8;
+	}
+	else if (!bs_note && isNaN(tmp[j]) && tmp[j] != 'x')
+	{
+		arr_p[j] = '<div class=\"b-str\"></div>';
+	}
+	else if (tmp[j] = 'x')
+	{
+		arr_p[j] = '<div class=\"x-str\"></div>';
+	}
+	else
+	{
+		arr_p[j] = '<div class=\"o-str\"></div>';
+	}
+}
+----
 
 * Best practice
 
