@@ -233,7 +233,8 @@ The authorization (in terms of Spring security "access management") can be enabl
 .Extensive example of authorization on URL level
 [source,xml]
 ----
-<bean id="FilterSecurityInterceptor" class="org.springframework.security.web.access.intercept.FilterSecurityInterceptor">
+<bean id="FilterSecurityInterceptor" 
+      class="org.springframework.security.web.access.intercept.FilterSecurityInterceptor">
     <property name="authenticationManager" ref="AuthenticationManager"/>
     <property name="accessDecisionManager" ref="FilterAccessDecisionManager"/>
     <property name="securityMetadataSource">
