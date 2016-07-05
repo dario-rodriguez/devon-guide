@@ -383,7 +383,7 @@ This is because the user `waiter` does not have enough permission to do this fun
 
 Instead of using this user, we can use the user `chief` for this purpose:
 
-image::images/client-gui-sencha/chiefLogin.PNG[Chief Login,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/chiefLogin.PNG"]
+image::images/client-gui-sencha/chiefLogin.PNG[Chief Login,width="300", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/chiefLogin.PNG"]
 
 Use the `chief` user and try to delete a record from the tables grid
 
