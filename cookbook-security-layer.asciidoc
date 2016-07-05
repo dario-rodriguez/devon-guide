@@ -1,6 +1,6 @@
 :toc: macro
 toc::[]
-
+f
 = Security
 
 Security is todays most important cross-cutting concern of an application and an enterprise IT-landscape. We seriously care about security and give you detailed guides to prevent pitfalls, vulnerabilities, and other disasters. While many mistakes can be avoided by following our guidelines you still have to consider security and think about it in your design and implementation. The security guides provided by this document will not automatically prevent you from any harm, but they may give you hints and best practices already used in different software products.
@@ -160,7 +160,7 @@ The diagram shows the model of _oasp4j-security_ that separates two different as
 The `oasp4j-security` module provides a simple and efficient way to define permissions and roles. The file `access-control-schema.xml` is used to define the mapping from groups to permissions. The general terms discussed above can be mapped to the implementation as follows:
 
 .General security terms related to oasp4j access control schema
-[options="header", cols="15%,25%,60%"]
+[options="header", cols="15%,30%,55%"]
 |=======================
 |*Term*|*oasp4j-security implementation*|*Comment*
 |Permission|AccessControlPermission|
