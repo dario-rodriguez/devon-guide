@@ -29,7 +29,7 @@
 * link:cookbook-JAX-WS-WebServices[JAX-WS Web Services]
 * link:cookbook-batch-layer[Batch Layer]
 * link:cookbook-websocket[WebSocket]
-* link: [Devon4Sencha Best Practices]
+  Devon4Sencha Best Practices
 * link:Client-GUI-Sencha-devon4Sencha-bad-practices[Bad Practices]
 * link:Client-GUI-Sencha-devon4Sencha-tools[Tools]
 * link:Client-GUI-Sencha-devon4Sencha-code-review[Code Review]
