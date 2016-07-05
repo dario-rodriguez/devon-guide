@@ -83,4 +83,4 @@ Access-Control-Allow-Headers = Origin, X-Requested-With, Content-Type, Accept
 
 If we reload the page we should get the data as expected:
 
-image::images/devon4sencha/cors/CORS-example-ok.png[width="450",link="/images/devon4sencha/cors/CORS-example-ok.png"] 
+image::images/devon4sencha/cors/CORS-example-ok.png[width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha/cors/CORS-example-ok.png"] 
