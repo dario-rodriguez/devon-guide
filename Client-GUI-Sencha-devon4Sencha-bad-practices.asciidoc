@@ -275,7 +275,7 @@ MyLastCustomer= 123456;
 
     We use 
 
-image::images/devon4sencha-badPractices/bad-practices/global-variable-I.png[Global variable 2,align="center",width="175",height="175",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/global-variable-I.png"]
+image::images/devon4sencha-badPractices/bad-practices/global-variable-I.png[Global variable 2,align="center",width="175",height="300",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/global-variable-I.png"]
 
 [source,javascript] 
 ----
