@@ -255,11 +255,11 @@ Ext.define('MyApp.view.MyGrid', {
 
     Example 1A BAD: Poor folder estructure:
 
-image::images/devon4sencha-badPractices/bad-practices/poor-folder-stucture.png[Bad folder estructure,align="center",width="300",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/poor-folder-stucture.png"]
+image::images/devon4sencha-badPractices/bad-practices/poor-folder-stucture.png[Bad folder estructure,align="center",width="175",height="300",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/poor-folder-stucture.png"]
 
     Example 1B Good: Folder estructure to follow:
 
-image::images/devon4sencha-badPractices/bad-practices/good-folder-stucture.png[Good folder estructure,align="center",width="300",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/good-folder-stucture.png"]
+image::images/devon4sencha-badPractices/bad-practices/good-folder-stucture.png[Good folder estructure,align="center",width="175",height="300",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/good-folder-stucture.png"]
 
 == Use of global variables
 
