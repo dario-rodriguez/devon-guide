@@ -255,11 +255,11 @@ Ext.define('MyApp.view.MyGrid', {
 
     Example 1A BAD: Poor folder estructure:
 
-image::images/devon4sencha-badPractices/bad-practices/poor-folder-stucture.png[Bad folder estructure,width="400",height="350",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/poor-folder-stucture.png"]
+image::images/devon4sencha-badPractices/bad-practices/poor-folder-stucture.png[Bad folder estructure,align="center",width="350",height="325",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/poor-folder-stucture.png"]
 
     Example 1B Good: Folder estructure to follow:
 
-image::images/devon4sencha-badPractices/bad-practices/good-folder-stucture.png[Good folder estructure,width="400",height="350",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/good-folder-stucture.png"]
+image::images/devon4sencha-badPractices/bad-practices/good-folder-stucture.png[Good folder estructure,align="center",width="350",height="325",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/good-folder-stucture.png"]
 
 == Use of global variables
 
@@ -275,7 +275,7 @@ MyLastCustomer= 123456;
 
     We use 
 
-image::images/devon4sencha-badPractices/bad-practices/global-variable-I.png[Global variable 2,width="300",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/global-variable-I.png"]
+image::images/devon4sencha-badPractices/bad-practices/global-variable-I.png[Global variable 2,align="center",width="200",height="200",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/global-variable-I.png"]
 
 [source,javascript] 
 ----
@@ -653,7 +653,23 @@ if (!this.isReadable()) {
 
 - Difficult to maintain
 
-image::images/devon4sencha-badPractices/bad-practices/one-class-per-file.png[One class per file,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/one-class-per-file.png"]
+[source,javascript]
+----
+sendTwitter();
+return true;
+};
+}
+},
+// eachTime function . Called whenever the plugin is
+
+function($, jQuery, dmJQuery, callback) {
+    if (callback) {
+        callback();
+    }
+}
+);
+
+----
 
 - Organize your file system.
 
@@ -734,7 +750,7 @@ image::images/devon4sencha-badPractices/bad-practices/comments-documentation-I.p
 
 - API documentation generator for Sencha.
 
-image::images/devon4sencha-badPractices/bad-practices/js-duck.png[Documentation 2,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/js-duck.png"]
+image::images/devon4sencha-badPractices/bad-practices/js-duck.png[Documentation 2,align="center",width="250",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/js-duck.png"]
 
 == "===" "!==" instead of "==" "!="
 
@@ -775,7 +791,7 @@ image::images/devon4sencha-badPractices/bad-practices/comparator-operation.png[O
 
 - Reuse things: Save yourself some time!
 
-image::images/devon4sencha-badPractices/bad-practices/bill-gate-says.png[Be lazy 2,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/bill-gate-says.png"]
+image::images/devon4sencha-badPractices/bad-practices/bill-gate-says.png[Be lazy 2,align="center",width="250",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/bill-gate-says.png"]
 
 == Knowing this!
 

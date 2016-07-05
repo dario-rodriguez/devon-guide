@@ -38,7 +38,7 @@ image::images/devon4sencha-badPractices/tools/analyzing-code-with-sencha-cmd.png
 - More information: 
 * http://docs.sonarqube.org/display/PLUG/JavaScript+Plugin[http://docs.sonarqube.org/display/PLUG/JavaScript+Plugin]
 
-image::images/devon4sencha-badPractices/tools/sonar-qube.png[Sonar Qube,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/tools/sonar-qube.png"]
+image::images/devon4sencha-badPractices/tools/sonar-qube.png[Sonar Qube,align="center",width="250",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/tools/sonar-qube.png"]
 
 image::images/devon4sencha-badPractices/tools/sonar-for-javascript.png[Sonar for javascript,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/tools/sonar-for-javascript.png"]
 
