@@ -259,7 +259,7 @@ image::images/devon4sencha-badPractices/bad-practices/poor-folder-stucture.png[B
 
     Example 1B Good: Folder estructure to follow:
 
-image::images/devon4sencha-badPractices/bad-practices/good-folder-stucture.png[Good folder estructure,align="center",width="300",height="325",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/good-folder-stucture.png"]
+image::images/devon4sencha-badPractices/bad-practices/good-folder-stucture.png[Good folder estructure,align="center",width="300",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/good-folder-stucture.png"]
 
 == Use of global variables
 
