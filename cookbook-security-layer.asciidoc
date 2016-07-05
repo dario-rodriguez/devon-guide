@@ -160,13 +160,13 @@ The diagram shows the model of _oasp4j-security_ that separates two different as
 The `oasp4j-security` module provides a simple and efficient way to define permissions and roles. The file `access-control-schema.xml` is used to define the mapping from groups to permissions. The general terms discussed above can be mapped to the implementation as follows:
 
 .General security terms related to oasp4j access control schema
-[options="header", cols="15%,15%,70%"]
+[options="header", cols="15%,20%,65%"]
 |=======================
 |*Term*|*oasp4j-security implementation*|*Comment*
-|Permission|`AccessControlPermission`|
-|Group|`AccessControlGroup`|When considering different levels of groups of different meanings, declare `type` attribute, e.g. as "group".
-|Role|`AccessControlGroup`|With `type="role"`.
-|Access Control|`AccessControl`| Super type that represents a tree of `AccessControlGroups` and `AccessControlPermissions`. If a principal "has" a `AccessControl` he also "has" all `AccessControls` with according permissions in the spanned sub-tree.
+|Permission|AccessControlPermission|
+|Group|AccessControlGroup|When considering different levels of groups of different meanings, declare `type` attribute, e.g. as "group".
+|Role|AccessControlGroup|With `type="role"`.
+|Access Control|AccessControl| Super type that represents a tree of `AccessControlGroups` and `AccessControlPermissions`. If a principal "has" a `AccessControl` he also "has" all `AccessControls` with according permissions in the spanned sub-tree.
 |=======================
 
 .Example _access-control-schema.xml_
