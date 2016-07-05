@@ -188,7 +188,7 @@ These constants are used in `RestaurantStatusVC.js` to compare the state of a ta
 
 Navigate to our application in the browser. We will see a tree named `Tables` and three possible states: Free, Reserved or Occupied.   Besides, we can see the number of tables in each state.
 
-image::images/client-gui-sencha/leftPanel.PNG[Left Panel,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/leftPanel.PNG"]
+image::images/client-gui-sencha/leftPanel.PNG[Left Panel,width="300", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/leftPanel.PNG"]
 
 Now, we want to add some functionality to be able to show the table view with the grid filtered by the state selected.   For achieve that, we can to edit the file `RestaurantStatus.js` adding the listener to fire the event when a node of the tree is selected:
 
