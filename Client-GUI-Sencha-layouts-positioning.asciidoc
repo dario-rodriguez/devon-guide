@@ -8,7 +8,7 @@ The layout system is one of the most powerful parts of Ext JS. It handles the si
 
 An Ext JS application UI is made up of Components (See the Components Guide for more on Components. A Container is a special type of Component that can contain other Components. A typical Ext JS application is made up of several layers of nested Components.
 
-image::images/devon4sencha/layouts-positioning/devon_guide_sencha_layout_positioning.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha/layouts-positioning/devon_guide_sencha_layout_positioning.png"]
+image::images/devon4sencha/layouts-positioning/devon_guide_sencha_layout_positioning.png[Disable Buttons,width="300",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha/layouts-positioning/devon_guide_sencha_layout_positioning.png"]
 
 The most commonly used Container is Panel. Let's take a look at how being a Container allows a Panel to contain other Components:
 
