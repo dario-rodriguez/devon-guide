@@ -219,8 +219,8 @@ To integrate the oasp4j-security provided access control schema, you can simply 
     </constructor-arg>
 </bean>
   
-<bean id="AccessControlProvider" class="io.oasp.module.security.common.impl.accesscontrol.AccessControlProviderImpl"/>
-<bean id="AccessControlSchemaProvider" class="io.oasp.module.security.common.impl.accesscontrol.AccessControlSchemaProviderImpl"/>
+<bean id="AccessControlProvider"...class="io.oasp.module.security.common.impl.accesscontrol.AccessControlProviderImpl"/>
+<bean id="AccessControlSchemaProvider"...class="io.oasp.module.security.common.impl.accesscontrol.AccessControlSchemaProviderImpl"/>
 ----
 
 ==== Configuration on URL level
