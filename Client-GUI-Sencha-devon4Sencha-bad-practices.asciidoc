@@ -630,7 +630,7 @@ for (var i = 0; i < 1000; i++) {
 
 - Waste
 
-image::images/devon4sencha-badPractices/bad-practices/Improperly-idented-code.png[Identation 1,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/Improperly-idented-code.png"]
+image::images/devon4sencha-badPractices/bad-practices/Improperly-idented-code.png[Identation 1,width="300",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/Improperly-idented-code.png"]
 
 * Always code for readability.
 
