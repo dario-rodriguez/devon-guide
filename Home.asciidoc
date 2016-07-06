@@ -1,6 +1,6 @@
 # Devonfw Guide
 
-## Getting Started
+## The Service Layer: Getting Started with OASP4J
 
 - link:getting-started-introduction-to-devonfw[Introduction to Devonfw]
 
@@ -45,7 +45,7 @@
 - link:getting-started-deployment-on-tomcat[Deployment on Tomcat (Client/Server)] 
 
 
-## Cookbook 
+## OASP4J Cookbook 
 - link:cookbook-security-layer[Security: Authentication and Authorization]
 
 - link:cookbook-JAX-WS-WebServices[JAX-WS Web Services]
@@ -54,12 +54,6 @@
 
 - link:cookbook-websocket[WebSocket]
 
-- Devon4Sencha Best Practices
-
-* link:Client-GUI-Sencha-devon4Sencha-bad-practices[Bad Practices]
-* link:Client-GUI-Sencha-devon4Sencha-tools[Tools]
-* link:Client-GUI-Sencha-devon4Sencha-code-review[Code Review]
-* link:Client-GUI-Sencha-devon4Sencha-test[Test]
 
 ## The Presentation Layer: Getting Started with Devon4Sencha
 
@@ -106,3 +100,12 @@
 - link:Client-GUI-Sencha-error-processing[Error processing] 
 
 - link:Client-GUI-Sencha-i18n[Internationalization] 
+
+## Sencha Cookbook
+
+- Devon4Sencha Best Practices
+
+* link:Client-GUI-Sencha-devon4Sencha-bad-practices[Bad Practices]
+* link:Client-GUI-Sencha-devon4Sencha-tools[Tools]
+* link:Client-GUI-Sencha-devon4Sencha-code-review[Code Review]
+* link:Client-GUI-Sencha-devon4Sencha-test[Test]
