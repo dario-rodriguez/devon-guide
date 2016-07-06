@@ -1,6 +1,6 @@
 # Devonfw Guide
 
-## The Service Layer: Getting Started with OASP4J
+## Getting Started with the Service Layer 
 
 - link:getting-started-introduction-to-devonfw[Introduction to Devonfw]
 
