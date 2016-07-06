@@ -15,7 +15,7 @@ This document contains the complete compendium of the https://troom.capgemini.co
 
 **Current versions:**
 
-* https://coconet.capgemini.com/sf/frs/do/downloadFile/projects.apps2_devon/frs.devon_distribution.1_0_0/frs43015?dl=1[Devonfw Tutorial - v1.0.0] 
+* DevonfwGuide - v2.0.0 
 * Devonfw - v2.0.0
 
 **Authors:**
@@ -35,7 +35,7 @@ include::devcon-user-guide[]
 :leveloffset: 0
 :toc:
 
-== Getting Started 
+== Getting Started with the Service Layer
 :leveloffset: 2
 
 include::getting-started-download-and-install[]
@@ -114,7 +114,7 @@ include::getting-started-deployment-on-tomcat[]
 
 :leveloffset: 0 
 
-== CookBook 
+== OASP4J CookBook 
 
 :leveloffset: 2
 
