@@ -1,0 +1,213 @@
+:toc: macro
+toc::[]
+
+# The Reporting module - Report generation with JasperReports
+
+Reporting is a fundamental part of the larger movement towards improved business intelligence and knowledge management. Often implementation involves extract, transform, and load (ETL) procedures in coordination with a data warehouse and then using one or more reporting tools. With this module Devon provides an implementation of one of these reporting tools based on the Jasper Reports library.
+
+JasperReports is an open source Java reporting tool that can write to a variety of targets, such as: screen, a printer, into PDF, HTML, Microsoft Excel, RTF, ODT, Comma-separated values or XML files.
+It can be used in Java-enabled applications, including Java EE or web applications, to generate dynamic content. It reads its instructions from an XML or .jasper file.
+
+For more information visit http://community.jaspersoft.com/project/jasperreports-library[JasperReports]
+
+
+== Include Reporting in a Devon project
+
+The Reporting module provide you with a report generation for your Devon applications. For implement the Reporting module in a Devon project you must follow these steps:
+
+=== Step 1: Adding the dependency
+
+Include the module dependency in your pom.xml
+[source,xml]
+----
+<dependency>
+  <groupId>com.capgemini.devonfw.modules</groupId>
+  <artifactId>devonfw-reporting</artifactId>
+  <version>1.1-SNAPSHOT</version>
+</dependency>
+----
+
+=== Step 2: Properties configuration
+In order to use the Reporting module for creating txt reports is necessary to define some parameters related to the size of the elements in the application.properties file of the project.
+[source,xml]
+----
+# Reporting module params
+devon.reporting.txtConfig.CharWidth=7
+devon.reporting.txtConfig.CharHeight=13.9
+devon.reporting.txtConfig.PageWidthInChars=80
+devon.reporting.txtConfig.PageHeightInChars=47
+----
+
+=== Step 3: Artifactory authentication
+(* _this part will not be functional until the next Devon release_).
+
+The IP modules (Winauth, Reporting, Internationalization etc) are located in an Artifactory repository and to obtain them an authentication credentials are required. To do so the _settings.xml_ file located within the _conf\.m2_ directory needs to be edited like the following:
+
+Within the _servers_ tag you need to add the Artifactory server with your user credentials. The encrypted password can be obtained from your Artifactory profile section
+[source,xml]
+----
+<server>
+    <id>mrm.apps2.capgemini.com</id>
+    <username>YourUserName</username>
+    <password>EncryptedPassword</password>
+</server>
+----
+
+Within the _profiles_ tag you need to add the Artifactory repository profile
+[source,xml]
+----
+ <profile>
+   <id>s2</id>
+   <repositories>  
+     <repository>
+       <id>mrm.apps2.capgemini.com</id>
+       <url>http://mrm.apps2.capgemini.com/DEVON_REPO</url>
+     </repository> 
+   </repositories>
+ </profile>
+----
+
+Finally you must activate the previous profile adding the following tag within the _activeProfiles_ tag
+[source,xml]
+----
+<activeProfile>s2</activeProfile> 
+---- 
+ 
+== Basic implementation
+The first step will be define a _Report_ object to encapsulate all the report related data.
+[source,java]
+----
+Report myReport = new Report();
+
+myReport.setName("Foo");
+myReport.setData(getMockData());
+myReport.setTemplatePath("path\to\the\template\fooTemplate.jrxml");
+----
+
+The _setData_ method needs a collection of HashMap with the pairs key/value to bind template fields with the data.
+
+In the _setTemplatePath_ we need to pass the location of the template to be used to create the report. You can learn more about how to create Jasper templates http://community.jaspersoft.com/documentation/tibco-jaspersoft-studio-user-guide/v60/report-templates[here] and http://community.jaspersoft.com/wiki/creating-custom-template-jaspersoft-studio[here] 
+
+We can also add parameters to be used from within the template
+[source,java]
+----
+HashMap<String, Object> params = new HashMap<>();
+params.put("ReportTitle", "Foo");
+params.put("ReportDescription", "Report generated using the Devon Reporting module");
+
+myReport.setParams(params);
+----
+
+Following example shows a basic implementation for the creation of a report. 
+[source,java]
+----
+  public void createPdfReport() throws IOException {
+
+    File file = File.createTempFile("foo_", ".pdf", new File("path\to\the\file"));
+    this.reportManager.generateReport(myReport, file, ReportFormat.PDF);
+    [...]
+----
+So once the Report object is defined the report generation is very simple, it only needs:
+
+* a report manager (basically is an instance of the ReportingJasperImpl class). 
+* the report object
+* a file to _write_ the report results.
+* a format for the report (you can choose between pdf, xls, xlsx, doc, docx, txt, html, Pptx and several more).
+
+== Subreports
+A subreport is a report included inside another report. This allows the creation of very complex layouts with different portions of a single document filled using different data sources and reports. To know more about subreports you can visit http://community.jaspersoft.com/wiki/subreports[this link].
+
+A basic example of the subreports usage with the Reporting module:
+[source,java]
+----
+File file = File.createTempFile("subreport_", ".pdf");
+this.reportManager.generateSubreport(masterReport, subreports, file, ReportFormat.PDF);
+----
+
+* the _masterReport_ is the report that will house the sub-reports. It is defined as explained in the previous section.
+* the _subreports_ is a List of reports to be included within the main report.
+* the rest of parameters are explained in the previous section.
+
+===== Defining a Subreport
+The subreport definition is the same as for a regular report, the only point that we must be aware of is defining the _setDataSourceName_.
+[source,java]
+----
+List<Report> subreports = new ArrayList<>();
+
+[...]
+
+Report sureport01 = new Report();
+sureport01.setName("subreport01");
+sureport01.setDataSourceName("subreport01DataSource");
+sureport01.setData(getSubreport01MockData());
+sureport01.setTemplatePath(path\to\the\template\sureport01Template.jrxml);
+this.subreports.add(sureport01);
+----
+
+The _DataSourceName_ is the name that later will be used to bind the subreport with its data so it has to be defined also in the master report template in order to pass it to the subreport as a parameter.
+[source,xml]
+----
+[...]
+
+<parameter name="subreport01" class="net.sf.jasperreports.engine.JasperReport"/>
+<parameter name="subreport01DataSource" class="net.sf.jasperreports.engine.JRDataSource" />
+
+[...]
+
+<subreport>
+    <reportElement .... />
+    <dataSourceExpression><![CDATA[$P{subreport01}]]></dataSourceExpression>
+    <subreportExpression><![CDATA[$P{subreport01DataSource}]]></subreportExpression>
+</subreport>
+----
+
+===== How to pass a parameter to a subreport
+We can pass a parameter to a subreport using the _setParams_ method of the master report.
+[source,java]
+----
+// We will have a HashMap for "global" parameters
+HashMap<String, Object> allParams = new HashMap<>();
+----
+
+Then, when defining a subreport we can add its parameters to the _global_ parameters
+[source,java]
+----
+HashMap<String, Object> subreport01Params = new HashMap<>();
+subreport01Params.put("City", "Valencia");
+allParams.putAll(subreport01Params);
+----
+
+And during the master report definition:
+[source,java]
+----
+this.masterReport.setParams(allParams);
+----
+
+Finally, in the master report template we will define the parameter and pass it to the subreport
+[source,xml]
+----
+[...]
+
+<parameter name="City" class="java.lang.String" />
+
+[...]
+
+<subreport>
+    <reportElement .... />
+    <subreportParameter name="City">
+        <subreportParameterExpression><![CDATA[$P{City}]]></subreportParameterExpression>
+    </subreportParameter>
+    <dataSourceExpression .... />
+    <subreportExpression .... />
+</subreport>
+----
+
+=== Concatenated reports
+Other functionality of the Reporting module is to generate concatenated reports. A concatenated report is a set of reports _printed_ in a single file. In other words you can have several reports and generate a single file to contain them all.
+
+A basic example of this:
+[source,java]
+----
+this.reportManager.concatenateReports(reports, file, ReportFormat.PDF);
+----
+The _reports_ parameter is a List of _Report_ objects. The rest of the parameters are the same as explained in previous sections.
