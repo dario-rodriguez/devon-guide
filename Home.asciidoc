@@ -101,9 +101,9 @@
 
 - link:Client-GUI-Sencha-i18n[Internationalization] 
 
-## Sencha Cookbook
+## Devon4Sencha Cookbook
 
-- Devon4Sencha Best Practices
+- Best Practices
 
 * link:Client-GUI-Sencha-devon4Sencha-bad-practices[Bad Practices]
 * link:Client-GUI-Sencha-devon4Sencha-tools[Tools]
