@@ -1,7 +1,7 @@
 :toc: macro
 toc::[]
 
-# The Reporting module - Report generation with JasperReports
+= The Reporting module - Report generation with JasperReports
 
 Reporting is a fundamental part of the larger movement towards improved business intelligence and knowledge management. Often implementation involves extract, transform, and load (ETL) procedures in coordination with a data warehouse and then using one or more reporting tools. With this module Devon provides an implementation of one of these reporting tools based on the Jasper Reports library.
 
@@ -39,7 +39,6 @@ devon.reporting.txtConfig.PageHeightInChars=47
 ----
 
 === Step 3: Artifactory authentication
-(* _this part will not be functional until the next Devon release_).
 
 The IP modules (Winauth, Reporting, Internationalization etc) are located in an Artifactory repository and to obtain them an authentication credentials are required. To do so the _settings.xml_ file located within the _conf\.m2_ directory needs to be edited like the following:
 
@@ -202,7 +201,7 @@ Finally, in the master report template we will define the parameter and pass it 
 </subreport>
 ----
 
-=== Concatenated reports
+== Concatenated reports
 Other functionality of the Reporting module is to generate concatenated reports. A concatenated report is a set of reports _printed_ in a single file. In other words you can have several reports and generate a single file to contain them all.
 
 A basic example of this:

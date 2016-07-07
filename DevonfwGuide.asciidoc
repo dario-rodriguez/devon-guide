@@ -118,6 +118,14 @@ include::getting-started-deployment-on-tomcat[]
 
 :leveloffset: 2
 
+include::cookbook-reporting-module[]
+
+<<<<
+
+include::cookbook-winauth-module[]
+
+<<<<
+
 include::cookbook-security-layer[]
 
 <<<<

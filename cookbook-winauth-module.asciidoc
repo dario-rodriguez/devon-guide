@@ -1,17 +1,19 @@
 :toc: macro
 toc::[]
 
-# The Winauth module - Authentication with Active Directory
+= The Winauth module
+
+== Authentication with Active Directory
 
 Active Directory (AD) is a directory service that Microsoft developed for Windows domain networks. It is included in most Windows Server operating systems as a set of processes and services. Initially, Active Directory was only in charge of centralized domain management. Starting with Windows Server 2008, however, Active Directory became an umbrella title for a broad range of directory-based identity-related services.
 
 For more information visit https://en.wikipedia.org/wiki/Active_Directory[wikipedia].
 
-== Include Winauth in a Devon project
+=== Include Winauth in a Devon project
 
 Winauth module provide you a simple authentication for your Devon applications. If you want to implement this kind of authentication in a Devon project you need to follow the next steps:
 
-=== Step 1: Add the dependency
+==== Step 1: Add the module dependency
 
 Include the dependency of the module in your pom.xml
 
@@ -24,7 +26,7 @@ Include the dependency of the module in your pom.xml
 </dependency>
 ----
 
-=== Step 2: Configure the security 
+==== Step 2: Security configuration 
 
 Create a variable of the class AuthenticationManagerAD in general/configuration/WebSecurityConfig.java
 
@@ -34,7 +36,7 @@ Create a variable of the class AuthenticationManagerAD in general/configuration/
 private AuthenticationManagerAD authenticationManagerAD;
 ----
 
-=== Step 3: Define the provider
+==== Step 3: Define the provider
 
 Add the LDAP provider to the AuthenticationManagerBuilder in the init() method. 
 
@@ -46,7 +48,7 @@ this.authenticationManagerBuilder.authenticationProvider(this.authenticationMana
 }
 ----
 
-=== Step 4: Implement the UserDetailsContextMapper
+==== Step 4: Implement the UserDetailsContextMapper
 
 Implement the class UserDetailsContextMapper to build the UserDetails with the data of the user. 
 
@@ -175,8 +177,8 @@ As you can see in the code, you build the user with the Active Directive informa
 
 You can build this User whatever you want. For e.g. you could use a query to Active Directory (like the example) or a query to your own User database.  
 ====
- 
-=== Step 5: Configure the winauth module
+
+==== Step 5: Configure the winauth module
 
 Now we need to configure the LDAP parameters in application.properties. By default the winauth module work with a LDAP Authentication and a query to AD to have the authorization, so we need to define all these properties. If you are using a customized UserDetails without AD query you don't need to define the AD properties. The same happen if you don't use the Role Mapping class.
 
@@ -219,10 +221,10 @@ Now you can run your application and show the login form with the Active Directo
 As you can see the property password is encrypt. You can see some information about it https://github.com/devonfw/devon/wiki/encrypting-properties[here]. Also you can put the password without encrypt by default.
 ==== 
 
-== Using the UserDetailsContextMapper with AD
+=== Using the UserDetailsContextMapper with AD
 As is mentioned above you can implement your own UserDetailsContextMapper or use the UserDetailsContextMapper give in this wiki. If you use the last one, you need to keep in a count the next points.
 
-=== Roler/Groups mapper
+==== Roler/Groups mapper
 
 Winauth include a group mapper that give a simple tool to map the groups of the Active Directory with a roles/groups of your application. To use it you need to configure the mapping just like that:
 
@@ -237,7 +239,7 @@ devon.winauth.groups.TESTGROUP=testGroup
 
 Now, if you ask the server the current user of the application, you will see the user data with him groups. 
 
-=== Service CurrentUser
+==== Service CurrentUser
 
 If you use the basic UserDetailsContextMapper that winauth implements, you need to modify the service currentuser in the class general/service/impl/rest/SecurityRestServiceImpl.java. 
 
@@ -261,17 +263,17 @@ If you use the basic UserDetailsContextMapper that winauth implements, you need 
 You need to import the classes UserData and UserDetailsClientToAD of the winauth module.
 ====
 
-# The Winauth module - Single Sign On
+== Single Sign On
 
 Single sign-on (SSO) is a property of access control of multiple related, but independent software systems. With this property a user logs in with a single ID and password to gain access to a connected system or systems without using different usernames or passwords, or in some configurations seamlessly sign on at each system.
 
 For more information visit https://en.wikipedia.org/wiki/Single_sign-on[wikipedia].
 
-== Include Winauth SSO in a Devon project
+=== Include Winauth SSO in a Devon project
 
 Winauth module provide you a simple SSO authentication for your Devon applications. If you want to implement this kind of authentication in a Devon project you need to follow the next steps:
 
-=== Step 1: Add the dependency
+==== Step 1: Add the dependency
 
 Include the dependency of the module in your pom.xml
 
@@ -284,7 +286,7 @@ Include the dependency of the module in your pom.xml
 </dependency>
 ----
 
-=== Step 2: Configure the security 
+==== Step 2: Configure the security 
 
 Create a variable of the class WinauthSSO in general/configuration/WebSecurityConfig.java
 
@@ -310,7 +312,7 @@ private WinauthSSO sso;
   }
 ----
 
-=== Step 3: Define the security entry point and filter
+==== Step 3: Define the security entry point and filter
 
 Add the winauth SSO configuration down in the void configure(HttpSecurity) method
 
@@ -332,11 +334,11 @@ And that's all, now you have a simple SSO Authentication.
 We need to be carefully with the service currentuser because SSO by default is not compatible with the information of the class UserDetailsClientTo. You need to adapt this class or use a customized SSO User Details (next chapter in the wiki). 
 ====
 
-== Customized Winauth SSO User Details
+=== Customized Winauth SSO User Details
 
 As you can see with the last steps you have a very simple authentication and authorization with Windows credentials. In the normal scenario you want to implements your own User Details. The simple Devon project is build with a very simple dummy implementation, so we are going to implement a simple User Details for our SSO authentication.
 
-=== Step 1 - Create customized filter
+==== Step 1: Create customized filter
 
 The idea is rebuild the default filter NegotiateSecurityFilter, we can create a complete new filter or, like this example, just modify some methods. In this example we are going to modify boolean setAuthentication(...), this method is called by the method void doFilter(...) (we can modify this method as we want too) when the authentication is successfully, so we are going to build here our UserDetails.
 
@@ -425,7 +427,7 @@ public class NegotiateSecurityFilterCustomized extends NegotiateSecurityFilter {
 
 As you can see this example use the UsermanagementDummyImpl that is created when you create a new Devon application, feel free to customize your own filter just use the above class with a customized Usermanagement.
 
-=== Step 2 - Create and configure WinauthSSO
+==== Step 2: Create and configure WinauthSSO
 
 Now we are going to create a WinauthSSO variable and configure the filter
 
@@ -458,7 +460,7 @@ private WinauthSSO sso;
 
 As you can see the Filter that we are using needs a AccessControlProvider, we have one configure in the WebSecurityConfig so we just need to pass it to the filter by param.
 
-=== Step 3: Define the security entry point and filter
+==== Step 3: The security entry point and filter
 
 Add the winauth SSO configuration down in the void configure(HttpSecurity) method
 
