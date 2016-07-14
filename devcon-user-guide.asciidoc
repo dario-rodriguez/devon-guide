@@ -489,7 +489,7 @@ The _devoncode_ command needs three parameters:
 
 ===== _github devoncode_ example of usage
 
-A simple example of usage for this command would be the following
+A simple example of usage for this command would be the followingdevon
 
 [source,batch]
 ----
@@ -523,6 +523,75 @@ List of available modules:
 
 If you have follow this guide you can realize that the result is the same that is shown with other options as ```devon``` or ```devon -h```. This is because these options internally are using this module _help_.
 
+=== oasp4j
+
+This module groups all the devcon functionalities related to the server applications like creating, running and deploying server applications based on the OASP4J project.
+
+==== oasp4j create
+
+This command creates a new server project based on the OASP4J archetype.
+
+===== _oasp4j create_ requirements
+
+This command needs to be launched from within (or pointing to) a Devonfw distribution. 
+
+In a second term internally this command uses the _Maven_ plugin included in the Devonfw distributions so in order to be able to use this plugin we should launch this command from a Devonfw command line (use the _console.bat_ included in the Devonfw distributions).
+
+===== _oasp4j create_ parameters
+
+This command uses five parameters (four of them mandatory). 
+
+- *servername*: the name for the new server project.
+
+- *serverpath*: the location for the new server project. Is an optional parameter, if the user does not provide it devcon will use the current directory in its place.
+
+- *packagename*: the name for the project package.
+
+- *groupid*: the groupId for the project.
+
+- *version*: the version for the project.
+
+===== _oasp4j create_ example of usage
+
+A simple example of usage for this command would be the following
+
+[source,batch]
+----
+D:\devon-dist>devon oasp4j create -servername MyNewProject -packagename io.devon.application.MyNewProject -groupid io.devon.application -version 1.0-SNAPSHOT
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+[INFO] Scanning for projects...
+[...]
+[INFO] --------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] --------------------------------------
+[INFO] Total time: 7.203 s
+[INFO] Finished at: 2016-07-14T13:00:17+01:00
+[INFO] Final Memory: 10M/42M
+[INFO] --------------------------------------
+D:\>
+----
+
+And using the optional _serverpath_ parameter to define the location for the project
+
+[source,batch]
+----
+D:\>devon oasp4j create -servername MyNewProject -serverpath D:\devon-dist\ -packagename io.devon.application.MyNewProject -groupid io.devon.application -version 1.0-SNAPSHOT
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+[INFO] Scanning for projects...
+[...]
+[INFO] --------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] --------------------------------------
+[INFO] Total time: 7.203 s
+[INFO] Finished at: 2016-07-14T13:00:17+01:00
+[INFO] Final Memory: 10M/42M
+[INFO] --------------------------------------
+D:\>
+----
+
+
 === sencha
 
 _Sencha_ is a pure JavaScript application framework for building interactive cross platform web applications and is the view layer for web applications developed with Devon Framework. This module encapsulates the _Sencha Cmd_ functionality that is a command line tool to automate tasks around _Sencha_ apps.
@@ -549,6 +618,133 @@ A simple example of usage for this command would be the following
 ----
 D:\devon-dist\workspaces\senchaProject>devon sencha run
 ----
+
+==== sencha workspace
+
+With this command we can generate automatically a fully functional Sencha workspace in a directory of our machine.
+
+===== _sencha workspace_ requirements
+
+We will need a Github user with permissions to clone the _devon4sencha_ repository.
+
+===== _sencha workspace_ parameters
+
+The _sencha workspace_ command needs five parameters and four of them are mandatory.
+
+- *workspacename*: the name for the Sencha workspace.
+
+- *workspacepath*: the location where the workspace should be created. This parameter is optional and if the user does not provide it devcon will take the current directory as the location for the Sencha workspace.
+
+- *username*: the github user with permission to download the _devon4sencha_ repository.
+
+- *password*: the password of the github user.
+
+- *gitFolder*: the GIT BIN/CMD folder in the user's machine where the git executable is present.
+
+===== _sencha workspace_ example of usage
+
+A simple example of usage for this command would be the following
+
+[source,batch]
+----
+D:\>devon sencha workspace -projectname MySenchaWorkspace -workspacepath D:\MyProject -username john -password 1234 -gitFolder "C:\Program Files\Git\mingw64\libexec\git-core"
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+Cloning into 'D:\MyProject\MySenchaWorkspace'...
+Having repository: D:\MyProject\MySenchaWorkspace\.git
+----
+
+So after that we will have a sencha workspace called _MySenchaWorkspace_ located in the _D:\MyProject_ directory.
+
+==== sencha build
+This command builds a Sencha Ext JS6 project. Is the equivalent to the _Sencha Cmd_'s ```sencha app build```.
+
+===== _sencha build_ parameters
+
+This command only has one parameter and it is optional
+
+- *appDir*: the path to the app to be built. If the user does not provide it devcon will use the current directory as the location of the Sencha app.
+
+===== _sencha build_ example of usage
+
+A simple example of usage for this command would be the following
+
+[source,batch]
+----
+D:\MySenchaWorkspace\MyApp>devon sencha build
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+OUTPUT:Sencha Cmd v6.1.2.15
+OUTPUT:[INF] Processing Build Descriptor : classic
+[...]
+[INFO] [LOG] Sencha App Watch Started
+[INFO] [LOG]Sencha Build Successful
+D:\MySenchaWorkspace\MyApp>
+----
+
+And using the optional parameter _appDir_ to locate the app the usage would be like the following
+
+[source,batch]
+----
+D:\>devon sencha build -appDir D:\MySenchaWorkspace\MyApp
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+OUTPUT:Sencha Cmd v6.1.2.15
+OUTPUT:[INF] Processing Build Descriptor : classic
+[...]
+[INFO] [LOG] Sencha App Watch Started
+[INFO] [LOG]Sencha Build Successful
+D:\>
+----
+
+==== sencha create
+
+This command creates a new Sencha Ext JS6 app.
+
+===== _sencha create_ requirements
+
+The command must be launched within a Sencha workspace or pointing to a Sencha workspace using the optional parameter _workspacepath_. So in order to work properly first we will need to have a Sencha workspace ready in our local machine.
+
+===== _sencha create_ parameters
+
+The create parameters handles two parameters
+
+- *appname*: the name for the new app.
+
+- *workspacepath*: optionally the user can specify the location of the Sencha workspace. If the user does not provide it the current directory will be use as default.
+
+
+===== _sencha create_ example of usage
+
+A simple example of usage for this command would be the following
+
+[source,batch]
+----
+D:\MySenchaWorkspace>devon sencha create -appname MyNewApp
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+OUTPUT:Sencha Cmd v6.1.2.15
+OUTPUT:[INF] Loading framework from D:\MySenchaWorkspace\
+[...]
+[INFO] [LOG]Sencha Ext JS6 app Created
+D:\MySenchaWorkspace>
+----
+
+And using the optional parameter _workspacepath_ to locate the Sencha workspace the command would be like the following
+
+[source,batch]
+----
+D:\>devon sencha create -appname MyNewApp -workspacepath D:\MySenchaWorkspace
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+OUTPUT:Sencha Cmd v6.1.2.15
+OUTPUT:[INF] Loading framework from D:\MySenchaWorkspace\
+[...]
+[INFO] [LOG]Sencha Ext JS6 app Created
+D:\>
+----
+
+After that we will have a new Sencha app called _MyNewApp_ in our Sencha workspace.
 
 === workspace
 
