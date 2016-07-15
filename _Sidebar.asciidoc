@@ -23,7 +23,7 @@
 * link:getting-started-Creating-Rest-Service[Creating Rest Service]
 * link:getting-started-deployment-on-tomcat[Deployment on Tomcat (Client/Server)]
 
-== Cookbook
+== OASP4J Cookbook
 
 * link:cookbook-reporting-module[Devon reporting module]
 * link:cookbook-winauth-module[Devon Windows Auth module]
@@ -31,10 +31,6 @@
 * link:cookbook-JAX-WS-WebServices[JAX-WS Web Services]
 * link:cookbook-batch-layer[Batch Layer]
 * link:cookbook-websocket[WebSocket]
-* link:Client-GUI-Sencha-devon4Sencha-bad-practices[Devon4Sencha-Bad Practices]
-* link:Client-GUI-Sencha-devon4Sencha-tools[Devon4Sencha-Tools]
-* link:Client-GUI-Sencha-devon4Sencha-code-review[Devon4Sencha-Code Review]
-* link:Client-GUI-Sencha-devon4Sencha-test[Devon4Sencha-Test]
 
 == Client GUI Sencha
 
@@ -60,3 +56,14 @@
 * link:Client-GUI-Sencha-theming[Sencha Theming] 
 * link:Client-GUI-Sencha-error-processing[Error processing] 
 * link:Client-GUI-Sencha-i18n[Internationalization]
+
+== Devon4Sencha Cookbook
+
+* link:Client-GUI-Sencha-devon4Sencha-bad-practices[Devon4Sencha-Bad Practices]
+* link:Client-GUI-Sencha-devon4Sencha-tools[Devon4Sencha-Tools]
+* link:Client-GUI-Sencha-devon4Sencha-code-review[Devon4Sencha-Code Review]
+* link:Client-GUI-Sencha-devon4Sencha-test[Devon4Sencha-Test]
+
+== Appendix
+
+* link:devon-guide-working-with-git-and-github[Working with Git and Github]
