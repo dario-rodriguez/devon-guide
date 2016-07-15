@@ -642,7 +642,7 @@ p.SpringBootApp   : Started SpringBootApp in 19.698 seconds (JVM running for 35.
 789)
 ----
 
-Or providing the optionale _path_ parameter
+Or providing the optional _path_ parameter
 
 [source,batch]
 ----
