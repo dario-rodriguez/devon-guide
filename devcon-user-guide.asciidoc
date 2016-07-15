@@ -655,7 +655,7 @@ With this command the user can build a server project, is the equivalent to the 
 
 ===== _oasp4j build_ requirements
 
-In order to work properly the command must be launched from within (or pointint to) a OASP4J project directory (the oasp4j project type is defined in a _devon.json_ file with parameter 'type' setted to 'oasp4j').
+In order to work properly the command must be launched from within (or pointing to) a OASP4J project directory (the oasp4j project type is defined in a _devon.json_ file with parameter 'type' setted to 'oasp4j').
 
 ===== _oasp4j build_ parameters
 
