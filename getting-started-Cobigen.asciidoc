@@ -23,7 +23,7 @@ Before you can use Cobigen, you have to install the templates to be used by Cobi
 
 [NOTE]
 ====
-In your own projects, you can create additional templates. Please refer to the document https://coconet.capgemini.com/sf/frs/do/downloadFile/projects.apps2_devon/frs.devon_distribution.1_1_0/frs50089?dl=1["CobiGen_GUIDE.pdf"] for further information.
+In your own projects, you can create additional templates. Please refer to the document https://coconet.capgemini.com/sf/frs/do/downloadFile/projects.apps2_devon/frs.devon_distribution.devonfw_2_0/frs50089?dl=1"] for further information.
 ====
 
 == Creating a CRUD with Cobigen
