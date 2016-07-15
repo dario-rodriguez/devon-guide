@@ -572,25 +572,133 @@ Copyright (c) 2016 Capgemini
 D:\>
 ----
 
-And using the optional _serverpath_ parameter to define the location for the project
+Or using the optional _serverpath_ parameter to define the location for the project
 
 [source,batch]
 ----
 D:\>devon oasp4j create -servername MyNewProject -serverpath D:\devon-dist\ -packagename io.devon.application.MyNewProject -groupid io.devon.application -version 1.0-SNAPSHOT
-Hello, this is Devcon!
-Copyright (c) 2016 Capgemini
-[INFO] Scanning for projects...
-[...]
-[INFO] --------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] --------------------------------------
-[INFO] Total time: 7.203 s
-[INFO] Finished at: 2016-07-14T13:00:17+01:00
-[INFO] Final Memory: 10M/42M
-[INFO] --------------------------------------
-D:\>
 ----
 
+After that we should have a new _MyNewProject_ project created in the _devon-dist_ directory.
+
+==== oasp4j run
+
+With this command the user can run a server project application from the embedded tomcat server.
+
+===== _oasp4j run_ requirements
+
+The _pom.xml_ of the core project of the server app must be configured with the _spring-boot-maven-plugin_.
+
+[source,xml]
+----
+<plugin>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-maven-plugin</artifactId>
+    <configuration>
+        <executable>true</executable>
+        <mainClass>io.devon.application.MyApp.SpringBootApp</mainClass>
+    </configuration>
+</plugin>
+----
+
+===== _oasp4j run_ parameters
+
+The _run_ command handles two parameters
+
+- *path*: to indicate the location of the core project of the server app. Is an optional parameter and if not provided by the user devcon will take as the path the directory from which the command has been launched.
+
+- *port*: the port from which the app should be accessible.
+
+===== _oasp4j run_ example of usage
+
+A simple example of usage for this command would be the following
+
+[source,batch]
+----
+D:\devon-dist\workspaces\MyApp\core>devon oasp4j run -port 8081
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+Application started
+
+[...]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v1.3.3.RELEASE)
+
+2016-07-01 11:13:59.006  INFO 6116 --- [           main] i.d.application.MyAp
+p.SpringBootApp   : Starting SpringBootApp on LES002610 with PID 6116 (D:\devon-
+alpha\workspaces\MyApp\core\target\classes started by pparrado in D:\devon-al
+pha\workspaces\MyApp\core)
+
+[...]
+
+2016-07-01 11:14:18.297  INFO 6116 --- [           main] i.d.application.MyAp
+p.SpringBootApp   : Started SpringBootApp in 19.698 seconds (JVM running for 35.
+789)
+----
+
+Or providing the optionale _path_ parameter
+
+[source,batch]
+----
+D:\>devon oasp4j run -port 8081 -path D:\devon-dist\workspaces\MyApp\core
+----
+
+==== oasp4j build
+
+With this command the user can build a server project, is the equivalent to the `mvn clean install` command
+
+===== _oasp4j build_ requirements
+
+In order to work properly the command must be launched from within (or pointint to) a OASP4J project directory (the oasp4j project type is defined in a _devon.json_ file with parameter 'type' setted to 'oasp4j').
+
+===== _oasp4j build_ parameters
+
+This command only uses one parameter
+
+-*path*: the location of the server project. This is an optional parameter and if the user does not provide it devcon will use in its place the current directory from which the command has been launched.
+
+===== _oasp4j build_ example of usage
+
+A simple example of usage for this command would be the following
+
+[source,batch]
+----
+D:\devon-dist\workspaces\MyApp>devon oasp4j build
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+projectInfo read...
+path D:\devon-dist\workspaces\MyApp project type OASP4J
+
+[...]
+
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO]
+[INFO] MyApp .............................................. SUCCESS [  0.301 s]
+[INFO] MyApp-core ......................................... SUCCESS [ 12.431 s]
+[INFO] MyApp-server ....................................... SUCCESS [  3.699 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 16.712 s
+[INFO] Finished at: 2016-07-15T11:44:00+01:00
+[INFO] Final Memory: 31M/76M
+[INFO] ------------------------------------------------------------------------
+D:\devon-dist\workspaces\MyApp>
+----
+
+Or using the optional parameter _path_
+
+[source,batch]
+----
+D:\>devon oasp4j build -path D:\devon-dist\workspaces\MyApp
+----
 
 === sencha
 
