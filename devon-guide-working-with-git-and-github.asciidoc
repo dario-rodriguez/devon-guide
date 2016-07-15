@@ -27,7 +27,7 @@ When you work with Git on a https://github.com/devonfw/devon[Devon] / https://gi
 
 The next image can help you to have a clear view about the way to work with Git in a https://github.com/devonfw/devon[Devon] / https://github.com/oasp/oasp4j[OASP4J] project.
 
-image::images/devon-guide-working-with-git-diagram.PNG[,scaledwidth=80%]
+image::images/working-with-git/devon-guide-working-with-git-diagram.PNG[,width="450", link="images/working-with-git/devon-guide-working-with-git-diagram.PNG"]
 
 === Step 1 - Create a new Fork
 
@@ -35,7 +35,7 @@ To avoid problems with OASP/Devon repositories we need to create our own copy (a
 
 To create the repository we need to go to the GitHub repository of https://github.com/devonfw/devon[Devon] / https://github.com/oasp/oasp4j[OASP4J] and then click on the option Fork.
 
-image::images/devon-guide-working-with-git-fork.PNG[,scaledwidth=80%]
+image::images/working-with-git/devon-guide-working-with-git-fork.PNG[,width="450",link="images/working-with-git/devon-guide-working-with-git-fork.PNG"]
 
 A fork is a copy of a repository. Forking a repository allows you to freely experiment with changes without affecting the original project.
 
@@ -269,17 +269,17 @@ As you can see the <remote_repository> can be the URL of the GitHub repository o
 
 At this point we have the modifications in our remote repository, so we need to have now a pull request to the remote https://github.com/devonfw/devon[Devon] / https://github.com/oasp/oasp4j[OASP4J] repository. To do this we need to go to our fork repository of https://github.com/devonfw/devon[Devon] / https://github.com/oasp/oasp4j[OASP4J], open the branch we want to pull and then press the button "New pull request".
 
-image::images/devon-guide-working-with-git-new-pull-request.PNG[,scaledwidth=80%]
+image::images/working-with-git/devon-guide-working-with-git-new-pull-request.PNG[,width="450",link="images/working-with-git/devon-guide-working-with-git-new-pull-request.PNG"]
 
 First of all, GitHub will check if the branch is correct and is available to do the pull request. If all is correct you will see something like this
 
-image::images/devon-guide-working-with-git-available-to-pull.PNG[,scaledwidth=80%]
+image::images/working-with-git/devon-guide-working-with-git-available-to-pull.PNG[,width="450",link="images/working-with-git/devon-guide-working-with-git-new-pull-request.PNG"]
 
 As you can see the branch is available to do the new pull request, also you can check down in the page the changes with respect to the original repository. 
 
 When we check that all is correct we can press the button "Create pull request" and create the new pull request. Then we can see a little form with a name of the New pull request and a little description that we need to complete. 
 
-image::images/devon-guide-working-with-git-new-pull-request-description.PNG[,scaledwidth=80%]
+image::images/working-with-git/devon-guide-working-with-git-new-pull-request-description.PNG[,width="450",link="images/working-with-git/devon-guide-working-with-git-new-pull-request-description.PNG"]
 
 When we complete the form we press the button "Create pull request" and then the pull is sent to be checked and added in the remote original repository.
 

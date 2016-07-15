@@ -114,3 +114,7 @@
 * link:Client-GUI-Sencha-devon4Sencha-tools[Tools]
 * link:Client-GUI-Sencha-devon4Sencha-code-review[Code Review]
 * link:Client-GUI-Sencha-devon4Sencha-test[Test]
+
+## Appendix
+
+- link:devon-guide-working-with-git-and-github[Working with Git and Github]
