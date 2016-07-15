@@ -9,7 +9,7 @@ This section explains how to download the sample application and run it. Setup D
 
 == Downloading Sample Application
 
-First of all, download or clone the application from the https://github.com/oasp/oasp4j[GitHub repository]. We recommend to use the Git Bash to work with our repository of GitHub. You can download Git and Git Bash for Windows system https://git-for-windows.github.io/[here]. Also you can learn more about the best practices of work with Git and GitHub on Devonfw https://github.com/devonfw/devon/wiki/devon-guide-working-with-git-and-github[here].
+First of all, download or clone the application from the https://github.com/oasp/oasp4j[GitHub repository]. We recommend to use the Git Bash to work with our repository of GitHub. You can download Git and Git Bash for Windows system https://git-for-windows.github.io/[here]. Also you can learn more about the best practices of work with Git and GitHub on Devonfw https://github.com/devonfw/devon-guide/wiki/devon-guide-working-with-git-and-github[here].
 
 To clone the repository, open the Git Bash console and run the following command:
 
