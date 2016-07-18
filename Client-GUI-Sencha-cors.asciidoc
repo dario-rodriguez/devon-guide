@@ -3,9 +3,9 @@ toc::[]
 
 = CORS support
 
-When you are developing the Javascript client separately from the server application, you usually have to deal with cross domain issues. We have to do the request from an origin domain distinct from the target domain and the browser does not allow this. 
+When you are developing the Javascript client separately from the server application, you usually have to deal with cross domain issues. Ajax requests for data are made to a target domain distinct to the original domain where the application code was loaded, and the browser does not allow this.
 
-In the Devon Sencha layer we have developed a solution to resolve this issue. The solution resolve these problems:
+In the Devon4Sencha there is a solution to resolve this issues:
 
 * Enable request from distinct origin and target domain.
 
