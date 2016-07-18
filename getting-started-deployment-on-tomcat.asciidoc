@@ -69,6 +69,11 @@ And in the plugins of the _pom.xml_ we should add a reference to the package aga
       </plugin>
 ----
 
+[NOTE]
+====
+If you are using a Sencha project as client app you must delete all the `<execution>` tags from the `exec-maven-plugin` inside the _jsclient_ profile as this configuration is related to _oasp4js_ projects.
+====
+
 Now we have to define a Maven profile so in Eclipse, over the server project we should right-click and select _Maven > Select Maven Profile_. In the subsequent window we should select the _jsclient_ option.
 
 image::images/devonfw-deployment/tutorial_devon_jspackaging_process03.png[,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devonfw-deployment/tutorial_devon_jspackaging_process03.png"]

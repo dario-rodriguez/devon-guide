@@ -3,11 +3,11 @@ toc::[]
 
 = Working with Git and Github
 
-== What is a version control system?
+== What is a version control system
 
 A version control system (VCS) allows you to track the history of a collection of files. It supports creating different versions of this collection. Each version captures a snapshot of the files at a certain point in time and the VCS allows you to switch between these versions. These versions are stored in a specific place, typically called a repository.
 
-== What are Git and Github?
+== What are Git and Github
 
 Git is currently the most popular implementation of a distributed version control system.
 
@@ -41,7 +41,7 @@ A fork is a copy of a repository. Forking a repository allows you to freely expe
 
 Most commonly, forks are used to either propose changes to someone else's project or to use someone else's project as a starting point for your own ideas.
 
-=== Step 1 - Clone the repository 
+=== Step 2 - Clone the repository 
 
 Now we are going to copy to our machine the repository that we created in the last step. This is called "making a clone". To do this we need to open a console window (for example: GitBash) and then include the next command lines in the directory where we want to create the local copy of the remote repository.
 
@@ -189,7 +189,7 @@ git add <file_name>
 ----
 
 [NOTE]
-==== 
+====
 You need to keep in count that if you have some space in the name of the file you need to add the name like 
 [source,console]
 ----
@@ -233,7 +233,7 @@ hs_err_pid*
 As you can see there are many extensions and folders that Git will ignore if you use the command "git add .".
 
 [NOTE]
-==== 
+====
 Windows does't permit us to create a file with the name ".gitignore so to create a new .gitignore file you can use the next command line
 
 [source,console]
@@ -243,7 +243,7 @@ git add .gitignore
 ----
 
 The we can open the file we just to create with a text editor and include whatever ignore we want.
-==== 
+====
 
 Another way to commit without problems is commit and add the files at the same time, you can do this with the command
 

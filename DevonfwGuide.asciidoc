@@ -253,3 +253,13 @@ include::Client-GUI-Sencha-devon4Sencha-code-review[]
 <<<<
 
 include::Client-GUI-Sencha-devon4Sencha-test[]
+
+:leveloffset: 0 
+
+== Appendix 
+
+:leveloffset: 2
+
+include::devon-guide-working-with-git-and-github[]
+
+<<<<
