@@ -30,13 +30,13 @@ var Config={
 
 Sometimes our back-end server is not CORS enabled so we have to deal with it in an alternative way. There are several ways to do it:
 
- - Using a reverse proxy in front of both the client side server and the server side
- -- The proxy will fetch the correct files from each server
- -- This can be implemented easily with some node.js modules such as indexzero http-server (https://github.com/indexzero/http-server)
+* Using a reverse proxy in front of both the client side server and the server side
+** The proxy will fetch the correct files from each server
+** This can be implemented easily with some node.js modules such as indexzero http-server (https://github.com/indexzero/http-server)
 
- - Using a browser extension to bypass the CORS policy
- -- It is usually easier than the proxy approach although less flexible in what can be accomplished
- -- There are several tools available for different browsers 
+* Using a browser extension to bypass the CORS policy
+** It is usually easier than the proxy approach although less flexible in what can be accomplished
+** There are several tools available for different browsers 
 
 === Using a browser extension to bypass the CORS policy
 
