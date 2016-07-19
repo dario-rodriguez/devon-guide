@@ -43,19 +43,19 @@ Sometimes our back-end server is not CORS enabled so we have to deal with it in 
 Here we present an example for Google Chrome browser called *ForceCORS*.
 
 In our example we will use two files:
-  - index.html being served from localhost:9999
-  - users.json being served from localhost:8000
+* index.html being served from localhost:9999
+* users.json being served from localhost:8000
 
 The index.html has a Javascript that makes an AJAX request to fetch the users.json file on the other server.
 
 The problem arises because we are trying two things on the requests:
-- Accessing a different server through AJAX than the server which served the client code 
-    - HTML/Javascript files on localhost:9999
-    - Backend application in localhost:80000
-- Making use of the "with-credentials" setting in the AJAX requests
-    - This is important. It means that we want to access localhost:8000 from localhost:9999 AND ALSO send cookies for the localhost:8000 server.
-    - If we don't use "with-credentials" then after the login... the next request to localhost:8000 will be sent without cookies... and it will fail on server-side because it has no access!
-    - The with-credentials flag is being set on the devon4sencha Ajax.js when Config.CORSEnabled==true
+* Accessing a different server through AJAX than the server which served the client code 
+** HTML/Javascript files on localhost:9999
+** Backend application in localhost:80000
+* Making use of the "with-credentials" setting in the AJAX requests
+** This is important. It means that we want to access localhost:8000 from localhost:9999 AND ALSO send cookies for the localhost:8000 server.
+** If we don't use "with-credentials" then after the login... the next request to localhost:8000 will be sent without cookies... and it will fail on server-side because it has no access!
+** The with-credentials flag is being set on the devon4sencha Ajax.js when Config.CORSEnabled==true
 
 This will result on the page loading and the browser showing the following error on the DevTools console:
 
