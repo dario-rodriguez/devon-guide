@@ -49,6 +49,7 @@ In our example we will use two files:
 The index.html has a Javascript that makes an AJAX request to fetch the users.json file on the other server.
 
 The problem arises because we are trying two things on the requests:
+
 * Accessing a different server through AJAX than the server which served the client code 
 ** HTML/Javascript files on localhost:9999
 ** Backend application in localhost:80000
