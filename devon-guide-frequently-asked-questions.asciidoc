@@ -8,6 +8,17 @@
 = Services
 === Which is the format of a REST request?
 
+Using Spring Boot and with the default code structure and practices, you can make a GET request to the following url:
+
+  http://[server]:[port]/services/rest/[service name]/[service version]/[operation]/[param1]/[param2]
+
+For example:
+
+  http://localhost:8080/services/rest/tablemanagement/v1/table/101
+
+Take into account that for an app deployed to a traditional web server (WAR/EAR packaged) it is usually prepended with the context name of the application, thus the url will be:
+
+
 == Crosscutting concerns
 === How to set debug mode for logs?
 For Spring Boot applications, the easiest way is to edit the `[project]\main\resources\application.properties` file and adding the following:
