@@ -16,7 +16,9 @@ For example:
 
   http://localhost:8080/services/rest/tablemanagement/v1/table/101
 
-Take into account that for an app deployed to a traditional web server (WAR/EAR packaged) it is usually prepended with the context name of the application, thus the url will be:
+Take into account that for an app deployed to a traditional web server (WAR/EAR packaged) it is usually prepended with the context name of the application, for example:
+
+  http://oasp-ci.cloudapp.net/oasp4j-sample/services/rest/tablemanagement/v1/table
 
 
 == Crosscutting concerns
