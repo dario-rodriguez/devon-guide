@@ -117,4 +117,5 @@
 
 ## Appendix
 
+* link:devon-guide-frequently-asked-questions[Frequently Asked Questions (FAQ)]
 - link:devon-guide-working-with-git-and-github[Working with Git and Github]
