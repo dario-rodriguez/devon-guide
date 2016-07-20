@@ -10,3 +10,6 @@
 
 == Crosscutting concerns
 === How to set debug mode for logs?
+For Spring Boot applications, the easiest way is to edit the `[project]\main\resources\application.properties` file and adding the following:
+
+* `logging.level.=DEBUG`
