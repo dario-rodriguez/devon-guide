@@ -10,7 +10,7 @@
 
 Using Spring Boot and with the default code structure and practices, you can make a GET request to the following url:
 
-  http://[server]:[port]/services/rest/[service name]/[service version]/[operation]/[param1]/[param2]
+  http://[server]:[port]/services/rest/[service name]/[service version]/[operation]/[param1]
 
 For example:
 
