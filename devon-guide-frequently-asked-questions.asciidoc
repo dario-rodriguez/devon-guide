@@ -26,3 +26,7 @@ Take into account that for an app deployed to a traditional web server (WAR/EAR 
 For Spring Boot applications, the easiest way is to edit the `[project]\main\resources\application.properties` file and adding the following:
 
   logging.level.=DEBUG
+
+
+== Devon4Sencha
+=== How to disable "defeat cache" functionality
