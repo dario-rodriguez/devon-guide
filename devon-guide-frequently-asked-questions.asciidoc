@@ -30,3 +30,10 @@ For Spring Boot applications, the easiest way is to edit the `[project]\main\res
 
 == Devon4Sencha
 === How to disable "defeat cache" functionality
+When working with Sencha application, all the required files are loaded with an additional parameter _dc=[random number] that will disallow debugging properly on the browser developer tools because breakpoints will be lost on reload.
+
+In order to disable this functionallity you have to add the following on the app.json of your Devon4Sencha application:
+
+    "loader": {
+          "cache": true
+    },
