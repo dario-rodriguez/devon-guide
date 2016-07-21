@@ -117,7 +117,7 @@ public class MyClass {
 
 ----
 
-After that we can use that `reportManager` object in order to access to the module functionalities, we will se how later.
+After that we can use that `reportManager` object in order to access to the module functionalities, we will see how later.
 
 === The Report entity
 
@@ -171,7 +171,7 @@ So once the Report object is defined the report generation is very simple, it on
 
 == Working with templates
 
-As we have saw in the previous sections the Reporting module works using the _Jasper Reports_ templates. This templates are basically _xml_ files (with extension _jrxml_) with some coustom structure.
+As we have saw in the previous sections the Reporting module works using the _Jasper Reports_ templates. This templates are basically _xml_ files (with extension _jrxml_) with some custom structure.
 
 === The parts of a template
 
@@ -295,7 +295,7 @@ After the field definition we will use the fields inside the `<detail>` tag as p
 
 === Creating templates with GUI software
 
-Working with _xml_ can be sometimes complex and it adds a layer of difficulty when trying to visualize a graphic result. For that reason the responsables of the Jasper Reports library have developed a software to manage the Reports and this software has a complete functionality to generate and export _jrxml_ templates.
+Working with _xml_ can be sometimes complex and it adds a layer of difficulty when trying to visualize a graphic result. For that reason Jaspersoft provides a software to manage the Reports and this software includes a complete functionality to generate and export _jrxml_ templates.
 
 We are talking about Jaspersoft Studio and you can get it from the Jaspersoft site http://community.jaspersoft.com/project/jaspersoft-studio[here].
 
