@@ -93,7 +93,7 @@ If you want to use Flyway set the following property in any case to prevent Hibe
 
 [source, properties]
 ----
-  database.hibernate.hbm2ddl.auto=validate
+  spring.jpa.hibernate.ddl-auto=validate
 ----
 
 If you want flyway to clear the database before applying the migrations (all data will be deleted), set the following property (default is false):
