@@ -1,5 +1,7 @@
 # Devonfw Guide
 
+*version 2.X SNAPSHOT*
+
 ## Getting Started with the Service Layer 
 
 - link:getting-started-introduction-to-devonfw[Introduction to Devonfw]
