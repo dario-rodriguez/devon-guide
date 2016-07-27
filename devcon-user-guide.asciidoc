@@ -710,7 +710,7 @@ With this command the user can create a basic oasp4js app.
 
 ===== _oasp4js create_ requirements
 
-This command must be used within a Devonfw distrbution with version 2.0.0 or higher. You can chech your distribution's version looking at the conf/settings.json file.
+This command must be used within a Devonfw distribution with version 2.0.0 or higher. You can check your distribution's version looking at the conf/settings.json file.
 
 ===== _oasp4js create_ parameters
 
@@ -842,7 +842,7 @@ Or using the optional parameter _clientpath_
 D:\devon-dist>devon oasp4js run -clientpath D:\devon-dist\workspaces\MyOasp4jsApp
 ----
 
-In both cases after launching the command a browser should be opened and will show the wellcome page of the _oasp4js_ app.
+In both cases after launching the command a browser should be opened and will show the welcome page of the _oasp4js_ app.
 
 === sencha
 
