@@ -15,7 +15,7 @@ In order to setup the environment, following are the pre-requisites:
 * 2GB of free disk space
 * The ZIP containing the latest Devonfw distribution
 
-[Devcon: Installation]
+[NOTE]
 ====
 yada yada 
 ====
