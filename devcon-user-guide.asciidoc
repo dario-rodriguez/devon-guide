@@ -69,6 +69,7 @@ where:
 As we mentioned before from the point of view of the commands we have two types of parameters: the mandatory parameters and the optional parameters. 
 The mandatory parameters must be provided by the user specifying the parameter identifier and the value in the command line. The optional parameters must be also provided to the app but, if the user do not specify it, devcon will try to find the parameter value in a related configuration file. In case the parameter is not defined either the command line or in the configuration file devcon will prompt the user for the parameter value.
 
+//////////////////////////////////////////
 ==== Optional parameters in _devon.json_ file
 
 In the case of the optional parameters if we don't specify the value when launching the command devcon will search for a _devon.json_ file in order to find the value of the optional parameter. Devcon will start searching from the directory from which the command has been launched and will climb the directory tree until the config file is found.
@@ -129,6 +130,7 @@ Finally if the signature parameter is not defined in the _devon.json_ file or th
 c:\MyProject\test>devon foo saySomething -message hello
 Please introduce the value for missing parameter signature:|
 ----
+//////////////////////////////////////////
 
 === Global parameters
 
