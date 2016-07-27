@@ -314,7 +314,15 @@ The first version of devcon has been released with the following modules
 
 - help
 
+- oasp4j
+
+- oasp4js
+
+- project
+
 - sencha
+
+- system
 
 - workspace
 
