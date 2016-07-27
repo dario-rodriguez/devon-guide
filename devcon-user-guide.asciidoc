@@ -735,7 +735,7 @@ Project created successfully. Please launch 'npm install' to resolve the project
 D:\devon-dist\workspaces>
 ----
 
-If everything goes right a new directory _MyOasp4jsApp_ must have been created.
+If everything goes right a new directory _MyOasp4jsApp_ must have been created containing the basic structure of an _oasp4js_ app.
 
 Finally, as the command informs, in order to complete the app installation the user must launch the command `npm install` from within the new app directory to resolve all the needed dependencies.
 
