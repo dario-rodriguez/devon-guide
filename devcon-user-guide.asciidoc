@@ -700,6 +700,150 @@ Or using the optional parameter _path_
 D:\>devon oasp4j build -path D:\devon-dist\workspaces\MyApp
 ----
 
+=== oasp4js
+
+The oasp4js module is responsible for automating the tasks related to the client projects based on Angular.
+
+==== oasp4js create
+
+With this command the user can create a basic oasp4js app.
+
+===== _oasp4js create_ requirements
+
+This command must be used within a Devonfw distrbution with version 2.0.0 or higher. You can chech your distribution's version looking at the conf/settings.json file.
+
+===== _oasp4js create_ parameters
+
+This command accepts two parameters:
+
+- *clientname*: the name for the application.
+
+- *clientpath*: the location for the new application. Is an optional parameter and if not provided by the user devcon will take as the path the directory from which the command has been launched.
+
+===== _oasp4js create_ example of usage
+
+A simple example of usage for this command would be the following
+
+[source, batch]
+----
+D:\devon-dist\workspaces>devon oasp4js create -clientname MyOasp4jsApp
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+Creating project MyOasp4jsApp...
+Project created successfully. Please launch 'npm install' to resolve the project dependencies.
+
+D:\devon-dist\workspaces>
+----
+
+If everything goes right a new directory _MyOasp4jsApp_ must have been created.
+
+Finally, as the command informs, in order to complete the app installation the user must launch the command `npm install` from within the new app directory to resolve all the needed dependencies.
+
+[source,batch]
+----
+D:\devon-dist\workspaces\MyOasp4jsApp>npm install
+----
+
+The user can also use the next command _oasp4js build_ to do that last operation.
+
+==== oasp4js build
+
+With this command the user can resolve the dependencies of an _oasp4js_ app. The _oasp4js build_ command is the equivalent to the `npm install` command.
+
+===== _oasp4js build_ parameters
+
+- *path*: The location of the _oasp4js_ app. Is an optional parameter and if not provided devcon will use the current directory from which the command has been launched instead.
+
+===== _oasp4js build_ example of usage
+
+A simple example of usage for this command would be the following
+
+[source,batch]
+----
+D:\devon-dist\workspaces\MyOasp4jsApp>devon oasp4js build
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+path D:\devon-dist\workspaces\MyOasp4jsApp\.project type OASP4JS
+
+npm WARN deprecated gulp-minify-css@1.2.0: Please use gulp-clean-css
+npm WARN deprecated gulp-minify-html@1.0.3: Please use gulp-htmlmin
+fetchMetadata -> headers  / |################---------------------------------|
+fetchMetadata -> network  | |#################--------------------------------|
+
+[...]
+
+  | | +-- align-text@0.1.4
+  | | `-- lazy-cache@1.0.4
+  | +-- right-align@0.1.3
+  | `-- wordwrap@0.0.2
+  +-- decamelize@1.2.0
+  `-- window-size@0.1.4
+
+npm WARN app@0.0.1 No repository field.
+npm WARN app@0.0.1 No license field.
+
+----
+
+Or using the optional parameter _path_
+
+[source, batch]
+----
+D:\devon-dist>devon oasp4js build -path D:\devon-dist\workspaces\MyOasp4jsApp
+----
+
+==== oasp4js run
+
+In order to launch the _oasp4js_ apps devcon provides this _run_ command that can be launched even without parameters.
+
+===== _oasp4js run_ parameters
+
+The only parameter needed is the _clientpath_ that points to the client app. This is an optional parameter and if not provided devcon will use by default the directory from within the command is launched.
+
+===== _oasp4js run_ example of usage
+
+A simple example of usage for this command would be the following
+
+[source,batch]
+----
+D:\devon-dist\workspaces\MyOasp4jsApp>devon oasp4js run
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+Starting application
+
+[11:30:12] Starting 'sync group1:0'...
+[11:30:12] Starting 'sync group2:0'...
+[11:30:12] Starting 'styles'...
+[11:30:12] Starting 'img:sprite'...
+[11:30:12] Starting 'sync group3:0'...
+[11:30:12] Starting 'ngTemplatesTasksGeneration'...
+[11:30:12] Finished 'ngTemplatesTasksGeneration' after 439 µs
+
+...
+
+[11:30:14] Finished 'serve' after 25 ms
+[BS] Access URLs:
+ ------------------------------------
+       Local: http://localhost:9000/
+    External: http://10.68.8.41:9000/
+ ------------------------------------
+          UI: http://localhost:3001
+ UI External: http://10.68.8.41:3001
+ ------------------------------------
+[BS] Serving files from: .tmp
+[BS] Serving files from: app
+[BS] Serving files from: bower_components/bootstrap/dist
+[BS] Watching files...
+----
+
+Or using the optional parameter _clientpath_
+
+[source,batch]
+----
+D:\devon-dist>devon oasp4js run -clientpath D:\devon-dist\workspaces\MyOasp4jsApp
+----
+
+In both cases after launching the command a browser should be opened and will show the wellcome page of the _oasp4js_ app.
+
 === sencha
 
 _Sencha_ is a pure JavaScript application framework for building interactive cross platform web applications and is the view layer for web applications developed with Devon Framework. This module encapsulates the _Sencha Cmd_ functionality that is a command line tool to automate tasks around _Sencha_ apps.
