@@ -1037,4 +1037,148 @@ Copyright (c) 2016 Capgemini
 [...]
 ----
  
-As a result of that a new folder _newproject_ with the default project configuration should be created in the _C:\MyFolder\devon-dist\workspaces_ directory alongside an _eclipse-newproject.bat_ starter script in the root of the distribution. 
+As a result of that a new folder _newproject_ with the default project configuration should be created in the _C:\MyFolder\devon-dist\workspaces_ directory alongside an _eclipse-newproject.bat_ starter script in the root of the distribution.
+
+ === system
+
+This module contains system wide commands related to devcon.
+
+==== install
+
+This command installs devcon on user's HOME directory or at an alternative path provided by user.
+
+=== project
+
+This module is to automate tasks like build , create, run and deploy related to devon projects (both client and server).
+
+==== project build
+
+This command will build both client and server project.
+
+===== _project build_ requirements
+
+In order to work properly, the command must be launched from within (or pointing to) a Devon distribution (the oasp4j project type is defined in a _devon.json_ file with parameter 'type' set to 'oasp4j' in the server project ).
+The directory from where build command is fired should contain client and server project at same level, and directory should contain a _devon.json_ which should have project type as _COMBINED_,and  client  project should contain a _devon.json_ file with parameter 'type' set to  'oasp4js' or 'devon4sencha'.
+
+==== _project build_parameters
+
+The build command takes three parameters and two of them are mandatory.
+
+- *path* : This is an optional paremaeter. It points to server project workspace and if value of this parameter not given, it takes default value as current directory.
+
+- *clienttype* : This parameter shows which type of client is integrated with server i.e oasp4js or sencha. Its a mandatory one.
+
+- *clientpath* : It should point to client directory i.e where the client code is located. Again a mandatory one.
+
+===== _project build_ example of usage
+
+A simple example of usage for this command would be the following
+
+[source,batch]
+----
+D:\>devon project build -path D:\FIN_IDE\oasp4j-ide-all-2.0.0\samplec -clienttyp
+e oasp4js -clientpath D:\FIN_IDE\oasp4j-ide-all-2.0.0\clientdoc
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+projectInfo read...
+path D:\FIN_IDE\oasp4j-ide-all-2.0.0\samplecproject type OASP4J
+Completed
+path D:\FIN_IDE\oasp4j-ide-all-2.0.0\clientdocproject type OASP4JS
+Completed
+----
+
+
+
+==== project create 
+
+This command is used to create new combined server & client project.
+
+==== project create_parameters
+
+The create command takes eleven parameters out of which 6 are mandatory.
+
+- *distributionpath* : This parameter value shows path to Devonfw distribution and is an optional one , if not given , value is taken as current directory of user.
+
+- *servername* : Its value contains name of the server project to be created.
+
+- *packagename* : It shows package name for the server project to be created.
+
+- *groupid* : It shows group id for the server project.
+
+- *version* : Version of the server project to be created.
+
+- *clienttype* : Type of client project to be created "oasp4js" or "devon4sencha".
+
+- *clientname* : Name of the client project.
+
+- *clientpath* : Path where client projects needs to be created.In case of sencha project this must point to a Sencha workspace
+
+- *gituser* : Required only for client type 'devon4sencha',Its value is a username with permissions to download the Devon distribution.
+
+- *gitpassword* : Only for client type 'devon4sencha',value is the password related to the user with permissions to download the Devon distribution.
+
+- *gitfolder* : Only for client type 'devon4sencha': GIT BIN/CMD folder where git executable is present
+
+
+
+==== _project create_example of usage
+
+A simple example of usage for this command ( for client type oasp4js) would be the following
+
+[source , batch]
+----
+
+D:\FIN_IDE\oasp4j-ide-all-2.0.0>devon project create -distributionpath D:\FIN_ID
+E\oasp4j-ide-all-2.0.0 -servername samplee -packagename com.app.sample -groupid
+com.app -version 1.0 -clienttype oasp4js -clientname clientdoct -clientpath D:\F
+IN_IDE\oasp4j-ide-all-2.0.0
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+serverpath is D:\FIN_IDE\oasp4j-ide-all-2.0.0
+Project Creation complete
+Creating client project...
+Creating project clientdoct...
+Project created successfully. Please launch 'npm install' to resolve the project
+ dependencies.
+ 
+----
+
+Result of this would be a server project _samplee_ and client project _clientdoct_ would be created at _D:\FIN_ID
+E\oasp4j-ide-all-2.0.0_ .
+
+=== project run
+
+This command  runs the server & client project(unified build) in debug mode that is separate client and spring boot server. 
+
+==== project run_parameters
+
+- *clienttype* : This parameter shows which type of client is integrated with server i.e oasp4js or sencha and its a mandatory parameter
+
+- *clientport* : user can provide configured port if client type is Sencha.
+
+- *clientpath* : Location of the oasp4js app.
+
+- *serverport* : Port to start server.
+
+- *serverpath* : Path to Server project Workspace (currentDir if not given).
+
+==== _project run_example of usage
+
+A simple example of usage for this command ( for client type oasp4js) would be the following
+
+[source , batch]
+----
+D:\>devon project run -clienttype oasp4js -clientpath D:\FIN_IDE\oasp4j-ide-all-
+2.0.0\workspaces\main\examples\oasp4js -serverport 8080 -serverpath D:\FIN_IDE\o
+asp4j-ide-all-2.0.0\workspaces\main\code\oasp4j\samples\server
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+path before modification D:\FIN_IDE\oasp4j-ide-all-2.0.0\workspaces\main\code\oa
+sp4j\samples\server
+Server project path D:\FIN_IDE\oasp4j-ide-all-2.0.0\workspaces\main\code\oasp4j\
+samples\server
+Application started
+Starting application
+----
+
+After launching the command, a browser should be opened and will show the welcome page of the oasp4js app.
