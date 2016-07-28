@@ -28,6 +28,10 @@ strict as JSLint.
 - Every time when you run a sencha app build or sencha
 app build testing on the command-line, it will validate your JavaScript code.Lint errors will show up as parse warnings in your console.
 
+.*Using devcon*
+[NOTE]
+You can also use the build option using devcon with the `devon sencha build` command link:devcon-user-guide#sencha-build[learn more here]
+
 - Not only it checks your JavaScript errors, it will also check your Sass stylesheet for errors, before compiling it to production ready CSS.
 
 image::images/devon4sencha-badPractices/tools/analyzing-code-with-sencha-cmd.png[Sencha Cmd,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/tools/analyzing-code-with-sencha-cmd.png"]

@@ -3,7 +3,18 @@ toc::[]
 
 # Creating a new application
 
-For creating a new application, we start by creating a Sencha CMD workspace to host our project files. Copy the example workspace at `workspaces\examples\devon4sencha` and then remove the sample application by deleting the directory `ExtSample`.
+For creating a new application, we start by creating a Sencha CMD workspace to host our project files. 
+
+.*Using devcon*
+[NOTE]
+====
+You can automate these processes using devcon. With the `devon sencha workspace` command you can generate new Sencha workspaces link:devcon-user-guide#workspace[learn more here].
+
+With the `devon sencha create` you can create new Sencha applications link:devcon-user-guide#sencha-create[learn more here].
+====
+
+
+If you are going to do it manually copy the example workspace at `workspaces\examples\devon4sencha` and then remove the sample application by deleting the directory `ExtSample`.
 
 Then we are set to automate the application creation with the help of Sencha Cmd. We provide an application template, which already integrates Devon4sencha in your new application. Use it by issuing the following command inside of your Sencha workspace:
 
@@ -63,6 +74,10 @@ We can already run the application from the command line by entering our app's d
 ----
 sencha app watch
 ----
+
+.*Using devcon*
+[NOTE]
+Remember that you can automate this process using devcon with the `devon sencha run` command link:devcon-user-guide#sencha-run[learn more here]
 
 The result should be the same login page as in the sample application:
 

@@ -7,6 +7,10 @@ Devon comes with a sample java application simulating the backend for a restaura
 
 ## Running the sample restaurant application
 
+.*Using devcon*
+[NOTE]
+You can automate the following steps using devcon with the `devon sencha run` command link:devcon-user-guide#sencha-run[learn more here]
+
 The following steps assume that you already have setup your Devon environment, and that you have the devonfw-sample-server running on a server on port 8081. Refer to the Devonfw Server documentation for instructions on how to setup the Devon environment or the devon sample application.
 
 1. Open a Devon command prompt by executing the batch file `console.bat`.
