@@ -45,6 +45,10 @@ This is the directory to store all our projects. We must keep in mind that the c
 
 Thus if we have a _workspaces/project01_ and a _workspaces/project02_ projects the _update-all-workspaces.bat_ script will create a _eclipse-project01.bat_ launcher and a _eclipse-project02.bat_ launcher in the root folder of the distribution so we can access to a different Eclipse instances with different configurations for each project.
 
+.*Using devcon*
+[NOTE]
+You can automate this operation using devcon with the `devon workspace create` command link:devcon-user-guide#workspace[learn more here]
+
 === console.bat
 This script launches the distribution's _cmd_. Meaning, within this _cmd_, we have access to the software located in the _software_ folder, so that we can use the tools "installed" in that folder although we don't have these installed in our machine. So it is important to always run this _cmd_ (lunching the _console.bat_ script) to make use of the software related to the distribution.
 
