@@ -15,11 +15,6 @@ In order to setup the environment, following are the pre-requisites:
 * 2GB of free disk space
 * The ZIP containing the latest Devonfw distribution
 
-[NOTE]
-====
-yada yada 
-====
-
 == Download
 Download latest Devonfw distribution from https://coconet.capgemini.com/sf/frs/do/listReleases/projects.apps2_devon/frs.devon_distribution[our Teamforge site].
 
