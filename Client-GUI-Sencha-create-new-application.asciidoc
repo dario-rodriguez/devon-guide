@@ -10,7 +10,7 @@ For creating a new application, we start by creating a Sencha CMD workspace to h
 ====
 You can automate these processes using devcon. With the `devon sencha workspace` command you can generate new Sencha workspaces link:devcon-user-guide#sencha-workspace[learn more here].
 
-With the `devon sencha create` you can create new Sencha applications link:devcon-user-guide#sencha-create[learn more here].
+With the `devon sencha create` command you can create new Sencha applications link:devcon-user-guide#sencha-create[learn more here].
 ====
 
 
