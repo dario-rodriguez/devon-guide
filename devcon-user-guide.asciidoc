@@ -1121,7 +1121,7 @@ The create command takes eleven parameters out of which 6 are mandatory.
 
 
 
-==== _project create_example of usage
+==== _project create_ example of usage
 
 A simple example of usage for this command ( for client type oasp4js) would be the following
 
@@ -1161,7 +1161,6 @@ This command  runs the server & client project(unified build) in debug mode that
 - *serverport* : Port to start server.
 
 - *serverpath* : Path to Server project Workspace (currentDir if not given).
-
 
 ==== _project run_ example of usage
 
