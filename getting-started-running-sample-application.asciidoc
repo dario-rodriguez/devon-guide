@@ -22,6 +22,10 @@ Now, let's discuss how to run the Sample Application.
 
 == Running Sample Application
 
+.*Using devcon*
+[NOTE]
+You can automate the following steps using devcon with the `devon oasp4j run` command link:devcon-user-guide#oasp4j-run[learn more here]
+
 We can run the application in two ways or whatever other Devonfw application based on Spring boot: https://github.com/devonfw/devon-guide/wiki/getting-started-running-sample-application#embedded-tomcat-server[Running with the embedded Tomcat 8 server of Spring Boot] or https://github.com/devonfw/devon-guide/wiki/getting-started-running-sample-application#external-tomcat-server[using an external Tomcat 8 server].
 
 === Embedded Tomcat server
