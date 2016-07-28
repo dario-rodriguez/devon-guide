@@ -23,7 +23,7 @@ With http://docs.sencha.com/cmd/5.x/workspaces.html[Sencha Cmd Workspaces] we ca
 [NOTE]
 You can create a new Sencha workspace using devcon with the `devon sencha workspace` command link:devcon-user-guide#sencha-workspace[learn more here]
 
-The easiest way to create a Sencha CMD workspace for your application is simply copying the example workspace of devon4sencha (copy the complete directory at `workspaces\examples\devon4sencha` into `workspaces\main\<NAME OF YOUR PROJECT>` and delete the example application's directory called `ExtSample`.
+The easiest way to manually create a Sencha CMD workspace for your application is simply copying the example workspace of devon4sencha (copy the complete directory at `workspaces\examples\devon4sencha` into `workspaces\main\<NAME OF YOUR PROJECT>` and delete the example application's directory called `ExtSample`.
 
 You can also create a workspace from scratch:
 
