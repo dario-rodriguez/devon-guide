@@ -1146,7 +1146,7 @@ Project created successfully. Please launch 'npm install' to resolve the project
 Result of this would be a server project _samplee_ and client project _clientdoct_ would be created at _D:\FIN_ID
 E\oasp4j-ide-all-2.0.0_ .
 
-=== project run
+==== project run
 
 This command  runs the server & client project(unified build) in debug mode that is separate client and spring boot server. 
 
