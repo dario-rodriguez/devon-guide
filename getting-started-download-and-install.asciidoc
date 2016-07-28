@@ -18,6 +18,11 @@ In order to setup the environment, following are the pre-requisites:
 == Download
 Download latest Devonfw distribution from https://coconet.capgemini.com/sf/frs/do/listReleases/projects.apps2_devon/frs.devon_distribution[our Teamforge site].
 
+[DEVCON]
+====
+asdf
+====
+
 == Prepare the workspace
 
 1. Unzip the Devonfw distribution into a directory of your choice. *The path to the Devonfw distribution directory should contain no spaces*, to prevent problems with some of the tools.
