@@ -1038,6 +1038,7 @@ Copyright (c) 2016 Capgemini
 ----
  
 As a result of that a new folder _newproject_ with the default project configuration should be created in the _C:\MyFolder\devon-dist\workspaces_ directory alongside an _eclipse-newproject.bat_ starter script in the root of the distribution.
+
 === system
 
 This module contains system wide commands related to devcon.
@@ -1149,7 +1150,7 @@ E\oasp4j-ide-all-2.0.0_ .
 
 This command  runs the server & client project(unified build) in debug mode that is separate client and spring boot server. 
 
-==== project run_parameters
+==== _project run_ parameters
 
 - *clienttype* : This parameter shows which type of client is integrated with server i.e oasp4js or sencha and its a mandatory parameter
 
@@ -1162,7 +1163,7 @@ This command  runs the server & client project(unified build) in debug mode that
 - *serverpath* : Path to Server project Workspace (currentDir if not given).
 
 
-==== project run_example of usage
+==== _project run_ example of usage
 
 A simple example of usage for this command ( for client type oasp4js) would be the following
 
