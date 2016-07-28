@@ -3,6 +3,10 @@ toc::[]
 
 = Creating New Application
 
+.*Using devcon*
+[NOTE]
+You can automate the following steps using devcon with the `devon oasp4j create` command link:devcon-user-guide#oasp4j-create[learn more here]
+
 == Running the archetype
 
 In order to create a new application, you must use the archetype provided by devon who uses the maven archetype functionality.
