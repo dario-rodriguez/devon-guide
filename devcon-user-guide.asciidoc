@@ -1038,12 +1038,11 @@ Copyright (c) 2016 Capgemini
 ----
  
 As a result of that a new folder _newproject_ with the default project configuration should be created in the _C:\MyFolder\devon-dist\workspaces_ directory alongside an _eclipse-newproject.bat_ starter script in the root of the distribution.
-
- === system
+=== system
 
 This module contains system wide commands related to devcon.
 
-==== install
+==== system install
 
 This command installs devcon on user's HOME directory or at an alternative path provided by user.
 
@@ -1162,7 +1161,8 @@ This command  runs the server & client project(unified build) in debug mode that
 
 - *serverpath* : Path to Server project Workspace (currentDir if not given).
 
-==== _project run_example of usage
+
+==== project run_example of usage
 
 A simple example of usage for this command ( for client type oasp4js) would be the following
 
