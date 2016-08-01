@@ -11,6 +11,27 @@ The Devon Console, Devcon, is a cross-platform command line tool running on the 
 
 Devcon is the easiest way to use Devonfw. With a focus on project automation, easy command execution and declarative configuration, it gets out of your way and lets you focus on your code.
 
+== Getting started: download Devcon
+
+To get started with Devcon you will need to http://devonfw.github.io/download/devcon/devcon.jar[*download the Devoncon jar from the devonfw repository*]. After downloading, enter a console/commandline (on Windows: CMD or Powershell), navigate ("cd") to the folder where you´ve dowloaded the jar file and execute the following command:
+
+[source,bash]
+----
+java -jar decvon.jar system install 
+----
+
+This will install the devcon binaries to a folder '.devcon' in your %HOME% directory. Devcon is now added to the %PATH% environment variable on you system, allowing to execute it directly from the console. However, after installation on Windows you´ll need to close the console and open it again in order for this to work (only the first time, of course).
+
+After installation, you have two commands available. Try 
+
+[source,bash]
+----
+devon  doc userguide
+devcon doc userguide
+----
+
+to open up the Devcon user guide in your default system web browser. The commands 'devon' and 'devcon' can be used Interchangeably. 
+
 == Devcon structure
 
 Devcon is based on three basic elements:
