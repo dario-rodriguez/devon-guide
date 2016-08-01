@@ -1,7 +1,7 @@
 :toc: macro 
 toc::[]
  
-= Devon4Sencha bad practices
+= Devon4Sencha best practices
  
 == Bad formed code
 
