@@ -59,6 +59,7 @@
 
 == Devon4Sencha Cookbook
 
+* link:Client-GUI-Sencha-Simlets-Simulate-Server-Responses[Mocks with Simlets: simulating server responses]
 * link:Client-GUI-Sencha-devon4Sencha-bad-practices[Devon4Sencha-Bad Practices]
 * link:Client-GUI-Sencha-devon4Sencha-tools[Devon4Sencha-Tools]
 * link:Client-GUI-Sencha-devon4Sencha-code-review[Devon4Sencha-Code Review]
