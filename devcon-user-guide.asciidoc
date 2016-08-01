@@ -24,7 +24,7 @@ java -jar decvon.jar system install
 
 This will install the devcon binaries to a folder _'.devcon'_ in your _'%HOME%'_ directory. Devcon is now added to the _'%PATH%'_ environment variable on you system, allowing to execute it directly from the console. However, after installation on Windows you´ll need to close the console and open it again in order for this to work (only the first time, of course).
 
-After installation, you have two commands available. Try 
+After installation, you have two commands available. Try either one, or both of
 
 [source,bash]
 ----
@@ -32,7 +32,7 @@ devon  doc userguide
 devcon doc userguide
 ----
 
-to open up the Devcon user guide in your default system web browser. The commands 'devon' and 'devcon' can be used Interchangeably. 
+to open up the Devcon user guide in your default system web browser. The commands 'devon' and 'devcon' can be used interchangeably. 
 
 == Devcon structure
 
