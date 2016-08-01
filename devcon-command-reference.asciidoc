@@ -1,1 +1,1186 @@
-XXX
+:toc: macro
+toc::[]
+
+
+
+= Devcon User Guide
+
+image::images/devconlogo_full.png[,align="center",width="200",Devcon, link="https://github.com/devonfw/devon-guide/wiki/images/devconlogo_full.png"]
+
+The Devon Console, Devcon, is a cross-platform command line tool running on the JVM that provides many automated tasks around the full life-cycle of Devon applications, from installing the basic working environment and generating a new project, to running a test server and deploying an application to production.
+
+Devcon is the easiest way to use Devonfw. With a focus on project automation, easy command execution and declarative configuration, it gets out of your way and lets you focus on your code.
+
+== Devcon structure
+
+Devcon is based on three basic elements:
+
+- modules
+
+- commands
+
+- parameters
+
+So Devcon is a tool based on modules where each module groups several commands related to the module functionality and each command may need parameters to work in one way or another. 
+Each command is used to accomplish one task and may need some parameters in order to achieve its goal. These parameters can be mandatory or optional. The mandatory parameters must be provided by the user when launching the command and the optional parameters can be provided by the user in the same way but if not, they can be read from a configuration file. Apart from this we can use global parameters that are independent from the modules and commands and that will be helpful in order to obtain devcon information (like help) or other basic configuration features, these parameters will be explained later.
+
+== Devcon basic usage
+
+Accordingly with the defined structure the devcon usage is based on the definition of each of its element: module, command and parameters. So in the command line we must specify each of these elements in the correct order:
+
+[source,batch]
+----
+devon [module] [command] [parameters ...]
+----
+
+- the module will be the first word after the "devon" keyword.
+
+- the command will be the second word after the "devon" keyword.
+
+- the parameters are the rest of the elements defined after the command.
+
+=== Defining the module and the command
+
+Both module and command are defined by an identifier that is the 'name' that the module or command have assigned in devcon.
+
+=== Defining the parameters
+
+The parameter definition is divided in two parts. The first one is the parameters identifier that is the _name_ that the parameter has assigned within the devcon app *preceded by a single dash*. The second part of the parameter definition is the parameter value.
+
+=== Basic example
+
+Thus a basic example of a devcon line command would be
+
+[source,bash]
+----
+C:\>devon foo saySomething -message hello
+----
+
+where: 
+
+- *foo* is the module.
+
+- *saySomething* is the command of the _foo_ module to be executed.
+
+- '*-message*' is the parameter that the command _saySomething_ needs to be executed.
+
+- *hello* is the value for the _message_ parameter.
+
+=== Parameters
+
+As we mentioned before from the point of view of the commands we have two types of parameters: the mandatory parameters and the optional parameters. 
+The mandatory parameters must be provided by the user specifying the parameter identifier and the value in the command line. The optional parameters must be also provided to the app but, if the user do not specify it, devcon will try to find the parameter value in a related configuration file. In case the parameter is not defined either the command line or in the configuration file devcon will prompt the user for the parameter value.
+
+//////////////////////////////////////////
+==== Optional parameters in _devon.json_ file
+
+In the case of the optional parameters if we don't specify the value when launching the command devcon will search for a _devon.json_ file in order to find the value of the optional parameter. Devcon will start searching from the directory from which the command has been launched and will climb the directory tree until the config file is found.
+The _devon.json_ file is a configuration file that defines some properties to be used by devcon in some processes. To define the value for optional parameters we can use the _optionalParameters_ property, that is a JSON object with the definition of each optional parameter
+
+[source,json]
+----
+…
+"optionalParameters": {"optional1":"value1", "optional2":"value2", … }
+…
+----
+
+Returning to the previous example imagine that now the _saySomething_ command of the _foo_ module has two parameters, the _'message'_ that is mandatory and the _'signature'_ that is optional. We also have a configuration file called _devon.json_ in the test directory with a content like
+
+[source,json]
+----
+{ "version": "2.0.0",
+  "type":"oasp4j",
+  "optionalParameters": {"signature":"test"}
+}
+----
+	
+Now if we launch the command from _MyProject\test_ directory providing both _message_ and _signature_ parameters
+
+[source,batch]
+----
+c:\MyProject\test>devon foo saySomething -message hello -signature John 
+----
+
+The command will use the parameter *-message* with value '_hello_' and the parameter *-signature* with value _'John'_ and the output will be
+
+[source,batch]
+----
+hello
+John
+----
+
+But if don't provide the _signature_ parameter
+
+[source,batch]
+---- 
+c:\MyProject\test>devon foo saySomething -message hello
+----
+
+devcon will try to find a _devon.json_ file and within this file will search for the _"optionalParameters"_ object to get the value for _signature_ parameter. 
+In our case the file will be found (in the same directory, remember that if the file is not found in the first directory devcon would climb to the _MyProject_ directory to search there the configuration file) and the output will be 
+
+[source,batch]
+----
+hello
+test
+----
+
+Finally if the signature parameter is not defined in the _devon.json_ file or the devon.json is not found devcon will prompt the user to get the value for the parameter
+
+[source,batch]
+----
+c:\MyProject\test>devon foo saySomething -message hello
+Please introduce the value for missing parameter signature:|
+----
+//////////////////////////////////////////
+
+=== Global parameters
+
+Devcon handles a third type of parameter that has nothing to do with command parameters. We are referring to the global parameters.
+The global parameters are a set of parameters that works in global context, which means that will affect the behaviour of the command in the first phase, before launching the command module itself. 
+In the first devcon version we have three global parameters defined:
+
+- global parameter _help_: defined with *-h* or *--help*.
+- global parameter _version_: defined with *-v* or *--version*.
+
+==== _help_ parameter
+The global parameter _help_ is very useful to show overall help info of devcon or also for showing more detailed info of each module and command supported.
+For example if we know nothing about how to start with devcon the option *-h* (or *--help*) will show a summary of the devcon usage, listing the global parameters and the available modules alongside a brief description of each one.  
+
+[source,batch]
+----
+C:\>devon -h
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+usage: devon <<module>> <<command>> [parameters...]
+Devcon is a command line tool that provides many automated tasks around
+the full life-cycle of Devon applications.
+ -h,--help        show help info for each module/command
+ -v,--version     show devcon version
+List of available modules:
+> help: This module shows help info about devcon
+> sencha: Sencha related commands
+> dist: Module with general tasks related to the distribution itself
+> doc: Module with tasks related with obtaining specific documentation
+> github: Module to create a new workspace with all default configuration
+> workspace: Module to create a new workspace with all default configuration
+----
+
+As a global parameter if we use the *-h* parameter with a module it will show the help info related to this module including a basic usage and a list of the available commands in this module
+
+[source,batch]
+----
+C:\>devon foo -h
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+usage: foo <<command>> [parameters...]
+This is only a test module.
+
+Available commands for module: foo
+> saySomething: This command is for say something
+----
+
+In the same way, as a global parameter, if we use the *-h* parameter with a command, instead of launching the command the help info related to the command will be shown
+
+[source,batch]
+----
+D:\>devon foo saySomething -h
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+usage: saySomething [-message] [-signature]
+This command is to say something
+ -message     the message to be written
+ -signature   the signature
+----
+
+Even if we specify the needed parameters the behaviour will be the same because, as we said, the global parameters affect how devcon behaves before launching the commands
+
+[source,batch]
+----
+D:\>devon foo saySomething -message hello -signature John -h
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+usage: saySomething [-message] [-signature]
+This command is to say something
+ -message     the message to be written
+ -signature   the signature
+----
+
+==== _version_ parameter
+
+This is a simple option that returns the devcon running version and is defined with *-v* (or *--version*). As the _help_ option this will show the devcon version even though we have defined a command with all required parameters.
+
+[source,batch]
+----
+D:\>devon -v
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+devcon v.0.1.0
+----
+
+[source,batch]
+----
+D:\>devon foo saySomething -message hello -signature John -v
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+devcon v.0.1.0
+----
+
+== First steps with devcon
+
+In this section we are going to show the basic steps to start using devcon from scratch. To do that we can use the global option _-h_ (help) in order to figure out which commands and parameters we need to define but in a very first approach only the command _devon_ will be enough.
+So the first step will be look for a module that fits our requirements. As we just mentioned we can do so with the _help_ option (defined as _-h_ or _--help_) or, as we also mentioned before, with a simple command _devon_. If we do not specify any information we will see a summary of the general help information, a example of usage and a list with global parameters and the available modules.
+
+[source, batch]
+----
+D:\>devon
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+usage: devon <<module>> <<command>> [parameters...]
+Devcon is a command line tool that provides many automated tasks around
+the full life-cycle of Devon applications.
+ -h,--help        show help info for each module/command
+ -v,--version     show devcon version
+List of available modules:
+> help: This module shows help info about devcon
+> sencha: Sencha related commands
+> dist: Module with general tasks related to the distribution itself
+> doc: Module with tasks related with obtaining specific documentation
+> github: Module to create a new workspace with all default configuration
+> workspace: Module to create a new workspace with all default configuration
+----
+
+Once we have the list of modules and an example of how to use them we may need to get a devon distribution so we need to go deeper in module _*dist*_, to do so we can use again the _help_ option after the module definition
+
+[source,batch]
+----
+D:\>devon dist -h
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+usage: dist <<command>> [parameters...]
+Module with general tasks related to the distribution itself
+
+Available commands for module: dist
+> install: This command downloads the distribution
+> s2: Initializes a Devon distribution for use with Shared Services.
+----
+
+Now we know that the _dist_ module has two commands, the _install_ command and the _s2_ command and we can see a brief description of each one so we can decide which one we need to use. In case we had to get a devon distribution we can learn how to use the install command using again the _help_ option over it
+
+[source,batch]
+----
+D:\>devon dist install -h
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+usage: install [-password] [-path] [-type] [-user]
+This command downloads the distribution
+ -password   the password related to the user with permissions to download
+             the Devon distribution
+ -path       a location for the Devon distribution download
+ -type       the type of the distribution, the options are:
+             'oaspide' to download OASP IDE
+             'devondist' to download Devon IP IDE
+ -user       a user with permissions to download the Devon distribution
+----
+
+So now we know that the _install_ command of the _dist_ module needs:
+
+- user with permissions to download the distribution.
+
+- the related password.
+
+- the path where the distribution file must to be downloaded.
+
+- the type of distribution that can be _'oaspide'_ or _'devondist'_.
+
+With all that information we can launch a fully functional command like the following
+
+[source,batch]
+----
+D:\>devon dist install -user john -password 1234 -path D:\Temp\MyDistribution -type devondist
+----
+
+Regarding the order of the command parameters, devcon will order them internally so we don't have to concern about that point and we can specify them in the order we want, the only requirement is that all mandatory parameters are provided.
+
+
+== Modules
+
+In the introduction of this guide we mentioned that Devcon is a tool based on modules that group commands so the different functionalities are stored in these modules that act as utilities containers.
+The first version of devcon has been released with the following modules
+
+- dist
+
+- doc
+
+- github
+
+- help
+
+- oasp4j
+
+- oasp4js
+
+- project
+
+- sencha
+
+- system
+
+- workspace
+
+but in your current Devcon version more modules may have been included. You can list them using the option 
+
+[source,batch]
+----
+devon -h 
+----
+
+=== dist
+
+The _dist_ module is responsible for the tasks related with the distribution which means all the functionalities surrounding the configuration of the Devon distribution, including the obtention of the distribution itself.
+The module _dist_ consists of two parameters: _install_ and _s2_.
+
+==== dist install
+
+The _install_ command downloads a distribution from a Team Forge repository and after that extracts the file in a location defined by the user.
+
+===== _dist install_ requirements
+
+A user with permissions to download files from Team Forge repository.
+
+===== _dist install_ parameters
+
+The _install_ parameter needs four parameters to work properly:
+
+- *user*: a Team Forge user with permissions to download files from the repository at least.
+
+- *password*: the Team Forge user password.
+
+- *path*: the path where the distribution must be downloaded.
+
+- *type*: the type of distribution. The options are _'oaspide'_ to download a oasp4j based distribution or _'devondist'_ to download a Devon based distribution.
+
+===== _dist install_ example of usage
+A simple example of usage for this command would be the following
+
+[source,batch]
+---
+D:\>devon dist install -user john -password 1234 -path D:\Temp\MyDistribution -type devondist
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+[INFO] installing distribution...
+[INFO] Downloading Devon-dist_2.0.0.7z (876,16MB). It may take a few minutes.
+[==========] 100% downloaded
+[INFO] File downloaded successfully.
+[...]
+[INFO] extracting file...
+[INFO] File successfully extracted.
+[INFO] The command INSTALL has finished successfully
+----
+
+You must have in mind that this process can take a while, specially depending on your connection to the internet.
+
+==== dist s2
+
+The _s2_ command has been developed to automate the configuration process to use Devon as a Shared Service. This configuration is based on launching two scripts included in the Devon distributions, the _s2-init.bat_ and the _s2-create.bat_.
+The _*s2-init.bat*_ is responsible for configuring the _settings.xml_ file (located in the _conf/.m2_ directory). Basically enables the connection of _Maven_ with the _Artifactory_ repository, where the Devon IP modules are stored, and adds the user credentials for this connection.
+
+The _*s2-create.bat*_ creates a new project in the workspace of the distribution, and does a checkout of a Subversion repository inside this new project. Finally the script creates a Eclipse _.bat_ starter related to the new project.
+
+===== _dist s2_ requirements
+
+An _Artifactory_ user with permissions to download files from the repository.
+
+A Subversion user with permissions to do the checkout of the project specified in the _url_ parameter.
+
+The command can be launched from any directory within a Devon distribution. The Devon distribution is defined by having a _settings.json_ file located in the _conf_ directory. This file is a JSON object that defines parameters like the version of the distribution or the type which should be _devon-dist_ as is showed below.
+
+[source,json]
+----
+{"version": "2.0.0","type": "devon-dist"}
+----
+
+The command will search for this file to get the root directory where the scripts are located so is necessary to have this file in its correct location.
+
+Apart from this the _settings.xml_ file needs to be compatible with the Shared Services autoconfiguration script (_s2-init.bat_).
+ 
+===== _dist s2_ parameters
+
+So the _s2_ command needs six parameters to be able to complete the two phases:
+
+- *artuser*: an Artifactory user with permissions to download files at least.
+
+- *artencpass*: the encrypted password of the Artifactory user (can be obtained from the Artifactory user profile).
+
+- *projectname*: the name for the new project.
+
+- *svnuser*: a user with permissions in the Subversion repository.
+
+- *svnpass*: the password of the Subversion user.
+
+- *svnurl*: the url of the project in the Subversion repository 
+
+===== _dist s2_ example of usage
+
+A simple example of usage for this command would be the following
+
+[source,batch]
+----
+D:\devon-alpha\workspaces>devon dist s2 -projectname TestProject -artuser john -artencpass ZMF4AgyhQ5X6Sr9Bd1ohjWcFjL -svnurl https://coconet...Project/ -svnuser john_svn -svnpass 12345
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+[...]
+[INFO] The checkout has been done successfully.
+[INFO] Creating and updating workspace...
+[...]
+INFO: Completed
+Eclipse preferences for workspace: "TestProject" have been created/updated
+Created eclipse-TestProject.bat
+Finished creating/updating workspace: "TestProject"
+----
+
+After this a new _TestProject_ directory must have been created in the _workspaces_ directory and in the distribution root a new _eclipse-testproject.bat_ script must have been created too.
+
+
+=== doc
+
+With this module we can access in a straightforward way to the documentation to get started with Devon framework. The commands of this module show information related with different components of Devon even opening in the default browser the sites related with them.
+
+- `doc devon`: Opens the Devon site in the default web browser.
+
+- `doc devonguide`: Opens the Devon Guide in the default web browser.
+
+- `doc getstarted`: Opens the 'Getting started' guide of Devon framework.
+
+- `doc links`: Shows a brief description of Devon framework and lists a set of links related to it like the public site, introduction videos, the Yammer group and so forth.
+
+- `doc oasp4jguide`: Opens the OASP4J guide.
+
+- `doc sencha`: Opens the Sencha Ext JS 6 documentation site.  
+
+=== github
+
+This module is implemented to facilitate getting the Github code from OASP4J and Devon repositories. It has only two commands, one to get the OAPS4J code and other to get the Devon code.
+
+==== github oasp4j
+
+This command clones the oasp4j repository to the path that the user specifies in the parameters.
+
+===== _github oasp4j_ parameters
+
+The oasp4j command needs only one parameter:
+
+- *path*: the location where the repository should be cloned.
+
+===== _github oasp4j_ example of usage
+
+A simple example of usage for this command would be the following
+
+[source,batch]
+----
+D:\>devon github oasp4j -path C:\Projects\oasp4j
+----
+
+==== github devoncode
+
+This command clones the Devon repository to the path specified in the path parameter.
+
+===== _github devoncode_ requirements
+
+A github user with download permissions over the Devon repository.
+
+===== _github devoncode_ parameters
+
+The _devoncode_ command needs three parameters:
+
+- *path*: the location where the repository must be cloned.
+
+- *username*: the github user (with permission to download).
+
+- *password*: the password of the github user.
+
+===== _github devoncode_ example of usage
+
+A simple example of usage for this command would be the followingdevon
+
+[source,batch]
+----
+D:\>devon github devoncode -path C:\Projects\devon -user John_g -pass 12345
+----
+
+=== help
+
+The help module is responsible for showing the help info to facilitate the user the knowledge to use the tool. It has only one command, the _guide_ command, that doesn't need any parameter and that basically prints a summary of the devcon general usage with a list of the global options and a list with the available modules
+
+==== _help_ example of usage
+
+[source,batch]
+----
+D:\>devon help guide
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+usage: devon <<module>> <<command>> [parameters...]
+Devcon is a command line tool that provides many automated tasks around
+the full life-cycle of Devon applications.
+ -h,--help        show help info for each module/command
+ -v,--version     show devcon version
+List of available modules:
+> help: This module shows help info about devcon
+> sencha: Sencha related commands
+> dist: Module with general tasks related to the distribution itself
+> doc: Module with tasks related with obtaining specific documentation
+> github: Module to create a new workspace with all default configuration
+> workspace: Module to create a new workspace with all default configuration
+----
+
+If you have follow this guide you can realize that the result is the same that is shown with other options as ```devon``` or ```devon -h```. This is because these options internally are using this module _help_.
+
+=== oasp4j
+
+This module groups all the devcon functionalities related to the server applications like creating, running and deploying server applications based on the OASP4J project.
+
+==== oasp4j create
+
+This command creates a new server project based on the OASP4J archetype.
+
+===== _oasp4j create_ requirements
+
+This command needs to be launched from within (or pointing to) a Devonfw distribution. 
+
+In a second term internally this command uses the _Maven_ plugin included in the Devonfw distributions so in order to be able to use this plugin we should launch this command from a Devonfw command line (use the _console.bat_ included in the Devonfw distributions).
+
+===== _oasp4j create_ parameters
+
+This command uses five parameters (four of them mandatory). 
+
+- *servername*: the name for the new server project.
+
+- *serverpath*: the location for the new server project. Is an optional parameter, if the user does not provide it devcon will use the current directory in its place.
+
+- *packagename*: the name for the project package.
+
+- *groupid*: the groupId for the project.
+
+- *version*: the version for the project.
+
+===== _oasp4j create_ example of usage
+
+A simple example of usage for this command would be the following
+
+[source,batch]
+----
+D:\devon-dist>devon oasp4j create -servername MyNewProject -packagename io.devon.application.MyNewProject -groupid io.devon.application -version 1.0-SNAPSHOT
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+[INFO] Scanning for projects...
+[...]
+[INFO] --------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] --------------------------------------
+[INFO] Total time: 7.203 s
+[INFO] Finished at: 2016-07-14T13:00:17+01:00
+[INFO] Final Memory: 10M/42M
+[INFO] --------------------------------------
+D:\>
+----
+
+Or using the optional _serverpath_ parameter to define the location for the project
+
+[source,batch]
+----
+D:\>devon oasp4j create -servername MyNewProject -serverpath D:\devon-dist\ -packagename io.devon.application.MyNewProject -groupid io.devon.application -version 1.0-SNAPSHOT
+----
+
+After that we should have a new _MyNewProject_ project created in the _devon-dist_ directory.
+
+==== oasp4j run
+
+With this command the user can run a server project application from the embedded tomcat server.
+
+===== _oasp4j run_ requirements
+
+The _pom.xml_ of the core project of the server app must be configured with the _spring-boot-maven-plugin_.
+
+[source,xml]
+----
+<plugin>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-maven-plugin</artifactId>
+    <configuration>
+        <executable>true</executable>
+        <mainClass>io.devon.application.MyApp.SpringBootApp</mainClass>
+    </configuration>
+</plugin>
+----
+
+===== _oasp4j run_ parameters
+
+The _run_ command handles two parameters
+
+- *path*: to indicate the location of the core project of the server app. Is an optional parameter and if not provided by the user devcon will take as the path the directory from which the command has been launched.
+
+- *port*: the port from which the app should be accessible.
+
+===== _oasp4j run_ example of usage
+
+A simple example of usage for this command would be the following
+
+[source,batch]
+----
+D:\devon-dist\workspaces\MyApp\core>devon oasp4j run -port 8081
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+Application started
+
+[...]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v1.3.3.RELEASE)
+
+2016-07-01 11:13:59.006  INFO 6116 --- [           main] i.d.application.MyAp
+p.SpringBootApp   : Starting SpringBootApp on LES002610 with PID 6116 (D:\devon-
+alpha\workspaces\MyApp\core\target\classes started by pparrado in D:\devon-al
+pha\workspaces\MyApp\core)
+
+[...]
+
+2016-07-01 11:14:18.297  INFO 6116 --- [           main] i.d.application.MyAp
+p.SpringBootApp   : Started SpringBootApp in 19.698 seconds (JVM running for 35.
+789)
+----
+
+Or providing the optional _path_ parameter
+
+[source,batch]
+----
+D:\>devon oasp4j run -port 8081 -path D:\devon-dist\workspaces\MyApp\core
+----
+
+==== oasp4j build
+
+With this command the user can build a server project, is the equivalent to the `mvn clean install` command
+
+===== _oasp4j build_ requirements
+
+In order to work properly the command must be launched from within (or pointing to) a OASP4J project directory (the oasp4j project type is defined in a _devon.json_ file with parameter 'type' set to 'oasp4j').
+
+===== _oasp4j build_ parameters
+
+This command only uses one parameter
+
+-*path*: the location of the server project. This is an optional parameter and if the user does not provide it devcon will use in its place the current directory from which the command has been launched.
+
+===== _oasp4j build_ example of usage
+
+A simple example of usage for this command would be the following
+
+[source,batch]
+----
+D:\devon-dist\workspaces\MyApp>devon oasp4j build
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+projectInfo read...
+path D:\devon-dist\workspaces\MyApp project type OASP4J
+
+[...]
+
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO]
+[INFO] MyApp .............................................. SUCCESS [  0.301 s]
+[INFO] MyApp-core ......................................... SUCCESS [ 12.431 s]
+[INFO] MyApp-server ....................................... SUCCESS [  3.699 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 16.712 s
+[INFO] Finished at: 2016-07-15T11:44:00+01:00
+[INFO] Final Memory: 31M/76M
+[INFO] ------------------------------------------------------------------------
+D:\devon-dist\workspaces\MyApp>
+----
+
+Or using the optional parameter _path_
+
+[source,batch]
+----
+D:\>devon oasp4j build -path D:\devon-dist\workspaces\MyApp
+----
+
+=== oasp4js
+
+The oasp4js module is responsible for automating the tasks related to the client projects based on Angular.
+
+==== oasp4js create
+
+With this command the user can create a basic oasp4js app.
+
+===== _oasp4js create_ requirements
+
+This command must be used within a Devonfw distribution with version 2.0.0 or higher. You can check your distribution's version looking at the conf/settings.json file.
+
+===== _oasp4js create_ parameters
+
+This command accepts two parameters:
+
+- *clientname*: the name for the application.
+
+- *clientpath*: the location for the new application. Is an optional parameter and if not provided by the user devcon will take as the path the directory from which the command has been launched.
+
+===== _oasp4js create_ example of usage
+
+A simple example of usage for this command would be the following
+
+[source, batch]
+----
+D:\devon-dist\workspaces>devon oasp4js create -clientname MyOasp4jsApp
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+Creating project MyOasp4jsApp...
+Project created successfully. Please launch 'npm install' to resolve the project dependencies.
+
+D:\devon-dist\workspaces>
+----
+
+If everything goes right a new directory _MyOasp4jsApp_ must have been created containing the basic structure of an _oasp4js_ app.
+
+Finally, as the command informs, in order to complete the app installation the user must launch the command `npm install` from within the new app directory to resolve all the needed dependencies.
+
+[source,batch]
+----
+D:\devon-dist\workspaces\MyOasp4jsApp>npm install
+----
+
+The user can also use the next command _oasp4js build_ to do that last operation.
+
+==== oasp4js build
+
+With this command the user can resolve the dependencies of an _oasp4js_ app. The _oasp4js build_ command is the equivalent to the `npm install` command.
+
+===== _oasp4js build_ parameters
+
+- *path*: The location of the _oasp4js_ app. Is an optional parameter and if not provided devcon will use the current directory from which the command has been launched instead.
+
+===== _oasp4js build_ example of usage
+
+A simple example of usage for this command would be the following
+
+[source,batch]
+----
+D:\devon-dist\workspaces\MyOasp4jsApp>devon oasp4js build
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+path D:\devon-dist\workspaces\MyOasp4jsApp\.project type OASP4JS
+
+npm WARN deprecated gulp-minify-css@1.2.0: Please use gulp-clean-css
+npm WARN deprecated gulp-minify-html@1.0.3: Please use gulp-htmlmin
+fetchMetadata -> headers  / |################---------------------------------|
+fetchMetadata -> network  | |#################--------------------------------|
+
+[...]
+
+  | | +-- align-text@0.1.4
+  | | `-- lazy-cache@1.0.4
+  | +-- right-align@0.1.3
+  | `-- wordwrap@0.0.2
+  +-- decamelize@1.2.0
+  `-- window-size@0.1.4
+
+npm WARN app@0.0.1 No repository field.
+npm WARN app@0.0.1 No license field.
+
+----
+
+Or using the optional parameter _path_
+
+[source, batch]
+----
+D:\devon-dist>devon oasp4js build -path D:\devon-dist\workspaces\MyOasp4jsApp
+----
+
+==== oasp4js run
+
+In order to launch the _oasp4js_ apps devcon provides this _run_ command that can be launched even without parameters.
+
+===== _oasp4js run_ parameters
+
+The only parameter needed is the _clientpath_ that points to the client app. This is an optional parameter and if not provided devcon will use by default the directory from within the command is launched.
+
+===== _oasp4js run_ example of usage
+
+A simple example of usage for this command would be the following
+
+[source,batch]
+----
+D:\devon-dist\workspaces\MyOasp4jsApp>devon oasp4js run
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+Starting application
+
+[11:30:12] Starting 'sync group1:0'...
+[11:30:12] Starting 'sync group2:0'...
+[11:30:12] Starting 'styles'...
+[11:30:12] Starting 'img:sprite'...
+[11:30:12] Starting 'sync group3:0'...
+[11:30:12] Starting 'ngTemplatesTasksGeneration'...
+[11:30:12] Finished 'ngTemplatesTasksGeneration' after 439 µs
+
+...
+
+[11:30:14] Finished 'serve' after 25 ms
+[BS] Access URLs:
+ ------------------------------------
+       Local: http://localhost:9000/
+    External: http://10.68.8.41:9000/
+ ------------------------------------
+          UI: http://localhost:3001
+ UI External: http://10.68.8.41:3001
+ ------------------------------------
+[BS] Serving files from: .tmp
+[BS] Serving files from: app
+[BS] Serving files from: bower_components/bootstrap/dist
+[BS] Watching files...
+----
+
+Or using the optional parameter _clientpath_
+
+[source,batch]
+----
+D:\devon-dist>devon oasp4js run -clientpath D:\devon-dist\workspaces\MyOasp4jsApp
+----
+
+In both cases after launching the command a browser should be opened and will show the welcome page of the _oasp4js_ app.
+
+=== sencha
+
+_Sencha_ is a pure JavaScript application framework for building interactive cross platform web applications and is the view layer for web applications developed with Devon Framework. This module encapsulates the _Sencha Cmd_ functionality that is a command line tool to automate tasks around _Sencha_ apps.
+
+==== sencha run
+
+This command compiles in DEBUG mode and then runs the internal Sencha web server. Is the equivalent to the _Sencha Cmd_'s ```sencha app watch``` and does not need any parameter.
+
+===== _sencha run_ requirements
+
+We should launch the command from a Devon4Sencha project which is defined by a _devon.json_ file with parameter 'type' set to 'Devon4Sencha'
+
+[source,json]
+----
+{ "version": "2.0.0",
+  "type":"Devon4Sencha"}
+----
+
+===== _sencha run_ example of usage
+
+A simple example of usage for this command would be the following
+
+[source,batch]
+----
+D:\devon-dist\workspaces\senchaProject>devon sencha run
+----
+
+==== sencha workspace
+
+With this command we can generate automatically a fully functional Sencha workspace in a directory of our machine.
+
+===== _sencha workspace_ requirements
+
+We will need a Github user with permissions to clone the _devon4sencha_ repository.
+
+===== _sencha workspace_ parameters
+
+The _sencha workspace_ command needs five parameters and four of them are mandatory.
+
+- *workspacename*: the name for the Sencha workspace.
+
+- *workspacepath*: the location where the workspace should be created. This parameter is optional and if the user does not provide it devcon will take the current directory as the location for the Sencha workspace.
+
+- *username*: the github user with permission to download the _devon4sencha_ repository.
+
+- *password*: the password of the github user.
+
+- *gitFolder*: the GIT BIN/CMD folder in the user's machine where the git executable is present.
+
+===== _sencha workspace_ example of usage
+
+A simple example of usage for this command would be the following
+
+[source,batch]
+----
+D:\>devon sencha workspace -projectname MySenchaWorkspace -workspacepath D:\MyProject -username john -password 1234 -gitFolder "C:\Program Files\Git\mingw64\libexec\git-core"
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+Cloning into 'D:\MyProject\MySenchaWorkspace'...
+Having repository: D:\MyProject\MySenchaWorkspace\.git
+----
+
+So after that we will have a sencha workspace called _MySenchaWorkspace_ located in the _D:\MyProject_ directory.
+
+==== sencha build
+This command builds a Sencha Ext JS6 project. Is the equivalent to the _Sencha Cmd_'s ```sencha app build```.
+
+===== _sencha build_ parameters
+
+This command only has one parameter and it is optional
+
+- *appDir*: the path to the app to be built. If the user does not provide it devcon will use the current directory as the location of the Sencha app.
+
+===== _sencha build_ example of usage
+
+A simple example of usage for this command would be the following
+
+[source,batch]
+----
+D:\MySenchaWorkspace\MyApp>devon sencha build
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+OUTPUT:Sencha Cmd v6.1.2.15
+OUTPUT:[INF] Processing Build Descriptor : classic
+[...]
+[INFO] [LOG] Sencha App Watch Started
+[INFO] [LOG]Sencha Build Successful
+D:\MySenchaWorkspace\MyApp>
+----
+
+And using the optional parameter _appDir_ to locate the app the usage would be like the following
+
+[source,batch]
+----
+D:\>devon sencha build -appDir D:\MySenchaWorkspace\MyApp
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+OUTPUT:Sencha Cmd v6.1.2.15
+OUTPUT:[INF] Processing Build Descriptor : classic
+[...]
+[INFO] [LOG] Sencha App Watch Started
+[INFO] [LOG]Sencha Build Successful
+D:\>
+----
+
+==== sencha create
+
+This command creates a new Sencha Ext JS6 app.
+
+===== _sencha create_ requirements
+
+The command must be launched within a Sencha workspace or pointing to a Sencha workspace using the optional parameter _workspacepath_. So in order to work properly first we will need to have a Sencha workspace ready in our local machine.
+
+===== _sencha create_ parameters
+
+The create parameters handles two parameters
+
+- *appname*: the name for the new app.
+
+- *workspacepath*: optionally the user can specify the location of the Sencha workspace. If the user does not provide it the current directory will be use as default.
+
+
+===== _sencha create_ example of usage
+
+A simple example of usage for this command would be the following
+
+[source,batch]
+----
+D:\MySenchaWorkspace>devon sencha create -appname MyNewApp
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+OUTPUT:Sencha Cmd v6.1.2.15
+OUTPUT:[INF] Loading framework from D:\MySenchaWorkspace\
+[...]
+[INFO] [LOG]Sencha Ext JS6 app Created
+D:\MySenchaWorkspace>
+----
+
+And using the optional parameter _workspacepath_ to locate the Sencha workspace the command would be like the following
+
+[source,batch]
+----
+D:\>devon sencha create -appname MyNewApp -workspacepath D:\MySenchaWorkspace
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+OUTPUT:Sencha Cmd v6.1.2.15
+OUTPUT:[INF] Loading framework from D:\MySenchaWorkspace\
+[...]
+[INFO] [LOG]Sencha Ext JS6 app Created
+D:\>
+----
+
+After that we will have a new Sencha app called _MyNewApp_ in our Sencha workspace.
+
+=== workspace
+
+This module handles all tasks related to distribution workspaces.
+
+==== workspace create
+
+This command automates the creation of new workspaces within the distribution with the default configuration including a new Eclipse _.bat_ starter related to the new project.
+
+===== _workspace create_ parameters
+
+The create command needs two parameters:
+
+- *devonpath*: the path where the devon distribution is located.
+
+- *foldername*: the name for the new workspace.
+
+===== _workspace create_ example of usage
+
+A simple example of usage for this command would be the following
+
+[source,batch]
+----
+D:\>devon workspace create -devonpath C:\MyFolder\devon-dist -foldername newproject
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+[INFO] creating workspace at path D:\devon2-alpha\workspaces\newproject
+[...]
+----
+ 
+As a result of that a new folder _newproject_ with the default project configuration should be created in the _C:\MyFolder\devon-dist\workspaces_ directory alongside an _eclipse-newproject.bat_ starter script in the root of the distribution.
+
+=== system
+
+This module contains system wide commands related to devcon.
+
+==== system install
+
+This command installs devcon on user's HOME directory or at an alternative path provided by user.
+
+=== project
+
+This module is to automate tasks like build , create, run and deploy related to devon projects (both client and server).
+
+==== project build
+
+This command will build both client and server project.
+
+===== _project build_ requirements
+
+In order to work properly, the command must be launched from within (or pointing to) a Devon distribution (the oasp4j project type is defined in a _devon.json_ file with parameter 'type' set to 'oasp4j' in the server project ).
+The directory from where build command is fired should contain client and server project at same level, and directory should contain a _devon.json_ which should have project type as _COMBINED_,and  client  project should contain a _devon.json_ file with parameter 'type' set to  'oasp4js' or 'devon4sencha'.
+
+==== _project build_ parameters
+
+The build command takes three parameters and two of them are mandatory.
+
+- *path* : This is an optional paremaeter. It points to server project workspace and if value of this parameter not given, it takes default value as current directory.
+
+- *clienttype* : This parameter shows which type of client is integrated with server i.e oasp4js or sencha. Its a mandatory one.
+
+- *clientpath* : It should point to client directory i.e where the client code is located. Again a mandatory one.
+
+===== _project build_ example of usage
+
+A simple example of usage for this command would be the following
+
+[source,batch]
+----
+D:\>devon project build -path D:\FIN_IDE\oasp4j-ide-all-2.0.0\samplec -clienttyp
+e oasp4js -clientpath D:\FIN_IDE\oasp4j-ide-all-2.0.0\clientdoc
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+projectInfo read...
+path D:\FIN_IDE\oasp4j-ide-all-2.0.0\samplecproject type OASP4J
+Completed
+path D:\FIN_IDE\oasp4j-ide-all-2.0.0\clientdocproject type OASP4JS
+Completed
+----
+
+
+
+==== project create 
+
+This command is used to create new combined server & client project.
+
+==== project create_parameters
+
+The create command takes eleven parameters out of which 6 are mandatory.
+
+- *distributionpath* : This parameter value shows path to Devonfw distribution and is an optional one , if not given , value is taken as current directory of user.
+
+- *servername* : Its value contains name of the server project to be created.
+
+- *packagename* : It shows package name for the server project to be created.
+
+- *groupid* : It shows group id for the server project.
+
+- *version* : Version of the server project to be created.
+
+- *clienttype* : Type of client project to be created "oasp4js" or "devon4sencha".
+
+- *clientname* : Name of the client project.
+
+- *clientpath* : Path where client projects needs to be created.In case of sencha project this must point to a Sencha workspace
+
+- *gituser* : Required only for client type 'devon4sencha',Its value is a username with permissions to download the Devon distribution.
+
+- *gitpassword* : Only for client type 'devon4sencha',value is the password related to the user with permissions to download the Devon distribution.
+
+- *gitfolder* : Only for client type 'devon4sencha': GIT BIN/CMD folder where git executable is present
+
+
+
+==== _project create_ example of usage
+
+A simple example of usage for this command ( for client type oasp4js) would be the following
+
+[source , batch]
+----
+
+D:\FIN_IDE\oasp4j-ide-all-2.0.0>devon project create -distributionpath D:\FIN_ID
+E\oasp4j-ide-all-2.0.0 -servername samplee -packagename com.app.sample -groupid
+com.app -version 1.0 -clienttype oasp4js -clientname clientdoct -clientpath D:\F
+IN_IDE\oasp4j-ide-all-2.0.0
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+serverpath is D:\FIN_IDE\oasp4j-ide-all-2.0.0
+Project Creation complete
+Creating client project...
+Creating project clientdoct...
+Project created successfully. Please launch 'npm install' to resolve the project
+ dependencies.
+ 
+----
+
+Result of this would be a server project _samplee_ and client project _clientdoct_ would be created at _D:\FIN_ID
+E\oasp4j-ide-all-2.0.0_ .
+
+==== project run
+
+This command  runs the server & client project(unified build) in debug mode that is separate client and spring boot server. 
+
+==== _project run_ parameters
+
+- *clienttype* : This parameter shows which type of client is integrated with server i.e oasp4js or sencha and its a mandatory parameter
+
+- *clientport* : user can provide configured port if client type is Sencha.
+
+- *clientpath* : Location of the oasp4js app.
+
+- *serverport* : Port to start server.
+
+- *serverpath* : Path to Server project Workspace (currentDir if not given).
+
+==== _project run_ example of usage
+
+A simple example of usage for this command ( for client type oasp4js) would be the following
+
+[source , batch]
+----
+D:\>devon project run -clienttype oasp4js -clientpath D:\FIN_IDE\oasp4j-ide-all-
+2.0.0\workspaces\main\examples\oasp4js -serverport 8080 -serverpath D:\FIN_IDE\o
+asp4j-ide-all-2.0.0\workspaces\main\code\oasp4j\samples\server
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+path before modification D:\FIN_IDE\oasp4j-ide-all-2.0.0\workspaces\main\code\oa
+sp4j\samples\server
+Server project path D:\FIN_IDE\oasp4j-ide-all-2.0.0\workspaces\main\code\oasp4j\
+samples\server
+Application started
+Starting application
+----
+
+After launching the command, a browser should be opened and will show the welcome page of the oasp4js app.
