@@ -1,7 +1,7 @@
 :toc: macro
 toc::[]
 
-# Devon4Sencha Tools.
+# Devon4Sencha Tools
 
 ## Code Analysis Tools
 
