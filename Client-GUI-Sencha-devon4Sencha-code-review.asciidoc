@@ -1,7 +1,7 @@
 :toc: macro
 toc::[]
 
-= Devon4Sencha code review.
+= How to do effective Devon4Sencha code reviews
 
 == Benefits
 
