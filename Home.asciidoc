@@ -110,6 +110,8 @@
 
 ## Devon4Sencha Cookbook
 
+- link:Client-GUI-Sencha-Simlets-Simulate-Server-Responses[Simlets: simulating server responses]
+
 - Best Practices
 
 * link:Client-GUI-Sencha-devon4Sencha-bad-practices[Bad Practices]
