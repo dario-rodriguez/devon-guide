@@ -238,7 +238,7 @@ This is a simple option that returns the devcon running version and is defined w
 D:\>devon -v
 Hello, this is Devcon!
 Copyright (c) 2016 Capgemini
-devcon v.0.1.0
+devcon v.1.0.0
 ----
 
 [source,batch]
@@ -246,7 +246,7 @@ devcon v.0.1.0
 D:\>devon foo saySomething -message hello -signature John -v
 Hello, this is Devcon!
 Copyright (c) 2016 Capgemini
-devcon v.0.1.0
+devcon v.1.0.0
 ----
 
 == First steps with devcon
