@@ -1,7 +1,7 @@
 :toc: macro
 toc::[]
 
-# Simlets: simulating server responses
+# Mocks with Simlets: simulating server responses
 Sencha Ext JS provides an utility to simulate server responses to any request, right in the browser.
 
 In common name, these utilities are called `simlets`. Mocking something is not unknown to developers who make unit tests, however mocking an entire server or even a part of it isn't widely known and used during client application development.
