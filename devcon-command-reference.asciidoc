@@ -885,6 +885,3 @@ Starting application
 
 After launching the command, a browser should be opened and will show the welcome page of the oasp4js app.
 
-== Devon Command Reference
-
-For a full reference of all available commands in Devcon, see the link:devcon-command-reference[Devcon Command Reference]
