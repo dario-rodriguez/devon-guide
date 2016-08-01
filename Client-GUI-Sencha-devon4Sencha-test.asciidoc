@@ -1,7 +1,7 @@
 :toc: macro
 toc::[]
 
-= Devon4Sencha test.
+= Devon4Sencha testing tools
 
 == Tools for testing your Sencha code
 
