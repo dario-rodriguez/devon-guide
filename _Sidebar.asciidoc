@@ -60,10 +60,10 @@
 == Devon4Sencha Cookbook
 
 * link:Client-GUI-Sencha-Simlets-Simulate-Server-Responses[Mocks with Simlets: simulating server responses]
-* link:Client-GUI-Sencha-devon4Sencha-bad-practices[Devon4Sencha-Bad Practices]
-* link:Client-GUI-Sencha-devon4Sencha-tools[Devon4Sencha-Tools]
-* link:Client-GUI-Sencha-devon4Sencha-code-review[Devon4Sencha-Code Review]
-* link:Client-GUI-Sencha-devon4Sencha-test[Devon4Sencha-Test]
+* link:Client-GUI-Sencha-devon4Sencha-bad-practices[Best Practices developing Devon4Sencha apps]
+* link:Client-GUI-Sencha-devon4Sencha-tools[Javascript Code Analysis Tools]
+* link:Client-GUI-Sencha-devon4Sencha-code-review[How to do effective Devon4Sencha Code Reviews]
+* link:Client-GUI-Sencha-devon4Sencha-test[Devon4Sencha Testing Tools]
 
 == Appendix
 
