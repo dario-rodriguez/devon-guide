@@ -22,6 +22,7 @@ Now, let's discuss how to run the Sample Application.
 
 == Running Sample Application
 
+image::images/devconlogo_imgonly.png[,width="50"]
 .*Using devcon*
 [NOTE]
 You can automate the following steps using devcon with the `devon oasp4j run` command link:devcon-user-guide#oasp4j-run[learn more here]
