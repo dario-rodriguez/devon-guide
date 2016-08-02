@@ -3,6 +3,7 @@ toc::[]
 
 = Creating New Application
 
+image::images/devconlogo_imgonly.png[,width="50"]
 .*Using devcon*
 [NOTE]
 You can automate the following steps using devcon with the `devon oasp4j create` command link:devcon-user-guide#oasp4j-create[learn more here]
