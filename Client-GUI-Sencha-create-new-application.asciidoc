@@ -5,6 +5,7 @@ toc::[]
 
 For creating a new application, we start by creating a Sencha CMD workspace to host our project files. 
 
+image::images/devconlogo_imgonly.png[,width="50"]
 .*Using devcon*
 [NOTE]
 ====
