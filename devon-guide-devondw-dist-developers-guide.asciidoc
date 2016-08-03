@@ -125,9 +125,9 @@ The node.js plugin is included in the OASP IDE distribution but you may need to 
 
 *1.Check the current version*
 
-In order to check the new version open  environment’s console by launching the console.bat script. Then ,type the command node -v and the console must recognize the command and return the node version installed.
-Step 1: Download new version
-We can download the last binary (.exe) version of node.js from here.
+In order to check the new version ,open environment’s console by launching the console.bat script. Then ,type the command node -v and the console must recognize the command and return the node version installed.
+*2. Download new version*
+Download the latest binary (.exe) version of node.js from https://nodejs.org/en/download/[here].
 Step 2: Put it in the distribution
 Now we must replace the node.exe located on software\nodejs by the new node.exe that we just downloaded.
 Step 3: Check the new version
