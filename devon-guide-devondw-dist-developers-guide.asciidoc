@@ -23,11 +23,11 @@ Plugins to include:
 
 Sencha (Ext JS) is a pure JavaScript application framework for building interactive cross platform web applications using techniques such as Ajax, DHTML and DOM scripting. Sencha is the framework used in Devon to create the client side.
 
-. *Download Sencha Cmd*
+ *1. Download Sencha Cmd*
 
 First of all we need the last version of the software so we can download it from the https://www.sencha.com[Sencha’s website]. We must look for the Sencha Cmd package.
 
-.. *Install Sencha*
+ *2. Install Sencha*
 
 To install the software choose a proper location or directly create a Sencha directory in the software folder of the distribution and select this folder to do the installation. If we install it in other location copy the installation content to your +software\Sencha folder+.
 To complete the installation, you need to add the ext folder to the plugin. To do so we must:
@@ -36,37 +36,60 @@ To complete the installation, you need to add the ext folder to the plugin. To d
 
 * copy from the previous distrubution the software\Sencha\Cmd\default\repo\pkgs*ext* directory and paste it in the same place of our new distribution.
 
-... *Check the installation*
+ * 3. Check the installation*
 
 A quick way to check if Sencha is installed is, to open the distribution console (launching the console.bat script) and type the command sencha, the console must return the Sencha version installed.
  
 If there is no response we must check our Sencha installation.
 But to check if the installation is completely successful we should compile the ExtSample app that we can obtain at the last section of this document. So this check will be delayed until that moment.
 
-== *Adding Subversion plugin*
+=== *Adding Subversion plugin*
+
 Apache Subversion is a software versioning and revision control system distributed as free software under the Apache License and is included as the pre-installed Devon code version control.
-Step 1: Download Subversion client
-The first that we need is the last version of the Subversion client that can be found here.
-Step 2: Install subversion client
-As we did with the Sencha plugin we must now install the software in our local machine, we can create a subversion folder in the software directory of our distribution and do the installation directly there. If you install subversion in other location then you must copy and paste the installation content to a subversion folder in the software directory of your distribution.
-Step 3: Check the installation
-To check the installation we can use the console.bat script to launch our environment’s console and type the command svn --version. The console must recognize the command and return our subversion version installed.
+
+*1. Download Subversion client*
+
+Firstly, get the last version of the Subversion client that can be found http://www.collab.net/downloads/subversion[here].
+
+*2.Install subversion client*
+
+As did with the Sencha plugin, you must now install the software in  local machine, by creating a subversion folder in the software directory of the distribution and do the installation directly there. If you install subversion in other location then you must copy and paste the installation content to a subversion folder in the software directory of your distribution.
+
+*3. Check the installation*
+
+To check the installation launch the console.bat script to get environment’s console and type the command svn --version. The console must recognize the command and return our subversion version installed.
  
 If the command is not recognized check the Subversion install process.
-Adding Jasypt client
-Jasypt is a java library which allows the developer to add basic encryption capabilities to the projects with minimum effort. Jasypt allows to manage and transparently decrypt encrypted values in .properties files used by Spring applications. In our case the Jasypt client is a tool needed when configuring the winauth module in order to generate the encrypted passwords that will be stored in the application.properties file. To facilitate to the developer the usage of the Devon framework the Jasypt client is included as a default plugin in the distribution.
-Step 1: Download the client
-The Jasypt client can be downloaded from the Jasypt site
-Step 2: Extract the files
-We must unzip the jasypt-<VERSION>-dist.zip file into our software directory.
-Step 3: Usage
-To check the Jasypt client functionality we should launch the console.bat script of our distribution and go into the bin folder of the jasypt directory. Within this location we must find the .bat files for Windows execution and we can check a basic encryption as follows
+
+=== Adding Jasypt client
+
+Jasypt is a java library which allows the developer to add basic encryption capabilities to the projects with minimum effort. Jasypt allows to manage and transparently decrypt encrypted values in .properties files used by Spring applications. In this case the Jasypt client is a tool needed for configuring the winauth module in order to generate the encrypted passwords that will be stored in the application.properties file. To facilitate to the developer the usage of the Devon framework the Jasypt client is included as a default plugin in the distribution.
+
+*1. Download the client*
+
+The Jasypt client can be downloaded from the https://www/jasypt.org/[Jasypt site]
+
+*2. Extract the files*
+
+Unzip the jasypt-<VERSION>-dist.zip file into the software directory.
+
+*3. Usage*
+
+To check the Jasypt client functionality ,launch the console.bat script of  distribution and go into the bin folder of the jasypt directory. Within this location one can find the .bat files for Windows execution and we can check a basic encryption as follows
+[source,xml]
+----
 ...\software\jasypt\bin>encrypt.bat input=MyPasswordToEncrypt password=MyKey
+----
+
 If the Jasypt client is correctly installed we should receive a response like the following
+[source,xml]
+----
 [...]
 ----OUTPUT-----------------------
 aPZ03ig2ZCif8p592V8RNErt1aHdSXpLrwF5ECDJ/1M=
+----
 To know more about the Jasypt client usage please visit this link
+
 Cobigen
 Cobigen is a server-side code generator to create CRUD operations. Cobigen is not an external plugin but an Eclipse plugin and is included by default in the Devon distribution so there is no installation needed. The only point that we must be aware of is to obtain the last version of the templates that Cobigen uses in order to work properly.
 Step 1: Download the templates
