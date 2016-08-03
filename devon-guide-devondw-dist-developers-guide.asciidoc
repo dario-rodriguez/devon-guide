@@ -1,1 +1,13 @@
+:toc: macro
+toc::[]
+
 # Devonfw Dist (IDE) Developers Guide
+
+In this section we focus on how to create a new Devon distribution environment ,in order to publish a new release of the distribution in which new features and functionalities are included.
+
+== Downloading the OASP IDE : 
+
+To create, the new Devon distribution we are going to start from the last OASP-IDE distribution that can be found https://coconet.capgemini.com/sf/go/projects.apps2_devon/frs.oasp4j_ide[here]
+Now we have an OASP .zip file so the next step is to extract the file in a folder of our local machine. After extracting the oasp4j-ide-all.zip we rename it to fit to our new devon version.
+
+
