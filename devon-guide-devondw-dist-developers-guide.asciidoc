@@ -229,7 +229,24 @@ Settings.json contains this
   "version": "2.0.1"
 }
 ----
-So, lets say , we are creating distribution for release of next version, with some additions to features etc and version becomes 2.1.1 so, change version as 2.1.1 into settings.json.
+So, lets say , we are creating distribution for release of next version, with some additions to features etc and version becomes "2.1.1" so, change version "2.0.1" as "2.1.1" into settings.json.
+
+== Verification and creation of zip:
+
+Once all above mentioned steps are performed, verify the zip ,by running all apps present in examples directory.
+For running Sencha, its already mentioned in this document above.
+For verifying oasp4j and devon , go to sample projects respectively, and launch console.bat and traverse to sample server project and fire the below maven command:
+
+[source,xml]
+----
+maven clean install
+----
+
+if everything goes well, you will see a build success message, then deploy the generated war from sample projects target folder and deploy on tomcat server.
+It should give a login screen.
+
+
+
 
 
 
