@@ -23,11 +23,11 @@ Plugins to include:
 
 Sencha (Ext JS) is a pure JavaScript application framework for building interactive cross platform web applications using techniques such as Ajax, DHTML and DOM scripting. Sencha is the framework used in Devon to create the client side.
 
- *1. Download Sencha Cmd*
+*1. Download Sencha Cmd*
 
 First of all we need the last version of the software so we can download it from the https://www.sencha.com[Sencha’s website]. We must look for the Sencha Cmd package.
 
- *2. Install Sencha*
+*2. Install Sencha*
 
 To install the software choose a proper location or directly create a Sencha directory in the software folder of the distribution and select this folder to do the installation. If we install it in other location copy the installation content to your +software\Sencha folder+.
 To complete the installation, you need to add the ext folder to the plugin. To do so we must:
@@ -36,7 +36,7 @@ To complete the installation, you need to add the ext folder to the plugin. To d
 
 * copy from the previous distrubution the software\Sencha\Cmd\default\repo\pkgs*ext* directory and paste it in the same place of our new distribution.
 
- * 3. Check the installation*
+*3. Check the installation*
 
 A quick way to check if Sencha is installed is, to open the distribution console (launching the console.bat script) and type the command sencha, the console must return the Sencha version installed.
  
@@ -90,22 +90,42 @@ aPZ03ig2ZCif8p592V8RNErt1aHdSXpLrwF5ECDJ/1M=
 ----
 To know more about the Jasypt client usage please visit this link
 
-Cobigen
+=== *Cobigen*
+
 Cobigen is a server-side code generator to create CRUD operations. Cobigen is not an external plugin but an Eclipse plugin and is included by default in the Devon distribution so there is no installation needed. The only point that we must be aware of is to obtain the last version of the templates that Cobigen uses in order to work properly.
-Step 1: Download the templates
-We can get the last version of the templates from here. We are going to clone the repository, to do so we need a Git client for windows that can be downloaded from here.
-After the installation of the Git client in our local machine we launch the app and clone the Cobigen repository using the command
+
+*1.Download the templates*
+
+Again get the last version of the templates from https://github.com/maybeec/tools-cobigen[here]. Clone the repository, and to do so you need a Git client for windows that can be downloaded from https://git-scm.com/downloads[here].
+After the installation of the Git client in your local machine , launch the app and clone the Cobigen repository using the command
+
+[source,xml]
+----
 some\local\directory>git clone https://github.com/may-bee/tools-cobigen.git
-In our local directory now we must have a new folder tools-cobigen and inside of it we should find a cobigen-templates\templates-oasp directory.
-Step 2: Add the templates to our distribution
-We must copy that templates-oasp directory to the workspaces\main directory of our distribution and rename it as CobiGen_Templates (note that is mandatory to use this exact name) so we will have all the templates information in the following location
+----
+
+In local directory now ,you have a new folder tools-cobigen and inside of it you should find a cobigen-templates\templates-oasp directory.
+
+*2.Add the templates to our distribution*
+
+Copy above created templates-oasp directory to the workspaces\main directory of  distribution and rename it as *CobiGen_Templates* (note that is mandatory to use this exact name) so you will have all the templates information in the following location
+
+[source,xml]
+----
 ...\workspaces\main\CobiGen_Templates
-Step 3: Preparing Cobigen for first use
-Now in order to use Cobigen we must follow the steps described in this guide
-Updating node.js
-The node.js plugin is included in the OASP IDE distribution but we may need to update it to the last version. To do that we must proceed as follows:
-Step 1: Check the current version
-In order to check the new version we must open our environment’s console by launching the console.bat script. Then we can type the command node -v and the console must recognize the command and return the node version installed.
+----
+
+*3.Preparing Cobigen for first use*
+
+Now in order to use Cobigen follow the steps described in https://github.com/devonfw/devon/wiki/devon-guide-cobigen[this guide]
+
+== Updating node.js
+
+The node.js plugin is included in the OASP IDE distribution but you may need to update it to the last version. To do so proceed as follows:
+
+*1.Check the current version*
+
+In order to check the new version open  environment’s console by launching the console.bat script. Then ,type the command node -v and the console must recognize the command and return the node version installed.
 Step 1: Download new version
 We can download the last binary (.exe) version of node.js from here.
 Step 2: Put it in the distribution
