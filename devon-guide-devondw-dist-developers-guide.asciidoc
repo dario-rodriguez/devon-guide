@@ -125,31 +125,48 @@ The node.js plugin is included in the OASP IDE distribution but you may need to 
 
 *1.Check the current version*
 
-In order to check the new version ,open environment’s console by launching the console.bat script. Then ,type the command node -v and the console must recognize the command and return the node version installed.
+In order to check the new version ,open environment’s console by launching the console.bat script. Then ,type the command +node -v+ and the console must recognize the command and return the node version installed.
+
 *2. Download new version*
+
 Download the latest binary (.exe) version of node.js from https://nodejs.org/en/download/[here].
-Step 2: Put it in the distribution
-Now we must replace the node.exe located on software\nodejs by the new node.exe that we just downloaded.
-Step 3: Check the new version
-To check the new version we proceed as we did in the step 1. The version returned by the console must match the version that we just downloaded.
+
+*3.Put it in the distribution*
+
+Now we must replace the node.exe located on software\nodejs by the new node.exe that is just downloaded.
+
+*4.Check the new version*
+To check the new version proceed as mentioned in the step 1. The version returned by the console must match the version that we just downloaded.
  
-If the command is not recognized or the version doesn’t match the version we just downloaded we must check the installation process.
-Adding sample apps
-To complete the distribution we must include some examples of server and client apps. To do that we can use the sample applications that already are created for Devon and OASP and can be found in the Devon Github and the Oasp Github.
+If the command is not recognized or the version doesn’t match the version  just downloaded ,check the installation process.
+
+== Adding sample apps
+
+To complete the distribution ,include some examples of server and client apps. To do that ,use the sample applications that already are created for Devon and OASP and can be found in the Devon Github and the Oasp Github.
 We are going to include:
-•	Devon sample
-•	devon4sencha sample
-•	oasp4j sample
-•	oasp4js sample
-Create a examples directory
-We are going to include the examples in a folder located in the workspaces directory. So we must create it.
-Download the sample apps
-To download the examples of the apps we are going to clone the Devon repositories. To achieve that we need to have installed the Git client for windows that can be downloaded here.
-Once the git client is installed in our local machine we can launch it and access to our just created examples folder or from windows explorer in the examples folder and right click on the mouse open the Git Bash Here option.
-In the Git Bash window we can use the clone option to get the last version of each of the sample repositories:
-For devon sample:
+.Devon sample
+.devon4sencha sample
+.oasp4j sample
+.oasp4js sample
+
+*1.Create a examples directory*
+
+Include the examples in a folder located in the workspaces directory. So create it.
+
+*2.Download the sample apps*
+
+To download the examples of the apps to clone the Devon repositories. To achieve have installed the Git client for windows that can be downloaded https://git-scm.com/downloads[here].
+
+Once the git client is installed in your local machine launch it and access to created examples folder or from windows explorer in the examples folder and right click on the mouse open the Git Bash Here option.
+
+In the Git Bash window use the clone option to get the last version of each of the sample repositories:
+For *devon* sample:
+[source,xml]
+-----
 ...workspaces\examples>git clone https://github.com/devonfw/devon.git
-For Sencha sample:
+----
+
+For *Sencha* sample:
 ...workspaces\examples>git clone https://github.com/devonfw/devon4sencha.git
 For oasp server sample:
 ...workspaces\examples>git clone https://github.com/oasp/oasp4j.git
