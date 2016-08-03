@@ -28,15 +28,21 @@ Sencha (Ext JS) is a pure JavaScript application framework for building interact
 First of all we need the last version of the software so we can download it from the https://www.sencha.com[Sencha’s website]. We must look for the Sencha Cmd package.
 
 .. *Install Sencha*
-Now we must install the software in our machine in a proper location or directly create a Sencha directory in the software folder of our distribution and select this folder to do the installation. If we do the install in other location we must copy and paste the installation content to our +software\Sencha folder+.
-To end the intallation we need to add the ext folder to the plugin. To do so we must:
-•	copy from the previous distribution the +software\Sencha\Cmd\default\repo*extract*+ directory and paste it in the same place of our new distribution.
-•	copy from the previous distrubution the software\Sencha\Cmd\default\repo\pkgs*ext* directory and paste it in the same place of our new distribution.
-Step 3: Check the installation
-A quick way to check if Sencha is installed is to open the distribution console (launching the console.bat script) and typing the command sencha, the console must return the Sencha version installed.
+
+To install the software choose a proper location or directly create a Sencha directory in the software folder of the distribution and select this folder to do the installation. If we install it in other location copy the installation content to your +software\Sencha folder+.
+To complete the installation, you need to add the ext folder to the plugin. To do so we must:
+
+* copy from the previous distribution the +software\Sencha\Cmd\default\repo*extract*+ directory and paste it in the  same place of our new distribution.
+
+* copy from the previous distrubution the software\Sencha\Cmd\default\repo\pkgs*ext* directory and paste it in the same place of our new distribution.
+
+... *Check the installation*
+
+A quick way to check if Sencha is installed is, to open the distribution console (launching the console.bat script) and type the command sencha, the console must return the Sencha version installed.
  
 If there is no response we must check our Sencha installation.
-But to check if the installation is completely successful we should compile the ExtSample app that we will obtain at the last section of this document. So this check will be delayed until that moment.
+But to check if the installation is completely successful we should compile the ExtSample app that we can obtain at the last section of this document. So this check will be delayed until that moment.
+
 == *Adding Subversion plugin*
 Apache Subversion is a software versioning and revision control system distributed as free software under the Apache License and is included as the pre-installed Devon code version control.
 Step 1: Download Subversion client
