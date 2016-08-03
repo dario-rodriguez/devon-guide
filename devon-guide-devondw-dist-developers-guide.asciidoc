@@ -204,7 +204,7 @@ So ,launch the distribution console (with the console.bat script) and go into _w
 The app should be compiled and finally the console must show the message Waiting for changes and the app should be accessible from the browser in the url
 http://localhost:1841/ExtSample/
 
-== Updating(Adding scripts)
+== Updating(Adding) scripts
 
 === S2 scripts
 
@@ -231,6 +231,10 @@ Settings.json contains this
 ----
 So, lets say , we are creating distribution for release of next version, with some additions to features etc and version becomes "2.1.1" so, change version "2.0.1" as "2.1.1" into settings.json.
 
+== Add changeLOG file
+
+Add a simple .txt file named changelog, which contains information about new enhancements, features etc to be released in this version .
+
 == Verification and creation of zip:
 
 Once all above mentioned steps are performed, verify the zip ,by running all apps present in examples directory.
@@ -239,11 +243,17 @@ For verifying oasp4j and devon , go to sample projects respectively, and launch 
 
 [source,xml]
 ----
-maven clean install
+mvn clean install
 ----
 
-if everything goes well, you will see a build success message, then deploy the generated war from sample projects target folder and deploy on tomcat server.
+if everything goes well, you will see a build success message, then deploy the generated war from sample project's target folder and deploy on tomcat server.
 It should give a login screen.
+
+For creation of zip, use 7z software. and provide name of zip as Devon-dist_{version}.
+
+== Upload to Teamforge:
+
+Once everything runs successfully, upload it to teamforge 
 
 
 
