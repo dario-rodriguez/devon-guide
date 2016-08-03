@@ -63,7 +63,7 @@ If the command is not recognized check the Subversion install process.
 
 === Adding Jasypt client
 
-Jasypt is a java library which allows the developer to add basic encryption capabilities to the projects with minimum effort. Jasypt allows to manage and transparently decrypt encrypted values in .properties files used by Spring applications. In this case the Jasypt client is a tool needed for configuring the winauth module in order to generate the encrypted passwords that will be stored in the application.properties file. To facilitate to the developer the usage of the Devon framework the Jasypt client is included as a default plugin in the distribution.
+Jasypt is a java library which allows the developer to add basic encryption capabilities to the projects with minimum effort. Jasypt allows to manage and transparently decrypt encrypted values in .properties files used by Spring applications. In this case the Jasypt client is a tool needed for configuring thehttps://github.com/devonfw/devon-guide/wiki/cookbook-winauth-module[winauth] module in order to generate the encrypted passwords that will be stored in the application.properties file. To facilitate to the developer the usage of the Devon framework the Jasypt client is included as a default plugin in the distribution.
 
 *1. Download the client*
 
@@ -142,12 +142,13 @@ If the command is not recognized or the version doesn’t match the version  jus
 
 == Adding sample apps
 
-To complete the distribution ,include some examples of server and client apps. To do that ,use the sample applications that already are created for Devon and OASP and can be found in the Devon Github and the Oasp Github.
+To complete the distribution ,include some examples of server and client apps. To do that ,use the sample applications that already are created for Devon and OASP and can be found in the https://github.com/devonfw[Devon Github] and the https://github.com/oasp[Oasp Github].
 We are going to include:
-.Devon sample
-.devon4sencha sample
-.oasp4j sample
-.oasp4js sample
+
+* Devon Sample
+* devon4sencha Sample
+* oasp4j sample
+* oasp4js sample.
 
 *1.Create a examples directory*
 
@@ -203,6 +204,17 @@ So ,launch the distribution console (with the console.bat script) and go into _w
 The app should be compiled and finally the console must show the message Waiting for changes and the app should be accessible from the browser in the url
 http://localhost:1841/ExtSample/
 
+== Updating(Adding scripts)
 
+=== S2 scripts
 
+As these *s2 scripts* are not included in OASP distribution which we downloaded as base, in very first step in this document,are related to the Shared Services funcionality included in Devonfw. The s2-init.bat configures the settings.xml file to connect with an Artifactory Repository. The s2.create.bat generates a new project in the workspaces directory and does a checkout of a Subversion repository inside. Each script needs to be launched from the distribution’s cmd (launching the console.bat script) and some parameters to work properly.
+
+=== Add ps-console.bat 
+Add this script in script folder of distribution.
+
+== Modify version number of release:
+As, we going to release a new version of devonfw, ensure to change version number in *settings.json* to the one which is to be released.
+
+settings.json can be found as shown in image
 
