@@ -27,5 +27,95 @@ Sencha (Ext JS) is a pure JavaScript application framework for building interact
 
 First of all we need the last version of the software so we can download it from the https://www.sencha.com[Sencha’s website]. We must look for the Sencha Cmd package.
 
+.. *Install Sencha*
+Now we must install the software in our machine in a proper location or directly create a Sencha directory in the software folder of our distribution and select this folder to do the installation. If we do the install in other location we must copy and paste the installation content to our +software\Sencha folder+.
+To end the intallation we need to add the ext folder to the plugin. To do so we must:
+•	copy from the previous distribution the +software\Sencha\Cmd\default\repo*extract*+ directory and paste it in the same place of our new distribution.
+•	copy from the previous distrubution the software\Sencha\Cmd\default\repo\pkgs*ext* directory and paste it in the same place of our new distribution.
+Step 3: Check the installation
+A quick way to check if Sencha is installed is to open the distribution console (launching the console.bat script) and typing the command sencha, the console must return the Sencha version installed.
+ 
+If there is no response we must check our Sencha installation.
+But to check if the installation is completely successful we should compile the ExtSample app that we will obtain at the last section of this document. So this check will be delayed until that moment.
+== *Adding Subversion plugin*
+Apache Subversion is a software versioning and revision control system distributed as free software under the Apache License and is included as the pre-installed Devon code version control.
+Step 1: Download Subversion client
+The first that we need is the last version of the Subversion client that can be found here.
+Step 2: Install subversion client
+As we did with the Sencha plugin we must now install the software in our local machine, we can create a subversion folder in the software directory of our distribution and do the installation directly there. If you install subversion in other location then you must copy and paste the installation content to a subversion folder in the software directory of your distribution.
+Step 3: Check the installation
+To check the installation we can use the console.bat script to launch our environment’s console and type the command svn --version. The console must recognize the command and return our subversion version installed.
+ 
+If the command is not recognized check the Subversion install process.
+Adding Jasypt client
+Jasypt is a java library which allows the developer to add basic encryption capabilities to the projects with minimum effort. Jasypt allows to manage and transparently decrypt encrypted values in .properties files used by Spring applications. In our case the Jasypt client is a tool needed when configuring the winauth module in order to generate the encrypted passwords that will be stored in the application.properties file. To facilitate to the developer the usage of the Devon framework the Jasypt client is included as a default plugin in the distribution.
+Step 1: Download the client
+The Jasypt client can be downloaded from the Jasypt site
+Step 2: Extract the files
+We must unzip the jasypt-<VERSION>-dist.zip file into our software directory.
+Step 3: Usage
+To check the Jasypt client functionality we should launch the console.bat script of our distribution and go into the bin folder of the jasypt directory. Within this location we must find the .bat files for Windows execution and we can check a basic encryption as follows
+...\software\jasypt\bin>encrypt.bat input=MyPasswordToEncrypt password=MyKey
+If the Jasypt client is correctly installed we should receive a response like the following
+[...]
+----OUTPUT-----------------------
+aPZ03ig2ZCif8p592V8RNErt1aHdSXpLrwF5ECDJ/1M=
+To know more about the Jasypt client usage please visit this link
+Cobigen
+Cobigen is a server-side code generator to create CRUD operations. Cobigen is not an external plugin but an Eclipse plugin and is included by default in the Devon distribution so there is no installation needed. The only point that we must be aware of is to obtain the last version of the templates that Cobigen uses in order to work properly.
+Step 1: Download the templates
+We can get the last version of the templates from here. We are going to clone the repository, to do so we need a Git client for windows that can be downloaded from here.
+After the installation of the Git client in our local machine we launch the app and clone the Cobigen repository using the command
+some\local\directory>git clone https://github.com/may-bee/tools-cobigen.git
+In our local directory now we must have a new folder tools-cobigen and inside of it we should find a cobigen-templates\templates-oasp directory.
+Step 2: Add the templates to our distribution
+We must copy that templates-oasp directory to the workspaces\main directory of our distribution and rename it as CobiGen_Templates (note that is mandatory to use this exact name) so we will have all the templates information in the following location
+...\workspaces\main\CobiGen_Templates
+Step 3: Preparing Cobigen for first use
+Now in order to use Cobigen we must follow the steps described in this guide
+Updating node.js
+The node.js plugin is included in the OASP IDE distribution but we may need to update it to the last version. To do that we must proceed as follows:
+Step 1: Check the current version
+In order to check the new version we must open our environment’s console by launching the console.bat script. Then we can type the command node -v and the console must recognize the command and return the node version installed.
+Step 1: Download new version
+We can download the last binary (.exe) version of node.js from here.
+Step 2: Put it in the distribution
+Now we must replace the node.exe located on software\nodejs by the new node.exe that we just downloaded.
+Step 3: Check the new version
+To check the new version we proceed as we did in the step 1. The version returned by the console must match the version that we just downloaded.
+ 
+If the command is not recognized or the version doesn’t match the version we just downloaded we must check the installation process.
+Adding sample apps
+To complete the distribution we must include some examples of server and client apps. To do that we can use the sample applications that already are created for Devon and OASP and can be found in the Devon Github and the Oasp Github.
+We are going to include:
+•	Devon sample
+•	devon4sencha sample
+•	oasp4j sample
+•	oasp4js sample
+Create a examples directory
+We are going to include the examples in a folder located in the workspaces directory. So we must create it.
+Download the sample apps
+To download the examples of the apps we are going to clone the Devon repositories. To achieve that we need to have installed the Git client for windows that can be downloaded here.
+Once the git client is installed in our local machine we can launch it and access to our just created examples folder or from windows explorer in the examples folder and right click on the mouse open the Git Bash Here option.
+In the Git Bash window we can use the clone option to get the last version of each of the sample repositories:
+For devon sample:
+...workspaces\examples>git clone https://github.com/devonfw/devon.git
+For Sencha sample:
+...workspaces\examples>git clone https://github.com/devonfw/devon4sencha.git
+For oasp server sample:
+...workspaces\examples>git clone https://github.com/oasp/oasp4j.git
+then we need to reset to the last stable release. To do so, in the oasp4j project in github go to releases tab or go directly from this link, copy the number related to the commit of the last release and in the git console go into the oasp4j just created directory and type the following command (replacing the {last-release-commit-number} by the number copied from github)
+...workspaces\examples\oasp4j>git reset --hard {last-release-commit-number}
+For oasp client sample:
+...workspaces\examples>git clone https://github.com/oasp/oasp4js.git
+The console will return the result of each clone operation
+ 
+After all that process we must have in our local examples folder all the samples.
+At this point we can check the Sencha installation as we explained in the previous section of Sencha’s installation. So we must launch the distribution console (with the console.bat script) and go into _workspaces\examples\devon4sencha\ExtSample directory and type the following command
+...\workspaces\examples\devon4sencha\ExtSample>sencha app watch
+The app should be compiled and finally the console must show the message Waiting for changes and the app should be accessible from the browser in the url
+http://localhost:1841/ExtSample/
+
+
 
 
