@@ -80,6 +80,22 @@ Copyright (c) 2016 Capgemini
 
 You must have in mind that this process can take a while, specially depending on your connection to the internet.
 
+After downloading and installing the distribution successfully installed. You can now follow the manual steps as described in the Devonfw Guide or, alternatively, run 'devon dist init' to initialize the distribution.
+
+==== dist init
+
+The _init_ command initializes a newly downloaded distribution.
+
+===== _dist install_ requirements
+
+A new, not initialized distribution (running it on a configured distribution has no adverse side-effects).
+
+===== _dist init_ parameters
+
+The _init_ parameter needs one parameter to work properly:
+
+- *path*: location of the Devon distribution (current dir if not given).
+
 ==== dist s2
 
 The _s2_ command has been developed to automate the configuration process to use Devon as a Shared Service. This configuration is based on launching two scripts included in the Devon distributions, the _s2-init.bat_ and the _s2-create.bat_.
