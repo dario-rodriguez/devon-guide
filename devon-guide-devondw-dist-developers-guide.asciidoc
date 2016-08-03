@@ -162,23 +162,44 @@ Once the git client is installed in your local machine launch it and access to c
 In the Git Bash window use the clone option to get the last version of each of the sample repositories:
 For *devon* sample:
 [source,xml]
------
+----
 ...workspaces\examples>git clone https://github.com/devonfw/devon.git
 ----
 
 For *Sencha* sample:
+[source,xml]
+----
 ...workspaces\examples>git clone https://github.com/devonfw/devon4sencha.git
-For oasp server sample:
+----
+For *oasp server* sample:
+[source,xml]
+----
 ...workspaces\examples>git clone https://github.com/oasp/oasp4j.git
-then we need to reset to the last stable release. To do so, in the oasp4j project in github go to releases tab or go directly from this link, copy the number related to the commit of the last release and in the git console go into the oasp4j just created directory and type the following command (replacing the {last-release-commit-number} by the number copied from github)
+----
+
+Now, you need to reset to the last stable release. To do so, in the oasp4j project in github go to releases tab or go directly from this https://github.com/oasp/oasp4j/releases[link], copy the number related to the commit of the last release and in the git console go into the oasp4j just created directory and type the following command (replacing the {last-release-commit-number} by the number copied from github)
+
+[source,xml]
+----
 ...workspaces\examples\oasp4j>git reset --hard {last-release-commit-number}
-For oasp client sample:
+----
+
+For *oasp client* sample:
+[source,xml]
+----
 ...workspaces\examples>git clone https://github.com/oasp/oasp4js.git
+----
+
 The console will return the result of each clone operation
  
-After all that process we must have in our local examples folder all the samples.
-At this point we can check the Sencha installation as we explained in the previous section of Sencha’s installation. So we must launch the distribution console (with the console.bat script) and go into _workspaces\examples\devon4sencha\ExtSample directory and type the following command
+After all above steps ,you must have your local examples folder all the samples.
+
+At this point check the Sencha installation as  explained in the previous section of Sencha’s installation. 
+So ,launch the distribution console (with the console.bat script) and go into _workspaces\examples\devon4sencha\ExtSample directory and type the following command
+[source,xml]
+----
 ...\workspaces\examples\devon4sencha\ExtSample>sencha app watch
+----
 The app should be compiled and finally the console must show the message Waiting for changes and the app should be accessible from the browser in the url
 http://localhost:1841/ExtSample/
 
