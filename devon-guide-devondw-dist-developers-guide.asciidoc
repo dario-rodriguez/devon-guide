@@ -216,5 +216,21 @@ Add this script in script folder of distribution.
 == Modify version number of release:
 As, we going to release a new version of devonfw, ensure to change version number in *settings.json* to the one which is to be released.
 
-settings.json can be found as shown in image
+settings.json can be found at 2 places as mentioned below and both needs to be modified for version number.
+
+*  <disrtibution directory>\settings\version\settings.json
+*  <disrtibution directory>\workspaces\main\development\settings\version\settings.json
+
+Settings.json contains this
+
+[source,xml]
+----
+{
+  "version": "2.0.1"
+}
+----
+So, lets say , we are creating distribution for release of next version, with some additions to features etc and version becomes 2.1.1 so, change version as 2.1.1 into settings.json.
+
+
+
 
