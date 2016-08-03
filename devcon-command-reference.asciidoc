@@ -636,6 +636,22 @@ Having repository: D:\MyProject\MySenchaWorkspace\.git
 
 So after that we will have a sencha workspace called _MySenchaWorkspace_ located in the _D:\MyProject_ directory.
 
+==== sencha copyworkspace
+
+With this command we can make create new Sencha workspace by making a copy from an existing Devon dist to a particular path
+
+===== _sencha copyworkspace_ requirements
+
+There should be a Devonfw distribution present which included the 'workspaces\examples\devon4sencha' folder 
+
+===== _sencha copyworkspace_ parameters
+
+The _sencha copyworkspace_ command needs two parameters. Both are optional.
+
+- *workspace*: the path to the workspace. This parameter is optional. Devcon will take the current directory if not provide and in that case it will use the name 'devon4sencha'.
+
+- *distpath*: the path to a Devonfw Dist (Current directory if not provided)
+
 ==== sencha build
 This command builds a Sencha Ext JS6 project. Is the equivalent to the _Sencha Cmd_'s ```sencha app build```.
 
