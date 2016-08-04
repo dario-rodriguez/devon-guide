@@ -6,8 +6,8 @@ toc::[]
 
 In this section we focus on 
 
-*  how to create a new Devon distribution environment ,in order to publish a new release of the distribution in which new features and functionalities are included.
-*  How to create distribution zip in case of an intermediate release.
+*  How to create a new Devon distribution environment ,in order to publish a new release of the distribution in which new features and functionalities are included.
+*  How to create Devon distribution zip in case of an intermediate release.
 
 == Downloading the OASP IDE
 
@@ -253,11 +253,22 @@ mvn clean install
 if everything goes well, you will see a build success message, then deploy the generated war from sample project's target folder and deploy on tomcat server.
 It should give a login screen.
 
+As you run all the apps, you would find a folder +conf+ in the root of distribution directory, remove it off before creation of zip. 
+
 For creation of zip, use 7z software. and provide name of zip as Devon-dist_{version}.
 
 == Upload to Teamforge:
 
-Once everything runs successfully, upload it to teamforge 
+Once everything runs successfully, upload it to teamforge.
+
+== Creation of Devon distribution in case of intermediate release
+
+When there needs to be an intermediate release, lets say a bug fix release, the ,you can use the last devon distribution zip.
+Download it from https://coconet.capgemini.com/sf/frs/do/listReleases/projects.apps2_devon/frs.devon_distribution[here].
+
+Once you download it, extract it and then skip *Adding plugins* step, and directly follow step *Adding sample apps* .
+If there are any modifications in scripts etc, put new scripts at appropriate directory and then follow step from *Addition of changeLOG file* till *Upload to Teamforge*.
+
 
 
 
