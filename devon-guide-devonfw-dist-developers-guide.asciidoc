@@ -4,8 +4,8 @@ toc::[]
 # Devonfw Dist (IDE) Developers Guide
 
 In this section we focus on 
-* * how to create a new Devon distribution environment ,in order to publish a new release of the distribution in which new features and functionalities are included.
-* * How to create distribution zip in case of an intermediate release.
+*  how to create a new Devon distribution environment ,in order to publish a new release of the distribution in which new features and functionalities are included.
+*  How to create distribution zip in case of an intermediate release.
 
 == Downloading the OASP IDE
 
