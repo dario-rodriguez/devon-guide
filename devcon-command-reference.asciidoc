@@ -572,6 +572,170 @@ D:\devon-dist>devon oasp4js run -clientpath D:\devon-dist\workspaces\MyOasp4jsAp
 
 In both cases after launching the command a browser should be opened and will show the welcome page of the _oasp4js_ app.
 
+=== project
+
+The _project_ module groups the funcionalities related to the combined server + client projects.
+
+==== project create
+
+With this command the user can automate the creation of a combined server and client project (Sencha or oasp4js).
+
+===== _project create_ requirements
+
+If you want to use a Sencha app as client you will need a github user with permissions to download the _devon4sencha_ repository.
+
+===== _project create_ parameters
+
+Basically this command needs the same paremeters as the 'subcommands' that is using behind (`oasp4j create`, `oasp4js create`, `sencha workspace` and `sencha create`)
+
+- *combinedprojectpath*: the path to locate the server and client projects. Is an optional parameter and if not provided by the user devcon will take as the path the directory from which the command has been launched.
+
+- *servername*, *packagename*, *groupid*, *version*: the parameters related to the Server application. You can get more details in the 'oasp4j create' command reference in this document.
+
+- *clienttype*: the type for the client app, you can provide _oasp4js_ for Angular based client or _devon4sencha_ for Sencha based client.
+
+- *clientname*: the name for the client app.
+
+- *clientpath*: the path to locate the client app. Current directory if not provided.
+
+- *gituser* and * gitpassword*: only required if the clienttype is _devon4sencha_. These are the credentials to download the _devon4sencha_ repository from github. You can get more details in the 'sencha workspace' command reference in this document.
+
+===== _project create_ example of usage
+
+A simple example of usage for this command would be the following
+
+[source,batch]
+----
+D:\devon-dist\workspaces\combined>devon project create -servername myServerApp -groupid com.capgemini.devonfw -packagename com.capgemini.devonfw.myServerApp -version 1.0 -clientname myClientApp -clienttype oasp4js
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+serverpath is D:\devon-dist\workspaces\combined\.
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Maven Stub Project (No POM) 1
+[INFO] ------------------------------------------------------------------------
+
+[...]
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 6.862 s
+[INFO] Finished at: 2016-08-05T09:23:35+01:00
+[INFO] Final Memory: 10M/43M
+[INFO] ------------------------------------------------------------------------
+Adding devon.json file...
+Project Creation completed successfully
+Creating client project...
+Creating project myClientApp...
+Adding devon.json file...
+Editing java/pom.xml...
+Project created successfully. Please launch 'npm install' to resolve the project dependencies.
+Adding devon.json file to combined project...
+Combined project created successfully.
+----
+
+With this example we have created a Server + Oasp4js app in the `D:\devon-dist\workspaces\combined` directory. So within this folder we should find:
+
+- _myServerApp_ folder with the `oasp4j` app.
+
+- _myClientApp_ folder with the `oasp4js`app.
+
+- the `devon.json` file with the following configuration:
+[source, json]
+----
+{"version": "2.0.1",
+"type":"COMBINED",
+"projects":["myServerApp", "myClientApp"]
+}
+----
+
+As you can see the 'projects' property points to the 'subprojects' created. In case we had used the _clientpath_ parameter to locate it in a different place that 'project' will reflect it pointing to the client path location:
+[source, json]
+----
+{"version": "2.0.1",
+"type":"COMBINED",
+"projects":["myServerApp", "D:\devon-dist\otherDirectory\myClientApp"]
+}
+----
+
+==== project deploy
+
+This command automates all the process described in the link:getting-started-deployment-on-tomcat[deployment on tomcat] section. It creates a new tomcat server associated to the combined server + client project in the _software_ directory of the distribution and launches it to make the project available in a browser.
+
+===== _project deploy_ requirements
+
+The command automates the packaging of the combined Server + Client project but the user must configure those apps to work properly so you need to varify that:
+
+- The client app _points_ to the server app: in Sencha projects the 'server' property of _app/Config.js_ or app/ConfigDevelopment.js_ (depending of the type of build) must point to your server app. In case of oasp4js projects we will need to configure the _baseUrl_ property of the'config.json' file to point to our server.
+
+- The server redirects to the client: in the server project the file `...\serverApp\server\src\main\webapp\index.jsp` should redirect to `jsclient` profile
+.index.jsp
+[source,java]
+----
+<%
+  response.sendRedirect(request.getContextPath() + "/jsclient/");
+%>
+----
+
+- The combined project must have a `devon.json` file defining the type (that must be 'combined') and the subprojects (server and client):
+[source,json]
+----
+{"version": "2.0.1",
+"type":"COMBINED",
+"projects": ["D:\devon-dist\workspaces\SenchaWorkspace\myClientApp","myServerApp"]
+}
+----
+
+In the example above that `devon.json` file defines a server app (_myServerApp_) that is located within the combined project directory (so we do not need to provide a path, only the folder name) and a client app (_myClientApp_) located in a Sencha workspace outside the combined project directory (so we need to provide the path).
+
+- Each 'subprojects' (server and client) must have its corresponding `devon.json` file well formed (the 'type' must be _oasp4j_ for server and for client apps _oasp4js_ or _devon4sencha_).
+
+- The command must be launched from within a valid Devonfw distribution.
+
+===== _project deploy_ parameters
+
+- *tomcatpath*: the path to the tomcat folder. Devcon will look for the distribution's Tomcat when this parameter is not provided.
+
+- *clienttype*: type of client either angular or Sencha (obtained from 'projects' property in devon.json when not given).
+
+- *clientpath*: path to client project (obtained from 'projects' property in devon.json when not given).
+
+- *serverpath*: path to server project (obtained from 'projects' property in devon.json when not given).
+
+- *path*: path for the combined project (current directory when not given).
+
+===== _project deploy_ example of usage
+
+A simple example of usage for this command would be the following
+
+[source,batch]
+====
+D:\devon-dist\workspaces\MyCombinedProject>devon project deploy
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+[...]
+##########################################################################
+After Tomcat finishes the loading process the app should be available in:
+localhost:8080/myServerApp-server-1.0
+##########################################################################
+====
+
+The process will open a new command window for the Tomcat's launching process and finally will shows us the url where the combined app should be accesible.
+
+[NOTE]
+====
+The url is formed with the name of the .war file generated when packaging the app
+====
+
+If we use the optional parameter _path_
+
+[source,batch]
+====
+D:\devon-dist>devon project deploy -path D:\devon-dist\workspaces\MyCombinedProject 
+====
+
 === sencha
 
 _Sencha_ is a pure JavaScript application framework for building interactive cross platform web applications and is the view layer for web applications developed with Devon Framework. This module encapsulates the _Sencha Cmd_ functionality that is a command line tool to automate tasks around _Sencha_ apps.

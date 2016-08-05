@@ -3,6 +3,7 @@ toc::[]
 
 
 = Deployment on Tomcat (Client/Server)
+
 After setting up functional server and client applications, we may want to package both in the same _.war_ file. To package the single war, follow the given steps.
 
 == General description of the packaging process
@@ -71,12 +72,18 @@ And in the plugins of the _pom.xml_ we should add a reference to the package aga
 
 [NOTE]
 ====
-If you are using a Sencha project as client app you must delete all the `<execution>` tags from the `exec-maven-plugin` inside the _jsclient_ profile as this configuration is related to _oasp4js_ projects.
+If you are using a Sencha project as client app you must comment all the `<execution>` tags from the `exec-maven-plugin` inside the _jsclient_ profile as this configuration is related to _oasp4js_ projects.
 ====
 
-Now we have to define a Maven profile so in Eclipse, over the server project we should right-click and select _Maven > Select Maven Profile_. In the subsequent window we should select the _jsclient_ option.
+Now verify that the server redirects to the client checking the `...\MyServerApp\server\src\main\webapp\index.jsp` file that should be 
 
-image::images/devonfw-deployment/tutorial_devon_jspackaging_process03.png[,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devonfw-deployment/tutorial_devon_jspackaging_process03.png"]
+.index.jsp
+[source,java]
+----
+<%
+  response.sendRedirect(request.getContextPath() + "/jsclient/");
+%>
+----
 
 Then we have to add some unsecured resources in the method _configure(HttpSecurity http)_ of the _../general/configuration/WebSecurityConfig.java_ class. 
 
@@ -87,7 +94,7 @@ Edit the _unsecureResources_ to have something like that:
   public void configure(HttpSecurity http) throws Exception {
 
     String[] unsecuredResources =
-        new String[] { "/login", "/security/**", "/services/rest/login", "/services/rest/logout", "/jsclient/**", "/websocket/**"};
+        new String[] { "/login", "/security/**", "/services/rest/login", "/services/rest/logout", "/jsclient/**"};
     
     (...)
 
