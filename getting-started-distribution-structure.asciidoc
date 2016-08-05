@@ -48,7 +48,7 @@ Thus if we have a _workspaces/project01_ and a _workspaces/project02_ projects t
 image::images/devconlogo_imgonly.png[,width="50"]
 .*Using devcon*
 [NOTE]
-You can automate this operation using devcon with the `devon workspace create` command link:devcon-user-guide#workspace[learn more here]
+You can automate this operation using devcon with the `devon workspace create` command link:devcon-command-reference#workspace[learn more here]
 
 === console.bat
 This script launches the distribution's _cmd_. Meaning, within this _cmd_, we have access to the software located in the _software_ folder, so that we can use the tools "installed" in that folder although we don't have these installed in our machine. So it is important to always run this _cmd_ (lunching the _console.bat_ script) to make use of the software related to the distribution.

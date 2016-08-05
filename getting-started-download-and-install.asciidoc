@@ -21,7 +21,7 @@ Download latest Devonfw distribution from https://coconet.capgemini.com/sf/frs/d
 image::images/devconlogo_imgonly.png[,width="50"]
 .*Using devcon*
 [NOTE]
-You can do it using devcon with the command `devon dist install` link:devcon-user-guide#dist-install[learn more here]
+You can do it using devcon with the command `devon dist install` link:devcon-command-reference#dist-install[learn more here]
 After a successful install you can initialize it with the command `devon dist init` link:devcon-user-guide#dist-init[learn more here]
 
 == Prepare the workspace

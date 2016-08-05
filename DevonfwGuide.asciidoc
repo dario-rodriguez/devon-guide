@@ -1,6 +1,6 @@
 = Devonfw Guide 
 Jhonatan Core <jhcore@capgemini.com>
-v2.0.0
+v2.0.1
 
 :imagesdir: ./images
 :footnote: test footnote from asciidoc
@@ -15,8 +15,8 @@ This document contains the complete compendium of the https://troom.capgemini.co
 
 **Current versions:**
 
-* DevonfwGuide - v2.0.0 
-* Devonfw - v2.0.0
+* DevonfwGuide - v2.0.1 
+* Devonfw - v2.0.1
 
 **Authors:**
   
@@ -74,6 +74,10 @@ include::getting-started-flyway-database-migration[]
 
 <<<<
 
+include::getting-started-bean-mapping-using-dozer[]
+
+<<<<
+
 include::getting-started-writing-unittest-cases[]
 
 <<<<
@@ -99,10 +103,6 @@ include::getting-started-transfer-objects[]
 <<<<
 
 include::getting-started-logic-layer[]
-
-<<<<
-
-include::getting-started-bean-mapping-using-dozer[]
 
 <<<<
 
@@ -236,11 +236,15 @@ include::Client-GUI-Sencha-i18n[]
 
 :leveloffset: 0 
 
-== Devon4Sencha Best Practices 
+== Devon4Sencha Cookbook 
 
 :leveloffset: 2
 
-include::Client-GUI-Sencha-devon4Sencha-bad-practices[]
+include::Client-GUI-Sencha-Simlets-Simulate-Server-Responses[]
+
+<<<<
+
+include::Client-GUI-Sencha-devon4Sencha-best-practices[]
 
 <<<<
 
@@ -260,6 +264,16 @@ include::Client-GUI-Sencha-devon4Sencha-test[]
 
 :leveloffset: 2
 
+include::devon-guide-frequently-asked-questions[]
+
+<<<<
+
 include::devon-guide-working-with-git-and-github[]
 
 <<<<
+
+include::devon-guide-devonfw-dist-developers-guide[]
+
+<<<<
+
+include::devcon-command-reference[]

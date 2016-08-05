@@ -1,11 +1,11 @@
 = Frequently Asked Questions (FAQ) 
 
-**Work in progress**
+== Security
 
-== Security 
 === How to disable Spring Boot Security?
 
-= Services
+== Services
+
 === Which is the format of a REST request?
 
 Using Spring Boot and with the default code structure and practices, you can make a GET request to the following url:
@@ -22,6 +22,7 @@ Take into account that for an app deployed to a traditional web server (WAR/EAR 
 
 
 == Crosscutting concerns
+
 === How to set debug mode for logs?
 For Spring Boot applications, the easiest way is to edit the `[project]\main\resources\application.properties` file and adding the following:
 
@@ -29,6 +30,7 @@ For Spring Boot applications, the easiest way is to edit the `[project]\main\res
 
 
 == Devon4Sencha
+
 === How to disable "defeat cache" functionality
 When working with Sencha application, all the required files are loaded with an additional parameter _dc=[random number] that will disallow debugging properly on the browser developer tools because breakpoints will be lost on reload.
 

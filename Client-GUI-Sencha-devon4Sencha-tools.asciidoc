@@ -30,7 +30,7 @@ app build testing on the command-line, it will validate your JavaScript code.Lin
 
 .*Using devcon*
 [NOTE]
-You can also use the build option using devcon with the `devon sencha build` command link:devcon-user-guide#sencha-build[learn more here]
+You can also use the build option using devcon with the `devon sencha build` command link:devcon-command-reference#sencha-build[learn more here]
 
 - Not only it checks your JavaScript errors, it will also check your Sass stylesheet for errors, before compiling it to production ready CSS.
 
