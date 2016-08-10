@@ -38,7 +38,6 @@ devon -h
 === dist
 
 The _dist_ module is responsible for the tasks related with the distribution which means all the functionalities surrounding the configuration of the Devon distribution, including the obtention of the distribution itself.
-The module _dist_ consists of two parameters: _install_ and _s2_.
 
 ==== dist install
 
@@ -101,20 +100,20 @@ The _init_ parameter needs one parameter to work properly:
 The _s2_ command has been developed to automate the configuration process to use Devon as a Shared Service. This configuration is based on launching two scripts included in the Devon distributions, the _s2-init.bat_ and the _s2-create.bat_.
 The _*s2-init.bat*_ is responsible for configuring the _settings.xml_ file (located in the _conf/.m2_ directory). Basically enables the connection of _Maven_ with the _Artifactory_ repository, where the Devon IP modules are stored, and adds the user credentials for this connection.
 
-The _*s2-create.bat*_ creates a new project in the workspace of the distribution, and does a checkout of a Subversion repository inside this new project. Finally the script creates a Eclipse _.bat_ starter related to the new project.
+The _*s2-create.bat*_ creates a new project in the workspace of the distribution, and optionally does a checkout of a Subversion repository inside this new project. Finally the script creates a Eclipse _.bat_ starter related to the new project.
 
 ===== _dist s2_ requirements
 
-An _Artifactory_ user with permissions to download files from the repository.
-
-A Subversion user with permissions to do the checkout of the project specified in the _url_ parameter.
-
-The command can be launched from any directory within a Devon distribution. The Devon distribution is defined by having a _settings.json_ file located in the _conf_ directory. This file is a JSON object that defines parameters like the version of the distribution or the type which should be _devon-dist_ as is showed below.
+- The command can be launched from any directory within a Devon distribution version 2.0.1 or higher. The Devon distribution is defined by having a _settings.json_ file located in the _conf_ directory. This file is a JSON object that defines parameters like the version of the distribution or the type which should be _devon-dist_ as is showed below.
 
 [source,json]
 ----
-{"version": "2.0.0","type": "devon-dist"}
+{"version": "2.0.1","type": "devon-dist"}
 ----
+
+- An _Artifactory_ user with permissions to download files from the repository.
+
+- In case the optional checkout A Subversion user with permissions to do the checkout of the project specified in the _url_ parameter.
 
 The command will search for this file to get the root directory where the scripts are located so is necessary to have this file in its correct location.
 
@@ -124,25 +123,53 @@ Apart from this the _settings.xml_ file needs to be compatible with the Shared S
 
 So the _s2_ command needs six parameters to be able to complete the two phases:
 
-- *artuser*: an Artifactory user with permissions to download files at least.
+- *user*: the userId for Artifactory provided by S2 for the project.
 
-- *artencpass*: the encrypted password of the Artifactory user (can be obtained from the Artifactory user profile).
+- *pass*: the password for Artifactory.
+
+- *engagementname*: the name of the repository for the engagement.
+
+- *ciaas*: if the settings.xml must be configured for CIaaS user must set this as TRUE. Is an optional parameter with FALSE as default value.
 
 - *projectname*: the name for the new project.
 
-- *svnuser*: a user with permissions in the Subversion repository.
+- *svnuser*: the user for the SVN.
 
-- *svnpass*: the password of the Subversion user.
+- *svnpass*: the password for the SVN.
 
-- *svnurl*: the url of the project in the Subversion repository 
+- *svnurl*: the url for the SVN provided by S2.
 
 ===== _dist s2_ example of usage
 
-A simple example of usage for this command would be the following
+A simple example of usage for this command would be the followings:
+
+If we only want to configure the _settigs.xml_ file without using the svn option the simplest usage would be
 
 [source,batch]
 ----
-D:\devon-alpha\workspaces>devon dist s2 -projectname TestProject -artuser john -artencpass ZMF4AgyhQ5X6Sr9Bd1ohjWcFjL -svnurl https://coconet...Project/ -svnuser john_svn -svnpass 12345
+D:\devon-dist\workspaces>devon dist s2 -user john -pass ZMF4AgyhQ5X6Sr9Bd1ohjWcFjL -engagementname myEngagement -projectname TestProject
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+[...]
+INFO: Completed
+Eclipse preferences for workspace: "TestProject" have been created/updated
+Created eclipse-TestProject.bat
+Finished creating/updating workspace: "TestProject"
+----
+
+After this the `conf/.m2/settings.xml` file should have been configured and a new (and empty) _TestProject_ directory must have been created in the _workspaces_ directory and in the distribution root a new _eclipse-testproject.bat_ script must have been created too.
+
+We also can get the same result and configure the _settings.xml_ for CIaaS using the _ciaas_ parameter
+[source,batch]
+----
+D:\devon-dist\workspaces>devon dist s2 -user john -pass ZMF4AgyhQ5X6Sr9Bd1ohjWcFjL -engagementname myEngagement -projectname TestProject -ciaas true
+----
+
+Using the svn option to automate the check out from the repository the usage would be
+
+[source,batch]
+----
+D:\devon-dist\workspaces>devon dist s2 -user john -pass ZMF4AgyhQ5X6Sr9Bd1ohjWcFjL -engagementname myEngagement -projectname TestProject -svnurl https://coconet...Project/ -svnuser john_svn -svnpass 12345
 Hello, this is Devcon!
 Copyright (c) 2016 Capgemini
 [...]
@@ -155,7 +182,7 @@ Created eclipse-TestProject.bat
 Finished creating/updating workspace: "TestProject"
 ----
 
-After this a new _TestProject_ directory must have been created in the _workspaces_ directory and in the distribution root a new _eclipse-testproject.bat_ script must have been created too.
+After this the `conf/.m2/settings.xml` file should have been configured and a new _TestProject_ directory must have been created in the _workspaces_ directory with all the files checked out from the svn repository and in the distribution root a new _eclipse-testproject.bat_ script must have been created too.
 
 
 === doc
@@ -599,7 +626,7 @@ Basically this command needs the same paremeters as the 'subcommands' that is us
 
 - *clientpath*: the path to locate the client app. Current directory if not provided.
 
-- *gituser* and * gitpassword*: only required if the clienttype is _devon4sencha_. These are the credentials to download the _devon4sencha_ repository from github. You can get more details in the 'sencha workspace' command reference in this document.
+- *createsenchaws*: is an optional parameter that indicates if the Sencha workspace needs to be created (by default its value is FALSE).
 
 ===== _project create_ example of usage
 
@@ -660,6 +687,20 @@ As you can see the 'projects' property points to the 'subprojects' created. In c
 "projects":["myServerApp", "D:\devon-dist\otherDirectory\myClientApp"]
 }
 ----
+
+Other possible usages
+
+- `D:\devon-dist\TEST>devon project create -servername sss -groupid com.cap -packagename com.cap.sss -version 1.0 -clientname ccc -clienttype devon4sencha -clientpath D:\devon-dist\TESTB`
+
+  Will create a server app (sss) in current directory and a Sencha app in the TESTB directory (that must be a Sencha workspace)
+
+- `D:\devon-dist\TEST>devon project create -servername sss -groupid com.cap -packagename com.cap.sss -version 1.0 -clientname ccc -clienttype devon4sencha -clientpath D:\devon-dist\TESTB -createsenchaws true`
+
+  Will create a server app (sss) in current directory and a Sencha workspace with a Sencha app inside in the TESTB directory.
+
+- `D:\devon-dist\TEST>devon project create -servername sss -groupid com.cap -packagename com.cap.sss -version 1.0 -clientname ccc -clienttype devon4sencha`
+
+  Will create a server app (sss) and a Sencha workspace with a Sencha app inside, all in current directory.
 
 ==== project build
 
