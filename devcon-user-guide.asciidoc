@@ -92,7 +92,7 @@ where:
 === Parameters
 
 As we mentioned before from the point of view of the commands we have two types of parameters: the mandatory parameters and the optional parameters. 
-The mandatory parameters must be provided by the user specifying the parameter identifier and the value in the command line. The optional parameters must be also provided to the app but, if the user do not specify it, devcon will try to find the parameter value in a related configuration file. In case the parameter is not defined either the command line or in the configuration file devcon will prompt the user for the parameter value.
+The mandatory parameters must be provided by the user specifying the parameter identifier and the value in the command line. The optional parameters must be also provided to the app but, if the user do not specify it, devcon will use a default value for them.
 
 //////////////////////////////////////////
 ==== Optional parameters in _devon.json_ file
@@ -160,11 +160,17 @@ Please introduce the value for missing parameter signature:|
 === Global parameters
 
 Devcon handles a third type of parameter that has nothing to do with command parameters. We are referring to the global parameters.
-The global parameters are a set of parameters that works in global context, which means that will affect the behaviour of the command in the first phase, before launching the command module itself. 
+
+The global parameters are a set of parameters that works in global context, which means that will affect the behaviour of the command in the first phase, before launching the command module itself.
+
+As these parameters act in a global context we do not need to provide a value for them. They work as _flags_ to define some internal behaviour of devcon.
+
 In the first devcon version we have three global parameters defined:
 
 - global parameter _help_: defined with *-h* or *--help*.
 - global parameter _version_: defined with *-v* or *--version*.
+- global parameter _prompt_: defined with *-p* or *--prompt*.
+
 
 ==== _help_ parameter
 The global parameter _help_ is very useful to show overall help info of devcon or also for showing more detailed info of each module and command supported.
@@ -248,6 +254,41 @@ Hello, this is Devcon!
 Copyright (c) 2016 Capgemini
 devcon v.1.0.0
 ----
+
+==== _prompt_ parameter
+
+With this global parameter we can ask devcon to prompt for mandatory parameters when launching a command.
+
+To give an example we can use the _oasp4j create_ command (that creates a new server project based on _OASP4J_ model). In this case we would need to provide several mandatory parameters so the command call would look like
+[source,batch]
+----
+D:\devon-dist>devon oasp4j create -servername myServer -groupid com.capgemini -packagename com.capgemini.myServer -version 1.0
+----
+
+As you can see the command is defined by `devon oasp4j create` words and the rest of the command line attributes are parameters.
+
+With the global parameter *-p* Devcon gives the user the option to not define any mandatory parameter when launching the command and provide step by step all mandatory parameters after that so the usage of some commands can be way easier.
+
+Going back to the previous example if we use the *-p* parameter
+[source,batch]
+----
+D:\devon-dist>devon oasp4j create -p
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+Command: devon oasp4j create
+Description: This command is used to create new server project
+
+Parameter: serverpath - where to create
+->
+Parameter: servername - Name of project
+-> myServer
+Parameter: packagename - package name in server project
+-> com.capgemini.myServer_
+
+[...]
+----  
+
+As you can see with the *-p* parameter Devcon asks for each mandatory parameter related to a command and the user can provide them one on one, getting rid of the concern of knowing what parameters needs a command.
 
 == First steps with devcon
 
