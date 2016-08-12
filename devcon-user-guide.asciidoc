@@ -267,9 +267,9 @@ D:\devon-dist>devon oasp4j create -servername myServer -groupid com.capgemini -p
 
 As you can see the command is defined by `devon oasp4j create` words and the rest of the command line attributes are parameters.
 
-With the global parameter *-p* Devcon gives the user the option to not define any mandatory parameter when launching the command and provide step by step all mandatory parameters after that so the usage of some commands can be way easier.
+With the global parameter *-p* Devcon gives the user the option to avoid defining any mandatory parameter when launching the command and provide step by step all mandatory parameters after that so the usage of some commands can be way easier.
 
-Going back to the previous example if we use the *-p* parameter
+Going back to the previous example if we use the *-p* parameter we get
 [source,batch]
 ----
 D:\devon-dist>devon oasp4j create -p
