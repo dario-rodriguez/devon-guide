@@ -257,9 +257,9 @@ devcon v.1.0.0
 
 ==== _prompt_ parameter
 
-With this global parameter we can ask devcon to prompt for mandatory parameters when launching a command.
+With this global parameter we can ask devcon to prompt for all parameters (both optional and mandatory) when launching a command.
 
-To give an example we can use the _oasp4j create_ command (that creates a new server project based on _OASP4J_ model). In this case we would need to provide several mandatory parameters so the command call would look like
+To give an example we can use the _oasp4j create_ command (that creates a new server project based on _OASP4J_ model). In this case we would need to provide several parameters so the command call would look like
 [source,batch]
 ----
 D:\devon-dist>devon oasp4j create -servername myServer -groupid com.capgemini -packagename com.capgemini.myServer -version 1.0
@@ -267,7 +267,7 @@ D:\devon-dist>devon oasp4j create -servername myServer -groupid com.capgemini -p
 
 As you can see the command is defined by `devon oasp4j create` words and the rest of the command line attributes are parameters.
 
-With the global parameter *-p* Devcon gives the user the option to avoid defining any mandatory parameter when launching the command and provide step by step all mandatory parameters after that so the usage of some commands can be way easier.
+With the global parameter *-p* Devcon gives the user the option to avoid defining any parameter when launching the command and provide step by step all parameters after that, so the usage of some commands can be way easier.
 
 Going back to the previous example if we use the *-p* parameter we get
 [source,batch]
@@ -288,7 +288,7 @@ Parameter: packagename - package name in server project
 [...]
 ----  
 
-As you can see with the *-p* parameter Devcon asks for each mandatory parameter related to a command and the user can provide them one on one, getting rid of the concern of knowing what parameters needs a command.
+As you can see with the *-p* parameter Devcon asks for each parameter related to a command (the optional ones can be left blank as the _serverpath_ in the example) and the user can provide them one on one, getting rid of the concern of knowing what parameters needs a command.
 
 == First steps with devcon
 
