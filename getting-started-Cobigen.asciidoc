@@ -86,7 +86,7 @@ import devonfw.tutorial.general.dataaccess.api.ApplicationPersistenceEntity;
 
 @Entity(name = "StaffMember")
 @Table(name = "StaffMember")
-public class StaffMemberEntity extends ApplicationPersistenceEntity {
+public class StaffMemberEntity {
 
   private static final long serialVersionUID = 1L;
 
