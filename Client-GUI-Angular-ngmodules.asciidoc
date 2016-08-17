@@ -1,0 +1,16 @@
+:toc: macro
+toc::[]
+
+# OASP4JS ng-modules
++oasp4js+ provides https://angularjs.org/[AngularJS] modules which address typical challenges in Single Page Applications (SPA), such as authentication and authorization (A&A), internationalization (i18n), etc. which are not directly addressed by AngularJS or other frameworks out of the box. These solutions are built on top of industry proven practices.
+
+* link:Client-GUI-Angular-OASP-Security[oasp-security] - a simple yet powerful solution to A&A in SPAs
+* oasp-i18n - handles translations in SPAs 
+* link:Client-GUI-Angular-OASP-UI[oasp-ui] - a thin wrapper over http://angular-ui.github.io/bootstrap/[UI Bootstrap] and https://github.com/urish/angular-spinner[angular-spinner] which combines them making applications more responsive
+* oasp-mocks - enables you to easy test your modules which depend on the other `oasp4js` modules
+
+## OASP4JS ng-modules in action
+Please take a look at the sample application in order to see how the +oasp4js+ ng-modules work: 
+
+* https://github.com/oasp/oasp4js[repository]
+* http://oasp-ci.cloudapp.net/oasp4j-sample/jsclient/#/main/sign-in[deployed application] (you can use the following credentials to sign-in: waiter/waiter or cook/cook)
