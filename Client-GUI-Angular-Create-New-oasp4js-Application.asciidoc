@@ -23,7 +23,7 @@ You can automate these processes using devcon. With the `devon oasp4js create` c
 
 If you are going to create the application manually before you start to use generator-oasp it is important to install the prerequisites. You will need the Node.js, Bower and Gulp.
 
-1. Open a Devon command prompt by executing the batch file console.bat.
+1. Open a Devon command prompt by executing the batch file console.bat in the root folder of the distribution.
 1. Most of tools used in oasp4js need the Node.js platform and its package manager (npm).
 1. Node.js is provided by default within the Devon distribution.  For installing Bower and Gulp (skip these steps if you already have Bower and Gulp installed in your machine; just check the version for both):
 
