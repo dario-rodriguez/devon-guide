@@ -1,0 +1,110 @@
+:toc: macro
+toc::[]
+
+# Providing accessibility
+
+## Accessibility
+When creating a web application it need to be taken under consideration to provide a support for users with disabilities. 
+Types of disabilities we should be aware of while preparing web application:
+
+* Sight disabilities
+* Movement disabilities
+
+When taking under consideration sight disability  it is crucial to adopt the application for popular https://github.com/oasp/oasp4js/wiki/Tutorial-Accessibility#screen-readers[screen readers]. It is also necessary to have a good keyboard support for disabilities of any kind.
+
+## ngAria
+### Adding ngAria to application
+In order to add ngAria to the project:
+Add the ngAria dependency to gower.json
+[source,javascript]
+----
+"angular-aria": "<angularjs-version>"
+----
+Install new dependency
+[source,javascript]
+----
+npm install
+----
+Add +ngAria+ dependency to AngularJS application 
+[source,javascript]
+----
+angular.module('myApp', ['ngAria', ...])
+----
+
+### Configuration
++ngAria+ configuration allows to enable or disable various attributes.
+In order to add configuration to application add following code to application module:
+[source,javascript]
+----
+.config(function ($ariaProvider) {
+     $ariaProvider.config({
+          ariaValue: true,
+          tabindex: false
+     });
+})
+----
+#### Configuration parameters
+[width="100%",frame="topbot",options="header"]
+|======================
+|*Parameter* |*Description*
+|ariaHidden |Enables/disables aria-hidden tags
+|ariaChecked |Enables/disables aria-checked tags
+|ariaDisabled |Enables/disables aria-disabled tags
+|ariaRequired |Enables/disables aria-required tags
+|ariaInvalid |Enables/disables aria-invalid tags
+|ariaMultiline |Enables/disables aria-multiline tags
+|ariaValue |Enables/disables aria-valuemin, aria-valuemax and aria-valuenow tags
+|tabindex |Enables/disables tabindex tags
+|bindKeypress |Enables/disables keypress event binding on &lt;div&gt; and &lt;li&gt; elements with ng-click
+|bindRoleForClick |Adds role=button to non-interactive elements like div using ng-click, making them more accessible to users of assistive technologies
+|======================
+Aria supports following directives by adding automaticly its own arguments: https://docs.angularjs.org/api/ng/directive/ngModel[ngModel], https://docs.angularjs.org/api/ng/directive/ngDisabled[ngDisabled], https://docs.angularjs.org/api/ng/directive/ngShow[ngShow], https://docs.angularjs.org/api/ng/directive/ngHide[ngHide], https://docs.angularjs.org/api/ng/directive/ngClick[ngClick], https://docs.angularjs.org/api/ng/directive/ngDblclick[ngDblclick], https://docs.angularjs.org/api/ngMessages[ngMessages].
+
+## ARIA Live Regions
+Live regions are used to notify user about changes on the screen (for example Error message).
+There are two region properties:
+
+. **aria-live** – sets the Screen Reader priority of the region (off/polite/assertive).
+* **__role=’alert’__** use aria-live=’assertive’ in order to inform a user immediately that something gone wrong
+* **__role=’message’__** use aria-live=’polite’
+* **__role=’progressbar’__** use aria-valuemin, aria-valuenow and aria-valuema
+. **aria-controls** – associate the control with the regions it controls. Attribute value is a list of ids.
+
+#### Possible roles
+[width="100%",frame="topbot",options="header"]
+|======================
+|*Role* |*Description*
+|log	|Chat, error, game or other type of log
+|status	|A status bar or area of the screen that provides an updated status of some kind. Screen reader users have a special command to read the current status.
+|alert |Error or warning message that flashes on the screen. Alerts are particularly important for client side validation notices to users.
+|progressbar| A hybrid between a widget and a live region. Use this with aria-valuemin, aria-valuenow and aria-valuemax.
+|marquee |for text which scrolls, such as a stock ticker.
+|timer |or any kind of timer or clock, such as a countdown timer or stopwatch readout.
+|======================
+
+## Good practices
+. __tabIndex__ attribute – this attribute allows to enable(0) or disable(-1) focus on the element. It also allows to create focus path of the elements (1, 2, 3…).
+. __role__ attribute – allows the Screen Reader to tell what the DOM element do.
+. __aria-disabled__ attribute –  allows the Screen Reader to tell what is the state of the element.
+. __aria-label__ attribute – is used for the description of the element.
+. Do not use ‘clicable divs’ – do not bind actions to div element – use button instead.
+. Add CSS style for elements with focus – it is easier to know which element has focus.
+. When creating custom directives it is nice to require at least aria-label and tabIndex attributes.
+. When creating custom directives use native elements wherever possible.
+. Inform user that site requirements when JavaScript is off.
+
+## Screen readers
+
+* Windows: http://www.freedomscientific.com/Products/Blindness/JAWS[JAWS], http://www.gwmicro.com/Window-Eyes/[WindowEyes], http://www.nvaccess.org/[NVDA]
+* Mac: http://www.apple.com/accessibility/osx/voiceover/[VoiceOver]
+
+## Useful links
+https://www.youtube.com/watch?v=dmYDggEgU-s[Lecture about Accessibility using ngAria]
+
+https://docs.angularjs.org/api/ngAria[ngAria Documentation]
+
+https://docs.angularjs.org/guide/accessibility[Accesibility guide]
+
+https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions[ARIA Live Regions]
+
+http://blog.shinetech.com/2014/11/26/getting-started-with-angular-and-accessibility/[Getting Started with Accessibility]
