@@ -122,6 +122,28 @@
 
 - link:Client-GUI-Sencha-devon4Sencha-test[Devon4Sencha Testing Tools]
 
+## The Presentation Layer: Getting Started with OASP4JS
+
+- link:Client-GUI-Angular-Introduction-to-oasp4js[Introduction to OASP4JS]
+
+- link:Client-GUI-Angular-Application-Template-Structure[OASP4JS Application Template Structure]
+
+- link:Client-GUI-Angular-Adding-Business-Module[Adding Business Module]
+
+- link:Client-GUI-Angular-ngmodules[OASP4JS ng-modules]
+
+- link:Client-GUI-Angular-Create-New-oasp4js-Application[Create New OASP4JS Application]
+
+- link:Client-GUI-Angular-Implementing-CRUD[Implementing a CRUD]
+
+## OASP4JS Cookbook
+
+- link:Client-GUI-Angular-Code-Conventions[OASP4JS Code Conventions]
+
+- link:Client-GUI-Angular-Providing-Accessibility[Providing Accessibility]
+
+- link:Client-GUI-Angular-Gulp-Tasks[Gulp Tasks]
+
 ## Appendix
 
 * link:devon-guide-frequently-asked-questions[Frequently Asked Questions (FAQ)]
