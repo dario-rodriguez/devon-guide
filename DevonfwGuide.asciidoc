@@ -1,6 +1,6 @@
 = Devonfw Guide 
 Jhonatan Core <jhcore@capgemini.com>
-v2.0.1
+v2.0.3
 
 :imagesdir: ./images
 :footnote: test footnote from asciidoc
@@ -15,7 +15,7 @@ This document contains the complete compendium of the https://troom.capgemini.co
 
 **Current versions:**
 
-* DevonfwGuide - v2.0.1 
+* DevonfwGuide - v2.0.3 
 * Devonfw - v2.0.1
 
 **Authors:**

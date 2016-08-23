@@ -215,22 +215,43 @@ The oasp4j command needs only one parameter:
 
 - *path*: the location where the repository should be cloned.
 
+- *proxyHost*: Host parameter for optional Proxy configuration.
+
+- *proxyPort*: Port parameter for optional Proxy configuration.
+
+
 ===== _github oasp4j_ example of usage
 
 A simple example of usage for this command would be the following
 
 [source,batch]
 ----
+D:\Projects\oasp4j>devon github oasp4j
+----
+
+Or using the *-path* parameter
+[source,batch]
+----
 D:\>devon github oasp4j -path C:\Projects\oasp4j
 ----
+
+Also we can define, if necessary, a proxy configuration. The following example shows how configure the connection for Capgemini's proxy in Europe
+
+[source, bath]
+----
+D:\Projects\oasp4j>devon github oasp4j -proxyHost 1.0.5.10 -proxyPort 8080
+----
+
 
 ==== github devoncode
 
 This command clones the Devon repository to the path specified in the path parameter.
 
+
 ===== _github devoncode_ requirements
 
 A github user with download permissions over the Devon repository.
+
 
 ===== _github devoncode_ parameters
 
@@ -242,6 +263,11 @@ The _devoncode_ command needs three parameters:
 
 - *password*: the password of the github user.
 
+- *proxyHost*: Host parameter for optional Proxy configuration.
+
+- *proxyPort*: Port parameter for optional Proxy configuration.
+
+
 ===== _github devoncode_ example of usage
 
 A simple example of usage for this command would be the followingdevon
@@ -249,6 +275,13 @@ A simple example of usage for this command would be the followingdevon
 [source,batch]
 ----
 D:\>devon github devoncode -path C:\Projects\devon -user John_g -pass 12345
+----
+
+Also we can define, if necessary, a proxy configuration. The following example shows how configure the connection for Capgemini's proxy in Europe
+
+[source, bath]
+----
+D:\>devon github devoncode -path C:\Projects\devon -user John_g -pass 12345 -proxyHost 1.0.5.10 -proxyPort 8080
 ----
 
 === help
@@ -599,7 +632,7 @@ D:\devon-dist>devon oasp4js run -clientpath D:\devon-dist\workspaces\MyOasp4jsAp
 
 In both cases after launching the command a browser should be opened and will show the welcome page of the _oasp4js_ app.
 
-//////////////////////////////////////////
+
 === project
 
 The _project_ module groups the funcionalities related to the combined server + client projects.
@@ -851,7 +884,7 @@ Starting application
 
 After launching the command, a browser should be opened and will show the welcome page of the oasp4js app.
 
-//////////////////////////////////////////
+
 
 === sencha
 
@@ -892,15 +925,15 @@ We will need a Github user with permissions to clone the _devon4sencha_ reposito
 
 The _sencha workspace_ command needs five parameters and four of them are mandatory.
 
-- *workspacename*: the name for the Sencha workspace.
-
-- *workspacepath*: the location where the workspace should be created. This parameter is optional and if the user does not provide it devcon will take the current directory as the location for the Sencha workspace.
+- *path*: the location where the workspace should be created. This parameter is optional and if the user does not provide it devcon will take the current directory as the location for the Sencha workspace.
 
 - *username*: the github user with permission to download the _devon4sencha_ repository.
 
 - *password*: the password of the github user.
 
-- *gitFolder*: the GIT BIN/CMD folder in the user's machine where the git executable is present.
+- *proxyHost*: Host parameter for optional Proxy configuration.
+
+- *proxyPort*: Port parameter for optional Proxy configuration.
 
 ===== _sencha workspace_ example of usage
 
@@ -908,14 +941,21 @@ A simple example of usage for this command would be the following
 
 [source,batch]
 ----
-D:\>devon sencha workspace -projectname MySenchaWorkspace -workspacepath D:\MyProject -username john -password 1234 -gitFolder "C:\Program Files\Git\mingw64\libexec\git-core"
+D:\>devon sencha workspace -path D:\MyProject -username john -password 1234
 Hello, this is Devcon!
 Copyright (c) 2016 Capgemini
 Cloning into 'D:\MyProject\MySenchaWorkspace'...
 Having repository: D:\MyProject\MySenchaWorkspace\.git
 ----
 
-So after that we will have a sencha workspace called _MySenchaWorkspace_ located in the _D:\MyProject_ directory.
+So after that we will have a sencha workspace located in the _D:\MyProject_ directory.
+
+Also we can define, if necessary, a proxy configuration. The following example shows how to configure the connection for Capgemini's proxy in Europe
+
+[source,batch]
+----
+D:\>devon sencha workspace -path D:\MyProject -username john -password 1234 -proxyHost 1.0.5.10 -proxyPort 8080
+----
 
 ==== sencha copyworkspace
 
@@ -1062,7 +1102,37 @@ This module contains system wide commands related to devcon.
 
 This command installs devcon on user's HOME directory or at an alternative path provided by user.
 
+It should be used as a very first step to install Devcon, link:devcon-user-guide#getting-started-download-devcon[see more here]
 
+[source,batch]
+----
+> java -jar devcon.jar system install
+----
 
+If you are behind a proxy you must configure the connection using the optional parameters *-proxyHost* and *-proxyPort*. In following example we show how to use the _system install_ command for Capgemini's proxy in Europe
 
+[source,batch]
+----
+> java -jar devcon.jar system install -proxyHost 1.0.5.10 -proxyPort 8080 
+----
+
+==== system update
+
+Launching this command the user can update the Devcon version installed to the last version available.
+
+===== _system update_ example of usage
+
+A simple example of usage for this command would be the following
+
+[source,batch]
+----
+D:\>devon system update
+----
+
+As occurs with the _system install_ command, if you are behind a proxy you will need to use the optional parameters *-proxyHost* and *-proxyPort* to configure the connection. The following example shows how to configure the _system update_ with the Capgemini's proxy in Europe
+
+[source,batch]
+----
+D:\>devon system update -proxyHost 1.0.5.10 -proxyPort 8080
+----
 
