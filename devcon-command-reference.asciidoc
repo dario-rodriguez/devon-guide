@@ -705,7 +705,7 @@ As you can see the 'projects' property points to the 'subprojects' created. In c
 ----
 {"version": "2.0.1",
 "type":"COMBINED",
-"projects":["myServerApp", "D:\devon-dist\otherDirectory\myClientApp"]
+"projects":["myServerApp", "D:\\devon-dist\\otherDirectory\\myClientApp"]
 }
 ----
 
