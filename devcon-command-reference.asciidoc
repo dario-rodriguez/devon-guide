@@ -375,19 +375,7 @@ With this command the user can run a server project application from the embedde
 
 ===== _oasp4j run_ requirements
 
-The _pom.xml_ of the core project of the server app must be configured with the _spring-boot-maven-plugin_.
-
-[source,xml]
-----
-<plugin>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-maven-plugin</artifactId>
-    <configuration>
-        <executable>true</executable>
-        <mainClass>io.devon.application.MyApp.SpringBootApp</mainClass>
-    </configuration>
-</plugin>
-----
+The command can be launched within a Devon distribution version 2.0.1 or higher. Also verify that your _oasp4j_ application has the devon.json file well configured.
 
 ===== _oasp4j run_ parameters
 
@@ -849,13 +837,17 @@ D:\devon-dist>devon project deploy -path D:\devon-dist\workspaces\MyCombinedProj
 
 ==== project run
 
-This command  runs the server & client project(unified build) in debug mode that is separate client and spring boot server. 
+This command  runs the server & client project(unified build) in debug mode that is separate client and spring boot server.
+
+==== _project run_ requirements
+
+Please verify the _oasp4j run_ and _oasp4js run_ or _sencha run_ requirements. 
 
 ==== _project run_ parameters
 
 - *clienttype* : This parameter shows which type of client is integrated with server i.e oasp4js or sencha and its a mandatory parameter
 
-- *clientport* : user can provide configured port if client type is Sencha.
+- *clienttype* : the type of the client app ('oasp4js' or 'devon4sencha').
 
 - *clientpath* : Location of the oasp4js app.
 
