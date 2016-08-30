@@ -185,6 +185,16 @@ Finished creating/updating workspace: "TestProject"
 After this the `conf/.m2/settings.xml` file should have been configured and a new _TestProject_ directory must have been created in the _workspaces_ directory with all the files checked out from the svn repository and in the distribution root a new _eclipse-testproject.bat_ script must have been created too.
 
 
+==== dist info
+
+The _info_ command provides very basic information about the Devon distribution, like type, version and path.
+
+===== _dist info_ parameters
+
+The _dist info_ command has one optional parameter:
+
+- *path*: path to the distro. Uses current directory if not specified.
+
 === doc
 
 With this module we can access in a straightforward way to the documentation to get started with Devon framework. The commands of this module show information related with different components of Devon even opening in the default browser the sites related with them.
