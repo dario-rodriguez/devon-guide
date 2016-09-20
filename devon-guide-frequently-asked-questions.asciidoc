@@ -56,7 +56,9 @@ This error is related mainly to a network problem.
 
 In some environments Maven seems to be attempting to use an IPv6 address to do the http calls, when either the OS doesn't support it, or is not set up properly to handle it.
 
-You can force Maven (that is a Java tool) to use an IPv4 address with the `-Djava.net.preferIPv4Stack=true` property.
+You can force Maven (that is a Java tool) to use an IPv4 address with the property 
+
+`-Djava.net.preferIPv4Stack=true`
 
 So in order to use that property you need to add it to your Maven command
 
