@@ -39,3 +39,31 @@ In order to disable this functionallity you have to add the following on the app
     "loader": {
           "cache": true
     },
+
+
+ == Configuration Issues
+
+ === Maven
+
+[NOTE]
+====
+Remember to verify the proxy configuration in the `conf/.m2/settings.xml` file and the Firewall configuration of your machine as first steps if you have connection issues using Maven
+====
+
+==== Address is invalid on local machine, or port is not valid on remote machine error
+
+This error is related mainly to a network problem.
+
+In some environments Maven seems to be attempting to use an IPv6 address to do the http calls, when either the OS doesn't support it, or is not set up properly to handle it.
+
+You can force Maven (that is a Java tool) to use an IPv4 address with the `-Djava.net.preferIPv4Stack=true` property.
+
+So in order to use that property you need to add it to your Maven command
+
+[source,bash]
+----
+mvn -Djava.net.preferIPv4Stack=true <lifecycle phase>
+----
+
+This should solve 
+
