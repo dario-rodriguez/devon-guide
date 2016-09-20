@@ -67,5 +67,5 @@ So in order to use that property you need to add it to your Maven command
 mvn -Djava.net.preferIPv4Stack=true <lifecycle phase>
 ----
 
-This should solve 
+This should solve that particular issue.
 
