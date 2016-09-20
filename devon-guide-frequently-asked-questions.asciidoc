@@ -50,7 +50,7 @@ In order to disable this functionallity you have to add the following on the app
 Remember to verify the proxy configuration in the `conf/.m2/settings.xml` file and the Firewall configuration of your machine as first steps if you have connection issues using Maven
 ====
 
-==== Address is invalid on local machine, or port is not valid on remote machine error
+==== _Address is invalid on local machine, or port is not valid on remote machine_ error
 
 This error is related mainly to a network problem.
 
