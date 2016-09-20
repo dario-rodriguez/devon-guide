@@ -41,9 +41,9 @@ In order to disable this functionallity you have to add the following on the app
     },
 
 
- == Configuration Issues
+== Configuration Issues
 
- === Maven
+=== Maven
 
 [NOTE]
 ====
