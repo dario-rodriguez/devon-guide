@@ -2,9 +2,49 @@
 .List of Components in Devonfw Release 2.0.1
 [options="header,footer"]
 |=======================
-||Element      |Version|Description
-|1    |Item 1     |a
-|2    |Item 2     |b
-|3    |Item 3     |c
-|6    |Three items|d
+|                        |Element      |Version        |Description
+|ENVIRONMENT ELEMENTS    |ant	       |1.9.6          |
+|                        |Eclipse      |4.5.1 (Mars)   |
+|                        |jasypt       |1.9.2          |
+||java	|1.7.0_80|
+||maven	|3.3.9|
+||nodejs|5.0.0|
+||sencha|6.1.2.15|
+||Tomcat|8.0.32|
+||subversion|1.9.3|
+
+|2                       |Item 2     |b
+|3                       |Item 3     |c
+|6                       |Three items|d
+|6                       |Three items|d
+|6                       |Three items|d
+|6                       |Three items|d
+|6                       |Three items|d
+|6                       |Three items|d
+|6                       |Three items|d
+|6                       |Three items|d
+|6                       |Three items|d
+|6                       |Three items|d
+|6                       |Three items|d
+|6                       |Three items|d
+|6                       |Three items|d
+|6                       |Three items|d
+|6                       |Three items|d
+|6                       |Three items|d
+|6                       |Three items|d
+|6                       |Three items|d
+|6                       |Three items|d
+|6                       |Three items|d
+|6                       |Three items|d
+|6                       |Three items|d
+|6                       |Three items|d
+|6                       |Three items|d
+|6                       |Three items|d
+|6                       |Three items|d
+|6                       |Three items|d
+|6                       |Three items|d
+|6                       |Three items|d
+|6                       |Three items|d
+|6                       |Three items|d
+|6                       |Three items|d
 |=======================
