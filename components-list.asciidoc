@@ -1,8 +1,8 @@
 
-.An example table
+.List of Components in Devonfw Release 2.0.1
 [options="header,footer"]
 |=======================
-|Col 1|Col 2      |Col 3
+||Element      |Version|Description
 |1    |Item 1     |a
 |2    |Item 2     |b
 |3    |Item 3     |c
