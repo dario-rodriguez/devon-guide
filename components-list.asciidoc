@@ -2,7 +2,7 @@
 == List of Components in Devonfw Release 2.0.1
 
 .Environment Elements
-[width="500"]
+[options="header"]
 |=======================
 |Element      |Version        
 |ant	       |1.9.6          
