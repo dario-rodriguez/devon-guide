@@ -1,5 +1,7 @@
 
 .List of Components in Devonfw Release 2.0.1
+
+.Environment Elements
 [options="header,footer"]
 |=======================
 |                        |Element      |Version        |Description
