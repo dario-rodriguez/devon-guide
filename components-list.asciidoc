@@ -13,13 +13,20 @@
 ||sencha|6.1.2.15|
 ||Tomcat|8.0.32|
 ||subversion|1.9.3|
+|=======================
+
+[options="header,footer"]
+|=======================
 |IP MODULES|||
-||Devcon	|1.0.1|Devonfw UI / Task trunner / automation tool
+||Devcon	|1.0.1|Devonfw UI / Task runner / automation tool
 ||Cobigen (plugin Eclipse)|2.0|Code generator UI in Eclipse
 ||Cobigen core	|3.0	|Code generator 
 ||Reporting	|2.1.0	|Reporting module for OASP4J based on JasperReports
 ||Winauth	|2.1.0	|Windows Authentication for OASP4J
+|=======================
 
+[options="header,footer"]
+|=======================
 |LIBRARIES	javax.transaction API	1.2
 	Querydsl - JPA support	3.4.3
 	Querydsl - Core module	3.4.3
