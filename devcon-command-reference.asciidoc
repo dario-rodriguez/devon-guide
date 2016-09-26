@@ -631,6 +631,53 @@ D:\devon-dist>devon oasp4js run -clientpath D:\devon-dist\workspaces\MyOasp4jsAp
 In both cases after launching the command a browser should be opened and will show the welcome page of the _oasp4js_ app.
 
 
+==== oasp4js jumpstart
+
+This command allows users to get the Oasp4js sample app with all its dependencies included. The command downloads a zip file from Teamforge and extracts all its content in the user's environment.
+
+==== _oasp4js jumpstart_ requirements
+
+A user with permissions to download files from Team Forge repository.
+
+==== _oasp4js jumpstart_ parameters
+
+- *path*: the location for the oasp4js sample app file. Is an optional parameter, if not provided the current path will be used.
+
+- *user*: a Team Forge user with permissions to download files from the repository at least.
+
+- *password*: the Team Forge user password.
+
+- *angularVersion*: Optional parameter to choose the Angular version in wich the sample app is based. The options are '1' to download Oasp4js sample app based on Angular 1 and '2' to download Oasp4js sample app based on Angular 2. When not provided by the user the default value for this parameter will be '1'.
+
+==== _oasp4js jumpstart_ example of usage
+
+A simple example of usage for this command would be the following
+
+[source,batch]
+----
+D:\>devon oasp4js jumpstart -user john -password 1234
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+[INFO] downloading file...
+[INFO] Downloading oasp4js-1.1.0.zip (52,76MB). It may take a few minutes.
+[==        ] 29% downloaded
+
+[...]
+
+file unzip : D:\Temp\.\oasp4js-1.1.0\npm-shrinkwrap.json
+file unzip : D:\Temp\.\oasp4js-1.1.0\package.json
+file unzip : D:\Temp\.\oasp4js-1.1.0\README.md
+Done
+File successfully downloaded.
+----
+
+Or using optional parameters to define a different location and the Angular version
+
+[source,batch]
+----
+D:\>devon oasp4js jumpstart -user john -password 1234 -path D:\my\custom\location -angularVersion 2
+----
+
 === project
 
 The _project_ module groups the funcionalities related to the combined server + client projects.
