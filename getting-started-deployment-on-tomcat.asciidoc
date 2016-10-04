@@ -109,5 +109,34 @@ Finally we are going to package both client and server applications into the sam
 mvn package -P jsclient
 ----
 
+== Deploy on Tomcat 7
+
+To deploy packaged .war file on Tomcat 7, make below changes in java core application pom.xml file.
+
+Example: For "oasp4j" project, make following changes in core application's "pom.xml" which is located in “oasp4j/samples/core/pom.xml”.
+
+. Modify dependency "spring-boot-starter-web" and add exclusions.
+. Add new dependency "spring-boot-starter-tomcat".
+
+[source,xml]
+----
+...
+<dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+      <exclusions>
+            <exclusion>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-tomcat</artifactId>
+            </exclusion>
+       </exclusions>
+</dependency>
+<dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-tomcat</artifactId>
+      <scope>provided</scope>
+</dependency>
+...
+----
 
 
