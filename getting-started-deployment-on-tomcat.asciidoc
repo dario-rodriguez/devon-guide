@@ -145,7 +145,7 @@ To deploy this .war file on Tomcat 7, follow the steps given below:
 
 . Go to Tomcat installation folder (TOMCAT_HOME) -> Copy .war file to "TOMCAT_HOME/webapps" folder .
 . If Tomcat is running, stop it by running "shutdown.bat" file under "TOMCAT_HOME/bin" folder.
-. Delete  "TOMCAT_HOME/temp" and "TOMCAT_HOME/work" folders if present. These folders contain temporary files.
+. Delete  "TOMCAT_HOME/temp" and "TOMCAT_HOME/work" folders if present. These folders contain temporary files. (Mandatory to get desired output)
 . Start Tomcat by running "startup.bat" under "TOMCAT_HOME/bin" folder.
 . By default Tomcat will start on port "8080".
 
