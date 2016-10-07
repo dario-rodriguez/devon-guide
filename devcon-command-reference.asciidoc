@@ -28,11 +28,11 @@ The first version of devcon has been released with the following modules
 
 - workspace
 
-but in your current Devcon version more modules may have been included. You can list them using the option 
+but in your current Devcon version more modules may have been included. You can list them using the option
 
 [source,batch]
 ----
-devon -h 
+devon -h
 ----
 
 === dist
@@ -118,7 +118,7 @@ The _*s2-create.bat*_ creates a new project in the workspace of the distribution
 The command will search for this file to get the root directory where the scripts are located so is necessary to have this file in its correct location.
 
 Apart from this the _settings.xml_ file needs to be compatible with the Shared Services autoconfiguration script (_s2-init.bat_).
- 
+
 ===== _dist s2_ parameters
 
 So the _s2_ command needs six parameters to be able to complete the two phases:
@@ -209,7 +209,7 @@ With this module we can access in a straightforward way to the documentation to 
 
 - `doc oasp4jguide`: Opens the OASP4J guide.
 
-- `doc sencha`: Opens the Sencha Ext JS 6 documentation site.  
+- `doc sencha`: Opens the Sencha Ext JS 6 documentation site.
 
 === github
 
@@ -331,13 +331,13 @@ This command creates a new server project based on the OASP4J archetype.
 
 ===== _oasp4j create_ requirements
 
-This command needs to be launched from within (or pointing to) a Devonfw distribution. 
+This command needs to be launched from within (or pointing to) a Devonfw distribution.
 
 In a second term internally this command uses the _Maven_ plugin included in the Devonfw distributions so in order to be able to use this plugin we should launch this command from a Devonfw command line (use the _console.bat_ included in the Devonfw distributions).
 
 ===== _oasp4j create_ parameters
 
-This command uses five parameters (four of them mandatory). 
+This command uses five parameters (four of them mandatory).
 
 - *servername*: the name for the new server project.
 
@@ -386,6 +386,25 @@ With this command the user can run a server project application from the embedde
 ===== _oasp4j run_ requirements
 
 The command can be launched within a Devon distribution version 2.0.1 or higher. Also verify that your _oasp4j_ application has the devon.json file well configured.
+
+In case you get a _Detected both log4j-over-slf4j.jar AND bound slf4j-log4j12.jar on the class path, preempting StackOverflowError_:
+
+Seems to be an error related to the Oasp4j Archetype version 2.1.0 that it's going to be addressed for next releases. However if you face the error you can apply the following workaround:
+
+* Go to the _core/pom.xml_ file of your project and comment the dependency:
+[source, xml]
+----
+<!--     <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <version>1.6.1</version>
+
+    </dependency> -->
+----
+
+* Return to your project root directory and execute `mvn install` command.
+
+* Try again with the `devon oasp4j run` command.
 
 ===== _oasp4j run_ parameters
 
@@ -889,7 +908,7 @@ If we use the optional parameter _path_
 
 [source,batch]
 ====
-D:\devon-dist>devon project deploy -path D:\devon-dist\workspaces\MyCombinedProject 
+D:\devon-dist>devon project deploy -path D:\devon-dist\workspaces\MyCombinedProject
 ====
 
 ==== project run
@@ -898,7 +917,7 @@ This command  runs the server & client project(unified build) in debug mode that
 
 ==== _project run_ requirements
 
-Please verify the _oasp4j run_ and _oasp4js run_ or _sencha run_ requirements. 
+Please verify the _oasp4j run_ and _oasp4js run_ or _sencha run_ requirements.
 
 ==== _project run_ parameters
 
@@ -1012,7 +1031,7 @@ With this command we can make create new Sencha workspace by making a copy from 
 
 ===== _sencha copyworkspace_ requirements
 
-There should be a Devonfw distribution present which included the 'workspaces\examples\devon4sencha' folder 
+There should be a Devonfw distribution present which included the 'workspaces\examples\devon4sencha' folder
 
 ===== _sencha copyworkspace_ parameters
 
@@ -1140,7 +1159,7 @@ Copyright (c) 2016 Capgemini
 [INFO] creating workspace at path D:\devon2-alpha\workspaces\newproject
 [...]
 ----
- 
+
 As a result of that a new folder _newproject_ with the default project configuration should be created in the _C:\MyFolder\devon-dist\workspaces_ directory alongside an _eclipse-newproject.bat_ starter script in the root of the distribution.
 
 === system
@@ -1162,7 +1181,7 @@ If you are behind a proxy you must configure the connection using the optional p
 
 [source,batch]
 ----
-> java -jar devcon.jar system install -proxyHost 1.0.5.10 -proxyPort 8080 
+> java -jar devcon.jar system install -proxyHost 1.0.5.10 -proxyPort 8080
 ----
 
 ==== system update
@@ -1184,4 +1203,3 @@ As occurs with the _system install_ command, if you are behind a proxy you will 
 ----
 D:\>devon system update -proxyHost 1.0.5.10 -proxyPort 8080
 ----
-
