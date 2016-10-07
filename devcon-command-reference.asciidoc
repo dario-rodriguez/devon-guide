@@ -389,7 +389,7 @@ The command can be launched within a Devon distribution version 2.0.1 or higher.
 
 In case you get a _Detected both log4j-over-slf4j.jar AND bound slf4j-log4j12.jar on the class path, preempting StackOverflowError_:
 
-Seems to be an error related to the Oasp4j Archetype version 2.1.0 that it's going to be addressed for next releases (more info link:https://github.com/oasp/oasp4j/pull/478/[here]).
+Seems that there is an error related to the Oasp4j Archetype version 2.1.0 that it's going to be addressed for next releases (more info link:https://github.com/oasp/oasp4j/pull/478/[here]).
 
 However if you face the error you can apply the following workaround:
 
