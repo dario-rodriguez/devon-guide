@@ -1,1 +1,1 @@
-Devonfw Guide v.2.0.3 Copyright © 2016 Capgemini 
+Devonfw Guide v.2.0.5-SNAPSHOT Copyright © 2016 Capgemini 

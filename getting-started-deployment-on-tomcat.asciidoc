@@ -113,7 +113,7 @@ mvn package -P jsclient
 
 To deploy packaged Web Application Archive (.war) file on Tomcat 7, make below changes in java core application pom.xml file.
 
-Example: For "oasp4j" project, make following changes in core application's "pom.xml" which is located in “oasp4j/samples/core/pom.xml”.
+Example: For "oasp4j" project, make following changes in core application's "pom.xml" which is located in "oasp4j/samples/core/pom.xml".
 
 . Modify dependency "spring-boot-starter-web" and add exclusions.
 . Add new dependency "spring-boot-starter-tomcat".
