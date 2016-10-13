@@ -49,6 +49,23 @@ Each command is used to accomplish one task and may need some parameters in orde
 
 == Devcon basic usage
 
+Now, there are two ways to run Devcon:
+a. Using Devcon GUI
+b. Using command prompt
+
+Usage of Devcon GUI:
+
+To run Devcon using Devcon GUI , we need to run below command from command prompt:
+
+[source,batch]
+----
+devon -g
+----
+
+If we navigate to particular module it will show all commands available in respective module. Exit option is available in first menu.
+ 
+Usage of command prompt:
+
 Accordingly with the defined structure the devcon usage is based on the definition of each of its element: module, command and parameters. So in the command line we must specify each of these elements in the correct order:
 
 [source,batch]
