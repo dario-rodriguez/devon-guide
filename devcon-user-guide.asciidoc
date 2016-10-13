@@ -62,7 +62,13 @@ To run Devcon using Devcon GUI , we need to run below command from command promp
 devon -g
 ----
 
-If we navigate to particular module it will show all commands available in respective module. Exit option is available in first menu.
+Below home page will appear.
+
+image::images/Devcon_homepage.JPG[,align="center",width="450",Devcon, link="https://github.com/devonfw/devon-guide/wiki/images/Devcon_homepage.JPG"]
+
+If we navigate to particular module it will show all commands available in respective module. Exit option is available in first menu. Once we click on any command repective command form will get displayed on screen. Below is screenshot attached:
+
+image::images/Devcon_Form.JPG[,align="center",width="450",Devcon, link="https://github.com/devonfw/devon-guide/wiki/images/Devcon_Form.JPG"]
  
 === Usage of command prompt:
 
