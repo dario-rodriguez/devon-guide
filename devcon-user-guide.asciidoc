@@ -53,7 +53,7 @@ Now, there are two ways to run Devcon:
 a. Using Devcon GUI
 b. Using command prompt
 
-Usage of Devcon GUI:
+===Usage of Devcon GUI:
 
 To run Devcon using Devcon GUI , we need to run below command from command prompt:
 
@@ -64,7 +64,7 @@ devon -g
 
 If we navigate to particular module it will show all commands available in respective module. Exit option is available in first menu.
  
-Usage of command prompt:
+===Usage of command prompt:
 
 Accordingly with the defined structure the devcon usage is based on the definition of each of its element: module, command and parameters. So in the command line we must specify each of these elements in the correct order:
 
@@ -79,15 +79,15 @@ devon [module] [command] [parameters ...]
 
 - the parameters are the rest of the elements defined after the command.
 
-=== Defining the module and the command
+==== Defining the module and the command
 
 Both module and command are defined by an identifier that is the 'name' that the module or command have assigned in devcon.
 
-=== Defining the parameters
+==== Defining the parameters
 
 The parameter definition is divided in two parts. The first one is the parameters identifier that is the _name_ that the parameter has assigned within the devcon app *preceded by a single dash*. The second part of the parameter definition is the parameter value.
 
-=== Basic example
+==== Basic example
 
 Thus a basic example of a devcon line command would be
 
@@ -106,13 +106,13 @@ where:
 
 - *hello* is the value for the _message_ parameter.
 
-=== Parameters
+==== Parameters
 
 As we mentioned before from the point of view of the commands we have two types of parameters: the mandatory parameters and the optional parameters. 
 The mandatory parameters must be provided by the user specifying the parameter identifier and the value in the command line. The optional parameters must be also provided to the app but, if the user do not specify it, devcon will use a default value for them.
 
 //////////////////////////////////////////
-==== Optional parameters in _devon.json_ file
+===== Optional parameters in _devon.json_ file
 
 In the case of the optional parameters if we don't specify the value when launching the command devcon will search for a _devon.json_ file in order to find the value of the optional parameter. Devcon will start searching from the directory from which the command has been launched and will climb the directory tree until the config file is found.
 The _devon.json_ file is a configuration file that defines some properties to be used by devcon in some processes. To define the value for optional parameters we can use the _optionalParameters_ property, that is a JSON object with the definition of each optional parameter
@@ -174,7 +174,7 @@ Please introduce the value for missing parameter signature:|
 ----
 //////////////////////////////////////////
 
-=== Global parameters
+==== Global parameters
 
 Devcon handles a third type of parameter that has nothing to do with command parameters. We are referring to the global parameters.
 
@@ -189,7 +189,7 @@ In the first devcon version we have three global parameters defined:
 - global parameter _prompt_: defined with *-p* or *--prompt*.
 
 
-==== _help_ parameter
+===== _help_ parameter
 The global parameter _help_ is very useful to show overall help info of devcon or also for showing more detailed info of each module and command supported.
 For example if we know nothing about how to start with devcon the option *-h* (or *--help*) will show a summary of the devcon usage, listing the global parameters and the available modules alongside a brief description of each one.  
 
@@ -252,7 +252,7 @@ This command is to say something
  -signature   the signature
 ----
 
-==== _version_ parameter
+===== _version_ parameter
 
 This is a simple option that returns the devcon running version and is defined with *-v* (or *--version*). As the _help_ option this will show the devcon version even though we have defined a command with all required parameters.
 
@@ -272,7 +272,7 @@ Copyright (c) 2016 Capgemini
 devcon v.1.0.0
 ----
 
-==== _prompt_ parameter
+===== _prompt_ parameter
 
 With this global parameter we can ask devcon to prompt for all parameters (both optional and mandatory) when launching a command.
 
