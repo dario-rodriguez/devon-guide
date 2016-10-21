@@ -6,7 +6,7 @@
 
 ==== _Load denied by X-Frame_ error when trying to upload a file to the server from the client
 
-This error is thrown by the spring security component in the server in order to avoid clickjacking attacks. You can override this configuration in the spring security config adding the following
+This error is thrown by the spring security component in the server in order to avoid link:https://en.wikipedia.org/wiki/Clickjacking[clickjacking] attacks. You can override this configuration in the spring security config adding the following
 
 [source,xml]
 ---
