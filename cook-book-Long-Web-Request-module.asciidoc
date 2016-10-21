@@ -1,1 +1,248 @@
-asdf
+:toc: macro
+toc::[]
+
+# The Long Web Request module
+
+The Long Web Request Module has been implemented as asynchronous support for manage long processes in the server side based on the REST service of the oasp4j based applications. The module implements the Apache CXF Continuations API, for more information you can visit link:http://cxf.apache.org/docs/continuations.html[this link].
+
+The continuations API enables the server to suspend the request thread and resume it later, when the long running process is over, offering a scalability advantage because suspended request threads are back to the HTTP request handling thread pool, being able to serve other client requests.
+
+== Adding the dependency to a project
+To get access to the functionality of the Long Web Request module you only need to include the module as a dependency in your project's pom.xml
+
+[source,xml]
+----
+ <dependency>
+    <groupId>com.capgemini.devonfw.modules</groupId>
+    <artifactId>devonfw-longwebrequest</artifactId>
+    <version>2.1.0-SNAPSHOT</version>
+</dependency>
+----
+
+== Injecting the module in our REST service
+
+First of all we will need to add the scanner for dependency injection. To do so, in the _SpringBoot_ main class, we must add the following annotations
+
+[source,java]
+----
+@Configuration
+@ComponentScan(basePackages = { "com.capgemini.devonfw.module.longwebrequest" })
+@EnableAutoConfiguration
+public class MyBootApp {
+
+    [...]
+----
+
+[NOTE]
+====
+Depending on your project tree structure you may need to specify also the location for your Rest service:
+
+`@ComponentScan(basePackages = { "com.capgemini.devonfw.module.longwebrequest", "my.rest.location.package" })`
+
+====
+
+As you can see the `basePackages` of the `@ComponentScan` points to the Long Web Request module package so now we can start using the module.
+
+
+Finally we can inject the _LongWebRequest_ module in our REST service using the `@Inject` annotation (`@Autowire` should also work) and relating it to a `private` property of the class.
+
+[source,java]
+----
+import com.capgemini.devonfw.module.longwebrequest.common.api.LongWebRequest;
+
+...
+
+@Service("myRestService")
+@Path("/rest")
+public class Rest {
+
+  @Inject
+  private LongWebRequest lwr;
+
+  @GET
+  @Path("/do_large_task")
+  @Produces(MediaType.TEXT_PLAIN)
+  public String doLargeTask() {
+
+	[...]
+
+
+----
+
+== Basic usage
+In order to use the module functionality you will need to complete three steps
+
+=== Step 1: Implement a `LongTask`class 
+
+Wrap your long process in the `run` method of a class that implements the `LongTask` interface that is provided with the _Long Web Request_ module. The only particularity of that interface is the implementation of that `run()` method that will be used by the module in its internal process.
+
+[source,java]
+----
+import com.capgemini.devonfw.module.longwebrequest.common.api.LongTask;
+
+...
+
+public class MyLongTask implements LongTask {
+
+  @Override
+  public Object run() {
+
+      // here goes the code for my long process
+      return "Done!"
+  }
+
+  ...
+
+----
+
+=== Step 2: Import the context
+
+To obtain the _Continuation_ object we need to provide the _context_ of the request. To do that we only need to add the `MessageContext` object in our service, using the `@Context` annotation:
+
+[source,java]
+----
+import com.capgemini.devonfw.module.longwebrequest.common.api.LongWebRequest;
+import org.apache.cxf.jaxrs.ext.MessageContext;
+
+...
+
+@Service("myRestService")
+@Path("/rest")
+public class Rest {
+
+  @Inject
+  private LongWebRequest lwr;
+
+  @Context
+  private MessageContext context;
+
+  @GET
+  @Path("/do_large_task")
+  @Produces(MediaType.TEXT_PLAIN)
+  public String doLargeTask() {
+
+	[...]
+
+
+----
+
+
+=== Step 3: Call the module
+
+To call the module you only need to use the `execute()` method and provide the `context` obtained in the previous step and the `LongTask` class that you implemented in the first step:
+
+
+[source,java]
+----
+import com.capgemini.devonfw.module.longwebrequest.common.api.LongWebRequest;
+import org.apache.cxf.jaxrs.ext.MessageContext;
+
+...
+
+@Service("myRestService")
+@Path("/rest")
+public class Rest {
+
+  @Inject
+  private LongWebRequest lwr;
+
+  @Context
+  private MessageContext context;
+
+  @GET
+  @Path("/do_large_task")
+  @Produces(MediaType.TEXT_PLAIN)
+  public String doLargeTask() {
+
+	return (String) this.lwr.execute(this.context, new MyLongTask());
+  }
+
+----
+
+== Passing parameters to the Long Task class
+
+In case you need it you can pass parameters to the class that wraps the long process.
+
+[source,java]
+----
+public class MyLongTask implements LongTask {
+
+  private String id;
+
+  public MyLongTask(String id) {
+    this.id = id;
+  }
+
+  @Override
+  public Object run() {
+
+      // here goes the code for my long process
+      doLargeTaskUsingTheParameter(this.id);
+      return "Done!"
+  }
+
+}
+----
+
+And the call from the Rest service would be
+
+[source,java]
+----
+
+  ...
+
+  @GET
+  @Path("/getsomething/{id}")
+  @Produces(MediaType.TEXT_PLAIN)
+  public String getSomething(@PathParam("id") String id) {
+
+    return (String) this.lwr.execute(this.context, new MyLongTask(id));
+  }
+
+  ...
+
+----
+
+
+== Configuring the LongWebRequest object
+
+Internally the `Continuation` process can be configured in three parameters:
+
+- *time out*: The amount of time that the process will wait for our long task to be finished before return. A timeout of < 0 will cause an immediate return of the process. A timeout of 0 will wait indefinitely.
+
+- *core pool size*: Sets the ThreadPoolExecutor's core pool size.
+
+- *max pool size*: Sets the ThreadPoolExecutor's maximum pool size.
+
+
+The default instance of the LongWebRequest is provided with the values:
+
+- time out: 0.
+
+- core pool size: 5.
+
+- max pool size: 5.
+
+
+However you can configure those values using the alternative constructors of the `LongWebRequest` object:
+
+[source,java]
+----
+  
+  ...
+
+  @GET
+  @Path("/do_large_task")
+  @Produces(MediaType.TEXT_PLAIN)
+  public String doLargeTask() {
+
+  	// for a time out of 6 seconds and a core pool size and maximum pool size of 10:
+	LongWebRequest myLongWR = new LongWebRequestImpl(6000, 10, 10);
+    return (String) myLongWR.execute(this.context, new MyLongTask());
+  }
+
+  ...
+
+----
+
+
