@@ -74,7 +74,7 @@ In order to use the module functionality you will need to complete three steps
 
 === Step 1: Implement a `LongTask`class 
 
-Wrap your long process in the `run` method of a class that implements the `LongTask` interface that is provided with the _Long Web Request_ module. The only particularity of that interface is the implementation of that `run()` method that will be used by the module in its internal process.
+Wrap your long process in the `run` method of a class that implements the `LongTask` interface, provided with the _Long Web Request_ module. The only particularity of that interface is the implementation of that `run()` method that will be used by the module in its internal process.
 
 [source,java]
 ----
