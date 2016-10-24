@@ -146,3 +146,43 @@ spring.datasource.driver-class-name=com.microsoft.sqlserver.jdbc.SQLServerDriver
 (replace _root_ with your actual username / password)
 
 For further information see: https://wiki.jasig.org/pages/viewpage.action?pageId=57578731[MS SQL Server and MS JDBC Driver ]
+
+=== BD2
+
+The dependency we need to work with DB2 are the next:
+
+[source,xml]
+----
+ <dependency>
+              <groupId>com.ibm.db2.jcc</groupId>
+              <artifactId>db2jcc4</artifactId>
+              <version>10.1</version>
+       </dependency>
+       <dependency>
+              <groupId>com.ibm.db2</groupId>
+              <artifactId>db2jcc_license_cisuz</artifactId>
+              <version>9.7</version>
+       </dependency>
+       <dependency>
+              <groupId>com.ibm.db2</groupId>
+              <artifactId>db2java</artifactId>
+              <version>9.7</version>
+       </dependency>
+----
+
+And the properties are the next:
+
+[source]
+jdbc:db2://<server>:<port>/<dbalias>
+spring.datasource.url=jdbc:db2://<server>/<port>:user=<user>;password=<password>; 
+spring.jpa.database-platform=org.hibernate.dialect.DB2Dialect
+spring.datasource.traceLevel=com.ibm.db2.jcc.DB2BaseDataSource.TRACE_ALL
+spring.datasource.driver-class-name=com.ibm.db2.jcc.DB2Driver 
+
+
+As you can see we are including the credentials properties into the URL. If you want to learn more about URL format you can see http://www.ibm.com/support/knowledgecenter/SSEPGG_9.7.0/com.ibm.db2.luw.apdv.java.doc/src/tpc/imjcc_r0052342.html[SQLJ type 4 connectivity]  and http://www.ibm.com/support/knowledgecenter/SSEPGG_9.7.0/com.ibm.db2.luw.apdv.java.doc/src/tpc/imjcc_r0052341.html[SQLJ type 2 connectivity] URL syntax.
+
+[NOTE]
+====
+The http://www-01.ibm.com/support/docview.wss?uid=swg21363866[IBM Drivers] are not free distributed so you can't find them in Maven. You need to get in contact with IBM or just find the license in whatever IBM software product.
+====
