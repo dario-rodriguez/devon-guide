@@ -1,1 +1,4 @@
-Insert text here 
+:toc: macro
+toc::[]
+
+# The Reporting module - Report generation with JasperReports
