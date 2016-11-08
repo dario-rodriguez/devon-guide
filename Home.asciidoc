@@ -59,6 +59,8 @@
 
 - link:cookbook-batch-layer[Batch Layer]
 
+- link:cookbook-spring-data[Integrating Spring Data]
+
 - link:cookbook-websocket[WebSocket]
 
 - link:cookbook-dockerization[Devon on Docker]
