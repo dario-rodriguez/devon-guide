@@ -103,7 +103,7 @@ The @Consumes annotation is used to specify which MIME media types that can be a
 
 If a resource is unable to consume the MIME type of a client request, the JAX-RS runtime sends back an HTTP 415 (“Unsupported Media Type”) error.
 
-The value of @Consumes is an array of String of acceptable MIME types. 
+The value of @Consumes is an array of String of acceptable MIME types.
 For example:@Consumes({"text/plain,text/html"})
 
 The following example shows how to apply @Consumes at both the class and method levels:
