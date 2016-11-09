@@ -8,7 +8,7 @@ Apache CXF is an open source services framework. CXF helps you build and develop
 
 *Example:*
 
-In JAX-RS, annotate the service method with @Produces("application/octet-stream"). We define a regular interface of the service and annotate it with JAX-RS annotations:
+In JAX-RS, annotate the service method with @Produces("application/octet-stream"). We define an interface of the service and annotate it with JAX-RS annotations:
 
 [source,java]
 --------
