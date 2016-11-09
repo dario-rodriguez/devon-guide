@@ -85,7 +85,7 @@ From version 2.1. “Balu” onwards, Devonfw is using by default Java 8 for bot
 
 ### Full Linux support
 
-In order to fully support the move towards the Cloud, from version 2.1. “Balu” onwards, Devonfw is fully supported on Linux. Linux is the de-facto standard for most Cloud providers. We currently only offer first-class support for Ubuntu 14.04 LTS onward but most aspects of Devonfw should run without problems on other and older distributions as well. The usage of Devonfw on Linux is documented here: XXX
+In order to fully support the move towards the Cloud, from version 2.1. “Balu” onwards, Devonfw is fully supported on Linux. Linux is the de-facto standard for most Cloud providers. We currently only offer first-class support for Ubuntu 16.04 LTS onward but most aspects of Devonfw should run without problems on other and older distributions as well. The usage of Devonfw on Linux is documented here: XXX
 
 ### Initial ATOM support
 
