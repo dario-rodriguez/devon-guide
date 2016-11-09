@@ -5,6 +5,12 @@ toc::[]
 
 ## New features, improvements and updates
 
+### DISCLAIMER
+
+This document is the _draft_ version of the Devonfw 2.1 “Balu” release notes. This might seem premature as the official release is still a month off. However, it is a small experiment. Facebook and others are – typically informally– using a paradigm which is sometimes called “README driven development”[https://elliot.land/readme-driven-development].
+
+By writing the release notes of a project early on in the release cycle, the different participants (stakeholders, developers, testers etc etc), get an early birds-eye view of what´s expected and it should help getting everybody´s expectations aligned. *All this implies that this document is NOT the final version of the release notes, as items might be added and we maintain at all times the liberty to remove items from the list!*
+
 ### Introduction
 
 We are proud to present the new release of Devonfw, version “2.1” which we've baptized “Balu”. A major focus for this release is developer productivity. So that explains the name, as Balu is not just big, friendly and cuddly but also was very happy to let Mowgli do the work for him.
