@@ -117,7 +117,7 @@ public Response uploadFile(List<Attachment> attachments, HttpServletRequest requ
      * @param inputStream
      * @param fileName
  */
- private void writeToFileServer(InputStream inputStream, String fileName) {
+ private void writeToFileSystem(InputStream inputStream, String fileName) {
          OutputStream outputStream = null;
         try {
             outputStream = new FileOutputStream(new File(UPLOAD_FILE_SERVER + fileName));
