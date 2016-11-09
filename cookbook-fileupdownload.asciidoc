@@ -116,7 +116,7 @@ public Response uploadFile(List<Attachment> attachments, HttpServletRequest requ
 
 == @Consumes Annotation
 
-The @Consumes annotation is used to specify which MIME media types that can be accepted, or consumed, from the client. If @Consumes is applied at the class level, all the response methods accept the specified MIME types by default. If applied at the method level, @Consumes overrides any @Consumes annotations applied at the class level.
+The @Consumes annotation is used to specify MIME media type that can be accepted, or consumed, from the client. If @Consumes is applied at the class level, all the response methods accept the specified MIME types by default. If applied at the method level, @Consumes overrides any @Consumes annotation applied at the class level.
 
 If a resource is unable to consume the MIME type of a client request, the JAX-RS runtime sends back an HTTP 415 (“Unsupported Media Type”) error.
 
@@ -145,6 +145,6 @@ public class SomeResource {
 
 = MIME Types
 
-MIME stands for "Multipurpose Internet Mail Extensions. It's a way of identifying files on the Internet according to their nature and format. For example, using the "Content-type" header value defined in a HTTP response, the browser can open the file with the proper extension/plugin.
+MIME stands for "Multipurpose Internet Mail Extensions. It is a way of identifying files on the Internet according to their nature and format. For example, using the "Content-type" header value defined in a HTTP response, the browser can open the file with the proper extension/plugin.
 
 For more information visit : http://www.freeformatter.com/mime-types-list.html 
