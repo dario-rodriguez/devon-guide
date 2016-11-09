@@ -8,15 +8,15 @@ Apache CXF is an open source services framework. CXF helps you build and develop
 
 example.
 
-In JAX-RS, annotate the service method with @Produces("application/octet-stream").We define a regular interface of the service and annotate it with JAX-RS annotations:
+In JAX-RS, annotate the service method with @Produces("application/octet-stream"). We define a regular interface of the service and annotate it with JAX-RS annotations:
 
 [source,java]
 --------
 @SuppressWarnings("javadoc")
-	@Produces("application/octet-stream")
-	@GET
-	@Path("/product/downloadFile")
-	public Response getDownloadableFile() throws SQLException, IOException;
+@Produces("application/octet-stream")
+@GET
+@Path("/product/downloadFile")
+public Response getDownloadableFile() throws SQLException, IOException;
 --------
 
 And here is a simple implementation of the service:
@@ -24,16 +24,46 @@ And here is a simple implementation of the service:
 [source,java]
 --------
 @Override
-public Response  getDownloadFile() throws SQLException, IOException {
-File file = new File("D:/Users/…/abc.pdf"); // path for .pdf or //.xlsx file 
-ResponseBuilder response = Response.ok((Object) file);
-response.header("Content-Disposition", "attachment; filename=test.pdf"); // file name as response .pdf or .xlsx
-return response.build();
+public Response  getDownloadableFile() throws SQLException, IOException {
+    File file = new File("FILE_PATH"); 
+    ResponseBuilder response = Response.ok((Object) file);
+    response.header("Content-Disposition", "attachment; filename=FILENAME.FILE_EXTENSION"); 
+    return response.build();
 }
 --------
 
+== The @Produces Annotation
 
-= File upload using org.apache.cxf
+The @Produces annotation is used to specify the MIME media types or representations a resource can produce and send back to the client. If @Produces is applied at the class level, all the methods in a resource can produce the specified MIME types by default. If applied at the method level, the annotation overrides any @Produces annotations applied at the class level.
+
+If no methods in a resource are able to produce the MIME type in a client request, the JAX-RS runtime sends back an HTTP “406 Not Acceptable” error.
+
+The value of @Produces is an array of String of MIME types.
+For example:@Produces({"image/jpeg,image/png"})
+
+The following example shows how to apply @Produces at both the class and method levels:
+
+[source,java]
+--------
+@Path("/myResource")
+@Produces("text/plain")
+public class SomeResource {
+	@GET
+	public String doGetAsPlainText() {
+		...
+	}
+
+	@GET
+	@Produces("text/html")
+	public String doGetAsHtml() {
+		...
+	}
+}
+
+--------
+
+
+= File upload from org.apache.cxf
 
 * 	Annotate upload file method with @Consumes().
 * 	Get list of attachments and process them to get input streams.
@@ -53,19 +83,4 @@ return null;
 --------
 
 
-= Annotations @Consumes & @Produces
-
-== @Consumes
-
-* It specifies, the request is coming from the client. 
-* You can specify the MIME (Multipurpose Internet Mail Extensions) type as @Consumes ("application/xml"), if the request is in xml format.
-* The value of @Consumes is an array of String of acceptable MIME types
-* For example:  @Consumes({"text/plain,text/html"})
-
-== 	@Produces
-
-* It specifies, the response is going to the client.
-* You can specify the Mime type as @Produces ("application/xml"), if the response needs to be in xml format.
-* The value of @Produces is an array of String of MIME types. 
-* For example: @Produces({"image/jpeg,image/png"})
 
