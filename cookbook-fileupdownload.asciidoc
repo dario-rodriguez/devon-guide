@@ -1,31 +1,14 @@
 :toc: macro
 toc::[]
 
-= File download using org.apache.cxf
+Apache CXF is an open source services framework. CXF helps you build and develop services using frontend programming APIs, like JAX-WS and JAX-RS. 
 
-* 	Annotate download file method with @Produces().
-* 		Read the file and convert it into byte array.
-* Return MultipartBody (org.apache.cxf.jaxrs.ext.multipart.MultipartBody) as a response which contains byte array.
+= File download from org.apache.cxf
+*org.apache.cxf* provides option to download files of different MIME (Multipurpose Internet Mail Extensions) types.
 
-[source,java]
---------
-@GET
-@Path ("/download")
-@Produces ("multipart/mixed")
-   public MultipartBody getFiles() {
+example.
 
-	//read object and store it into byte[]
-	List<Attachment> atts = new LinkedList<Attachment>();
-atts.add(new Attachment("obj", MediaType.APPLICATION_OCTET_STREAM, new ByteArrayInputStream(byte[])));
-return new MultipartBody(atts, true);
-}
---------
-
-== Generic solution - code snippet
-
-MIME (MIME (Multipurpose Internet Mail Extensions) “application/octet-stream” is used as default MIME type for file download. 
-
-We define a regular interface to define the API of the service and annotate it with JAX-WS annotations:
+In JAX-RS, annotate the service method with @Produces("application/octet-stream").We define a regular interface of the service and annotate it with JAX-RS annotations:
 
 [source,java]
 --------
@@ -37,16 +20,16 @@ We define a regular interface to define the API of the service and annotate it w
 --------
 
 And here is a simple implementation of the service:
+
 [source,java]
 --------
 @Override
 public Response  getDownloadFile() throws SQLException, IOException {
 File file = new File("D:/Users/…/abc.pdf"); // path for .pdf or //.xlsx file 
 ResponseBuilder response = Response.ok((Object) file);
-response.header("Content-Disposition", "attachment; filename=test.xlsx"); // file name as response .pdf or .xlsx
-    	return response.build();
-
-  }
+response.header("Content-Disposition", "attachment; filename=test.pdf"); // file name as response .pdf or .xlsx
+return response.build();
+}
 --------
 
 
