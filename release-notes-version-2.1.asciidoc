@@ -1,10 +1,11 @@
-= Release notes Devonfw 2.1 "Balu"
-== New features, improvements and updates
-
 :toc: macro
 toc::[]
 
-=== Introduction
+# Release notes Devonfw 2.1 "Balu"
+
+## New features, improvements and updates
+
+### Introduction
 
 We are proud to present the new release of Devonfw, version “2.1” which we've baptized “Balu”. A major focus for this release is developer productivity. So that explains the name, as Balu is not just big, friendly and cuddly but also was very happy to let Mowgli do the work for him.
 
