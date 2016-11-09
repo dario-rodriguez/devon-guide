@@ -28,6 +28,23 @@ Cobigen can now also be used for code-generation within the context of an engage
 For more information see: XXX
 And seeing is believing. Watch the video: XXXX
 
+### Angular 2
+
+With the official release of Angular 2 and TypeScript 2, we're slowly but steadily moving to embrace  these important new players in the  web development scene. We keep supporting the Angular 1 based OASP4js framework and are planning a migration of this framework to Angular 2 in the near future. For “Balu” we've have decided to integrate “vanilla” Angular 2.
+
+We have migrated the Restaurant Sample application to serve as a, documented and supported, blueprint for Angular 2 applications. Furthermore, we support three “kickstarter” projects which help engagment getting started with Angular2 - either using Bootstrap or Google´s Material Design - or, alternatively, Ionic 2 (the mobile framework on top of Angular 2). For more information see: XXX
+
+### OASP4J 2.1.2 Release
+
+INSERT OASP4J 2.1.2 RELEASE NOTES HERE 
+
+### Devon4Sencha
+
+Devon4Sencha is an alternative view layer for web applications developed with Devonfw. It is based on Sencha Ext JS. As it requires a license for commercial applications it is not provided as Open Source and is considered to be part of the IP of Capgemini.
+
+These libraries provide support for creating SPA (Single Page Applications) with a very rich set of components for both desktop and mobile. In the new version we extend this functionality to support for “Universal Apps”, the Sencha specific term for true multi-device applications which make it possible to develop a single application for desktop, tablet as well as mobile devices. In the latest version Devon4Sencha has been upgraded to support Ext JS 6.2 and we now support the usage of Cobigen as well as Sencha Architect as extra option to improve developer productivity.
+For more information about the update see: XXX
+
 ### Devcon enhancements
 
 The Devon Console, Devcon, is a cross-platform command line tool running on the JVM that provides many automated tasks around the full life-cycle of Devon applications, from installing the basic working environment and generating a new project, to running a test server and deploying an application to production. It can be used by the engagements to integrate with their proprietary tool chain.
@@ -70,24 +87,9 @@ From version 2.1. “Balu” onwards, Devonfw is using by default Java 8 for bot
 
 In order to fully support the move towards the Cloud, from version 2.1. “Balu” onwards, Devonfw is fully supported on Linux. Linux is the de-facto standard for most Cloud providers. We currently only offer first-class support for Ubuntu 14.04 LTS onward but most aspects of Devonfw should run without problems on other and older distributions as well. The usage of Devonfw on Linux is documented here: XXX
 
-### Angular 2
-
-With the official release of Angular 2 and TypeScript 2, we're slowly but steadily moving to embrace  these important new players in the  web development scene. We keep supporting the Angular 1 based OASP4js framework and are planning a migration of this framework to Angular 2 in the near future. For “Balu” we've have decided to integrate “vanilla” Angular 2.
-
-We have migrated the Restaurant Sample application to serve as a, documented and supported, blueprint for Angular 2 applications. Furthermore, we support three “kickstarter” projects which help engagment getting started with Angular2 - either using Bootstrap or Google´s Material Design - or, alternatively, Ionic 2 (the mobile framework on top of Angular 2). For more information see: XXX
-
 ### Initial ATOM support
 
 Atom is a text editor that's modern, approachable, yet hackable to the core—a tool you can customize to do anything but also use productively without ever touching a config file. It is turning into a standard for modern web development. In Devonfw 2.1 “Balu” we provide a script which installs automatically the most recent version of Atom in the Devonfw distribution with a preconfigured set of essential plugins. 
-
-INSERT OASP4J 2.1.2 RELEASE NOTES HERE 
-
-### Devon4Sencha
-
-Devon4Sencha is an alternative view layer for web applications developed with Devonfw. It is based on Sencha Ext JS. As it requires a license for commercial applications it is not provided as Open Source and is considered to be part of the IP of Capgemini.
-
-These libraries provide support for creating SPA (Single Page Applications) with a very rich set of components for both desktop and mobile. In the new version we extend this functionality to support for “Universal Apps”, the Sencha specific term for true multi-device applications which make it possible to develop a single application for desktop, tablet as well as mobile devices. In the latest version Devon4Sencha has been upgraded to support Ext JS 6.2 and we now support the usage of Cobigen as well as Sencha Architect as extra option to improve developer productivity.
-For more information about the update see: XXX
 
 ### Database support
 
