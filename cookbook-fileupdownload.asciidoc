@@ -6,7 +6,7 @@ Apache CXF is an open source services framework. CXF helps you build and develop
 = File download from org.apache.cxf
 *org.apache.cxf* provides option to download files of different MIME (Multipurpose Internet Mail Extensions) types.
 
-Example:
+*Example:*
 
 In JAX-RS, annotate the service method with @Produces("application/octet-stream"). We define a regular interface of the service and annotate it with JAX-RS annotations:
 
@@ -25,8 +25,10 @@ And here is a simple implementation of the service:
 --------
 @Override
 public Response  getDownloadableFile() throws SQLException, IOException {
+    // FILE_PATH - specifies the path on which file is present.
     File file = new File("FILE_PATH"); 
     ResponseBuilder response = Response.ok((Object) file);
+    // FILENAME.FILE_EXTENSION - specifies the filename and its extension after download.
     response.header("Content-Disposition", "attachment; filename=FILENAME.FILE_EXTENSION"); 
     return response.build();
 }
@@ -34,7 +36,7 @@ public Response  getDownloadableFile() throws SQLException, IOException {
 
 == @Produces Annotation
 
-The @Produces annotation is used to specify the MIME media types or representations a resource can produce and send back to the client. If @Produces is applied at the class level, all the methods in a resource can produce the specified MIME types by default. If applied at the method level, the annotation overrides any @Produces annotations applied at the class level.
+@Produces annotation is used to specify the MIME media types or representations a resource can produce and send back to the client. If @Produces is applied at the class level, all the methods in a resource can produce the specified MIME types by default. If applied at the method level, the annotation overrides any @Produces annotations applied at the class level.
 
 If no methods in a resource are able to produce the MIME type in a client request, the JAX-RS runtime sends back an HTTP “406 Not Acceptable” error.
 
