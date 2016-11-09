@@ -80,7 +80,7 @@ In JAX-RS, annotate the service method with @Consumes("multipart/mixed"). We def
 @Consumes("multipart/mixed")
 @GET
 @Path("/uploadFile")
-public Response uploadFile() throws SQLException, IOException;
+public Response uploadFile(List<Attachment> attachments, @Context HttpServletRequest request) throws SQLException, IOException;
 --------
 
 And here is a simple implementation of the service:
@@ -90,10 +90,27 @@ And here is a simple implementation of the service:
 @POST 
 @Consumes ("multipart/mixed") 
 @Path ("/upload") 
-public Response uploadFile( 
-		// upload file to server                 
-return null; 
-}
+public Response uploadFile(List<Attachment> attachments, HttpServletRequest request) {
+ 
+        for (Attachment attachment : attachments) {
+            DataHandler dataHandler = attachment.getDataHandler();
+            try{
+                // get filename to be uploaded
+                MultivaluedMap<String, String> multivaluedMap = attachment.getHeaders();
+                String fileName = getFileName(multivaluedMap);
+ 
+                InputStream inputStream = dataHandler.getInputStream();
+                // write the file to the server
+            }
+            catch(Exception ex) {
+                ex.printStackTrace();
+            }
+            finally {
+                // release resources, if any
+            }
+        }
+        return Response.ok("upload success").build();
+    }
 
 --------
 
