@@ -6,7 +6,7 @@ Apache CXF is an open source services framework. CXF helps you build and develop
 = File download from org.apache.cxf
 *org.apache.cxf* provides option to download files of different MIME (Multipurpose Internet Mail Extensions) types.
 
-example.
+Example:
 
 In JAX-RS, annotate the service method with @Produces("application/octet-stream"). We define a regular interface of the service and annotate it with JAX-RS annotations:
 
@@ -32,7 +32,7 @@ public Response  getDownloadableFile() throws SQLException, IOException {
 }
 --------
 
-== The @Produces Annotation
+== @Produces Annotation
 
 The @Produces annotation is used to specify the MIME media types or representations a resource can produce and send back to the client. If @Produces is applied at the class level, all the methods in a resource can produce the specified MIME types by default. If applied at the method level, the annotation overrides any @Produces annotations applied at the class level.
 
@@ -82,5 +82,5 @@ return null;
 
 --------
 
-
+== MIME Types
 
