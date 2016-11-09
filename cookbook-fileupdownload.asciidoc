@@ -15,7 +15,7 @@ In JAX-RS, annotate the service method with @Produces("application/octet-stream"
 @SuppressWarnings("javadoc")
 @Produces("application/octet-stream")
 @GET
-@Path("/product/downloadFile")
+@Path("/downloadFile")
 public Response getDownloadableFile() throws SQLException, IOException;
 --------
 
@@ -67,10 +67,23 @@ public class SomeResource {
 
 = File upload from org.apache.cxf
 
-* 	Annotate upload file method with @Consumes().
-* 	Get list of attachments and process them to get input streams.
-* Write these streams to the upload file server using file handling operations.
-* 	Return acknowledgement of success if required.
+*org.apache.cxf* provides option to upload files of different MIME (Multipurpose Internet Mail Extensions) types.
+
+*Example:*
+
+In JAX-RS, annotate the service method with @Consumes("multipart/mixed"). We define a regular interface of the service and annotate it with JAX-RS annotations:
+
+
+[source,java]
+--------
+@SuppressWarnings("javadoc")
+@Consumes("multipart/mixed")
+@GET
+@Path("/uploadFile")
+public Response uploadFile() throws SQLException, IOException;
+--------
+
+And here is a simple implementation of the service:
 
 [source,java]
 --------
