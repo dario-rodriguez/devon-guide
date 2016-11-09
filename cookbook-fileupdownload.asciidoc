@@ -36,7 +36,7 @@ public Response  getDownloadableFile() throws SQLException, IOException {
 
 == @Produces Annotation
 
-@Produces annotation is used to specify the MIME media types that can be produced and sent back to the client. If @Produces is applied at the class level, all the methods in a resource can produce the specified MIME types by default. If applied at the method level, the annotation overrides any @Produces annotations applied at the class level.
+@Produces annotation is used to specify the MIME media type that can be produced and sent back to the client. If @Produces is applied at the class level, all the methods in a resource can produce the specified MIME type by default. If applied at the method level, the annotation overrides any @Produces annotation applied at the class level.
 
 If no methods in a resource are able to produce the MIME type in a client request, the JAX-RS runtime sends back an HTTP “406 Not Acceptable” error.
 
