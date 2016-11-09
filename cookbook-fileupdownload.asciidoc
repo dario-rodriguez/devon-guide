@@ -100,7 +100,7 @@ public Response uploadFile(List<Attachment> attachments, HttpServletRequest requ
                 String fileName = getFileName(multivaluedMap);
  
                 InputStream inputStream = dataHandler.getInputStream();
-                // write the file to the server
+                // logic for writting the file to the server
             }
             catch(Exception ex) {
                 ex.printStackTrace();
