@@ -25,7 +25,7 @@ And here is a simple implementation of the service:
 --------
 @Override
 public Response  getDownloadableFile() throws SQLException, IOException {
-    // FILE_PATH - specifies the path on which file is present.
+    // FILE_PATH - specifies the location of the file in the filesystem.
     File file = new File("FILE_PATH"); 
     ResponseBuilder response = Response.ok((Object) file);
     // FILENAME.FILE_EXTENSION - specifies the filename and its extension after download.
