@@ -36,7 +36,7 @@ public Response  getDownloadableFile() throws SQLException, IOException {
 
 == @Produces Annotation
 
-@Produces annotation is used to specify the MIME media types or representations a resource can produce and send back to the client. If @Produces is applied at the class level, all the methods in a resource can produce the specified MIME types by default. If applied at the method level, the annotation overrides any @Produces annotations applied at the class level.
+@Produces annotation is used to specify the MIME media types that can be produced and sent back to the client. If @Produces is applied at the class level, all the methods in a resource can produce the specified MIME types by default. If applied at the method level, the annotation overrides any @Produces annotations applied at the class level.
 
 If no methods in a resource are able to produce the MIME type in a client request, the JAX-RS runtime sends back an HTTP “406 Not Acceptable” error.
 
@@ -96,6 +96,36 @@ return null;
 }
 
 --------
+
+== @Consumes Annotation
+
+The @Consumes annotation is used to specify which MIME media types that can be accepted, or consumed, from the client. If @Consumes is applied at the class level, all the response methods accept the specified MIME types by default. If applied at the method level, @Consumes overrides any @Consumes annotations applied at the class level.
+
+If a resource is unable to consume the MIME type of a client request, the JAX-RS runtime sends back an HTTP 415 (“Unsupported Media Type”) error.
+
+The value of @Consumes is an array of String of acceptable MIME types. 
+For example:@Consumes({"text/plain,text/html"})
+
+The following example shows how to apply @Consumes at both the class and method levels:
+
+[source,java]
+--------
+@Path("/myResource")
+@Consumes("multipart/related")
+public class SomeResource {
+	@POST
+	public String doPost(MimeMultipart mimeMultipartData) {
+		...
+	}
+
+	@POST
+	@Consumes("application/x-www-form-urlencoded")
+	public String doPost2(FormURLEncodedProperties formData) {
+		...
+	}
+}
+--------
+
 
 = MIME Types
 
