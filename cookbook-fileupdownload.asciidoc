@@ -67,7 +67,7 @@ public class SomeResource {
 
 = File upload from org.apache.cxf
 
-*org.apache.cxf* provides option to upload files of different MIME (Multipurpose Internet Mail Extensions) types.
+*org.apache.cxf* provides option to upload files of different MIME (Multipurpose Internet Mail Extensions) type.
 
 *Example:*
 
