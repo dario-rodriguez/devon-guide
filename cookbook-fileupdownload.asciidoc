@@ -3,7 +3,7 @@ toc::[]
 
 = File download using org.apache.cxf
 
-* 	Annotate download file method with @Produces("multipart/mixed").
+* 	Annotate download file method with @Produces().
 * 		Read the file and convert it into byte array.
 * Return MultipartBody (org.apache.cxf.jaxrs.ext.multipart.MultipartBody) as a response which contains byte array.
 
@@ -19,6 +19,7 @@ toc::[]
 atts.add(new Attachment("obj", MediaType.APPLICATION_OCTET_STREAM, new ByteArrayInputStream(byte[])));
 return new MultipartBody(atts, true);
 }
+--------
 
 == Generic solution - code snippet
 
@@ -29,10 +30,10 @@ We define a regular interface to define the API of the service and annotate it w
 [source,java]
 --------
 @SuppressWarnings("javadoc")
-  	@Produces("application/octet-stream")
-  	@GET
-  	@Path("/product/downloadFile")
-  	public Response getDownloadableFile() throws SQLException, IOException;
+	@Produces("application/octet-stream")
+	@GET
+	@Path("/product/downloadFile")
+	public Response getDownloadableFile() throws SQLException, IOException;
 --------
 
 And here is a simple implementation of the service:
@@ -48,9 +49,10 @@ response.header("Content-Disposition", "attachment; filename=test.xlsx"); // fil
   }
 --------
 
+
 = File upload using org.apache.cxf
 
-* 	Annotate upload file method with @Consumes("multipart/mixed").
+* 	Annotate upload file method with @Consumes().
 * 	Get list of attachments and process them to get input streams.
 * Write these streams to the upload file server using file handling operations.
 * 	Return acknowledgement of success if required.
