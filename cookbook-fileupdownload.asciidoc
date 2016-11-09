@@ -71,7 +71,7 @@ public class SomeResource {
 
 *Example:*
 
-In JAX-RS, annotate the service method with @Consumes("multipart/mixed"). We define a regular interface of the service and annotate it with JAX-RS annotations:
+In JAX-RS, annotate the service method with @Consumes("multipart/mixed"). We define an interface of the service and annotate it with JAX-RS annotations:
 
 
 [source,java]
