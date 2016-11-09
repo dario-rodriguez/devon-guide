@@ -82,5 +82,5 @@ return null;
 
 --------
 
-== MIME Types
+= MIME Types
 
