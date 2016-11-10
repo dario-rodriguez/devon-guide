@@ -10,6 +10,19 @@ Apache CXF is an open source services framework. CXF helps you build and develop
 
 In JAX-RS, annotate the service method with @Produces("application/octet-stream"). We define an interface of the service and annotate it with JAX-RS annotations:
 
+Below code snippet depicts that, we are constructing file object supplying file path location to be downloaded.Setting this file object in ResponseBuilder and returning Response object.
+
+If you look at the below interface, you can tell that it is a normal interface with annotations.
+
+.Annotations used for download functionality
+|===
+|*Annotation*|*Description*
+|@Produces|It is used to specify the MIME media type that can be produced and sent back to the client.
+|@GET|It is a request method designator defined by JAX-RS and corresponds to the similarly named HTTP method.
+|@PATH|This identifies the URI path template to which the resource responds, and is specified at the class level of a resource.
+|===
+
+
 [source,java]
 --------
 @SuppressWarnings("javadoc")
@@ -73,6 +86,17 @@ public class SomeResource {
 
 In JAX-RS, annotate the service method with @Consumes("multipart/mixed"). We define an interface of the service and annotate it with JAX-RS annotations:
 
+Below code explains, Iteration through each attachments,extracting headers & inputstreams and writing to the UPLOAD_FILE_SERVER. Here we are using simple file handling operations.
+
+If you look at the below interface, you can tell that it is a normal interface with annotations.
+
+.Annotations used for upload functionality
+|===
+|*Annotation*|*Description*
+|@Consumes|It is used to specify MIME media type that can be accepted, or consumed, from the client.
+|@GET|It is a request method designator defined by JAX-RS and corresponds to the similarly named HTTP method.
+|@PATH|This identifies the URI path template to which the resource responds, and is specified at the class level of a resource.
+|===
 
 [source,java]
 --------
