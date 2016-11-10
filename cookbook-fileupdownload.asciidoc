@@ -25,11 +25,13 @@ If you look at the below interface, you can tell that it is a normal interface w
 
 [source,java]
 --------
+public interface DownloadService {
 @SuppressWarnings("javadoc")
 @Produces("application/octet-stream")
 @GET
 @Path("/downloadFile")
 public Response getDownloadableFile() throws SQLException, IOException;
+}
 --------
 
 And here is a simple implementation of the service:
@@ -100,11 +102,13 @@ If you look at the below interface, you can tell that it is a normal interface w
 
 [source,java]
 --------
+public interface UploadService {
 @SuppressWarnings("javadoc")
 @Consumes("multipart/mixed")
 @GET
 @Path("/uploadFile")
 public Response uploadFile(List<Attachment> attachments, @Context HttpServletRequest request) throws SQLException, IOException;
+}
 --------
 
 And here is a simple implementation of the service:
