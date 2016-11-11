@@ -91,17 +91,6 @@ public class SomeResource {
 
 In JAX-RS, annotate the service method with @Consumes("multipart/mixed"). We define an interface of the service and annotate it with JAX-RS annotations:
 
-Below code explains, Iteration through each attachments,extracting headers & inputstreams and writing to the UPLOAD_FILE_SERVER. Here we are using simple file handling operations.
-
-If you look at the below interface, you can tell that it is a normal interface with annotations.
-
-.Annotations used for upload functionality
-|===
-|*Annotation*|*Description*
-|@Consumes|It is used to specify MIME media type that can be accepted, or consumed, from the client.
-|@GET|It is a request method designator defined by JAX-RS and corresponds to the similarly named HTTP method.
-|@PATH|This identifies the URI path template to which the resource responds, and is specified at the class level of a resource.
-|===
 
 [source,java]
 --------
@@ -187,6 +176,19 @@ public Response uploadFile(List<Attachment> attachments, HttpServletRequest requ
   }
 
 --------
+
+
+In the above code snippet, we are iterating the attachments that are uploaded and extracting headers & inputstreams. Here we are using simple file handling operations to write this inputstreams to the UPLOAD_FILE_SERVER. 
+
+Following table explains the annotations used for upload functionality along with its description.
+
+.Annotations used for upload functionality
+|===
+|*Annotation*|*Description*
+|@Consumes|It is used to specify MIME media type that can be accepted, or consumed, from the client.
+|@GET|It is a request method designator defined by JAX-RS and corresponds to the similarly named HTTP method.
+|@PATH|This identifies the URI path template to which the resource responds, and is specified at the class level of a resource.
+|===
 
 == @Consumes Annotation
 
