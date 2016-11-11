@@ -89,7 +89,7 @@
 * link:Client-GUI-Angular-Providing-Accessibility[Providing Accessibility]
 
 * link:Client-GUI-Angular-Gulp-Tasks[Gulp Tasks]
-* link:Client-GUI-Angular-FileUploadDownload[Gulp Tasks]
+* link:Client-GUI-Angular-FileUploadDownload[File Upload and Download]
 
 == Appendix
 
