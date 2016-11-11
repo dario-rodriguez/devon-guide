@@ -50,3 +50,21 @@ And the template would look something like:
 ----
 
 = Asyncronous File Upload
+
+For asynchronous file upload, the template would look something like:
+
+[source,bash]
+----
+<input type="file" 
+       ngFileSelect
+       [options]="basicOptions" 
+       (onUpload)="handleUpload($event)">
+
+<div>
+  Response: {{ response | json }}
+</div>
+
+<div>
+  Progress: {{ progress }}%
+</div>
+----
