@@ -41,16 +41,16 @@ public Response  getDownloadableFile() throws SQLException, IOException {
 
 In the above code snippet, we are constructing file object by supplying file path location which is to be downloaded. This file object is set to response to create ResponseBuilder object, and finally the response is build from ResponseBuilder object.
 
+Following table explains the annotations used for download functionality along with its description.
+
 .Annotations used for download functionality
-
-Following table explains the annotations used in download functionality along with its description.
-
 |===
 |*Annotation*|*Description*
 |@Produces|It is used to specify the MIME media type that can be produced and sent back to the client.
 |@GET|It is a request method designator defined by JAX-RS and corresponds to the similarly named HTTP method.
 |@PATH|This identifies the URI path template to which the resource responds, and is specified at the class level of a resource.
 |===
+
 
 == @Produces Annotation
 
