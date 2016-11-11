@@ -309,3 +309,71 @@ git push <your_git_user> develop:develop
 ----
 
 As is commented above <your_git_user> is the variable define with the URL of your remote repository (the fork of https://github.com/devonfw/devon[Devon] / https://github.com/oasp/oasp4j[OASP4J]) (Step 3).
+
+= OASP Issue Work
+
+== Issue creation and resolution
+
+=== Issue creation
+You can create an issue [here](https://github.com/oasp/oasp4j/issues/new). Please consider the following points:
+
+[square]
+* If your issue is related to a specific building block (like e.g. oasp4js), open an issue on that specific issue tracker. If you're unsure which building block is causing your problem open an issue on this repository.
+* Put a label on the issue to mark whether you suggest an enhancement, report an error or something else.
+
+When reporting errors: 
+
+[square]
+* Include the version of OASP4j you are using.
+* Include screenshots, stack traces.
+* Include the behavior you expected.
+* using a debugger you might be able to find the cause of the problem and you could be the one to contribute a bug-fix.
+
+=== Preparation for issue resolution
+Before you get started working on an issue, check out the following points:
+
+[square]
+* try to complete all other issues you are working on before. Only postpone issues where you are stuck and consider giving them back in the queue (backlog).
+* check that no-one else is already assigned or working on the issue
+* read through the issue and check that you understand the task completely. Collect any remaining questions and clarify them with the one responsible for the topic.
+* ensure that you are aware on which branch the issue shall be fixed and start your work in the corresponding workspace.
+* if you are using +git+ perform your changes on a feature branch.
+
+=== Definition of Done
+
+[square]
+* actual issue is implemented (bug fixed, new feature implemented, etc.)
+* new situation is covered by tests (according to test strategy of the project e.g. for bugs create a unit test first proving the bug and running red, then fix the bug and check that the test gets green, for new essential features create new tests, for GUI features do manual testing)
+* check the code-style with sonar-qube in eclipse. If there are anomalies in the new or modified code, please rework.
+* check out the latest code from the branch you are working on (+svn update+, +git pull+ after +git commit+)
+* test that all builds and tests are working (+mvn clean install+)
+* commit your code (+svn commit+, +git push+) - for all your commits ensure you stick to the conventions for code contributions (see link:oasp-code-contributions[code contribution]) and provide proper comments (see link:coding-conventions[coding conventions]).
+* if no milestone was assigned please assign suitable milestone
+* set the issue as done
+
+= Code Contribution
+
+We are looking forward to your contribution to OASP4J. This page describes the few conventions to follow. Please note that this is an open and international project and all content has to be in (American) English language.
+
+For contributions to the code please consider:
+
+* We are working issue-based so check if there is already an issue in our tracker for the task you want to work on or create a new issue for it.
+* In case of more complex issues please get involved with the community and ensure that there is a common understanding of what and how to do it. You do not want to invest into something that will later be rejected by the community.
+* Before you get started ensure that you comment the issue accordingly and you are the person assigned to the issue. If there is already someone else assigned get in contact with him if you still want to contribute to the same issue. You do not want to invest into something that is already done by someone else.
+* Create a https://help.github.com/articles/fork-a-repo/[fork] of the repository on github to your private github space.
+* Checkout this fork and do your modifications.
+* Ensure that we stick to our link:coding-conventions[].
+* Check in features or fixes as individual commits associated with an link:../issues[issue] using the commit message format:
++
+[source]
+#<issueId>: <describe your change>
++
+Then github will automatically link the commit in the issue. In case you worked on an issue from a different repository (e.g. change in +oasp4j-sample+ due to issue in +oasp4j+) we use this commit message format:
+[source]
+oasp/<repository>#<issueId>: <describe your change>
++
+So as an example:
+[source]
+oasp/oasp4j#1: added REST service for tablemanagement
+* If you completed your feature (bugfix, improvement, etc.) use a https://help.github.com/articles/using-pull-requests/[pull request] to give it back to the community.
+* see also the link:oasp-documentation[documentation] guidelines.
