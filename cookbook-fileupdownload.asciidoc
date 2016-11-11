@@ -10,17 +10,7 @@ Apache CXF is an open source services framework. CXF helps you build and develop
 
 In JAX-RS, annotate the service method with @Produces("application/octet-stream"). We define an interface of the service and annotate it with JAX-RS annotations:
 
-Below code snippet depicts that, we are constructing file object supplying file path location to be downloaded.Setting this file object in ResponseBuilder and returning Response object.
 
-If you look at the below interface, you can tell that it is a normal interface with annotations.
-
-.Annotations used for download functionality
-|===
-|*Annotation*|*Description*
-|@Produces|It is used to specify the MIME media type that can be produced and sent back to the client.
-|@GET|It is a request method designator defined by JAX-RS and corresponds to the similarly named HTTP method.
-|@PATH|This identifies the URI path template to which the resource responds, and is specified at the class level of a resource.
-|===
 
 
 [source,java]
@@ -48,6 +38,19 @@ public Response  getDownloadableFile() throws SQLException, IOException {
     return response.build();
 }
 --------
+
+In the above code snippet, we are constructing file object by supplying file path location which is to be downloaded. This file object is set to response to create ResponseBuilder object, and finally the response is build from ResponseBuilder object.
+
+.Annotations used for download functionality
+
+Following table explains the annotations used in download functionality along with its description.
+
+|===
+|*Annotation*|*Description*
+|@Produces|It is used to specify the MIME media type that can be produced and sent back to the client.
+|@GET|It is a request method designator defined by JAX-RS and corresponds to the similarly named HTTP method.
+|@PATH|This identifies the URI path template to which the resource responds, and is specified at the class level of a resource.
+|===
 
 == @Produces Annotation
 
