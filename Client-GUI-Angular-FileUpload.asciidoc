@@ -1,6 +1,52 @@
 :toc: macro
 toc::[]
 
+
+ng2-uploader is a set of service and directives. It is designed for uploading the files in Angular2 applications.
+
+*Installation via npm*
+
+[source,bash]
+----
+npm install ng2-uploader --save
+----
+
+*Installation as cloning repository from GitHub*
+
+[source,bash]
+----
+git clone https://github.com/jkuri/ng2-uploader.git
+----
+
+Importing ng2-uploader in your app
+
+[source,bash]
+----
+import { UPLOAD_DIRECTIVES } from 'ng2-uploader';
+----
+
+We need to apply *NgFileSelect* to input element of type file and bind handleUpload(data: any) handler to it. Also, we need to apply options we declared to that input.
+
+
+
 = Syncronous File Upload
+
+To enable multiple files upload we need to add multiple attribute to input of type file and it is enabled automatically.
+And the template would look something like:
+
+[source,bash]
+----
+<input type="file" 
+            multiple="true"
+            ngFileSelect
+            [options]="options" 
+            (onUpload)="handleMultipleUpload($event)">
+
+<p *ngIf="response.length">
+   <span>Progress{{ progress }}%</span>
+   <span>{{ response }}</span>
+</p>
+
+----
 
 = Asyncronous File Upload
