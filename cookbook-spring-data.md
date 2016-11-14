@@ -1,1 +1,425 @@
-Insert content of https://docs.google.com/document/d/1jF-mRpRYSAJkLqLzQ95u44KY4fNRGWUeCFunUuhCfFY/edit here
+:toc: macro
+toc::[]
+
+
+= Integrating Spring Data in OASP4J
+
+
+== Introduction
+
+This chapter specifies a possible solution for integrating the Spring Data module in devonfw. It is possible to have some services using the Spring Data module while some services use JPA/Hibernate.
+
+
+To integrate Spring Data in devonfw there can be 2 approaches as stated below:
+* Create a new module for spring data
+* Integrate Spring Data in an existing core project
+
+
+More feasible option to integrate spring data in core module will be option 2 i.e integrate it in existing core project instead of creating new module. Below are reasons why we will not prefer to create different module supporting spring data:
+
+
+* It does not follow KISS(Keep it simple,stupid) principle.In existing structure of sample application, Entity classes along with some abstract implementation classes are included in oasp4j-samples-core project. We need to refer those classes while implementing spring-data. If we try to refer it in different module it becomes complex compare to 1st approach. 
+* If we integrate Spring Data in oasp4j we need to annotate SpringBootApp.java class with @Enablejparepositories. If we create different module it will not be possible, as SpringBootApp class is in core module.
+
+== Existing Structure of Dataaccess Layer
+
+Consider TableEntity as an example.
+
+== Structure of Dataaccess Layer with Spring Data
+
+Below are steps need to integrate Spring Data in data access layer:
+
+
+* Add dependency for Spring Data in pom.xml of oasp4j-samples-core project
+
+[source,java]
+--------
+		<dependency>
+		  <groupId>org.springframework.boot</groupId>
+		  <artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+--------
+
+* Create Spring data Repository - Create interface which extends spring data repositories such as CRUDRepository or PagingAndSortingRepository and annotate it with @Repository annotation.Spring data has repositories such as CRUDRepository which provide default CRUD functionality .
+
+[source,java]
+--------
+@Repository
+Public interface TableRepo extends CrudRepository<TableEntity, Serializable>{
+}
+--------
+
+* Create class annotate it with @Component annotation and autowire spring data repository created above
+
+[source,java]
+--------
+@Component
+public class RegistrationBean {
+  @Autowired
+  private TableRepo tableRepo;
+  /**
+   * The constructor.
+   */
+  public RegistrationBean() {
+
+
+  }
+
+
+  /**
+   * @return tableRepo
+   */
+  public TableRepo getTableRepo() {
+
+
+    return this.tableRepo;
+  }
+
+
+  /**
+   * @param tableRepo the tableRepo to set
+   */
+  public void setTableRepo(TableRepo tableRepo) {
+
+
+    this.tableRepo = tableRepo;
+  }
+
+
+}
+--------
+
+* Here, we are ready to test the functionality.Create testclass to test above changes.
+
+[source,java]
+--------
+@SpringApplicationConfiguration(classes = { SpringBootApp.class })
+@WebAppConfiguration
+@EnableJpaRepositories(basePackages = { "io.oasp.gastronomy.restaurant.tablemanagement.dataaccess.api.repo" })
+@ComponentScan(basePackages = { "io.oasp.gastronomy.restaurant.tablemanagement.dataaccess.api.dao" })
+public class TestClass extends ComponentTest {
+
+
+  @Autowired
+  RegistrationBean registrationBean;
+
+
+  /**
+   * @return registerationBean
+   */
+  public RegistrationBean getRegisterationBean() {
+
+
+    return this.registrationBean;
+  }
+
+
+  /**
+   * @param registerationBean the registerationBean to set
+   */
+
+
+  public void setRegisterationBean(RegistrationBean registerationBean) {
+
+
+    this.registrationBean = registerationBean;
+  }
+
+
+  /**
+   * @param args
+   */
+
+
+  @Test
+  public void saveTable() {
+
+
+    TableEntity table = new TableEntity();
+    table.setId(106L);
+    table.setModificationCounter(1);
+    table.setNumber(6L);
+    table.setState(TableState.FREE);
+    table.setWaiterId(2L);
+    System.out
+        .println("TableRepo instance *************************************************** " + getRegisterationBean());
+    TableEntity entity = getRegisterationBean().getTableRepo().save(table);
+    System.out.println("entity id " + entity);
+  }
+
+
+}
+--------
+
+Note: If you get DataIntegrityViolationExceptions while saving an object in a database , modify script to auto_increment column id. Database should be able to auto increment column id as we have @GeneratedValue annotation in ApplicationPersistenceEntity.
+
+
+* Modify SpringBootApp.java class to scan the jpa repositories.
+
+[source,java]
+--------
+@SpringBootApplication(exclude = { EndpointAutoConfiguration.class })
+@EntityScan(basePackages = { "io.oasp.gastronomy.restaurant" }, basePackageClasses = { AdvancedRevisionEntity.class })
+@EnableGlobalMethodSecurity(securedEnabled = true)
+public class SpringBootApp {
+
+
+  /**
+   * Entry point for spring-boot based app
+   *
+   * @param args - arguments
+   */
+  public static void main(String[] args) {
+
+
+    SpringApplication.run(SpringBootApp.class, args);
+  }
+}
+--------
+
+Above example shows how can we implement default functionalities. If we need to add custom funcationalities then we need to add custom repository and provide its implementation class. Also we need to modify TableRepo to extend custom repository. Below are the steps which we need to perform, this is in continuation with prev example:
+
+
+Add custom repository as below in repo package itself :
+
+[source,java]
+--------
+public interface TableRepoCustom {
+
+
+  /**
+   * @param number
+   * @return
+   */
+  List<TableEntity> findByTableState(int number);
+}
+--------
+
+* Create implementation class for above custom repository in repo package itself. We have not annotated repository with any annotation still Spring data will consider it as custom repository. This is because spring data scans repository package to search for any class and if it found one then spring data consider it as custom repository.
+
+[source,java]
+--------
+public class TableRepoImpl implements TableRepoCustom {
+  @PersistenceContext
+  private EntityManager entityManager;
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public List<TableEntity> findByTableState(int state) {
+
+
+    String query = "select table from TableEntity table where table.state= " + state;
+    System.out.println("Query " + query);
+    List<TableEntity> tableList = this.entityManager.createQuery(query).getResultList();
+    return tableList;
+  }
+}
+--------
+
+* Modify test class to include above functionality
+[source,java]
+--------
+@SpringApplicationConfiguration(classes = { SpringBootApp.class })
+@WebAppConfiguration
+@EnableJpaRepositories(basePackages = { "io.oasp.gastronomy.restaurant.tablemanagement.dataaccess.api.repo" })
+@ComponentScan(basePackages = { "io.oasp.gastronomy.restaurant.tablemanagement.dataaccess.api.dao" })
+public class TestClass extends ComponentTest {
+  @Autowired
+  RegistrationBean registrationBean;
+  /**
+   * @return registerationBean
+   */
+  public RegistrationBean getRegisterationBean() {
+    return this.registrationBean;
+  }
+  /**
+   * @param registerationBean the registerationBean to set
+   */
+  public void setRegisterationBean(RegistrationBean registerationBean) {
+    this.registrationBean = registerationBean;
+  }
+  /**
+   * @param args
+   */
+  @Test
+  public void saveTable() {
+    TableEntity table = new TableEntity();
+    table.setId(106L);
+    table.setModificationCounter(1);
+    table.setNumber(6L);
+    table.setState(TableState.FREE);
+    table.setWaiterId(2L);
+    System.out
+        .println("TableRepo instance *************************************************** " + getRegisterationBean());
+    TableEntity entity = getRegisterationBean().getTableRepo().save(table);
+    System.out.println("entity id " + entity);
+  }
+  @Test
+  public void testFindByTableState() {
+    List<TableEntity> tableList = getRegisterationBean().getTableRepoImpl().findByTableState(0);
+    System.out.println("tableList size ***************************** " + tableList.size());
+  }
+}
+--------
+
+With custom repository we can implement functionality such as getrevisionHistory(). Also spring data supports @Query annotation. Also it supports derived query. I have attached samples for 2 entities (DrinkEntity, TableEntity) which I have implemented with spring data.
+
+
+== Query Creation in Spring Data JPA
+
+Below are ways to create query in Spring Data JPA:
+
+
+* Query creation by method names:
+	List<User> findByEmailAddressAndLastname(String emailAddress, String lastname);
+Above method is equivalent to writing below query:
+select u from User u where u.emailAddress = ?1 and u.lastname = ?2
+
+
+* Using Jpa Named Queries
+Example:  @NamedQuery(name = "Drink.nonalcholic", query = "select drink from DrinkEntity drink where drink.alcoholic=false")
+
+
+* Using @Query annotation
+ @Query(name = "table.query1", value = "select table from TableEntity table where table.state= :#{#criteria.state}")
+
+
+* Native Queries - This Queries can be created using @Query annotation and setting nativeQuery=true
+
+
+* Similar to criteria we have Predicate from QueryDsl
+
+== Implementing Query with QueryDsl
+
+Like the JPA Criteria API it uses a Java 6 annotation processor to generate meta-model objects and produces a much more approachable API.Another cool thing about the project is that it has not only has support for JPA but also allows querying Hibernate, JDO, Lucene, JDBC and even plain collections.
+
+* To start with QueryDsl add below plugin in a pom.xml:
+
+[source,java]
+--------
+  	<plugin>
+ <groupId>com.mysema.maven</groupId>
+  <artifactId>apt-maven-plugin</artifactId>
+  <version>1.1.1</version>
+  <executions>
+      <execution>
+<phase>generate-sources</phase>
+            <goals>
+              <goal>process</goal>
+            </goals>
+            <configuration>
+            <processor>com.mysema.query.apt.jpa.JPAAnnotationProcessor</processor>
+            </configuration>
+          </execution>
+        </executions>
+   </plugin>
+--------
+
+* Execute mvn clean install on project.This will create special query classes e.g for DrinkEntity class generated will be QDrinkEntity.
+
+* To execute Querydsl predicates you simply let your repository extend QueryDslPredicateExecutor<T>
+Example:
+
+[source,java]
+--------
+ @Repository
+public interface DrinkRepo
+    extends JpaRepository<DrinkEntity, Long>, QueryDslPredicateExecutor<DrinkEntity>, DrinkRepoCustom {
+
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  <S extends DrinkEntity> S save(S entity);
+
+
+}
+--------
+
+* We will have registrationBean class which have above repository autowired in it.
+* Create test class and below method.
+
+[source,java]
+--------
+  @Test
+  public void testFindNonAlcoholicDrinks() {
+
+
+    QDrinkEntity drinkEntityEqu = QDrinkEntity.drinkEntity;
+    BooleanExpression drink = drinkEntityEqu.alcoholic.isFalse();
+    List<DrinkEntity> drinkList = (List<DrinkEntity>) getDrinkEntityRegistrationBean().getDrinkRepo().findAll(drink);
+    for (DrinkEntity drink1 : drinkList) {
+      System.out.println("drink id " + drink1.getId() + " description: " + drink1.getDescription());
+    }
+  }
+--------
+
+This will return list of drink entities which are nonalcoholic.
+
+== Paging and Sorting Support
+
+* For Paging and Sorting support in Spring Data JPA we should implement PagingAndSortingRepository. Create interface as below:
+
+[source,java]
+--------
+@Repository
+public interface TableRepo extends JpaRepository<TableEntity, Long>, TableRepoCustom {
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  <S extends TableEntity> S save(S table);
+
+
+  TableEntity findByNumber(long number);
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  Page<TableEntity> findAll(Pageable pageable);
+  @Query(name = "table.query", value = "select table from TableEntity table where table.state= ?1")
+  Page<TableEntity> findByTableState1(TableState state, Pageable pageable);
+}
+--------
+
+* Create test method as below:
+
+[source,java]
+--------
+ @Test
+  public void testFindTableByState1() {
+
+
+    PageRequest pageRequest = new PageRequest(0, 2, Direction.DESC, "state");
+    Page<TableEntity> pageEntity =
+        getRegisterationBean().getTableRepo().findByTableState1(TableState.FREE, pageRequest);
+    List<TableEntity> tableList = pageEntity.getContent();
+    for (TableEntity table : tableList) {
+      System.out.println("Table details: " + table.getId() + " , " + table.getWaiterId() + " , " + table.getState());
+    }
+
+
+  }
+--------
+
+In above example we are extending JpaRepository which in turn extends PagingAndSortingRepository. So we will get paging and sorting functionality. For Paging and Sorting support, we need to pass Pageable as method Parameter.
+  PageRequest pageRequest = new PageRequest(0, 2, Direction.DESC, "state");
+Here 0 - indicate page number.
+2 - object on a page
+Direction Desc or ASC- Sorting sequence Desc or Asc
+State -  this is property based on which query get sorted
+
+
+  For creating pageRequest object we have different constructors available as below:
+PageRequest(int page,int size)
+PageRequest(int page,int size,int sort)
+PageRequest(int page,int size,Direction direction) 
+PageRequest(int page, int size, Direction direction, String... properties)
+
+== References
+
+https://spring.io/blog/2011/04/26/advanced-spring-data-jpa-specifications-and-querydsl/
+http://docs.spring.io/spring-data/jpa/docs/1.4.1.RELEASE/reference/html/jpa.repositories.html
+http://javabeat.net/spring-data-jpa-querydsl-integration/
