@@ -31,7 +31,6 @@ Below are steps need to integrate Spring Data in data access layer:
 
 
 * Add dependency for Spring Data in pom.xml of oasp4j-samples-core project
-
 [source,java]
 --------
 		<dependency>
