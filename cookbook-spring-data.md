@@ -44,9 +44,9 @@ Below are steps need to integrate Spring Data in data access layer:
 
 [source,java]
 --------
-@Repository
-Public interface TableRepo extends CrudRepository<TableEntity, Serializable>{
-}
+               @Repository
+               Public interface TableRepo extends CrudRepository<TableEntity, Serializable>{
+               }
 --------
 
 * Create class annotate it with @Component annotation and autowire spring data repository created above
