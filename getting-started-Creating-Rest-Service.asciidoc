@@ -51,8 +51,11 @@ For services there are different protocols. Those relevant for and recommended b
 
 === REST
 
-REST is an inter-operable protocol that is more lightweight than SOAP.
-However, it is no real standard and can cause confusion. Therefore we define best practices here to guide you.
+REST is not a technology and certainly is not a standard of some kind. It is merely an architectural style that chalks down how to write a web service in a certain way. 
+
+Principal protagonist of a REST architecture is a _"Resource"_ which can be uniquely identified by an Uniform Resource Identifier or URI. State of a resource at any given point of time is represented by a document and is called Representation of resource. The client can update the state of resource by transferring the representation along with the request. The new representation is now returned to client along with the response.  The representation contains the information in formats like html, xml, JSON etc that is accepted by the resource. The resource which adheres to rules of REST architecture is called a RESTful resource and web service that adheres to this rule are called RESTful web service.
+
+ Therefore we define best practices here to guide you.
 For a general introduction consult the http://en.wikipedia.org/wiki/Representational_State_Transfer[wikipedia].
 For CRUD operations in REST we distinguish between collection and element URIs:
 
