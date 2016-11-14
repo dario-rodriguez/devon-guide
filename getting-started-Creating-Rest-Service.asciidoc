@@ -59,6 +59,8 @@ Principal protagonist of a REST architecture is a _"Resource"_ which can be uniq
 For a general introduction consult the http://en.wikipedia.org/wiki/Representational_State_Transfer[wikipedia].
 For CRUD operations in REST we distinguish between collection and element URIs:
 
+
+
 * A collection URI is build from the rest service URI by appending the name of a collection. This is typically the name of an entity. Such URI identifies the entire collection of all elements of this type. Example:
 [source,url]
 ----
