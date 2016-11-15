@@ -25,10 +25,6 @@ git clone https://github.com/jkuri/ng2-uploader.git
 import { UPLOAD_DIRECTIVES } from 'ng2-uploader';
 ----
 
-We need to apply *NgFileSelect* to input element of type file and bind handleUpload(data: any) handler to it. Also, we need to apply options we declared to that input.
-
-
-
 = Syncronous File Upload
 
 To enable multiple files upload we need to add multiple attribute to input of type file and it is enabled automatically.
@@ -68,3 +64,7 @@ For asynchronous file upload, the template would look something like:
   Progress: {{ progress }}%
 </div>
 ----
+
+*NgFileSelect*
+
+We need to apply *NgFileSelect* to input element of type file and bind handleUpload(data: any) handler to it. Also, we need to apply options we declared to that input.
