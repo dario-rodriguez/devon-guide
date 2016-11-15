@@ -52,8 +52,8 @@ For services there are different protocols. Those relevant for and recommended b
 === REST
 
 REST is not a technology and certainly is not a standard of some kind. It is merely an architectural style that chalks down how to write a web service in a certain way. REST stands for REpresentational State Transfer. REST is web standards based architecture and uses HTTP Protocol. It revolves around resource where every component is a resource and a resource is accessed by a common interface using HTTP standard methods.
-In REST architecture, a REST Server simply provides access to resources and REST client accesses and modifies the resources. Here each resource is identified by URIs/ global IDs. REST uses various representations to represent a resource like text, JSON, XML. JSON is the most popular one.
 
+In REST architecture, a REST Server simply provides access to resources and REST client accesses and modifies the resources. Here each resource is identified by URIs/ global IDs. REST uses various representations to represent a resource like text, JSON, XML. JSON is the most popular one.
 Principal protagonist of a REST architecture is a _"Resource"_ which can be uniquely identified by an Uniform Resource Identifier or URI. State of a resource at any given point of time is represented by a document and is called Representation of resource. The client can update the state of resource by transferring the representation along with the request. The new representation is now returned to client along with the response.  The representation contains the information in formats like html, xml, JSON etc that is accepted by the resource. The resource which adheres to rules of REST architecture is called a RESTful resource and web service that adheres to this rule are called RESTful web service.
 Therefore we define best practices here to guide you.
 For a general introduction consult the http://en.wikipedia.org/wiki/Representational_State_Transfer[wikipedia].
@@ -72,7 +72,35 @@ https://mydomain.com/myapp/services/rest/mycomponent/v1/myentity
 https://mydomain.com/myapp/services/rest/mycomponent/v1/myentity/42
 ----
 
+==== Representation of Resource
+
+A resource in REST is similar Object in Object Oriented Programming or similar to Entity in a Database. Once a resource is identified then its representation is to be decided using a standard format so that server can send the resource in above said format and client can understand the same format.
+For example, in RESTful Web Services ," User " is a resource which is represented using following XML format:
+
+[source,url]
+----
+<user>
+   <id>1</id>
+   <name>Mahesh</name>
+   <profession>Teacher</profession>
+</user>
+----
+
+Same resource can be represented in JSON format:
+[source,url]
+----
+{
+   "id":1,
+   "name":"Mahesh",
+   "profession":"Teacher"
+}
+----
+
+
+
+
 The "pure" REST architecture style is more suitable for creating "scalable" systems on the open web. But for usual business applications its complexity outweight its benefits, therefore the Devonfw proposes a more "pragmatic" approach to REST services.
+
 
 On the next table we compare the main differences between the "canonical" REST approach (or RESTful) and the Devonfw proposal.
 
