@@ -11,7 +11,7 @@ ng2-uploader is a set of service and directives. It is designed for uploading th
 npm install ng2-uploader --save
 ----
 
-*Installation as cloning repository from GitHub*
+*Installation via cloning repository from GitHub*
 
 [source,bash]
 ----
