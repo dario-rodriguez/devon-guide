@@ -148,6 +148,8 @@
 
 - link:Client-GUI-Angular-Gulp-Tasks[Gulp Tasks]
 
+- link:Client-GUI-Angular-File-Upload[File Upload]
+
 ## Appendix
 
 * link:devon-guide-frequently-asked-questions[Frequently Asked Questions (FAQ)]
