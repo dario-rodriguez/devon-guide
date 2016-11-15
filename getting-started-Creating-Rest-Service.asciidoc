@@ -96,6 +96,18 @@ Same resource can be represented in JSON format:
 }
 ----
 
+==== Characteristics of good Representation
+
+In REST, there is no restriction on the format of a resource representation. A client can ask for JSON representation where as another client may ask for XML representation of same resource to the server and so on. It is responsibility of the REST server to pass the client the resource in the format that client understands. Following are important points to be considered while designing a representation format of a resource in a RESTful web services.
+
+*Understandability:* Both Server and Client should be able to understand and utilize the representation format of the resource.
+
+
+*Completeness:* Format should be able to represent a resource completely. For example, a resource can contain another resource. Format should be able to represent simple as well as complex structures of resources.
+
+
+*Linkablity:* A resource can have a linkage to another resource, a format should be able to handles such situations.
+
 
 
 
