@@ -11,7 +11,7 @@ For more information visit https://en.wikipedia.org/wiki/Active_Directory[wikipe
 
 === Include Winauth in a Devon project
 
-Winauth module provide you a simple authentication for your Devon applications. If you want to implement this kind of authentication in a Devon project you need to follow the next steps:
+Winauth module provides you a simple authentication for your Devon applications. If you want to implement this kind of authentication in a Devon project you need to follow the next steps:
 
 ==== Step 1: Add the module dependency
 
@@ -28,7 +28,7 @@ Include the dependency of the module in your pom.xml
 
 ==== Step 2: Security configuration 
 
-Create a variable of the class AuthenticationManagerAD in general/configuration/WebSecurityConfig.java
+Create a variable of the class AuthenticationManagerAD in general/configuration/BaseWebSecurityConfig.java
 
 [source,java]
 ----
