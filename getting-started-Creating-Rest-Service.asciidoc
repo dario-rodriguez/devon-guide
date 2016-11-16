@@ -186,6 +186,7 @@ Following are important points to be considered while designing a URI:
 
 The "pure" REST architecture style is more suitable for creating "scalable" systems on the open web. But for usual business applications its complexity outweight its benefits, therefore the Devonfw proposes a more "pragmatic" approach to REST services.
 
+=== HTTP Methods
 
 On the next table we compare the main differences between the "canonical" REST approach (or RESTful) and the Devonfw proposal.
 
@@ -219,6 +220,17 @@ Delete an entiry collection (typically not supported)|
 Please consider these guidelines and rationales:
 * We use +POST+ on the collection URL for both create and update operations on an entity. This avoids pointless discussions in distinctions between +PUT+ and +POST+ and what to do if a "creation" contains an ID or if an "update" is missing the ID property.
 * Hence, we do NOT use +PUT+ but always use +POST+ for write operations. As we always have a technical ID for each entity, we can simply distinguish create and update by the presence of the ID property.
+Here are important points to be considered:
+
+* GET operations are read only and are safe.
+
+
+* PUT and DELETE operations are idempotent means their result will always same no matter how many times these operations are invoked.
+
+
+* PUT and POST operation are nearly same with the difference lying only in the result where PUT operation is idempotent and POST operation can cause different result.
+
+
 
 === JAX-RS
 
