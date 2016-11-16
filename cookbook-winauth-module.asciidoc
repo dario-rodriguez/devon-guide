@@ -22,7 +22,7 @@ Include the dependency of the module in your pom.xml
 <dependency>
       <groupId>com.capgemini.devonfw.modules</groupId>
       <artifactId>devonfw-winauth</artifactId>
-<version>1.1-SNAPSHOT</version>
+      <version>2.1.0-SNAPSHOT</version>
 </dependency>
 ----
 
