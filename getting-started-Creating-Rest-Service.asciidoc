@@ -186,9 +186,9 @@ On the next table we compare the main differences between the "canonical" REST a
 [options="header"]
 |=======================
 |*HTTP Method*|*RESTful Meaning*|*Devonfw*
-|+GET+        .<|Read single element.
-
-Search on an entity (with parametrized url) .<|Read a single element.
+|+GET+        .<|http://localhost:8080/UserManagement/rest/UserService/users
+Get list of users
+(Read Only)Search on an entity (with parametrized url) .<|Read a single element.
 
 |+PUT+        .<|Replace entity data.         
 
