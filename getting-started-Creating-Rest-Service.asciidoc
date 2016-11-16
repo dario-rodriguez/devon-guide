@@ -143,6 +143,37 @@ A HTTP Response has four major parts:
 
 * Response Body- Response message content or Resource representation.
 
+==== Constructing a standard URI
+
+Addressing refers to locating a resource or multiple resources lying on the server. It is analogous to locate a postal address of a person.
+
+Each resource in REST architecture is identified by its URI, Uniform Resource Identifier. A URI is of following format:
+
+[source,url]
+----
+<protocol>://<service-name>/<ResourceType>/<ResourceID>
+----
+
+Purpose of an URI is to locate a resource(s) on the server hosting the web service. Another important attribute of a request is VERB which identifies the operation to be performed on the resource. For example, in RESTful Web Services - First Application tutorial, URI is http://localhost:8080/UserManagement/rest/UserService/users and VERB is GET. 
+
+Following are important points to be considered while designing a URI:
+
+* Use Plural Noun - Use plural noun to define resources. For example, we've used users to identify users as a resource.
+
+
+* Avoid using spaces - Use underscore(_) or hyphen(-) when using a long resource name, for example, use authorized_users instead of authorized%20users.
+
+
+* Use lowercase letters - Although URI is case-insensitive, it is good practice to keep url in lower case letters only.
+
+
+
+* Maintain Backward Compatibility  - As Web Service is a public service, a URI once made public should always be available. In case, URI gets updated, redirect the older URI to new URI using HTTP Status code, 300. 
+
+
+* Use HTTP Verb - Always use HTTP Verb like GET, PUT, and DELETE to do the operations on the resource. It is not good to use operations names in URI.
+
+
 
 
 
