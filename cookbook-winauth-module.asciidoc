@@ -38,7 +38,7 @@ private AuthenticationManagerAD authenticationManagerAD;
 
 ==== Step 3: Define the provider
 
-Add the LDAP provider to the AuthenticationManagerBuilder in the init() method. 
+Also in the BaseWebSecurityConfig.java class add the LDAP provider to the AuthenticationManagerBuilder in the init() method. 
 
 [source,java]
 ----
