@@ -237,7 +237,7 @@ devon.winauth.groups.GradoA=dlescapgemini.grado-a
 devon.winauth.groups.TESTGROUP=testGroup
 ----
 
-Now, if you ask the server the current user of the application, you will see the user data with him groups. 
+Now, if you ask the server for the current user of the application, you will see the user data with his groups. 
 
 ==== Service CurrentUser
 
