@@ -55,7 +55,14 @@ REST is not a technology and certainly is not a standard of some kind. It is mer
 
 In REST architecture, a REST Server simply provides access to resources and REST client accesses and modifies the resources. Here each resource is identified by URIs/ global IDs. REST uses various representations to represent a resource like text, JSON, XML. JSON is the most popular one.
 Principal protagonist of a REST architecture is a _"Resource"_ which can be uniquely identified by an Uniform Resource Identifier or URI. State of a resource at any given point of time is represented by a document and is called Representation of resource. The client can update the state of resource by transferring the representation along with the request. The new representation is now returned to client along with the response.  The representation contains the information in formats like html, xml, JSON etc that is accepted by the resource. The resource which adheres to rules of REST architecture is called a RESTful resource and web service that adheres to this rule are called RESTful web service.
-Therefore we define best practices here to guide you.
+
+=== SOAP
+
+SOAP is a common protocol that is rather complex and heavy. It allows to build inter-operable and well specified services (see WSDL). SOAP is transport neutral what is not only an advantage. We strongly recommend to use HTTPS transport and ignore additional complex standards like WS-Security and use established HTTP-Standards such as RFC2617 (and RFC5280).
+
+== Details on Rest Service.
+
+
 For a general introduction consult the http://en.wikipedia.org/wiki/Representational_State_Transfer[wikipedia].
 For CRUD operations in REST we distinguish between collection and element URIs:
 
@@ -72,7 +79,7 @@ https://mydomain.com/myapp/services/rest/mycomponent/v1/myentity
 https://mydomain.com/myapp/services/rest/mycomponent/v1/myentity/42
 ----
 
-==== Representation of Resource
+=== Representation of Resource
 
 A resource in REST is similar Object in Object Oriented Programming or similar to Entity in a Database. Once a resource is identified then its representation is to be decided using a standard format so that server can send the resource in above said format and client can understand the same format.
 For example, in RESTful Web Services ," User " is a resource which is represented using following XML format:
@@ -96,7 +103,7 @@ Same resource can be represented in JSON format:
 }
 ----
 
-==== Characteristics of good Representation
+=== Characteristics of good Representation
 
 In REST, there is no restriction on the format of a resource representation. A client can ask for JSON representation where as another client may ask for XML representation of same resource to the server and so on. It is responsibility of the REST server to pass the client the resource in the format that client understands. Following are important points to be considered while designing a representation format of a resource in a RESTful web services.
 
@@ -108,7 +115,7 @@ In REST, there is no restriction on the format of a resource representation. A c
 
 *Linkablity:* A resource can have a linkage to another resource, a format should be able to handles such situations.
 
-==== RESTful Web Services - Messages
+=== RESTful Web Services - Messages
 
 RESTful web services make use of HTTP protocol as a medium of communication between client and server. A client sends a message in form of a HTTP Request and server responds in form of a HTTP Response. This technique is terms as Messaging. These messages contain message data and metadata that is information about message itself. Let's have a look on HTTP Request and HTTP Response messages for HTTP 1.1.
 
@@ -143,7 +150,7 @@ A HTTP Response has four major parts:
 
 * Response Body- Response message content or Resource representation.
 
-==== Constructing a standard URI
+=== Constructing a standard URI
 
 Addressing refers to locating a resource or multiple resources lying on the server. It is analogous to locate a postal address of a person.
 
@@ -193,10 +200,10 @@ Get User of Id 1
 
 |+PUT+        .<|http://localhost:8080/UserManagement/rest/UserService/users/2
 Insert User with Id 2
-(Idempotent).<| Not used
+(Idempotent) .<| Not used
 |+POST+       .<|http://localhost:8080/UserManagement/rest/UserService/users/2
 Update User with Id 2
-(N/A).<| Create or update an element in the collection.
+(N/A) .<| Create or update an element in the collection.
 
 Search on an entity (parametrized post body)
 
@@ -204,7 +211,7 @@ Bulk deletion.
 
 |+DELETE+     .<|http://localhost:8080/UserManagement/rest/UserService/users/1
 Delete User with Id 1
-(Idempotent).<|Delete an entity.
+(Idempotent) .<|Delete an entity.
 
 Delete an entiry collection (typically not supported)|
 |=======================
@@ -213,7 +220,7 @@ Please consider these guidelines and rationales:
 * We use +POST+ on the collection URL for both create and update operations on an entity. This avoids pointless discussions in distinctions between +PUT+ and +POST+ and what to do if a "creation" contains an ID or if an "update" is missing the ID property.
 * Hence, we do NOT use +PUT+ but always use +POST+ for write operations. As we always have a technical ID for each entity, we can simply distinguish create and update by the presence of the ID property.
 
-==== JAX-RS
+=== JAX-RS
 
 For implementing REST services we use the https://jax-rs-spec.java.net/[JAX-RS] standard. As an implementation we recommend http://cxf.apache.org/[CXF]. If you want to know more about why we have chosen these options see https://github.com/oasp/oasp4j/wiki/decision-service-framework[this]. 
 For https://github.com/oasp/oasp4j/wiki/guide-json[JSON] bindings we use http://wiki.fasterxml.com/JacksonHome[Jackson] while https://github.com/oasp/oasp4j/wiki/guide-xml[XML] binding works out-of-the-box with http://www.oracle.com/technetwork/articles/javase/index-140168.html[JAXB].
@@ -250,7 +257,7 @@ Here we can see a REST service for the https://github.com/oasp/oasp4j/wiki/archi
 
 NOTE: With JAX-RS it is important to make sure that each service method is annotated with the proper HTTP method (+@GET+,+@POST+,etc.) to avoid unnecessary debugging. So you should take care not to forget to specify one of these annotations.
 
-===== JAX-RS Configuration
+=== JAX-RS Configuration
 
 Starting from CXF 3.0.0 it is possible to enable the auto-discovery of JAX-RS roots and providers thus avoiding having to specify each service bean in the +beans-service.xml+ file.
 
@@ -262,7 +269,7 @@ When the jaxrs server is instantiated all the scanned root and provider beans (b
    
 --------
 
-==== HTTP Status Codes
+=== HTTP Status Codes
 
 Further we define how to use the HTTP status codes for REST services properly. In general the 4xx codes correspond to an error on the client side and the 5xx codes to an error on the server side.
 
@@ -281,7 +288,7 @@ Further we define how to use the HTTP status codes for REST services properly. I
 
 For more details about REST service design please consult the http://restcookbook.com/[RESTful cookbook].
 
-==== REST Exception Handling
+=== REST Exception Handling
 For exceptions a service needs to have an exception facade that catches all exceptions and handles them by writing proper log messages and mapping them to a HTTP response with an according xref:http-status-codes[HTTP status code]. Therefore the OASP4J provides a generic solution via +RestServiceExceptionFacade+. You need to follow the https://github.com/oasp/oasp4j/wiki/guide-exceptions[exception guide] so that it works out of the box because the facade needs to be able to distinguish between business and technical exceptions.
 You need to configure it in your +beans-service.xml+ as following:
 
@@ -297,7 +304,7 @@ You need to configure it in your +beans-service.xml+ as following:
 --------
 Now your service may throw exceptions but the facade will automatically handle them for you.
 
-==== Metadata
+=== Metadata
 
 OASP4J has support for the following metadata in REST service invocations:
 
@@ -311,7 +318,7 @@ The protocol to communicate these validation errors to the client is discussed a
 |Pagination |Standardized format for a service to offer paginated access to a list of entities| Server-side support for pagination is documented in the link:getting-started-Data-Access-Layer#pagination[Data-Access Layer Guide].
 |=======
 
-==== Recommendations for REST requests and responses
+=== Recommendations for REST requests and responses
 
 The OASP4J proposes, for simplicity, a deviation from the REST common pattern:
 
@@ -334,7 +341,7 @@ REST services are called via HTTP(S) URIs. As we mentioned at the beginning we d
 ----
 The following table specifies how to use the HTTP methods (verbs) for collection and element URIs properly (see http://en.wikipedia.org/wiki/Representational_State_Transfer#Applied_to_web_services[wikipedia]). For general design considerations beyond this documentation see the https://pages.apigee.com/web-api-design-ebook.html[API Design eBook].
 
-===== Unparameterized loading of a single resource
+=== Unparameterized loading of a single resource
 
 * *HTTP Method*: +GET+
 * *URL example*: +/products/123+
@@ -351,7 +358,7 @@ The response contains the resource in JSON format, using a JSON object at the to
 }
 ----
 
-===== Unparameterized loading of a collection of resources
+=== Unparameterized loading of a collection of resources
 
 * *HTTP Method*: +GET+
 * *URL example*: +/products+
@@ -378,7 +385,7 @@ The response contains the collection in JSON format, using a JSON object at the 
 
 Avoid returning JSON arrays at the top-level, to prevent CSRF attacks (see https://www.owasp.org/index.php/OWASP_AJAX_Security_Guidelines)
 
-===== Saving a resource
+=== Saving a resource
 
 * *HTTP Method*: +POST+
 * *URL example*: +/products+
@@ -390,7 +397,7 @@ If saving was successful, an empty HTTP 204 response is generated.
 If saving was unsuccessful, refer below for the format to return errors to the client.
 
 
-===== Parameterized loading of a resource
+=== Parameterized loading of a resource
 
 * *HTTP Method*: +POST+
 * *URL example*: +/products/search+
@@ -460,20 +467,20 @@ With the equivalent code required if doing it the REST way by issuing a +GET+ re
 ----
 
 
-====== Pagination details
+=== Pagination details
 
 The client can choose to request a count of the total size of the collection, for example to calculate the total number of available pages. It does so, by specifying the +pagination.total+ property with a value of +true+.
 
 The service is free to honour this request. If it chooses to do so, it returns the total count as the +pagination.total+ property in the response.
 
-===== Deletion of a resource
+=== Deletion of a resource
 
 * *HTTP Method*: +DELETE+
 * *URL example*: +/products/123+
 
 For deletion of a single resource, embed the +identifier+ of the resource in the URL (for example +/products/123+).
 
-===== Error results
+=== Error results
 
 The general format for returning an error to the client is as follows:
 
@@ -504,7 +511,7 @@ If the error is caused by a failed validation of the entity, the above format is
 }
 ----
 
-==== REST Media Types
+=== REST Media Types
 
 The payload of a REST service can be in any format as REST by itself does not specify this. The most established ones that the OASP4J recommends are https://github.com/oasp/oasp4j/wiki/guide-xml[XML] and https://github.com/oasp/oasp4j/wiki/guide-json[JSON]. Follow these links for further details and guidance how to use them properly. +JAX-RS+ and +CXF+ properly support these formats (+MediaType.APPLICATION_JSON+ and +MediaType.APPLICATION_XML+ can be specified for +@Produces+ or +@Consumes+). Try to decide for a single format for all services if possible and NEVER mix different formats in a service.
 
@@ -527,7 +534,7 @@ In order to use https://github.com/oasp/oasp4j/wiki/guide-json[JSON] via http://
   <bean id="ObjectMapperFactory" factory-bean="RestaurantObjectMapperFactory" factory-method="createInstance"/>
 --------
 
-==== REST Testing
+=== REST Testing
 
 For testing REST services in general consult the https://github.com/oasp/oasp4j/wiki/guide-testing[testing guide].
 
@@ -537,11 +544,9 @@ For manual testing REST services there are browser plugins:
 * Chrome: http://www.getpostman.com/[postman] (https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo[advanced-rest-client])
 
 
-=== SOAP
 
-SOAP is a common protocol that is rather complex and heavy. It allows to build inter-operable and well specified services (see WSDL). SOAP is transport neutral what is not only an advantage. We strongly recommend to use HTTPS transport and ignore additional complex standards like WS-Security and use established HTTP-Standards such as RFC2617 (and RFC5280).
-
-==== JAX-WS
+== Details of SOAP
+=== JAX-WS
 
 For building web-services with Java we use the https://jcp.org/en/jsr/detail?id=224[JAX-WS] standard.
 There are two approaches:
