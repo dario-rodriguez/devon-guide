@@ -62,7 +62,7 @@ Below are steps need to integrate Spring Data in data access layer:
 --------
 @Component
 public class RegistrationBean {
-  @Autowired
+  @Inject
   private TableRepo tableRepo;
   /**
    * The constructor.
@@ -107,7 +107,7 @@ public class RegistrationBean {
 public class TestClass extends ComponentTest {
 
 
-  @Autowired
+  @Inject
   RegistrationBean registrationBean;
 
 
@@ -232,7 +232,7 @@ public class TableRepoImpl implements TableRepoCustom {
 @EnableJpaRepositories(basePackages = { "io.oasp.gastronomy.restaurant.tablemanagement.dataaccess.api.repo" })
 @ComponentScan(basePackages = { "io.oasp.gastronomy.restaurant.tablemanagement.dataaccess.api.dao" })
 public class TestClass extends ComponentTest {
-  @Autowired
+  @Inject
   RegistrationBean registrationBean;
   /**
    * @return registerationBean
@@ -296,6 +296,75 @@ Example:  @NamedQuery(name = "Drink.nonalcholic", query = "select drink from Dri
 
 
 * Similar to criteria we have Predicate from QueryDsl
+
+== Query creation by method names
+
+Consider tablemanagement as an example. First we we will create TableEntity class with attribute number ,waiterId and state. To test query creation by method names, we will create new method findByState(TableState state) in TableRepo. This method will find table based on TableState provided. Below are the steps we need to follow:
+
+* Create TableEntity class as below:
+
+[source,java]
+--------
+@Entity
+// Table is a reserved word in SQL/RDBMS and can not be used as table name
+@javax.persistence.Table(name = "RestaurantTable")
+public class TableEntity extends ApplicationPersistenceEntity implements Table {
+  private static final long serialVersionUID = 1L;
+  private Long number;
+  private Long waiterId;
+  private TableState state;
+  @Override
+  @Column(unique = true)
+  public Long getNumber() {
+    return this.number;
+  }
+  @Override
+  public void setNumber(Long number) {
+    this.number = number;
+  }
+  @Override
+  @Column(name = "waiter_id")
+  public Long getWaiterId() {
+    return this.waiterId;
+  }
+  @Override
+  public void setWaiterId(Long waiterId) {
+   this.waiterId = waiterId;
+  }
+  @Override
+  public TableState getState() {
+    return this.state;
+  }
+  @Override
+  public void setState(TableState state) {
+    this.state = state;
+  }
+}
+
+--------
+
+* In TableRepo create findByState(TableState state) method as below:
+
+[source,java]
+--------
+@Repository
+public interface TableRepo extends JpaRepository<TableEntity, Long>, TableRepoCustom {
+  // Query Creation By method names
+  List<TableEntity> findByState(TableState state);
+}
+
+--------
+
+* We will have RegistrationBean  class as shown in previous example.Now, we are ready to test method findByState(TableState state). In test class include below test method:
+
+[source,java]
+--------
+  @Test
+  public void testFindTableByState() {
+    List<TableEntity> tableList = getRegisterationBean().getTableRepo().findByState(TableState.FREE);
+    System.out.println("tableList size " + tableList.size());
+  }
+--------
 
 == Implementing Query with QueryDsl
 
