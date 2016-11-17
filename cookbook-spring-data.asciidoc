@@ -282,20 +282,26 @@ Below are ways to create query in Spring Data JPA:
 	List<User> findByEmailAddressAndLastname(String emailAddress, String lastname);
 Above method is equivalent to writing below query:
 select u from User u where u.emailAddress = ?1 and u.lastname = ?2
-
+This is explained in next section.
 
 * Using Jpa Named Queries
-Example:  @NamedQuery(name = "Drink.nonalcholic", query = "select drink from DrinkEntity drink where drink.alcoholic=false")
+Example: 
+ @NamedQuery(name = "Drink.nonalcholic", query = "select drink from DrinkEntity drink where drink.alcoholic=false")
 
 
 * Using @Query annotation
- @Query(name = "table.query1", value = "select table from TableEntity table where table.state= :#{#criteria.state}")
 
+[source,java]
+--------
+ @Query(name = "table.query1", value = "select table from TableEntity table where table.state= :#{#criteria.state}")
+public Page<TableEntity> findTablesDummy(@Param("criteria") TableSearchCriteriaTo criteria, Pageable pageable);
+--------
+Include above method in repository i.e TableRepo.
 
 * Native Queries - This Queries can be created using @Query annotation and setting nativeQuery=true
 
 
-* Similar to criteria we have Predicate from QueryDsl
+* Similar to criteria we have Predicate from QueryDsl. This is explained in section below.
 
 == Query creation by method names
 
