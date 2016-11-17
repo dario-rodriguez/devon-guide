@@ -162,6 +162,7 @@ If you look at the above interface you can tell that it is a normal java interfa
 * _@WebService_ – Specifies that the JWS file implements a Web Service turning a normal https://en.wikipedia.org/wiki/Plain_Old_Java_Object[POJO] into a webservice. In our case the annotation is placed right above the interface definition and it notifies that TablemanagmentWebService is not a normal interface rather an webservice interface or SEI. 
 * _@WebMethod_ – This annotation is optional and is mainly used to provide a name attribute to the public method in wsdl.
 * _@WebResult_ - The @WebResult annotation allows you to specify the properties of the generated wsdl:part that is generated for the method's return value.
+* _@WebParam_ - The @WebParam annotation is defined by the javax.jws.WebParam interface. It is placed on the parameters on the methods defined in the SEI. The @WebParam annotation allows you to specify the direction of the parameter, if the parameter will be placed in the SOAP header, and other properties of the generated wsdl:part.
 
 
 
