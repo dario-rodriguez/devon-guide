@@ -234,7 +234,7 @@ Here are important points to be considered:
 
 === JAX-RS
 
-For implementing REST services we use the https://jax-rs-spec.java.net/[JAX-RS] standard. As an implementation we recommend http://cxf.apache.org/[CXF]. JAX-RS stands for JAVA API for RESTful Web Services. JAX-RS is a JAVA based programming language API and specification to provide support for created RESTful Webservices.JAX-RS makes heavy use of annotations available from Java to simplify development of JAVA based web services creation and deployment. It also provides supports for creating clients for RESTful web services.
+For implementing REST services we use the https://jax-rs-spec.java.net/[JAX-RS] standard. As an implementation we recommend http://cxf.apache.org/[CXF]. JAX-RS stands for JAVA API for RESTful Web Services. JAX-RS is a JAVA based programming language API and specification to provide support for created RESTful Webservices. JAX-RS makes heavy use of annotations available from Java to simplify development of JAVA based web services creation and deployment. It also provides supports for creating clients for RESTful web services.
 
 * Specifications
 
