@@ -410,8 +410,7 @@ However you can edit those values by overriding the configuration properties in 
 
 .application.properties file
 |===
-| Property | Application Property Name |
-| -------- | ------------------------- |
+| *Property* | *Application Property Name* |
 | core pool size | devonfw.async.corePoolSize |
 | time out milliseconds | devonfw.async.timeout.milliseconds |
 | time out status | devonfw.async.timeout.status |
