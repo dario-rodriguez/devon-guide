@@ -408,21 +408,16 @@ The default values provided in the module are:
 
 However you can edit those values by overriding the configuration properties in your app. To do it you can use the `application.properties` to add the properties you want to define.
 
-
+.application.properties file
+|===
 | Property | Application Property Name |
-
 | -------- | ------------------------- |
-
 | core pool size | devonfw.async.corePoolSize |
-
 | time out milliseconds | devonfw.async.timeout.milliseconds |
-
 | time out status | devonfw.async.timeout.status |
-
 | time out response content | devonfw.async.timeout.responseContent |
-
 | time out media type | devonfw.async.timeout.mediatype |
-
+|===
 
 As example, the next could be a valid `application.properties` configuration file for an application in which we want an async process with a _core pool size_ of 20, and a _timeout_ of 10 seconds returning with a status of 500 (internal server error) and a response in _json_ format:
 
