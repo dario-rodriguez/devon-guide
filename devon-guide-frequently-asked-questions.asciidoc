@@ -17,7 +17,7 @@ toc::[]
 In case you want to disable the default security filter of roles to have full access to the services of the sample application you must introduce the following changes:
 
 ====== Modify the _unsecuredResources_
-In the _BaseWebSecurityConfig.java_ class located in the _core_ project in the `src/main/java/io.oasp.gastronomy.restaurant/general/configuration` folder, add the rest services path to the _unsecuredResources_
+In the _BaseWebSecurityConfig.java_ class located in the `src/main/java/io.oasp.gastronomy.restaurant/general/configuration` folder of the _core_ project, add the rest services path to the _unsecuredResources_
 
 [source,java]
 ----
