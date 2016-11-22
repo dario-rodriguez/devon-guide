@@ -12,7 +12,7 @@ toc::[]
 
 
 
-===== *Disable security for services*
+===== _Disable security for services_
 
 In case you want to disable the default security filter of roles to have full access to the services of the sample application you must introduce the following changes:
 
