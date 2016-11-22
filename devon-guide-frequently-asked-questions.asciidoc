@@ -21,7 +21,8 @@ In the _BaseWebSecurityConfig.java_ class located in the `src/main/java/io.oasp.
 
 [source,java]
 ----
-String[] unsecuredResources = new String[] { "/login", "/security/**", "/services/rest/login", "/services/rest/logout", *"/services/rest/**"* };
+String[] unsecuredResources = 
+    new String[] { "/login", "/security/**", "/services/rest/login", "/services/rest/logout", "/services/rest/**" };
 ----
 
 ====== Disable CSRF protection
@@ -111,7 +112,7 @@ The available options for _policy_ are: _DENY_, _SAMEORIGIN_ and _ALLOW-FROM_. Y
 ==== How to disable "defeat cache" functionality
 When working with Sencha application, all the required files are loaded with an additional parameter _dc=[random number] that will disallow debugging properly on the browser developer tools because breakpoints will be lost on reload.
 
-In order to disable this functionallity you have to add the following on the app.json of your Devon4Sencha application:
+In order to disable this functionality you have to add the following on the app.json of your Devon4Sencha application:
 
 [source,json]
 ----
