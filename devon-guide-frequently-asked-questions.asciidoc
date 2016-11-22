@@ -1,10 +1,92 @@
+:toc: macro
+toc::[]
+
+
 = Frequently Asked Questions (FAQ) 
 
-== Security
+== Server
 
-=== How to disable Spring Boot Security?
+=== Security
 
-==== _Load denied by X-Frame_ error when trying to upload a file to the server from the client
+==== How to disable Spring Boot Security?
+
+
+
+===== Disable security for services
+
+In case you want to disable the default security filter of roles to have full access to the services of the sample application you must introduce the following changes:
+
+====== Modify the _unsecuredResources_
+In the _BaseWebSecurityConfig.java_ class located in the _core_ project in the `src/main/java/io.oasp.gastronomy.restaurant/general/configuration` folder, add the rest services path to the _unsecuredResources_
+
+[source,java]
+----
+String[] unsecuredResources = new String[] { "/login", "/security/**", "/services/rest/login", "/services/rest/logout", *"/services/rest/**"* };
+----
+
+====== Disable CSRF protection
+
+Also in _BaseWebSecurityConfig.java_
+
+- comment the CsrfRequestMatcher
+[source,java]
+----
+// .csrf().requireCsrfProtectionMatcher(new CsrfRequestMatcher()).and()
+----
+
+- add right after
+[source,java]
+----
+.csrf().disable()
+----
+
+In the _CsrfRequestMatcher.java_ class in _`src/main/java/io.oasp.gastronomy.restaurant/general/common/impl/security` change _PATH_PREFIXES_WITHOUT_CSRF_PROTECTION_ to
+[source,java]
+----
+private static final String[] PATH_PREFIXES_WITHOUT_CSRF_PROTECTION = { "/login", "/logout", "/services/rest/**", "/websocket" };
+----
+
+====== Disable the Global Method Security
+In the _SpringBootApp.java_ class, located in `src/main/java/io.oasp.gastronomy.restaurant` change (to _false_) the _EnableGlobalMethodSecurity_ annotation
+
+[source,java]
+----
+@EnableGlobalMethodSecurity(jsr250Enabled = false)
+----
+
+====== Check the services access
+Now running the app (Right click over _SpringBootApp.java_ class and selecting _Run As_ > _Java Application_) and trying to access through a browser to a rest service
+
+[source,url]
+----
+http://localhost:8081/oasp4j-sample-server/services/rest/tablemanagement/v1/table/101
+----
+
+Should return a response similar to
+
+[source,json]
+----
+{"id":101,"modificationCounter":1,"revision":null,"waiterId":null,"number":1,"state":"OCCUPIED"}
+----
+
+
+
+===== Disable Login
+In addition to the previous section, if you want also to disable the security login of the sample application you only need to delete/comment the content of the _configure_ method of the _BaseWebSecurityConfig.java_ class. 
+
+[source,java]
+----
+  @Override
+  public void configure(HttpSecurity http) throws Exception {
+
+  }
+----
+
+Doing that you will access directly to the _Welcome_ page of the app without the login process. 
+
+
+
+===== _Load denied by X-Frame_ error when trying to upload a file to the server from the client
 
 This error is thrown by the spring security component in the server in order to avoid link:https://en.wikipedia.org/wiki/Clickjacking[clickjacking] attacks. You can override this configuration in the spring security config adding the following
 
@@ -19,44 +101,34 @@ This error is thrown by the spring security component in the server in order to 
 
 The available options for _policy_ are: _DENY_, _SAMEORIGIN_ and _ALLOW-FROM_. You can get more information about this link:http://docs.spring.io/spring-security/site/docs/3.2.0.CI-SNAPSHOT/reference/html/appendix-namespace.html#nsa-frame-options[here] and link:http://docs.spring.io/autorepo/docs/spring-security/3.2.0.CI-SNAPSHOT/reference/html/headers.html[here]
 
-== Services
-
-=== Which is the format of a REST request?
-
-Using Spring Boot and with the default code structure and practices, you can make a GET request to the following url:
-
-  http://[server]:[port]/services/rest/[service name]/[service version]/[operation]/[param1]
-
-For example:
-
-  http://localhost:8080/services/rest/tablemanagement/v1/table/101
-
-Take into account that for an app deployed to a traditional web server (WAR/EAR packaged) it is usually prepended with the context name of the application, for example:
-
-  http://oasp-ci.cloudapp.net/oasp4j-sample/services/rest/tablemanagement/v1/table
 
 
-== Crosscutting concerns
 
-=== How to set debug mode for logs?
-For Spring Boot applications, the easiest way is to edit the `[project]\main\resources\application.properties` file and adding the following:
+== Client
 
-  logging.level.=DEBUG
+=== Devon4Sencha
 
-
-== Devon4Sencha
-
-=== How to disable "defeat cache" functionality
+==== How to disable "defeat cache" functionality
 When working with Sencha application, all the required files are loaded with an additional parameter _dc=[random number] that will disallow debugging properly on the browser developer tools because breakpoints will be lost on reload.
 
 In order to disable this functionallity you have to add the following on the app.json of your Devon4Sencha application:
 
+[source,json]
+----
     "loader": {
           "cache": true
     },
 
+    
+----
 
-== Configuration Issues
+
+
+
+
+
+== Configuration issues
+
 
 === Maven
 
@@ -64,6 +136,72 @@ In order to disable this functionallity you have to add the following on the app
 ====
 Remember to verify the proxy configuration in the `conf/.m2/settings.xml` file and the Firewall configuration of your machine as first steps if you have connection issues using Maven
 ====
+
+==== Non-resolvable import POM: Project dependencies download failure
+
+===== Error details
+
+ - Could not transfer artifact from/to central ValidatorException
+
+    [source,batch]
+    ----
+    Non-resolvable import POM: Could not transfer artifact org.springframework.boot:spring-boot-dependencies:pom:1.3.3.RELEASE from/to central (https://repo.maven.apache.org/maven2): sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+    ----
+
+ - Maven Dependency Problem: Failed to read artifact descriptor / Missing artifact
+
+===== Solution:
+
+- Try changing in the `conf\.m2\settings.xml`file of your distribution the URL of the remote repo from _https_ to plain _http_ : http://repo.maven.apache.org/maven2
+
+- As an alternative you also can include a `<mirror>` tag inside '<mirrors>' with the following structure:
+[source,xml]
+----
+<mirror>
+    <id>UK</id>
+    <name>UK Central</name>
+    <url>http://uk.maven.org/maven2</url>
+    <mirrorOf>central</mirrorOf>
+</mirror>
+----
+
+[NOTE]
+====
+If project is already imported in Eclipse then update project:
+Right click on project > Maven > Update Project > check the Force update of Snapshot/Releases checkbox > Ok
+====
+
+
+
+==== How to install the Devon IP Modules
+
+If you have any problems resolving the dependencies or accessing to the Devon IP modules you can install them directly in your distribution. To achieve that you only need to open a distribution console launching the 'console.bat' script and then going to `workspaces\examples\devon\modules` and using the _install_ command of _Maven_.
+[source,batch]
+----
+D:\Devon-dist\workspaces\examples\devon\modules>mvn install
+
+[...]
+
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO]
+[INFO] devonfw-modules .................................... SUCCESS [  0.565 s]
+[INFO] devonfw-foo ........................................ SUCCESS [  2.969 s]
+[INFO] devonfw-reporting .................................. SUCCESS [ 10.022 s]
+[INFO] devonfw-winauth .................................... SUCCESS [  3.069 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 17.002 s
+[INFO] Finished at: 2016-11-22T15:39:10+01:00
+[INFO] Final Memory: 15M/40M
+[INFO] ------------------------------------------------------------------------
+----
+
+This command will install locally the available Devon IP modules of your distribution so you will be able to start using them on your Devon application.
+
+
+
 
 ==== _Address is invalid on local machine, or port is not valid on remote machine_ error
 
@@ -81,3 +219,75 @@ So in order to use that property you need to add it to your Maven command
 ----
 mvn -Djava.net.preferIPv4Stack=true <lifecycle phase>
 ----
+
+
+
+=== Spring Boot
+
+==== How to set debug mode for logs?
+For Spring Boot applications, the easiest way is to edit the `[project]\main\resources\application.properties` file and adding the following:
+
+  logging.level.=DEBUG
+
+[NOTE]
+====
+The accepted modes for logging level are: TRACE, DEBUG, INFO, WARN, ERROR, FATAL, OFF 
+====
+
+
+
+
+=== Tomcat
+
+==== _java.lang.NoSuchMethodError_ error when deploying Devon app on Tomcat 7 
+
+===== Error details
+
+[source,batch]
+----
+java.lang.NoSuchMethodError: javax.servlet.ServletContext.getVirtualServerName()Ljava/lang/String;
+----
+
+===== solution
+
+Add below dependencies in the _pom.xml_ file of the _core_ project
+
+[source,xml]
+----
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+    <exclusions>
+        <exclusion>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+        </exclusion>
+    </exclusions>
+</dependency>
+
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-tomcat</artifactId>
+    <scope>provided</scope>
+</dependency>
+---- 
+
+
+
+
+
+== Crosscutting concerns
+
+==== Which is the format of a REST request?
+
+Using Spring Boot and with the default code structure and practices, you can make a GET request to the following url:
+
+  http://[server]:[port]/services/rest/[service name]/[service version]/[operation]/[param1]
+
+For example:
+
+  http://localhost:8080/services/rest/tablemanagement/v1/table/101
+
+Take into account that for an app deployed to a traditional web server (WAR/EAR packaged) it is usually prepended with the context name of the application, for example:
+
+  http://oasp-ci.cloudapp.net/oasp4j-sample/services/rest/tablemanagement/v1/table
