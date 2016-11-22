@@ -72,7 +72,7 @@ Should return a response similar to
 
 
 
-===== *Disable Login*
+===== _Disable Login_
 In addition to the previous section, if you want also to disable the security login of the sample application you only need to delete/comment the content of the _configure_ method of the _BaseWebSecurityConfig.java_ class. 
 
 [source,java]
@@ -87,7 +87,7 @@ Doing that you will access directly to the _Welcome_ page of the app without the
 
 
 
-===== *_Load denied by X-Frame_ error when trying to upload a file to the server from the client*
+===== _*Load denied by X-Frame* error when trying to upload a file to the server from the client_
 
 This error is thrown by the spring security component in the server in order to avoid link:https://en.wikipedia.org/wiki/Clickjacking[clickjacking] attacks. You can override this configuration in the spring security config adding the following
 
