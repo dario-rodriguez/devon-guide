@@ -20,7 +20,7 @@ The following schema shows the infrastructure of the tools used for the Devonfw 
 image::images/productionline/pl-schema.png[,width="650", link="images/productionline/pl-schema.png"]
 
 === Git
-link::https://git-scm.com/[Git] is a version control system that helps a software team manage changes to a source code over time. Version control software keeps track of every modification to the code. It allows returning back restoring earlier versions of the code or working on parallel features of software using branches.
+https://git-scm.com/[Git] is a version control system that helps a software team manage changes to a source code over time. Version control software keeps track of every modification to the code. It allows returning back restoring earlier versions of the code or working on parallel features of software using branches.
 
 === Gerrit
 link::https://www.gerritcodereview.com/[Gerrit] is a code colaboration tool. It hosts the Git repository and extends available functionality. Implements voting protocol allowing automated code review by software tools as well as manual acceptance by a reviewer.
