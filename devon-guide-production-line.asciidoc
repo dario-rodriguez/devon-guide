@@ -63,7 +63,7 @@ While preparing a process of automated build and testing, a good practice is to 
 
 Below you can find the _continuous delivery_ pipeline used in a basic Devonfw app.
 
-image::images/productionline/pl-pipeline.png[,width="450", link="images/productionline/pl-pipeline.png"]
+image::images/productionline/pl-pipeline.png[,width="550", link="images/productionline/pl-pipeline.png"]
 
 1.	Code commits into source version control tool trigger the Jenkins job. Alternatively it can be triggered manually.
 2.	The environment is prepared for the deployment – the prerequisites are checked and provisioned if not met.
@@ -76,5 +76,5 @@ image::images/productionline/pl-pipeline.png[,width="450", link="images/producti
 
 In terms of tools the previous schema could be represented as
 
-image::images/productionline/pl-pipelinetools.png[,width="450", link="images/productionline/pl-pipelinetools.png"]
+image::images/productionline/pl-pipelinetools.png[,width="550", link="images/productionline/pl-pipelinetools.png"]
 
