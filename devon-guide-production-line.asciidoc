@@ -1,1 +1,12 @@
-adsf
+:toc: macro
+toc::[]
+
+= Production Line
+
+== Introduction
+
+The _continuous delivery_ is a software engineering approach in which teams produce software in short cycles, ensuring that the software can be reliably released at any time. It aims at building, testing, and releasing software faster and more frequently. The approach helps reduce the cost, time, and risk of delivering changes by allowing for more incremental updates to applications in production.
+
+Continuous delivery treats the notion of a _deployment pipeline_ based on a _mistake-proofing_ approach: a set of validations through which a piece of software must pass on its way to release. Code is compiled if necessary and then packaged by a build server every time a change is committed to a source control repository, then tested by a number of different techniques (possibly including manual testing) before it can be marked as releasable.
+
+image::images/productionline/ci-process-diagram.png[,width="450", link="images/productionline/ci-process-diagram.png"]
