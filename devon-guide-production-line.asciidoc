@@ -34,7 +34,7 @@ link::https://jenkins.io/[Jenkins] is an automation engine with an great plugin 
 link::http://www.sonarqube.org/[SonarQube] is a tool for continuous inspection of code quality, preventing redundancies, complexity and aiming to approach to code conventions and good practices. It performs static code analysis and allows gathering reports of various tests performed on application. Provides a single point with web GUI, where developers can check the test results.
 
 === Maven
-link::https://maven.apache.org/[Maven] is a build automation tool used primarily for Java projects. Was originally created to standarize a clear definition of how to build ANT projects. After time, thanks to community support and its plugin system, it evolved into a fully functional JAVA project management system. Within the _continuous integration_ the build process of the DevonFW applications is executed through Maven and only initiated by Jenkins.
+link::https://maven.apache.org/[Maven] is a build automation tool used primarily for Java projects. Was originally created to achieve a clear definition of how to build ANT projects. After time, thanks to community support and its plugin system, it evolved into a fully functional JAVA project management system. Within the _continuous integration_ the build process of the DevonFW applications is executed through Maven and only initiated by Jenkins.
 
 === Nexus
 link::http://www.sonatype.org/nexus/[Nexus] is a repository providing centralized storage place for the JAVA artifacts – JAR / WAR files containing built applications.
@@ -68,7 +68,7 @@ image::images/productionline/pl-pipeline.png[,width="650", link="images/producti
 1.	Code commits into source version control tool trigger the Jenkins job. Alternatively it can be triggered manually.
 2.	The environment is prepared for the deployment – the prerequisites are checked and provisioned if not met.
 3.	Code is being built using Maven. During the build, the code checking tests are executed.
-4.	When the tests are finished successfully, the artifact and Docker ready image aresent to the repository, ready to be deployed on the staging environment.
+4.	When the tests are finished successfully, the artifact and Docker ready image are sent to the repository, ready to be deployed on the staging environment.
 5.	When the environment is ready, Jenkins automatically deploys image from the repository.
 6.	After the application deployment, automatic tests are executed for verification of actual version on test instance.
 7.	After the whole process, the environment is cleared, releasing hardware resources for the next run.
