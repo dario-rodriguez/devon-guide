@@ -69,11 +69,9 @@ http://tomcat.apache.org/[Tomcat] is an open-source Java Servlet Container that 
 ==== Docker
 https://www.docker.com/[Docker] is a lightweight virtualization software allowing wrapping applications into containers – running images with all the prerequisites and dependencies needed for the application to run. By letting go of operating system burden, through usage of underlying host operating system, Docker containers can be started almost instantly. Docker provides additionally a set of tools that support management of the containers, hosting image repositories and many others.
 
-== Introduction to the Production Line implementation in a Devon app
-
 === Schema
 
-The _continuous delivery_ concept is applied in the context of Devon with Jenkins as the core of the process and a set of tools surrounding it.
+The _continuous delivery_ concept is applied in the context of Devonfw apps with Jenkins as the core of the process and a set of tools surrounding it.
 
 The following schema shows the infrastructure of the tools used for the Devonfw Continuous Integration and their relations.
 
@@ -87,6 +85,8 @@ image::images/productionline/pl-schema.png[,width="650", link="images/production
 
 If some of these stages fails or doesn't fit some requirements all the process can be freezed until a solution is included in the content of the project. Once this happens all the process starts again.
 
+
+== Introduction to the Production Line implementation for Devon apps
 
 === Continuous Delivery Pipeline
 While preparing a process of automated build and testing, a good practice is to organize the development processes from the project into the form of the pipeline, that provides a clear view of its stages. This pipeline is reflected in Jenkins job stages and facilitates organization and issue identification.
