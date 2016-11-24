@@ -71,7 +71,7 @@ https://www.docker.com/[Docker] is a lightweight virtualization software allowin
 
 === Schema
 
-The _continuous delivery_ concept is applied in the context of Devonfw apps with Jenkins as the core of the process and a set of tools surrounding it.
+The _continuous delivery_ concept is applied in the context of Devonfw apps with Jenkins as the core of the process and the rest of tools surrounding it.
 
 The following schema shows the infrastructure of the tools used for the Devonfw Continuous Integration and their relations.
 
