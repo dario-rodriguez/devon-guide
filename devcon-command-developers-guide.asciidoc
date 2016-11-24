@@ -7,6 +7,23 @@ toc::[]
 
 link:devcon-user-guide[Devcon] is a cross-platform command line and GUI tool running on the JVM that provides many automated tasks around the full life-cycle of Devonfw applications.
 
+The structure of Devcon is formed by two main elements: modules and commands.
+
+image::images/devcon/devcon-structure.png[,width="450", link="images/devcon/devcon-structure.png"]
+
+where each module represents an area of Devon and groups commands that are related to some specific task of that area.
+
+After link:devcon-user-guide#getting-started-download-devcon[installing Devcon] you can see the modules and commands available out of the box opening a command line and using the command `devon -g` to launch the Devcon's graphic user interface.
+
+[NOTE]
+====
+Using the command line and the command `devon -h` (even using only the keywork `devon` or `devcon` the result) and `devon <module> -h` will show the same information.
+====
+
+image::images/devcon/devcon-structure-gui.png[,width="450", link="images/devcon/devcon-structure-gui.png"]
+
+The available modules appear in the window bar and clicking over each module shows a drop down menu with the list of commands grouped under that particular module.
+
 == Java Modules
 
 == Javascript Modules
