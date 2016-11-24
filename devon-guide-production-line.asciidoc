@@ -11,9 +11,37 @@ Continuous delivery treats the notion of a _deployment pipeline_ based on a _mis
 
 image::images/productionline/ci-process-diagram.png[,width="650", link="images/productionline/ci-process-diagram.png"]
 
-== Devonfw Continuous Integration Infrastructure
+== Continuous Delivery benefits
+The practices at the heart of continuous delivery help us achieve several important benefits:
 
-The previous concept is applied in the context of Devon with Jenkins as the core of the process and a set of tools surrounding it.
+- *Low risk releases*. The primary goal of continuous delivery is to make software deployments painless, low-risk events that can be performed at any time, on demand. With _continuous delivery_ can be relatively straightforward to achieve zero-downtime deployments that are undetectable to users.
+
+- *Faster time to market*. It’s not uncommon for the integration and test/fix phase of the traditional phased software delivery lifecycle to consume weeks or even months. When teams work together to automate the build and deployment, environment provisioning, and regression testing processes, developers can incorporate integration and regression testing into their daily work and we completely remove these phases. We also avoid the large amounts of re-work that plague the phased approach.
+
+- *Higher quality*. When developers have automated tools that discover regressions within minutes, teams are freed to focus their effort on user research and higher level testing.
+
+- *Lower costs*. Any successful software product or service will evolve significantly over the course of its lifetime. By investing in build, test, deployment and environment automation, we substantially reduce the cost of making and delivering incremental changes to software by eliminating many of the fixed costs associated with the release process.
+
+- *Better products*. Continuous delivery makes possible to get feedback from users throughout the delivery lifecycle based on working software. This means we can avoid the 2/3 of features we build that deliver zero or negative value to our businesses.
+
+- *Happier teams*. By removing the low-value painful activities associated with software delivery, we can focus on what we care about most—continuously delighting our users.
+
+== The Production Line
+The Production Line is the set of methods and tools to facilitate the implementation of the _continuous delivery_ methodology in a Devon project, covering all the phases involved on the application development cycle from requirements to testing and hand-off to the client.
+
+Created to make easier the inclusion of all the _continuous delivery_ tools in a project, the Production Line will be automated and provisioned within few hours from the moment a project starts, providing access to the set of tools over the Production Line interface on http://devon.s2-eu.capgemini.com.
+
+After logging in, the tools can be accessed over a drop down menu (called _Services_) in the top menu bar.
+
+=== Prerequisites
+To implement the Production Line in your project you only need:
+
+- a Production Line instance.
+- a Remote Linux host for deployment.
+
+== Devonfw Continuous Delivery infrastructure
+
+The _continuous delivery_ concept is applied in the context of Devon with Jenkins as the core of the process and a set of tools surrounding it.
 
 The following schema shows the infrastructure of the tools used for the Devonfw Continuous Integration and their relations. link::https://jenkins.io/[Jenkins] for instance, as we just mentioned the core of _continuous integration_, gets triggered by possible changes in a Github repository. It then builds the project using _Maven_ and the resulting artifacts can be either deployed to a _Nexus_ repository or to a app container (Docker, Tomcat). During the integration process a SonarQube instance manages the project's source quality.
 
@@ -45,17 +73,6 @@ http://tomcat.apache.org/[Tomcat] is an open-source Java Servlet Container that 
 === Docker
 https://www.docker.com/[Docker] is a lightweight virtualization software allowing wrapping applications into containers – running images with all the prerequisites and dependencies needed for the application to run. By letting go of operating system burden, through usage of underlying host operating system, Docker containers can be started almost instantly. Docker provides additionally a set of tools that support management of the containers, hosting image repositories and many others.
 
-== The Production Line
-The Production Line provides access to all these tools over the Production Line interface on http://devon.s2-eu.capgemini.com.
-
-After logging in, the tools can be accessed over a drop down menu (called _Services_) in the top menu bar.
-
-=== Prerequisites
-To implement the Production Line in your project you only need:
-
-- a Production Line instance.
-- a Remote Linux host for deployment.
-
 == Introduction to the Production Line implementation in a Devon app
 
 === Continuous Delivery Pipeline
@@ -78,3 +95,8 @@ In terms of tools the previous schema could be represented as
 
 image::images/productionline/pl-pipelinetools.png[,width="650", link="images/productionline/pl-pipelinetools.png"]
 
+Using the Pipeline plugin, it is possible to implement the Continuous Delivery pipeline as a Jenkinsfile so the Jenkins job definition is treated as another piece of code checked into source control. The Jenkins jobs are each of the runnable tasks that are controlled or monitored by Jenkins.
+
+This approach allows easy scalability and replicability of Jenkins implementation.
+
+So thanks to the Production Line the _continuous delivery_ methodology can be included as part of the development of a Devonfw project achieving reliable releases, faster time to market, higher quality, lower costs and ultimately better products.
