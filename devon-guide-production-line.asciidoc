@@ -20,7 +20,7 @@ The practices at the heart of continuous delivery help us achieve several import
 
 - *Higher quality*. When developers have automated tools that discover regressions within minutes, teams are freed to focus their effort on user research and higher level testing.
 
-- *Lower costs*. Any successful software product or service will evolve significantly over the course of its lifetime. By investing in build, test, deployment and environment automation, we substantially reduce the cost of making and delivering incremental changes to software by eliminating many of the fixed costs associated with the release process.
+- *Lower costs*. By investing in build, test, deployment and environment automation, we substantially reduce the cost of making and delivering incremental changes to software by eliminating many of the fixed costs associated with the release process.
 
 - *Better products*. Continuous delivery makes possible to get feedback from users throughout the delivery lifecycle based on working software. This means we can avoid the 2/3 of features we build that deliver zero or negative value to our businesses.
 
@@ -41,39 +41,52 @@ To implement the Production Line in your project you only need:
 
 == Devonfw Continuous Delivery infrastructure
 
-The _continuous delivery_ concept is applied in the context of Devon with Jenkins as the core of the process and a set of tools surrounding it.
+=== Tools
 
-The following schema shows the infrastructure of the tools used for the Devonfw Continuous Integration and their relations. link::https://jenkins.io/[Jenkins] for instance, as we just mentioned the core of _continuous integration_, gets triggered by possible changes in a Github repository. It then builds the project using _Maven_ and the resulting artifacts can be either deployed to a _Nexus_ repository or to a app container (Docker, Tomcat). During the integration process a SonarQube instance manages the project's source quality.
-
-image::images/productionline/pl-schema.png[,width="650", link="images/productionline/pl-schema.png"]
-
-=== Git
+==== Git
 https://git-scm.com/[Git] is a version control system that helps a software team manage changes to a source code over time. Version control software keeps track of every modification to the code. It allows returning back restoring earlier versions of the code or working on parallel features of software using branches.
 
-=== Gerrit
+==== Gerrit
 https://www.gerritcodereview.com/[Gerrit] is a code colaboration tool. It hosts the Git repository and extends available functionality. Implements voting protocol allowing automated code review by software tools as well as manual acceptance by a reviewer.
 
 Gerrit can be placed in between the repository and the user’s code push request to provide the ability to discuss a change before submitting.
 
-=== Jenkins
+==== Jenkins
 https://jenkins.io/[Jenkins] is an automation engine with an great plugin ecosystem to support the majority of tools surrounding _continuous integration_, _automated testing_ or _continuous delivery_. It provides tools for scheduling and automating the whole build process for the Devonfw apps managing the trigger and build processes.
 
-=== SonarQube
+==== SonarQube
 http://www.sonarqube.org/[SonarQube] is a tool for continuous inspection of code quality, preventing redundancies, complexity and aiming to approach to code conventions and good practices. It performs static code analysis and allows gathering reports of various tests performed on application. Provides a single point with web GUI, where developers can check the test results.
 
-=== Maven
+==== Maven
 https://maven.apache.org/[Maven] is a build automation tool used primarily for Java projects. Was originally created to achieve a clear definition of how to build ANT projects. After time, thanks to community support and its plugin system, it evolved into a fully functional JAVA project management system. Within the _continuous integration_ the build process of the DevonFW applications is executed through Maven and only initiated by Jenkins.
 
-=== Nexus
+==== Nexus
 http://www.sonatype.org/nexus/[Nexus] is a repository providing centralized storage place for the JAVA artifacts – JAR / WAR files containing built applications.
 
-=== Tomcat
+==== Tomcat
 http://tomcat.apache.org/[Tomcat] is an open-source Java Servlet Container that implements several Java EE specifications including Java Servlet, JavaServer Pages (JSP), Java EL, and WebSocket, and provides a "pure Java" HTTP web server environment in which Java code can run.
 
-=== Docker
+==== Docker
 https://www.docker.com/[Docker] is a lightweight virtualization software allowing wrapping applications into containers – running images with all the prerequisites and dependencies needed for the application to run. By letting go of operating system burden, through usage of underlying host operating system, Docker containers can be started almost instantly. Docker provides additionally a set of tools that support management of the containers, hosting image repositories and many others.
 
 == Introduction to the Production Line implementation in a Devon app
+
+=== Schema
+
+The _continuous delivery_ concept is applied in the context of Devon with Jenkins as the core of the process and a set of tools surrounding it.
+
+The following schema shows the infrastructure of the tools used for the Devonfw Continuous Integration and their relations.
+
+image::images/productionline/pl-schema.png[,width="650", link="images/productionline/pl-schema.png"]
+
+- A change in the project's git repository is registered (commit, push).
+- Jenkins, as we just mentioned the core of _continuous integration_, gets triggered by that changes.
+- It then builds and tests the project using _Maven_
+- The resulting artifacts can be either deployed to a _Nexus_ repository or to a app container (Docker, Tomcat).
+- During the integration process a SonarQube instance manages the project's source quality.
+
+If some of these stages fails or doesn't fit some requirements all the process can be freezed until a solution is included in the content of the project. Once this happens all the process starts again.
+
 
 === Continuous Delivery Pipeline
 While preparing a process of automated build and testing, a good practice is to organize the development processes from the project into the form of the pipeline, that provides a clear view of its stages. This pipeline is reflected in Jenkins job stages and facilitates organization and issue identification.
