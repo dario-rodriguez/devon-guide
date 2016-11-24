@@ -5,7 +5,7 @@ toc::[]
 
 == Introduction
 
-link::wiki/devcon-user-guide[Devcon] is a cross-platform command line and GUI tool running on the JVM that provides many automated tasks around the full life-cycle of Devonfw applications.
+link:wiki/devcon-user-guide[Devcon] is a cross-platform command line and GUI tool running on the JVM that provides many automated tasks around the full life-cycle of Devonfw applications.
 
 == Java Modules
 
