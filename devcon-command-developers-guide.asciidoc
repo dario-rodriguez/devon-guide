@@ -5,25 +5,208 @@ toc::[]
 
 == Introduction
 
-link:devcon-user-guide[Devcon] is a cross-platform command line and GUI tool running on the JVM that provides many automated tasks around the full life-cycle of Devonfw applications.
+link:devcon-user-guide[Devcon] is a cross-platform command line and GUI tool written in Java that provides many automated tasks around the full life-cycle of Devonfw applications.
 
-The structure of Devcon is formed by two main elements: modules and commands.
+The structure of Devcon is formed by two main elements: _modules_ and _commands_.
 
 image::images/devcon/devcon-structure.png[,width="450", link="images/devcon/devcon-structure.png"]
 
 where each module represents an area of Devon and groups commands that are related to some specific task of that area.
 
+There is also a third element with a main spot in Devcon, the _parameters_, we will see them later.
+
 After link:devcon-user-guide#getting-started-download-devcon[installing Devcon] you can see the modules and commands available out of the box opening a command line and using the command `devon -g` to launch the Devcon's graphic user interface.
 
 [NOTE]
 ====
-Using the command line and the command `devon -h` (even using only the keywork `devon` or `devcon` the result) and `devon <module> -h` will show the same information.
+Using the command line and the command `devon -h` (even using only the keyword `devon` or `devcon`) and `devon <module> -h` will show the equivalent information.
 ====
 
 image::images/devcon/devcon-structure-gui.png[,width="450", link="images/devcon/devcon-structure-gui.png"]
 
-The available modules appear in the window bar and clicking over each module shows a drop down menu with the list of commands grouped under that particular module.
+The available modules appear in the window bar and clicking over each module a drop down menu shows the list of commands grouped under a particular module.
 
-== Java Modules
+As showed above the module _oasp4j_ has four commands related to the _oasp4j_ projects: _create_, _build_, _run_ and _deploy_. Each command takes care of an specific task within the context of that particular module.
+
+== Creating your own Devcon modules
+
+Devcon has been designed to be easily extended with new custom functionalities. Thanks to its structure based on _modules_ and _commands_ (and _parameters_) the users can cover new tasks simply including new modules and commands to the tool.
+
+We will be able to do that in two ways:
+
+- Adding a new Java module in the _core_ of Devcon.
+- Adding an external module written in Javascipt.
+
+Let's see the basic elements to have in mind before starting with the addition of new modules.
+
+=== Elements and their Keywords
+
+Each main element of Devcon needs to be _registered_ to become accessible, to achieve that we annotate each element with a specific _keyword_ that will tell Devcon, during the launching process, which elements are available as modules and commands.
+
+==== module registry
+Internally the modules are registered in Devcon's context using the _@CmdMdouleRegistry_ annotation and providing some _metadata_ (like _name_, _description_, etc.) to define the basic details of the module.
+
+In de Javascript approach this annotation will be replaced by a _json_ file.
+
+==== command registry
+In the same way, the commands in Devcon are registered using the _@Command_ annotation, that also allows to add _metadata_ (_name_, _description_, etc.) to provide more information.
+
+==== parameter registry
+In most cases the commands will need parameters to work with. The _@Parameters_ and _@Parameter_ annotations allow to register those in Devcon. The _@Parameter_ annotation also allows to define the basic info of each parameter (_name_, _description_, etc.).
+
+=== Creating a Java module
+
+So once we have the basic definition of the Devcon's elements and we know how to register them, let's see how to add a new module in Devcon's _core_ using Java.
+
+In this example we are going to create a new module called _file_ in order to manage files. As a second stage we are going to add an _extract_ command to extract zip files. To avoid the tricky details we are going to reuse the _unzip_ functionality already implemented in the Devcon's utilities.
+
+1 - Get the last Devcon release from https://github.com/devonfw/devcon/releases
+
+2 - Unzip it and _Import_ the Devcon project using Eclipse.
+
+3 - In `src/main/java/com.devonfw.devcon/modules` folder create a new package _file_ for the new module and inside it add a new _File_ class.
+
+==== Module annotations
+
+To define the class as a Devcon module we must provide:
+
+- *@CmdRegistry* annotation with the attributes:
+	-- _name_: for the module name.
+	-- _description_: for the module description that will be shown to the users.
+	-- _visible_: if not provided its default value is _true_. Allows to hide modules during develop time.
+	-- _sort_: to sort modules, if not provided the default value will be _-1_. If sort >=0, it will be sorted by descending value. Modules which do not have any value for sort attribute or which have value <1 will be omitted from numeric sort and will be sorted alphabetically. This modules will be appended to the modules which are sorted numerically.
+
+- extend the _AbstractCommandModule_ to have access to all internal features already implemented for the modules (access to output and input methods, get metadata from the project _devon.json_ file, get the directory from which the a command has been launched, get the root of the distribution and so foth).
+
+Finally we will have something like
+
+[source,java]
+----
+@CmdModuleRegistry(name = "file", description = "custom devcon module", sort = -1)
+public class File extends AbstractCommandModule {
+
+...
+
+----
+
+==== Command annotations
+Now is time to define the command _extract_ of our new module _file_. In this case we will need to provide:
+
+- *@Command* annotation with attributes:
+	-- _name_: for the command name.
+	-- _description_: for the command description that will be shown to the users.
+	-- _context_: the context in which the command is expected to be launched regarding a project. E.g. think in the _oasp4j run_ command. In this case the _run_ command of the _oasp4j_ module needs to be launched within the context of an _oasp4j_ project. We will define that context using this _context_ attribute. The options are:
+		--- _NONE_: if the command doesn't need to be launched within a project context.
+		--- _PROJECT_: if the command is expected to be launched within a project (oasp4j, oasp4js or Sencha). In theese cases this context definition will automatically provide a default _path_ parameter to the command parameters alongside some extra project info (see the _oasp4j run_ implementation.).
+		--- _COMBINEDPROJECT_: if the command needs to be launched within a combined (server & client) project.
+	-- _proxyParams_: in case you need to configure a proxy this attribute will inject automatically a _host_ and _port_ parameters in the needed parameters of your command.
+	-- _sort_: see the _sort_ attribute in the previous section.
+	--
+-	*@Parameters* annotation to group the command parameters
+	--	_value_: an array with the parameters
+		---	*@Parameter* annotation for each parameter expected.
+			---- _name_: the name for the parameter.
+			---- _description_: the description of the parameter to be shown to the users.
+			---- _optional_: if the parameter is mandatory or not, by default this attribute has as value _false_, so by default a parameter will be mandatory.
+			---- _sort_: see the _sort_ attribute in the previous section.
+			---- _inputType_: the type of field related to the parameter to be shown in the graphic user interface of Devcon.
+				----- _GENERIC_ for text field parameters.
+				----- _PATH_ if you want to bind the parameter value to a _directory window_.
+				----- _PASSWORD_ to show a password field.
+				----- _LIST_ to show a dropdown list with predefined options as value for a parameter.
+
+Let's imagine that in our _extract_ example we are going to define two parameters _filepath_ and _targetpath_ (the location of the zip file and the path to the folder to store the extracted files).
+As our command will extract a zip file we don't need a particular project context so we will use the _ContextType.NONE_.
+
+Finally, importing the package `com.devonfw.devcon.common.utils.Extractor` we will have access to the _unZip_ functionality. Also, thanks to the _AbstractCommandModule_ class that we have extended we have access to an output object to show info/error messages to the users.
+
+So our example will look like
+
+[source,java]
+----
+@CmdModuleRegistry(name = "file", description = "custom devcon module", sort = -1)
+public class File extends AbstractCommandModule {
+
+  @Command(name = "extract", description = "This command extracts a zip file.", context = ContextType.NONE)
+  @Parameters(values = {
+  @Parameter(name = "filepath", description = "path to the file to be extracted", inputType = @InputType(name = InputTypeNames.GENERIC)),
+  @Parameter(name = "targetpath", description = "path to the folder to locate the extracted files", inputType = @InputType(name = InputTypeNames.PATH)) })
+  public void extract(String filepath, String targetpath){
+    getOutput().showMessage("Extracting...");
+    try {
+      Extractor.unZip(filepath, targetpath);
+      getOutput().showMessage("Done!");
+    } catch (Exception e) {
+      getOutput().showError("Ups something went wrong.");
+    }
+  }
+}
+----
+
+==== Generate the JAR
+
+Finally, we need to generate a new devcon.jar file containing our new module. To do so, in Eclipse, with right click over the _devcon_ project in the _Project Explorer_ panel:
+- _Export_ > _Runnable JAR file_ > _Next_
+- Runnable JAR File Export window:
+	-- Launch configuration: Devcon (if you don`t have any option for that paramter try to launch once the Devcon.java class with right click and _Run as_ > _Java Application_ and start again the JAR generation).
+	-- Export destination: select a location for the jar.
+	-- Check 'Extract required libraries into generated JAR'.
+	-- Click _Finish_ an click _OK_ in the next window prompts.
+
+Once we have the devcon.jar file we have two options depending if we have already installed _Devcon_ in our machine.
+- If we don't have Devcon installed: with a Windows console (remember that you need to have Java installed on your machine) go to the just created jar file and type
+
+[source,batch]
+----
+\path\to\my\jar> java -jar devcon.jar system install
+----
+
+Then follow the instructions to finish the installation.
+
+- In case you already have installed Devcon you only need to copy the _devcon.jar_ you just created, go to 'C:\Users\{Your User}\.devcon' and replace the devcon.jar that is inside of that directory with your new _devcon.jar_.
+
+Once we have placed our customized version of Devcon we can open the Windows command line and type `devcon -g` or `devcon -h`. The first one will open the Devcon graphic user interface, the second one will show the Devcon basic info. In both cases we should see our new module as one of the available modules.
+
+image::images/devcon/devcon-new-module.png[,width="450", link="images/devcon/devcon-new-module.png"]
+
+And selecting the _extract_ command we can see that the parameters we defined appear as mandatory parameters.
+
+image::images/devcon/devcon-new-module2.png[,width="450", link="images/devcon/devcon-new-module2.png"]
+
+[NOTE]
+====
+If you want to try the same but using the command line you can use the command `devcon file extract -h`
+====
+
+==== Using our module/command
+
+Finally we want to use the _extract_ command of our _file_ module to extract a real zip file.
+
+We have a _myFile.zip_ in _D:_ and want to extract the files into _D:\Temp_ directory
+
+===== with the GUI
+
+We will need to provide both mandatory parameters and click _Start_ button
+
+image::images/devcon/devcon-using-custom-command-gui.png[,width="450", link="images/devcon/devcon-using-custom-command-gui.png"]
+
+===== with the command line
+
+We would obtain the same result using the command line
+
+[source,batch]
+----
+C:\>devcon file extract -filepath D:\myFile.zip -targetpath D:\Temp
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+Extracting...
+file unzip : D:\Temp\myFile\file1.txt
+file unzip : D:\Temp\myFile\file2.txt
+file unzip : D:\Temp\myFile\file3.txt
+file unzip : D:\Temp\myFile\file4.txt
+Done
+
+C:\>
+----
 
 == Javascript Modules
