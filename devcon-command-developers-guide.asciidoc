@@ -148,14 +148,16 @@ public class File extends AbstractCommandModule {
 ==== Generate the JAR
 
 Finally, we need to generate a new devcon.jar file containing our new module. To do so, in Eclipse, with right click over the _devcon_ project in the _Project Explorer_ panel:
+
 - _Export_ > _Runnable JAR file_ > _Next_
 - Runnable JAR File Export window:
-	-- Launch configuration: Devcon (if you don`t have any option for that paramter try to launch once the Devcon.java class with right click and _Run as_ > _Java Application_ and start again the JAR generation).
-	-- Export destination: select a location for the jar.
-	-- Check 'Extract required libraries into generated JAR'.
-	-- Click _Finish_ an click _OK_ in the next window prompts.
+	* Launch configuration: Devcon (if you don`t have any option for that paramter try to launch once the Devcon.java class with right click and _Run as_ > _Java Application_ and start again the JAR generation).
+	* Export destination: select a location for the jar.
+	* Check 'Extract required libraries into generated JAR'.
+	* Click _Finish_ and click _OK_ in the next window prompts.
 
 Once we have the devcon.jar file we have two options depending if we have already installed _Devcon_ in our machine.
+
 - If we don't have Devcon installed: with a Windows console (remember that you need to have Java installed on your machine) go to the just created jar file and type
 
 [source,batch]
@@ -165,9 +167,9 @@ Once we have the devcon.jar file we have two options depending if we have alread
 
 Then follow the instructions to finish the installation.
 
-- In case you already have installed Devcon you only need to copy the _devcon.jar_ you just created, go to 'C:\Users\{Your User}\.devcon' and replace the devcon.jar that is inside of that directory with your new _devcon.jar_.
+- In case you already have installed Devcon you only need to copy the _devcon.jar_ you just created, go to 'C:\Users\{Your User}\.devcon' and replace the devcon.jar that is inside of that directory with your new _devcon.jar_ (be aware that the directory _.devcon_ may be placed in another drive like _D_).
 
-Once we have placed our customized version of Devcon we can open the Windows command line and type `devcon -g` or `devcon -h`. The first one will open the Devcon graphic user interface, the second one will show the Devcon basic info. In both cases we should see our new module as one of the available modules.
+Once we have installed our customized version of Devcon we can open the Windows command line and type `devcon -g` or `devcon -h`. The first one will open the Devcon graphic user interface, the second one will show the Devcon basic info in the command line. In both cases we should see our new module as one of the available modules.
 
 image::images/devcon/devcon-new-module.png[,width="450", link="images/devcon/devcon-new-module.png"]
 
@@ -210,5 +212,7 @@ Done
 
 C:\>
 ----
+
+That's all, with theese few steps, we have created and included a new customized module written in Java in the Devcon's core.
 
 == Javascript Modules
