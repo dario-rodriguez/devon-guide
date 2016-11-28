@@ -308,14 +308,14 @@ Also in the _commands.json_ file we will define the commands of the module and i
 
 === Parameter definition
 
-As part of the _comand_ object in the _commands.json_ file we can define the parameters using the following structure of attributes:
+As part of the _command_ object in the _commands.json_ file we can define the parameters using the following structure of attributes:
 
 -	*parameters* array to group the command parameters. For each parameter we will define the following attributes:
 	* _name_: the name for the parameter.
 	* _description_: the description of the parameter to be shown to the users.
 	* _optional_: a _true_/_false_ attribute to define if the parameter is mandatory or not.
 	* _sort_: see the _sort_ attribute in the previous section.
-	* _inputType_: by defatult the parameters will be represented in the Devcon's graphic user interface as text boxes but, in case we want the parameter to be a drop down list, we can specify it using this _inputType_ attribute and defining some subattributes
+	* _inputType_: by default the parameters will be represented in the Devcon's graphic user interface as text boxes but, in case we want the parameter to be a drop down list, we can specify it using this _inputType_ attribute and defining some sub-attributes
 		** _name_: "list"
 		** _values_: an array with the values to be shown in the drop down.
 
@@ -344,12 +344,12 @@ In our example we are going to add two parameters, a first one that will be show
 			},
 			{
 			"name": "secondParameter",
-            "description": "this is my second parameter",
-            "optional":true,
-            "sort": -1,
+                        "description": "this is my second parameter",
+                        "optional":true,
+                        "sort": -1,
 			"inputType" : {"name":"list", "values":["devonfw", "oasp4j", "cobigen", "devcon"]}
 			}
-			]
+		]
 	},
 
 ...
@@ -359,7 +359,7 @@ In our example we are going to add two parameters, a first one that will be show
 
 === The commands
 
-Each command will be defined in a separate Javascript file with a name that match the `path` attribute defined in the `commands.json` file of the module.
+Each command will be defined in a separate Javascript file with a name that match the `path` attribute defined in the `commands.json` file of the module. Remember that in case that the js file is in the same directory than the _commands.json_ file we only need to provide the name of the js file.
 
 The JavaScript file must have as content either a named or anonymous function which contains the command implementation. The parameters of the funcion contain the parameters in the defined order and the `this` special property points to the Java _CommandModule_ context.
 
