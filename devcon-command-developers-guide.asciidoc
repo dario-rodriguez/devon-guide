@@ -388,8 +388,8 @@ In this case we are going to create (again) a command to extract a zip file, so 
 
 3. Then we will need to create inside the _scripts_ folder the directory for our new module and inside it we need to add
 
- _-1_a `command.json` file with the definition of the module
- _-1_and an `extract.js` file with the code for the _extract_ command.
+  * a `command.json` file with the definition of the module
+  * and an `extract.js` file with the code for the _extract_ command.
 
 So we will end having this structure
 
