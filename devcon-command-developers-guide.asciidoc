@@ -222,7 +222,7 @@ That's all, with theese few steps, we have created and included a new customized
 
 
 
-== Javascript modules
+=== Javascript modules
 
 As we mentioned at the beginning of this chapter Devcon allows to be extended with custom modules in an external way by adding modules written in Javascript.
 
@@ -233,18 +233,18 @@ You will need to have installed Java 8 to be able to run Javascript modules.
 
 We have seen how to define the Devcon's elements (modules, commands and parameters) and how to register them (using keywords) so let's see how to add a new module to Devcon using Javascript.
 
-=== Module structure
+==== Module structure
 
 The Javascript modules must include two main files:
 
 - the *commands.json* file that contains the definition of the elements of the module (module metadata, commands and parameters).
 - a Javascript file *<name of the module>.js* with the logic of the module.
 
-=== How to register a module
+==== How to register a module
 
 To register a Javascript module we only need to create a directory with that two files and add it to a _scripts_ directory within the _.devcon_ folder (we will see it later in more detail).
 
-=== Module definition
+==== Module definition
 
 The _commands.json_ file located in the Javascript module folder defines the elements included in it, from the module details, as name or description, to the commands and its parameters.
 
@@ -272,7 +272,7 @@ An example for a _commands.json_ might look like
 
 ----
 
-=== Command definition
+==== Command definition
 
 Also in the _commands.json_ file we will define the commands of the module and its parameters.
 
@@ -306,7 +306,7 @@ Also in the _commands.json_ file we will define the commands of the module and i
 
 ----
 
-=== Parameter definition
+==== Parameter definition
 
 As part of the _command_ object in the _commands.json_ file we can define the parameters using the following structure of attributes:
 
@@ -357,7 +357,7 @@ In our example we are going to add two parameters, a first one that will be show
 }
 ----
 
-=== The commands
+==== The commands
 
 Each command will be defined in a separate Javascript file with a name that match the `path` attribute defined in the `commands.json` file of the module. Remember that in case that the js file is in the same directory than the _commands.json_ file we only need to provide the name of the js file.
 
@@ -374,9 +374,9 @@ function (firstParameter, secondParameter){
 }
 ----
 
-=== Creating a Javascript module
+==== Creating a Javascript module
 
-==== Adding the module structure
+===== Adding the module structure
 
 We have already seen the structure of a Devcon's Javascript module so let's see how to create one with an example that contains all steps.
 
@@ -396,7 +396,7 @@ So we will end having this structure
 image::images/devcon/devcon-js-structure.png[,width="450", link="images/devcon/devcon-js-structure.png"]
 
 
-=== Defining the module and the command
+==== Defining the module and the command
 
 To define and register the module and the command we will use the _command.json_ file. First we will add the module metadata (name, description) and then the commands, and its parameters, inside the _commands_ array.
 
@@ -433,7 +433,7 @@ To define and register the module and the command we will use the _command.json_
 }
 ----
 
-=== Adding the command logic
+==== Adding the command logic
 
 As we have previously mentioned we need to add the code of our command in the _extract.js_ file. As we want to extract a file, to avoid a most complicated implementation, we are going to use the _unZip_ method that belongs to the _utils_ package of Devcon. To access to the method we will need to provide the fully qualified name `com.devonfw.devcon.common.utils.Extractor.unZip`.
 
@@ -448,7 +448,7 @@ function(filepath, targetpath){
 }
 ----
 
-=== Using the new module/command
+==== Using the new module/command
 
 We have finished the implementation of the new Javascript module so now we can start using it.
 
@@ -456,7 +456,7 @@ We have created a module to extract _zip_ files so we are going to use a _myFile
 
 As you may know if you have followed the Devcon's documentation we can use the tool in two ways: using the command line or using the Devcon's graphic user interface (GUI).
 
-==== using the GUI
+===== using the GUI
 To launch Devcon's GUI we must open a command line and use the `devon -g` command. After that the Devon main window should be opened and we should see our new `myJSmodule` in the list of available modules. Then if we click over the module we should see the `extract` command available.
 
 image::images/devcon/devcon-new-js-module.png[,width="450", link="images/devcon/devcon-new-js-module.png"]
@@ -469,7 +469,7 @@ image::images/devcon/devcon-using-custom-js-command-gui.png[,width="450", link="
 
 We have extracted the file successfully using our just created Devcon command.
 
-==== using the command line
+===== using the command line
 If we use the command line the result will be exactly the same.
 
 Open a command line and launch the `devcon` command (`devon` or `devcon -h` will also work)
