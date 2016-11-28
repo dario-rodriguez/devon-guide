@@ -54,9 +54,10 @@ In the same way, the commands in Devcon are registered using the _@Command_ anno
 ==== parameter registry
 In most cases the commands will need parameters to work with. The _@Parameters_ and _@Parameter_ annotations allow to register those in Devcon. The _@Parameter_ annotation also allows to define the basic info of each parameter (_name_, _description_, etc.).
 
+
 === Creating a Java module
 
-If you are not interested in create _core_ modules and want to focus on external Javascript modules skip this section and go direcly to link:Creating-a-Javascript-module[Creating a Javascript module] part.
+If you are not interested in create _core_ modules and want to focus on external Javascript modules skip this section and go direcly to link:Javascript-modules[Javascript modules] part.
 
 So once we have the basic definition of the Devcon's elements and we know how to register them, let's see how to add a new module in Devcon's _core_ using Java.
 
@@ -101,9 +102,12 @@ Now is time to define the command _extract_ of our new module _file_. In this ca
 		** _NONE_: if the command doesn't need to be launched within a project context.
 		** _PROJECT_: if the command is expected to be launched within a project (oasp4j, oasp4js or Sencha). In theese cases this context definition will automatically provide a default _path_ parameter to the command parameters alongside some extra project info (see the _oasp4j run_ implementation.).
 		** _COMBINEDPROJECT_: if the command needs to be launched within a combined (server & client) project.
-	* _proxyParams_: in case you need to configure a proxy this attribute will inject automatically a _host_ and _port_ parameters in the needed parameters of your command.
+	* _proxyParams_: in case you need to configure a proxy this attribute will inject automatically a _host_ and _port_ parameters as part of the parameters of your command.
 	* _sort_: see the _sort_ attribute in the previous section.
-	*
+
+==== Parameter annotations
+To define the parameters of our _extract_ method we must use the following annotations:
+
 -	*@Parameters* annotation to group the command parameters
 	*	_value_: an array with the parameters
 		**	*@Parameter* annotation for each parameter expected.
@@ -167,7 +171,7 @@ Once we have the devcon.jar file we have two options depending if we have alread
 
 Then follow the instructions to finish the installation.
 
-- In case you already have installed Devcon you only need to copy the _devcon.jar_ you just created, go to 'C:\Users\{Your User}\.devcon' and replace the devcon.jar that is inside of that directory with your new _devcon.jar_ (be aware that the directory _.devcon_ may be placed in another drive like _D_).
+- In case you already have installed Devcon you only need to copy the _devcon.jar_ you just created, go to `C:\Users\{Your User}\.devcon` and replace the devcon.jar that is inside of that directory with your new _devcon.jar_ (be aware that the directory _.devcon_ may be placed in another drive like _D_).
 
 Once we have installed our customized version of Devcon we can open the Windows command line and type `devcon -g` or `devcon -h`. The first one will open the Devcon graphic user interface, the second one will show the Devcon basic info in the command line. In both cases we should see our new module as one of the available modules.
 
@@ -215,4 +219,326 @@ C:\>
 
 That's all, with theese few steps, we have created and included a new customized module written in Java in the Devcon's core.
 
-== Javascript Modules
+
+
+
+== Javascript modules
+
+As we mentioned at the begining of this chapter Devcon allows to be extended with custom modules in an external way by adding modules written in Javascript.
+
+[NOTE]
+====
+You will need to have intalled Java 8 to be able to run Javascript modules.
+====
+
+We have seen how to define the Devcon's elements (modules, commands and parameters) and how to register them (using keywords) so let's see how to add a new module to Devcon using Javascript.
+
+=== Module structure
+
+The Javascript modules must include two main files:
+
+- the *commands.json* file that contains the definition of the elements of the module (module metadata, commands and parameters).
+- a Javascript file *<name of the module>.js* with the logic of the module.
+
+=== How to register a module
+
+To register a Javascript module we only need to create a directory with that two files and add it to a _scripts_ directory within the _.devcon_ folder (we will see it later in more detail).
+
+=== Module definition
+
+The _commands.json_ file located in the Javascript module folder defines the elements included in the module, from the module details, as name or description, to the commands and its parameters.
+
+If you have follow the link:Creating-a-Java-module[Creating a Java module] section you have seen that for the Java modules we use the _@CmdModuleRegistry_ annotation to register a module. In the case of the Javascript modules this is replaced by the _commands.json_ file itself so we won't have an equivalent _module registry_ keyword.
+
+To define the module in the _commands.json_ file we can use the following attributes:
+
+- _name_: for the module name.
+- _description_: for the module description that will be shown to the users.
+- _visible_: _true_/_false_ attribute. Allows to hide modules in case we don't want them to be available.
+- _sort_: to sort modules, if sort >=0, it will be sorted by descending value. Modules which which have value <1 will be omitted from numeric sort and will be sorted alphabetically. This modules will be appended to the modules which are sorted numerically.
+
+An example for a _commands.json_ might look like
+
+[source,json]
+----
+{
+    "name": "myJSmodule",
+    "description": "this is an example of a Devcon Javascript module",
+    "visible": true,
+    "sort": -1,
+
+...
+
+
+----
+
+=== Command definition
+
+Also in the _commands.json_ file we will define the commands of the module and its parameters.
+
+- We will use a *commands* array to enumerate all the commands of a module. Each command will be defined with the following attributes:
+	* _name_: for the command name.
+	* _path_: path to the _js_ file that contains the logic of the module. If is located in the same folder than the _commands.json_ file we can provide only the name of the file, without the path.
+	* _description_: for the command description that will be shown to the users.
+	* _context_: the context in which the command is expected to be launched regarding a project. E.g. the _run_ command of the _oasp4j_ module needs to be launched within the context of an _oasp4j_ project. The options to define the context are:
+		** _NONE_: if the command doesn't need to be launched within a project context.
+		** _PROJECT_: if the command is expected to be launched within a project (oasp4j, oasp4js or Sencha). In theese cases this context definition will automatically provide a default _path_ parameter to the command parameters alongside some extra project info (see the _oasp4j run_ implementation.).
+		** _COMBINEDPROJECT_: if the command needs to be launched within a combined (server & client) project.
+	* _proxyParams_: in case you need to configure a proxy this attribute will inject automatically a _host_ and _port_ parameters as part of the parameters of your command.
+	* _sort_: see the _sort_ attribute in the previous section.
+
+[source,json]
+----
+{
+    "name": "myJSmodule",
+    "description": "this is an example of a Devcon Javascript module",
+    "visible": true,
+    "sort": -1,
+	"commands": [{
+		"name": "myFirstCommand",
+		"path": "myFirstCommand.js",
+		"description": "this is my first js command",
+		"context": "NONE",
+		"proxyParams": false,
+
+...
+
+
+----
+
+=== Parameter definition
+
+As part of the _comand_ object in the _commands.json_ file we can define the parameters using the following structure of attributes:
+
+-	*parameters* array to group the command parameters. For each parameter we will define the following attributes:
+	* _name_: the name for the parameter.
+	* _description_: the description of the parameter to be shown to the users.
+	* _optional_: a _true_/_false_ attribute to define if the parameter is mandatory or not.
+	* _sort_: see the _sort_ attribute in the previous section.
+	* _inputType_: by defatult the parameters will be represented in the Devcon's graphic user interface as text boxes but, in case we want the parameter to be a drop down list, we can specify it using this _inputType_ attribute and defining some subattributes
+		** _name_: "list"
+		** _values_: an array with the values to be shown in the drop down.
+
+
+In our example we are going to add two parameters, a first one that will be showed as a text box and the second one that will be a drop down with four options. The result will look like the following
+
+[source,json]
+----
+{
+    "name": "myJSmodule",
+    "description": "this is an example of a Devcon Javascript module",
+    "visible": true,
+    "sort": -1,
+	"commands": [{
+		"name": "myFirstCommand",
+		"path": "myFirstCommand.js",
+		"description": "this is my first js command",
+		"context": "NONE",
+		"proxyParams": false,
+		"parameters": [
+			{
+			"name": "firstParameter",
+			"description": "this is my first parameter",
+			"optional": false,
+			"sort": -1
+			},
+			{
+			"name": "secondParameter",
+            "description": "this is my second parameter",
+            "optional":true,
+            "sort": -1,
+			"inputType" : {"name":"list", "values":["devonfw", "oasp4j", "cobigen", "devcon"]}
+			}
+			]
+	},
+
+...
+
+}
+----
+
+=== The commands
+
+Each command will be defined in a separate Javascript file with a name that match the `path` attribute defined in the `commands.json` file of the module.
+
+The JavaScript file must have as content either a named or anonymous function which contains the command implementation. The parameters of the funcion contain the parameters in the defined order and the `this` special property points to the Java _CommandModule_ context.
+
+So returning to our example we will have a file called `myFirstCommand.js` located in the same directory than the `commands.json`.
+
+The content will be
+[source,javascript]
+----
+function (firstParameter, secondParameter){
+
+	// Here the content of your module.
+}
+----
+
+== Creating a Javascript module
+
+=== Adding the module structure
+
+We have already seen the structure of a Devcon's Javascript module so let's see how to create one with an example that contains all steps.
+
+In this case we are going to create again a command to extract a zip file so we are going to create a module called _myJSmodule_ with a command _extract_ that gets two mandatory parameters _filepath_ for the path to the zip file and a _targetpath_ to define the location of the extracted files.
+
+1. First of all we will need to have Devcon installed on our machine. If you still don't have Devcon you can see how to download and install it link:devcon-user-guide#getting-started-download-devcon[here].
+
+2. Once we have Devcon installed we will need to create the _scripts_ fonder within the _.devcon_ directory. You can find the _.devcon_ directory at `C:\Users\{Your User}\.devcon` (if you don't find the `.devcon` directory in try looking in `D:` drive, if the directory is not there neither check your Devcon's installation).
+
+3. Then we will need to create inside the _scripts_ folder the directory for our new module and inside it we need to add
+
+ _-1_a `command.json` file with the definition of the module
+ _-1_and an `extract.js` file with the code for the _extract_ command.
+
+So we will end having this structure
+
+image::images/devcon/devcon-js-structure.png[,width="450", link="images/devcon/devcon-js-structure.png"]
+
+
+=== Defining the module and the command
+
+To define and register the module and the command we will use the _command.json_ file. First we will add the module metadata (name, description) and then the commands, and its parameters, inside the _commands_ array.
+
+[source,json]
+----
+{
+	"name": "myJSmodule",
+	"description": "test module",
+	"visible": true,
+	"sort": -1,
+	"commands": [
+		{
+	    "name": "extract",
+		"path": "extract.js",
+		"description": "command to extract a file",
+		"context": "NONE",
+		"proxyParams": false,
+		"parameters": [
+			{
+			"name": "filepath",
+			"description": "path to the file to be extracted",
+			"optional": false,
+			"sort": -1
+			},
+			{
+			"name": "targetpath",
+            "description": "path to the folder to locate the extracted files",
+            "optional":false,
+            "sort": -1
+			}
+			]
+		}
+	]
+}
+----
+
+=== Adding the command logic
+
+As we have previously mentioned we need to add the code of our command in the _extract.js_ file. As we want to extract a file, to avoid a most complicated implementation, we are going to use the _unZip_ method that belongs to the _utils_ package of Devcon. To access to the method we will need to provide the fully qualified name `com.devonfw.devcon.common.utils.Extractor.unZip`.
+
+So in the _extract.js_ file we must add a function that gets the two parameters defined in the _commands.json_ (_filepath_ and _targetpath_) and uses the Java method _unZip_ to extract the file. Also remember that the special property _this_ will give us access to the Devcon's module context so we will be able to use the Devcon's output (you can find the entire resources that `this` can provide https://github.com/devonfw/devcon/blob/develop/src/main/java/com/devonfw/devcon/common/impl/AbstractCommandModule.java[here])
+
+[source,javascript]
+----
+function(filepath, targetpath){
+	this.getOutput().showMessage("extracting...");
+	com.devonfw.devcon.common.utils.Extractor.unZip(filepath, targetpath);
+	this.getOutput().showMessage("Done!");
+}
+----
+
+=== Using the new module/command
+
+We have finished the implementation of the new Javascript module so now we can start using it.
+
+We have created a module to extract _zip_ files so we are going to use a _myFile.zip_ located in the `D:` drive and we are going to extract it to the `D:\Temp` directory using our new module.
+
+As you may know if you have followed the Devcon's documentation we can use the tool in two ways: using the command line or using the Devcon's graphic user interface (GUI).
+
+==== using the GUI
+To launch Devcon's GUI we must open a command line and use the `devon -g` command. After that the Devon main window should be open and we should see our new `myJSmodule` in the list of available modules. Then if we click over the module we should see the `extract` command available.
+
+image::images/devcon/devcon-new-js-module.png[,width="450", link="images/devcon/devcon-new-js-module.png"]
+
+Then if we click over the `extract` command we should see a window with the name and description we provided in the `commands.json` alongside the parameters that we defined (_filepath_ and _targetpath_), both mandatory.
+
+If we provide the parameters and click on the _Start_ button the command should be launched and the file should be extracted.
+
+image::images/devcon/devcon-using-custom-js-command-gui.png[,width="450", link="images/devcon/devcon-using-custom-js-command-gui.png"]
+
+We have extracted the file successfully using our just created Devcon command.
+
+==== using the command line
+If we use the command line the result will be exactly the same.
+
+Open a command line and launch the `devcon` command (`devon` or `devcon -h` will also work)
+
+[source,batch]
+----
+D:\>devon
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+usage: devon <<module>> <<command>> [parameters...] [-g] [-h] [-p] [-s] [-v]
+Devcon is a command line tool that provides many automated tasks around the full
+ life-cycle of Devon applications.
+ -g,--gui         show devcon GUI
+ -h,--help        show help info for each module/command
+ -p,--prompt      prompt user for parameters
+ -s,--stacktrace  show (if relevant) stack-trace when errors occur
+ -v,--version     show devcon version
+List of available modules:
+> dist: Module with general tasks related to the distribution itself
+> doc: Module with tasks related with obtaining specific documentation
+> file: custom devcon module
+> github: Module to get Github repositories related to Devonfw.
+> help: This module shows help info about devcon
+> myJSmodule: test module
+> oasp4j: Oasp4j(server project) related commands
+> oasp4js: Module to automate tasks related to oasp4js
+> project: Module to automate tasks related to the devon projects (server + client)
+> sencha: Commands related with Ext JS6/Devon4Sencha projects
+> system: Devcon and system-wide commands
+> workspace: Module to create a new workspace with all default configuration
+
+D:\>
+----
+
+In the list of available modules you should see our `myJSmodule`.
+
+Now if we ask for the `myJSmodule` information with the command `devcon myJSmodule -h` we can check that our `extract` command is available. Also we can see the needed parameters using the `devcon myJSmodule extract -h` command
+
+[source,batch]
+----
+D:\>devcon myJSmodule extract -h
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+usage: myJSmodule extract [-filepath] [-targetpath]
+command to extract a file
+ -filepath    path to the file to be extracted
+ -targetpath  path to the folder to locate the extracted files
+
+D:\>
+----
+
+Finally we can use the module providing both mandatory parameters
+
+[source,batch]
+----
+D:\>devcon myJSmodule extract -filepath D:\myFile.zip -targetpath D:\Temp
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+extracting...
+file unzip : D:\Temp\myFile\file1.txt
+file unzip : D:\Temp\myFile\file2.txt
+file unzip : D:\Temp\myFile\file3.txt
+file unzip : D:\Temp\myFile\file4.txt
+Done!
+
+D:\>
+----
+
+== Conclusion
+In this section we have seen how easy can be to extend Devcon with new modules. You can either choose to add a Java module into the core of Devcon or you can achieve the same in an external way creating your own modules with Javascript (remember that you will need Java 8 to run your Javascript modules).
+
+Thanks to the Devcon's structure, in both cases the work is reduced to, first, register the modules and then define each of its elements (commands and parameters) and the modules engine of Devcon will do the rest.
