@@ -57,7 +57,7 @@ In most cases the commands will need parameters to work with. The _@Parameters_ 
 
 === Creating a Java module
 
-If you are not interested in create _core_ modules and want to focus on external Javascript modules skip this section and go direcly to link:Javascript-modules[Javascript modules] part.
+If you are not interested in create _core_ modules and want to focus on external Javascript modules skip this section and go direcly to link:devcon-command-developers-guide#Javascript-modules[Javascript modules] part.
 
 So once we have the basic definition of the Devcon's elements and we know how to register them, let's see how to add a new module in Devcon's _core_ using Java.
 
@@ -248,7 +248,7 @@ To register a Javascript module we only need to create a directory with that two
 
 The _commands.json_ file located in the Javascript module folder defines the elements included in it, from the module details, as name or description, to the commands and its parameters.
 
-If you have followed the link:Creating-a-Java-module[Creating a Java module] section you have seen that for the Java modules we use the _@CmdModuleRegistry_ annotation to register a module. In the case of the Javascript modules this is replaced by the _commands.json_ file itself so we won't have an equivalent _module registry_ keyword.
+If you have followed the link:devcon-command-developers-guide#Creating-a-Java-module[Creating a Java module] section you have seen that for the Java modules we use the _@CmdModuleRegistry_ annotation to register a module. In the case of the Javascript modules this is replaced by the _commands.json_ file itself so we won't have an equivalent _module registry_ keyword.
 
 To define the module in the _commands.json_ file we can use the following attributes:
 
