@@ -374,17 +374,17 @@ function (firstParameter, secondParameter){
 }
 ----
 
-== Creating a Javascript module
+=== Creating a Javascript module
 
-=== Adding the module structure
+==== Adding the module structure
 
 We have already seen the structure of a Devcon's Javascript module so let's see how to create one with an example that contains all steps.
 
-In this case we are going to create again a command to extract a zip file so we are going to create a module called _myJSmodule_ with a command _extract_ that gets two mandatory parameters _filepath_ for the path to the zip file and a _targetpath_ to define the location of the extracted files.
+In this case we are going to create (again) a command to extract a zip file, so we are going to create a module called _myJSmodule_ with a command _extract_ that gets two mandatory parameters _filepath_ for the path to the zip file and a _targetpath_ to define the location of the extracted files.
 
 1. First of all we will need to have Devcon installed on our machine. If you still don't have Devcon you can see how to download and install it link:devcon-user-guide#getting-started-download-devcon[here].
 
-2. Once we have Devcon installed we will need to create the _scripts_ fonder within the _.devcon_ directory. You can find the _.devcon_ directory at `C:\Users\{Your User}\.devcon` (if you don't find the `.devcon` directory in try looking in `D:` drive, if the directory is not there neither check your Devcon's installation).
+2. Once we have Devcon installed we will need to create the _scripts_ folder within the _.devcon_ directory. You can find the _.devcon_ directory at `C:\Users\{Your User}\.devcon` (if you don't find the `.devcon` directory there try looking in `D:` drive, if the directory is not there neither check your Devcon's installation).
 
 3. Then we will need to create inside the _scripts_ folder the directory for our new module and inside it we need to add
 
@@ -457,7 +457,7 @@ We have created a module to extract _zip_ files so we are going to use a _myFile
 As you may know if you have followed the Devcon's documentation we can use the tool in two ways: using the command line or using the Devcon's graphic user interface (GUI).
 
 ==== using the GUI
-To launch Devcon's GUI we must open a command line and use the `devon -g` command. After that the Devon main window should be open and we should see our new `myJSmodule` in the list of available modules. Then if we click over the module we should see the `extract` command available.
+To launch Devcon's GUI we must open a command line and use the `devon -g` command. After that the Devon main window should be opened and we should see our new `myJSmodule` in the list of available modules. Then if we click over the module we should see the `extract` command available.
 
 image::images/devcon/devcon-new-js-module.png[,width="450", link="images/devcon/devcon-new-js-module.png"]
 
@@ -539,6 +539,6 @@ D:\>
 ----
 
 == Conclusion
-In this section we have seen how easy can be to extend Devcon with new modules. You can either choose to add a Java module into the core of Devcon or you can achieve the same in an external way creating your own modules with Javascript (remember that you will need Java 8 to run your Javascript modules).
+In this section we have seen how easy can be to extend Devcon with new modules. You can either choose to add a Java module into the core of Devcon or achieve the same in an external way creating your own modules with Javascript (remember that you will need Java 8 to run your Javascript modules).
 
 Thanks to the Devcon's structure, in both cases the work is reduced to, first, register the modules and then define each of its elements (commands and parameters) and the modules engine of Devcon will do the rest.
