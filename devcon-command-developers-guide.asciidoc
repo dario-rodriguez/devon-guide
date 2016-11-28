@@ -408,28 +408,28 @@ To define and register the module and the command we will use the _command.json_
 	"visible": true,
 	"sort": -1,
 	"commands": [
-		{
+	    {
 	    "name": "extract",
-		"path": "extract.js",
-		"description": "command to extract a file",
-		"context": "NONE",
-		"proxyParams": false,
-		"parameters": [
-			{
-			"name": "filepath",
-			"description": "path to the file to be extracted",
-			"optional": false,
-			"sort": -1
-			},
-			{
-			"name": "targetpath",
-                        "description": "path to the folder to locate the extracted files",
-                        "optional":false,
-                        "sort": -1
-			}
+	    "path": "extract.js",
+	    "description": "command to extract a file",
+	    "context": "NONE",
+	    "proxyParams": false,
+	    "parameters": [
+	         {
+		     "name": "filepath",
+		     "description": "path to the file to be extracted",
+		     "optional": false,
+		     "sort": -1
+		  },
+		  {
+		      "name": "targetpath",
+                      "description": "path to the folder to locate the extracted files",
+                      "optional":false,
+                      "sort": -1
+		   }
 		]
 	}
-  ]
+      ]
 }
 ----
 
