@@ -423,13 +423,13 @@ To define and register the module and the command we will use the _command.json_
 			},
 			{
 			"name": "targetpath",
-            "description": "path to the folder to locate the extracted files",
-            "optional":false,
-            "sort": -1
+                        "description": "path to the folder to locate the extracted files",
+                        "optional":false,
+                        "sort": -1
 			}
-			]
-		}
-	]
+		]
+	}
+  ]
 }
 ----
 
