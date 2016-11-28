@@ -224,11 +224,11 @@ That's all, with theese few steps, we have created and included a new customized
 
 == Javascript modules
 
-As we mentioned at the begining of this chapter Devcon allows to be extended with custom modules in an external way by adding modules written in Javascript.
+As we mentioned at the beginning of this chapter Devcon allows to be extended with custom modules in an external way by adding modules written in Javascript.
 
 [NOTE]
 ====
-You will need to have intalled Java 8 to be able to run Javascript modules.
+You will need to have installed Java 8 to be able to run Javascript modules.
 ====
 
 We have seen how to define the Devcon's elements (modules, commands and parameters) and how to register them (using keywords) so let's see how to add a new module to Devcon using Javascript.
@@ -246,16 +246,16 @@ To register a Javascript module we only need to create a directory with that two
 
 === Module definition
 
-The _commands.json_ file located in the Javascript module folder defines the elements included in the module, from the module details, as name or description, to the commands and its parameters.
+The _commands.json_ file located in the Javascript module folder defines the elements included in it, from the module details, as name or description, to the commands and its parameters.
 
-If you have follow the link:Creating-a-Java-module[Creating a Java module] section you have seen that for the Java modules we use the _@CmdModuleRegistry_ annotation to register a module. In the case of the Javascript modules this is replaced by the _commands.json_ file itself so we won't have an equivalent _module registry_ keyword.
+If you have followed the link:Creating-a-Java-module[Creating a Java module] section you have seen that for the Java modules we use the _@CmdModuleRegistry_ annotation to register a module. In the case of the Javascript modules this is replaced by the _commands.json_ file itself so we won't have an equivalent _module registry_ keyword.
 
 To define the module in the _commands.json_ file we can use the following attributes:
 
 - _name_: for the module name.
 - _description_: for the module description that will be shown to the users.
 - _visible_: _true_/_false_ attribute. Allows to hide modules in case we don't want them to be available.
-- _sort_: to sort modules, if sort >=0, it will be sorted by descending value. Modules which which have value <1 will be omitted from numeric sort and will be sorted alphabetically. This modules will be appended to the modules which are sorted numerically.
+- _sort_: to sort modules, if sort >=0, it will be sorted by descending value. Modules which have value <1 will be omitted from numeric sort and will be sorted alphabetically. This modules will be appended to the modules which are sorted numerically.
 
 An example for a _commands.json_ might look like
 
@@ -278,13 +278,13 @@ Also in the _commands.json_ file we will define the commands of the module and i
 
 - We will use a *commands* array to enumerate all the commands of a module. Each command will be defined with the following attributes:
 	* _name_: for the command name.
-	* _path_: path to the _js_ file that contains the logic of the module. If is located in the same folder than the _commands.json_ file we can provide only the name of the file, without the path.
+	* _path_: path to the _js_ file that contains the logic of the module. If this is located in the same folder than the _commands.json_ file we can provide only the name of the file, without the path.
 	* _description_: for the command description that will be shown to the users.
 	* _context_: the context in which the command is expected to be launched regarding a project. E.g. the _run_ command of the _oasp4j_ module needs to be launched within the context of an _oasp4j_ project. The options to define the context are:
 		** _NONE_: if the command doesn't need to be launched within a project context.
 		** _PROJECT_: if the command is expected to be launched within a project (oasp4j, oasp4js or Sencha). In theese cases this context definition will automatically provide a default _path_ parameter to the command parameters alongside some extra project info (see the _oasp4j run_ implementation.).
 		** _COMBINEDPROJECT_: if the command needs to be launched within a combined (server & client) project.
-	* _proxyParams_: in case you need to configure a proxy this attribute will inject automatically a _host_ and _port_ parameters as part of the parameters of your command.
+	* _proxyParams_: in case your command needs to configure a proxy, this attribute will inject automatically a _host_ and _port_ parameters as part of the parameters of your command.
 	* _sort_: see the _sort_ attribute in the previous section.
 
 [source,json]
