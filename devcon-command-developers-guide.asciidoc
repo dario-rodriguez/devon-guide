@@ -521,7 +521,7 @@ command to extract a file
 D:\>
 ----
 
-Finally we can use the module providing both mandatory parameters
+Finally we can use the _extract_ command providing both mandatory parameters
 
 [source,batch]
 ----
