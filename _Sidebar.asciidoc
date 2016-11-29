@@ -56,8 +56,8 @@
 * link:Client-GUI-Sencha-Forms[Forms]
 * link:Client-GUI-Sencha-cors[CORS & protection against Cross Site Scription (XSS)]
 * link:Client-GUI-Sencha-security[Security]
-* link:Client-GUI-Sencha-theming[Sencha Theming] 
-* link:Client-GUI-Sencha-error-processing[Error processing] 
+* link:Client-GUI-Sencha-theming[Sencha Theming]
+* link:Client-GUI-Sencha-error-processing[Error processing]
 * link:Client-GUI-Sencha-i18n[Internationalization]
 
 == Devon4Sencha Cookbook
@@ -81,6 +81,12 @@
 * link:Client-GUI-Angular-Create-New-oasp4js-Application[Create New OASP4JS Application]
 
 * link:Client-GUI-Angular-Implementing-CRUD[Implementing a CRUD]
+
+
+== Create cordova project from sencha project
+
+* link:Client-GUI-Cordova-How-to-start-cordova-project[How to start your cordova project from a sencha project]
+
 
 == OASP4JS Cookbook
 
