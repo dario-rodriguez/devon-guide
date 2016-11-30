@@ -116,9 +116,9 @@ NOTE: Notice that the name of the build is not necessary the name of the platfor
 
 == Adding platforms
 
-Open a console (must have the path of Cordova executable int he PATH variable, could be the Devon console or not), then proceed to add all the platforms wanted (link:https://cordova.apache.org/docs/en/latest/guide/cli/index.html#add-platforms[Add Platforms by Cordova])
+Open a console (must have the path of Cordova executable in the PATH variable, could be the Devon console or not), then proceed to add all the platforms wanted (link:https://cordova.apache.org/docs/en/latest/guide/cli/index.html#add-platforms[Add Platforms by Cordova])
 
-[small]#Example of a project where add Android, iOS an Windows Phone#
+[small]#Example of a project where add Android, iOS and Windows Phone#
 
 [source,bash]
 ----
