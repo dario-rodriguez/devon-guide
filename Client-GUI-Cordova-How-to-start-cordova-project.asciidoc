@@ -129,7 +129,7 @@ NOTE: If the Android SDK is missing, an error will be returned. "`Error: Failed 
 ----
 cordova platform add ios
 ----
-NOTE: If run this command in a non Mac SO, a warning appears indicating that the packing and deploy of the app will be not possible
+NOTE: If you run this command in a non Mac OS, a warning will appear indicating that the packing and deployment of the app will be not possible
 [source,bash]
 ----
 cordova platform add windows
