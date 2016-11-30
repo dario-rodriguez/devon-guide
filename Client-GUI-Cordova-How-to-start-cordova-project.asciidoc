@@ -162,7 +162,7 @@ We can use several ways to deploy the Sencha application in the cordova folder, 
 
 === Do a regular build, copy the files manually and run cordova
 
-This is the most basic way to have all the required files to run our application in Cordova. To see our progress in Sencha, usually use the watch command. For this scenario we need to use the build one, this option is more restrictive than the watch, and create a ZIP file with all the files required for the webapp.
+This is the most basic way to have all the required files to run our application in Cordova. To see our progress in Sencha, usually we use the _watch_ command. For this scenario we need to use the _build_ one, this option is more restrictive than the _watch_, and creates a ZIP file with all the files required for the webapp.
 [source, bash]
 ----
 sencha app build [modern]
@@ -174,9 +174,9 @@ You can specify the configuration for the build adding the name of the configura
 image::images/client-gui-cordova/standard_build.png[Files of a standard build,width="138",link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-cordova/standard_build.png"]
 
 
-Once the previous command finished, open the build ZIP file and replace all the resources inside the folder `"myApp/cordova/www"`, then you have all the files updated in the cordova folder.
+Once the previous command is finished, open the build ZIP file and replace all the resources inside the folder `"myApp/cordova/www"`, then you have all the files updated in the cordova folder.
 
-Once we have all the files updated, the next step is do a `"prepare/build/run"` in Cordova for the desired platform. To see more information link:https://cordova.apache.org/docs/en/latest/reference/cordova-cli/[about]
+Once we have all the files updated, the next step is to do a `"prepare/build/run"` in Cordova for the desired platform. To see more information link:https://cordova.apache.org/docs/en/latest/reference/cordova-cli/[about]
 
 [source,bash]
 ----
@@ -188,13 +188,13 @@ NOTE: *PREPARE:* Transforms config.xml metadata to platform-specific manifest fi
 
 NOTE: *BUILD:* Shortcut for `"cordova prepare"` + `"cordova compile"`.
 
-NOTE: *RUN:* Prepares, builds, and deploys app on specified platform(s) devices/emulators.
+NOTE: *RUN:* Prepares, builds, and deploys the app on specified platform(s) devices/emulators.
 
 === Use a specific build config
 
 As part of the changes mentioned in this document, we modify the app.json file to add some additional builds.
 This build configurations make able to `"preapre/build/run"` our Sencha application inside the cordova folder for a specific platform.
-Instead of do a generic build, we are going to take advantage of that specific configurations.
+Instead of doing a generic build, we are going to take advantage of that specific configurations.
 
 [source, bash]
 ----
