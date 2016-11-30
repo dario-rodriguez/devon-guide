@@ -67,6 +67,7 @@
 * link:Client-GUI-Sencha-devon4Sencha-tools[Javascript Code Analysis Tools]
 * link:Client-GUI-Sencha-devon4Sencha-code-review[How to do effective Devon4Sencha Code Reviews]
 * link:Client-GUI-Sencha-devon4Sencha-test[Devon4Sencha Testing Tools]
+* link:Client-GUI-Cordova-How-to-start-cordova-project[Start a Cordova project from a Sencha project]
 
 == Client GUI Angular
 
@@ -81,11 +82,6 @@
 * link:Client-GUI-Angular-Create-New-oasp4js-Application[Create New OASP4JS Application]
 
 * link:Client-GUI-Angular-Implementing-CRUD[Implementing a CRUD]
-
-
-== Create cordova project from sencha project
-
-* link:Client-GUI-Cordova-How-to-start-cordova-project[How to start your cordova project from a sencha project]
 
 
 == OASP4JS Cookbook
