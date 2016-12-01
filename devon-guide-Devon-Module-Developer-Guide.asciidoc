@@ -18,7 +18,7 @@ Creating an archetype from an existing project involves three steps:
 * the archetype installation:deployment
 * the archetype usage
 
-*1.* Using command prompt  go to directory where project exists ,and then execute command 
+*1.* Using devon distribution's,_console.bat_,open console and go to directory where project exists ,and then execute command 
 [source,java]
 ----
 mvn archetype:create-from-project
