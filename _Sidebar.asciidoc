@@ -34,6 +34,7 @@
 * link:cookbook-websocket[WebSocket]
 * link:cookbook-fileupdownload[File Upload and Download]
 * link:cookbook-dockerization[Devon on Docker]
+* link:Compatibility-guide-for-Java7,-Java8-and-Tomcat7,-Tomcat8[Compatibility guide for Java7, Java8 and Tomcat7, Tomcat8]
 
 == Client GUI Sencha
 
