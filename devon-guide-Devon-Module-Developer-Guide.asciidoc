@@ -1,0 +1,88 @@
+:toc: macro
+toc::[]
+
+# Devon module Developer's Guide
+
+Here, we intend to explain, creation of a maven module (devonfw module) , which will serve as template for creating other modules.
+This is done with usage of maven archetype plugin.
+Please, follow subsequent sections, for creation of same.
+
+== Creation of module template
+
+The maven Archetype Plugin allows the user to create a Maven project from an existing template called an archetype.
+It also allows the user to create an archetype from an existing project.
+
+Creating an archetype from an existing project involves three steps:
+* the archetype resolution
+* the archetype installation:deployment
+* the archetype usage
+
+*1.* Using command prompt  go to directory where project exists ,and then execute command 
+[source,java]
+----
+mvn archetype:create-from-project
+----
+
+
+
+*2.* It then generates the directory tree of the archetype in the target/generated-sources/archetype directory.
+
+
+*3.* Then move to mentioned directory above and execute,
+[source,java]
+----
+mvn install
+----
+
+SO, this step, installs created archetype in users local maven repository.
+
+== Usage
+
+We can use created archetype(template) from eclipse as well as command line.
+If one wants to create project using archetype in eclipse, follow below steps:
+
+Go to File-->New-->Maven Project
+
+image::images/devon-module-dev-guide/create-project-eclipse.png["create project in eclipse",width="450", link="images/devon-module-dev-guide/create-project-eclipse.png"]
+
+Click on Next button.
+
+
+image::images/devon-module-dev-guide/new-maven-project.png/["create new maven project in eclipse",width="450", link="images/devon-module-dev-guide/new-maven-project.png"]
+
+Select archetype.
+
+
+
+image::images/devon-module-dev-guide/select-archetype.png/["select archetype",width="450", link="images/devon-module-dev-guide/select-archetype.png"]
+
+For the very first time, when we use archetype in eclipse, it sometimes does not appear in the list of available archetypes.So in that case, use _"add archetype"_ button .
+
+Once you select archetype,and press "_Next_" button, a dialog appears, where you need to put desired artifactid and group id and click finish.
+A new project is created on the basis of chosen archetype.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
