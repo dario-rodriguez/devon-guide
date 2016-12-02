@@ -40,5 +40,5 @@ And the template would look something like:
 
 The output for the above snippet would look like .
 
-image::images/client-gui-sencha/file_upload_syncronous.PNG[,width="450",File Upload Syncronous,link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/file_upload_syncronous.PNG"]
+image::images/client-gui-sencha/file_upload_syncronous.png[,width="450",File Upload Syncronous,link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/file_upload_syncronous.png"]
 
