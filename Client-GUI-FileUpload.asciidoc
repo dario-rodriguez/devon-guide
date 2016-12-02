@@ -51,3 +51,18 @@ The number of files selected count will be displayed as,
 image::images/client-gui-sencha/selected_files_upload_syncronous.png[,width="350",selected files upload,link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/selected_files_upload_syncronous.png"]
 
 Click on button "Upload File" to upload the selected files.
+
+
+= File Download
+
+To enable file download, create anchor tag and provide 'href' as an attribute. Provide the webservice URL for this attribute to download the file. 
+
+Below is the template for anchor tag.
+
+[source,bash]
+----
+<a class="btn btn-success" href='WEBSERVICE-URL'>File Download</a>
+----
+
+
+ 
