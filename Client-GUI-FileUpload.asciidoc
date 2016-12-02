@@ -42,3 +42,6 @@ The output for the above snippet would look like .
 
 image::images/client-gui-sencha/file_upload_syncronous.png[,width="450",File Upload Syncronous,link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/file_upload_syncronous.png"]
 
+
+image::images/introduction/devon_buildingblocks.png[,width="450",Devonfw Building blocks,link="https://github.com/devonfw/devon-guide/wiki/images/introduction/devon_buildingblocks.png"]
+
