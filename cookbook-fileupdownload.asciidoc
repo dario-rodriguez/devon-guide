@@ -91,15 +91,19 @@ public class SomeResource {
 
 In JAX-RS, annotate the service method with @Consumes("multipart/mixed"). We define an interface of the service and annotate it with JAX-RS annotations:
 
+[source,java]
+--------
+import javax.ws.rs.core.MediaType;
+--------
 
 [source,java]
 --------
 public interface UploadService {
 @SuppressWarnings("javadoc")
-@Consumes("multipart/mixed")
+@Consumes(MediaType.MULTIPART_FORM_DATA)
 @GET
 @Path("/uploadFile")
-public Response uploadFile(List<Attachment> attachments, @Context HttpServletRequest request) throws SQLException, IOException;
+public Response uploadFile(List<Attachment> attachments) throws SQLException, IOException;
 }
 --------
 
