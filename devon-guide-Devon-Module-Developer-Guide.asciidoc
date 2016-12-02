@@ -62,6 +62,10 @@ For the very first time, when we use archetype in eclipse, it sometimes does not
 Once you select archetype,and press "_Next_" button, a dialog appears, where you need to put desired artifactid and group id and click finish.
 A new project is created on the basis of chosen archetype.
 
+=== Structure of created module
+
+
+
 
 
 
