@@ -53,6 +53,8 @@
 
 - link:cookbook-winauth-module[Devon Windows Auth module]
 
+- link:cookbook-async-module[Devon Async module]
+
 - link:cookbook-security-layer[Security: Authentication and Authorization]
 
 - link:cookbook-JAX-WS-WebServices[JAX-WS Web Services]
