@@ -44,7 +44,7 @@ image::images/client-gui-sencha/file_upload_syncronous.png[,width="450",File Upl
 
 Click on "Choose files" button. Dialog box will appear as below, select the files to be uploaded.
 
-image::images/client-gui-sencha/Choose_file_dialog.png[,width="450",Choose file dialog,link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/Choose_file_dialog.png"]
+image::images/client-gui-sencha/Choose_files_dialog.png[,width="450",Choose file dialog,link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/Choose_files_dialog.png"]
 
 
 
