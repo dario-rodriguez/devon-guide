@@ -46,6 +46,8 @@ Click on "Choose files" button. Dialog box will appear as below, select the file
 
 image::images/client-gui-sencha/Choose_files_dialog.png[,width="450",Choose file dialog,link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/Choose_files_dialog.png"]
 
+The number of files selected count will be displayed as,
 
+image::images/client-gui-sencha/selected_files_upload_syncronous.png[,width="450",Choose file dialog,link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/selected_files_upload_syncronous.png"]
 
 
