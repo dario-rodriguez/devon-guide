@@ -1,4 +1,4 @@
-:toc: macro
+ :toc: macro
 toc::[]
 
 # Devon module Developer's Guide
@@ -41,8 +41,8 @@ SO, this step, installs created archetype in users local maven repository.
 
 One can use this archetype to create maven modules/projects with:
 
-. Eclipse
-.. From command line.
+* Eclipse
+* From command line.
 
 We can use created archetype(template) from eclipse as well as command line.
 If one wants to create project using archetype in eclipse, follow below steps:
