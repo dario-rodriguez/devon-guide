@@ -39,6 +39,11 @@ SO, this step, installs created archetype in users local maven repository.
 
 == Usage
 
+One can use this archetype to create maven modules/projects with:
+
+. Eclipse
+.. From command line.
+
 We can use created archetype(template) from eclipse as well as command line.
 If one wants to create project using archetype in eclipse, follow below steps:
 
@@ -61,6 +66,20 @@ For the very first time, when we use archetype in eclipse, it sometimes does not
 
 Once you select archetype,and press "_Next_" button, a dialog appears, where you need to put desired artifactid and group id and click finish.
 A new project is created on the basis of chosen archetype.
+
+=== Creation of archetype through command line
+
+For using command line, go to your devon distribution and run console.bat.
+Once console is opened, execute command
+
+[source , java]
+----
+
+mvn -DarchetypeVersion=dev-SNAPSHOT  -DarchetypeGroupId=com.capgemini.devonfw.dev -DarchetypeArtifactId=devonfw-archetype  archetype:generate -DgroupId=com.cap -DartifactId=archetypeTest -Dversion=0.1-SNAPSHOT -Dpackage=com.cap.archetypeTest
+
+----
+
+
 
 === Structure of created module
 
