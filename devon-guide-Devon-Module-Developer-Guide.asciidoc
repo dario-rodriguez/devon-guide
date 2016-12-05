@@ -44,7 +44,8 @@ One can use this archetype to create maven modules/projects with:
 * Eclipse
 * From command line.
 
-We can use created archetype(template) from eclipse as well as command line.
+=== Creation of module/project using eclipse
+
 If one wants to create project using archetype in eclipse, follow below steps:
 
 Go to File-->New-->Maven Project
@@ -82,6 +83,10 @@ mvn -DarchetypeVersion=dev-SNAPSHOT  -DarchetypeGroupId=com.capgemini.devonfw.de
 
 
 == Structure of created module
+Once, above steps are followed, created module structure would look like below
+
+image::images/devon-module-dev-guide/new-maven-module5.png["new-maven-module5",width="450", link="images/devon-module-dev-guide/new-maven-module5.png"]
+
 
 
 
