@@ -87,6 +87,31 @@ mvn -DarchetypeVersion=dev-SNAPSHOT -DarchetypeGroupId=devonfw-archetype
 
 ----
 
+As, we are using eclipse neon version and it mandates usage of java 8.
+So, if you don't have latest devon distribution and you want to use this archetype for module creation, follow below steps.
+
+1. When you use archetype with java version lower than java 8,project will be created and you will get error like 
+
+*_Unbound classpath container: 'JRE System Library [JavaSE-1.8]' in project {project_name}0_*
+, you will have to manually point installed JRE to desired version .
+Please , refer 
+
+2. Once, project is created and step 1, is done, you need to manually change java version in pom.xml to the desired java version.SO generated pom.xml would have version as shown below.
+
+[source , java]
+----
+ <java.version>1.8</java.version>
+----
+
+Please, change it to
+
+[source , java]
+----
+ <java.version>1.7</java.version>
+----
+
+Once, these 2 steps are done you are good to go with newly created project/module.
+
 
 
 == Structure of created module
