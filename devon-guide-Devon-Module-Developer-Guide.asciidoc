@@ -81,7 +81,7 @@ mvn -DarchetypeVersion=dev-SNAPSHOT  -DarchetypeGroupId=com.capgemini.devonfw.de
 
 
 
-=== Structure of created module
+== Structure of created module
 
 
 
