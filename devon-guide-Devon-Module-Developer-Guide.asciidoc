@@ -12,6 +12,10 @@ Please, follow subsequent sections, for creation of same.
 The maven Archetype Plugin allows the user to create a Maven project from an existing template called an archetype.
 It also allows the user to create an archetype from an existing project.
 
+image::images/devon-module-dev-guide/module.png["module",width="450", link="images/devon-module-dev-guide/module.png"]
+
+
+
 Creating an archetype from an existing project involves three steps:
 
 * the archetype resolution
