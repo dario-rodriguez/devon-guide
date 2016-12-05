@@ -115,6 +115,8 @@ Add annotation @Transactional at class level and Inject UcManageBinaryObject cla
 --------
 @Transactional
 public class implClassName{
+
+}
 --------
 
 
