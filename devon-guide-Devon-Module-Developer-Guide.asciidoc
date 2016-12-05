@@ -94,13 +94,23 @@ image::images/devon-module-dev-guide/new-maven-module5.png["new-maven-module5",w
 
 Here are details of the structure:
 
+At the top level files descriptive of the project: a pom.xml file In addition, there are textual documents meant for the user to be able to read immediately on receiving the source: README.txt, LICENSE.txt, etc.
+
+There are just two subdirectories of this structure: src and target. The only other directories that would be expected here are metadata like CVS, .git or .svn, and any subprojects in a multiproject build (each of which would be laid out as above).
+
+The target directory is used to house all output of the build.
+
+The src directory contains all of the source material for building the project, its site and so on. It contains a subdirectory for each type: main for the main build artifact, test for the unit test code and resources, site and so on.
+
+
+
 1. "first" is the maven multi module project.Lets say, we want to create a new module in this project using new module archetype.
 
 2. "module" created using archetype.
 
 3. "module[boot]" the whole structure like src/main/java etc can be seen inside it.
 
-4. Contains all java files.
+4. Directory for the language java .
 
 5. contains all resouces like .properties file etc.We can see application.properties here.
 
