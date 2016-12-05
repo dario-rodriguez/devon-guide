@@ -1,4 +1,4 @@
- :toc: macro
+:toc: macro
 toc::[]
 
 # Devon module Developer's Guide
