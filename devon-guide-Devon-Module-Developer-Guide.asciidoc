@@ -76,7 +76,10 @@ Once console is opened, execute command
 [source , java]
 ----
 
-mvn -DarchetypeVersion=dev-SNAPSHOT  -DarchetypeGroupId=com.capgemini.devonfw.dev -DarchetypeArtifactId=devonfw-archetype  archetype:generate -DgroupId=com.cap -DartifactId=archetypeTest -Dversion=0.1-SNAPSHOT -Dpackage=com.cap.archetypeTest
+mvn -DarchetypeVersion=dev-SNAPSHOT -DarchetypeGroupId=devonfw-archetype
+-DarchetypeArtifactId=com.capgemini.devonfw.dev archetype:generate
+-DgroupId=com.devonfw.modules -DartifactId=samplemodule -Dversion=0.1-SNAPSHOT
+-Dpackage=com.devonfw.modules.samplemodule
 
 ----
 
