@@ -109,7 +109,7 @@ public Response uploadFile(List<Attachment> attachments) throws SQLException, IO
 
 And here is a simple implementation of the service:
 
-Inject UcManageBinaryObject class object.
+Add annotation @Transactional at class level and Inject UcManageBinaryObject class object.
 
 [source,java]
 --------
