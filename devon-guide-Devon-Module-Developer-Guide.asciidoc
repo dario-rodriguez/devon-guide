@@ -72,7 +72,7 @@ For the very first time, when we use archetype in eclipse, it sometimes does not
 Once you select archetype,and press "_Next_" button, a dialog appears, where you need to put desired artifactid and group id and click finish.
 A new project is created on the basis of chosen archetype.
 
-=== Creation of archetype through command line
+=== Creation of module through command line
 
 For using command line, go to your devon distribution and run console.bat.
 Once console is opened, execute command
