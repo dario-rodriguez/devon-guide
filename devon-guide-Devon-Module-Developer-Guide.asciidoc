@@ -92,7 +92,7 @@ So, if you don't have latest devon distribution and you want to use this archety
 
 1. When you use archetype with java version lower than java 8,project will be created and you will get error like 
 
-*_Unbound classpath container: 'JRE System Library [JavaSE-1.8]' in project {project_name}0_*
+*_Unbound classpath container: 'JRE System Library [JavaSE-1.8]' in project {project_name}_*
 , you will have to manually point installed JRE to desired version .
 Please , refer 
 
