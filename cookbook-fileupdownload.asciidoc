@@ -109,81 +109,56 @@ public Response uploadFile(List<Attachment> attachments) throws SQLException, IO
 
 And here is a simple implementation of the service:
 
+Inject UcManageBinaryObject class object.
+
+[source,java]
+--------
+ @Inject
+  private UcManageBinaryObject ucManageBinaryObject;
+
+  /**
+   * @return ucManageBinaryObject
+   */
+  public UcManageBinaryObject getUcManageBinaryObject() {
+
+    return this.ucManageBinaryObject;
+  }
+--------
+
+
+
+web-service method implementation as below:
+
 [source,java]
 --------
 @POST 
 @Consumes ("multipart/mixed") 
 // use @Consumes(MediaType.MULTIPART_FORM_DATA) if request contains multipart form data and import //javax.ws.rs.core.MediaType;
 @Path ("/upload") 
-public Response uploadFile(List<Attachment> attachments, HttpServletRequest request) {
- 
-        for (Attachment attachment : attachments) {
-            DataHandler dataHandler = attachment.getDataHandler();
-            try{
-                // get filename to be uploaded
-                MultivaluedMap<String, String> multivaluedMap = attachment.getHeaders();
-                String fileName = getFileName(multivaluedMap);
- 
-                InputStream inputStream = dataHandler.getInputStream();
-                writeToFileSystem(inputStream, fileName);
-            }
-            catch(Exception ex) {
-                ex.printStackTrace();
-            }
-            finally {
-                // release resources, if any
-            }
-        }
-        return Response.ok("upload success").build();
-    }
-
-
- /**
-     * @param inputStream
-     * @param fileName
- */
- private void writeToFileSystem(InputStream inputStream, String fileName) {
-         OutputStream outputStream = null;
-        try {
-            outputStream = new FileOutputStream(new File(UPLOAD_FILE_SERVER + fileName));
-            int read = 0;
-            byte[] bytes = new byte[1024];
-            while ((read = inputStream.read(bytes)) != -1) {
-                outputStream.write(bytes, 0, read);
-            }
-            outputStream.flush();
-            outputStream.close();
-        }
-        catch (IOException ioe) {
-            ioe.printStackTrace();
-        }
-        finally{
-            //release resource, if any
-        }
+public Response uploadFile(List<Attachment> attachments) {
+         BinaryObjectEto binaryObject = new BinaryObjectEto();
+ Blob blob = null;
+ for (Attachment attachment: attachments) {
+     DataHandler handler = attachment.getDataHandler();
+     try {
+         InputStream stream = handler.getInputStream();
+         OutputStream outputStream = new ByteArrayOutputStream();
+         IOUtils.copy(stream, outputStream);
+         byte[] byteArray = outputStream.toString().getBytes();
+         blob = new SerialBlob(byteArray);
+         getUcManageBinaryObject().saveBinaryObject(blob, binaryObject);
+     } catch (SQLException e) {
+         throw new SQLException(e.getMessage(), e);
+     } catch (IOException e) {
+         throw new IOException(e.getMessage(), e);
+     }
  }
- 
-
- /**
-    *
-    * @param multivaluedMap
-    * @return
- */
- private String getFileName(MultivaluedMap<String, String> multivaluedMap) {
-        String[] contentDisposition = multivaluedMap.getFirst("Content-Disposition").split(";");
-        for (String filename : contentDisposition) {
-            if ((filename.trim().startsWith("filename"))) {
-                String[] name = filename.split("=");
-                String exactFileName = name[1].trim().replaceAll("\"", "");
-                return exactFileName;
-            }
-        }
-        return "unknownFile";
-  }
-
+ return Response.ok("file uploaded").build();
+ }
 --------
 
 
-In the above code snippet, we are iterating the attachments that are uploaded and extracting headers & inputstreams. Here we are using simple file handling operations to write this inputstreams to the UPLOAD_FILE_SERVER. 
+In the above code snippet, we are iterating the attachments that are uploaded and extracting inputstreams. Here we are converting inputstream to the bytearray, and creating blob object with this bytearray. Save this created blob object by calling a method saveBinaryObject(blob, binaryObject).
 
 Following table explains the annotations used for upload functionality along with its description.
 
