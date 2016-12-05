@@ -113,6 +113,13 @@ Add annotation @Transactional at class level and Inject UcManageBinaryObject cla
 
 [source,java]
 --------
+@Transactional
+public class implClassName{
+--------
+
+
+[source,java]
+--------
  @Inject
   private UcManageBinaryObject ucManageBinaryObject;
 
