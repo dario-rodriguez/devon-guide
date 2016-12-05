@@ -91,11 +91,17 @@ image::images/devon-module-dev-guide/new-maven-module5.png["new-maven-module5",w
 
 Here are details of the structure:
 1. "first" is the maven multi module project.Lets say, we want to create a new module in this project using new module archetype.
+
 2. "module" created using archetype.
+
 3. "module[boot]" the whole structure like src/main/java etc can be seen inside it.
+
 4. Contains all java files.
+
 5. contains all resouces like .properties file etc.We can see application.properties here.
+
 6. Contains all test classes(.java), like junits etc.
+
 7. Contains resources required for testing purposes.
 
 
