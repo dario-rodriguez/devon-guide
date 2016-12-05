@@ -90,6 +90,7 @@ image::images/devon-module-dev-guide/new-maven-module5.png["new-maven-module5",w
 
 
 Here are details of the structure:
+
 1. "first" is the maven multi module project.Lets say, we want to create a new module in this project using new module archetype.
 
 2. "module" created using archetype.
