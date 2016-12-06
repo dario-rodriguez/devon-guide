@@ -15,30 +15,34 @@ And the template would look something like:
 <title>Page Title</title>
 </head>
 <body>
-<form method="post" action="WEBSERVICE_URL"
-                enctype="multipart/form-data">
-                <table align="center" border="1" bordercolor="black" cellpadding="0"
-                    cellspacing="0">
-                    <tr>
-                        <td>Select File:</td>
-                        <td><input type="file" multiple="true" 											name="uploadedFile" size="100" /></td>
-                   </tr>
-                   <tr>
-                        <td></td>
-                        <td><input type="file" multiple="true" 											name="uploadedFile" size="100" /></td>
-                   </tr>
-                   <tr>
-                   <td><input type="submit" value="Upload File" /></td>
-                   </tr>
-                </table>
-            </form>
+<form method="post" action="WEBSERVICE_URL" enctype="multipart/form-data">
+    <table align="center" border="1" bordercolor="black" cellpadding="0" cellspacing="0">
+        <tr>
+            <td>Select File:</td>
+            <td>
+               <input type="file" multiple="true" name="uploadedFile" size="100" />
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+               <input type="file" multiple="true" name="uploadedFile" size="100" /> 
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Upload File" />
+            </td>
+        </tr>
+    </table>
+</form>
 
 </body>
 </html>
 
 ----
 
-The output for the above snippet would look like .
+Browser renders the above html as shown in the screen shot below.
 
 image::images/client-gui-sencha/file_upload_syncronous.png[,width="350",File Upload Syncronous,link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/file_upload_syncronous.png"]
 
@@ -61,7 +65,7 @@ Below is the template for anchor tag.
 
 [source,bash]
 ----
-<a class="btn btn-success" href='WEBSERVICE-URL'>File Download</a>
+<a class="btn btn-success" href='<WEBSERVICE-URL>'>File Download</a>
 ----
 
 
