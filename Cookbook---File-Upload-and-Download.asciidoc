@@ -53,7 +53,7 @@ Following table explains the annotations used for download functionality along w
 |===
 
 
-== @Produces Annotation
+## @Produces Annotation
 
 @Produces annotation is used to specify the MIME media type that can be produced and sent back to the client. If @Produces is applied at the class level, all the methods in a resource can produce the specified MIME type by default. If applied at the method level, the annotation overrides any @Produces annotation applied at the class level.
 
@@ -84,7 +84,7 @@ public class SomeResource {
 --------
 
 
-== File upload from org.apache.cxf
+# File upload from org.apache.cxf
 
 *org.apache.cxf* provides option to upload files of different MIME (Multipurpose Internet Mail Extensions) type.
 
@@ -182,7 +182,7 @@ Following table explains the annotations used for upload functionality along wit
 |@PATH|This identifies the URI path template to which the resource responds, and is specified at the class level of a resource.
 |===
 
-== @Consumes Annotation
+## @Consumes Annotation
 
 The @Consumes annotation is used to specify MIME media type that can be accepted, or consumed, from the client. If @Consumes is applied at the class level, all the response methods accept the specified MIME types by default. If applied at the method level, @Consumes overrides any @Consumes annotation applied at the class level.
 
