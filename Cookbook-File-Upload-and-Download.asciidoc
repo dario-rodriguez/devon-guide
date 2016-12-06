@@ -140,23 +140,23 @@ public Response uploadFile(List<Attachment> attachments) {
     BinaryObjectEto binaryObject = new BinaryObjectEto();
     Blob blob = null;
     for (Attachment attachment: attachments) {
-     DataHandler handler = attachment.getDataHandler();
-     try {
-         InputStream stream = handler.getInputStream();
-         OutputStream outputStream = new ByteArrayOutputStream();
-         IOUtils.copy(stream, outputStream);
-         byte[] byteArray = outputStream.toString().getBytes();
-         if (byteArray != null && byteArray.length != 0) {
-         blob = new SerialBlob(byteArray);
-         getUcManageBinaryObject().saveBinaryObject(blob, binaryObject);
-         }
-     } catch (SQLException e) {
-         throw new SQLException(e.getMessage(), e);
-     } catch (IOException e) {
-         throw new IOException(e.getMessage(), e);
-     }
+      DataHandler handler = attachment.getDataHandler();
+      try {
+          InputStream stream = handler.getInputStream();
+          OutputStream outputStream = new ByteArrayOutputStream();
+          IOUtils.copy(stream, outputStream);
+          byte[] byteArray = outputStream.toString().getBytes();
+          if (byteArray != null && byteArray.length != 0) {
+          blob = new SerialBlob(byteArray);
+          getUcManageBinaryObject().saveBinaryObject(blob, binaryObject);
+          }
+      } catch (SQLException e) {
+            throw new SQLException(e.getMessage(), e);
+      } catch (IOException e) {
+            throw new IOException(e.getMessage(), e);
+    }
   }
-   return Response.ok("file uploaded").build();
+  return Response.ok("file uploaded").build();  
  }
 --------
 
