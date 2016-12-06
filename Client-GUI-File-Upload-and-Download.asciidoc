@@ -36,7 +36,6 @@ And the template would look something like:
         </tr>
     </table>
 </form>
-
 </body>
 </html>
 
