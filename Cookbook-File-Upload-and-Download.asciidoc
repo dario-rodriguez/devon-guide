@@ -12,8 +12,6 @@ Apache CXF is an open source services framework. CXF helps you build and develop
 In JAX-RS, annotate the service method with @Produces("application/octet-stream"). We define an interface of the service and annotate it with JAX-RS annotations:
 
 
-
-
 [source,java]
 --------
 public interface DownloadService {
@@ -69,16 +67,15 @@ The following example shows how to apply @Produces at both the class and method 
 @Path("/myResource")
 @Produces("text/plain")
 public class SomeResource {
-	@GET
-	public String doGetAsPlainText() {
-		...
-	}
-
-	@GET
-	@Produces("text/html")
-	public String doGetAsHtml() {
-		...
-	}
+    @GET
+    public String doGetAsPlainText() {
+	...
+    }
+    @GET
+    @Produces("text/html")
+    public String doGetAsHtml() {
+	...
+    }
 }
 
 --------
@@ -117,22 +114,17 @@ Add annotation @Transactional at class level and Inject UcManageBinaryObject cla
 @Transactional
 public class implClassName{
 
-}
---------
+@Inject
+    private UcManageBinaryObject ucManageBinaryObject;
 
-
-[source,java]
---------
- @Inject
-  private UcManageBinaryObject ucManageBinaryObject;
-
-  /**
-   * @return ucManageBinaryObject
-   */
-  public UcManageBinaryObject getUcManageBinaryObject() {
+    /**
+    * @return ucManageBinaryObject
+    */
+    public UcManageBinaryObject getUcManageBinaryObject() {
 
     return this.ucManageBinaryObject;
   }
+}
 --------
 
 
@@ -145,9 +137,9 @@ Web Service method implementation :
 // use @Consumes(MediaType.MULTIPART_FORM_DATA) if request contains multipart form data and import //javax.ws.rs.core.MediaType;
 @Path ("/upload") 
 public Response uploadFile(List<Attachment> attachments) {
-         BinaryObjectEto binaryObject = new BinaryObjectEto();
- Blob blob = null;
- for (Attachment attachment: attachments) {
+    BinaryObjectEto binaryObject = new BinaryObjectEto();
+    Blob blob = null;
+    for (Attachment attachment: attachments) {
      DataHandler handler = attachment.getDataHandler();
      try {
          InputStream stream = handler.getInputStream();
@@ -163,8 +155,8 @@ public Response uploadFile(List<Attachment> attachments) {
      } catch (IOException e) {
          throw new IOException(e.getMessage(), e);
      }
- }
- return Response.ok("file uploaded").build();
+  }
+   return Response.ok("file uploaded").build();
  }
 --------
 
@@ -197,16 +189,16 @@ The following example shows how to apply @Consumes at both the class and method 
 @Path("/myResource")
 @Consumes("multipart/related")
 public class SomeResource {
-	@POST
-	public String doPost(MimeMultipart mimeMultipartData) {
-		...
-	}
+    @POST
+    public String doPost(MimeMultipart mimeMultipartData) {
+	...
+    }
 
-	@POST
-	@Consumes("application/x-www-form-urlencoded")
-	public String doPost2(FormURLEncodedProperties formData) {
-		...
-	}
+    @POST
+    @Consumes("application/x-www-form-urlencoded")
+    public String doPost2(FormURLEncodedProperties formData) {
+	...
+    }
 }
 --------
 
