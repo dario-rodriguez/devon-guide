@@ -32,7 +32,7 @@
 * link:cookbook-batch-layer[Batch Layer]
 * link:cookbook-spring-data[Integrating Spring Data]
 * link:cookbook-websocket[WebSocket]
-* link:cookbook-fileupdownload[File Upload and Download]
+* link:cookbook-File-Upload-and-Download[File Upload and Download]
 * link:cookbook-dockerization[Devon on Docker]
 * link:Compatibility-guide-for-Java7,-Java8-and-Tomcat7,-Tomcat8[Compatibility guide for Java7, Java8 and Tomcat7, Tomcat8]
 
