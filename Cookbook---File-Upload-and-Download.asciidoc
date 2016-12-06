@@ -3,7 +3,7 @@ toc::[]
 
 Apache CXF is an open source services framework. CXF helps you build and develop services using frontend programming APIs, like JAX-WS and JAX-RS. 
 
-# File download from "org.apache.cxf"
+# File download from 'org.apache.cxf'
 
 *org.apache.cxf* provides option to download files of different MIME (Multipurpose Internet Mail Extensions) types.
 
