@@ -1,1 +1,22 @@
+:toc: macro
+toc::[]
+
 = Devon in Bluemix
+
+== Introduction
+=== Platform as a service
+
+https://www.ibm.com/blogs/cloud-computing/2014/02/what-is-platform-as-a-service-paas/[Platform as a service (PaaS)] is a category of cloud computing services that provides a platform allowing customers to develop, run, and manage applications without the complexity of building and maintaining the infrastructure typically associated with developing and launching an app.
+
+=== Cloud Foundry
+
+Cloud Foundry is an open source, multi cloud application platform as a service (PaaS) governed by the Cloud Foundry Foundation, a https://en.wikipedia.org/wiki/501(c)_organization#501.28c.29.286.29[501(c)(6) organization]. 
+
+https://en.wikipedia.org/wiki/Cloud_Foundry[Cloud Foundry] supports the full lifecycle, from initial development, through all testing stages, to deployment. It is therefore well-suited to the continuous delivery strategy. Users have access to one or more spaces, which typically correspond to a lifecycle stage. For example, an application ready for QA testing might be pushed (deployed) to its project's QA space. Different users can be restricted to different spaces with different access permissions in each.
+
+=== Bluemix
+
+https://console.ng.bluemix.net/docs/overview/whatisbluemix.html#bluemixoverview[IBM Bluemix] is a cloud PaaS developed by IBM. It supports several programming languages and services as well as integrated DevOps to build, run, deploy and manage applications on the cloud. Bluemix is based on Cloud Foundry open technology and runs on SoftLayer infrastructure. Bluemix supports several programming languages including Java, Node.js, Go, PHP, Swift, Python, Ruby Sinatra, Ruby on Rails and can be extended to support other languages such as Scala through the use of buildpacks.
+
+
+
