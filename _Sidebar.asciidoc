@@ -27,6 +27,7 @@
 
 * link:cookbook-reporting-module[Devon reporting module]
 * link:cookbook-winauth-module[Devon Windows Auth module]
+* link:cookbook-i18n-module[Devon I18N module]
 * link:cookbook-security-layer[Security: Authentication and Authorization]
 * link:cookbook-JAX-WS-WebServices[JAX-WS Web Services]
 * link:cookbook-batch-layer[Batch Layer]
