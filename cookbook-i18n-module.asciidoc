@@ -63,7 +63,7 @@ Include the module dependency in your pom.xml
 ----
 
 
-###__Adding @ComponentScan to the class level
+### __Adding @ComponentScan to the class level
 
 Add class level annotation to the below mentioned class.
 
