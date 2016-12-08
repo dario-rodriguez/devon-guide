@@ -12,3 +12,17 @@ The internationalization process is sometimes called translation or localization
 
 The I18N module provides easy creation and maintenance of distinct translations for your Devon applications. For implement the I18N module in a Devon project you must follow these steps:
 
+### Step1 : Add module to devon project.
+
+Include the module in devonfw-modules/pom.xml
+
+[source,xml]
+----
+<modules>
+    ....
+    ....
+    <module>i18n</module>
+    ....
+    ....
+</modules>
+----
