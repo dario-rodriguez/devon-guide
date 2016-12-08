@@ -53,7 +53,7 @@ These properties files stores the information in the form of key value pair. The
 
 ### Reading properties files with MMM integration 
 
-The dependency for "net.sf.m-m-m" has been added in pom.xml of a module. 
+The dependency for "net.sf.m-m-m" has been added in _pom.xml_ of a module. 
 
 [source,xml]
 ----
@@ -66,7 +66,7 @@ The dependency for "net.sf.m-m-m" has been added in pom.xml of a module.
 
 This provides class _ResourceBundleSynchronizer_ which is used to create .properties files for MMM implementation with respect to the locales.
 Below snapshots shows how it creates .properties files at location 
-\src\main\resources\com\capgemini\devonfw\module\i18n\common\api\nls
+_\src\main\resources\com\capgemini\devonfw\module\i18n\common\api\nls_
 
 
 Below configuration is provided to make mmm implementation enabled or disabled.
