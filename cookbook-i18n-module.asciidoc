@@ -43,8 +43,8 @@ Perform the operations clean & build for the project. Run the SpringBootApp.java
 # I18N Module Information 
 
 There are basically two sections.
-## I18N : Reading properties files without MMM integration
-## I18N : Reading properties files with MMM integration 
+### I18N : Reading properties files without MMM integration
+### I18N : Reading properties files with MMM integration 
 
 
 
