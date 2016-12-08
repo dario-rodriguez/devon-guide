@@ -1,16 +1,16 @@
 :toc: macro
 toc::[]
 
-# The I18N module - Internationalization with OASP4J 
+# The I18N module - Internationalization
 
 
 Internationalization (sometimes shortened to "I18N , meaning "I - eighteen letters -N") is the process of designing a software application so that it can potentially be adapted to various languages and regions without engineering changes.
 
 The internationalization process is sometimes called translation or localization enablement.
 
-## Including I18N in Devon project
+## Including I18N module in your project
 
-The I18N module provides easy creation and maintenance of distinct translations for your Devon applications. For implement the I18N module in a Devon project you must follow these steps:
+The I18N module provides easy creation and maintenance of distinct translations for your Devon applications. To implement the I18N module in a your project you must follow these steps:
 
 ### Step 1: Adding the dependency in our project.
 
@@ -36,9 +36,16 @@ public class ServiceConfiguration extends WsConfigurerAdapter {
 }
 ----
 
-### Build Project 
+### Step 3:Build Project and Run
 
 Perform the operations clean & build for the project. Run the SpringBootApp.java file as java application and make the server up. You can see the i18n webservice in available webservices.
+
+# I18N Module Information 
+
+There are basically two sections.
+## I18N : Reading properties files without MMM integration
+## I18N : Reading properties files with MMM integration 
+
 
 
 
