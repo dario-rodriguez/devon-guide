@@ -50,7 +50,7 @@ i18n.mmm.enabled=true
 
 The I18N module provides easy creation and maintenance of distinct translations for your Devon applications. To implement the I18N module in a your project you must follow these steps:
 
-### Step 1: Adding the dependency in our project.
+### Adding the dependency in our project.
 
 Include the module dependency in your pom.xml
 [source,xml]
@@ -63,7 +63,7 @@ Include the module dependency in your pom.xml
 ----
 
 
-### __Adding @ComponentScan to the class level
+### Adding @ComponentScan to the class level
 
 Add class level annotation to the below mentioned class.
 
@@ -74,7 +74,7 @@ public class ServiceConfiguration extends WsConfigurerAdapter {
 }
 ----
 
-### Step 3:Build Project and Run
+### Build Project and Run
 
 Perform the operations clean & build for the project. Run the SpringBootApp.java file as java application and make the server up. You can see the i18n webservice in available webservices.
 
