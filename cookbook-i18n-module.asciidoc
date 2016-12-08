@@ -16,6 +16,8 @@ There are basically two sections.
 
 In Spring applications “locales” are the standard java property files which contain the translations of the applications texts as well as display format of elements like dates, numbers etc. These are placed at location _src/main/resources/locale_
 
+image::images/devonfw-i18n/locale_path.png[,width="350",locale path,link="https://github.com/devonfw/devon-guide/wiki/images//devonfw-i18n/locale_path.png"]
+
 These properties files stores the information in the form of key value pair. The I18N module provides the utility which converts these file entries in respective json format and sent back as a response to the HTTP GET request.
  
 
