@@ -12,7 +12,7 @@ The internationalization process is sometimes called translation or localization
 
 The I18N module provides easy creation and maintenance of distinct translations for your Devon applications. For implement the I18N module in a Devon project you must follow these steps:
 
-=== Step 1: Adding the dependency in our project.
+### Step 1: Adding the dependency in our project.
 
 Include the module dependency in your pom.xml
 [source,xml]
@@ -35,3 +35,10 @@ Add class level annotation to the below mentioned class.
 public class ServiceConfiguration extends WsConfigurerAdapter {
 }
 ----
+
+### Build Project 
+
+Perform the operations clean & build for the project. Run the SpringBootApp.java file as java application and make the server up. You can see the i18n webservice in available webservices.
+
+
+
