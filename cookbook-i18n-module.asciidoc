@@ -12,17 +12,17 @@ The internationalization process is sometimes called translation or localization
 
 The I18N module provides easy creation and maintenance of distinct translations for your Devon applications. For implement the I18N module in a Devon project you must follow these steps:
 
-### Step1 : Add module to devon project.
+=== Step 1: Adding the dependency in our project.
 
-Include the module in devonfw-modules/pom.xml
-
+Include the module dependency in your pom.xml
 [source,xml]
 ----
-<modules>
-    ....
-    ....
-    <module>i18n</module>
-    ....
-    ....
-</modules>
+<dependency>
+  <groupId>com.capgemini.devonfw.modules</groupId>
+  <artifactId>devonfw-i18n</artifactId>
+  <version>2.2.0-SNAPSHOT</version>
+</dependency>
 ----
+
+
+### Step2 : 
