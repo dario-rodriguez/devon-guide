@@ -10,8 +10,6 @@ The internationalization process is sometimes called translation or localization
 
 ## I18N Module Information 
 
-There are basically two sections.
-
 ### Reading properties files without MMM integration
 
 *Conceptual Schema :*
@@ -52,7 +50,7 @@ image::images/devonfw-i18n/ResourceBundleSync_argument.png[,width="350",Resource
 
 Below configuration is provided to make mmm implementation enabled or disabled.
 
-File _config.properties_ provides flag which is used to turn ON/OFF mmm implementation .
+File _config.properties_ provides flag which is used to enable/disable mmm implementation .
 
 [source,xml]
 ----
