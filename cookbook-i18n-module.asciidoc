@@ -6,3 +6,9 @@ toc::[]
 
 Internationalization (sometimes shortened to "I18N , meaning "I - eighteen letters -N") is the process of designing a software application so that it can potentially be adapted to various languages and regions without engineering changes.
 
+The internationalization process is sometimes called translation or localization enablement.
+
+## Including I18N in Devon project
+
+The I18N module provides easy creation and maintenance of distinct translations for your Devon applications. For implement the I18N module in a Devon project you must follow these steps:
+
