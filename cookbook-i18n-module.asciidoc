@@ -1,7 +1,7 @@
 :toc: macro
 toc::[]
 
-# The I18N module - Internationalization
+# The I18N (Internationalization) module
 
 
 Internationalization (sometimes shortened to "I18N , meaning "I - eighteen letters -N") is the process of designing a software application so that it can potentially be adapted to various languages and regions without engineering changes.
@@ -63,7 +63,7 @@ Include the module dependency in your pom.xml
 ----
 
 
-### Step2 : Adding @ComponentScan to the class level
+###__Adding @ComponentScan to the class level
 
 Add class level annotation to the below mentioned class.
 
