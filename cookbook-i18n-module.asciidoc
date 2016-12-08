@@ -45,6 +45,12 @@ Perform the operations clean & build for the project. Run the SpringBootApp.java
 There are basically two sections.
 
 ## I18N : Reading properties files without MMM integration
+
+In Spring applications “locales” are the standard java property files which contain the translations of the applications texts as well as display format of elements like dates, numbers etc. These are placed within the src/main/resources/locale path.
+
+These properties files stores the information in the form of key value pair. The I18N module provides the utility which converts these file entries in respective json format and sent back as a response to the HTTP GET request.
+ 
+
 ## I18N : Reading properties files with MMM integration 
 
 
