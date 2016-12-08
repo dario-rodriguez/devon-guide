@@ -57,7 +57,7 @@ File _config.properties_ provides flag which is used to enable/disable mmm imple
 i18n.mmm.enabled=true
 ----
 
-## Including I18N module in your project
+## Integrate I18N module to your project
 
 The I18N module provides easy creation and maintenance of distinct translations for your Devon applications. To implement the I18N module in a your project you must follow these steps:
 
