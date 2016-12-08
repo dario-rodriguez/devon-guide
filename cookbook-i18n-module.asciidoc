@@ -8,38 +8,6 @@ Internationalization (sometimes shortened to "I18N , meaning "I - eighteen lette
 
 The internationalization process is sometimes called translation or localization enablement.
 
-## Including I18N module in your project
-
-The I18N module provides easy creation and maintenance of distinct translations for your Devon applications. To implement the I18N module in a your project you must follow these steps:
-
-### Step 1: Adding the dependency in our project.
-
-Include the module dependency in your pom.xml
-[source,xml]
-----
-<dependency>
-  <groupId>com.capgemini.devonfw.modules</groupId>
-  <artifactId>devonfw-i18n</artifactId>
-  <version>2.1.0-SNAPSHOT</version>
-</dependency>
-----
-
-
-### Step2 : Adding @ComponentScan to the class level
-
-Add class level annotation to the below mentioned class.
-
-[source,xml]
-----
-@ComponentScan(basePackages = { "com.capgemini.devonfw.module" })
-public class ServiceConfiguration extends WsConfigurerAdapter {
-}
-----
-
-### Step 3:Build Project and Run
-
-Perform the operations clean & build for the project. Run the SpringBootApp.java file as java application and make the server up. You can see the i18n webservice in available webservices.
-
 ## I18N Module Information 
 
 There are basically two sections.
@@ -77,6 +45,39 @@ File _config.properties_ provides flag which is used to turn ON/OFF mmm implemen
 ----
 i18n.mmm.enabled=true
 ----
+
+## Including I18N module in your project
+
+The I18N module provides easy creation and maintenance of distinct translations for your Devon applications. To implement the I18N module in a your project you must follow these steps:
+
+### Step 1: Adding the dependency in our project.
+
+Include the module dependency in your pom.xml
+[source,xml]
+----
+<dependency>
+  <groupId>com.capgemini.devonfw.modules</groupId>
+  <artifactId>devonfw-i18n</artifactId>
+  <version>2.1.0-SNAPSHOT</version>
+</dependency>
+----
+
+
+### Step2 : Adding @ComponentScan to the class level
+
+Add class level annotation to the below mentioned class.
+
+[source,xml]
+----
+@ComponentScan(basePackages = { "com.capgemini.devonfw.module" })
+public class ServiceConfiguration extends WsConfigurerAdapter {
+}
+----
+
+### Step 3:Build Project and Run
+
+Perform the operations clean & build for the project. Run the SpringBootApp.java file as java application and make the server up. You can see the i18n webservice in available webservices.
+
 
  
 
