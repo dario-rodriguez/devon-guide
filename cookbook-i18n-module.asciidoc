@@ -14,6 +14,10 @@ There are basically two sections.
 
 ### Reading properties files without MMM integration
 
+*Conceptual Schema :*
+
+image::images/devonfw-i18n/conceptual_schema_without_mmm_impl.png[,width="350",conceptual_schema_without_mmm_impl,link="https://github.com/devonfw/devon-guide/wiki/images//devonfw-i18n/conceptual_schema_without_mmm_impl.png"]
+
 In Spring applications “locales” are the standard java property files which contain the translations of the applications texts as well as display format of elements like dates, numbers etc. These are placed at location _src/main/resources/locale_
 
 image::images/devonfw-i18n/locale_path.png[,width="350",locale path,link="https://github.com/devonfw/devon-guide/wiki/images//devonfw-i18n/locale_path.png"]
@@ -22,6 +26,10 @@ These properties files stores the information in the form of key value pair. The
  
 
 ### Reading properties files with MMM integration 
+
+*Conceptual Schema :*
+
+image::images/devonfw-i18n/conceptual_schema_with_mmm_impl.png[,width="350",conceptual_schema_with_mmm_impl,link="https://github.com/devonfw/devon-guide/wiki/images//devonfw-i18n/conceptual_schema_with_mmm_impl.png"]
 
 The dependency for "net.sf.m-m-m" has been added in _pom.xml_ of a module. 
 
@@ -38,6 +46,9 @@ This provides class _ResourceBundleSynchronizer_ which is used to create .proper
 Below snapshots shows how it creates .properties files at location 
 _\src\main\resources\com\capgemini\devonfw\module\i18n\common\api\nls_
 
+image::images/devonfw-i18n/ResourceBundleSync_Main.png[,width="350",ResourceBundleSync_Main,link="https://github.com/devonfw/devon-guide/wiki/images//devonfw-i18n/ResourceBundleSync_Main.png"]
+
+image::images/devonfw-i18n/ResourceBundleSync_argument.png[,width="350",ResourceBundleSync_argument,link="https://github.com/devonfw/devon-guide/wiki/images//devonfw-i18n/ResourceBundleSync_argument.png"]
 
 Below configuration is provided to make mmm implementation enabled or disabled.
 
