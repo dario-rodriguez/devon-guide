@@ -4,4 +4,5 @@ toc::[]
 # The I18N module - Internationalization with OASP4J 
 
 
-insert I18N content here 
+Internationalization (sometimes shortened to "I18N , meaning "I - eighteen letters -N") is the process of designing a software application so that it can potentially be adapted to various languages and regions without engineering changes.
+
