@@ -24,6 +24,7 @@ These properties files store the information in the form of key value pair. The 
 _net.sf.mmm.util.nls.base.ResourceBundleSynchronizer_  is used to create .properties files for MMM implementation with respect to the locales.
 
 *Steps to create .properties files:*
+
 This will produce files at location _\src\main\resources\com\capgemini\devonfw\module\i18n\common\api\nls_
 
 . Right click on i18n module.
@@ -36,6 +37,7 @@ image::images/devonfw-i18n/ResourceBundleSync_Main.png[,width="350",ResourceBund
 
 
 image::images/devonfw-i18n/ResourceBundleSync_argument.png[,width="350",ResourceBundleSync_argument,link="https://github.com/devonfw/devon-guide/wiki/images//devonfw-i18n/ResourceBundleSync_argument.png"]
+
 
 File _config.properties_ provides flag value true/false, which is used to switch between default implementation and MMM implementation.
 
