@@ -28,7 +28,7 @@ _net.sf.mmm.util.nls.base.ResourceBundleSynchronizer_  is used to create .proper
 This will produce files at location _\src\main\resources\com\capgemini\devonfw\module\i18n\common\api\nls_
 
 . Right click on i18n module.
-. Go to Run As --> Run Configurations... --> Right click on _Java Application_ option --> New --> provide name for     the configuration (eg. ResouceBundleSyncronizer) --> provide main class name as _net.sf.mmm.util.nls.base.ResouceBundleSyncronizer_ 
+. Go to Run As --> Run Configurations... --> Right click on _Java Application_ --> click on New --> Provide name for     the configuration (eg. ResouceBundleSyncronizer) --> Provide main class name as _net.sf.mmm.util.nls.base.ResouceBundleSyncronizer_ 
 . Click on _Arguments_ tab besides Main tab.
 . Enter program Arguments as "--locale <locale>" eg. "--locale en"
 . Apply the changes and click on Run button.
