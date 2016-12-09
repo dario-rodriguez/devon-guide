@@ -23,10 +23,8 @@ These properties files store the information in the form of key value pair. The 
 
 _net.sf.mmm.util.nls.base.ResourceBundleSynchronizer_  is used to create .properties files for MMM implementation with respect to the locales.
 
-Below snapshots describes how the .properties files are created at location 
-_\src\main\resources\com\capgemini\devonfw\module\i18n\common\api\nls_
-
-*Follow below steps:*
+*Steps to create .properties files:*
+This will produce files at location _\src\main\resources\com\capgemini\devonfw\module\i18n\common\api\nls_
 
 . Right click on i18n module.
 . Go to Run As --> Run Configurations... --> Right click on _Java Application_ option --> New --> provide name for     the configuration (eg. ResouceBundleSyncronizer) --> provide main class name as _net.sf.mmm.util.nls.base.ResouceBundleSyncronizer_ 
@@ -35,6 +33,7 @@ _\src\main\resources\com\capgemini\devonfw\module\i18n\common\api\nls_
 . Apply the changes and click on Run button.
 
 image::images/devonfw-i18n/ResourceBundleSync_Main.png[,width="350",ResourceBundleSync_Main,link="https://github.com/devonfw/devon-guide/wiki/images//devonfw-i18n/ResourceBundleSync_Main.png"]
+
 
 image::images/devonfw-i18n/ResourceBundleSync_argument.png[,width="350",ResourceBundleSync_argument,link="https://github.com/devonfw/devon-guide/wiki/images//devonfw-i18n/ResourceBundleSync_argument.png"]
 
@@ -75,7 +74,7 @@ public class ServiceConfiguration extends WsConfigurerAdapter {
 
 ### Build Project and Run
 
-Perform the operations clean & build for the project in eclipse. Launch _SpringBootApp.java_ in eclise. You can see the i18n webservice in available Restful webservices. 
+Perform the operations clean & build for the project in eclipse and launch _SpringBootApp.java_. You can see the i18n webservice in available Restful webservices. 
 
 Webservice test : 
 
