@@ -21,7 +21,7 @@ These properties files store the information in the form of key value pair. The 
 
 ### Reading properties files with MMM integration 
 
- _net.sf.mmm.util.nls.base.ResourceBundleSynchronizer_  is used to create .properties files for MMM implementation with respect to the locales.
+_net.sf.mmm.util.nls.base.ResourceBundleSynchronizer_  is used to create .properties files for MMM implementation with respect to the locales.
 
 Below snapshots describes how the .properties files are created at location 
 _\src\main\resources\com\capgemini\devonfw\module\i18n\common\api\nls_
