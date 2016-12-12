@@ -3,7 +3,11 @@ toc::[]
 
 = Docker
 
-Introduction
+== Introduction
+
+Docker is an open source project to wrap, ship and run software using containers.
+
+The docker containers runs independently of the hardware or platform you are using, and the application wrapped doesn't require to be build on a specific language or framework. That makes them great building blocks for deploying and scaling network applications like web servers, databases, mail servers with a small amount of effort.
 
 == Install Docker on Windows
 
