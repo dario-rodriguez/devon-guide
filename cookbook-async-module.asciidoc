@@ -14,7 +14,7 @@ The idea behind asynchronous processing model is to separate connection acceptin
 == The async IP module
 The previous concept is implemented in Devonfw through the _async module_ so, including it in your project, you will be able to aply the async process of requests in the REST services of your apps in a few steps, avoiding the complex details of the implementation.
 
-=== Adding the _async module_ dependency to your project
+=== Adding the async module dependency to your project
 To get access to the functionality of the _async module_ you will need to include its dependency in your project's pom.xml
 
 [source,xml]
