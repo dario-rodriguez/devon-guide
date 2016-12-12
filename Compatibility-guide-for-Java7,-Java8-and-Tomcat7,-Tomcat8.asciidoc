@@ -12,7 +12,7 @@ We also have integrated _TOMCAT8_ with the devon distribution and oasp4j IDE. So
 
 === Download JAVA7.
 One can download java7 from http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html[here].
-Once java7 is downloaded,run .exe and follow instructions.
+Once java7 is downloaded, run .exe and follow instructions.
 
 === Change "installed jre" in eclipse
 
@@ -48,11 +48,11 @@ As mentioned earlier in the guide, distribution comes with _Tomcat8_ by default,
 == Using Tomcat7 for deploying.
 
 You can download tomcat externally and deploy war on it.
-For more information on this ,please visit this https://github.com/devonfw/devon-guide/wiki/getting-started-deployment-on-tomcat#deploy-on-tomcat-7[link].
+For more information on this, please visit this https://github.com/devonfw/devon-guide/wiki/getting-started-deployment-on-tomcat#deploy-on-tomcat-7[link].
 
 == Linux and Windows Compatibility
 
-So the above mentioned steps on _java7 and tomcat7_ compatibility apply to devonfw distributions of Windows OS as well as  Linux .
+So the above mentioned steps on _java7 and tomcat7_ compatibility, apply to devonfw distributions of Windows OS as well as  Linux.
 
 Linux and Windows distribution works by default on *JAVA8* and *TOMCAT8*.
 
