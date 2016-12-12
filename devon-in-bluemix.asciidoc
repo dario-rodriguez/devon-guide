@@ -18,5 +18,116 @@ https://en.wikipedia.org/wiki/Cloud_Foundry[Cloud Foundry] supports the full lif
 
 https://console.ng.bluemix.net/docs/overview/whatisbluemix.html#bluemixoverview[IBM Bluemix] is a cloud PaaS developed by IBM. It supports several programming languages and services as well as integrated DevOps to build, run, deploy and manage applications on the cloud. Bluemix is based on Cloud Foundry open technology and runs on SoftLayer infrastructure. Bluemix supports several programming languages including Java, Node.js, Go, PHP, Swift, Python, Ruby Sinatra, Ruby on Rails and can be extended to support other languages such as Scala through the use of buildpacks.
 
+== Bluemix Services
 
+The Services dashboard provides access to the Bluemix services available from IBM® and third-party providers. These include Watson, Internet of Things, Analytics, Mobile, and DevOps services. See more about Bluemix Services https://console.ng.bluemix.net/docs/services/index.html#services[here].
 
+=== VCAP services
+
+The VCAP_SERVICES environment variable is a JSON object that contains information that you can use to interact with a service instance in Bluemix. The information includes service instance name, credential, and connection URL to the service instance. These values are populated into the VCAP_SERVICES environment variable when your application is bound to a service instance in Bluemix.
+
+The value of the VCAP_SERVICES environment variable is available only when you bind a service instance to your application. You can view the application environment variables by using the following command:
+
+[source,bash]
+----
+cf env APP_NAME
+----
+
+=== VCAP services on Devon
+
+To explain how work with VCAP services on Devon we are going to do a simple example. In this scenario we have a dashDB database service configured in our Devon application. So we are going to obtain the database credentials from VCAP service.
+
+The JSON that Bluemix provide us with the VAP_SERVICE variable is the next
+
+[source,json]
+----
+{
+  "dashDB": {
+    "name": "service-instance-name",
+    "label": "dashDB",
+    "plan": "Entry",
+    "credentials": {
+       "port": 50000,
+        "db": "BLUDB",
+        "username": "***",
+        "host": "23.246.206.254",
+        "https_url": "https://23.246.206.254:8443",
+        "hostname": "23.246.206.254",
+        "jdbcurl": "jdbc:db2://23.246.206.254:50000/BLUDB",
+        "ssljdbcurl": "jdbc:db2://23.246.206.254:50001/BLUDB:sslConnection=true;",
+        "uri": "db2://***:***@23.246.206.254:50000/BLUDB",
+        "password": "***",
+        "dsn": "DATABASE=BLUDB;HOSTNAME=23.246.206.254;PORT=50000;PROTOCOL=TCPIP;UID=***;PWD=***;",
+        "ssldsn": "DATABASE=BLUDB;HOSTNAME=23.246.206.254;PORT=50001;PROTOCOL=TCPIP;UID=***;PWD=***;Security=SSL;"
+    }
+  }
+}
+----
+
+[NOTE]
+====
+You can see more about dashDB service connection and VAP_SERVICE https://console.ng.bluemix.net/docs/services/dashDB/index.html#connect[here].
+====
+
+Now in our Devon application we can simply create a configuration class and configure our DataSource
+
+[source,java]
+----
+@Configuration 
+public class BeanJPAConfiguration { 
+  public String username;
+  public String password;
+  public String url;
+  public String driverClassName = "com.ibm.db2.jcc.DB2Driver";
+
+  @Bean
+  @Primary
+  public DataSource dataSource() { 
+    String VCAP_SERVICES = System.getenv("VCAP_SERVICES");
+
+    if (VCAP_SERVICES != null) { 
+      setDataSourceProperties(VCAP_SERVICES);
+    }
+    return DataSourceBuilder.create() 
+        .username(this.username). 
+        password(this.password). 
+        url(this.url). 
+        driverClassName(this.driverClassName). 
+        build();
+  }
+
+ public void setDataSourceProperties(String VCAP_SERVICES) { 
+    JSONObject jsonObj = new JSONObject(VCAP_SERVICES);
+    JSONArray jsonArray;
+
+    if (jsonObj.has("dashDB")) {
+      jsonArray = jsonObj.getJSONArray("dashDB");
+      // Transform the JSONArray to JSONObject because JSONArray can't find by string key
+      jsonObj = jsonArray.toJSONObject(new JSONArray().put("dashDB"));
+      jsonObj = jsonObj.getJSONObject("dashDB");
+    }
+
+    if (jsonObj.has("credentials")) {
+      jsonObj = jsonObj.getJSONObject("credentials");
+      if (jsonObj != null) {
+        this.username = jsonObj.getString("username"); 
+        this.password = jsonObj.getString("password"); 
+        if (jsonObj.has("jdbcurl")) {
+          this.url = jsonObj.getString("jdbcurl");
+        } else if (jsonObj.has("ssljdbcurl")) {
+          this.url = jsonObj.getString("ssljdbcurl");
+        }
+      }
+    }
+  }
+}
+----
+
+As you can see we are checking if VCAP_SERVICES exist so if it doesn't exist you can configure other database, throw an error, etc.
+
+This is a simple way to use Bluemix services, you can see https://cloud.spring.io/spring-cloud-cloudfoundry/[Spring Cloud Foundry] too.
+
+[NOTE]
+====
+In the example we are learning how to obtain the credentials of the database. If you want to know how to configure a DB2/dashDB database you can see it https://github.com/devonfw/devon-guide/wiki/getting-started-database-configuration#bd2[here].
+====
