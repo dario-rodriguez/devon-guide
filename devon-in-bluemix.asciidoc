@@ -131,3 +131,74 @@ This is a simple way to use Bluemix services, you can see https://cloud.spring.i
 ====
 In the example we are learning how to obtain the credentials of the database. If you want to know how to configure a DB2/dashDB database you can see it https://github.com/devonfw/devon-guide/wiki/getting-started-database-configuration#bd2[here].
 ====
+
+== Logs in Bluemix
+
+=== Devon logging
+
+Devon uses https://github.com/oasp/oasp4j/tree/develop/modules/logging[OASP logging module] as a logging system. The module uses http://www.slf4j.org/[SLF4J] API and the http://logback.qos.ch/[Logback] implementation and the OASP wiki contains an https://github.com/oasp/oasp4j/wiki/guide-logging[excellent entry] explaining its configuration.
+
+By default, the logging system uses the following configuration:
+
+[source, xml]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Configuration file for logback -->
+<configuration scan="true" scanPeriod="60 seconds">
+  <property resource="io/oasp/logging/logback/application-logging.properties" />
+  <property name="appname" value="restaurant"/>
+  <property name="logPath" value="../logs"/>
+  <include resource="io/oasp/logging/logback/appenders-file-all.xml" />
+  <include resource="io/oasp/logging/logback/appender-console.xml" />
+
+  <root level="DEBUG">
+    <appender-ref ref="ERROR_APPENDER"/>
+    <appender-ref ref="INFO_APPENDER"/>
+    <appender-ref ref="DEBUG_APPENDER"/>
+    <appender-ref ref="CONSOLE_APPENDER"/>
+  </root>
+
+  <!-- Minimize infrastructure debug logs -->
+  <logger name="org.dozer" level="INFO"/>
+  <logger name="org.flywaydb" level="INFO"/>
+  <logger name="org.springframework" level="INFO"/>
+  <logger name="org.hibernate" level="INFO"/>
+
+</configuration>
+----
+
+In the above configuration, each log level writes in its own file.
+[NOTE]
+====
+Each appender has its own XML configuration file that can be found on: https://github.com/oasp/oasp4j/tree/develop/modules/logging/src/main/resources/io/oasp/logging/logback[https://github.com/oasp/oasp4j/tree/develop/modules/logging/src/main/resources/io/oasp/logging/logback].
+====
+
+=== Bluemix logging
+
+Bluemix does not allow users to navigate through any log file and it uses its own tool to look into the logs. The Bluemix environment has a console to show the logs. Due to this fact, the default configuration for the Devon logging system is no apropiate for environments like Bluemix.
+
+To adapt the logging system, Devon users are required to make certain changes in the default configuration. The file appenders have no sense in this environment, so they must be removed. The following example could be a valid configuration:
+
+[source, xml]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Configuration file for logback -->
+<configuration scan="true" scanPeriod="60 seconds">
+  <property resource="io/oasp/logging/logback/application-logging.properties" />
+  <property name="appname" value="sample-bluemix-app"/>
+  <include resource="io/oasp/logging/logback/appender-console.xml" />
+
+  <root level="DEBUG">
+    <appender-ref ref="CONSOLE_APPENDER"/>
+  </root>
+
+  <!-- Minimize infrastructure debug logs -->
+  <logger name="org.dozer" level="INFO"/>
+  <logger name="org.flywaydb" level="INFO"/>
+  <logger name="org.springframework" level="INFO"/>
+  <logger name="org.hibernate" level="INFO"/>
+
+</configuration>
+----
+
+The above configuration is intended to write all the logs equal or superior to DEBUG level in the Bluemix console.
