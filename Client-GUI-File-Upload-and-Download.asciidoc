@@ -1,0 +1,71 @@
+:toc: macro
+toc::[]
+
+
+= Syncronous File Upload
+
+To enable multiple files upload we need to add multiple attribute to input of type file and it is enabled automatically.
+And the template would look something like:
+
+[source,bash]
+----
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+<form method="post" action="WEBSERVICE_URL" enctype="multipart/form-data">
+    <table align="center" border="1" bordercolor="black" cellpadding="0" cellspacing="0">
+        <tr>
+            <td>Select File:</td>
+            <td>
+               <input type="file" multiple="true" name="uploadedFile" size="100" />
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+               <input type="file" multiple="true" name="uploadedFile" size="100" /> 
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Upload File" />
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
+
+----
+
+Browser renders the above html as shown in the screen shot below.
+
+image::images/client-gui-sencha/file_upload_syncronous.png[,width="350",File Upload Syncronous,link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/file_upload_syncronous.png"]
+
+Click on "Choose files" button. Dialog box will appear as below, select the files to be uploaded.
+
+image::images/client-gui-sencha/Choose_files_dialog.png[,width="400",Choose file dialog,link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/Choose_files_dialog.png"]
+
+The number of files selected count will be displayed as,
+
+image::images/client-gui-sencha/selected_files_upload_syncronous.png[,width="350",selected files upload,link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/selected_files_upload_syncronous.png"]
+
+Click on button "Upload File" to upload the selected files.
+
+
+= File Download
+
+To enable file download, create anchor tag and provide 'href' as an attribute. Provide the webservice URL for this attribute to download the file. 
+
+Below is the template for anchor tag.
+
+[source,bash]
+----
+<a class="btn btn-success" href='<WEBSERVICE-URL>'>File Download</a>
+----
+
+
+ 

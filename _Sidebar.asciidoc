@@ -27,14 +27,16 @@
 
 * link:cookbook-reporting-module[Devon reporting module]
 * link:cookbook-winauth-module[Devon Windows Auth module]
+* link:cookbook-i18n-module[Devon I18N module]
 * link:cookbook-async-module[Devon Async module]
 * link:cookbook-security-layer[Security: Authentication and Authorization]
 * link:cookbook-JAX-WS-WebServices[JAX-WS Web Services]
 * link:cookbook-batch-layer[Batch Layer]
 * link:cookbook-spring-data[Integrating Spring Data]
 * link:cookbook-websocket[WebSocket]
-* link:cookbook-fileupdownload[File Upload and Download]
+* link:cookbook-File-Upload-and-Download[File Upload and Download]
 * link:cookbook-dockerization[Devon on Docker]
+* link:Compatibility-guide-for-Java7,-Java8-and-Tomcat7,-Tomcat8[Compatibility guide for Java7, Java8 and Tomcat7, Tomcat8]
 
 == Client GUI Sencha
 
@@ -92,7 +94,7 @@
 * link:Client-GUI-Angular-Providing-Accessibility[Providing Accessibility]
 
 * link:Client-GUI-Angular-Gulp-Tasks[Gulp Tasks]
-* link:Client-GUI-Angular-FileUpload[File Upload]
+* link:Client-GUI-File-Upload-and-Download[File Upload and Download]
 
 == Appendix
 
@@ -101,3 +103,5 @@
 * link:devon-guide-devonfw-dist-developers-guide[Devonfw Dist (IDE) Developers Guide]
 * link:devcon-command-reference[Devcon Command Reference]
 * link:components-list[Components list]
+* link:devon-guide-Devon-Module-Developer-Guide[Devon Module Developer's Guide]
+

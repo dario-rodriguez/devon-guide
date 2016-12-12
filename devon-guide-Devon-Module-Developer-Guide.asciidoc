@@ -1,0 +1,177 @@
+:toc: macro
+toc::[]
+
+# Devon module Developer's Guide
+
+Here, we intend to explain, creation of a maven module (devonfw module) , which will serve as template for creating other modules.
+This is done with usage of maven archetype plugin.
+Please, follow subsequent sections, for creation of same.
+
+== Creation of module template
+
+The maven Archetype Plugin allows the user to create a Maven project from an existing template called an archetype.
+It also allows the user to create an archetype from an existing project.
+
+image::images/devon-module-dev-guide/module.png["module",width="1500", link="images/devon-module-dev-guide/module.png"]
+
+
+
+Creating an archetype from an existing project involves three steps:
+
+* the archetype resolution
+* the archetype installation:deployment
+* the archetype usage
+
+*1.* Using devon distribution's,_console.bat_,open console and go to directory where project exists ,and then execute command 
+[source,java]
+----
+mvn archetype:create-from-project
+----
+
+
+
+*2.* It then generates the directory tree of the archetype in the target/generated-sources/archetype directory.
+
+
+*3.* Then move to mentioned directory above and execute,
+[source,java]
+----
+mvn install
+----
+
+SO, this step, installs created archetype in users local maven repository.
+
+== Usage
+
+One can use this archetype to create maven modules/projects with:
+
+* Eclipse
+* From command line.
+
+=== Creation of module/project using eclipse
+
+If one wants to create project using archetype in eclipse, follow below steps:
+
+Go to File-->New-->Maven Project
+
+image::images/devon-module-dev-guide/create-project-eclipse.png["create project in eclipse",width="450", link="images/devon-module-dev-guide/create-project-eclipse.png"]
+
+Click on Next button.
+
+
+image::images/devon-module-dev-guide/new-maven-project.png/["create new maven project in eclipse",width="450", link="images/devon-module-dev-guide/new-maven-project.png"]
+
+Select archetype.
+
+
+
+image::images/devon-module-dev-guide/select-archetype.png/["select archetype",width="450", link="images/devon-module-dev-guide/select-archetype.png"]
+
+For the very first time, when we use archetype in eclipse, it sometimes does not appear in the list of available archetypes.So in that case, use _"add archetype"_ button .
+
+Once you select archetype,and press "_Next_" button, a dialog appears, where you need to put desired artifactid and group id and click finish.
+A new project is created on the basis of chosen archetype.
+
+=== Creation of module through command line
+
+For using command line, go to your devon distribution and run console.bat.
+Once console is opened, execute command
+
+[source , java]
+----
+
+mvn -DarchetypeVersion=dev-SNAPSHOT -DarchetypeGroupId=devonfw-archetype
+-DarchetypeArtifactId=com.capgemini.devonfw.dev archetype:generate
+-DgroupId=com.devonfw.modules -DartifactId=samplemodule -Dversion=0.1-SNAPSHOT
+-Dpackage=com.devonfw.modules.samplemodule
+
+----
+
+As, we are using eclipse neon version and it mandates usage of java 8.
+So, if you don't have latest devon distribution and you want to use this archetype for module creation, follow below steps.
+
+1. When you use archetype with java version lower than java 8,project will be created and you will get error like 
+
+*_Unbound classpath container: 'JRE System Library [JavaSE-1.8]' in project {project_name}_*
+, you will have to manually point installed JRE to desired version .
+Please , refer 
+
+2. Once, project is created and step 1, is done, you need to manually change java version in pom.xml to the desired java version.SO generated pom.xml would have version as shown below.
+
+[source , java]
+----
+ <java.version>1.8</java.version>
+----
+
+Please, change it to
+
+[source , java]
+----
+ <java.version>1.7</java.version>
+----
+
+Once, these 2 steps are done you are good to go with newly created project/module.
+
+
+
+== Structure of created module
+Once, above steps are followed, created module structure would look like below
+
+image::images/devon-module-dev-guide/new-maven-module5.png["new-maven-module5",width="450", link="images/devon-module-dev-guide/new-maven-module5.png"]
+
+
+
+Here are details of the structure:
+
+At the top level files descriptive of the project: a pom.xml file In addition, there are textual documents meant for the user to be able to read immediately on receiving the source: README.txt, LICENSE.txt, etc.
+
+There are just two subdirectories of this structure: src and target. The only other directories that would be expected here are metadata like CVS, .git or .svn, and any subprojects in a multiproject build (each of which would be laid out as above).
+
+The target directory is used to house all output of the build.
+
+The src directory contains all of the source material for building the project, its site and so on. It contains a subdirectory for each type: main for the main build artifact, test for the unit test code and resources, site and so on.
+
+
+
+1. "first" is the maven multi module project.Lets say, we want to create a new module in this project using new module archetype.
+
+2. "module" created using archetype.
+
+3. "module[boot]" the whole structure like src/main/java etc can be seen inside it.
+
+4. Directory for the language java .
+
+5. contains all resouces like .properties file etc.We can see application.properties here.
+
+6. Contains all test classes(.java), like junits etc.
+
+7. Contains resources required for testing purposes.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -3,14 +3,13 @@ toc::[]
 
 Apache CXF is an open source services framework. CXF helps you build and develop services using frontend programming APIs, like JAX-WS and JAX-RS. 
 
-= File download from org.apache.cxf
+# File download from CXF
+
 *org.apache.cxf* provides option to download files of different MIME (Multipurpose Internet Mail Extensions) types.
 
 *Example:*
 
 In JAX-RS, annotate the service method with @Produces("application/octet-stream"). We define an interface of the service and annotate it with JAX-RS annotations:
-
-
 
 
 [source,java]
@@ -39,7 +38,7 @@ public Response  getDownloadableFile() throws SQLException, IOException {
 }
 --------
 
-In the above code snippet, we are constructing file object by supplying file path location which is to be downloaded. This file object is set to response to create ResponseBuilder object, and finally the response is build from ResponseBuilder object.
+In the above code snippet, we construct file object by supplying path of the file to be downloaded. ResponseBuilder is created from this file object and finally the response is build from ResponseBuilder object.
 
 Following table explains the annotations used for download functionality along with its description.
 
@@ -52,9 +51,9 @@ Following table explains the annotations used for download functionality along w
 |===
 
 
-== @Produces Annotation
+## @Produces Annotation
 
-@Produces annotation is used to specify the MIME media type that can be produced and sent back to the client. If @Produces is applied at the class level, all the methods in a resource can produce the specified MIME type by default. If applied at the method level, the annotation overrides any @Produces annotation applied at the class level.
+@Produces annotation is used to specify the MIME media type that can be produced and sent back to the client. If @Produces is applied at the class level, all the methods in a resource produces the specified MIME type by default. If applied at the method level, the annotation overrides any @Produces annotation applied at the class level.
 
 If no methods in a resource are able to produce the MIME type in a client request, the JAX-RS runtime sends back an HTTP “406 Not Acceptable” error.
 
@@ -68,22 +67,21 @@ The following example shows how to apply @Produces at both the class and method 
 @Path("/myResource")
 @Produces("text/plain")
 public class SomeResource {
-	@GET
-	public String doGetAsPlainText() {
-		...
-	}
-
-	@GET
-	@Produces("text/html")
-	public String doGetAsHtml() {
-		...
-	}
+    @GET
+    public String doGetAsPlainText() {
+	...
+    }
+    @GET
+    @Produces("text/html")
+    public String doGetAsHtml() {
+	...
+    }
 }
 
 --------
 
 
-= File upload from org.apache.cxf
+# File upload from CXF
 
 *org.apache.cxf* provides option to upload files of different MIME (Multipurpose Internet Mail Extensions) type.
 
@@ -91,19 +89,46 @@ public class SomeResource {
 
 In JAX-RS, annotate the service method with @Consumes("multipart/mixed"). We define an interface of the service and annotate it with JAX-RS annotations:
 
+[source,java]
+--------
+import javax.ws.rs.core.MediaType;
+--------
 
 [source,java]
 --------
 public interface UploadService {
 @SuppressWarnings("javadoc")
-@Consumes("multipart/mixed")
+@Consumes(MediaType.MULTIPART_FORM_DATA)
 @GET
 @Path("/uploadFile")
-public Response uploadFile(List<Attachment> attachments, @Context HttpServletRequest request) throws SQLException, IOException;
+public Response uploadFile(List<Attachment> attachments) throws SQLException, IOException;
 }
 --------
 
 And here is a simple implementation of the service:
+
+Add annotation @Transactional at class level and Inject UcManageBinaryObject class object.
+
+[source,java]
+--------
+@Transactional
+public class implClassName{
+
+@Inject
+    private UcManageBinaryObject ucManageBinaryObject;
+
+    /**
+    * @return ucManageBinaryObject
+    */
+    public UcManageBinaryObject getUcManageBinaryObject() {
+
+    return this.ucManageBinaryObject;
+  }
+}
+--------
+
+
+Web Service method implementation :
 
 [source,java]
 --------
@@ -111,75 +136,33 @@ And here is a simple implementation of the service:
 @Consumes ("multipart/mixed") 
 // use @Consumes(MediaType.MULTIPART_FORM_DATA) if request contains multipart form data and import //javax.ws.rs.core.MediaType;
 @Path ("/upload") 
-public Response uploadFile(List<Attachment> attachments, HttpServletRequest request) {
- 
-        for (Attachment attachment : attachments) {
-            DataHandler dataHandler = attachment.getDataHandler();
-            try{
-                // get filename to be uploaded
-                MultivaluedMap<String, String> multivaluedMap = attachment.getHeaders();
-                String fileName = getFileName(multivaluedMap);
- 
-                InputStream inputStream = dataHandler.getInputStream();
-                writeToFileSystem(inputStream, fileName);
-            }
-            catch(Exception ex) {
-                ex.printStackTrace();
-            }
-            finally {
-                // release resources, if any
-            }
-        }
-        return Response.ok("upload success").build();
+public Response uploadFile(List<Attachment> attachments) {
+    BinaryObjectEto binaryObject = new BinaryObjectEto();
+    Blob blob = null;
+    for (Attachment attachment: attachments) {
+      DataHandler handler = attachment.getDataHandler();
+      try {
+          InputStream stream = handler.getInputStream();
+          OutputStream outputStream = new ByteArrayOutputStream();
+          IOUtils.copy(stream, outputStream);
+          byte[] byteArray = outputStream.toString().getBytes();
+          if (byteArray != null && byteArray.length != 0) {
+          blob = new SerialBlob(byteArray);
+          getUcManageBinaryObject().saveBinaryObject(blob, binaryObject);
+          }
+      } catch (SQLException e) {
+            throw new SQLException(e.getMessage(), e);
+      } catch (IOException e) {
+            throw new IOException(e.getMessage(), e);
     }
-
-
- /**
-     * @param inputStream
-     * @param fileName
- */
- private void writeToFileSystem(InputStream inputStream, String fileName) {
-         OutputStream outputStream = null;
-        try {
-            outputStream = new FileOutputStream(new File(UPLOAD_FILE_SERVER + fileName));
-            int read = 0;
-            byte[] bytes = new byte[1024];
-            while ((read = inputStream.read(bytes)) != -1) {
-                outputStream.write(bytes, 0, read);
-            }
-            outputStream.flush();
-            outputStream.close();
-        }
-        catch (IOException ioe) {
-            ioe.printStackTrace();
-        }
-        finally{
-            //release resource, if any
-        }
- }
- 
-
- /**
-    *
-    * @param multivaluedMap
-    * @return
- */
- private String getFileName(MultivaluedMap<String, String> multivaluedMap) {
-        String[] contentDisposition = multivaluedMap.getFirst("Content-Disposition").split(";");
-        for (String filename : contentDisposition) {
-            if ((filename.trim().startsWith("filename"))) {
-                String[] name = filename.split("=");
-                String exactFileName = name[1].trim().replaceAll("\"", "");
-                return exactFileName;
-            }
-        }
-        return "unknownFile";
   }
-
+  return Response.ok("file uploaded").build();  
+ }
 --------
 
 
-In the above code snippet, we are iterating the attachments that are uploaded and extracting headers & inputstreams. Here we are using simple file handling operations to write this inputstreams to the UPLOAD_FILE_SERVER. 
+In the above code snippet, we are iterating the attachments that are uploaded and extracting InputStream for each Attachment. Each InputStream is converted to the bytearray and a Blob object is created out of it.  The Blob object is 
+saved to database by calling saveBinaryObject(blob, binaryObject).
 
 Following table explains the annotations used for upload functionality along with its description.
 
@@ -191,7 +174,7 @@ Following table explains the annotations used for upload functionality along wit
 |@PATH|This identifies the URI path template to which the resource responds, and is specified at the class level of a resource.
 |===
 
-== @Consumes Annotation
+## @Consumes Annotation
 
 The @Consumes annotation is used to specify MIME media type that can be accepted, or consumed, from the client. If @Consumes is applied at the class level, all the response methods accept the specified MIME types by default. If applied at the method level, @Consumes overrides any @Consumes annotation applied at the class level.
 
@@ -206,16 +189,16 @@ The following example shows how to apply @Consumes at both the class and method 
 @Path("/myResource")
 @Consumes("multipart/related")
 public class SomeResource {
-	@POST
-	public String doPost(MimeMultipart mimeMultipartData) {
-		...
-	}
+    @POST
+    public String doPost(MimeMultipart mimeMultipartData) {
+	...
+    }
 
-	@POST
-	@Consumes("application/x-www-form-urlencoded")
-	public String doPost2(FormURLEncodedProperties formData) {
-		...
-	}
+    @POST
+    @Consumes("application/x-www-form-urlencoded")
+    public String doPost2(FormURLEncodedProperties formData) {
+	...
+    }
 }
 --------
 
