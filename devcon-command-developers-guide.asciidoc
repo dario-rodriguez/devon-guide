@@ -388,7 +388,7 @@ In this case we are going to create (again) a command to extract a zip file, so 
 
 3. Then we will need to create inside the _scripts_ folder the directory for our new module and inside it we need to add
 
-  * a `command.json` file with the definition of the module
+  * a `commands.json` file with the definition of the module
   * and an `extract.js` file with the code for the _extract_ command.
 
 So we will end having this structure
@@ -398,7 +398,7 @@ image::images/devcon/devcon-js-structure.png[,width="450", link="images/devcon/d
 
 ==== Defining the module and the command
 
-To define and register the module and the command we will use the _command.json_ file. First we will add the module metadata (name, description) and then the commands, and its parameters, inside the _commands_ array.
+To define and register the module and the command we will use the _commands.json_ file. First we will add the module metadata (name, description) and then the commands, and its parameters, inside the _commands_ array.
 
 [source,json]
 ----
