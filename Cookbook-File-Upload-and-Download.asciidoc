@@ -128,7 +128,7 @@ public class implClassName{
 --------
 
 
-Web Service method implementation :
+Web Service method implementation:
 
 [source,java]
 --------
@@ -161,7 +161,7 @@ public Response uploadFile(List<Attachment> attachments) {
 --------
 
 
-In the above code snippet, we are iterating the attachments that are uploaded and extracting InputStream for each Attachment. Each InputStream is converted to the bytearray and a Blob object is created out of it.  The Blob object is 
+In the above code snippet, we are iterating the attachments that are uploaded and extracting InputStream for each Attachment. Each InputStream is converted to the bytearray and a Blob object is created out of it. The Blob object is 
 saved to database by calling saveBinaryObject(blob, binaryObject).
 
 Following table explains the annotations used for upload functionality along with its description.
