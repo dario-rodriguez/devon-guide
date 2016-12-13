@@ -5,7 +5,7 @@ toc::[]
 
 == What this guide contains?
 
-As we have migrated to eclipse neon , which mandatorily uses _Java8_ ,if any project or users want to use _JAVA7_, this guide helps them in doing so.
+As we have migrated to eclipse neon , which mandatorily uses _Java8_, if any project or users want to use _JAVA7_, this guide helps them in doing so.
 We also have integrated _TOMCAT8_ with the devon distribution and oasp4j IDE. So it also describes steps to use _Tomcat7_ with the distributions.
 
 == Using JAVA7
@@ -16,7 +16,7 @@ Once java7 is downloaded, run .exe and follow instructions.
 
 === Change "installed jre" in eclipse
 
-When you open eclipse, follow steps mentioned below to change installed jre in preferences :
+When you open eclipse, follow steps mentioned below to change installed jre in preferences:
 
 ===== 1.Go to Preferences
 
