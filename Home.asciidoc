@@ -1,16 +1,16 @@
-# Devonfw Guide
+# devonfw Guide
 
 *version 2.0.5-SNAPSHOT* 
 
 ## Getting Started with the Service Layer 
 
-- link:getting-started-introduction-to-devonfw[Introduction to Devonfw]
+- link:getting-started-introduction-to-devonfw[Introduction to devonfw]
 
 - link:devcon-user-guide[Devcon - User Guide]
 
-- link:getting-started-download-and-install[Download and Install Devonfw]
+- link:getting-started-download-and-install[Download and Install devonfw]
 
-- link:getting-started-the-devon-ide[The Devon IDE]
+- link:getting-started-the-devon-ide[The devonfw IDE]
 
 - link:getting-started-running-sample-application[Running Sample Application]
 
@@ -49,13 +49,13 @@
 
 ## OASP4J Cookbook 
 
-- link:cookbook-reporting-module[Devon reporting module]
+- link:cookbook-reporting-module[devonfw reporting module]
 
-- link:cookbook-winauth-module[Devon Windows Auth module]
+- link:cookbook-winauth-module[devonfw Windows Auth module]
 
-- link:cookbook-async-module[Devon Async module]
+- link:cookbook-async-module[devonfw Async module]
 
-- link:cookbook-i18n-module[Devon I18N module]
+- link:cookbook-i18n-module[devonfw I18N module]
 
 - link:cookbook-security-layer[Security: Authentication and Authorization]
 
@@ -69,7 +69,7 @@
 
 - link:cookbook-File-Upload-and-Download[File Upload and Download]
 
-- link:cookbook-dockerization[Devon on Docker]
+- link:cookbook-dockerization[devonfw on Docker]
 
 
 ## The Presentation Layer: Getting Started with Devon4Sencha
