@@ -1,8 +1,8 @@
 # devonfw Guide
 
-*version 2.0.5-SNAPSHOT* 
+*version 2.0.5-SNAPSHOT*
 
-## Getting Started with the Service Layer 
+## Getting Started with the Service Layer
 
 - link:getting-started-introduction-to-devonfw[Introduction to devonfw]
 
@@ -44,10 +44,10 @@
 
 - link:getting-started-Creating-Rest-Service[Creating Rest Service]
 
-- link:getting-started-deployment-on-tomcat[Deployment on Tomcat (Client/Server)] 
+- link:getting-started-deployment-on-tomcat[Deployment on Tomcat (Client/Server)]
 
 
-## OASP4J Cookbook 
+## OASP4J Cookbook
 
 - link:cookbook-reporting-module[devonfw reporting module]
 
@@ -112,11 +112,11 @@
 
 - link:Client-GUI-Sencha-security[Security]
 
-- link:Client-GUI-Sencha-theming[Sencha Theming] 
+- link:Client-GUI-Sencha-theming[Sencha Theming]
 
-- link:Client-GUI-Sencha-error-processing[Error processing] 
+- link:Client-GUI-Sencha-error-processing[Error processing]
 
-- link:Client-GUI-Sencha-i18n[Internationalization] 
+- link:Client-GUI-Sencha-i18n[Internationalization]
 
 ## Devon4Sencha Cookbook
 
@@ -163,4 +163,6 @@
 * link:devon-guide-working-with-git-and-github[Working with Git and Github]
 * link:devon-guide-devonfw-dist-developers-guide[Devonfw Dist (IDE) Developers Guide]
 * link:devcon-command-reference[Devcon Command Reference]
+* link:devcon-command-developers-guide[Devcon Command Developers Guide]
 * link:components-list[Components List]
+* link:devon-guide-production-line[Introduction to Production Line]
