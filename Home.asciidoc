@@ -164,5 +164,5 @@
 * link:devon-guide-devonfw-dist-developers-guide[Devonfw Dist (IDE) Developers Guide]
 * link:devcon-command-reference[Devcon Command Reference]
 * link:devcon-command-developers-guide[Devcon Command Developers Guide]
-* link:components-list[Components List]
 * link:devon-guide-production-line[Introduction to Production Line]
+* link:components-list[Components List]

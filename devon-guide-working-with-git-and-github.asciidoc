@@ -19,11 +19,11 @@ You can use on Windows by installing, among others, https://git-for-windows.gith
 
 GitHub is a web-based Git repository hosting service. It offers all of the distributed revision control and source code management (SCM) functionality of Git as well as adding its own features.
 
-Both the Open Source as well as the IP parts of Devon are hosted on Github. The workflow is based on the default workflow as being supported by Github. 
+Both the Open Source as well as the IP parts of Devon are hosted on Github. The workflow is based on the default workflow as being supported by Github.
 
 == Git Devon/OASP4J Workflow
 
-When you work with Git on a https://github.com/devonfw/devon[Devon] / https://github.com/oasp/oasp4j[OASP4J] project you need to take into account that you are always working with a local copy of the remote repository. 
+When you work with Git on a https://github.com/devonfw/devon[Devon] / https://github.com/oasp/oasp4j[OASP4J] project you need to take into account that you are always working with a local copy of the remote repository.
 
 The next image can help you to have a clear view about the way to work with Git in a https://github.com/devonfw/devon[Devon] / https://github.com/oasp/oasp4j[OASP4J] project.
 
@@ -41,7 +41,7 @@ A fork is a copy of a repository. Forking a repository allows you to freely expe
 
 Most commonly, forks are used to either propose changes to someone else's project or to use someone else's project as a starting point for your own ideas.
 
-=== Step 2 - Clone the repository 
+=== Step 2 - Clone the repository
 
 Now we are going to copy to our machine the repository that we created in the last step. This is called "making a clone". To do this we need to open a console window (for example: GitBash) and then include the next command lines in the directory where we want to create the local copy of the remote repository.
 
@@ -72,13 +72,13 @@ git remote add devon https://github.com/devonfw/devon
 ----
 
 Or
- 
+
 [source,console]
 ----
 git remote add oasp https://github.com/oasp/oasp4j
 ----
 
-Now you can see the remote repositories with the command line 
+Now you can see the remote repositories with the command line
 
 [source,console]
 ----
@@ -91,7 +91,7 @@ If you are defining Devon URL you will see something like this
 ----
 $ git remote -v
 devon   https://github.com/devonfw/devon (fetch)
-devon   https://github.com/devonfw/devon (push) 
+devon   https://github.com/devonfw/devon (push)
 origin  https://github.com/<your_git_user>/devon (fetch)
 origin  https://github.com/<your_git_user>/devon (push)
 ----
@@ -100,7 +100,7 @@ If you are adding OASP4j
 
 [source]
 ----
-$ git remote -v 
+$ git remote -v
 oasp    https://github.com/oasp/oasp4j (fetch)
 oasp    https://github.com/oasp/oasp4j (push)
 origin  https://github.com/<your_git_user>/devon (fetch)
@@ -116,7 +116,7 @@ git remote rename origin <your_git_user>
 
 === Step 4 - Working with Topic Branches
 
-The last steps were a introduction about how you can get the remote repositories on your local machine. Now we need to work with this repository. To do this we need to create a new topic branch. 
+The last steps were a introduction about how you can get the remote repositories on your local machine. Now we need to work with this repository. To do this we need to create a new topic branch.
 
 Topic branches are typically lightweight branches that you create locally and that have a name that is meaningful for you. They are where you might do work for a bug fix or feature (they're also called feature branches) that is expected to take some time to complete.
 
@@ -133,7 +133,7 @@ To see the actual branch you can use the next command line
 
 [source,console]
 ----
-git branch 
+git branch
 ----
 
 To see all branches you can use the next command line. Also you can use this command to see the actual branch because it is shown with an asterisk.
@@ -143,11 +143,11 @@ To see all branches you can use the next command line. Also you can use this com
 git branch -a
 ----
 
-To move to another branch you need to use 
+To move to another branch you need to use
 
 [source,console]
 ----
-git checkout <name_of_existing_branch> 
+git checkout <name_of_existing_branch>
 ----
 
 === Step 5 - Commit the changes
@@ -176,7 +176,7 @@ Changes not staged for commit:
 Untracked files:
         New Text Document.txt
 
-no changes added to commit 
+no changes added to commit
 ----
 
 As you can see git tells us the changes we have in the branch and we need to add the file "New Text Document.txt". There are several way to add a new file on git.
@@ -190,11 +190,11 @@ git add <file_name>
 
 [NOTE]
 ====
-You need to keep in count that if you have some space in the name of the file you need to add the name like 
+You need to keep in count that if you have some space in the name of the file you need to add the name like
 [source,console]
 ----
 git add File\ With\ Spaces.txt
----- 
+----
 ====
 
 Another way to add the files is the next
@@ -256,7 +256,7 @@ You need to keep in count the .gitignore file in this case too.
 
 === Step 6 - Push to remote repository
 
-When we have the changes we want to include in the repository we need to include this changes in our remote repository. To do this we need to push our local topic branch in remote branch. 
+When we have the changes we want to include in the repository we need to include this changes in our remote repository. To do this we need to push our local topic branch in remote branch.
 
 [source,console]
 ----
@@ -275,15 +275,15 @@ First of all, GitHub will check if the branch is correct and is available to do 
 
 image::images/working-with-git/devon-guide-working-with-git-available-to-pull.PNG[,width="450",link="images/working-with-git/devon-guide-working-with-git-new-pull-request.PNG"]
 
-As you can see the branch is available to do the new pull request, also you can check down in the page the changes with respect to the original repository. 
+As you can see the branch is available to do the new pull request, also you can check down in the page the changes with respect to the original repository.
 
-When we check that all is correct we can press the button "Create pull request" and create the new pull request. Then we can see a little form with a name of the New pull request and a little description that we need to complete. 
+When we check that all is correct we can press the button "Create pull request" and create the new pull request. Then we can see a little form with a name of the New pull request and a little description that we need to complete.
 
 image::images/working-with-git/devon-guide-working-with-git-new-pull-request-description.PNG[,width="450",link="images/working-with-git/devon-guide-working-with-git-new-pull-request-description.PNG"]
 
 When we complete the form we press the button "Create pull request" and then the pull is sent to be checked and added in the remote original repository.
 
-=== Step 8 - Synchronize the repository 
+=== Step 8 - Synchronize the repository
 
 When our Pull request is included in the original repository we need to actualize our local and remote repository with the original repository. To do this, first of all we need to check we are in the develop branch.
 
@@ -310,18 +310,18 @@ git push <your_git_user> develop:develop
 
 As is commented above <your_git_user> is the variable define with the URL of your remote repository (the fork of https://github.com/devonfw/devon[Devon] / https://github.com/oasp/oasp4j[OASP4J]) (Step 3).
 
-= OASP Issue Work
+== OASP Issue Work
 
-== Issue creation and resolution
+=== Issue creation and resolution
 
-=== Issue creation
+==== Issue creation
 You can create an issue [here](https://github.com/oasp/oasp4j/issues/new). Please consider the following points:
 
 [square]
 * If your issue is related to a specific building block (like e.g. oasp4js), open an issue on that specific issue tracker. If you're unsure which building block is causing your problem open an issue on this repository.
 * Put a label on the issue to mark whether you suggest an enhancement, report an error or something else.
 
-When reporting errors: 
+When reporting errors:
 
 [square]
 * Include the version of OASP4j you are using.
@@ -329,7 +329,7 @@ When reporting errors:
 * Include the behavior you expected.
 * using a debugger you might be able to find the cause of the problem and you could be the one to contribute a bug-fix.
 
-=== Preparation for issue resolution
+==== Preparation for issue resolution
 Before you get started working on an issue, check out the following points:
 
 [square]
@@ -339,7 +339,7 @@ Before you get started working on an issue, check out the following points:
 * ensure that you are aware on which branch the issue shall be fixed and start your work in the corresponding workspace.
 * if you are using +git+ perform your changes on a feature branch.
 
-=== Definition of Done
+==== Definition of Done
 
 [square]
 * actual issue is implemented (bug fixed, new feature implemented, etc.)
@@ -351,7 +351,7 @@ Before you get started working on an issue, check out the following points:
 * if no milestone was assigned please assign suitable milestone
 * set the issue as done
 
-= Code Contribution
+== Code Contribution
 
 We are looking forward to your contribution to OASP4J. This page describes the few conventions to follow. Please note that this is an open and international project and all content has to be in (American) English language.
 

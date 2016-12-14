@@ -1,4 +1,4 @@
-= Devonfw Guide 
+= Devonfw Guide
 Jhonatan Core <jhcore@capgemini.com>
 v2.0.5
 
@@ -15,12 +15,12 @@ This document contains the complete compendium of the https://troom.capgemini.co
 
 **Current versions:**
 
-* DevonfwGuide - v2.0.5 
+* DevonfwGuide - v2.0.5
 * Devonfw - v2.0.1
 
 **Authors:**
-  
-https://troom.capgemini.com/sites/vcc/devon/getstarted.aspx[_Devonfw_] Team, Capgemini  
+
+https://troom.capgemini.com/sites/vcc/devon/getstarted.aspx[_Devonfw_] Team, Capgemini
 
 :leveloffset: 1
 [preface]
@@ -41,15 +41,15 @@ include::devcon-user-guide[]
 include::getting-started-download-and-install[]
 
 <<<<
- 
+
 include::getting-started-the-devon-ide[]
 
 <<<<
- 
+
 include::getting-started-running-sample-application[]
- 
+
 <<<<
- 
+
 include::getting-started-distribution-structure[]
 
 <<<<
@@ -57,7 +57,7 @@ include::getting-started-distribution-structure[]
 include::getting-started-creating-new-devonfw-application[]
 
 <<<<
- 
+
 include::getting-started-oasp-app-structure[]
 
 <<<<
@@ -112,9 +112,9 @@ include::getting-started-Creating-Rest-Service[]
 
 include::getting-started-deployment-on-tomcat[]
 
-:leveloffset: 0 
+:leveloffset: 0
 
-== OASP4J CookBook 
+== OASP4J CookBook
 
 :leveloffset: 2
 
@@ -123,6 +123,14 @@ include::cookbook-reporting-module[]
 <<<<
 
 include::cookbook-winauth-module[]
+
+<<<<
+
+include::cookbook-async-module[]
+
+<<<<
+
+include::cookbook-i18n-module[]
 
 <<<<
 
@@ -138,11 +146,24 @@ include::cookbook-batch-layer[]
 
 <<<<
 
-include::cookbook-websocket[] 
+include::cookbook-spring-data[]
 
-:leveloffset: 0 
+<<<<
 
-== The Presentation Layer: Getting started with Devon4Sencha 
+include::cookbook-websocket[]
+
+<<<<
+
+include::cookbook-File-Upload-and-Download[]
+
+<<<<
+
+include::cookbook-dockerization[]
+
+
+:leveloffset: 0
+
+== The Presentation Layer: Getting started with Devon4Sencha
 
 :leveloffset: 2
 
@@ -154,11 +175,11 @@ include::Client-GUI-Sencha-Workspace-and-Sencha-Cmd[]
 
 <<<<
 
-include::Client-GUI-Sencha-Anatomy-of-a-Devon4sencha-application[] 
+include::Client-GUI-Sencha-Anatomy-of-a-Devon4sencha-application[]
 
 <<<<
 
-include::Client-GUI-Sencha-running-sample-application[] 
+include::Client-GUI-Sencha-running-sample-application[]
 
 <<<<
 
@@ -166,7 +187,7 @@ include::Client-GUI-Sencha-create-new-application[]
 
 <<<<
 
-include::Client-GUI-Sencha-devon4sencha-application-structure[] 
+include::Client-GUI-Sencha-devon4sencha-application-structure[]
 
 <<<<
 
@@ -194,7 +215,7 @@ include::Client-GUI-Sencha-calling-web-service[]
 
 <<<<
 
-include::Client-GUI-Sencha-models-stores-proxies[] 
+include::Client-GUI-Sencha-models-stores-proxies[]
 
 <<<<
 
@@ -202,7 +223,7 @@ include::Client-GUI-Sencha-panels-windows[]
 
 <<<<
 
-include::Client-GUI-Sencha-layouts-positioning[] 
+include::Client-GUI-Sencha-layouts-positioning[]
 
 <<<<
 
@@ -214,7 +235,7 @@ include::Client-GUI-Sencha-Forms[]
 
 <<<<
 
-include::Client-GUI-Sencha-cors[] 
+include::Client-GUI-Sencha-cors[]
 
 <<<<
 
@@ -222,21 +243,21 @@ include::Client-GUI-Sencha-security[]
 
 <<<<
 
-include::Client-GUI-Sencha-theming[] 
+include::Client-GUI-Sencha-theming[]
 
 <<<<
 
-include::Client-GUI-Sencha-error-processing[] 
+include::Client-GUI-Sencha-error-processing[]
 
 <<<<
 
-include::Client-GUI-Sencha-i18n[] 
+include::Client-GUI-Sencha-i18n[]
 
 <<<<
 
-:leveloffset: 0 
+:leveloffset: 0
 
-== Devon4Sencha Cookbook 
+== Devon4Sencha Cookbook
 
 :leveloffset: 2
 
@@ -258,9 +279,14 @@ include::Client-GUI-Sencha-devon4Sencha-code-review[]
 
 include::Client-GUI-Sencha-devon4Sencha-test[]
 
-:leveloffset: 0 
+<<<<
 
-== Appendix 
+include::Client-GUI-Cordova-How-to-start-cordova-project[]
+
+
+:leveloffset: 0
+
+== Appendix
 
 :leveloffset: 2
 
@@ -277,6 +303,14 @@ include::devon-guide-devonfw-dist-developers-guide[]
 <<<<
 
 include::devcon-command-reference[]
+
+<<<<
+
+include::devcon-command-developers-guide[]
+
+<<<<
+
+include::devon-guide-production-line[]
 
 <<<<
 
