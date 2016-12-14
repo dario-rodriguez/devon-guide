@@ -106,6 +106,5 @@
 * link:devcon-command-reference[Devcon Command Reference]
 * link:devcon-command-developers-guide[Devcon Command Developers Guide]
 * link:devon-guide-Devon-Module-Developer-Guide[devonfw Module Developer's Guide]
-* link:devon-guide-production-line[Introduction to Production Line]
 * link:components-list[Components list]
 
