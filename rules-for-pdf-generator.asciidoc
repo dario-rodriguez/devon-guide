@@ -14,6 +14,9 @@ Text.
 
 ===== Level 5 (=====)
 
+
+== Characters
+
 * Avoid the '#' character in levels use always '='
 
 * For quotation marks avoid:
@@ -24,4 +27,10 @@ Text.
 
 *Avoid characters like ?, () or & in the headers.
 
-* The size of the images and links of this image -> the max size we need to use is [,width="450", link="https://github.com/devonfw/devon-guide/wiki/<image>"], if you need to use less go ahead but never more.
+== Images
+
+=== basic structure
+`image::images/<topic>/image.png[,width="450",link="images/<topic>/image.png"]`
+
+=== max size
+'width=450' is the maximum size for images to be showed properly in the PDF.
