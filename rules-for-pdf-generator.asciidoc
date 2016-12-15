@@ -1,0 +1,48 @@
+
+== Structure
+
+The structure that we need to follow when we work in the wiki is the next: 
+
+= Level 1 (=)
+Text.
+
+== Level 2 (==)
+Text.
+
+=== Level 3 (===)
+Text.
+
+==== Level 4 (====)
+Text.
+
+===== Level 5 (=====)
+
+[NOTE]
+====
+Level 1 (=) must be unique in each wiki page, you can use it to add the main title of the page and for each section or chapter you can use the Level 2 (==).
+====
+
+== Characters
+
+* Avoid the '#' character in levels use always '='
+
+* For quotation marks avoid:
+
+** U+201C LEFT DOUBLE QUOTATION MARK (“) and U+201D RIGHT DOUBLE QUOTATION MARK (”)
+
+** Use instead U+0022 QUOTATION MARK (")
+
+[NOTE]
+====
+Be very careful when copying and pasting text from documents and webs to the wiki, the _double quotation mark_ characters are very common in these type of resources.
+====
+
+*Avoid characters like ?, () or & in the headers.
+
+== Images
+
+=== basic structure
+`image::images/<topic>/image.png[,width="450",link="images/<topic>/image.png"]`
+
+=== max size
+'width=450' is the maximum size for images to be showed properly in the PDF.
