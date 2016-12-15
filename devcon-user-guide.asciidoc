@@ -13,18 +13,18 @@ Devcon is the easiest way to use Devonfw. By accompanying on project automation,
 
 You will need to have a Java JDK 1.7 or 1.8 installed on your system. It is *not* necessary to use the Devonfw Distribution as Devcon can be used independently from that environment. You might even want to use Devcon itself to download & extract the Devon Distribution zip file to and on your system! (see down...) 
 
-== Getting started: download Devcon
+== Getting started: Download Devcon
 
-To get started with Devcon you will need to http://devonfw.github.io/download/devcon/devcon.jar[*download the Devoncon jar from the devonfw repository*]. After downloading, enter a console/commandline (on Windows: CMD or Powershell), navigate ("cd") to the folder where you´ve downloaded the jar file and execute the following command:
+To get started with Devcon, you will need to http://devonfw.github.io/download/devcon/devcon.jar[*download the Devcon jar from the devonfw repository*]. After downloading, open console or command prompt (on Windows: CMD or Powershell), navigate ("cd") to the path, where you´ve downloaded the jar file and execute the following command:
 
 [source,bash]
 ----
 java -jar devcon.jar system install 
 ----
 
-This will install the devcon binaries to a folder _'.devcon'_ in your _'%HOME%'_ directory. Devcon is now added to the _'%PATH%'_ environment variable on you system, allowing to execute it directly from the console. However, after installation on Windows you´ll need to close the console and open it again in order for this to work (only the first time, of course).
+This will install the devcon binaries to a folder _'.devcon'_ in your _'%HOME%'_ directory. Devcon is now added to the _'%PATH%'_ environment variable on your system, allowing it to execute directly from the console. However, after devcon installation on Windows, you need to close the console and reopen it in order to work the environment variables (only for the first time).
 
-After installation, you have two commands available. Try either one, or both of
+After installation, two commands are available to open devon user guide. Try either one, or both of
 
 [source,bash]
 ----
