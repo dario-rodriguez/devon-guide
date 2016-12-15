@@ -1,25 +1,25 @@
 :toc: macro
 toc::[]
 
-# The I18N (Internationalization) module
+= The I18N (Internationalization) module
 
 
 Internationalization (sometimes shortened to "I18N , meaning "I - eighteen letters -N") is the process of designing a software application so that it can potentially be adapted to various languages and regions without engineering changes.
 
 The internationalization process is sometimes called translation or localization enablement.
 
-## I18N Module Information 
+== I18N Module Information
 
-### Reading properties files without MMM integration
+=== Reading properties files without MMM integration
 
-In Spring applications “locales” are the standard java property files which contain the translations of the applications texts as well as display format of elements like dates, numbers etc. These are placed at location _src/main/resources/locale_
+In Spring applications "locales" are the standard java property files which contain the translations of the applications texts as well as display format of elements like dates, numbers etc. These are placed at location _src/main/resources/locale_
 
-image::images/devonfw-i18n/locale_path.png[,width="350",locale path,link="https://github.com/devonfw/devon-guide/wiki/images//devonfw-i18n/locale_path.png"]
+image::images/devonfw-i18n/locale_path.png[,width="350",locale path,link="images//devonfw-i18n/locale_path.png"]
 
 These properties files store the information in the form of key value pair. The I18N module provides the utility which converts these file entries in respective json format and sent back as a response to the HTTP GET request.
- 
 
-### Reading properties files with MMM integration 
+
+=== Reading properties files with MMM integration
 
 _net.sf.mmm.util.nls.base.ResourceBundleSynchronizer_  is used to create .properties files for MMM implementation with respect to the locales.
 
@@ -28,15 +28,15 @@ _net.sf.mmm.util.nls.base.ResourceBundleSynchronizer_  is used to create .proper
 This will produce files at location _\src\main\resources\com\capgemini\devonfw\module\i18n\common\api\nls_
 
 . Right click on i18n module.
-. Go to Run As --> Run Configurations... --> Right click on _Java Application_ --> click on New --> Provide name for     the configuration (eg. ResouceBundleSyncronizer) --> Provide main class name as _net.sf.mmm.util.nls.base.ResouceBundleSyncronizer_ 
+. Go to Run As > Run Configurations... --> Right click on _Java Application_ --> click on New --> Provide name for the configuration (eg. ResouceBundleSyncronizer) --> Provide main class name as _net.sf.mmm.util.nls.base.ResouceBundleSyncronizer_
 . Click on _Arguments_ tab besides Main tab.
 . Enter program Arguments as "--locale <locale>" eg. "--locale en"
 . Apply the changes and click on Run button.
 
-image::images/devonfw-i18n/ResourceBundleSync_Main.png[,width="350",ResourceBundleSync_Main,link="https://github.com/devonfw/devon-guide/wiki/images//devonfw-i18n/ResourceBundleSync_Main.png"]
+image::images/devonfw-i18n/ResourceBundleSync_Main.png[,width="350",ResourceBundleSync_Main,link="images//devonfw-i18n/ResourceBundleSync_Main.png"]
 
 
-image::images/devonfw-i18n/ResourceBundleSync_argument.png[,width="350",ResourceBundleSync_argument,link="https://github.com/devonfw/devon-guide/wiki/images//devonfw-i18n/ResourceBundleSync_argument.png"]
+image::images/devonfw-i18n/ResourceBundleSync_argument.png[,width="350",ResourceBundleSync_argument,link="images//devonfw-i18n/ResourceBundleSync_argument.png"]
 
 
 File _config.properties_ provides flag value true/false, which is used to switch between default implementation and MMM implementation.
@@ -46,11 +46,11 @@ File _config.properties_ provides flag value true/false, which is used to switch
 i18n.mmm.enabled=true
 ----
 
-## Integrate I18N module to your project
+== Integrate I18N module to your project
 
 The I18N module provides easy creation and maintenance of distinct translations for your Devon applications. To implement the I18N module in a your project you must follow these steps:
 
-### Adding the dependency in our project.
+=== Adding the dependency in our project.
 
 Include the module dependency in your pom.xml
 [source,xml]
@@ -63,7 +63,7 @@ Include the module dependency in your pom.xml
 ----
 
 
-### Adding @ComponentScan to the class level
+=== Adding @ComponentScan to the class level
 
 Add class level annotation to the below mentioned class.
 
@@ -74,19 +74,14 @@ public class ServiceConfiguration extends WsConfigurerAdapter {
 }
 ----
 
-### Build Project and Run
+=== Build Project and Run
 
-Perform the operations clean & build for the project in eclipse and launch _SpringBootApp.java_. You can see the i18n webservice in available Restful webservices. 
+Perform the operations clean & build for the project in eclipse and launch _SpringBootApp.java_. You can see the i18n webservice in available Restful webservices.
 
-Webservice test : 
+Webservice test :
 
 [source,xml]
 ----
 General Format : <service root>/i18n/locales/<local indicator>
 eg. localhost:8081/oasp4j-sample-server/services/rest/i18n/locales/en_US
 ----
-
- 
-
-
-
