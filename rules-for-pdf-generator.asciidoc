@@ -1,4 +1,7 @@
-* The structure that we need to follow when we work in the wiki is the next: 
+
+== Structure
+
+The structure that we need to follow when we work in the wiki is the next: 
 
 = Level 1 (=)
 Text.
