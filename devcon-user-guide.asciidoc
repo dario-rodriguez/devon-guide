@@ -34,7 +34,7 @@ devcon doc userguide
 
 to open up the Devcon user guide in your default system web browser. The commands 'devon' and 'devcon' can be used interchangeably. 
 
-== Devcon structure
+== Devcon Structure
 
 Devcon is based on three basic elements:
 
@@ -45,17 +45,19 @@ Devcon is based on three basic elements:
 - parameters
 
 So Devcon is a tool based on modules where each module groups several commands related to the module functionality and each command may need parameters to work in one way or another. 
-Each command is used to accomplish one task and may need some parameters in order to achieve its goal. These parameters can be mandatory or optional. The mandatory parameters must be provided by the user when launching the command and the optional parameters can be provided by the user in the same way but if not, they can be read from a configuration file. Apart from this we can use global parameters that are independent from the modules and commands and that will be helpful in order to obtain devcon information (like help) or other basic configuration features, these parameters will be explained later.
+Each command is used to accomplish one task and may need some parameters in order to achieve its goal. These parameters can be mandatory or optional. The mandatory parameters must be provided by the user when launching the command and the optional parameters can be provided by the user in the same way but if not, they can be read from a configuration file. Apart from this, we can use global parameters that are independent from the modules and commands and that will be helpful in order to obtain devcon information (like help) or other basic configuration features, these parameters will be explained later.
 
 == Devcon basic usage
 
-Now, there are two ways to run Devcon:
-a. Using Devcon GUI
-b. Using command prompt
+There are two ways to run Devcon:
 
-=== Usage of Devcon GUI:
+- Using Devcon GUI
 
-To run Devcon using the Devcon Graphical User Interface (GUI) , we need to run below command from the command prompt:
+- Using command prompt
+
+=== Using Devcon GUI:
+
+To run Devcon using the Devcon GUI, open command prompt and run below command:
 
 [source,batch]
 ----
@@ -66,13 +68,13 @@ The following application window will appear.
 
 image::images/Devcon_homepage.JPG[,align="center",width="250",Devcon, link="https://github.com/devonfw/devon-guide/wiki/images/Devcon_homepage.JPG"]
 
-If we navigate to a particular module it will show all commands available in the respective module. You can find the "Exit option", to close the application, in the first menu on the left. Once we click on any command, the corresponding command form will get displayed on the screen. See the following screen shot:
+If you navigate to a particular module, it will show all the available commands from the respective module. You can find the "Exit" option to close the application, in the first menu on the left. Once you click on any command, the corresponding command form will be displayed on the screen. Refer following screen shot:
 
 image::images/Devcon_Form.JPG[,align="center",width="250",Devcon, link="https://github.com/devonfw/devon-guide/wiki/images/Devcon_Form.JPG"]
  
 === Usage of command prompt:
 
-Accordingly with the defined structure the devcon usage is based on the definition of each of its element: module, command and parameters. So in the command line we must specify each of these elements in the correct order:
+Accordingly with the defined structure, the devcon usage is based on the definition of each of its element named : module, command and parameters. Therefore, in the command prompt, you must specify each of these elements in the correct order:
 
 [source,batch]
 ----
