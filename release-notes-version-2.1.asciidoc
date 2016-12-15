@@ -1,4 +1,4 @@
-:toc: macro
+* :toc: macro
 toc::[]
 * 
 # Release notes Devonfw 2.1 "Balu"
@@ -32,14 +32,15 @@ We have migrated the Restaurant Sample application to serve as a, documented and
 A new release of OASP4J, version 2.2.0, is included in this release of devonfw. This release mainly focuses on server side of oasp. i.e oasp4j.
 
 Major features added are : 
- * Upgrade to Spring Boot 1.3.8.RELEASE
- * Upgrade to Apache CXF 3.1.8
- * Database Integration with Oracle 11g
- * Added Servlet for HTTP-Debugging
- * Refactored code and improved JavaDoc
- * Bugfix: mvn spring-boot:run executes successfully for oasp4j application created using oasp4j template 
- * Added subsystem tests of SalesmanagementRestService and several other tests
- * Added Tests to test java packages conformance to OASP conventions
+
+* Upgrade to Spring Boot 1.3.8.RELEASE
+* Upgrade to Apache CXF 3.1.8
+* Database Integration with Oracle 11g
+* Added Servlet for HTTP-Debugging
+* Refactored code and improved JavaDoc
+* Bugfix: mvn spring-boot:run executes successfully for oasp4j application created using oasp4j template 
+* Added subsystem tests of SalesmanagementRestService and several other tests
+* Added Tests to test java packages conformance to OASP conventions
 
 More details on features added can be found at https://github.com/oasp/oasp4j/milestone/19?closed=1(here). The OASP4j wiki and other documents are updated for release 2.2.0. 
 
