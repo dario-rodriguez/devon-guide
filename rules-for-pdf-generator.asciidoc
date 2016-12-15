@@ -39,7 +39,7 @@ The pdf generator tool uses the structure of each wiki page to generate the stru
 
 [NOTE]
 ====
-Be very careful when copying and pasting text from documents and webs to the wiki, the _double quotation mark_ characters are very common in these type of resources.
+Be very careful when copying and pasting text from documents and webs to the wiki, the _ left/right double quotation mark_ characters are very common in these type of resources.
 ====
 
 *Avoid characters like `?`, `()` or `&` in the headers (titles) of the sections.
