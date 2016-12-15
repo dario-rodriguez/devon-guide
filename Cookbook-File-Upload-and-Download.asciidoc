@@ -1,9 +1,9 @@
 :toc: macro
 toc::[]
 
-Apache CXF is an open source services framework. CXF helps you build and develop services using frontend programming APIs, like JAX-WS and JAX-RS. 
+Apache CXF is an open source services framework. CXF helps you build and develop services using frontend programming APIs, like JAX-WS and JAX-RS.
 
-# File download from CXF
+== File download from CXF
 
 *org.apache.cxf* provides option to download files of different MIME (Multipurpose Internet Mail Extensions) types.
 
@@ -30,10 +30,10 @@ And here is a simple implementation of the service:
 @Override
 public Response  getDownloadableFile() throws SQLException, IOException {
     // FILE_PATH - specifies the location of the file in the filesystem.
-    File file = new File("FILE_PATH"); 
+    File file = new File("FILE_PATH");
     ResponseBuilder response = Response.ok((Object) file);
     // FILENAME.FILE_EXTENSION - specifies the filename and its extension after download.
-    response.header("Content-Disposition", "attachment; filename=FILENAME.FILE_EXTENSION"); 
+    response.header("Content-Disposition", "attachment; filename=FILENAME.FILE_EXTENSION");
     return response.build();
 }
 --------
@@ -51,11 +51,11 @@ Following table explains the annotations used for download functionality along w
 |===
 
 
-## @Produces Annotation
+=== @Produces Annotation
 
 @Produces annotation is used to specify the MIME media type that can be produced and sent back to the client. If @Produces is applied at the class level, all the methods in a resource produces the specified MIME type by default. If applied at the method level, the annotation overrides any @Produces annotation applied at the class level.
 
-If no methods in a resource are able to produce the MIME type in a client request, the JAX-RS runtime sends back an HTTP “406 Not Acceptable” error.
+If no methods in a resource are able to produce the MIME type in a client request, the JAX-RS runtime sends back an HTTP "406 Not Acceptable" error.
 
 The value of @Produces is an array of String of MIME types.
 For example:@Produces({"image/jpeg,image/png"})
@@ -81,7 +81,7 @@ public class SomeResource {
 --------
 
 
-# File upload from CXF
+== File upload from CXF
 
 *org.apache.cxf* provides option to upload files of different MIME (Multipurpose Internet Mail Extensions) type.
 
@@ -132,10 +132,10 @@ Web Service method implementation:
 
 [source,java]
 --------
-@POST 
-@Consumes ("multipart/mixed") 
+@POST
+@Consumes ("multipart/mixed")
 // use @Consumes(MediaType.MULTIPART_FORM_DATA) if request contains multipart form data and import //javax.ws.rs.core.MediaType;
-@Path ("/upload") 
+@Path ("/upload")
 public Response uploadFile(List<Attachment> attachments) {
     BinaryObjectEto binaryObject = new BinaryObjectEto();
     Blob blob = null;
@@ -156,12 +156,12 @@ public Response uploadFile(List<Attachment> attachments) {
             throw new IOException(e.getMessage(), e);
     }
   }
-  return Response.ok("file uploaded").build();  
+  return Response.ok("file uploaded").build();
  }
 --------
 
 
-In the above code snippet, we are iterating the attachments that are uploaded and extracting InputStream for each Attachment. Each InputStream is converted to the bytearray and a Blob object is created out of it. The Blob object is 
+In the above code snippet, we are iterating the attachments that are uploaded and extracting InputStream for each Attachment. Each InputStream is converted to the bytearray and a Blob object is created out of it. The Blob object is
 saved to database by calling saveBinaryObject(blob, binaryObject).
 
 Following table explains the annotations used for upload functionality along with its description.
@@ -174,11 +174,11 @@ Following table explains the annotations used for upload functionality along wit
 |@PATH|This identifies the URI path template to which the resource responds, and is specified at the class level of a resource.
 |===
 
-## @Consumes Annotation
+=== @Consumes Annotation
 
 The @Consumes annotation is used to specify MIME media type that can be accepted, or consumed, from the client. If @Consumes is applied at the class level, all the response methods accept the specified MIME types by default. If applied at the method level, @Consumes overrides any @Consumes annotation applied at the class level.
 
-If a resource is unable to consume the MIME type of a client request, the JAX-RS runtime sends back an HTTP 415 (“Unsupported Media Type”) error.
+If a resource is unable to consume the MIME type of a client request, the JAX-RS runtime sends back an HTTP 415 ("Unsupported Media Type") error.
 
 The value of @Consumes is an array of String of acceptable MIME types.For example:@Consumes({"text/plain,text/html"})
 
@@ -203,8 +203,8 @@ public class SomeResource {
 --------
 
 
-= MIME Types
+== MIME Types
 
 MIME stands for "Multipurpose Internet Mail Extensions". It is a way of identifying files on the Internet according to their nature and format. For example, using the "Content-type" header value defined in a HTTP response, the browser can open the file with the proper extension/plugin.
 
-For more information visit : http://www.freeformatter.com/mime-types-list.html 
+For more information visit : http://www.freeformatter.com/mime-types-list.html

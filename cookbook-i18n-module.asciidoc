@@ -14,7 +14,7 @@ The internationalization process is sometimes called translation or localization
 
 In Spring applications "locales" are the standard java property files which contain the translations of the applications texts as well as display format of elements like dates, numbers etc. These are placed at location _src/main/resources/locale_
 
-image::images/devonfw-i18n/locale_path.png[,width="350",locale path,link="images//devonfw-i18n/locale_path.png"]
+image::images/devonfw-i18n/locale_path.png[,width="350",locale path, link="images/devonfw-i18n/locale_path.png"]
 
 These properties files store the information in the form of key value pair. The I18N module provides the utility which converts these file entries in respective json format and sent back as a response to the HTTP GET request.
 
@@ -33,10 +33,10 @@ This will produce files at location _\src\main\resources\com\capgemini\devonfw\m
 . Enter program Arguments as "--locale <locale>" eg. "--locale en"
 . Apply the changes and click on Run button.
 
-image::images/devonfw-i18n/ResourceBundleSync_Main.png[,width="350",ResourceBundleSync_Main,link="images//devonfw-i18n/ResourceBundleSync_Main.png"]
+image::images/devonfw-i18n/ResourceBundleSync_Main.png[,width="350",ResourceBundleSync_Main,link="images/devonfw-i18n/ResourceBundleSync_Main.png"]
 
 
-image::images/devonfw-i18n/ResourceBundleSync_argument.png[,width="350",ResourceBundleSync_argument,link="images//devonfw-i18n/ResourceBundleSync_argument.png"]
+image::images/devonfw-i18n/ResourceBundleSync_argument.png[,width="350",ResourceBundleSync_argument,link="images/devonfw-i18n/ResourceBundleSync_argument.png"]
 
 
 File _config.properties_ provides flag value true/false, which is used to switch between default implementation and MMM implementation.
