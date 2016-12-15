@@ -1,6 +1,6 @@
-* :toc: macro
+:toc: macro
 toc::[]
-* 
+ 
 # Release notes Devonfw 2.1 "Balu"
 
 ## New features, improvements and updates
