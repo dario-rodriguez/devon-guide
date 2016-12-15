@@ -1,6 +1,8 @@
 
 == Structure
 
+=== Requirements
+
 The structure that we need to follow when we work in the wiki is the next: 
 
 = Level 1 (=)
@@ -17,10 +19,13 @@ Text.
 
 ===== Level 5 (=====)
 
-[NOTE]
-====
-Level 1 (=) must be unique in each wiki page, you can use it to add the main title of the page and for each section or chapter you can use the Level 2 (==).
-====
+=== Limitations
+
+The pdf generator tool uses the structure of each wiki page to generate the structure of the pdf sections, taking each Level title as an ID which implies some limitations when structuring our page:
+
+* Level 1 (=) must be unique in each wiki page, you can use it to add the main title of the page and for each section or chapter you can use the Level 2 (==).
+
+* We can not repeat titles with the same Level (e.g. we can not use in the same page `== Something` twice, instead we should use `== Something A` in one and `== Something B` in other)
 
 == Characters
 
