@@ -72,9 +72,9 @@ If you navigate to a particular module, it will show all the available commands 
 
 image::images/Devcon_Form.JPG[,align="center",width="250",Devcon, link="https://github.com/devonfw/devon-guide/wiki/images/Devcon_Form.JPG"]
  
-=== Usage of command prompt:
+=== Using command prompt:
 
-Accordingly with the defined structure, the devcon usage is based on the definition of each of its element named : module, command and parameters. Therefore, in the command prompt, you must specify each of these elements in the correct order:
+Accordingly with the defined structure, the devcon usage is based on the definition of each of its element named : module, command and parameters. Therefore, in the command prompt, one must specify each of these elements in the correct order:
 
 [source,batch]
 ----
@@ -89,15 +89,15 @@ devon [module] [command] [parameters ...]
 
 ==== Defining the module and the command
 
-Both module and command are defined by an identifier that is the 'name' that the module or command have assigned in devcon.
+Both, module and command are defined by an identifier i.e. 'name' that the module or command have assigned in devcon.
 
 ==== Defining the parameters
 
-The parameter definition is divided in two parts. The first one is the parameters identifier that is the _name_ that the parameter has assigned within the devcon app *preceded by a single dash*. The second part of the parameter definition is the parameter value.
+The parameter definition is divided in two parts. The first one is the parameters identifier i.e. the _name_ that the parameter has assigned within the devcon app *preceded by a single dash*. The second part of the parameter definition is the parameter value.
 
 ==== Basic example
 
-Thus a basic example of a devcon line command would be
+Following is a basic example of a devcon using command prompt:
 
 [source,bash]
 ----
@@ -116,7 +116,7 @@ where:
 
 ==== Parameters
 
-As we mentioned before from the point of view of the commands we have two types of parameters: the mandatory parameters and the optional parameters. 
+As its mentioned before from the point of view of the commands, we have two types of parameters: the mandatory parameters and the optional parameters. 
 The mandatory parameters must be provided by the user specifying the parameter identifier and the value in the command line. The optional parameters must be also provided to the app but, if the user do not specify it, devcon will use a default value for them.
 
 //////////////////////////////////////////
@@ -184,13 +184,13 @@ Please introduce the value for missing parameter signature:|
 
 ==== Global parameters
 
-Devcon handles a third type of parameter that has nothing to do with command parameters. We are referring to the global parameters.
+Devcon handles a third type of parameter that has nothing to do with command parameters. We are referring it as global parameters.
 
-The global parameters are a set of parameters that works in global context, which means that will affect the behaviour of the command in the first phase, before launching the command module itself.
+The global parameters are a set of parameters that works in global context, which means it will affect the behaviour of the command in the first phase i.e. before launching the command module itself.
 
-As these parameters act in a global context we do not need to provide a value for them. They work as _flags_ to define some internal behaviour of devcon.
+As these parameters act in a global context, we do not need to provide the values for them. They work as _flags_ to define some internal behaviour of devcon.
 
-In the first devcon version we have three global parameters defined:
+In the first devcon version, we have defined three global parameters :
 
 - global parameter _help_: defined with *-h* or *--help*.
 - global parameter _version_: defined with *-v* or *--version*.
@@ -199,7 +199,7 @@ In the first devcon version we have three global parameters defined:
 
 ===== _help_ parameter
 The global parameter _help_ is very useful to show overall help info of devcon or also for showing more detailed info of each module and command supported.
-For example if we know nothing about how to start with devcon the option *-h* (or *--help*) will show a summary of the devcon usage, listing the global parameters and the available modules alongside a brief description of each one.  
+For example, if you don't know anything about how to start with devcon, the option *-h* (or *--help*) will show a summary of the devcon usage, listing the global parameters and the available modules alongside a brief description of each one.  
 
 [source,batch]
 ----
@@ -220,7 +220,7 @@ List of available modules:
 > workspace: Module to create a new workspace with all default configuration
 ----
 
-As a global parameter if we use the *-h* parameter with a module it will show the help info related to this module including a basic usage and a list of the available commands in this module
+As a global parameter, if you use the *-h* parameter with a module, it will show the help info related to given module including a basic usage and a list of the available commands in given module.
 
 [source,batch]
 ----
@@ -247,7 +247,7 @@ This command is to say something
  -signature   the signature
 ----
 
-Even if we specify the needed parameters the behaviour will be the same because, as we said, the global parameters affect how devcon behaves before launching the commands
+Even if you specify the needed parameters, the behaviour will be the same as we stated that the global parameters affect how devcon behaves before launching the commands
 
 [source,batch]
 ----
@@ -282,9 +282,9 @@ devcon v.1.0.0
 
 ===== _prompt_ parameter
 
-With this global parameter we can ask devcon to prompt for all parameters (both optional and mandatory) when launching a command.
+With this global parameter, you can ask devcon to prompt for all parameters (both optional and mandatory) when launching a command.
 
-To give an example we can use the _oasp4j create_ command (that creates a new server project based on _OASP4J_ model). In this case we would need to provide several parameters so the command call would look like
+To give an example, you can use the _oasp4j create_ command (that creates a new server project based on _OASP4J_ model). In this case we would need to provide several parameters so the command call would look like
 [source,batch]
 ----
 D:\devon-dist>devon oasp4j create -servername myServer -groupid com.capgemini -packagename com.capgemini.myServer -version 1.0
