@@ -29,20 +29,20 @@ The pdf generator tool uses the structure of each wiki page to generate the stru
 
 == Characters
 
-* Avoid the '#' character in levels use always '='
+* Avoid the `#` character in levels use always `=`
 
 * For quotation marks avoid:
 
-** U+201C LEFT DOUBLE QUOTATION MARK (“) and U+201D RIGHT DOUBLE QUOTATION MARK (”)
+** U+201C LEFT DOUBLE QUOTATION MARK (`“`) and U+201D RIGHT DOUBLE QUOTATION MARK (`”`)
 
-** Use instead U+0022 QUOTATION MARK (")
+** Use instead U+0022 QUOTATION MARK (`"`)
 
 [NOTE]
 ====
 Be very careful when copying and pasting text from documents and webs to the wiki, the _double quotation mark_ characters are very common in these type of resources.
 ====
 
-*Avoid characters like ?, () or & in the headers.
+*Avoid characters like `?`, `()` or `&` in the headers (titles) of the sections.
 
 == Images
 
