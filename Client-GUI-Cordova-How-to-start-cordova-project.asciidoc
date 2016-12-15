@@ -26,27 +26,27 @@ toc::[]
 |24.4.1
 |===
 
-= How to start a cordova project from a sencha project
+== How to start a cordova project from a sencha project
 
-== Recommended readings:
+=== Recommended readings:
 
 * link:https://docs.sencha.com/cmd/guides/cordova_phonegap.html[Integrating With Cordova or PhoneGap]
 * link:https://cordova.apache.org/docs/en/latest/[Introduction to Cordova]
 
-== Minimum requirements:
+=== Minimum requirements:
 
 * Downloaded and deployed DevonFW (https://github.com/devonfw/devon-guide/wiki/getting-started-download-and-install)
 * NodeJs installed (using the one included in DevonFW or another one)
 * Java JDK 7 or superior (required by Cordova)
 
-=== Optional requirements based on the platform to deploy
+==== Optional requirements based on the platform to deploy
 
 * *Android:*          Android SDK, needed to create the .apk file and deploy it on the Android device/emulator. link:https://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html[Android Platform Guide by Cordova]
 * *Windows Phone:*    Windows 8.1 or Windows 10 to be able to install the required Visual Studio and the required tools. link:https://cordova.apache.org/docs/en/latest/guide/platforms/win8/index.html[Windows Platform Guide by Cordova]
 * *iOS:*              Mac computer, to be able to open the project in XCode, create the .ipa file and deploy it on a iOS device/emulator. link:https://cordova.apache.org/docs/en/latest/guide/platforms/ios/index.html[iOS Platform Guide by Cordova]
 
-= Steps to do on the Sencha project
-== Initialize Cordova
+== Steps to do on the Sencha project
+=== Initialize Cordova
 
 Open the devon console, navigate to the project folder and then run the following command:
 
@@ -57,9 +57,9 @@ sencha cordova init com.mycompany.MyApp MyApp
 
 Once the command finishes, the folder "cordova" must appear on the structure of the project.
 
-image::images/client-gui-cordova/cordova_init.png[Project after cordova init,width="170",link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-cordova/cordova_init.png"]
+image::images/client-gui-cordova/cordova_init.png[Project after cordova init,width="170",link="images/client-gui-cordova/cordova_init.png"]
 
-== Modifying the app.json
+=== Modifying the app.json
 
 To indicate to sencha that we have several platforms, and copy the files needed inside the "cordova" folder, we need modify the app.json on the Sencha project to add the required platforms/configurations.
 
@@ -110,11 +110,9 @@ To indicate to sencha that we have several platforms, and copy the files needed 
 
 NOTE: Notice that the name of the build is not necessary the name of the platform to deploy, could be a different one. As developers we can create many configurations as we need, configuration for a specific device, to try different themes, etc.
 
-= Steps to do on the Cordova project
+== Steps to do on the Cordova project
 
-
-
-== Adding platforms
+=== Adding platforms
 
 Open a console (must have the path of Cordova executable in the PATH variable, could be the Devon console or not), then proceed to add all the platforms wanted (link:https://cordova.apache.org/docs/en/latest/guide/cli/index.html#add-platforms[Add Platforms by Cordova])
 
@@ -138,7 +136,7 @@ cordova platform add windows
 
 Once all the platforms are added, the Cordova project will appear as follows:
 
-image::images/client-gui-cordova/cordova_platforms.png[Platforms added to the cordova project,width="186",link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-cordova/cordova_platforms.png"]
+image::images/client-gui-cordova/cordova_platforms.png[Platforms added to the cordova project,width="186",link="images/client-gui-cordova/cordova_platforms.png"]
 [[app-listing]]
 [source,json]
 .platform.json
@@ -154,13 +152,13 @@ image::images/client-gui-cordova/cordova_platforms.png[Platforms added to the co
 * Can check the latest version of iOS plugin link:https://github.com/apache/cordova-ios[here]
 * Can check the latest version of windows plugin link:https://github.com/apache/cordova-windows[here]
 
-= Steps to run the Sencha project in the Cordova project
+== Steps to run the Sencha project in the Cordova project
 
-== Sencha app build
+=== Sencha app build
 
 We can use several ways to deploy the Sencha application in the cordova folder, to have all the files updated and ready to see the application in the desired device.
 
-=== Do a regular build, copy the files manually and run cordova
+==== Do a regular build, copy the files manually and run cordova
 
 This is the most basic way to have all the required files to run our application in Cordova. To see our progress in Sencha, usually we use the _watch_ command. For this scenario we need to use the _build_ one, this option is more restrictive than the _watch_, and creates a ZIP file with all the files required for the webapp.
 [source, bash]
@@ -171,7 +169,7 @@ NOTE: If the app.json has several build config, sencha will try to do a build fo
 Beard this in mind to avoid several builds and run just the desired.
 You can specify the configuration for the build adding the name of the configuration at the end.
 
-image::images/client-gui-cordova/standard_build.png[Files of a standard build,width="138",link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-cordova/standard_build.png"]
+image::images/client-gui-cordova/standard_build.png[Files of a standard build,width="138",link="images/client-gui-cordova/standard_build.png"]
 
 
 Once the previous command is finished, open the build ZIP file and replace all the resources inside the folder `"myApp/cordova/www"`, then you have all the files updated in the cordova folder.
@@ -190,7 +188,7 @@ NOTE: *BUILD:* Shortcut for `"cordova prepare"` + `"cordova compile"`.
 
 NOTE: *RUN:* Prepares, builds, and deploys the app on specified platform(s) devices/emulators.
 
-=== Use a specific build config
+==== Use a specific build config
 
 As part of the changes mentioned in this document, we modify the app.json file to add some additional builds.
 This build configurations make able to `"preapre/build/run"` our Sencha application inside the cordova folder for a specific platform.
