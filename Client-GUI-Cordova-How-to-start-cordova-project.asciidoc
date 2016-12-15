@@ -1,8 +1,6 @@
 :toc: macro
 toc::[]
 
-[small]#01/12/2016#
-
 * Versions used to create this guide
 +
 [cols="2", options="header"]
@@ -65,7 +63,6 @@ To indicate to sencha that we have several platforms, and copy the files needed 
 
 [Small]#As follows you can see an example of a project configured to run on iOS, Android and Windows Phone (8.X or superior).#
 
-[[app-listing]]
 [source,json]
 .app.json
 ----

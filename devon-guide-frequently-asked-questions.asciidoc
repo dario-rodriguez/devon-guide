@@ -2,7 +2,7 @@
 toc::[]
 
 
-= Frequently Asked Questions (FAQ) 
+= Frequently Asked Questions (FAQ)
 
 == Server
 
@@ -21,7 +21,7 @@ In the _BaseWebSecurityConfig.java_ class located in the `src/main/java/io.oasp.
 
 [source,java]
 ----
-String[] unsecuredResources = 
+String[] unsecuredResources =
     new String[] { "/login", "/security/**", "/services/rest/login", "/services/rest/logout", "/services/rest/**" };
 ----
 
@@ -73,7 +73,7 @@ Should return a response similar to
 
 
 ===== _Disable Login_
-In addition to the previous section, if you want also to disable the security login of the sample application you only need to delete/comment the content of the _configure_ method of the _BaseWebSecurityConfig.java_ class. 
+In addition to the previous section, if you want also to disable the security login of the sample application you only need to delete/comment the content of the _configure_ method of the _BaseWebSecurityConfig.java_ class.
 
 [source,java]
 ----
@@ -83,7 +83,7 @@ In addition to the previous section, if you want also to disable the security lo
   }
 ----
 
-Doing that you will access directly to the _Welcome_ page of the app without the login process. 
+Doing that you will access directly to the _Welcome_ page of the app without the login process.
 
 
 
@@ -93,12 +93,12 @@ This error is thrown by the spring security component in the server in order to 
 
 [source,xml]
 ---
-<http>    
+<http>
     <headers>
         <frame-options policy="SAMEORIGIN"/>
     </headers>
 </http>
----  
+---
 
 The available options for _policy_ are: _DENY_, _SAMEORIGIN_ and _ALLOW-FROM_. You can get more information about this link:http://docs.spring.io/spring-security/site/docs/3.2.0.CI-SNAPSHOT/reference/html/appendix-namespace.html#nsa-frame-options[here] and link:http://docs.spring.io/autorepo/docs/spring-security/3.2.0.CI-SNAPSHOT/reference/html/headers.html[here]
 
@@ -120,7 +120,7 @@ In order to disable this functionality you have to add the following on the app.
           "cache": true
     },
 
-    
+
 ----
 
 
@@ -140,7 +140,7 @@ Remember to verify the proxy configuration in the `conf/.m2/settings.xml` file a
 
 ==== Non-resolvable import POM: Project dependencies download failure
 
-===== Error details
+*Error details*
 
  - Could not transfer artifact from/to central ValidatorException
 
@@ -151,11 +151,11 @@ Remember to verify the proxy configuration in the `conf/.m2/settings.xml` file a
 
  - Maven Dependency Problem: Failed to read artifact descriptor / Missing artifact
 
-===== Solution:
+*Solution*
 
-- Try changing in the `conf\.m2\settings.xml`file of your distribution the URL of the remote repo from _https_ to plain _http_ : http://repo.maven.apache.org/maven2
+- Try changing in the `conf\.m2\settings.xml` file of your distribution the URL of the remote repo from _https_ to plain _http_ : http://repo.maven.apache.org/maven2
 
-- As an alternative you also can include a `<mirror>` tag inside '<mirrors>' with the following structure:
+- As an alternative you also can include a `<mirror>` tag inside `<mirrors>` with the following structure:
 [source,xml]
 ----
 <mirror>
@@ -177,6 +177,7 @@ Right click on project > Maven > Update Project > check the Force update of Snap
 ==== How to install the Devon IP Modules
 
 If you have any problems resolving the dependencies or accessing to the Devon IP modules you can install them directly in your distribution. To achieve that you only need to open a distribution console launching the 'console.bat' script and then going to `workspaces\examples\devon\modules` and using the _install_ command of _Maven_.
+
 [source,batch]
 ----
 D:\Devon-dist\workspaces\examples\devon\modules>mvn install
@@ -210,7 +211,7 @@ This error is related mainly to a network problem.
 
 In some environments Maven seems to be attempting to use an IPv6 address to do the http calls, when either the OS doesn't support it, or is not set up properly to handle it.
 
-You can force Maven (that is a Java tool) to use an IPv4 address with the property 
+You can force Maven (that is a Java tool) to use an IPv4 address with the property
 
 `-Djava.net.preferIPv4Stack=true`
 
@@ -232,7 +233,7 @@ For Spring Boot applications, the easiest way is to edit the `[project]\main\res
 
 [NOTE]
 ====
-The accepted modes for logging level are: TRACE, DEBUG, INFO, WARN, ERROR, FATAL, OFF 
+The accepted modes for logging level are: TRACE, DEBUG, INFO, WARN, ERROR, FATAL, OFF
 ====
 
 
@@ -240,16 +241,16 @@ The accepted modes for logging level are: TRACE, DEBUG, INFO, WARN, ERROR, FATAL
 
 === Tomcat
 
-==== _java.lang.NoSuchMethodError_ error when deploying Devon app on Tomcat 7 
+==== _java.lang.NoSuchMethodError_ error when deploying Devon app on Tomcat 7
 
-===== Error details
+*Error details*
 
 [source,batch]
 ----
 java.lang.NoSuchMethodError: javax.servlet.ServletContext.getVirtualServerName()Ljava/lang/String;
 ----
 
-===== solution
+*Solution*
 
 Add below dependencies in the _pom.xml_ file of the _core_ project
 
@@ -271,7 +272,7 @@ Add below dependencies in the _pom.xml_ file of the _core_ project
     <artifactId>spring-boot-starter-tomcat</artifactId>
     <scope>provided</scope>
 </dependency>
----- 
+----
 
 
 
