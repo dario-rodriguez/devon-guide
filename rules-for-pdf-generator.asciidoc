@@ -1,5 +1,3 @@
-==== For all
-
 * The structure that we need to follow when we work in the wiki is the next: 
 
 = Level 1 (=)
@@ -18,17 +16,6 @@ Text.
 
 We need to try no use more than 3 levels, if we need it, go ahead but try to not using it. 
 
-** IMPORTANT:  Don't include characters like ?, () or & in the headers, because if you do it the DocGen get some errors
+*Avoid characters like ?, () or & in the headers.
 
-You can find a good example here https://github.com/devonfw/devon-guide/wiki/getting-started-Cobigen[getting started cobigen].
-
-We need to check all pages and check if all follow this structure. 
-
-* List of pages and compilation errors:
-
-
-
-
-* The size of the images and links of this image -> the max size we need to use is [,width="450", link="https://github.com/devonfw/devon-guide/wiki/<image>"], if you need to use less go ahead but never more than 
-
-link:https://docs.google.com/document/d/1SCBWRvnrtXP0v4mQ9-wV9Fn_-XkEyJQx_8KC2TyxYRA/[*Status doc*]
+* The size of the images and links of this image -> the max size we need to use is [,width="450", link="https://github.com/devonfw/devon-guide/wiki/<image>"], if you need to use less go ahead but never more.
