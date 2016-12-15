@@ -14,7 +14,13 @@ Text.
 
 ===== Level 5 (=====)
 
-We need to try no use more than 3 levels, if we need it, go ahead but try to not using it. 
+* Avoid the '#' character in levels use always '='
+
+* For quotation marks avoid:
+
+** U+201C LEFT DOUBLE QUOTATION MARK (“) and U+201D RIGHT DOUBLE QUOTATION MARK (”)
+
+** Use instead U+0022 QUOTATION MARK (")
 
 *Avoid characters like ?, () or & in the headers.
 
