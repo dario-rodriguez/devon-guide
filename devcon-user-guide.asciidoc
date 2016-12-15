@@ -15,7 +15,7 @@ You will need to have a Java JDK 1.7 or 1.8 installed on your system. It is *not
 
 == Getting started: Download Devcon
 
-To get started with Devcon, you will need to http://devonfw.github.io/download/devcon/devcon.jar[*download the Devcon jar from the devonfw repository*]. After downloading, open console or command prompt (on Windows: CMD or Powershell), navigate ("cd") to the path, where you´ve downloaded the jar file and execute the following command:
+To get started with Devcon, you will need to http://devonfw.github.io/download/devcon/devcon.jar[*download the Devcon jar from the devonfw repository*]. After downloading, open console or command prompt (on Windows: CMD or Powershell), navigate ("cd") to the path where you´ve downloaded the jar file and execute the following command:
 
 [source,bash]
 ----
