@@ -19,7 +19,7 @@ Text.
 
 [NOTE]
 ====
-Level 1 (=) should be used only once in each wiki page, you can use it to add the title of the page. For each section or chapter you can use the Level 2 (==).
+Level 1 (=) must be unique in each wiki page, you can use it to add the main title of the page and for each section or chapter you can use the Level 2 (==).
 ====
 
 == Characters
