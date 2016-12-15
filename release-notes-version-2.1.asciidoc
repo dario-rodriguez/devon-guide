@@ -7,7 +7,7 @@ toc::[]
 
 ### Introduction
 
-We are proud to present the new release of Devonfw, version “2.1” which we've baptized “Balu”. A major focus for this release is developer productivity. So that explains the name, as Balu is not just big, friendly and cuddly but also was very happy to let Mowgli do the work for him.
+We are proud to present the new release of devonfw, version “2.1” which we've baptized “Balu”. A major focus for this release is developer productivity. So that explains the name, as Balu is not just big, friendly and cuddly but also was very happy to let Mowgli do the work for him.
 
 ### Cobigen code-generator UI code generation and more
 
@@ -101,13 +101,13 @@ Likewise, existing basic Internationalisation (I18N) support has been significan
 
 ### Asynchronous HTTP support 
 
-Asynchronous HTTP is an important feature allowing so-called “long polling” HTTP Requests (for streaming applications, for example) or with requests sending large amounts of data. By making HTTP Requests asynchronous, Devonfw server instances can better support these types of use-cases while offering far better performance. Documentation about how to include the new Devonfw module implementing this feature can be found at: XXX
+Asynchronous HTTP is an important feature allowing so-called “long polling” HTTP Requests (for streaming applications, for example) or with requests sending large amounts of data. By making HTTP Requests asynchronous, Devonfw server instances can better support these types of use-cases while offering far better performance. Documentation about how to include the new Devonfw module implementing this feature can be found at: https://github.com/devonfw/devon-guide/wiki/cookbook-async-module[The devonfw async module]
 
 ### Security and License guarantees
 
 In Devonfw security comes first. The components of the framework are designed and implemented according to the recommendations and guidelines as specified by OWASP in order to confront the top 10 security vulnerabilities.
 
-From version 2.1 “Balu” onward we certify that Devonfw has been scanned by software from “Black Duck”. This verifies that Devonfw is based on 100% Open Source Software (non Copyleft) and demonstrates that at moment of release there are no known, critical security flaws. Less critical issues are clearly documented. See: XXX
+From version 2.1 “Balu” onward we certify that Devonfw has been scanned by software from “Black Duck”. This verifies that Devonfw is based on 100% Open Source Software (non Copyleft) and demonstrates that at moment of release there are no known, critical security flaws. Less critical issues are clearly documented. 
 
 ### Documentation improvements 
 
