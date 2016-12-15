@@ -14,6 +14,10 @@ Text.
 
 ===== Level 5 (=====)
 
+[NOTE]
+====
+Level 1 (=) should be used only once in each wiki page, you can use it to add the title of the page. For each section or chapter you can use the Level 2 (==).
+====
 
 == Characters
 
