@@ -40,20 +40,20 @@
 * link:devon-in-bluemix[devonfw in IBM Bluemix]
 * link:Compatibility-guide-for-Java7,-Java8-and-Tomcat7,-Tomcat8[Compatibility guide for Java7, Java8 and Tomcat7, Tomcat8]
 
-== Client GUI Sencha
+== The Presentation Layer: Getting Started with Devon4Sencha
 
 * link:Client-GUI-Sencha-Introduction-to-Devon4sencha[Introduction to Devon4sencha]
 * link:Client-GUI-Sencha-Workspace-and-Sencha-Cmd[Sencha Workspace & Sencha Cmd]
 * link:Client-GUI-Sencha-Anatomy-of-a-Devon4sencha-application[Anatomy of a Devon4sencha application]
 * link:Client-GUI-Sencha-running-sample-application[Running Sample Application]
 * link:Client-GUI-Sencha-create-new-application[Create New Devon4sencha Application]
-* link:Client-GUI-Sencha-devon4sencha-application-structure[Devon4sencha application structure]
+* link:Client-GUI-Sencha-devon4sencha-application-structure[Devon4sencha Application Structure]
 * link:Client-GUI-Sencha-code-conventions[Code Conventions]
 * link:Client-GUI-Sencha-create-new-page[Create a New Page]
 * link:Client-GUI-Sencha-create-a-CRUD-page[Create a New CRUD Page]
-* link:Client-GUI-Sencha-completing-CRUD-example[Completing CRUD example (Create, Read, Update and Delete)]
-* link:Client-GUI-Sencha-define-ext-component[Defining an Ext component]
-* link:Client-GUI-Sencha-calling-web-service[Calling Web Services]
+* link:Client-GUI-Sencha-completing-CRUD-example[Complete CRUD example (Create, Read, Update and Delete)]
+* link:Client-GUI-Sencha-define-ext-component[Define an Ext Component]
+* link:Client-GUI-Sencha-calling-web-service[Call Web Services]
 * link:Client-GUI-Sencha-models-stores-proxies[Models, Stores and Proxies]
 * link:Client-GUI-Sencha-panels-windows[Panels & Windows]
 * link:Client-GUI-Sencha-layouts-positioning[Layouts & Positioning]
@@ -73,6 +73,15 @@
 * link:Client-GUI-Sencha-devon4Sencha-code-review[How to do effective Devon4Sencha Code Reviews]
 * link:Client-GUI-Sencha-devon4Sencha-test[Devon4Sencha Testing Tools]
 * link:Client-GUI-Cordova-How-to-start-cordova-project[Start a Cordova project from a Sencha project]
+
+== The Presentation Layer: Getting Started with OASP4JS
+
+* link:Client-GUI-Angular-Introduction-to-oasp4js[Introduction to OASP4JS]
+* link:Client-GUI-Angular-Application-Template-Structure[OASP4JS Application Template Structure]
+* link:Client-GUI-Angular-Adding-Business-Module[Adding Business Module]
+* link:Client-GUI-Angular-ngmodules[OASP4JS ng-modules]
+* link:Client-GUI-Angular-Create-New-oasp4js-Application[Create New OASP4JS Application]
+* link:Client-GUI-Angular-Implementing-CRUD[Implementing a CRUD]
 
 == OASP4JS Cookbook
 
