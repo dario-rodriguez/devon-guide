@@ -33,7 +33,7 @@ The oasp directory contains components which offers solutions to typical issues,
 
 === oasp-mock directory
 
-The oasp-mock directory contains code which enables you to easy test your modules which depend on the other modules. Please see link:oasp4js-ng-modules#oasp4js-ng-modules[this page] for details.
+The oasp-mock directory contains code which enables you to easy test your modules which depend on the other modules. Please click link:Client-GUI-Angular-ngmodules#oasp4js-ng-modules[here] for more details.
 
 === offer-mgmt, sales-mgmt, table-mgmt directory
 
