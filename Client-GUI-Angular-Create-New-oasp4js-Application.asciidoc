@@ -1,7 +1,7 @@
 :toc: macro
 toc::[]
 
-= Creating a New Application
+= Create a New Application
 
 You don’t have to start from scratch when creating a new client application. You can use our oasp-generator for yeoman for scaffolding an AngularJS application template.
 
