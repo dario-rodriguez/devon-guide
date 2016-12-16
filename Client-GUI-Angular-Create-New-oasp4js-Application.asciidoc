@@ -1,7 +1,7 @@
 :toc: macro
 toc::[]
 
-# Creating a new application
+= Creating a new application
 
 You don’t have to start from scratch when creating a new client application. You can use our oasp-generator for yeoman for scaffolding an AngularJS application template.
 
@@ -14,12 +14,12 @@ image::images/devconlogo_imgonly.png[,width="50"]
 You can automate these processes using devcon. With the `devon oasp4js create` command you can create a new oasp4js project link:devcon-command-reference#oasp4js-create[learn more here].
 ====
 
-## generator-oasp
+== generator-oasp
 
 > http://yeoman.io[Yeoman] generator for AngularJS applications powered by https://github.com/oasp/oasp4js[OASP4JS].
 
 
-### Getting Started
+=== Getting Started
 
 If you are going to create the application manually before you start to use generator-oasp it is important to install the prerequisites. You will need the Node.js, Bower and Gulp.
 
@@ -42,15 +42,15 @@ npm install –g gulp
 In order to check if Gulp was correctly installed you can check its version by typing:
 ----
 gulp –version
-----  
+----
 
 If you use a proxy to connect to the Internet, you have to manually configure it for npm:
 
 Open a command line in the folder C.\Users\{user}\ and type:
 ----
-echo “” > .npmrc
+echo "" > .npmrc
 ----
-This is going to create a new empty file named .npmrc 
+This is going to create a new empty file named .npmrc
 
 To configure npm we need to open the file .npmrc we have just created and then add the following configuration:
 ----
@@ -59,22 +59,22 @@ https-proxy=http://user:password@proxy:port
 http-proxy=http://user:password@proxy:port
 ----
 
-### Why it is worth using
+=== Why it is worth using
 
 
-#### It offers more than other application seeds
+==== It offers more than other application seeds
 
 There are a lot of JavaScript/AngularJS application seeds like https://github.com/angular/angular-seed[angular-seed] or https://www.npmjs.org/package/angularjs-seed[angularjs-seed]. All of them are great, but they focus rather on a quick & easy start and work well for small-scale projects. oasp4js is built as a base for bigger, modularized, enterprise projects, where different modules are often developed independently and simultaneously by many teams.
 
-#### It does not reinvent the wheel
+==== It does not reinvent the wheel
 
 oasp4js just brings its idea on an application structure and makes use of well-known tools such as http://gulpjs.com/[Gulp] or http://bower.io/[Bower] which support developers in their activities. This all makes coding, testing and building the application extremely efficient.
 
-### What is Yeoman?
+=== What is Yeoman?
 
 Trick question. It's not a thing. It's this guy:
 
-image:http://i.imgur.com/JHaAlBJ.png[]
+image:http://i.imgur.com/JHaAlBJ.png[,width="450",link="http://i.imgur.com/JHaAlBJ.png"]
 
 Basically, he wears a top hat, lives in your computer, and waits for you to tell him what kind of application you wish to create.
 
@@ -86,9 +86,10 @@ To install yeoman, run:
 ....
 npm install -g yo
 ....
+
 _Hint: If you are using Windows Command Line it is recommended to run it as an administrator._
 
-#### Yeoman Generators
+==== Yeoman Generators
 
 Yeoman travels light. He didn't pack any generators when he moved in. You can think of a generator like a plug-in. You get to choose what type of application you wish to create, such as a Backbone application or even a Chrome extension.
 
@@ -128,11 +129,11 @@ Obviously, you only can do this when your project has already been created as th
 This should be done while the command `yo oasp` is being executed otherwise we will have to execute again the command.
 If we had to execute the command again, it will ask you to override the file `.bowerrc` so you have to enter ‘n’ to not override it. 
 
-### Enjoy
+=== Enjoy
 
 Please note that all commands below must be executed in project root directory.
 
-#### Developing
+==== Developing
 
 Once the project initialization has been done successfully we can start running our application.
 
@@ -142,10 +143,11 @@ Start the application using Gulp in the project root directory:
 gulp serve
 ----
 
-The above Gulp's task opens the application in your default browser and watches for any HTML/JavaScript/CSS changes. Once you do one, the page is reloaded automatically!   The url that throws is: http://localhost:9000/#/main/welcome
+The above Gulp's task opens the application in your default browser and watches for any HTML/JavaScript/CSS changes. Once you do one, the page is reloaded automatically. The url that throws is: 'http://localhost:9000/#/main/welcome'
 
 If for some reason your client should talk to the server configured in a different way, you can configure the server details in the client's configuration file, <app_dir>\config.json, in the proxy part:
 
+[source,json]
 ----
 {
     "proxy": {
@@ -155,7 +157,7 @@ If for some reason your client should talk to the server configured in a differe
 }
 ----
 
-#### Testing
+==== Testing
 
 Run application's Jasmine tests:
 
@@ -165,15 +167,15 @@ gulp test:tdd
 
 This Gulp's task uses the Karma test runner to execute Jasmine tests (against the PhantomJS) and watches for any change in your JavaScript files (both sources and specs).  Test Driven Development has never been easier :)
 
-If you would like to run the tests against a real browser (rather than against the PhantomJS) or use it to debug a test, call: 
+If you would like to run the tests against a real browser (rather than against the PhantomJS) or use it to debug a test, call:
 
 ....
 gulp test:tdd:debug
 ....
 
-#### Building
+==== Building
 
-Build the application: 
+Build the application:
 
 ....
 gulp serve:dist

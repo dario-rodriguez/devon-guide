@@ -1,10 +1,10 @@
 :toc: macro
 toc::[]
 
-# Providing accessibility
+= Providing accessibility
 
-## Accessibility
-When creating a web application it need to be taken under consideration to provide a support for users with disabilities. 
+== Accessibility
+When creating a web application it need to be taken under consideration to provide a support for users with disabilities.
 Types of disabilities we should be aware of while preparing web application:
 
 * Sight disabilities
@@ -12,8 +12,8 @@ Types of disabilities we should be aware of while preparing web application:
 
 When taking under consideration sight disability  it is crucial to adopt the application for popular https://github.com/oasp/oasp4js/wiki/Tutorial-Accessibility#screen-readers[screen readers]. It is also necessary to have a good keyboard support for disabilities of any kind.
 
-## ngAria
-### Adding ngAria to application
+== ngAria
+=== Adding ngAria to application
 In order to add ngAria to the project:
 Add the ngAria dependency to gower.json
 [source,javascript]
@@ -25,13 +25,13 @@ Install new dependency
 ----
 npm install
 ----
-Add +ngAria+ dependency to AngularJS application 
+Add +ngAria+ dependency to AngularJS application
 [source,javascript]
 ----
 angular.module('myApp', ['ngAria', ...])
 ----
 
-### Configuration
+=== Configuration
 +ngAria+ configuration allows to enable or disable various attributes.
 In order to add configuration to application add following code to application module:
 [source,javascript]
@@ -43,7 +43,7 @@ In order to add configuration to application add following code to application m
      });
 })
 ----
-#### Configuration parameters
+==== Configuration parameters
 [width="100%",frame="topbot",options="header"]
 |======================
 |*Parameter* |*Description*
@@ -60,7 +60,7 @@ In order to add configuration to application add following code to application m
 |======================
 Aria supports following directives by adding automaticly its own arguments: https://docs.angularjs.org/api/ng/directive/ngModel[ngModel], https://docs.angularjs.org/api/ng/directive/ngDisabled[ngDisabled], https://docs.angularjs.org/api/ng/directive/ngShow[ngShow], https://docs.angularjs.org/api/ng/directive/ngHide[ngHide], https://docs.angularjs.org/api/ng/directive/ngClick[ngClick], https://docs.angularjs.org/api/ng/directive/ngDblclick[ngDblclick], https://docs.angularjs.org/api/ngMessages[ngMessages].
 
-## ARIA Live Regions
+== ARIA Live Regions
 Live regions are used to notify user about changes on the screen (for example Error message).
 There are two region properties:
 
@@ -70,7 +70,7 @@ There are two region properties:
 * **__role=’progressbar’__** use aria-valuemin, aria-valuenow and aria-valuema
 . **aria-controls** – associate the control with the regions it controls. Attribute value is a list of ids.
 
-#### Possible roles
+==== Possible roles
 [width="100%",frame="topbot",options="header"]
 |======================
 |*Role* |*Description*
@@ -82,7 +82,7 @@ There are two region properties:
 |timer |or any kind of timer or clock, such as a countdown timer or stopwatch readout.
 |======================
 
-## Good practices
+== Good practices
 . __tabIndex__ attribute – this attribute allows to enable(0) or disable(-1) focus on the element. It also allows to create focus path of the elements (1, 2, 3…).
 . __role__ attribute – allows the Screen Reader to tell what the DOM element do.
 . __aria-disabled__ attribute –  allows the Screen Reader to tell what is the state of the element.
@@ -93,12 +93,12 @@ There are two region properties:
 . When creating custom directives use native elements wherever possible.
 . Inform user that site requirements when JavaScript is off.
 
-## Screen readers
+== Screen readers
 
 * Windows: http://www.freedomscientific.com/Products/Blindness/JAWS[JAWS], http://www.gwmicro.com/Window-Eyes/[WindowEyes], http://www.nvaccess.org/[NVDA]
 * Mac: http://www.apple.com/accessibility/osx/voiceover/[VoiceOver]
 
-## Useful links
+== Useful links
 https://www.youtube.com/watch?v=dmYDggEgU-s[Lecture about Accessibility using ngAria]
 
 https://docs.angularjs.org/api/ngAria[ngAria Documentation]

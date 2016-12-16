@@ -1,13 +1,13 @@
 :toc: macro
 toc::[]
 
-# Application Structure
+= Application Structure
 [source]
 ---------------------------------
-    └── app                        
-        ├── bower_components       
-        ├── business-module-1            
-        ├── business-module-2  
+    └── app
+        ├── bower_components
+        ├── business-module-1
+        ├── business-module-2
         ├── main
         ├── oasp
         ├── oasp-mock
@@ -19,31 +19,31 @@ toc::[]
         └── index.html
 ---------------------------------
 
-## Structure of the app directory
+== Structure of the app directory
 
 The main application directory contains five types of items: bower_components, any number of business modules, main application scripts, oasp and oasp-mock directories.
- 
-### bower components
+
+=== bower components
 
 +bower_components+ contains libraries installed automatically by Bower. This directory should not be checked into the repository (it is ignored in the +.gitignore+ file).
 
-### oasp directory
+=== oasp directory
 
 The oasp directory contains components which offers solutions to typical issues, such as authentication and authorization, internationalization, etc. which are not addressed by AngularJS out of the box. Please see link:oasp4js-ng-modules#oasp4js-ng-modules[this page] for details.
 
-### oasp-mock directory
+=== oasp-mock directory
 
 The oasp-mock directory contains code which enables you to easy test your modules which depend on the other modules. Please see link:oasp4js-ng-modules#oasp4js-ng-modules[this page] for details.
 
-### offer-mgmt, sales-mgmt, table-mgmt directory
+=== offer-mgmt, sales-mgmt, table-mgmt directory
 
 These directories are part of business logic for "Restaurant application example". These modules contain html files, internationalization files and java script files.
 
-### main application module
+=== main application module
 
 +app.module.js+ contains code responsible for bootstraping the application. This file should contain at least a declaration of a main module. Generally, the whole global configuration should be placed in this file.
 
-### main html file
+=== main html file
 
 +index.html+ contains the main frame for the application: style links, script tags, some layout parts. Generally this file can be freely modified apart from some parts. The following parts have a special meaning for the build system:
 [frame="topbot",options="header,footer"]
@@ -52,13 +52,13 @@ These directories are part of business logic for "Restaurant application example
 
 |+<!-- process:styles -->+
 
-+<!-- /process -->+  | 
-Responsible for automatic css inclusion. 
++<!-- /process -->+  |
+Responsible for automatic css inclusion.
 This tag will be simply replaced by a list of stylesheets.
 
 |+<!-- process:scripts -->+
 
-+<!-- /process -->+ | 
++<!-- /process -->+ |
 Responsible for automatic scripts inclusion. It will be replaced for example by:
 
 +<script src="app.module.js"> </script>+
@@ -67,15 +67,15 @@ Responsible for automatic scripts inclusion. It will be replaced for example by:
 
 +<script src="main/js/app.controller.js"> </script>+
 
-|+<!-- bower:js -->+ 
+|+<!-- bower:js -->+
 
-+<!-- endbower -->+  | 
++<!-- endbower -->+  |
 Responsible for automatic libraries inclusion.
 This tag will be simply replaced by libraries defined in the +bower.json+ file.
 
 |+<!-- build:js js/app.js -->+
 
-+<!-- endbuild -->+  | 
++<!-- endbuild -->+  |
 Files placed within this tag will be merged and optimized into one file called +js/app.js+ during +build:dist+(build for production).
 
 
@@ -83,92 +83,93 @@ Files placed within this tag will be merged and optimized into one file called +
 
 +<script src="//localhost:35729/livereload.js"> </script>+
 
-+<!-- endbuild -->+ | 
++<!-- endbuild -->+ |
 Live reload feature - will be removed in a production build.
 
 |======================
-## Main module layout
+
+== Main module layout
 [source]
 ----
-    └── main                        
+    └── main
         ├── css
         │   ├── mixins.less
-        │   └── variables.less               
-        │   └── main.less  
+        │   └── variables.less
+        │   └── main.less
         ├── html
-        │   ├── cached        
-        │   └── layout  
+        │   ├── cached
+        │   └── layout
         ├── img
         │   ├── sprite
         ├── js
         |   ├── mocks
-        │   └──main.module.js 
+        │   └──main.module.js
         └── i18n
             └─locale-de.json
-            └─locale-en.json           
+            └─locale-en.json
 ----
-### CSS
+=== CSS
 
 The main css stylesheet in the +css+ directory is named +main.less+. It contains imports of other important stylesheets:
 [source,css]
 ----
 @import "bower_components/bootstrap/less/bootstrap";
 @import "main/css/variables";
-@import "main/css/mixins";  
+@import "main/css/mixins";
 ----
 
 In general, the variables.less and mixins.less files contain generic variables and mixins which can be later reused in other modules. While developing your own business module do not hesitate to put generic and common variables / mixins in these files.
 
 For further information about stylesheets for business modules, please see link:adding-business-module#css-stylesheets[this description].
 
-### html directory
+=== html directory
 
-The main module and every business module can contain two types of templates: served from a server on demand and cached in an angular $templateCache service. Files placed under the +<module>/html/cached+ directory are converted into entries of the angular's $templateCache. According to convention a module which contains templates is called +app.<module>.templates+ and must be manually included as a dependency. 
+The main module and every business module can contain two types of templates: served from a server on demand and cached in an angular $templateCache service. Files placed under the +<module>/html/cached+ directory are converted into entries of the angular's $templateCache. According to convention a module which contains templates is called +app.<module>.templates+ and must be manually included as a dependency.
 Example:
 
 [source]
 ----
 └── main                              angular.module('app.main.templates', [])
     └── html                              .run(['$templateCache', function ($templateCache) {
-        ├── cached                            
+        ├── cached
         │   ├── page-not-found.html    =>     $templateCache.put("main/html/page-not-found.html", "<html></html>");
         │   └── welcome.html           =>     $templateCache.put("main/html/welcome.html", "<html></html>");
         └── dialog2.html                   };
 ----
 Other, not cached files are simply copied to an output.
 
-### img directory
+=== img directory
 
-Image files placed under the +img+ directory are simply copied to an output. This directory should contain only large images which are used in combination with +<img>+ tags in html. Small icons, assets and other graphical parts of layout should be placed in the +/img/sprite+ directory - these files are merged into a single png sprite mesh file (+sprite.png+). Additionally, the corresponding css classes are created for these images in the +sprite.css+ file. 
+Image files placed under the +img+ directory are simply copied to an output. This directory should contain only large images which are used in combination with +<img>+ tags in html. Small icons, assets and other graphical parts of layout should be placed in the +/img/sprite+ directory - these files are merged into a single png sprite mesh file (+sprite.png+). Additionally, the corresponding css classes are created for these images in the +sprite.css+ file.
 
 [source]
 ----
-└── main                             
-    └── img                              
-        └── sprite                           
+└── main
+    └── img
+        └── sprite
             └──icon-de-24.png    =>   .icon-de-24 {
                                         background-image: url(../img/main-icons.png);
                                         background-position: 0px 0px;
                                         width: 24px;
                                         height: 24px;
-                                      }   
+                                      }
 ----
 
 For further information regarding providing images for your own business module please check link:adding-business-module#img-files[this description].
 
-### js directory
+=== js directory
 
-*mocks directory:* This directory is a part of "Restaurant application example" and contains scripting files for internationalization and security. These files are used as mock files for the application and reduces the dependency on original modules. Specifically, used for testing purpose. 
+*mocks directory:* This directory is a part of "Restaurant application example" and contains scripting files for internationalization and security. These files are used as mock files for the application and reduces the dependency on original modules. Specifically, used for testing purpose.
 
 The build system automatically merges and performs optimization of JS files in the +js+ directory, thus any number of files can be used during development to make code easy to read. Every module should contain at least one file named according to the following convention:
 
- +<module>/js/<module>.module.js+ 
+ +<module>/js/<module>.module.js+
 
 with a definition of an angular module for this business module. Generally every module definition should be placed in a file with a +.module.js+ suffix. This convention is important for future concatenation.
 
 For further information regarding an example of a js module for the business module, please check link:adding-business-module#js-files[this description].
 
-#### js naming convention
+==== js naming convention
 According to the Angular Styleguide every angular item should be placed in a separate js file.
 
 [frame="topbot",options="header,footer"]
@@ -180,11 +181,11 @@ According to the Angular Styleguide every angular item should be placed in a sep
 |Directive      |sample.directive.js
 |======================
 
-### i18n directory
+=== i18n directory
 
 The +i18n+ directory holds internationalization files with translation key-value pairs. For further information regarding adding internationalized labels to your own business module please check link:adding-business-module#i18n-files[this description].
 
-## Path conventions
+== Path conventions
 The following table contains general path conventions (in the +app+ directory) used in the application (+<module>+ is a placeholder for the given module's name):
 
 [frame="topbot",options="header,footer"]

@@ -1,14 +1,14 @@
 :toc: macro
 toc::[]
 
-# OASP Security
+= OASP Security
 +OASP Security+ provides a simple yet powerful solution to authentication and authorization (A&A) in Single Page Applications built on top of AngularJS. The solution is based on ideas presented in the great book http://www.amazon.com/Mastering-Web-Application-Development-AngularJS-ebook/dp/B00EQ67J30[_Mastering Web Application Development with AngularJS_] written by P. Kozlowski and P. B. Darwin.
 
-## How OASP Security works
+== How OASP Security works
 
 +OASP Security+ adds a response interceptor to your AngularJS application. The interceptor watches for error responses indicating unauthenticated requests (typically with the HTTP code 401) and gives a user of your application a chance to authenticate (typically through a pop-up dialog). If the authentication was successful, the original request is resent (including its original payload, e.g. data you filled a form with) and the user can continue his or her work.
 
-## Example
+== Example
 
 Let's go through an example. A user logs in to an application, goes to a dialog which allows him or her to search for orders. After finding some orders, he or she opens a modal dialog and edits one of the orders. After making a few changes to the order, the user decided to grab himself or herself a cup of coffee. In the meantime the session on the server expires... When the user comes back and pushes the _Save_ button, then the +OASP Security+ comes into play:
 
@@ -16,7 +16,7 @@ image::https://raw.githubusercontent.com/wiki/oasp/oasp4js/img/oasp-security-usa
 
 The request for saving the order returns the HTTP 401 code indicating that the user is not authenticated. This error response is intercepted by the +OASP Security+ response interceptor which tries to handle the situation giving the user a chance to authenticate. A typical way to do it - without loosing the application context - is to show a pop-up dialog on which the user can enter his or her credentials. Let us assume, the user enters his or her credentials and pushes the _Log In_ button. The credentials are sent to the server and (assuming they are correct) the OK HTTP status code is returned. Now the +OASP Security+ response interceptor takes the original request including its payload (the order data the user entered) and retries to send it to the server. As the user is now authenticated, the server processes the request and responds with the OK HTTP status code. For the application code (here for the method called upon pushing the _Save_ button on the modal dialog) it looks as if the request for saving the order were successful (although a few things had happened as described earlier). So typically, the modal dialog is just closed.
 
-## What is going on behind the scenes?
+== What is going on behind the scenes?
 +OASP Security+ provides the +oaspSecurityService+ which can be used to log a user in (e.g. if you want to implement a log in page in addition to the pop-up dialog mentioned earlier) or to log the user off. Also, as +OASP Security+ supports protection against the Cross Site Request Forgery (CSRF), the +oaspSecurityService+ gives you the current CSRF token. Please note that +OASP Security+ itself cares about adding the CSRF token to all HTTP requests, thus there are rare cases when you'll need this token in your application.
 
 After a user successfully logs in, his or her data which is to be kept in the client is requested from the server. Once the user data comes, +oasp-security+ lets your service (you can configure which one) know about the data. Complementary to this, when the user logs off, you'll be notified too, so that your application has a chance to invalidate the user data. This is shown on the picture below:
@@ -38,8 +38,8 @@ The application is expected to provide the following services (marked in blue):
 * +onLoggingOff()+ is called by OASP Security after a user was successfully logged off. Your application should use this callback e.g. to invalidate user data or to do some clean-up.
 
 . +credentialsProvider+ is called by the +oaspSecurityInterceptor+ to give the user of your application a chance to authenticate. It has just one method, +credentialsProvider.provide()+, which returns a promise. It is resolved once the user provides his or her credentials. The user may also decide to cancel the action in which case the promise is rejected.
- 
-## Authorization management
+
+== Authorization management
 
 +OASP Security+ provides also authorization service, which allows to control the flow state in application.
 You can dynamically set visibility of DOM's elements by directive:
@@ -52,11 +52,11 @@ You can dynamically set visibility of DOM's elements by directive:
 
 The application is expected to provide the following services (marked in blue):
 
-* +getUserRoles()+ gets current user roles. Returns a promise which - once resolved - returns an object representing roles of current user. 
+* +getUserRoles()+ gets current user roles. Returns a promise which - once resolved - returns an object representing roles of current user.
 
-Thanks to +authorizationCheckResolver+ you can set roles for state. 
+Thanks to +authorizationCheckResolver+ you can set roles for state.
 
-## Getting OASP Security working in your application
+== Getting OASP Security working in your application
 You need to install the +oasp4js+ library in order to make use of the +oasp-security+. Please refer to the https://github.com/oasp/oasp4js-bower[home page] of the oasp4js repository for details how to do it.
 
 Add the +oasp-security+ dependecy to your AngularJS application:

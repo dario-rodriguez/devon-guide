@@ -1,7 +1,7 @@
 :toc: macro
 toc::[]
 
-# Business module layout
+= Business module layout
 
 The example structure of a business module with the js / html / img / css / i18n files is presented below:
 
@@ -9,22 +9,22 @@ The example structure of a business module with the js / html / img / css / i18n
 ----
     └── business-module
         ├── css
-        │   └── additional-sheet.less               
-        │   └── business-module.less  
+        │   └── additional-sheet.less
+        │   └── business-module.less
         ├── html
         │   ├── cached
-        │   │   └── dialog1.html             
-        │   └── dialog2.html  
+        │   │   └── dialog1.html
+        │   └── dialog2.html
         ├── img
         │   ├── sprite
-        │   │   └── icon1.png             
-        │   ├── img.jpg   
-        │   └── img2.png  
+        │   │   └── icon1.png
+        │   ├── img.jpg
+        │   └── img2.png
         ├── js
         │   └──business-module.module.js
-        │   └──business-module.module.spec.js  
+        │   └──business-module.module.spec.js
         └── i18n
-            └─locale-en.json        
+            └─locale-en.json
 ----
 
 The first step of adding a new business module is creating a module directory under the app directory. In the described example the business module is named "business-module".
@@ -40,13 +40,13 @@ The second step is to add the module's name to a modules array in the +config.js
      ]
 ----
 
-In the next step the business-module substructure should be created: directories for java script, html, less, images and internationalization files. 
+In the next step the business-module substructure should be created: directories for java script, html, less, images and internationalization files.
 
 
-## js Files
-A business module should contain at least one, mandatory file named according to the following convention: 
+== js Files
+A business module should contain at least one, mandatory file named according to the following convention:
 
-+<module>/js/<module>.module.js+ 
++<module>/js/<module>.module.js+
 
 with a definition of an angular module. An example of the +business-module.module.js+ file's content is listed below:
 
@@ -61,7 +61,7 @@ angular.module('app.business-module', ['app.main', 'app.businessModule.templates
         templateUrl: 'business-module/html/dialog1.html'
     });
 });
----- 
+----
 
 The first line contains:
 
@@ -82,7 +82,7 @@ It is very important to add a dependency to the created angular module in the ma
 angular.module('app', ['ui.select', 'ngRoute', 'app.main', 'app.business-module' /*other modules*/]);
 ----
 
-## js tests files
+== js tests files
 
 It is recommended to develop modules according to the best coding practices and to keep high test coverage of the javascript code. For each js file which needs tests the corresponding file with the "spec" suffix should be created. The naming convention of a js test file is:
 
@@ -94,7 +94,7 @@ Please check the link:gulp-task-test#gulp-task-test[gulp test tasks description]
 
 +oasp4js+ uses http://jasmine.github.io/[Jasmine] for js tests.
 
-## html Files
+== html Files
 
 The html files should be placed under the +html+ directory. When the html template is placed directly under the +html+ directory, then it is retrieved from the server every time when a request for the template is sent. If the template should be cached on the client side, then it should be placed in the +cached+ directory placed directly under the +html+ directory. The implemented mechanism will automatically put the template in the +$templateCache+ service. Cached templates can be obtained without an additional request to the server.
 
@@ -103,13 +103,13 @@ The build process allows to include templates in other templates. In order to in
 [source,html]
 ----
 <!-- process:include business-module/html/dialog2.html --><!-- /process -->
----- 
+----
 
-## css Stylesheets
+== css Stylesheets
 
 To add custom stylesheets to a business module, simply create a file named according to the following convention:
 
-+<module>/css/<module>.less+. 
++<module>/css/<module>.less+.
 
 In our example the file is named business-module.less and it is placed under the +css+ directory. This file will be automatically compiled into css and attached to a common css file served to a client. Variables and mixins defined in other modules are visible and can be reused, but generic and common code should be generally placed in the main module. To make the "less" code easily readable and understandable for others, it is recommended to spread large "less" files into smaller parts and use include mechanism to connect them to the +<module>/css/<module>.less+ file.
 In this example the additional-sheet.less file is imported in the business-module.less file with the following instruction:
@@ -119,7 +119,7 @@ In this example the additional-sheet.less file is imported in the business-modul
 @import "business-module/css/additional-sheet.less";
 ----
 
-## img Files
+== img Files
 
 Image files for the business module can be provided in two ways:
 
@@ -130,7 +130,7 @@ The first solution should be used only for large files which will be later inclu
 
 The second solution should be used for small icons, assets and other graphical parts of layout. The build system contains a mechanism for merging images into a single mesh for optimization purposes. For "Sprite" images a single image file (sprite.png) and a corresponding stylesheet (sprite.css) will be generated. It is important to note that both sprite.png and sprite.css files are common to all modules, including the main module.
 
-## i18n Files
+== i18n Files
 
 +oasp4js+ has a built-in support for internationalization. In order to provide i18n for the business module, the +oaspTranslationProvider+ (located in the module `oasp.oaspI18n`) should be injected in the main js file of a business module.
 Besides that the following methods should be called:
@@ -154,11 +154,11 @@ oaspTranslationProvider.setSupportedLanguages(
 );
 ----
 
-The second step is to add translation files which should be placed under the +i18n+ directory. The naming convention for the translation files is: 
+The second step is to add translation files which should be placed under the +i18n+ directory. The naming convention for the translation files is:
 
 +locale-<country-code>.json+
 
-Our example business module has one i18n file: +locale-en.json+. Its content is shown below: 
+Our example business module has one i18n file: +locale-en.json+. Its content is shown below:
 
 [source,javascript]
 ----

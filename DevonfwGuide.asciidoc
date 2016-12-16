@@ -1,6 +1,6 @@
 = Devonfw Guide
 Jhonatan Core <jhcore@capgemini.com>
-v2.0.5
+v2.1.0
 
 :imagesdir: ./images
 :footnote: test footnote from asciidoc
@@ -15,8 +15,8 @@ This document contains the complete compendium of the https://troom.capgemini.co
 
 **Current versions:**
 
-* DevonfwGuide - v2.0.5
-* Devonfw - v2.0.1
+* DevonfwGuide - v2.1.0
+* Devonfw - v2.1.0
 
 **Authors:**
 
@@ -282,6 +282,52 @@ include::Client-GUI-Sencha-devon4Sencha-test[]
 <<<<
 
 include::Client-GUI-Cordova-How-to-start-cordova-project[]
+
+:leveloffset: 0
+
+== The Presentation Layer: Getting started with OASP4JS
+
+:leveloffset: 2
+
+include::Client-GUI-Angular-Introduction-to-oasp4js[]
+
+<<<<
+
+include::Client-GUI-Angular-Application-Template-Structure[]
+
+<<<<
+
+include::Client-GUI-Angular-Adding-Business-Module[]
+
+<<<<
+
+include::Client-GUI-Angular-ngmodules[]
+
+<<<<
+
+include::Client-GUI-Angular-Create-New-oasp4js-Application[]
+
+<<<<
+
+include::Client-GUI-Angular-Implementing-CRUD[]
+
+
+:leveloffset: 0
+
+== OASP4JS Cookbook
+
+:leveloffset: 2
+
+include::Client-GUI-Angular-Code-Conventions[]
+
+<<<<
+
+include::Client-GUI-Angular-Providing-Accessibility[]
+
+<<<<
+
+include::Client-GUI-Angular-Gulp-Tasks[]
+
 
 
 :leveloffset: 0

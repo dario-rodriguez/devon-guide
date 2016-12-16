@@ -24,7 +24,7 @@ toc::[]
 |24.4.1
 |===
 
-== How to start a cordova project from a sencha project
+= How to start a cordova project from a sencha project
 
 === Recommended readings:
 

@@ -1,11 +1,11 @@
 :toc: macro
 toc::[]
 
-# Introduction to oasp4js
+= Introduction to oasp4js
 
 +oasp4js+ supports you when developing AngularJS applications. You can take advantage of an https://github.com/oasp/oasp4js-app-template/[application template] and https://github.com/oasp/oasp4js-bower/[ng-modules]. Install a https://github.com/oasp/oasp4js/[sample application] and see how it all works together. Please check the https://github.com/oasp/oasp4js/wiki/Prerequisites[prerequisites] to see what do you need to start developing your own application basing on +oasp4js+.
 
-## Pre-requisites
+== Pre-requisites
 
 ==== Git
 Check if you have a Git client already installed:
@@ -39,7 +39,7 @@ bower --version
 http://gulpjs.com/[Gulp] is a streaming build system. Install the Gulp globally using the npm. Type the following command in the command line tool:
 
 ----
-npm install -g gulp 
+npm install -g gulp
 ----
 
 In order to check if Gulp was correctly installed you can check its version by typing:
@@ -48,7 +48,7 @@ In order to check if Gulp was correctly installed you can check its version by t
 gulp --version
 ----
 
-## Architecture
+== Architecture
 The architecture of a client application is shown below (click on the image to see it bigger):
 
 image::http://oasp.github.io/archive/oasp4js/images/Architecture-Client-Frameworks.svg[technical architecture,width="450" link="http://oasp.github.io/archive/oasp4js/images/Architecture-Client-Frameworks.svg"]
