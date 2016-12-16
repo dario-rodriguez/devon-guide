@@ -1,16 +1,16 @@
 :toc: macro
 toc::[]
 
-= Providing accessibility
+= Providing Accessibility
 
 == Accessibility
-When creating a web application it need to be taken under consideration to provide a support for users with disabilities.
-Types of disabilities we should be aware of while preparing web application:
+While creating a web applications, one need to consider about providing a support for users with disabilities.
+You should be aware of the following types of disabilities while constructing web application:
 
 * Sight disabilities
 * Movement disabilities
 
-When taking under consideration sight disability  it is crucial to adopt the application for popular https://github.com/oasp/oasp4js/wiki/Tutorial-Accessibility#screen-readers[screen readers]. It is also necessary to have a good keyboard support for disabilities of any kind.
+Considering sight disability, it is crucial to adopt the application for popular https://github.com/oasp/oasp4js/wiki/Tutorial-Accessibility#screen-readers[screen readers]. It is also necessary to have a good keyboard support for disabilities of any kind.
 
 == ngAria
 === Adding ngAria to application
@@ -33,7 +33,7 @@ angular.module('myApp', ['ngAria', ...])
 
 === Configuration
 +ngAria+ configuration allows to enable or disable various attributes.
-In order to add configuration to application add following code to application module:
+In order to add configuration to application, add following code to application module:
 [source,javascript]
 ----
 .config(function ($ariaProvider) {
