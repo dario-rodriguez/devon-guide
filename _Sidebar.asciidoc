@@ -17,7 +17,7 @@
 * link:getting-started-logging-and-auditing[Logging and Auditing]
 * link:getting-started-Data-Access-Layer[Data Access Layer]
 * link:getting-started-crud-operations[CRUD operations and DAO Implementation]
-* link:getting-started-Cobigen[Generating code with Cobigen]
+* link:getting-started-Cobigen[Generate code with Cobigen]
 * link:getting-started-transfer-objects[Transfer Objects : ETOs and CTOs]
 * link:getting-started-logic-layer[Logic Layer]
 * link:getting-started-Creating-Rest-Service[Creating Rest Service]
