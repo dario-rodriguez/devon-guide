@@ -120,7 +120,7 @@ The main css stylesheet in the +css+ directory is named +main.less+. It contains
 
 In general, the variables.less and mixins.less files contain generic variables and mixins which can be later reused in other modules. While developing your own business module do not hesitate to put generic and common variables / mixins in these files.
 
-For further information about stylesheets for business modules, please see link:adding-business-module#css-stylesheets[this description].
+For further information about stylesheets for business modules, please see the description link:Client-GUI-Angular-Adding-Business-Module#css-stylesheets[here].
 
 === html directory
 
