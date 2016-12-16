@@ -1,7 +1,7 @@
 :toc: macro
 toc::[]
 
-# Creating a CRUD page
+# Create a CRUD page
 
 In this section a complete CRUD (Create, Retrieve, Update, Delete) entity example is developed with Devon4sencha step by step. We are going to do a CRUD for a `table` entity.
 
