@@ -1,7 +1,7 @@
 :toc: macro
 toc::[]
 
-# Completing CRUD example (Create, Read, Update and Delete)
+# Complete CRUD example (Create, Read, Update and Delete)
 
 In order to complete our example, we are going to add to our page several operations we can do with a Table (Create table, Update table, Read tables and Delete tables).
 
