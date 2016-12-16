@@ -75,7 +75,7 @@
 
 - link:devon-in-bluemix[devonfw in IBM Bluemix]
 
-- link:Compatibility-guide-for-Java7,-Java8-and-Tomcat7,-Tomcat8[Compatibility guide for Java7, Java8 and Tomcat7, Tomcat8]
+- link:Compatibility-guide-for-Java7-Java8-and-Tomcat7-Tomcat8[Compatibility guide for Java7, Java8 and Tomcat7, Tomcat8]
 
 ## The Presentation Layer: Getting Started with Devon4Sencha
 
@@ -170,5 +170,4 @@
 * link:devcon-command-reference[Devcon Command Reference]
 * link:devcon-command-developers-guide[Devcon Command Developers Guide]
 * link:devon-guide-Devon-Module-Developer-Guide[Devcon Module Developers Guide]
-* link:devon-guide-production-line[Introduction to Production Line]
 * link:components-list[Components List]

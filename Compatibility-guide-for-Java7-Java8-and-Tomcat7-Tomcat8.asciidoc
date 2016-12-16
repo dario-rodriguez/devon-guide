@@ -1,7 +1,7 @@
 :toc: macro
 toc::[]
 
-# Compatibility guide for JAVA and TOMCAT
+= Compatibility guide for JAVA and TOMCAT
 
 == What this guide contains?
 

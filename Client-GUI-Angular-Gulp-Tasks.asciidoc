@@ -102,7 +102,7 @@ It works in the +.tmp+ directory.
 
 `test:tdd:debug` runs karma JUnit tests in debug mode (Chrome browser) and keeps the testserver up, (karma:unit_chrome)
 
-=== Subtask description
+=== Subtasks description
 
 * build:dist
 * jslint - run jslint checks on the code
