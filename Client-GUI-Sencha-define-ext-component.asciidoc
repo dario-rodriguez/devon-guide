@@ -21,7 +21,7 @@ Ext is a global singleton object that encapsulates all classes, singletons, and 
 
 An Ext JS application's UI is made up of one or many widgets called Components. All Components are subclasses of the Ext.Component class which allows them to participate in automated lifecycle management including instantiation, rendering, sizing and positioning, and destruction. Ext JS provides a wide range of useful Components out of the box, and any Component can easily be extended to create a customized Component.
 
-To know more about Components visit https://docs.sencha.com/extjs/6.0/core_concepts/components.html[Sencha] wesite.
+To know more about Components visit https://docs.sencha.com/extjs/6.0.0/guides/core_concepts/components.html[Sencha] wesite.
 
 # Creating Custom Components
 
