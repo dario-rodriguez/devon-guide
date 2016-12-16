@@ -25,10 +25,10 @@
 
 == OASP4J Cookbook
 
-* link:cookbook-reporting-module[devonfw reporting module]
-* link:cookbook-winauth-module[devonfw Windows Auth module]
-* link:cookbook-i18n-module[devonfw I18N module]
-* link:cookbook-async-module[devonfw Async module]
+* link:cookbook-reporting-module[devonfw Reporting Module]
+* link:cookbook-winauth-module[devonfw Windows Auth Module]
+* link:cookbook-i18n-module[devonfw I18N Module]
+* link:cookbook-async-module[devonfw Async Module]
 * link:cookbook-security-layer[Security: Authentication and Authorization]
 * link:cookbook-JAX-WS-WebServices[JAX-WS Web Services]
 * link:cookbook-batch-layer[Batch Layer]
@@ -48,21 +48,21 @@
 * link:Client-GUI-Sencha-running-sample-application[Running Sample Application]
 * link:Client-GUI-Sencha-create-new-application[Create New Devon4sencha Application]
 * link:Client-GUI-Sencha-devon4sencha-application-structure[Devon4sencha application structure]
-* link:Client-GUI-Sencha-code-conventions[Code conventions]
-* link:Client-GUI-Sencha-create-new-page[Create a new page]
-* link:Client-GUI-Sencha-create-a-CRUD-page[Create a new CRUD page]
+* link:Client-GUI-Sencha-code-conventions[Code Conventions]
+* link:Client-GUI-Sencha-create-new-page[Create a New Page]
+* link:Client-GUI-Sencha-create-a-CRUD-page[Create a New CRUD Page]
 * link:Client-GUI-Sencha-completing-CRUD-example[Completing CRUD example (Create, Read, Update and Delete)]
 * link:Client-GUI-Sencha-define-ext-component[Defining an Ext component]
-* link:Client-GUI-Sencha-calling-web-service[Calling web services]
+* link:Client-GUI-Sencha-calling-web-service[Calling Web Services]
 * link:Client-GUI-Sencha-models-stores-proxies[Models, Stores and Proxies]
 * link:Client-GUI-Sencha-panels-windows[Panels & Windows]
-* link:Client-GUI-Sencha-layouts-positioning[Layouts & positioning]
+* link:Client-GUI-Sencha-layouts-positioning[Layouts & Positioning]
 * link:Client-GUI-Sencha-Grids[Grids]
 * link:Client-GUI-Sencha-Forms[Forms]
 * link:Client-GUI-Sencha-cors[CORS & protection against Cross Site Scription (XSS)]
 * link:Client-GUI-Sencha-security[Security]
 * link:Client-GUI-Sencha-theming[Sencha Theming]
-* link:Client-GUI-Sencha-error-processing[Error processing]
+* link:Client-GUI-Sencha-error-processing[Error Processing]
 * link:Client-GUI-Sencha-i18n[Internationalization]
 
 == Devon4Sencha Cookbook
@@ -73,21 +73,6 @@
 * link:Client-GUI-Sencha-devon4Sencha-code-review[How to do effective Devon4Sencha Code Reviews]
 * link:Client-GUI-Sencha-devon4Sencha-test[Devon4Sencha Testing Tools]
 * link:Client-GUI-Cordova-How-to-start-cordova-project[Start a Cordova project from a Sencha project]
-
-== Client GUI Angular
-
-* link:Client-GUI-Angular-Introduction-to-oasp4js[Introduction to OASP4JS]
-
-* link:Client-GUI-Angular-Application-Template-Structure[OASP4JS Application Template Structure]
-
-* link:Client-GUI-Angular-Adding-Business-Module[Adding Business Module]
-
-* link:Client-GUI-Angular-ngmodules[OASP4JS ng-modules]
-
-* link:Client-GUI-Angular-Create-New-oasp4js-Application[Create New OASP4JS Application]
-
-* link:Client-GUI-Angular-Implementing-CRUD[Implementing a CRUD]
-
 
 == OASP4JS Cookbook
 
@@ -107,5 +92,5 @@
 * link:devcon-command-reference[Devcon Command Reference]
 * link:devcon-command-developers-guide[Devcon Command Developers Guide]
 * link:devon-guide-Devon-Module-Developer-Guide[devonfw Module Developer's Guide]
+* link:devon-guide-production-line[Introduction to Production Line]
 * link:components-list[Components list]
-
