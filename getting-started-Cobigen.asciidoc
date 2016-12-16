@@ -79,6 +79,8 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 import devonfw.tutorial.general.dataaccess.api.ApplicationPersistenceEntity;
+import devonfw.tutorial.general.dataaccess.api.StaffMember;
+import devonfw.tutorial.general.dataaccess.api.datatype.Role;
 
 /**
  * 
