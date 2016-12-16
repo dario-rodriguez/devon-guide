@@ -4,7 +4,7 @@ toc::[]
 = Providing Accessibility
 
 == Accessibility
-While creating a web applications, one need to consider about providing a support for users with disabilities.
+While creating web applications, one should consider about providing a support for users with disabilities.
 You should be aware of the following types of disabilities while constructing web application:
 
 * Sight disabilities
