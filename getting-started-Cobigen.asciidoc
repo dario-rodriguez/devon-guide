@@ -148,7 +148,7 @@ public class StaffMemberEntity {
 
 ----
 
-===== Step 2: Generate classes
+===== Step 2: Generate classes (DAO)
 
 To generate the rest of the classes concerning the StaffMember CRUD, we only have to do a right click on the `TableEntity.java` class in Eclipse Project Explorer and select "CobiGen ' Generate".
 
@@ -162,7 +162,7 @@ In this wizard you can select which classes you want to generate, organized by l
 
 * CRUD DAO's
 * CRUD REST services
-* CRUD logic layer (simple)
+* CRUD logic layer (all in one)
 * Entity infrastructure
 * TO's
 
