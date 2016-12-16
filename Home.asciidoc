@@ -24,7 +24,7 @@
 
 - link:getting-started-database-configuration[Database Configuration]
 
-- link:getting-started-flyway-database-migration[Setting up and maintaining database schemas with Flyway]
+- link:getting-started-flyway-database-migration[Setup and maintain database schemas with Flyway]
 
 - link:getting-started-bean-mapping-using-dozer[Bean Mapping using Dozer]
 
