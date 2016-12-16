@@ -91,4 +91,4 @@ Finally, we defined the Grid panel's columns and gave them a dataIndex property.
 
 The "Name" column has a fixed width of "100px" and has sorting and hiding disabled. The "Email Address" column is hidden by default (it can be shown again by using the menu on any other column header). Finally, the "Phone Number" column flexes to fit the remainder of the Grid panel's total width.
 
-To know more about Grids visit https://docs.sencha.com/extjs/6.0.0/guides/components/grids.html[sencha] website.
+To know more about Grids visit https://docs.sencha.com/extjs/6.0.2/guides/components/grids.html[sencha] website.
