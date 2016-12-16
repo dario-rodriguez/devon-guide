@@ -34,9 +34,9 @@
 
 - link:getting-started-Data-Access-Layer[Data Access Layer]
 
-- link:getting-started-crud-operations[CRUD operations and DAO Implementation]
+- link:getting-started-crud-operations[CRUD Operations and DAO Implementation]
 
-- link:getting-started-Cobigen[Generating code with Cobigen]
+- link:getting-started-Cobigen[Generate code with Cobigen]
 
 - link:getting-started-transfer-objects[Transfer Objects : ETOs and CTOs]
 
@@ -49,7 +49,7 @@
 
 ## OASP4J Cookbook
 
-- link:cookbook-reporting-module[devonfw reporting module]
+- link:cookbook-reporting-module[devonfw Reporting Module]
 
 - link:cookbook-winauth-module[devonfw Windows Auth module]
 
