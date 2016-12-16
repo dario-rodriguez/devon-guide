@@ -155,7 +155,7 @@ Image files placed under the +img+ directory are simply copied to an output. Thi
                                       }
 ----
 
-For further information regarding providing images for your own business module please check link:adding-business-module#img-files[this description].
+For further information regarding providing images for your own business module please check the description link:Client-GUI-Angular-Adding-Business-Module#img-files[here].
 
 === js directory
 
@@ -167,7 +167,7 @@ The build system automatically merges and performs optimization of JS files in t
 
 with a definition of an angular module for this business module. Generally every module definition should be placed in a file with a +.module.js+ suffix. This convention is important for future concatenation.
 
-For further information regarding an example of a js module for the business module, please check link:adding-business-module#js-files[this description].
+For further information regarding an example of a js module for the business module, please check the description link:Client-GUI-Angular-Adding-Business-Module#js-files[here].
 
 ==== js naming convention
 According to the Angular Styleguide every angular item should be placed in a separate js file.
@@ -183,7 +183,7 @@ According to the Angular Styleguide every angular item should be placed in a sep
 
 === i18n directory
 
-The +i18n+ directory holds internationalization files with translation key-value pairs. For further information regarding adding internationalized labels to your own business module please check link:adding-business-module#i18n-files[this description].
+The +i18n+ directory holds internationalization files with translation key-value pairs. For further information regarding adding internationalized labels to your own business module please check the description link:Client-GUI-Angular-Adding-Business-Module#i18n-files[here].
 
 == Path conventions
 The following table contains general path conventions (in the +app+ directory) used in the application (+<module>+ is a placeholder for the given module's name):
