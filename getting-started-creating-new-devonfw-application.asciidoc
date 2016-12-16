@@ -1,7 +1,7 @@
 :toc: macro
 toc::[]
 
-= Creating New Application
+= Create New Application
 
 image::images/devconlogo_imgonly.png[,width="50"]
 .*Using devcon*
