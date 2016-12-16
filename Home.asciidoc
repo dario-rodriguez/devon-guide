@@ -97,9 +97,9 @@
 
 - link:Client-GUI-Sencha-create-a-CRUD-page[Create a New CRUD Page]
 
-- link:Client-GUI-Sencha-completing-CRUD-example[Completing CRUD example (Create, Read, Update and Delete)]
+- link:Client-GUI-Sencha-completing-CRUD-example[Complete CRUD example (Create, Read, Update and Delete)]
 
-- link:Client-GUI-Sencha-define-ext-component[Defining an Ext Component]
+- link:Client-GUI-Sencha-define-ext-component[Define an Ext Component]
 
 - link:Client-GUI-Sencha-calling-web-service[Calling Web Services]
 
@@ -119,7 +119,7 @@
 
 - link:Client-GUI-Sencha-theming[Sencha Theming]
 
-- link:Client-GUI-Sencha-error-processing[Error pProcessing]
+- link:Client-GUI-Sencha-error-processing[Error Processing]
 
 - link:Client-GUI-Sencha-i18n[Internationalization]
 
@@ -143,7 +143,7 @@
 
 - link:Client-GUI-Angular-Application-Template-Structure[OASP4JS Application Template Structure]
 
-- link:Client-GUI-Angular-Adding-Business-Module[Adding Business Module]
+- link:Client-GUI-Angular-Adding-Business-Module[Add Business Module]
 
 - link:Client-GUI-Angular-ngmodules[OASP4JS ng-modules]
 
