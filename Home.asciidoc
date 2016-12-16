@@ -101,7 +101,7 @@
 
 - link:Client-GUI-Sencha-define-ext-component[Define an Ext Component]
 
-- link:Client-GUI-Sencha-calling-web-service[Calling Web Services]
+- link:Client-GUI-Sencha-calling-web-service[Call Web Services]
 
 - link:Client-GUI-Sencha-models-stores-proxies[Models, Stores and Proxies]
 
