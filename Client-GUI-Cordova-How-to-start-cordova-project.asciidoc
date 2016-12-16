@@ -171,7 +171,7 @@ image::images/client-gui-cordova/standard_build.png[Files of a standard build,wi
 
 Once the previous command is finished, open the build ZIP file and replace all the resources inside the folder `"myApp/cordova/www"`, then you have all the files updated in the cordova folder.
 
-Once we have all the files updated, the next step is to do a `"prepare/build/run"` in Cordova for the desired platform. To see more information link:https://cordova.apache.org/docs/en/latest/reference/cordova-cli/[about]
+Once we have all the files updated, the next step is to do a `"prepare/build/run"` in Cordova for the desired platform. To see more information, click link:https://cordova.apache.org/docs/en/latest/reference/cordova-cli/[here]
 
 [source,bash]
 ----
