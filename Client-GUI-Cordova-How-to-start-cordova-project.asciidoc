@@ -8,7 +8,7 @@ toc::[]
 |Software
 |version
 
-|DevonFW
+|devonfw
 |2.0.1
 
 |Sencha Cmd
@@ -33,8 +33,8 @@ toc::[]
 
 === Minimum requirements:
 
-* Downloaded and deployed DevonFW (https://github.com/devonfw/devon-guide/wiki/getting-started-download-and-install)
-* NodeJs installed (using the one included in DevonFW or another one)
+* Downloaded and deployed devonfw (https://github.com/devonfw/devon-guide/wiki/getting-started-download-and-install)
+* NodeJs installed (using the one included in devonfw or another one)
 * Java JDK 7 or superior (required by Cordova)
 
 ==== Optional requirements based on the platform to deploy
@@ -171,7 +171,7 @@ image::images/client-gui-cordova/standard_build.png[Files of a standard build,wi
 
 Once the previous command is finished, open the build ZIP file and replace all the resources inside the folder `"myApp/cordova/www"`, then you have all the files updated in the cordova folder.
 
-Once we have all the files updated, the next step is to do a `"prepare/build/run"` in Cordova for the desired platform. To see more information link:https://cordova.apache.org/docs/en/latest/reference/cordova-cli/[about]
+Once we have all the files updated, the next step is to do a `"prepare/build/run"` in Cordova for the desired platform. To see more information, click link:https://cordova.apache.org/docs/en/latest/reference/cordova-cli/[here]
 
 [source,bash]
 ----

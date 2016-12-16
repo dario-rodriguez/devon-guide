@@ -71,4 +71,4 @@ Ext.create('Ext.panel.Panel', {
 });
 ----
 
-To know more about Layouts visit the https://docs.sencha.com/extjs/6.0/core_concepts/layouts.html[Sencha] website.
+To know more about Layouts visit the https://docs.sencha.com/extjs/6.0.0/guides/core_concepts/layouts.html[Sencha] website.

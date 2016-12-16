@@ -48,4 +48,4 @@ Notice how this Form Panel has a defaultType of ‘textfield'. This means that a
 
 The "Date of Birth" field, on the other hand, has its xtype explicitly configured as ‘datefield', which makes it a Date Field. Date Fields expect to only contain valid date data and come with a DatePicker for selecting a date.
 
-To know more about Forms visit https://docs.sencha.com/extjs/5.0/components/forms.html[sencha] website.
+To know more about Forms visit https://docs.sencha.com/extjs/6.0.2/guides/components/forms.html[sencha] website.

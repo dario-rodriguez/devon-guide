@@ -29,11 +29,11 @@ The main application directory contains five types of items: bower_components, a
 
 === oasp directory
 
-The oasp directory contains components which offers solutions to typical issues, such as authentication and authorization, internationalization, etc. which are not addressed by AngularJS out of the box. Please see link:oasp4js-ng-modules#oasp4js-ng-modules[this page] for details.
+The oasp directory contains components which offers solutions to typical issues, such as authentication and authorization, internationalization, etc. which are not addressed by AngularJS out of the box. Please click link:Client-GUI-Angular-ngmodules#oasp4js-ng-modules[here] for further details.
 
 === oasp-mock directory
 
-The oasp-mock directory contains code which enables you to easy test your modules which depend on the other modules. Please see link:oasp4js-ng-modules#oasp4js-ng-modules[this page] for details.
+The oasp-mock directory contains code which enables you to easy test your modules which depend on the other modules. Please click link:Client-GUI-Angular-ngmodules#oasp4js-ng-modules[here] for more details.
 
 === offer-mgmt, sales-mgmt, table-mgmt directory
 
@@ -120,7 +120,7 @@ The main css stylesheet in the +css+ directory is named +main.less+. It contains
 
 In general, the variables.less and mixins.less files contain generic variables and mixins which can be later reused in other modules. While developing your own business module do not hesitate to put generic and common variables / mixins in these files.
 
-For further information about stylesheets for business modules, please see link:adding-business-module#css-stylesheets[this description].
+For further information about stylesheets for business modules, please see the description link:Client-GUI-Angular-Adding-Business-Module#css-stylesheets[here].
 
 === html directory
 
@@ -155,7 +155,7 @@ Image files placed under the +img+ directory are simply copied to an output. Thi
                                       }
 ----
 
-For further information regarding providing images for your own business module please check link:adding-business-module#img-files[this description].
+For further information regarding providing images for your own business module please check the description link:Client-GUI-Angular-Adding-Business-Module#img-files[here].
 
 === js directory
 
@@ -167,7 +167,7 @@ The build system automatically merges and performs optimization of JS files in t
 
 with a definition of an angular module for this business module. Generally every module definition should be placed in a file with a +.module.js+ suffix. This convention is important for future concatenation.
 
-For further information regarding an example of a js module for the business module, please check link:adding-business-module#js-files[this description].
+For further information regarding an example of a js module for the business module, please check the description link:Client-GUI-Angular-Adding-Business-Module#js-files[here].
 
 ==== js naming convention
 According to the Angular Styleguide every angular item should be placed in a separate js file.
@@ -183,7 +183,7 @@ According to the Angular Styleguide every angular item should be placed in a sep
 
 === i18n directory
 
-The +i18n+ directory holds internationalization files with translation key-value pairs. For further information regarding adding internationalized labels to your own business module please check link:adding-business-module#i18n-files[this description].
+The +i18n+ directory holds internationalization files with translation key-value pairs. For further information regarding adding internationalized labels to your own business module please check the description link:Client-GUI-Angular-Adding-Business-Module#i18n-files[here].
 
 == Path conventions
 The following table contains general path conventions (in the +app+ directory) used in the application (+<module>+ is a placeholder for the given module's name):
