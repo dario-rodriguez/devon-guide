@@ -126,17 +126,17 @@ image::images/devon-ide/FindBugs4.png["bug Explorer",width="450",link="images/de
 
 ==== what is SonarLint
 
-http://www.sonarqube.org/[SonarQube] is an open platform to manage code quality.
-SonarQube is a web-based application. Rules, alerts, thresholds, exclusions, settings can be configured online. By leveraging its database, SonarQube not only allows to combine metrics altogether but also to mix them with historical measures.
+http://www.sonarlint.org/[SonarLint] is an open platform to manage code quality.
+It provides on-the-fly feedback to developers on new bugs and quality issues injected into their code..
 
-==== Why use SonarQube
+==== Why use SonarLint
 
 It covers seven aspects of code quality like junits, coding rules,comments,complexity,duplications, architecture and design and potential bugs.
-SonarQube has got a very efficient way of navigating, a balance between high-level view, dashboard and defect hunting tools. This enables to quickly uncover projects and / or components that are in analysis to establish action plans.
+SonarLint has got a very efficient way of navigating, a balance between high-level view, dashboard and defect hunting tools. This enables to quickly uncover projects and / or components that are in analysis to establish action plans.
 
-==== Installation and usage of SonarQube
+==== Installation and usage of SonarLint
 
-IDE comes preinstalled with SonarQube.
+IDE comes preinstalled with SonarLint.
 To configure it , please follow below steps:
 
 First of all, you need to start sonar service. For that , go to software folder which is extracted from Devon-dist zip, choose sonarqube->bin-><choose appropriate folder according to your OS>-->and execute startSonar bat file.
