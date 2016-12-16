@@ -67,7 +67,7 @@ The first line contains:
 
 . module definition - the name convention is +app.<module-name>+
 
-. dependencies - to the +app.main+ module and to the +app.businessModule.templates+. The +app.businessModule.templates+ is created automatically according to the following naming convention: +app.<moduleName>.templates+. The dependency to this module is necessary if we want to use cached html templates - for details please see *html section* below.
+. dependencies - to the +app.main+ module and to the +app.businessModule.templates+. The +app.businessModule.templates+ is created automatically according to the following naming convention: +app.<moduleName>.templates+. The dependency to this module is necessary if we want to use cached html templates - for details please see link:Client-GUI-Angular-Adding-Business-Module#html-files[HTML Files] below.
 
 . injections of the +$routeProvider+ and +oaspTranslationProvider+ services. The services are used below to:
 
