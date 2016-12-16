@@ -8,7 +8,7 @@ This page contains a description of coding rules, naming conventions and a proje
 == Standard coding conventions
 We follow these standard coding conventions in order to improve quality:
 
-* https://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml[Google JavaScript Style Guide]
+* https://google.github.io/styleguide/jsguide.html[Google JavaScript Style Guide]
 * http://javascript.crockford.com/code.html[Code Conventions for the JavaScript Programming Language]
 
 == Project specific code conventions
