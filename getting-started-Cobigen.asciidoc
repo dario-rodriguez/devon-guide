@@ -170,7 +170,7 @@ image::images/devonfw-cobigen/devon_guide_cobigen_1_context_menu.png[,width="450
 
 This action opens a code generator wizard, like this:
 
-image::images/devonfw-cobigen/devon_guide_cobigen_2_template_selection_dao.png[,width="450", link="images/devonfw-cobigen/devon_guide_cobigen_2_template_selection_dao.png"]
+image::images/devonfw-cobigen/devon_guide_cobigen_2_template_selection.png[,width="450", link="images/devonfw-cobigen/devon_guide_cobigen_2_template_selection.png"]
 
 In this wizard you can select which classes you want to generate, organized by layer. In this example, please select:
 
