@@ -28,7 +28,7 @@
 
 - link:getting-started-bean-mapping-using-dozer[Bean Mapping using Dozer]
 
-- link:getting-started-writing-unittest-cases[Writing Unit Test Cases]
+- link:getting-started-writing-unittest-cases[Write Unit Test Cases]
 
 - link:getting-started-logging-and-auditing[Logging and Auditing]
 
