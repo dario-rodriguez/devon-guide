@@ -13,14 +13,14 @@
 * link:getting-started-database-configuration[Database Configuration]
 * link:getting-started-set-up-and-maintain-database-schemas-with-flyway[Set up and maintain database schemas with Flyway]
 * link:getting-started-bean-mapping-using-dozer[Bean Mapping using Dozer]
-* link:getting-started-writing-unittest-cases[Write Unit Test Cases]
+* link:getting-started-write-unittest-cases[Write Unit Test Cases]
 * link:getting-started-logging-and-auditing[Logging and Auditing]
 * link:getting-started-Data-Access-Layer[Data Access Layer]
-* link:getting-started-crud-operations[CRUD operations and DAO Implementation]
+* link:getting-started-crud-operations[CRUD Operations and DAO Implementation]
 * link:getting-started-Cobigen[Generate code with Cobigen]
 * link:getting-started-transfer-objects[Transfer Objects : ETOs and CTOs]
 * link:getting-started-logic-layer[Logic Layer]
-* link:getting-started-Creating-Rest-Service[Creating Rest Service]
+* link:getting-started-Creating-Rest-Service[Create Rest Service]
 * link:getting-started-deployment-on-tomcat[Deployment on Tomcat (Client/Server)]
 
 == OASP4J Cookbook
