@@ -1,7 +1,7 @@
 :toc: macro
 toc::[]
 
-= Writing Unit Test Cases
+= Write Unit Test Cases
 
 == Unit Test
 
