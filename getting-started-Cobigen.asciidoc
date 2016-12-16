@@ -166,11 +166,11 @@ public class StaffMemberEntity extends ApplicationPersistenceEntity implements S
 
 To generate the rest of the classes concerning the StaffMember CRUD, we only have to do a right click on the `TableEntity.java` class in Eclipse Project Explorer and select "CobiGen ' Generate".
 
-image::images/devonfw-cobigen/devon_guide_cobigen_1_context_menu.png[,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/devonfw-cobigen/devon_guide_cobigen_1_context_menu.png"]
+image::images/devonfw-cobigen/devon_guide_cobigen_1_context_menu.png[,width="450", link="images/devonfw-cobigen/devon_guide_cobigen_1_context_menu.png"]
 
 This action opens a code generator wizard, like this:
 
-image::images/devonfw-cobigen/devon_guide_cobigen_2_template_selection.png[,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/devonfw-cobigen/devon_guide_cobigen_2_template_selection.png"]
+image::images/devonfw-cobigen/devon_guide_cobigen_2_template_selection_dao.png[,width="450", link="images/devonfw-cobigen/devon_guide_cobigen_2_template_selection_dao.png"]
 
 In this wizard you can select which classes you want to generate, organized by layer. In this example, please select:
 
@@ -184,7 +184,7 @@ and continue.
 
 In the next step you can select the fields of the entity that you want to expose via the REST service.
 
-image::images/devonfw-cobigen/devon_guide_cobigen_3_field_selection.png[,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/devonfw-cobigen/devon_guide_cobigen_3_field_selection.png"]
+image::images/devonfw-cobigen/devon_guide_cobigen_3_field_selection.png[,width="450", link="images/devonfw-cobigen/devon_guide_cobigen_3_field_selection.png"]
 
 Afterwards, click on "Finish" to let CobiGen do its work.
 
