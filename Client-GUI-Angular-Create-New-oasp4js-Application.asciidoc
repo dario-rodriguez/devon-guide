@@ -1,7 +1,7 @@
 :toc: macro
 toc::[]
 
-= Create a New Application
+= Create New Application
 
 You don’t have to start from scratch when creating a new client application. You can use our oasp-generator for yeoman for scaffolding an AngularJS application template.
 
@@ -52,7 +52,7 @@ echo "" > .npmrc
 ----
 This is going to create a new empty file named .npmrc
 
-To configure npm we need to open the file .npmrc we have just created and then add the following configuration:
+To configure npm, you need to open the file .npmrc and then add the following configuration:
 ----
 proxy=http://user:password@proxy:port
 https-proxy=http://user:password@proxy:port
@@ -61,10 +61,9 @@ http-proxy=http://user:password@proxy:port
 
 === Why it is worth using
 
-
 ==== It offers more than other application seeds
 
-There are a lot of JavaScript/AngularJS application seeds like https://github.com/angular/angular-seed[angular-seed] or https://www.npmjs.org/package/angularjs-seed[angularjs-seed]. All of them are great, but they focus rather on a quick & easy start and work well for small-scale projects. oasp4js is built as a base for bigger, modularized, enterprise projects, where different modules are often developed independently and simultaneously by many teams.
+There are various JavaScript/AngularJS application seeds such as https://github.com/angular/angular-seed[angular-seed] or https://www.npmjs.org/package/angularjs-seed[angularjs-seed]. All of them are operational, but they focus on a quick & easy start and work well for small-scale projects. oasp4js is built as a base for bigger, modularized, enterprise projects, where different modules are often developed independently and simultaneously by many teams.
 
 ==== It does not reinvent the wheel
 
