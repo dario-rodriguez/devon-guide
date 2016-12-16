@@ -1,8 +1,9 @@
 :toc: macro
 toc::[]
 
+= File Upload and Download
 
-= Syncronous File Upload
+== Syncronous File Upload
 
 To enable multiple files upload, you need to add multiple attribute to input of type file and it will be enabled automatically.
 And the template would look something like:
@@ -26,7 +27,7 @@ And the template would look something like:
         <tr>
             <td></td>
             <td>
-               <input type="file" multiple="true" name="uploadedFile" size="100" /> 
+               <input type="file" multiple="true" name="uploadedFile" size="100" />
             </td>
         </tr>
         <tr>
@@ -56,9 +57,9 @@ image::images/client-gui-sencha/selected_files_upload_syncronous.png[,width="350
 Click on button "Upload File" to upload the selected files.
 
 
-= File Download
+== File Download
 
-To enable file download, create anchor tag and provide 'href' as an attribute. Provide the web service URL for this attribute to download the file. 
+To enable file download, create anchor tag and provide 'href' as an attribute. Provide the web service URL for this attribute to download the file.
 
 Below is the template for anchor tag.
 

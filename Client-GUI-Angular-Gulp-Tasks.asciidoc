@@ -70,7 +70,7 @@ It works in the +.tmp+ directory.
 |optimization  |-              |usemin
 |=======
 
-=== Subtask description
+=== Subtask details
 
 * clean:develop/dist - performs a clean
 * sprite - create css sprites
@@ -102,7 +102,7 @@ It works in the +.tmp+ directory.
 
 `test:tdd:debug` runs karma JUnit tests in debug mode (Chrome browser) and keeps the testserver up, (karma:unit_chrome)
 
-=== Subtasks description
+=== Subtask description
 
 * build:dist
 * jslint - run jslint checks on the code
