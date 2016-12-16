@@ -32,7 +32,7 @@ i18n/MyView_es_ES.js
 ----
 
 ## Event Names and listeners
-For events and listeners definitions, we suggest that event names start with `event` and listener function names start width `on`. The rest of both names will use (link:https://en.wikipedia.org/wiki/CamelCase[camelcase format]:
+For events and listeners definitions, we suggest that event names start with `event` and listener function names start width `on`. The rest of both names will use link:https://en.wikipedia.org/wiki/CamelCase[camelcase format]:
 
 [source,javascript]
 ----
