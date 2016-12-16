@@ -122,9 +122,9 @@ image::images/devon-ide/FindBugs3.png["ShowView bug Explorer",width="450",link="
 
 image::images/devon-ide/FindBugs4.png["bug Explorer",width="450",link="images/devon-ide/FindBugs4.png"]
 
-=== SonarQube
+=== SonarLint
 
-==== what is SonarQube
+==== what is SonarLint
 
 http://www.sonarqube.org/[SonarQube] is an open platform to manage code quality.
 SonarQube is a web-based application. Rules, alerts, thresholds, exclusions, settings can be configured online. By leveraging its database, SonarQube not only allows to combine metrics altogether but also to mix them with historical measures.
