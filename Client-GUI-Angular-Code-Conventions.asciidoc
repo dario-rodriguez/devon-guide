@@ -18,7 +18,7 @@ In addition to the standard code conventions which are defined in the previous s
 . Every business module should be an *angular module*
 . The main js file of a module should be *located directly* under the module's +js+ directory
 . The main js file of a module should have a name *compliant with the following convention*: +<module>.module.js+ where the +<module>+ is a placeholder for the module's name
-. js files names *are compliant* with the link:Application-Template-Structure#js-naming-convention[js file naming convention]
+. js files names *are compliant* with the link:Client-GUI-Angular-Application-Template-Structure#js-directory[js file naming convention]
 . Every controller should be located in a *separate* js file
 . Every service should be located in a *separate* js file
 
