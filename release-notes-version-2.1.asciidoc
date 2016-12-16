@@ -105,7 +105,7 @@ For more information see: https://github.com/oasp/oasp4j/wiki/guide-database-mig
 
 ### File upload and download 
 
-File up and download was supported in previous version of the framework, but as these operations are common but complex, we've extended the base functionality and improved the available documentation so it becomes substantially easier to offer both File up- as well as download in Devonfw based applications. See: https://github.com/devonfw/devon/wiki/cookbook-File-Upload-and-Download[devonfw Guide Cookbook: File Upload and Download]
+File up and download was supported in previous version of the framework, but as these operations are common but complex, we've extended the base functionality and improved the available documentation so it becomes substantially easier to offer both File up- as well as download in Devonfw based applications. See: https://github.com/devonfw/devon-guide/wiki/cookbook-File-Upload-and-Download[devonfw Guide Cookbook: File Upload and Download]
 
 ### Internationalisation (I18N) improvements
 
