@@ -22,7 +22,7 @@ In addition to the standard code conventions which are defined in the previous s
 . Every controller should be located in a *separate* js file
 . Every service should be located in a *separate* js file
 
-A detailed project structure definition which describes all parts of an application can be found link:Application-Template-Structure[here].
+A detailed project structure definition which describes all parts of an application can be found link:Client-GUI-Angular-Application-Template-Structure[here].
 
 == Tests
 Every Service and Controller should have a corresponding test file. Currently there is no specific folder for test files so they are located in the same folder as files with the corresponding application logic.
