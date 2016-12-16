@@ -8,7 +8,7 @@ This page contains a description of coding rules, naming conventions and a proje
 == Standard coding conventions
 We follow these standard coding conventions in order to improve quality:
 
-* https://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml[Google JavaScript Style Guide]
+* https://google.github.io/styleguide/jsguide.html[Google JavaScript Style Guide]
 * http://javascript.crockford.com/code.html[Code Conventions for the JavaScript Programming Language]
 
 == Project specific code conventions
@@ -18,11 +18,11 @@ In addition to the standard code conventions which are defined in the previous s
 . Every business module should be an *angular module*
 . The main js file of a module should be *located directly* under the module's +js+ directory
 . The main js file of a module should have a name *compliant with the following convention*: +<module>.module.js+ where the +<module>+ is a placeholder for the module's name
-. js files names *are compliant* with the link:Application-Template-Structure#js-naming-convention[js file naming convention]
+. js files names *are compliant* with the link:Client-GUI-Angular-Application-Template-Structure#js-directory[js file naming convention]
 . Every controller should be located in a *separate* js file
 . Every service should be located in a *separate* js file
 
-A detailed project structure definition which describes all parts of an application can be found link:Application-Template-Structure[here].
+A detailed project structure definition which describes all parts of an application can be found link:Client-GUI-Angular-Application-Template-Structure[here].
 
 == Tests
 Every Service and Controller should have a corresponding test file. Currently there is no specific folder for test files so they are located in the same folder as files with the corresponding application logic.
