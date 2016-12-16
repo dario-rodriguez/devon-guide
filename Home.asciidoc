@@ -89,25 +89,25 @@
 
 - link:Client-GUI-Sencha-create-new-application[Create New Devon4sencha Application]
 
-- link:Client-GUI-Sencha-devon4sencha-application-structure[Devon4sencha application structure]
+- link:Client-GUI-Sencha-devon4sencha-application-structure[Devon4sencha Application Structure]
 
-- link:Client-GUI-Sencha-code-conventions[Code conventions]
+- link:Client-GUI-Sencha-code-conventions[Code Conventions]
 
-- link:Client-GUI-Sencha-create-new-page[Create a new page]
+- link:Client-GUI-Sencha-create-new-page[Create a New Page]
 
-- link:Client-GUI-Sencha-create-a-CRUD-page[Create a new CRUD page]
+- link:Client-GUI-Sencha-create-a-CRUD-page[Create a New CRUD Page]
 
 - link:Client-GUI-Sencha-completing-CRUD-example[Completing CRUD example (Create, Read, Update and Delete)]
 
-- link:Client-GUI-Sencha-define-ext-component[Defining an Ext component]
+- link:Client-GUI-Sencha-define-ext-component[Defining an Ext Component]
 
-- link:Client-GUI-Sencha-calling-web-service[Calling web services]
+- link:Client-GUI-Sencha-calling-web-service[Calling Web Services]
 
 - link:Client-GUI-Sencha-models-stores-proxies[Models, Stores and Proxies]
 
 - link:Client-GUI-Sencha-panels-windows[Panels & Windows]
 
-- link:Client-GUI-Sencha-layouts-positioning[Layouts & positioning]
+- link:Client-GUI-Sencha-layouts-positioning[Layouts & Positioning]
 
 - link:Client-GUI-Sencha-Grids[Grids]
 
@@ -119,7 +119,7 @@
 
 - link:Client-GUI-Sencha-theming[Sencha Theming]
 
-- link:Client-GUI-Sencha-error-processing[Error processing]
+- link:Client-GUI-Sencha-error-processing[Error pProcessing]
 
 - link:Client-GUI-Sencha-i18n[Internationalization]
 
@@ -159,7 +159,7 @@
 
 - link:Client-GUI-Angular-Gulp-Tasks[Gulp Tasks]
 
-- link:Client-GUI-Angular-FileUpload[File Upload]
+- link:Client-GUI-Angular-FileUpload[File Upload and Download]
 
 ## Appendix
 
