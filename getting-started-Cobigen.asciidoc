@@ -43,11 +43,13 @@ In the script `resources/db/migration/V0001__Create_schema.sql` we add:
 [source,sql]
 ----
 
-CREATE CACHED TABLE PUBLIC.STAFFMEMBER(
+CREATE TABLE STAFFMEMBER(
     id BIGINT NOT NULL,
-    name VARCHAR(255),
+    modificationCounter INTEGER NOT NULL,
     firstname VARCHAR(255),
-    lastname VARCHAR(255)
+    lastname VARCHAR(255),
+    login VARCHAR(255),
+    role INTEGER
 );
 
 ----
@@ -57,9 +59,10 @@ And in the same path, we are going to create a new file (if it do not exist) to 
 [source,sql]
 ----
 
-INSERT INTO STAFFMEMBER (id, name, firstname, lastname) VALUES (0, 'Charly', 'Chief', 'Chief');
-INSERT INTO STAFFMEMBER (id, name, firstname, lastname) VALUES (1, 'Carl', 'Cook', 'Cook');
-INSERT INTO STAFFMEMBER (id, name, firstname, lastname) VALUES (2, 'Willy','Waiter', 'Waiter');
+INSERT INTO STAFFMEMBER (id, login, role, firstname, lastname, modificationCounter) VALUES (0, 'chief', 3, 'Charly', 'Chief', 0);
+INSERT INTO STAFFMEMBER (id, login, role, firstname, lastname, modificationCounter) VALUES (1, 'cook', 0, 'Carl', 'Cook', 0);
+INSERT INTO STAFFMEMBER (id, login, role, firstname, lastname, modificationCounter) VALUES (2, 'waiter', 1, 'Willy', 'Waiter', 0);
+INSERT INTO STAFFMEMBER (id, login, role, firstname, lastname, modificationCounter) VALUES (3, 'barkeeper', 2, 'Bianca', 'Barkeeper', 0);
 
 ----
 
@@ -76,6 +79,10 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 import devonfw.tutorial.general.dataaccess.api.ApplicationPersistenceEntity;
+import devonfw.tutorial.general.dataaccess.api.StaffMember;
+import devonfw.tutorial.general.dataaccess.api.datatype.Role;
+
+//Add imports with respect to the package structure.
 
 /**
  * 
@@ -84,9 +91,9 @@ import devonfw.tutorial.general.dataaccess.api.ApplicationPersistenceEntity;
  * {@link StaffMember}.
  */
 
-@Entity(name = "StaffMember")
+@Entity
 @Table(name = "StaffMember")
-public class StaffMemberEntity {
+public class StaffMemberEntity extends ApplicationPersistenceEntity implements StaffMember {
 
   private static final long serialVersionUID = 1L;
 
@@ -96,52 +103,63 @@ public class StaffMemberEntity {
 
   private String lastName;
 
+  private Role role;
+
   /**
-   * 
    * The constructor.
    */
-
   public StaffMemberEntity() {
 
     super();
-
   }
 
   @Column(name = "login", unique = true)
+  @Override
   public String getName() {
 
     return this.name;
-
   }
 
+  @Override
   public void setName(String login) {
 
     this.name = login;
-
   }
 
+  @Override
   public String getFirstName() {
 
     return this.firstName;
-
   }
 
+  @Override
   public void setFirstName(String firstName) {
 
     this.firstName = firstName;
-
   }
 
+  @Override
   public String getLastName() {
 
     return this.lastName;
-
   }
 
+  @Override
   public void setLastName(String lastName) {
 
     this.lastName = lastName;
+  }
 
+  @Override
+  public Role getRole() {
+
+    return this.role;
+  }
+
+  @Override
+  public void setRole(Role role) {
+
+    this.role = role;
   }
 
 }
@@ -152,17 +170,17 @@ public class StaffMemberEntity {
 
 To generate the rest of the classes concerning the StaffMember CRUD, we only have to do a right click on the `TableEntity.java` class in Eclipse Project Explorer and select "CobiGen ' Generate".
 
-image::images/devonfw-cobigen/devon_guide_cobigen_1_context_menu.png[,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/devonfw-cobigen/devon_guide_cobigen_1_context_menu.png"]
+image::images/devonfw-cobigen/devon_guide_cobigen_1_context_menu.png[,width="450", link="images/devonfw-cobigen/devon_guide_cobigen_1_context_menu.png"]
 
 This action opens a code generator wizard, like this:
 
-image::images/devonfw-cobigen/devon_guide_cobigen_2_template_selection.png[,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/devonfw-cobigen/devon_guide_cobigen_2_template_selection.png"]
+image::images/devonfw-cobigen/devon_guide_cobigen_2_template_selection.png[,width="450", link="images/devonfw-cobigen/devon_guide_cobigen_2_template_selection.png"]
 
 In this wizard you can select which classes you want to generate, organized by layer. In this example, please select:
 
 * CRUD DAO's
 * CRUD REST services
-* CRUD logic layer (simple)
+* CRUD logic layer (all in one)
 * Entity infrastructure
 * TO's
 
@@ -170,7 +188,7 @@ and continue.
 
 In the next step you can select the fields of the entity that you want to expose via the REST service.
 
-image::images/devonfw-cobigen/devon_guide_cobigen_3_field_selection.png[,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/devonfw-cobigen/devon_guide_cobigen_3_field_selection.png"]
+image::images/devonfw-cobigen/devon_guide_cobigen_3_field_selection.png[,width="450", link="images/devonfw-cobigen/devon_guide_cobigen_3_field_selection.png"]
 
 Afterwards, click on "Finish" to let CobiGen do its work.
 
