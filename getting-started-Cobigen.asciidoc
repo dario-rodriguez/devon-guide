@@ -82,6 +82,8 @@ import devonfw.tutorial.general.dataaccess.api.ApplicationPersistenceEntity;
 import devonfw.tutorial.general.dataaccess.api.StaffMember;
 import devonfw.tutorial.general.dataaccess.api.datatype.Role;
 
+//Add imports with respect to the package structure.
+
 /**
  * 
  * The {@link devonfw.tutorial.general.dataaccess.api.ApplicationPersistenceEntity persistent entity} for
