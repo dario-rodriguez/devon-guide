@@ -317,8 +317,8 @@ As you can see with the *-p* parameter Devcon asks for each parameter related to
 
 == First steps with devcon
 
-In this section we are going to show the basic steps to start using devcon from scratch. To do that we can use the global option _-h_ (help) in order to figure out which commands and parameters we need to define but in a very first approach only the command _devon_ will be enough.
-So the first step will be look for a module that fits our requirements. As we just mentioned we can do so with the _help_ option (defined as _-h_ or _--help_) or, as we also mentioned before, with a simple command _devon_. If we do not specify any information we will see a summary of the general help information, a example of usage and a list with global parameters and the available modules.
+This section describes how to start using devcon from scratch. For this, you can use the global option _-h_ (help) in order to figure out which commands and parameters you need to define. But in a very first approach, only the command _devon_ will be enough.
+Therefore, the first step is to look for a module that fits your requirements. As mentioned above, you can do this with the _help_ option (defined as _-h_ or _--help_) or with a simple command _devon_. If you do not specify any information, you will see a summary of the general help information with an example of usage, a list with global parameters and the available modules.
 
 [source, batch]
 ----
@@ -339,7 +339,7 @@ List of available modules:
 > workspace: Module to create a new workspace with all default configuration
 ----
 
-Once we have the list of modules and an example of how to use them we may need to get a devon distribution so we need to go deeper in module _*dist*_, to do so we can use again the _help_ option after the module definition
+Once you have the list of modules and an example of how to use it, you may need to get the devon distribution to go deeper in module _*dist*_, for that you can again use the _help_ option after the module definition.
 
 [source,batch]
 ----
@@ -354,7 +354,7 @@ Available commands for module: dist
 > s2: Initializes a Devon distribution for use with Shared Services.
 ----
 
-Now we know that the _dist_ module has two commands, the _install_ command and the _s2_ command and we can see a brief description of each one so we can decide which one we need to use. In case we had to get a devon distribution we can learn how to use the install command using again the _help_ option over it
+Now, you know that the _dist_ module has two commands, the _install_ command and the _s2_ command and you can see a brief description of each one therefore you can decide which one you need to use. In case you have to get a devon distribution,  it can be found by the install command with the _help_ option.
 
 [source,batch]
 ----
@@ -372,7 +372,7 @@ This command downloads the distribution
  -user       a user with permissions to download the Devon distribution
 ----
 
-So now we know that the _install_ command of the _dist_ module needs:
+So now you know that the _install_ command of the _dist_ module needs:
 
 - user with permissions to download the distribution.
 
@@ -382,15 +382,15 @@ So now we know that the _install_ command of the _dist_ module needs:
 
 - the type of distribution that can be _'oaspide'_ or _'devondist'_.
 
-With all that information we can launch a fully functional command like the following
+With all the information, you can launch a fully functional command such as:
 
 [source,batch]
 ----
 D:\>devon dist install -user john -password 1234 -path D:\Temp\MyDistribution -type devondist
 ----
 
-Regarding the order of the command parameters, devcon will order them internally so we don't have to concern about that point and we can specify them in the order we want, the only requirement is that all mandatory parameters are provided.
+Regarding the order of the command parameters, devcon will order them internally so that you don't have to concern about that point and you can specify them in the order you want. The only requirement is that all mandatory parameters should be provided.
 
 ==  Devon Command Reference
 
-For a full reference of all available commands in Devcon, see the link:devcon-command-reference[Devcon Command Reference]
+For a full reference of all the available commands in Devcon, see the link:devcon-command-reference[Devcon Command Reference]
