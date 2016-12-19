@@ -144,7 +144,7 @@ First of all, you need to start sonar service. For that , go to software folder 
 If your project is not already under analysis, you'll need to declare it through the SonarQube web interface as described http://docs.sonarqube.org/display/SONAR/Project+Existence[here].
 Once your project exists in SonarQube, you're ready to get started with SonarQube in Eclipse.
 
-SonarQube in Eclipse is pre-configured to access a local SonarQube server listening on http://localhost:9000/.
+SonarLint in Eclipse is pre-configured to access a local SonarQube server listening on http://localhost:9000/.
 You can edit this server, delete it or add new ones.By default, user and password is "admin".If sonar service is started properly, test connection will give you successful result.
 
 Linking a project to one analysed on sonar server.
