@@ -340,7 +340,7 @@ With the last steps you have a very simple authentication and authorization with
 
 ==== Step 1: Create customized filter
 
-The idea is rebuild the default filter `NegotiateSecurityFilter`, we can create a complete new filter or, like this example, just modify some methods. In this case we are going to modify `boolean setAuthentication(...)`, this method is called by the method `void doFilter(...)` (we can modify this method as we want too) when the authentication is successfully, so we are going to build here our UserDetails.
+The idea is rebuild the default filter `NegotiateSecurityFilter`, we can create a complete new filter or, like this example, just modify some methods. In this case we are going to modify `boolean setAuthentication(...)`, this method is called by the method `void doFilter(...)` (we can modify this method too) when the authentication is successful, so we are going to build here our UserDetails.
 
 [source,java]
 ----
