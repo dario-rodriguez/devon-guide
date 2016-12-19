@@ -147,6 +147,9 @@ Once your project exists in SonarQube, you're ready to get started with SonarQub
 SonarLint in Eclipse is pre-configured to access a local SonarQube server listening on http://localhost:9000/.
 You can edit this server, delete it or add new ones.By default, user and password is "admin".If sonar service is started properly, test connection will give you successful result.
 
+image::images/devon-ide/Sonar_add_server.png["Sonar_add_server", width = "450" , link="images/devon-ide/Sonar_add_server.png"]
+
+
 For getting a project analysed on sonar, refer this http://docs.sonarqube.org/display/SONAR/Analyzing+Source+Code [link].
 
 Linking a project to one analysed on sonar server.
