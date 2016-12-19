@@ -147,6 +147,8 @@ Once your project exists in SonarQube, you're ready to get started with SonarQub
 SonarLint in Eclipse is pre-configured to access a local SonarQube server listening on http://localhost:9000/.
 You can edit this server, delete it or add new ones.By default, user and password is "admin".If sonar service is started properly, test connection will give you successful result.
 
+For getting a project analysed on sonar, refer this http://docs.sonarqube.org/display/SONAR/Analyzing+Source+Code [link].
+
 Linking a project to one analysed on sonar server.
 
 image::images/devon-ide/associate-sonarqube.png["associate-sonarqube", width = "450" , link="images/devon-ide/associate-sonarqube.png"]
@@ -160,7 +162,7 @@ image::images/devon-ide/link-with-project.png["link-with-project", width = "450"
 
 Click on Finish. Your project is now associated to one analyzed on your SonarQube server.
 
-*Changing linkage*
+*Changing Binding*
 
 At any time, it is possible to change the project association.
 
@@ -169,7 +171,7 @@ To do so, right-click on the project in the Project Explorer, and then SonarQube
 image::images/devon-ide/change-link-with-project.png["change-link-with-project", width = "450" , link="images/devon-ide/change-link-with-project.png"]
 
 
-*Unlinking a Project*
+*Unbinding a Project*
 
 To do so, right-click on the project in the Project Explorer, and then SonarQube > Remove SonarQube Nature.
 
@@ -178,16 +180,13 @@ image::images/devon-ide/unlink-with-project.png["unlink-with-project", width = "
 
 *Advanced Configuration*
 
-Additional settings (such as markers for new issues) are available through Window > Preferences > SonarQube
+Additional settings (such as markers for new issues) are available through Window > Preferences > SonarLint
 
 image::images/devon-ide/eclipse-settings.png["eclipse-settings", width = "450" , link="images/devon-ide/eclipse-settings.png"]
 
 
-To analyse a project, right click on project , select SonarQube->Analyse.
 
-image::images/devon-ide/analyse-project.png["analyse-project", width = "450" , link="images/devon-ide/analyse-project.png"]
-
-To look for sonarqube analysed issue, go to Window->Show View-> Others->SonarQube->SonarQube Issues.
+To look for sonarqube analysed issue, go to Window->Show View-> Others->SonarLint->SonarLint Issues.
 Now you can see issues in soanrqube issues tab as shown
 
 image::images/devon-ide/sonarQube-issues-view.png["sonarQube-issues-view", width = "450" , link="images/devon-ide/sonarQube-issues-view.png"]
