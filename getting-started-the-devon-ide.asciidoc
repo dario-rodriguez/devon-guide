@@ -144,11 +144,6 @@ First of all, you need to start sonar service. For that , go to software folder 
 If your project is not already under analysis, you'll need to declare it through the SonarQube web interface as described http://docs.sonarqube.org/display/SONAR/Project+Existence[here].
 Once your project exists in SonarQube, you're ready to get started with SonarQube in Eclipse.
 
-Go to Window > Preferences > SonarQube > Servers.
-
-image::images/devon-ide/sonarqube1.png["sonarqube1", width = "450" , link="images/devon-ide/sonarqube1.png"]
-
-
 SonarQube in Eclipse is pre-configured to access a local SonarQube server listening on http://localhost:9000/.
 You can edit this server, delete it or add new ones.By default, user and password is "admin".If sonar service is started properly, test connection will give you successful result.
 
@@ -200,52 +195,3 @@ image::images/devon-ide/sonarQube-issues-view.png["sonarQube-issues-view", width
 
 Or you can go to link http://loclahost:9000 and login with admin as id and admin as password and goto Dashboard.you can see all the statistics of analysis of the configured projects on sonar server.
 
-=== Soap UI
-==== What is soap UI
-
-SoapUI is an open-source web service testing application for service-oriented architectures (SOA) and representational state transfers (REST). Its functionality covers web service inspection, invoking, development, simulation and mocking, functional testing, load and compliance testing.
-IDE comes preinstalled with this plugin.
-Note: There is no update site for this tool.
-
-==== Why use Soap UI
-
-SoapUI is a free and open source cross-platform Functional Testing solution. With an easy-to-use graphical interface, and enterprise-class features, SoapUI allows you to easily and rapidly create and execute automated functional, regression, compliance, and load tests. In a single test environment, SoapUI provides complete test coverage and supports all the standard protocols and technologies.For more details see https://www.soapui.org/about-soapui/what-is-soapui.html[here] .
-
-==== Installation and Usage of Soap UI
-
-
-As soon as , IDE is configured, soapUI can be seen in Windows->Preferences.
-
-
-image::images/devon-ide/soap-preferences.png["soap-preferences", width = "450" , link="images/devon-ide/soap-preferences.png"]
-
-
-Soap ui Perspective can be opened as shown in below pictures
-
-
-image::images/devon-ide/soap-perspective.png["soap-perspective", width = "450" , link="images/devon-ide/soap-perspective.png"]
-
-
-*Creating new Project*
-
-Once Soap UI perspective is opened, right click on projects and "select New Soap UI Project"
-
-image::images/devon-ide/soap-new-project.png["soap-new-project", width = "450" , link="images/devon-ide/soap-new-project.png"]
-
-
-Once above option is selected, a new dialog is opened as shown below:
-
-
-image::images/devon-ide/soap-create-new-project.png["soap-create-new-project", width = "450" , link="images/devon-ide/soap-create-new-project.png"]
-
-
-Provide initial wsdl and project name, and your soap project is created and ready for testing your webservice.
-
-image::images/devon-ide/soap-req-response.png["soap-req-response", width = "450" , link="images/devon-ide/soap-req-response.png"]
-
-
-So, once project is created, and if "create Requests" option is selected , while creation of project, a new request with all the details mentioned in provided WSDL is created.
-
-As , seen in above picture, when u click on "Request1 " node on project tree pane,on the left side request is generated automatically, and when u click on arrow button on tool bar,response is generated with the desired result.
-
-For load testing, and functional testing, https://www.soapui.org/functional-testing/structuring-and-running-tests.html[refer this link]
