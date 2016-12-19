@@ -458,7 +458,7 @@ private WinauthSSO sso;
   }
 ----
 
-As you can see the Filter that we are using needs a AccessControlProvider, we have one configure in the WebSecurityConfig so we just need to pass it to the filter by param.
+As you can see the Filter that we are using needs a AccessControlProvider, we have one configured in the WebSecurityConfig so we just need to pass it to the filter by param.
 
 ==== Step 3: The security entry point and filter
 
