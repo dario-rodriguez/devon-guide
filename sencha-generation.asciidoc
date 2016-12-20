@@ -35,7 +35,7 @@ oasp4j/
 
 === Step 2: Create app
 
-Open a console and navigate to the decon4sencha directory from the core folder and write the following command, beaing APP_NAME the same name as the root package of the OASP4J project:
+Open a console and navigate to the decon4sencha directory from the core folder and write the following command, being APP_NAME the same name as the last part of the basePackage, the name of the package where the SpringBootApp class is:
 
 [source,bash]
 ----
@@ -60,8 +60,6 @@ Edit this two files to configure the endpoint where the ajax calls have to be ma
 During development you will be deploying client and server code independently, this is more productive since you avoid building the whole package only for changes on the JavaScript files. What this is that JavaScript code has to make ajax request to a different domain to where the code is being called. 
 
 To enable this and avoid getting cross domain browser errors you have to enable CORS on the server side.
-
-[IMG configdevelopment]
 
 == CobiGen Templates
 
