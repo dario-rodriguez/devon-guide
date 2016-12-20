@@ -83,8 +83,6 @@ If the templates are imported at the Eclipse workspace, and the input file is an
 * Sencha Client App
 * Sencha Architect Project
 
-The details about how to use the wizard are described link:https://github.com/devonfw/tools-cobigen/wiki/cobigen-eclipse_usage[here].
-
 For the first time generation, the APPNAME_architect_project folder will be created at the root of the origin project with all the folders and files generated. After that, all the next generations will be merged at thus folders.
 
 
