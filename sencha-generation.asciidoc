@@ -74,7 +74,7 @@ The project has the templates for the Sencha Client and Sencha Architect project
 
 The input file for the generation must be the *Eto* file because is the object transferred between the server and the client.
 
-image:images/howtos/senchacligen/sench_01.png[CobiGen Menu,width="450",link="images/howtos/senchacligen/sench_01.png"]
+image:images/devonfw-cobigen/devon_guide_cobigen9c_sencha_app_gen.png[CobiGen Menu,width="450",link="images/devonfw-cobigen/devon_guide_cobigen9c_sencha_app_gen.png"]
 
 == Wizard
 
