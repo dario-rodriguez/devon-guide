@@ -49,7 +49,8 @@ For example:
 sencha generate app -ext restaurant restaurant
 ----
 
-[IMG APPNAMES]
+image::images/devonfw-cobigen/devon_guide_cobigen9_sencha_app_gen.png[,width="450", link="images/devonfw-cobigen/devon_guide_cobigen9_sencha_app_gen.png"]
+
 
 Refresh your OASP4J project (F5).
 
