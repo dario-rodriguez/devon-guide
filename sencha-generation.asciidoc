@@ -1,4 +1,4 @@
-:toc:
+:toc: macro
 toc::[]
 
 = Sencha Client and Sencha Architect project generation
