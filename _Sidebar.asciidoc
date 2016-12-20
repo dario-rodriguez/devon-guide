@@ -49,7 +49,7 @@
 * link:Client-GUI-Sencha-create-new-application[Create New Devon4sencha Application]
 * link:Client-GUI-Sencha-devon4sencha-application-structure[Devon4sencha Application Structure]
 * link:Client-GUI-Sencha-code-conventions[Code Conventions]
-* link:sencha generation[Sencha CRUD generation]
+* link:sencha-generation[Sencha CRUD generation]
 * link:Client-GUI-Sencha-create-new-page[Create a New Page]
 * link:Client-GUI-Sencha-create-a-CRUD-page[Create a New CRUD Page]
 * link:Client-GUI-Sencha-completing-CRUD-example[Complete CRUD example (Create, Read, Update and Delete)]
