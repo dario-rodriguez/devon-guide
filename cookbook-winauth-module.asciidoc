@@ -33,8 +33,7 @@ Include the dependency of the module in your pom.xml
 [subs="quotes"]
 ++++++++++++++++++++++++++++++++++++++
 <table border="1px solid gray"><tr>
-  <td><img src="images/warning.png" 
-alt="IMAGE ALT TEXT HERE" width="100" height="100" /></td>
+  <td><img src="images/warning.png" alt="warning" width="50" /></td>
   <td>*Cell 2*</td>
 </tr></table>
 ++++++++++++++++++++++++++++++++++++++
