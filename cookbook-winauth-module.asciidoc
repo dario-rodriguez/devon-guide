@@ -26,21 +26,7 @@ Include the dependency of the module in your pom.xml
 </dependency>
 ----
 
-|=======================
-|image::images/warning.png[,width="100"]      | bla bla bla
-|=======================
-
-[subs="quotes"]
-++++++++++++++++++++++++++++++++++++++
-<table><tr>
-  <td style="min-width:100"><img src="images/warning.png" alt="warning" width="35" /></td>
-  <td>The IP modules of Devonfw are stored in <a href="https://www.jfrog.com/artifactory/">Artifactory</a>. In case you do not have access to that repository, as the modules are included in the Devonfw distribution, you can install them manually. To do so open a Devonfw command line (<i>console.bat</i>), go to <i>Devon-dist\workspaces\examples\devon</i> and execute the command <i>mvn install</i>.</td>
-</tr></table>
-++++++++++++++++++++++++++++++++++++++
-
-image::images/warning.png[,width="100"] 
-
-[WARNING ![warning](images/warning.png)]
+[TIP]
 ====
 The IP modules of Devonfw are stored in https://www.jfrog.com/artifactory/[Artifactory]. In case you do not have access to that repository, as the modules are included in the Devonfw distribution, you can install them manually. To do so open a Devonfw command line (_console.bat_), go to `Devon-dist\workspaces\examples\devon` and execute the command `mvn install`.
 ====
