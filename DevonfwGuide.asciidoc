@@ -1,6 +1,6 @@
 = Devonfw Guide
 Jhonatan Core <jhcore@capgemini.com>
-v2.1.0
+v2.1.1
 
 :imagesdir: ./images
 :footnote: test footnote from asciidoc
@@ -15,7 +15,7 @@ This document contains the complete compendium of the https://troom.capgemini.co
 
 **Current versions:**
 
-* DevonfwGuide - v2.1.0
+* DevonfwGuide - v2.1.1
 * Devonfw - v2.1.0
 
 **Authors:**
@@ -33,6 +33,7 @@ include::getting-started-Introduction-to-devonfw[]
 include::devcon-user-guide[]
 
 :leveloffset: 0
+
 :toc:
 
 == Getting Started with the Service Layer
@@ -208,6 +209,10 @@ include::Client-GUI-Sencha-code-conventions[]
 
 <<<<
 
+include::sencha-generation[]
+
+<<<<
+
 include::Client-GUI-Sencha-create-new-page[]
 
 <<<<
@@ -266,7 +271,7 @@ include::Client-GUI-Sencha-error-processing[]
 
 include::Client-GUI-Sencha-i18n[]
 
-<<<<
+
 
 :leveloffset: 0
 

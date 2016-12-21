@@ -27,6 +27,11 @@ Include the module dependency in your pom.xml
 </dependency>
 ----
 
+[TIP]
+====
+The IP modules of Devonfw are stored in https://www.jfrog.com/artifactory/[Artifactory]. In case you do not have access to that repository, as the modules are included in the Devonfw distribution, you can install them manually. To do so open a Devonfw command line (_console.bat_), go to `Devon-dist\workspaces\examples\devon` and execute the command `mvn install`.
+====
+
 === Step 2: Properties configuration (only if you are going to generate _.txt_ reports)
 
 In order to use the Reporting module for creating txt reports is necessary to define some parameters related to the size of the elements in the application.properties file of the project.
@@ -38,7 +43,7 @@ devon.reporting.txtConfig.CharHeight=13.9
 devon.reporting.txtConfig.PageWidthInChars=80
 devon.reporting.txtConfig.PageHeightInChars=47
 ----
- 
+
 == Basic implementation
 
 First of all we will need to add the scanner for dependency injection. To do so, in the _SpringBoot_ main class, we must add the following annotations
@@ -90,7 +95,7 @@ myReport.setTemplatePath("path\to\the\template\fooTemplate.jrxml");
 
 The _setData_ method needs a *collection of HashMap* with the pairs key/value to bind template fields with the data.
 
-In the _setTemplatePath_ we need to pass the location of the template to be used to create the report. You can learn more about how to create Jasper templates http://community.jaspersoft.com/documentation/tibco-jaspersoft-studio-user-guide/v60/report-templates[here] and http://community.jaspersoft.com/wiki/creating-custom-template-jaspersoft-studio[here] 
+In the _setTemplatePath_ we need to pass the location of the template to be used to create the report. You can learn more about how to create Jasper templates http://community.jaspersoft.com/documentation/tibco-jaspersoft-studio-user-guide/v60/report-templates[here] and http://community.jaspersoft.com/wiki/creating-custom-template-jaspersoft-studio[here]
 
 In the `Report` object we can also add parameters to be used from within the template
 [source,java]
@@ -116,7 +121,7 @@ So once the Report object is defined the report generation is very simple, it on
 
 * a report manager (the object with the injection of the module).
 
-* the `Report` object with the _data_ and the _template_ defined. 
+* the `Report` object with the _data_ and the _template_ defined.
 
 * a file to _write_ the report results.
 
@@ -157,11 +162,11 @@ A basic _jrxml_ structure would be like that
   <columnHeader> [...] </columnHeader>
 
   <detail> [...] </detail>
-  
+
   <columnFooter> [...] </columnFooter>
 
   <pageFooter> [...] </pageFooter>
-  
+
   <summary> [...] </summary>
 
 </jasperReport>
@@ -191,7 +196,7 @@ We will define the parameters in the templates in this way and after the `<jaspe
 
 === Using parameters in the template
 
-After the parameter definition we can use the parameters within the template with a structure like the following 
+After the parameter definition we can use the parameters within the template with a structure like the following
 
 [source, xml]
 ----

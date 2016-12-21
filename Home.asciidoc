@@ -1,6 +1,6 @@
 # devonfw Guide
 
-*version 2.1.0-SNAPSHOT*
+*version 2.1.2-SNAPSHOT*
 
 ## Getting Started with the Service Layer
 
@@ -92,6 +92,8 @@
 - link:Client-GUI-Sencha-devon4sencha-application-structure[Devon4sencha Application Structure]
 
 - link:Client-GUI-Sencha-code-conventions[Code Conventions]
+
+- link:sencha-generation[Sencha CRUD generation]
 
 - link:Client-GUI-Sencha-create-new-page[Create a New Page]
 
