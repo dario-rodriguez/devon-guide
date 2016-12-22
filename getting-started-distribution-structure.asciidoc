@@ -7,7 +7,7 @@ In this section, we are going to briefly review the Devonfw distribution structu
 
 So, if you have access to the distribution directory just after downloading it, you should find following structure:
 
-image::images/devonfw-dist-structure/devonfw-dist-structure-01.png["Structure after the download",width="450", link="https://github.com/devonfw/devon-guide/wiki/images/devonfw-dist-structure/devonfw-dist-structure-01.png"]
+image::images/devonfw-dist-structure/devonfw-dist-structure-01.png["Structure after the download",width="300", link="images/devonfw-dist-structure/devonfw-dist-structure-01.png"]
 
 == Understanding the structure
 
@@ -19,7 +19,7 @@ As you can see, we have some folders and some executable _.bat_ files. In this s
 
 So after executing these two scripts, following structure will be generated:
 
-image::images/devonfw-dist-structure/devonfw-dist-structure-02.png["Structure after scripts",width="450", link="https://github.com/devonfw/devon-guide/wiki/images/devonfw-dist-structure/devonfw-dist-structure-02.png"]
+image::images/devonfw-dist-structure/devonfw-dist-structure-02.png["Structure after scripts",width="300", link="images/devonfw-dist-structure/devonfw-dist-structure-02.png"]
 
 Now we have the new _conf_ directory as expected, and the _eclipse-main.bat_ and the _eclipse-examples.bat_ related to the _main_ and _examples_ directories within the _workspaces_ folder.
 

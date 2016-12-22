@@ -26,13 +26,11 @@ Include the dependency of the module in your pom.xml
 </dependency>
 ----
 
-++++++++++++++++++++++++++++++++++++++
-<table><tr>
-  <td width="50"><img src="images/warning.png" alt="warning" width="35" /></td>
-  <td>The IP modules of Devonfw are stored in <a href="https://www.jfrog.com/artifactory/">Artifactory</a>. In case you do not have access to that repository, as the modules are included in the Devonfw distribution, you can install them manually. To do so open a Devonfw command line (<i>console.bat</i>), go to <i>Devon-dist\workspaces\examples\devon</i> and execute the command <i>mvn install</i>.<br/>
-If project is already imported in Eclipse then update project: Right click on <i>project > Maven > Update Project ></i> check the <i>Force update of Snapshot/Releases</i> checkbox <i>> Ok </i></td>
-</tr></table>
-++++++++++++++++++++++++++++++++++++++
+[WARNING]
+====
+The IP modules of Devonfw are stored in https://www.jfrog.com/artifactory/[Artifactory]. In case you do not have access to that repository, as the modules are included in the Devonfw distribution, you can install them manually. To do so open a Devonfw command line (_console.bat_), go to `Devon-dist\workspaces\examples\devon` and execute the command `mvn install`.
+If project is already imported in Eclipse then update project: Right click on _project_ > _Maven_ > _Update Project_ > check the _Force update of Snapshot/Releases_ checkbox > _Ok_
+====
 
 ==== Step 2: Security configuration 
 
