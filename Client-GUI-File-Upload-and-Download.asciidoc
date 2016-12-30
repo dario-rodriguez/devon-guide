@@ -55,7 +55,7 @@ image::images/client-gui-sencha/Choose_files_dialog.png[,width="400",Choose file
 
 The total count of selected files will be displayed as,
 
-image::images/client-gui-sencha/selected_files_upload_syncronous.png[,width="450",selected files upload,link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/selected_files_upload_syncronous.png"]
+image::images/client-gui-sencha/selected_files_upload_syncronous.png[,width="350",selected files upload,link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/selected_files_upload_syncronous.png"]
 
 Click on button "Upload File" to upload the selected files.
 
@@ -70,7 +70,7 @@ For asynchronous file upload, use 'ng2-file-upload' project from velor-software.
 . Run command 'npm start' at project root path.
 . Running application will be available at http://localhost:3000/ 
 
-image::images/client-gui-sencha/ng2-file-upload.png[,width="350",File Upload Asyncronous,link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/ng2-file-upload.png"]
+image::images/client-gui-sencha/ng2-file-upload.png[,width="450",File Upload Asyncronous,link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/ng2-file-upload.png"]
 
 
 
