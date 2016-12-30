@@ -65,6 +65,11 @@ Asyncronous File Upload means 'uploading all the files to the server in a separa
 
 For asynchronous file upload, use 'ng2-file-upload' project from velor-software.Below are the steps to follow:
 
+. Clone or download project from https://github.com/valor-software/ng2-file-upload
+. Run command 'npm install' at project root path to download node_modules.
+. Run command 'npm start' at project root path.
+. Running application will be available at http://localhost:3000/ 
+
 
 
 
