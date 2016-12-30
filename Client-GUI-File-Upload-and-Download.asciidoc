@@ -72,6 +72,8 @@ For asynchronous file upload, use 'ng2-file-upload' project from velor-software.
 
 image::images/client-gui-sencha/ng2-file-upload.png[,width="450",File Upload Asyncronous,link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/ng2-file-upload.png"]
 
+You can choose single/multiple files from the buttons OR you can drag and drop them into the drop zones. All the files will be added to the upload queue. Now you can upload the files to the server.
+
 image::images/client-gui-sencha/ng2-file-upload-fileupload.png[,width="450",File Upload Asyncronous,link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/ng2-file-upload-fileupload.png"]
 
 == File Download
