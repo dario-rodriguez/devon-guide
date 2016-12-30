@@ -85,6 +85,9 @@ To integrate this project with the customized webservice for file upload, follow
 ----
 const URL = '<WEBSERVICE_URL>';
 ----
+. Restart the server to reflect the changes.
+
+
 
 == File Download
 
