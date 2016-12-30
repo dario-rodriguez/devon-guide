@@ -63,6 +63,10 @@ Click on button "Upload File" to upload the selected files.
 
 Asyncronous File Upload means 'uploading all the files to the server in a separate request per file, which will not occur at the same time.'
 
+For asynchronous file upload, use 'ng2-file-upload' project from velor-software.Below are the steps to follow:
+
+
+
 
 == File Download
 
