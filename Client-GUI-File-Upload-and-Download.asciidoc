@@ -56,6 +56,8 @@ image::images/client-gui-sencha/selected_files_upload_syncronous.png[,width="350
 
 Click on button "Upload File" to upload the selected files.
 
+== Asyncronous File Upload
+
 
 == File Download
 
