@@ -82,32 +82,33 @@ image::images/client-gui-sencha/ng2-file-upload-fileupload.png[,width="450",File
 
 To integrate this project with the customized webservice for file upload, follow below steps:
 
-. Navigate to '\demo\components\file-upload' folder from project root.
-. Open file 'simple-demo.ts'.
-. Edit variable 'URL' with the webservice URL. It will look like 
+*  Navigate to '\demo\components\file-upload' folder from project root.
+* Open file 'simple-demo.ts'.
+* Edit variable 'URL' with the webservice URL. It will look like 
 [source,bash]
 ----
 const URL = '<WEBSERVICE_URL>';
 ----
-. Restart the server to reflect the changes.
+* Restart the server to reflect the changes.
 
 *Sometimes you can face below cross-browser issue*
 
-Error : "Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource."
+*Error*
+"Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource."
 
-Cause of the problem : 
+*Cause of the problem*
 Higher versions of Google chrome browser sends the empty string for the request header parameter "Access-Control-Request-Headers".This parameter is added by Google chrome, which is not seen for other browsers.
 
 image::images/client-gui-sencha/Cause-Access-control-request-header.png[,width="450",Cause-Access-control-request-header,link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/Cause-Access-control-request-header.png"]
 
 
-Solution:
+*Solution*
 Google chrome extention "Change HTTP Request Header" can be used to solve this problem.
 
-1) Add "Change HTTP Request Header" extention to google chrome and enable it.
-2) Set the value for parameter "Access-Control-Request-Headers" .For example "content-type".
-3) Restart browser.
-4) Hit the webservice again.
+* Add "Change HTTP Request Header" extention to google chrome and enable it.
+* Set the value for parameter "Access-Control-Request-Headers" .For example "content-type".
+* Restart browser.
+* Hit the webservice again.
 
 image::images/client-gui-sencha/Extension-Change-http-request-header.png[,width="450",Extension-Change-http-request-header,link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/Extension-Change-http-request-header.png"]
 
