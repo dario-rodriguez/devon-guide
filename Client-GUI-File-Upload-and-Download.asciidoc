@@ -112,6 +112,7 @@ Google chrome extention "Change HTTP Request Header" can be used to solve this p
 image::images/client-gui-sencha/Extension-Change-http-request-header.png[,width="450",Extension-Change-http-request-header,link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/Extension-Change-http-request-header.png"]
 
 
+
 image::images/client-gui-sencha/Result_Google_Chrome.png[,width="450",Result_Google_Chrome,link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/Result_Google_Chrome.png"]
 
 
