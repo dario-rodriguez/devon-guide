@@ -72,7 +72,7 @@ For asynchronous file upload, use 'ng2-file-upload' project from velor-software.
 
 image::images/client-gui-sencha/ng2-file-upload.png[,width="450",File Upload Asyncronous,link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/ng2-file-upload.png"]
 
-
+image::images/client-gui-sencha/ng2-file-upload-fileupload.png[,width="450",File Upload Asyncronous,link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/ng2-file-upload-fileupload.png"]
 
 == File Download
 
