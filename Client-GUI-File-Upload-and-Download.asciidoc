@@ -76,6 +76,16 @@ You can choose single/multiple files from the buttons OR you can drag and drop t
 
 image::images/client-gui-sencha/ng2-file-upload-fileupload.png[,width="450",File Upload Asyncronous,link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/ng2-file-upload-fileupload.png"]
 
+To integrate this project with the customized webservice for file upload, follow below steps:
+
+. Navigate to '\demo\components\file-upload' folder from project root.
+. Open file 'simple-demo.ts'.
+. Edit variable 'URL' with the webservice URL. It will look like 
+[source,bash]
+----
+const URL = '<WEBSERVICE_URL>';
+----
+
 == File Download
 
 To enable file download, create anchor tag and provide 'href' as an attribute. Provide the web service URL for this attribute to download the file.
