@@ -70,6 +70,7 @@ For asynchronous file upload, use 'ng2-file-upload' project from velor-software.
 . Run command 'npm start' at project root path.
 . Running application will be available at http://localhost:3000/ 
 
+image::images/client-gui-sencha/ng2-file-upload.png[,width="350",File Upload Asyncronous,link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/ng2-file-upload.png"]
 
 
 
