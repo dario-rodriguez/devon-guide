@@ -61,20 +61,23 @@ Click on button "Upload File" to upload the selected files.
 
 == Asyncronous File Upload
 
-Asyncronous File Upload means 'uploading all the files to the server in a separate request per file, which will not occur at the same time.'
+Asyncronous File Upload is uploading files to the server in a separate request per file.
 
-For asynchronous file upload, use 'ng2-file-upload' project from velor-software. Below are the steps to follow:
+For asynchronous file upload in Angular2, use 'ng2-file-upload' package from valor-software. In order to use this package, execute following command line instructions:
 
-. Clone or download project from https://github.com/valor-software/ng2-file-upload
-. Run command 'npm install' at project root path to download node_modules.
-. Run command 'npm start' at project root path.
-. Running application will be available at http://localhost:3000/ 
+. git clone --recursive https://github.com/valor-software/ng2-file-upload.git
+. cd <Root directory of the package that is downloaded by executing above command>
+. npm install  
+. npm start
+
+
+After executing the above said instructions, ng2-file-upload application will be available at http://localhost:3000/ .
 
 
 image::images/client-gui-sencha/ng2-file-upload.png[,width="450",File Upload Asyncronous,link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/ng2-file-upload.png"]
 
 
-You can choose single/multiple files from the buttons 'Choose File/Files' OR you can drag and drop files into the drop zones. All the files will be added to the upload queue. Now you can upload the files to the server.
+In the above screen, you can choose single/multiple files from the buttons 'Choose File/Files' or you can drag and drop files into the drop zones. All the files will be added to the upload queue. To upload a single file, click 'Upload' button. To upload multiple files, click 'Upload All' button.
 
 
 image::images/client-gui-sencha/ng2-file-upload-fileupload.png[,width="450",File Upload Asyncronous,link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/ng2-file-upload-fileupload.png"]
