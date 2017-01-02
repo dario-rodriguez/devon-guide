@@ -81,13 +81,13 @@ This process produces locale files at location _\src\main\resources\com\capgemin
 image::images/devonfw-i18n/ResourceBundleSync_Main.png[,width="350",ResourceBundleSync_Main,link="images/devonfw-i18n/ResourceBundleSync_Main.png"]
 
 
-. Click on _Arguments_ tab besides Main tab.
-. Enter program Arguments as "--locale <locale>" eg. "--locale en"
+1. Click on _Arguments_ tab besides Main tab.
+2. Enter program Arguments as "--locale <locale>" eg. "--locale en"
 
 image::images/devonfw-i18n/ResourceBundleSync_argument.png[,width="350",ResourceBundleSync_argument,link="images/devonfw-i18n/ResourceBundleSync_argument.png"]
 
 
-. Apply the changes and click 'Run' button.
+3. Apply the changes and click 'Run' button.
 
 File _config.properties_ provides flag value true/false, which is used to switch between default implementation and MMM implementation.
 
