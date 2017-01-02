@@ -69,11 +69,11 @@ The returned JSON will have nested objects and will have the following format
 }
 ----
  
-=== Reading properties files via MMM implementation
+=== Reading property files via MMM implementation
 
 _net.sf.mmm.util.nls.base.ResourceBundleSynchronizer_  is used to create .properties files for the locales via MMM implementation.
 
-* Instructions to create locales (property files) via MMM :*
+==== Instructions to create locales (property files) via MMM
 
 This process produces locale files at location _\src\main\resources\com\capgemini\devonfw\module\i18n\common\api\nls_
 
