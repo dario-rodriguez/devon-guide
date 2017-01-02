@@ -5,7 +5,7 @@ toc::[]
 
 == Syncronous File Upload
 
-Syncronous File Upload means 'uploading all the files to the server in a single request at the same time.'
+Syncronous File Upload is uploading files to the server in a single request at the same time.
 
 
 To enable multiple files upload, you need to add multiple attribute to input of type file and it will be enabled automatically.
