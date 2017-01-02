@@ -42,7 +42,7 @@ public class ServiceConfiguration extends WsConfigurerAdapter {
 }
 ----
 
-=== Reading property files via default implementation provided by i18n module
+=== Reading property files via Default implementation provided by i18n module
 
 In Spring applications, "locales" are standard java property files that contain the translations of the applications texts as well as display format of elements namely dates, numbers etc. These property files are located at _src/main/resources/locale_
 
@@ -70,7 +70,7 @@ The returned JSON will have nested objects and will have the following format
 
 _net.sf.mmm.util.nls.base.ResourceBundleSynchronizer_  is used to create .properties files for the locales via MMM implementation.
 
-*Steps to create .properties files via MMM :*
+* Instructions to create locales (property files) via MMM :*
 
 This process produces locale files at location _\src\main\resources\com\capgemini\devonfw\module\i18n\common\api\nls_
 
