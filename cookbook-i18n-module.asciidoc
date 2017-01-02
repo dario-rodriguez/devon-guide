@@ -1,14 +1,14 @@
 :toc: macro
 toc::[]
 
-= The I18N (Internationalization) module
+= The i18n (Internationalization) module
 
 
-Internationalization (sometimes shortened to "I18N , meaning "I - eighteen letters -N") is the process of designing a software application so that it can potentially be adapted to various languages and regions without engineering changes.
+Internationalization (sometimes shortened to "i18n , meaning "i-eighteen letters-n") is the process of designing a software application so that it can potentially be adapted to various languages and regions without engineering changes.
 
 The internationalization process is sometimes called translation or localization enablement.
 
-== I18N Module Information
+== i18n Module Information
 
 === Reading properties files without MMM integration
 
@@ -16,7 +16,7 @@ In Spring applications "locales" are the standard java property files which cont
 
 image::images/devonfw-i18n/locale_path.png[,width="350",locale path, link="images/devonfw-i18n/locale_path.png"]
 
-These properties files store the information in the form of key value pair. The I18N module provides the utility which converts these file entries in respective json format and sent back as a response to the HTTP GET request.
+These properties files store the information in the form of key value pair. The i18n module provides the utility which converts these file entries in respective json format and sent back as a response to the HTTP GET request.
 
 
 === Reading properties files with MMM integration
@@ -46,9 +46,9 @@ File _config.properties_ provides flag value true/false, which is used to switch
 i18n.mmm.enabled=true
 ----
 
-== Integrate I18N module to your project
+== Integrate i18n module to your project
 
-The I18N module provides easy creation and maintenance of distinct translations for your Devon applications. To implement the I18N module in a your project you must follow these steps:
+The i18n module provides easy creation and maintenance of distinct translations for your Devon applications. To implement the i18n module in a your project you must follow these steps:
 
 === Adding the dependency in our project.
 
