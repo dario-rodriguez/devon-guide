@@ -110,6 +110,7 @@ image::images/client-gui-sencha/Cause-Access-control-request-header.png[,width="
 Google chrome extention "Change HTTP Request Header" can be used to fix this issue.
 
 1) Add "Change HTTP Request Header" extention to google chrome and enable it.
+
 2) Set the value for parameter "Access-Control-Request-Headers" .For example "content-type".
 
 
