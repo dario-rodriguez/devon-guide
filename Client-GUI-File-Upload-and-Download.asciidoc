@@ -83,18 +83,19 @@ In the above screen, you can choose single/multiple files from the buttons 'Choo
 image::images/client-gui-sencha/ng2-file-upload-fileupload.png[,width="450",File Upload Asyncronous,link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/ng2-file-upload-fileupload.png"]
 
 
-To integrate this project with the customized webservice for file upload, follow below steps:
+To integrate this package with the customized webservice for file upload (that is developed in your application), follow below steps:
 
-*  Navigate to '\demo\components\file-upload' folder from project root.
+* cd '\demo\components\file-upload' (from package root).
 * Open file 'simple-demo.ts'.
 * Edit variable 'URL' with the webservice URL. It will look like 
 [source,bash]
 ----
 const URL = '<WEBSERVICE_URL>';
 ----
-* Restart the server to reflect the changes.
+* 'npm start' (Restart the server to reflect the change).
 
-*Sometimes you can face below cross-browser issue*
+One can face cross browser issues with header 'Access-Control-Allow-Origin' in Google Chrome for instance.
+More details on this issue follows:
 
 *Error :*
 "Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource."
@@ -106,16 +107,20 @@ image::images/client-gui-sencha/Cause-Access-control-request-header.png[,width="
 
 
 *Solution :*
-Google chrome extention "Change HTTP Request Header" can be used to solve this problem.
+Google chrome extention "Change HTTP Request Header" can be used to fix this issue.
 
-* Add "Change HTTP Request Header" extention to google chrome and enable it.
-* Set the value for parameter "Access-Control-Request-Headers" .For example "content-type".
-* Restart browser.
-* Hit the webservice again.
+1) Add "Change HTTP Request Header" extention to google chrome and enable it.
+2) Set the value for parameter "Access-Control-Request-Headers" .For example "content-type".
+
 
 image::images/client-gui-sencha/Extension-Change-http-request-header.png[,width="450",Extension-Change-http-request-header,link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/Extension-Change-http-request-header.png"]
 
 
+3) Restart browser
+
+To validate the extension "Change HTTP Request Header"  is added to the Google Chrome correctly, hit the service URL once again.
+
+Press 'F12' and see the result in network tab of the browser debugger. The value for parameter 'Access-Control-Request-Headers' should not be empty.
 
 image::images/client-gui-sencha/Result_Google_Chrome.png[,width="450",Result_Google_Chrome,link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/Result_Google_Chrome.png"]
 
