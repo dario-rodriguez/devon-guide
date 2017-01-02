@@ -1,14 +1,28 @@
 :toc: macro
 toc::[]
 
-= The i18n (Internationalization) module
+= The i18n module
 
+== Introduction
 
 Internationalization (sometimes shortened to "i18n , meaning "i-eighteen letters-n") is the process of designing a software application so that it can potentially be adapted to various languages and regions without engineering changes.
 
 The internationalization process is sometimes called translation or localization enablement.
 
-== i18n Module Information
+== The i18n IP Module
+
+The i18n concept is implemented in Devonfw through the i18n module. So, by including it in your project, you will be able to leverage MMM/devonfw features for internationalization by following few steps, avoiding the complex details of the implementation.
+
+=== Adding the i18n module dependency to your project
+To get access to the functionality of the i18n module you will need to include its dependency in your project's pom.xml
+
+
+
+[WARNING]
+====
+The IP modules of Devonfw are stored in https://www.jfrog.com/artifactory/[Artifactory]. In case you do not have access to that repository, as the modules are included in the Devonfw distribution, you can install them manually. To do so open a Devonfw command line (_console.bat_), go to `Devon-dist\workspaces\examples\devon` and execute the command `mvn install`.
+If project is already imported in Eclipse then update project: Right click on _project_ > _Maven_ > _Update Project_ > check the _Force update of Snapshot/Releases_ checkbox > _Ok_
+====
 
 === Reading properties files without MMM integration
 
