@@ -54,7 +54,7 @@ These properties files store the information in the form of key value pair. The 
 
 The returned JSON will have nested objects and will have the following format
 
-[source,json]
+[source,xml]
 ----
 {
   “main”: {
