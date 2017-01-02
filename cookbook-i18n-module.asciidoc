@@ -11,7 +11,7 @@ The internationalization process is sometimes called translation or localization
 
 == The i18n IP Module
 
-The i18n module provides easy creation and maintenance of distinct translations for your Devon applications . So, by including it in your project, you will be able to leverage MMM/devonfw features for internationalization by following few steps, avoiding the complex details of the implementation.
+The i18n module provides easy creation and maintenance of distinct translations for your Devon applications . By including it in your project, you will be able to leverage MMM/devonfw features for internationalization by following few steps and  avoiding the complex details of the implementation.
 
 === Adding the i18n module dependency to your project
 To get access to the functionality of the i18n module you will need to include its dependency in your project's pom.xml
@@ -33,7 +33,7 @@ If project is already imported in Eclipse then update project: Right click on _p
 
 === Adding @ComponentScan to the class level
 
-Don't forget to add the following class level @ComponentScan annotation in the class _io.oasp.application.i18nSampleApp.general.configuration.ServiceConfiguration.java_ 
+Don't forget to add the following class level annotation _@ComponentScan_ in the class _io.oasp.application.i18nSampleApp.general.configuration.ServiceConfiguration.java_ 
 
 [source,xml]
 ----
@@ -50,7 +50,10 @@ image::images/devonfw-i18n/locale_path.png[,width="350",locale path, link="image
 
 These properties files store the information in the form of key value pair. The i18n module of devonfw exposes a REST service to request the locale (information in the property files) in JSON format. Users can also request part of the locale by applying a filter. The filter should have the following format 
 
+[source,xml]
+----
 <service root>/locale/en_US?filter=main.info. 
+----
 
 The returned JSON will have nested objects and will have the following format
 
@@ -75,8 +78,8 @@ _net.sf.mmm.util.nls.base.ResourceBundleSynchronizer_  is used to create .proper
 This process produces locale files at location _\src\main\resources\com\capgemini\devonfw\module\i18n\common\api\nls_
 
 1. Right click on 'i18n' module.
-2. Go to Run As > Run Configurations --> 
-3. Right click _Java Application_ --> 
+2. Go to Run As > Run Configurations 
+3. Right click _Java Application_ 
 4. Click on 'New'
 5. In the dialog box that is displayed , provide name for the configuration (eg. ResouceBundleSyncronizer) and provide main class name as _net.sf.mmm.util.nls.base.ResouceBundleSyncronizer_
 
