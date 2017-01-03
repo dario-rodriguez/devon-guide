@@ -173,6 +173,8 @@ If you don't have Devcon installed you can see how to install it link:devcon-use
 
 Once we have installed our customized version of Devcon we can open the Windows command line (for local Devcon installations) or _console.bat_ script (for the Devcon included in Devon distributions) and type `devcon -g` or `devcon -h`. The first one will open the Devcon graphic user interface, the second one will show the Devcon basic info in the command line. In both cases we should see our new module as one of the available modules.
 
+In case of the _gui_ option we will see
+
 image::images/devcon/devcon-new-module.png[,width="450", link="images/devcon/devcon-new-module.png"]
 
 And selecting the _extract_ command we can see that the parameters we defined appear as mandatory parameters.
