@@ -160,7 +160,7 @@ Finally, we need to generate a new devcon.jar file containing our new module. To
 	* Check 'Extract required libraries into generated JAR'.
 	* Click _Finish_ and click _OK_ in the next window prompts.
 
-Once we have the devcon.jar file we have two options depending if we have are customizing a Devcon installed locally or the Devcon tool included with the Devon distributions (from version 2.1.1 onwards).
+Once we have the devcon.jar file we have two options depending if we are customizing a Devcon installed locally or the Devcon tool included with the Devon distributions (from version 2.1.1 onwards).
 
 - OPTION1: If you are working over a local installation of Devcon you only need to copy the _devcon.jar_ you just created, to `C:\Users\{Your User}\.devcon` replacing the devcon.jar that is inside of that directory with your new _devcon.jar_ (be aware that the directory _.devcon_ may be placed in another drive like _D_).
 
