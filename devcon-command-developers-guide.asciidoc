@@ -171,7 +171,7 @@ If you don't have Devcon installed you can see how to install it link:devcon-use
 
 - OPTION 2: In case you are working over the copy of Devcon enabled by default in Devon distributions you only need to copy the _devcon.jar_ you just created, to `Devon-distribution\software\devcon` replacing the devcon.jar that is inside of that directory with your new _devcon.jar_  
 
-Once we have installed our customized version of Devcon we can open the Windows command line (for local Devcon installations) or _command.line_ script (for the Devcon included in Devon distributions) and type `devcon -g` or `devcon -h`. The first one will open the Devcon graphic user interface, the second one will show the Devcon basic info in the command line. In both cases we should see our new module as one of the available modules.
+Once we have installed our customized version of Devcon we can open the Windows command line (for local Devcon installations) or _console.bat_ script (for the Devcon included in Devon distributions) and type `devcon -g` or `devcon -h`. The first one will open the Devcon graphic user interface, the second one will show the Devcon basic info in the command line. In both cases we should see our new module as one of the available modules.
 
 image::images/devcon/devcon-new-module.png[,width="450", link="images/devcon/devcon-new-module.png"]
 
