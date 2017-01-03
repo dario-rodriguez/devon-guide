@@ -53,7 +53,7 @@ Devcon is based on three basic elements:
 - parameters
 
 So Devcon is a tool based on modules where each module groups several commands related to the module functionality and each command may need parameters to work in one way or another. 
-Each command is used to accomplish one task and may need some parameters in order to achieve its goal. These parameters can be mandatory or optional. The mandatory parameters must be provided by the user when launching the command and the optional parameters can be provided by the user in the same way but if not, they can be read from a configuration file. Apart from this, we can use global parameters that are independent from the modules and commands and that will be helpful in order to obtain devcon information (like help) or other basic configuration features, these parameters will be explained later.
+Each command is used to accomplish one task and may need some parameters in order to achieve its goal. These parameters can be mandatory or optional. The mandatory parameters must be provided by the user when launching the command and the optional parameters can be provided by the user in the same way but if not, they can be read from a configuration file. Apart from this, we can use global parameters that are independent from the modules and commands and that will be helpful in order to obtain Devcon information (like help) or other basic configuration features, these parameters will be explained later.
 
 == Devcon basic usage
 
@@ -208,7 +208,7 @@ In the current version of Devcon we have the following global parameters :
 
 ===== _gui_ parameter
 
-The global parameter _gui_ (*-g*) is the way we will launch the Devcon's graphical user interface. So to complete that operation we only need to execute
+As we saw earlier the global parameter _gui_ (*-g*) is the way we will launch the Devcon's graphical user interface. So to complete that operation we only need to execute
 
 [source,batch]
 ----
@@ -217,8 +217,8 @@ devon -g
 
 ===== _help_ parameter
 
-The global parameter _help_ is very useful to show overall help info of devcon or also for showing more detailed info of each module and command supported.
-For example, if you don't know anything about how to start with devcon, the option *-h* (or *--help*) will show a summary of the devcon usage, listing the global parameters and the available modules alongside a brief description of each one.  
+The global parameter _help_ is very useful to show overall help info of Devcon or also for showing more detailed info of each module and command supported.
+For example, if you don't know anything about how to start with Devcon, the option *-h* (or *--help*) will show a summary of the devcon usage, listing the global parameters and the available modules alongside a brief description of each one.  
 
 [source,batch]
 ----
