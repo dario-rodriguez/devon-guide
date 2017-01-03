@@ -160,20 +160,18 @@ Finally, we need to generate a new devcon.jar file containing our new module. To
 	* Check 'Extract required libraries into generated JAR'.
 	* Click _Finish_ and click _OK_ in the next window prompts.
 
-Once we have the devcon.jar file we have two options depending if we have already installed _Devcon_ in our machine.
+Once we have the devcon.jar file we have two options depending if we have are customizing a Devcon installed locally or the Devcon tool included with the Devon distributions (from version 2.1.1 onwards).
 
-- If we don't have Devcon installed: with a Windows console (remember that you need to have Java installed on your machine) go to the just created jar file and type
+- OPTION1: If you are working over a local installation of Devcon you only need to copy the _devcon.jar_ you just created, to `C:\Users\{Your User}\.devcon` replacing the devcon.jar that is inside of that directory with your new _devcon.jar_ (be aware that the directory _.devcon_ may be placed in another drive like _D_).
 
-[source,batch]
-----
-\path\to\my\jar> java -jar devcon.jar system install
-----
+[NOTE]
+====
+If you don't have Devcon installed you can see how to install it link::devcon-user-guide#getting-started-download-devcon[here]
+====
 
-Then follow the instructions to finish the installation.
+- OPTION 2: In case you are working over the copy of Devcon enabled by default in Devon distributions you only need to copy the _devcon.jar_ you just created, to `Devon-distribution\software\devcon` replacing the devcon.jar that is inside of that directory with your new _devcon.jar_  
 
-- In case you already have installed Devcon you only need to copy the _devcon.jar_ you just created, go to `C:\Users\{Your User}\.devcon` and replace the devcon.jar that is inside of that directory with your new _devcon.jar_ (be aware that the directory _.devcon_ may be placed in another drive like _D_).
-
-Once we have installed our customized version of Devcon we can open the Windows command line and type `devcon -g` or `devcon -h`. The first one will open the Devcon graphic user interface, the second one will show the Devcon basic info in the command line. In both cases we should see our new module as one of the available modules.
+Once we have installed our customized version of Devcon we can open the Windows command line (for local Devcon installations) or _command.line_ script (for the Devcon included in Devon distributions) and type `devcon -g` or `devcon -h`. The first one will open the Devcon graphic user interface, the second one will show the Devcon basic info in the command line. In both cases we should see our new module as one of the available modules.
 
 image::images/devcon/devcon-new-module.png[,width="450", link="images/devcon/devcon-new-module.png"]
 
@@ -242,7 +240,7 @@ The Javascript modules must include two main files:
 
 ==== How to register a module
 
-To register a Javascript module we only need to create a directory with that two files and add it to a _scripts_ directory within the _.devcon_ folder (we will see it later in more detail).
+To register a Javascript module we only need to create a directory with that two files and add it to the Devcon's module engine. If you have installed Devcon locally you should add that directory in a _scripts_ directory within the `C:\Users\{Your User}\.devcon` folder but if you are customizing the Devcon included by default in the Devon distributions (for versions 2.1.1 or higher) you should add the directory with the _json_ and the _js_ files in a _scripts_ directory within the `Devon-dist\software\devon` folder (we will see it later in more detail).
 
 ==== Module definition
 
@@ -382,16 +380,25 @@ We have already seen the structure of a Devcon's Javascript module so let's see 
 
 In this case we are going to create (again) a command to extract a zip file, so we are going to create a module called _myJSmodule_ with a command _extract_ that gets two mandatory parameters _filepath_ for the path to the zip file and a _targetpath_ to define the location of the extracted files.
 
-1. First of all we will need to have Devcon installed on our machine. If you still don't have Devcon you can see how to download and install it link:devcon-user-guide#getting-started-download-devcon[here].
+1. The `Devcon Directory` is
 
-2. Once we have Devcon installed we will need to create the _scripts_ folder within the _.devcon_ directory. You can find the _.devcon_ directory at `C:\Users\{Your User}\.devcon` (if you don't find the `.devcon` directory there try looking in `D:` drive, if the directory is not there neither check your Devcon's installation).
+** for local installations of Devcon: `C:\Users\{Your User}\.devcon` (if you don't find the `.devcon` directory there try looking in `D:` drive, if the directory is not there neither check your Devcon's installation).
+
+** for the Devcon tool within the Devon distribution (version 2.1.1 or higher): `Devon-dist\software\devon`
+
+[NOTE]
+====
+If you want to customize a copy of Devcon in a local context and you still don't have Devcon installed you can see how to download and install it link:devcon-user-guide#getting-started-download-devcon[here].
+===
+
+2. We will need to create the _scripts_ folder within the _Devcon Directory_. 
 
 3. Then we will need to create inside the _scripts_ folder the directory for our new module and inside it we need to add
 
   * a `commands.json` file with the definition of the module
   * and an `extract.js` file with the code for the _extract_ command.
 
-So we will end having this structure
+So we will end having a structure like
 
 image::images/devcon/devcon-js-structure.png[,width="450", link="images/devcon/devcon-js-structure.png"]
 
@@ -472,11 +479,11 @@ We have extracted the file successfully using our just created Devcon command.
 ===== using the command line
 If we use the command line the result will be exactly the same.
 
-Open a command line and launch the `devcon` command (`devon` or `devcon -h` will also work)
+Open a Windows command line (for local Devcon installations) or _command.line_ script (for the Devcon included in Devon distributions) and launch the `devcon` command (`devon` or `devcon -h` will also work)
 
 [source,batch]
 ----
-D:\>devon
+...>devon
 Hello, this is Devcon!
 Copyright (c) 2016 Capgemini
 usage: devon <<module>> <<command>> [parameters...] [-g] [-h] [-p] [-s] [-v]
@@ -500,8 +507,6 @@ List of available modules:
 > sencha: Commands related with Ext JS6/Devon4Sencha projects
 > system: Devcon and system-wide commands
 > workspace: Module to create a new workspace with all default configuration
-
-D:\>
 ----
 
 In the list of available modules you should see our `myJSmodule`.
@@ -510,22 +515,20 @@ Now if we ask for the `myJSmodule` information with the command `devcon myJSmodu
 
 [source,batch]
 ----
-D:\>devcon myJSmodule extract -h
+...>devcon myJSmodule extract -h
 Hello, this is Devcon!
 Copyright (c) 2016 Capgemini
 usage: myJSmodule extract [-filepath] [-targetpath]
 command to extract a file
  -filepath    path to the file to be extracted
  -targetpath  path to the folder to locate the extracted files
-
-D:\>
 ----
 
 Finally we can use the _extract_ command providing both mandatory parameters
 
 [source,batch]
 ----
-D:\>devcon myJSmodule extract -filepath D:\myFile.zip -targetpath D:\Temp
+...>devcon myJSmodule extract -filepath D:\myFile.zip -targetpath D:\Temp
 Hello, this is Devcon!
 Copyright (c) 2016 Capgemini
 extracting...
@@ -534,8 +537,6 @@ file unzip : D:\Temp\myFile\file2.txt
 file unzip : D:\Temp\myFile\file3.txt
 file unzip : D:\Temp\myFile\file4.txt
 Done!
-
-D:\>
 ----
 
 == Conclusion

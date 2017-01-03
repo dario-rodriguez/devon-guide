@@ -15,7 +15,13 @@ You will need to have a Java JDK 1.7 or 1.8 installed on your system. It is *not
 
 == Getting started: Download Devcon
 
-To get started with Devcon, you will need to http://devonfw.github.io/download/devcon/devcon.jar[*download the Devcon jar from the devonfw repository*]. After downloading, open console or command prompt (on Windows: CMD or Powershell), navigate ("cd") to the path where you´ve downloaded the jar file and execute the following command:
+From the Devonfw version 2.1.1 onwards Devcon is included by default within the Devonfw distributions.
+
+However, if you want to install Devcon locally (Devcon can be used to get the last version of Devonfw distribution, so it can be useful to do it that way) you will need to complete the following steps:
+
+- http://devonfw.github.io/download/devcon/devcon.jar[*download the Devcon jar from the devonfw repository*]
+
+- After downloading, open console or command prompt (on Windows: CMD or Powershell), navigate ("cd") to the path where you´ve downloaded the jar file and execute the following command:
 
 [source,bash]
 ----
@@ -24,7 +30,9 @@ java -jar devcon.jar system install
 
 This will install the devcon binaries to a folder _'.devcon'_ in your _'%HOME%'_ directory. Devcon is now added to the _'%PATH%'_ environment variable on your system, allowing it to execute directly from the console. However, after devcon installation on Windows, you need to close the console and reopen it in order to work the environment variables (only for the first time).
 
-After installation, two commands are available to open devon user guide. Try either one, or both of
+Remember that those steps are only necessary in case you want to install Devcon locally on your environment. As mentioned before an installation of Devcon is included by default in the Devonfw distributions (version 2.1.1 or higher) which means that executing the `console.bat` script will open a command line with Devcon available. 
+
+Once you know how obtain Devcon, two commands are available to open devon user guide. Try either one, or both of
 
 [source,bash]
 ----
@@ -184,20 +192,31 @@ Please introduce the value for missing parameter signature:|
 
 ==== Global parameters
 
-Devcon handles a third type of parameter that has nothing to do with command parameters. We are referring it as global parameters.
+Devcon handles a third type of parameter that has nothing to do with command parameters. We are referring it as _global parameters_.
 
-The global parameters are a set of parameters that works in global context, which means it will affect the behaviour of the command in the first phase i.e. before launching the command module itself.
+The _global parameters_ are a set of parameters that works in global context, which means it will affect the behaviour of the command in the first phase i.e. before launching the command module itself.
 
 As these parameters act in a global context, we do not need to provide the values for them. They work as _flags_ to define some internal behaviour of devcon.
 
-In the first devcon version, we have defined three global parameters :
+In the current version of Devcon we have the following global parameters :
 
+- global parameter _gui_: defined with *-g* or *--gui*
 - global parameter _help_: defined with *-h* or *--help*.
-- global parameter _version_: defined with *-v* or *--version*.
 - global parameter _prompt_: defined with *-p* or *--prompt*.
+- global parameter _stacktrace_: defined with *-s* or *--stacktrace*.
+- global parameter _version_: defined with *-v* or *--version*.
 
+===== _gui_ parameter
+
+The global parameter _gui_ (*-g*) is the way we will launch the Devcon's graphical user interface. So to complete that operation we only need to execute
+
+[source,batch]
+----
+devon -g
+---- 
 
 ===== _help_ parameter
+
 The global parameter _help_ is very useful to show overall help info of devcon or also for showing more detailed info of each module and command supported.
 For example, if you don't know anything about how to start with devcon, the option *-h* (or *--help*) will show a summary of the devcon usage, listing the global parameters and the available modules alongside a brief description of each one.  
 
@@ -260,26 +279,6 @@ This command is to say something
  -signature   the signature
 ----
 
-===== _version_ parameter
-
-This is a simple option that returns the devcon running version and is defined with *-v* (or *--version*). As the _help_ option this will show the devcon version even though we have defined a command with all required parameters.
-
-[source,batch]
-----
-D:\>devon -v
-Hello, this is Devcon!
-Copyright (c) 2016 Capgemini
-devcon v.1.0.0
-----
-
-[source,batch]
-----
-D:\>devon foo saySomething -message hello -signature John -v
-Hello, this is Devcon!
-Copyright (c) 2016 Capgemini
-devcon v.1.0.0
-----
-
 ===== _prompt_ parameter
 
 With this global parameter, you can ask devcon to prompt for all parameters (both optional and mandatory) when launching a command.
@@ -314,6 +313,27 @@ Parameter: packagename - package name in server project
 ----  
 
 As you can see with the *-p* parameter Devcon asks for each parameter related to a command (the optional ones can be left blank as the _serverpath_ in the example) and the user can provide them one on one, getting rid of the concern of knowing what parameters needs a command.
+
+
+===== _version_ parameter
+
+This is a simple option that returns the devcon running version and is defined with *-v* (or *--version*). As the _help_ option this will show the devcon version even though we have defined a command with all required parameters.
+
+[source,batch]
+----
+D:\>devon -v
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+devcon v.1.0.0
+----
+
+[source,batch]
+----
+D:\>devon foo saySomething -message hello -signature John -v
+Hello, this is Devcon!
+Copyright (c) 2016 Capgemini
+devcon v.1.0.0
+----
 
 == First steps with devcon
 
