@@ -382,7 +382,7 @@ We have already seen the structure of a Devcon's Javascript module so let's see 
 
 In this case we are going to create (again) a command to extract a zip file, so we are going to create a module called _myJSmodule_ with a command _extract_ that gets two mandatory parameters _filepath_ for the path to the zip file and a _targetpath_ to define the location of the extracted files.
 
-. The `Devcon Directory` is
+- 1. The `Devcon Directory` is
 
 ** for local installations of Devcon: `C:\Users\{Your User}\.devcon` (if you don't find the `.devcon` directory there try looking in `D:` drive, if the directory is not there neither check your Devcon's installation).
 
@@ -393,9 +393,9 @@ In this case we are going to create (again) a command to extract a zip file, so 
 If you want to customize a copy of Devcon in a local context and you still don't have Devcon installed you can see how to download and install it link:devcon-user-guide#getting-started-download-devcon[here].
 ====
 
-.. We will need to create the _scripts_ folder within the _Devcon Directory_. 
+- 2. We will need to create the _scripts_ folder within the _Devcon Directory_. 
 
-... Then we will need to create inside the _scripts_ folder the directory for our new module and inside it we need to add
+- 3. Then we will need to create inside the _scripts_ folder the directory for our new module and inside it we need to add
 
   * a `commands.json` file with the definition of the module
   * and an `extract.js` file with the code for the _extract_ command.
