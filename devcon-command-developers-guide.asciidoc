@@ -391,7 +391,7 @@ In this case we are going to create (again) a command to extract a zip file, so 
 [NOTE]
 ====
 If you want to customize a copy of Devcon in a local context and you still don't have Devcon installed you can see how to download and install it link:devcon-user-guide#getting-started-download-devcon[here].
-===
+====
 
 2. We will need to create the _scripts_ folder within the _Devcon Directory_. 
 
