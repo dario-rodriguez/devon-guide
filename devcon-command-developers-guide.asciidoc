@@ -166,7 +166,7 @@ Once we have the devcon.jar file we have two options depending if we are customi
 
 [NOTE]
 ====
-If you don't have Devcon installed you can see how to install it link::devcon-user-guide#getting-started-download-devcon[here]
+If you don't have Devcon installed you can see how to install it link:devcon-user-guide#getting-started-download-devcon[here]
 ====
 
 - OPTION 2: In case you are working over the copy of Devcon enabled by default in Devon distributions you only need to copy the _devcon.jar_ you just created, to `Devon-distribution\software\devcon` replacing the devcon.jar that is inside of that directory with your new _devcon.jar_  
