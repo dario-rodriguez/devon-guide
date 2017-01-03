@@ -400,7 +400,7 @@ If you want to customize a copy of Devcon in a local context and you still don't
   * a `commands.json` file with the definition of the module
   * and an `extract.js` file with the code for the _extract_ command.
 
-So we will end having a structure like
+So we will end having a structure like `{Devcon Directory}\scripts\myModule` 
 
 image::images/devcon/devcon-js-structure.png[,width="450", link="images/devcon/devcon-js-structure.png"]
 
