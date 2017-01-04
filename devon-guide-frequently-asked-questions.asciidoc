@@ -270,7 +270,7 @@ the alternative might be to use the _property access_ using the annotation direc
 ----
 
 
-Although you can find http://blog.xebia.com/jpa-implementation-patterns-field-access-vs-property-access/[other solutions] to avoid the _property access_.
+although you also can find http://blog.xebia.com/jpa-implementation-patterns-field-access-vs-property-access/[other solutions] to avoid the _property access_.
 
 You can find more information about this topic here:
 
