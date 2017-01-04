@@ -33,10 +33,11 @@ If project is already imported in Eclipse then update project: Right click on _p
 
 === Adding @ComponentScan to ServiceConfiguration
 
-Don't forget to add the following class level annotation _@ComponentScan_ in the class _io.oasp.application.i18nSampleApp.general.configuration.ServiceConfiguration.java_ 
+Don't forget to add the following class level annotation _@ComponentScan_ in one of your configuration classes, for example on the sample restaurant application on the class _ServiceConfiguration.java_ 
 
 [source,xml]
 ----
+@Configuration
 @ComponentScan(basePackages = { "com.capgemini.devonfw.module" })
 public class ServiceConfiguration extends WsConfigurerAdapter {
 }
