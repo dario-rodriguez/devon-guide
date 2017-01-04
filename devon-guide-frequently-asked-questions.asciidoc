@@ -236,7 +236,53 @@ For Spring Boot applications, the easiest way is to edit the `[project]\main\res
 The accepted modes for logging level are: TRACE, DEBUG, INFO, WARN, ERROR, FATAL, OFF
 ====
 
+==== Recomended usage for annotations
 
+As Devon design priciple is recommended to use the annotations in _private field_ rather than _property access_ as it provides a better encapsulation for a similar performance.
+
+===== Exceptions
+
+However we can find an exception to that principle with the case of _Lazy loading in Hibernate_. In this case when using a _field access_ to get the _Id_ of an Entity Hibernate initializes a lazy proxy that triggers an SQL query that loads the entire entity from DB, what may cause an important impact over the performance of the application.
+
+So in this case instead of using the `@Id` annotation with a private field
+
+[source,java]
+----
+
+@Id
+private long id;
+
+----
+
+the alternative might be to use the _property access_ using the annotation directly over the _getter_
+
+[source,java]
+----
+
+  private long id;
+
+ 
+  @Id
+  public String getId() {
+    return this.id;
+  }
+
+----
+
+
+Although you can find http://blog.xebia.com/jpa-implementation-patterns-field-access-vs-property-access/[other solutions] to avoid the _property access_.
+
+You can find more information about this topic here:
+
+- https://www.yammer.com/capgemini.com/#/Threads/show?threadId=696430156&search_origin=global&scoring=linear1Y-prankie-group-private-higher&match=any-exact&search_sort=relevance&page=1&group_ids=5030942&search=inject[Yammer discussion]
+
+- https://forum.hibernate.org/viewtopic.php?f=1&t=996502[Hibernate forum]
+
+- http://blog.xebia.com/jpa-implementation-patterns-field-access-vs-property-access/[JPA implementation patterns: Field access vs. property access]
+
+- https://www.catalysts.cc/en/wissenswertes/ejb-annotations-hibernate-lazy-loading/[EJB 3.0 Annotations mit Hibernate Lazy Loading]
+
+- http://chstath.blogspot.com.es/2007/05/field-access-vs-property-access-in-jpa.html[Field access vs Property access in JPA]
 
 
 === Tomcat
