@@ -58,7 +58,7 @@ Remember to add the package of the module to the `@ComponentScan` annotation in 
 
 [source,java]
 ----
-@ComponentScan(basePackages = { "com.capgemini.devonfw.module.longwebrequest" , "my.rest.location.package" }
+@ComponentScan(basePackages = { "com.capgemini.devonfw.module.async" , "my.rest.location.package" }
 ----
 
 
@@ -88,7 +88,7 @@ The call will be like the following
 
 [source,java]
 ----
-import com.capgemini.devonfw.module.longwebrequest.common.api.LongWebRequest;
+import com.capgemini.devonfw.module.async.common.api.Async;
 import javax.ws.rs.container.AsyncResponse;
 import javax.ws.rs.container.Suspended;
 ...
