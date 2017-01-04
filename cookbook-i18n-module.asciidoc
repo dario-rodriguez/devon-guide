@@ -31,7 +31,7 @@ The IP modules of Devonfw are stored in the https://www.jfrog.com/artifactory/[A
 If project is already imported in Eclipse then update project: Right click on _project_ > _Maven_ > _Update Project_ > check the _Force update of Snapshot/Releases_ checkbox > _Ok_
 ====
 
-=== Adding @ComponentScan to ServiceConfiguration
+=== Adding @ComponentScan
 
 Don't forget to add the following class level annotation _@ComponentScan_ in one of your configuration classes, for example on the sample restaurant application on the class _ServiceConfiguration.java_ 
 
