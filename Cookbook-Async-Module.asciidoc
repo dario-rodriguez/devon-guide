@@ -38,7 +38,7 @@ Add the reference to the module in your REST service using the `@Inject` annotat
 
 [source,java]
 ----
-import com.capgemini.devonfw.module.longwebrequest.common.api.LongWebRequest;
+import com.capgemini.devonfw.module.async.common.api.Async;
 
 ...
 
