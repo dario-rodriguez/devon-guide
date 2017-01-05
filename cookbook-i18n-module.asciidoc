@@ -61,9 +61,9 @@ The returned JSON will have nested objects and will have the following format
 [source,xml]
 ----
 {
-  “main”: {
-     “intro”:{
-        “name”: “Devon fw control panel”,
+  "main": {
+     "intro":{
+        "name": "Devon fw control panel",
 	     … etc etc ...
       }
    }
