@@ -6,8 +6,9 @@ toc::[]
 
 In this section we focus on 
 
-*  How to create a new Devon distribution environment ,in order to publish a new release of the distribution in which new features and functionalities are included.
+*  How to create a new Devon distribution environment ,in order to publish a new release of the distribution in which new features and functionalities are included.(Windows OS)
 *  How to create Devon distribution zip in case of an intermediate release.
+* How to create a new Devon Distribution environment,in order to publish a new release of the distribution in which new features and functionalities are included.(Linux OS)
 
 == Downloading the OASP IDE
 
@@ -268,6 +269,10 @@ Download it from https://coconet.capgemini.com/sf/frs/do/listReleases/projects.a
 
 Once you download it, extract it and then skip *Adding plugins* step, and directly follow step *Adding sample apps* .
 If there are any modifications in scripts etc, put new scripts at appropriate directory and then follow step from *Addition of changeLOG file* till *Upload to Teamforge*.
+
+= Steps for LINUX OS
+
+
 
 
 
