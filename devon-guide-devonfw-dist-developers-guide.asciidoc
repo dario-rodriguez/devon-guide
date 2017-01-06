@@ -264,12 +264,27 @@ If there are any modifications in scripts etc, put new scripts at appropriate di
 
 = Steps for LINUX OS
 
-For Linux, we need to follow all the steps mentioned above,except for addition of ps-console and S2 scripts, as we are not including it.
+For Linux, we need to follow  the steps mentioned below.
+
 
 == Downloading the OASP IDE
 
-To create, the new Devon distribution we are going to start from the last OASP-IDE distribution that can be found https://coconet.capgemini.com/sf/go/projects.apps2_devon/frs.oasp4j_ide[here]
+To create, the new Devon distribution we are going to start from the latest OASP-IDE distribution that can be found https://coconet.capgemini.com/sf/go/projects.apps2_devon/frs.oasp4j_ide[here].
+In this link, you will get OASP-IDE distribution for _Windows OS_ .
+So, we need to align linux devon distribution with Windows version.
 Now we have an OASP .zip file so the next step is to extract the file in a folder of our local machine. After extracting the oasp4j-ide-all.zip we rename it to fit to our new devon version.
+After extraction, delete all the binaries present in software folder.And we need to have below listed binaries in linux versions.
+
+* ant
+* eclipse
+* tomcat
+* sonarqube
+* jasypt
+* java
+* nodejs
+* maven
+* sencha
+
 
 == Addition of Plugins
 
@@ -278,7 +293,7 @@ Plugins to include:
 
 * Sencha
 * Cobigen
-* Subversion
+
 
 === Adding Sencha plugin
 
@@ -304,23 +319,7 @@ A quick way to check if Sencha is installed is, to open the distribution console
 If there is no response we must check our Sencha installation.
 But to check if the installation is completely successful we should compile the ExtSample app that we can obtain at the last section of this document. So this check will be delayed until that moment.
 
-=== *Adding Subversion plugin*
 
-Apache Subversion is a software versioning and revision control system distributed as free software under the Apache License and is included as the pre-installed Devon code version control.
-
-*1. Download Subversion client*
-
-Firstly, get the last version of the Subversion client that can be found http://www.collab.net/downloads/subversion[here].
-
-*2.Install subversion client*
-
-As did with the Sencha plugin, you must now install the software in  local machine, by creating a subversion folder in the software directory of the distribution and do the installation directly there. If you install subversion in other location then you must copy and paste the installation content to a subversion folder in the software directory of your distribution.
-
-*3. Check the installation*
-
-To check the installation launch the console.bat script to get environment’s console and type the command svn --version. The console must recognize the command and return our subversion version installed.
- 
-If the command is not recognized check the Subversion install process.
 
 === Adding Jasypt client
 
