@@ -3,7 +3,7 @@ toc::[]
 
 = Sample Application
 
-Devonfw comes with a sample application, which showcases the most common features of a Devonfw application and its proposed best practices. The sample application also serves as a final test to make sure that your environment is setup correctly. 
+Devonfw comes with a sample application, which showcases the most common features of a Devonfw application and its proposed best practices. The sample application also serves as a final test to make sure that your environment is setup correctly.
 
 This section explains how to download the sample application and run it. Setup Devonfw environment and follow the below steps:
 
@@ -18,7 +18,7 @@ To clone the repository, open the Git Bash console and run the following command
 git clone https://github.com/devonfw/devon.git
 ----
 
-Now, let's discuss how to run the Sample Application. 
+Now, let's discuss how to run the Sample Application.
 
 == Running Sample Application
 
@@ -61,7 +61,7 @@ The embedded Tomcat server of the Spring Boot Application can be running with a 
 
 image::images/running-sample-application/running_sample_application_1_run_embedded_server.png[, width="450", link="https://github.com/devonfw/devon-guide/wiki/images/running-sample-application/running_sample_application_1_run_embedded_server.png",]
 
-Now you can open you favorite browser and see the Sample Application running in the next URL  
+Now you can open you favorite browser and see the Sample Application running in the next URL
 
 [source]
 ----
@@ -76,31 +76,31 @@ Normally we want to deploy our application in a external server, so we can do th
 
 ==== Step 1: Create new Tomcat server
 
-* Open the Server view in Eclipse if you don't have it opened (main menu -> Windows -> Show View -> Servers). 
+* Open the Server view in Eclipse if you don't have it opened (main menu -> Windows -> Show View -> Servers).
 
-* In servers view do right click -> New -> Server 
+* In servers view do right click -> New -> Server
 
 image::images/running-sample-application/running_sample_application_1_new_server.png[, width="450", link="https://github.com/devonfw/devon-guide/wiki/images/running-sample-application/running_sample_application_1_new_server.png",]
 
-* In the wizard panel you need to configure the server as Tomcat 8 and press Next. 
+* In the wizard panel you need to configure the server as Tomcat 8 and press Next.
 
 image::images/running-sample-application/running_sample_application_2_new_server.png[, width="450", link="https://github.com/devonfw/devon-guide/wiki/images/running-sample-application/running_sample_application_2_new_server.png",]
 
-It's possible that Eclipse ask you for the path of Tomcat 8. If you don't have Tomcat 8 in your distribution of Devonfw you can download it https://tomcat.apache.org/download-80.cgi[here] and extract the zip in the software folder of your distribution. 
+It's possible that Eclipse ask you for the path of Tomcat 8. If you don't have Tomcat 8 in your distribution of Devonfw you can download it https://tomcat.apache.org/download-80.cgi[here] and extract the zip in the software folder of your distribution.
 
 ==== Step 2: Add the application in the server
 
 Now we need to go to the Server View and do right click in your new Tomcat 8 server -> Add and Remove... -> add the oasp4j-sample-server -> Finish.
 
 image::images/running-sample-application/running_sample_application_3_new_server.png[, width="450", link="https://github.com/devonfw/devon-guide/wiki/images/running-sample-application/running_sample_application_3_new_server.png",]
-  
+
 ==== Step 3: Run the server
 
-Now we need to press Run or Debugg in the Server View with our new Tomcat server selected. And the application will be deployed by the server. 
+Now we need to press Run or Debugg in the Server View with our new Tomcat server selected. And the application will be deployed by the server.
 
 image::images/running-sample-application/running_sample_application_4_new_server.png[, width="450", link="https://github.com/devonfw/devon-guide/wiki/images/running-sample-application/running_sample_application_4_new_server.png",]
 
-Now you can open you favorite browser and see the Sample Application running in the next URL 
+Now you can open you favorite browser and see the Sample Application running in the next URL
 
 [source]
 ----
@@ -108,3 +108,17 @@ http://localhost:8080/oasp4j-sample-server/
 ----
 
 As you can see the port is 8080, but you can modify this properties in the Tomcat server properties (double click over the server in the _Servers_ view) or in *src/main/resources/application.properties*. You need to take into account that this are the properties that the application will use if you deploy the application in the context of an external Tomcat server.
+
+==== Step 4: Login at the application
+
+When everything is already successfully set up, we can finally enter in the application by using default user credentials:
+
+[width="50%",frame="topbot",options="header"]
+|==========================
+|Username|Password
+|chief   |chief
+|waiter  |waiter
+|cook    |cook
+|==========================
+
+Depending on which user/pass is chosen to login, the application will behave differently. For instance, by using *chief/chief* will grant access to both the table management and the kitchen management. It will not happen by using the other two credentials, *waiter/waiter* and *cook/cook* which will grant access just to the table management or to the kitchen management respectively.
