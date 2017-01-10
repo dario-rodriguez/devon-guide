@@ -60,7 +60,7 @@ auth.authenticationProvider(this.authenticationManagerAD.LdapAuthenticationProvi
 
 [NOTE]
 ====
-For previous version of _oasp4j_ apps you should add it in the `init()` method (in these cases you should find an AuthenticationManagerBuilder available in the class). 
+For previous version of _oasp4j_ apps you won't find 'configureGlobal' method so you should add it in the `init()` method instead (in these cases you should find an AuthenticationManagerBuilder available in the class). 
 
 [source,java]
 ----
