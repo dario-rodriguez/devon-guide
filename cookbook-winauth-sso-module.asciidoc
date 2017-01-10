@@ -1,1 +1,236 @@
-Winauth SSO
+:toc: macro
+toc::[]
+
+= The Winauth-SSO module
+
+This Devonfw IP module allows the applications to authenticate the users using the Windows credentials. The basic result is that the login is made automaticaly through the browser avoiding the login form (in some browsers like _Firefox_ you may need to authenticate once).
+
+== Single Sign On
+
+Single sign-on (SSO) is a property of access control of multiple related, but independent software systems. With this property a user logs in with a single ID and password to gain access to a connected system or systems without using different usernames or passwords, or in some configurations seamlessly sign on at each system.
+
+For more information visit https://en.wikipedia.org/wiki/Single_sign-on[wikipedia].
+
+=== Include Winauth SSO in a Devon project
+
+_Winauth SSO_ module provides you a simple _Single sign-on_ authentication for your Devon applications. If you want to implement this kind of authentication in a Devon project you need to follow the next steps:
+
+==== Step 1: Add the dependency
+
+Include the dependency of the module in your pom.xml
+
+[source,xml]
+----
+<dependency>
+      <groupId>com.capgemini.devonfw.modules</groupId>
+      <artifactId>devonfw-winauth-sso</artifactId>
+      <version>2.1.0-SNAPSHOT</version>
+</dependency>
+----
+
+[WARNING]
+====
+The IP modules of Devonfw are stored in https://www.jfrog.com/artifactory/[Artifactory]. In case you do not have access to that repository, as the modules are included in the Devonfw distribution, you can install them manually. To do so open a Devonfw command line (_console.bat_), go to `Devon-dist\workspaces\examples\devon` and execute the command `mvn install`.
+If project is already imported in Eclipse then update project: Right click on _project_ > _Maven_ > _Update Project_ > check the _Force update of Snapshot/Releases_ checkbox > _Ok_
+====
+
+==== Step 2: Inject the module
+
+In the class `general/service/impl/config/BaseWebSecurityConfig.java` use the `@Inject` annotation to get access to the module through a private field
+
+[source,java]
+----
+import com.capgemini.devonfw.module.winauthsso.common.api.WinauthSSO;
+
+{...}
+
+public abstract class BaseWebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+  {...}
+
+  @Inject
+  private WinauthSSO sso;
+
+  {...}
+}
+----
+
+
+[NOTE]
+====
+For previous versions of the _oasp4j_ based apps you may find `BaseWebSecurityConfig` in a different location: `general/configuration/BaseWebSecurityConfig.java`. 
+====
+
+==== Step 3: Define the security entry point and filter
+
+Also in the `BaseWebSecurityConfig.java` class add the winauth SSO configuration down in the void _configure(HttpSecurity)_ method
+
+[source,java]
+----
+@Override
+public void configure(HttpSecurity http) throws Exception {
+
+    //Winauth SSO configuration
+    http.addFilterAfter(this.sso.getSSOFilter(), BasicAuthenticationFilter.class).exceptionHandling()
+        .authenticationEntryPoint(this.sso.getSSOFilterEntryPoint());
+}
+----
+
+And that's all, now you have a simple SSO Authentication implemented.
+
+Now when accessing to the app the browser should redirect you to the main page of your app without the login process.
+
+After doing that, in the server console, you should see a message like the following
+
+[source,bash]
+----
+waffle.spring.NegotiateSecurityFilter    : successfully logged in user: {Your-Domain}\{Your-User}
+----
+
+[NOTE]
+====
+We need to be carefully with the service currentuser because SSO by default is not compatible with the information of the `UserDetailsClientTo`class. You need to adapt this class or use a customized SSO User Details (next chapter in the wiki). 
+====
+
+=== Customized Winauth SSO User Details
+
+With the last steps you have a very simple authentication and authorization with Windows credentials. In a standard scenario you may want to implement your own _User Details_ so we are going to show how to implement it for our SSO authentication.
+
+==== Step 1: Create customized filter
+
+The idea is rebuild the default filter `NegotiateSecurityFilter`, we can create a complete new filter or, like this example, just modify some methods. In this case we are going to modify `boolean setAuthentication(...)`, this method is called by the method `void doFilter(...)` (we can modify this method too) when the authentication is successful, so we are going to build here our UserDetails.
+
+[source,java]
+----
+/**
+ * This is a dummy implementation of a customized NegotiateSecurityFilter.
+ *
+ * @author jhcore
+ */
+public class NegotiateSecurityFilterCustomized extends NegotiateSecurityFilter {
+  /** The Constant LOGGER. */
+  private static final Logger LOGGER = LoggerFactory.getLogger(NegotiateSecurityFilterCustomized.class);
+
+  private Usermanagement usermanagement = new UsermanagementDummyImpl();
+
+  private AccessControlProvider accessControlProvider;
+
+  /**
+   * The constructor.
+   *
+   * @param accessControlProvider is the provider that help us to get the permissions
+   */
+  public NegotiateSecurityFilterCustomized(AccessControlProvider accessControlProvider) {
+    super();
+    this.accessControlProvider = accessControlProvider;
+  }
+
+  /**
+   * The constructor.
+   */
+  public NegotiateSecurityFilterCustomized() {
+    super();
+  }
+
+  @Override
+  public void doFilter(final ServletRequest req, final ServletResponse res, final FilterChain chain)
+      throws IOException, ServletException {
+
+    // Here you can customize your own filer functionality
+    super.doFilter(req, res, chain);
+  }
+
+  @Override
+  protected boolean setAuthentication(final HttpServletRequest request, final HttpServletResponse response,
+      final Authentication authentication) {
+
+    try {
+      String principal[] = authentication.getPrincipal().toString().split("\\\\", 2);
+
+      String username = principal[1];
+
+      UserProfile profile = this.usermanagement.findUserProfileByLogin(username);
+
+      UsernamePasswordAuthenticationToken auth =
+          new UsernamePasswordAuthenticationToken(profile, getAutoritiesByProfile(profile));
+
+      SecurityContextHolder.getContext().setAuthentication(auth);
+    } catch (Exception e) {
+      NegotiateSecurityFilterCustomized.LOGGER.warn("error authenticating user");
+      NegotiateSecurityFilterCustomized.LOGGER.trace("", e);
+    }
+
+    return true;
+  }
+
+  private Object getAutoritiesByProfile(UserProfile profile) {
+
+    Set<GrantedAuthority> authorities = new HashSet<>();
+    Collection<String> accessControlIds = new ArrayList<>();
+    accessControlIds.add(profile.getRole().getName());
+    Set<AccessControl> accessControlSet = new HashSet<>();
+    for (String id : accessControlIds) {
+      boolean success = this.accessControlProvider.collectAccessControls(id, accessControlSet);
+      if (!success) {
+        // authorities.add(new SimpleGrantedAuthority(id));
+      }
+    }
+    for (AccessControl accessControl : accessControlSet) {
+      authorities.add(new AccessControlGrantedAuthority(accessControl));
+    }
+    return authorities;
+  }
+}
+----
+
+As you have seen this example uses the `UsermanagementDummyImpl` that is created when you create a new Devon application. Feel free to customize your own filter, just use the above class with a customized Usermanagement.
+
+==== Step 2: Inject and configure Winauth SSO
+
+Now we are going to create a Winauth SSO variable and configure the filter
+
+[source,java]
+----
+import com.capgemini.devonfw.module.winauthsso.common.api.WinauthSSO;
+
+{...}
+
+public abstract class BaseWebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+  {...}
+
+  @Inject
+  private WinauthSSO sso;
+
+  @Bean
+  public AccessControlProvider accessControlProvider() {
+
+    return new AccessControlProviderImpl();
+  }
+
+  {...}
+}
+----
+
+As you can see the Filter that we are using needs a AccessControlProvider, we have one configured in the WebSecurityConfig so we just need to pass it to the filter by param.
+
+==== Step 3: Configure the Custom Filter and the security entry point
+
+Add the _winauth SSO_ configuration down in the void _configure(HttpSecurity)_ method
+
+[source,java]
+----
+@Override
+public void configure(HttpSecurity http) throws Exception {
+...
+    
+    // Set the custom filter
+    this.sso.setCustomFilter(new NegotiateSecurityFilterCustomized(accessControlProvider()));
+
+    // Add the Filter to the app authentication process
+    http.addFilterAfter(this.sso.getSSOFilter(), BasicAuthenticationFilter.class).exceptionHandling()
+        .authenticationEntryPoint(this.sso.getSSOFilterEntryPoint());
+}
+----
+
+And that's all, now we have a simple SSO Authentication with a custom _UserDetails_ and we can use the server _current user_ by default.

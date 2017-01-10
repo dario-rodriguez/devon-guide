@@ -124,7 +124,7 @@ Copy above created templates-oasp directory to the workspaces\main directory of 
 
 Now in order to use Cobigen follow the steps described in https://github.com/devonfw/devon/wiki/devon-guide-cobigen[this guide]
 
-== Updating node.js
+== Updating node js
 
 The node.js plugin is included in the OASP IDE distribution but you may need to update it to the last version. To do so proceed as follows:
 

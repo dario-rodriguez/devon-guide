@@ -26,7 +26,8 @@
 == OASP4J Cookbook
 
 * link:cookbook-reporting-module[devonfw Reporting Module]
-* link:cookbook-winauth-module[devonfw Windows Auth Module]
+* link:cookbook-winauth-ad-module[devonfw Active Directory Auth module]
+* link:cookbook-winauth-sso-module[devonfw Windows Single Sign-on Auth module]
 * link:cookbook-i18n-module[devonfw I18N Module]
 * link:cookbook-async-module[devonfw Async Module]
 * link:cookbook-security-layer[Security: Authentication and Authorization]
