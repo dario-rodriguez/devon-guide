@@ -60,13 +60,14 @@ auth.authenticationProvider(this.authenticationManagerAD.LdapAuthenticationProvi
 
 [NOTE]
 ====
-For previous version of oasp4j apps you should add it in the `init()` method (you should have an AuthenticationManagerBuilder available). 
+For previous version of _oasp4j_ apps you should add it in the `init()` method (in these cases you should find an AuthenticationManagerBuilder available in the class). 
 
 [source,java]
 ----
 @PostConstruct
 public void init() throws Exception {
-this.authenticationManagerBuilder.authenticationProvider(this.authenticationManagerAD.LdapAuthenticationProvider());
+this.authenticationManagerBuilder
+    .authenticationProvider(this.authenticationManagerAD.LdapAuthenticationProvider());
 }
 ----
 ====
