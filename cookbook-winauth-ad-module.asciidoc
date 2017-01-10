@@ -269,7 +269,7 @@ Now, if you ask the server for the current user of the application, you will see
 
 If you use the basic _UserDetailsContextMapper_ that winauth-ad implements, you need to modify the service _currentuser_ in the class `general/service/impl/rest/SecurityRestServiceImpl.java`. 
 
-[source,xml]
+[source,java]
 ----
   @Produces(MediaType.APPLICATION_JSON)
   @GET
