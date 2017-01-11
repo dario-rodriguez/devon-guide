@@ -369,14 +369,6 @@ include::devon-guide-frequently-asked-questions[]
 
 <<<<
 
-include::devon-guide-working-with-git-and-github[]
-
-<<<<
-
-include::devon-guide-devonfw-dist-developers-guide[]
-
-<<<<
-
 include::devcon-command-reference[]
 
 <<<<
