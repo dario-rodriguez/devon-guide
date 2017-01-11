@@ -39,7 +39,7 @@ We will be able to do that in two ways:
 
 Let's see the basic elements to have in mind before starting with the addition of new modules.
 
-=== Elements and their Keywords
+=== Elements and their keywords
 
 Each main element of Devcon needs to be _registered_ to become accessible, to achieve that we annotate each element with a specific _keyword_ that will tell Devcon, during the launching process, which elements are available as modules and commands.
 
@@ -55,7 +55,7 @@ In the same way, the commands in Devcon are registered using the _@Command_ anno
 In most cases the commands will need parameters to work with. The _@Parameters_ and _@Parameter_ annotations allow to register those in Devcon. The _@Parameter_ annotation also allows to define the basic info of each parameter (_name_, _description_, etc.).
 
 
-=== Creating a Java module
+=== Creating a java module
 
 If you are not interested in create _core_ modules and want to focus on external Javascript modules skip this section and go direcly to link:devcon-command-developers-guide#javascript-modules[Javascript modules] part.
 
@@ -89,7 +89,7 @@ Finally we will have something like
 public class File extends AbstractCommandModule {
 
 ...
-
+}
 ----
 
 ==== Command annotations
@@ -149,7 +149,7 @@ public class File extends AbstractCommandModule {
 }
 ----
 
-==== Generate the JAR
+==== Generate the jar
 
 Finally, we need to generate a new devcon.jar file containing our new module. To do so, in Eclipse, with right click over the _devcon_ project in the _Project Explorer_ panel:
 
@@ -186,13 +186,13 @@ image::images/devcon/devcon-new-module2.png[,width="450", link="images/devcon/de
 If you want to try the same but using the command line you can use the command `devcon file extract -h`
 ====
 
-==== Using our module/command
+==== Using our module and command
 
 Finally we want to use the _extract_ command of our _file_ module to extract a real zip file.
 
 We have a _myFile.zip_ in _D:_ and want to extract the files into _D:\Temp_ directory
 
-===== with the GUI
+===== with the gui
 
 We will need to provide both mandatory parameters and click _Start_ button
 
@@ -269,7 +269,7 @@ An example for a _commands.json_ might look like
 
 ...
 
-
+}
 ----
 
 ==== Command definition
@@ -300,10 +300,9 @@ Also in the _commands.json_ file we will define the commands of the module and i
 		"description": "this is my first js command",
 		"context": "NONE",
 		"proxyParams": false,
-
-...
-
-
+		...
+	}]
+}
 ----
 
 ==== Parameter definition
@@ -350,9 +349,10 @@ In our example we are going to add two parameters, a first one that will be show
 			"inputType" : {"name":"list", "values":["devonfw", "oasp4j", "cobigen", "devcon"]}
 			}
 		]
-	},
+	}],
 
 ...
+
 
 }
 ----
@@ -374,7 +374,7 @@ function (firstParameter, secondParameter){
 }
 ----
 
-==== Creating a Javascript module
+==== Creating a javascript module
 
 ===== Adding the module structure
 
@@ -457,7 +457,7 @@ function(filepath, targetpath){
 }
 ----
 
-==== Using the new module/command
+==== Using the new module and the command
 
 We have finished the implementation of the new Javascript module so now we can start using it.
 
@@ -465,7 +465,7 @@ We have created a module to extract _zip_ files so we are going to use a _myFile
 
 As you may know if you have followed the Devcon's documentation we can use the tool in two ways: using the command line or using the Devcon's graphic user interface (GUI).
 
-===== using the GUI
+===== using the gui
 To launch Devcon's GUI we must open a command line and use the `devon -g` command. After that the Devon main window should be opened and we should see our new `myJSmodule` in the list of available modules. Then if we click over the module we should see the `extract` command available.
 
 image::images/devcon/devcon-new-js-module.png[,width="450", link="images/devcon/devcon-new-js-module.png"]

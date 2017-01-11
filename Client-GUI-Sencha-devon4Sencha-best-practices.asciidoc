@@ -301,7 +301,7 @@ MyApp.config.getMyLastCustomer();
 
 
 
-== Use of "id"
+== Use of _id_
 
 * Use of id's on components is not recommended.
 
@@ -777,7 +777,9 @@ for (var j=0; j<6; j++)
 
 image::images/devon4sencha-badPractices/bad-practices/js-duck.png[Documentation 2,align="center",width="250",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/js-duck.png"]
 
-== "===" "!==" instead of "==" "!="
+== Operators
+
+Use "===" "!==" instead of "==" "!="
 
 * Comparator operations
 
@@ -818,7 +820,7 @@ image::images/devon4sencha-badPractices/bad-practices/comparator-operation.png[O
 
 image::images/devon4sencha-badPractices/bad-practices/bill-gate-says.png[Be lazy 2,align="center",width="250",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/bill-gate-says.png"]
 
-== Knowing this!
+== Knowing this
 
 * This
 

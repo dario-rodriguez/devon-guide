@@ -21,7 +21,7 @@ GitHub is a web-based Git repository hosting service. It offers all of the distr
 
 Both the Open Source as well as the IP parts of Devon are hosted on Github. The workflow is based on the default workflow as being supported by Github.
 
-== Git Devon/OASP4J Workflow
+== Devon and OASP4J Workflow for Git
 
 When you work with Git on a https://github.com/devonfw/devon[Devon] / https://github.com/oasp/oasp4j[OASP4J] project you need to take into account that you are always working with a local copy of the remote repository.
 

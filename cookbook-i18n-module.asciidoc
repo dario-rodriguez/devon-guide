@@ -31,19 +31,16 @@ The IP modules of Devonfw are stored in the https://www.jfrog.com/artifactory/[A
 If project is already imported in Eclipse then update project: Right click on _project_ > _Maven_ > _Update Project_ > check the _Force update of Snapshot/Releases_ checkbox > _Ok_
 ====
 
-=== Adding @ComponentScan
+=== Adding ComponentScan annotation
 
-Don't forget to add the following class level annotation _@ComponentScan_ in one of your configuration classes, for example on the sample restaurant application on the class _ServiceConfiguration.java_ 
+Remember to add the package of the module to the `@ComponentScan` annotation in the Spring Boot main class.
 
-[source,xml]
+[source,java]
 ----
-@Configuration
-@ComponentScan(basePackages = { "com.capgemini.devonfw.module" })
-public class ServiceConfiguration extends WsConfigurerAdapter {
-}
+@ComponentScan(basePackages = { "com.capgemini.devonfw.module.i18n" , "my.other.components.package" })
 ----
 
-=== Reading property files via Default implementation provided by i18n module
+=== Reading property files via default implementation provided by i18n module
 
 In Spring applications, "locales" are standard java property files that contain the translations of the applications texts as well as display format of elements namely dates, numbers etc. These property files are located at _src/main/resources/locale_
 
@@ -58,7 +55,7 @@ These properties files store the information in the form of key value pair. The 
 
 The returned JSON will have nested objects and will have the following format
 
-[source,xml]
+[source,json]
 ----
 {
   "main": {
@@ -74,7 +71,7 @@ The returned JSON will have nested objects and will have the following format
 
 _net.sf.mmm.util.nls.base.ResourceBundleSynchronizer_  is used to create .properties files for the locales via MMM implementation.
 
-==== Instructions to create locales (property files) via MMM
+==== Instructions to create locales, property files, via MMM
 
 This process produces locale files at location _\src\main\resources\com\capgemini\devonfw\module\i18n\common\api\nls_
 

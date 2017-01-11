@@ -49,6 +49,13 @@ private AuthenticationManagerAD authenticationManagerAD;
 For previous versions of the _oasp4j_ based apps you may find `BaseWebSecurityConfig` in a different location: `general/configuration/BaseWebSecurityConfig.java` 
 ====
 
+Remember to add the package of the module to the `@ComponentScan` annotation in the Spring Boot main class.
+
+[source,java]
+----
+@ComponentScan(basePackages = { "com.capgemini.devonfw.module.winauthad" , "my.other.components.package" })
+----
+
 ==== Step 3: Define the provider
 
 Also in the `BaseWebSecurityConfig.java` class add the LDAP provider to the AuthenticationManagerBuilder in the `configureGlobal(AuthenticationManagerBuilder auth)` method 
@@ -250,7 +257,7 @@ As you can see the property password is encrypt. You can find more information a
 
 As is mentioned above you can implement your own _UserDetailsContextMapper_ or use the _UserDetailsContextMapper_ gived in this tutorial. If you use the last one, you need to keep in mind the next points.
 
-==== Roler/Groups mapper
+==== Roler and Groups mapper
 
 _Winauth-ad_ includes a group mapper that gives a simple tool to map the groups of the Active Directory with a roles/groups of your application. To use it you need to configure the mapping just like that:
 

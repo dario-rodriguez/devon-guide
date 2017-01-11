@@ -41,7 +41,7 @@ The _dist_ module is responsible for the tasks related with the distribution whi
 
 The _install_ command downloads a distribution from a Team Forge repository and after that extracts the file in a location defined by the user.
 
-===== _dist install_ requirements
+===== dist install requirements
 
 A user with permissions to download files from Team Forge repository.
 

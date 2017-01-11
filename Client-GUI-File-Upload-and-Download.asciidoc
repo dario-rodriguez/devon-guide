@@ -3,9 +3,9 @@ toc::[]
 
 = File Upload and Download
 
-== Syncronous File Upload
+== Synchronous File Upload
 
-Syncronous File Upload is uploading files to the server in a single request at the same time.
+Synchronous File Upload is uploading files to the server in a single request at the same time.
 
 
 To enable multiple files upload, you need to add multiple attribute to input of type file and it will be enabled automatically.
@@ -59,9 +59,9 @@ image::images/client-gui-sencha/selected_files_upload_syncronous.png[,width="350
 
 Click on button "Upload File" to upload the selected files.
 
-== Asyncronous File Upload
+== Asynchronous File Upload
 
-Asyncronous File Upload is uploading files to the server in a separate request per file.
+Asynchronous File Upload is uploading files to the server in a separate request per file.
 
 For asynchronous file upload in Angular2, use 'ng2-file-upload' package from valor-software. In order to use this package, execute following command line instructions:
 

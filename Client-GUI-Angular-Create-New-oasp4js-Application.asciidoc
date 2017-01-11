@@ -69,7 +69,7 @@ There are various JavaScript/AngularJS application seeds such as https://github.
 
 oasp4js just brings its idea on an application structure and makes use of well-known tools such as http://gulpjs.com/[Gulp] or http://bower.io/[Bower] which support developers in their activities. This all makes coding, testing and building the application extremely efficient.
 
-=== What is Yeoman?
+=== What is Yeoman
 
 Trick question. It's not a thing. It's this guy:
 

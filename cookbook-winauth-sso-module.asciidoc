@@ -55,11 +55,17 @@ public abstract class BaseWebSecurityConfig extends WebSecurityConfigurerAdapter
 }
 ----
 
-
 [NOTE]
 ====
 For previous versions of the _oasp4j_ based apps you may find `BaseWebSecurityConfig` in a different location: `general/configuration/BaseWebSecurityConfig.java`. 
 ====
+
+Remember to add the package of the module to the `@ComponentScan` annotation in the Spring Boot main class.
+
+[source,java]
+----
+@ComponentScan(basePackages = { "com.capgemini.devonfw.module.winauthsso" , "my.other.components.package" })
+----
 
 ==== Step 3: Define the security entry point and filter
 

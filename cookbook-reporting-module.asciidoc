@@ -33,7 +33,12 @@ The IP modules of Devonfw are stored in https://www.jfrog.com/artifactory/[Artif
 If project is already imported in Eclipse then update project: Right click on _project_ > _Maven_ > _Update Project_ > check the _Force update of Snapshot/Releases_ checkbox > _Ok_
 ====
 
-=== Step 2: Properties configuration (only if you are going to generate _.txt_ reports)
+=== Step 2: Properties configuration
+
+[NOTE]
+====
+This step is only needed in case you are going to generate _.txt_ reports
+====
 
 In order to use the Reporting module for creating txt reports is necessary to define some parameters related to the size of the elements in the application.properties file of the project.
 [source,xml]
@@ -57,13 +62,21 @@ First of all we will need to add the scanner for dependency injection. To do so,
 public class MyBootApp {
 
     [...]
+}
+----
+
+Remember to add the package of the module in the _basePackages_ attribute of the `@ComponentScan` annotation alongside the packages for the rest of relevant Spring Boot components.
+
+[source,java]
+----
+@ComponentScan(basePackages = { "com.capgemini.devonfw.module.reporting" , "my.other.component.location.package" })
 ----
 
 As you can see the _basePackages_ of the _@ComponentScan_ points to the Reporting module package so now we can start using the module.
 
 === The injection of the module
 
-To access to the module's functionalities we need to inject the module in a private property, we will do this using the _@Inject_ annotation
+To access to the modules functionalities we need to inject the module in a private property, we will do this using the _@Inject_ annotation
 
 [source,java]
 ----
@@ -74,6 +87,7 @@ public class MyClass {
 
     [...]
 
+}
 ----
 
 After that we can use that `reportManager` object in order to access to the module functionalities, we will see how later.

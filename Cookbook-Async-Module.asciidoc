@@ -51,14 +51,14 @@ public class Rest {
 
 	[...]
 
-
+}
 ----
 
 Remember to add the package of the module to the `@ComponentScan` annotation in the Spring Boot main class.
 
 [source,java]
 ----
-@ComponentScan(basePackages = { "com.capgemini.devonfw.module.async" , "my.rest.location.package" }
+@ComponentScan(basePackages = { "com.capgemini.devonfw.module.async" , "my.other.components.package" })
 ----
 
 

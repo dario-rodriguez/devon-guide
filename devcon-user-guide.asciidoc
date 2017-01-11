@@ -127,68 +127,6 @@ where:
 As its mentioned before from the point of view of the commands, we have two types of parameters: the mandatory parameters and the optional parameters. 
 The mandatory parameters must be provided by the user specifying the parameter identifier and the value in the command line. The optional parameters must be also provided to the app but, if the user do not specify it, devcon will use a default value for them.
 
-//////////////////////////////////////////
-===== Optional parameters in _devon.json_ file
-
-In the case of the optional parameters if we don't specify the value when launching the command devcon will search for a _devon.json_ file in order to find the value of the optional parameter. Devcon will start searching from the directory from which the command has been launched and will climb the directory tree until the config file is found.
-The _devon.json_ file is a configuration file that defines some properties to be used by devcon in some processes. To define the value for optional parameters we can use the _optionalParameters_ property, that is a JSON object with the definition of each optional parameter
-
-[source,json]
-----
-…
-"optionalParameters": {"optional1":"value1", "optional2":"value2", … }
-…
-----
-
-Returning to the previous example imagine that now the _saySomething_ command of the _foo_ module has two parameters, the _'message'_ that is mandatory and the _'signature'_ that is optional. We also have a configuration file called _devon.json_ in the test directory with a content like
-
-[source,json]
-----
-{ "version": "2.0.0",
-  "type":"oasp4j",
-  "optionalParameters": {"signature":"test"}
-}
-----
-	
-Now if we launch the command from _MyProject\test_ directory providing both _message_ and _signature_ parameters
-
-[source,batch]
-----
-c:\MyProject\test>devon foo saySomething -message hello -signature John 
-----
-
-The command will use the parameter *-message* with value '_hello_' and the parameter *-signature* with value _'John'_ and the output will be
-
-[source,batch]
-----
-hello
-John
-----
-
-But if don't provide the _signature_ parameter
-
-[source,batch]
----- 
-c:\MyProject\test>devon foo saySomething -message hello
-----
-
-devcon will try to find a _devon.json_ file and within this file will search for the _"optionalParameters"_ object to get the value for _signature_ parameter. 
-In our case the file will be found (in the same directory, remember that if the file is not found in the first directory devcon would climb to the _MyProject_ directory to search there the configuration file) and the output will be 
-
-[source,batch]
-----
-hello
-test
-----
-
-Finally if the signature parameter is not defined in the _devon.json_ file or the devon.json is not found devcon will prompt the user to get the value for the parameter
-
-[source,batch]
-----
-c:\MyProject\test>devon foo saySomething -message hello
-Please introduce the value for missing parameter signature:|
-----
-//////////////////////////////////////////
 
 ==== Global parameters
 
@@ -213,7 +151,7 @@ As we saw earlier the global parameter _gui_ (*-g*) is the way we will launch th
 [source,batch]
 ----
 devon -g
----- 
+----
 
 ===== _help_ parameter
 
@@ -294,6 +232,7 @@ As you can see the command is defined by `devon oasp4j create` words and the res
 With the global parameter *-p* Devcon gives the user the option to avoid defining any parameter when launching the command and provide step by step all parameters after that, so the usage of some commands can be way easier.
 
 Going back to the previous example if we use the *-p* parameter we get
+
 [source,batch]
 ----
 D:\devon-dist>devon oasp4j create -p
@@ -310,7 +249,7 @@ Parameter: packagename - package name in server project
 -> com.capgemini.myServer_
 
 [...]
-----  
+----
 
 As you can see with the *-p* parameter Devcon asks for each parameter related to a command (the optional ones can be left blank as the _serverpath_ in the example) and the user can provide them one on one, getting rid of the concern of knowing what parameters needs a command.
 
@@ -318,6 +257,7 @@ As you can see with the *-p* parameter Devcon asks for each parameter related to
 ===== _version_ parameter
 
 This is a simple option that returns the devcon running version and is defined with *-v* (or *--version*). As the _help_ option this will show the devcon version even though we have defined a command with all required parameters.
+
 
 [source,batch]
 ----
@@ -335,8 +275,8 @@ Copyright (c) 2016 Capgemini
 devcon v.1.0.0
 ----
 
-== First steps with devcon
 
+== First steps with Devcon
 This section describes how to start using devcon from scratch. For this, you can use the global option _-h_ (help) in order to figure out which commands and parameters you need to define. But in a very first approach, only the command _devon_ will be enough.
 Therefore, the first step is to look for a module that fits your requirements. As mentioned above, you can do this with the _help_ option (defined as _-h_ or _--help_) or with a simple command _devon_. If you do not specify any information, you will see a summary of the general help information with an example of usage, a list with global parameters and the available modules.
 

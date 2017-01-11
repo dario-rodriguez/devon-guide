@@ -7,7 +7,7 @@ The generation can create a full EXT JS 6 client using the StarterTemplates of t
 
 == Getting ready
 
-=== Sencha Work Space and App
+=== Sencha Workspace and App
 
 For a new EXT JS 6 project:
 
@@ -33,13 +33,13 @@ oasp4j/
 
 [IMG workspace1]
 
-==== Step 2: Create app
+==== Step 2: Create the app
 
 Open a console and navigate to the decon4sencha directory from the core folder and write the following command, being APP_NAME the same name as the last part of the basePackage, the name of the package where the SpringBootApp class is:
 
 [source,bash]
 ----
-sencha generate app -ext <<APP_NAME>> <<APP_NAME>>
+sencha generate app -ext {APP_NAME} {APP_NAME}
 ----
 
 For example:

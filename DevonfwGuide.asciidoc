@@ -23,13 +23,16 @@ This document contains the complete compendium of the https://troom.capgemini.co
 https://troom.capgemini.com/sites/vcc/devon/getstarted.aspx[_Devonfw_] Team, Capgemini
 
 :leveloffset: 1
+
 [preface]
 include::getting-started-Introduction-to-devonfw[]
 
 :leveloffset: 0
+
 :toc:
 
 :leveloffset: 1
+
 include::devcon-user-guide[]
 
 :leveloffset: 0
@@ -37,6 +40,7 @@ include::devcon-user-guide[]
 :toc:
 
 == Getting Started with the Service Layer
+
 :leveloffset: 2
 
 include::getting-started-download-and-install[]
@@ -123,15 +127,19 @@ include::cookbook-reporting-module[]
 
 <<<<
 
-include::cookbook-winauth-module[]
+include::cookbook-winauth-ad-module[]
 
 <<<<
 
-include::cookbook-async-module[]
+include::cookbook-winauth-sso-module[]
 
 <<<<
 
 include::cookbook-i18n-module[]
+
+<<<<
+
+include::cookbook-async-module[]
 
 <<<<
 
