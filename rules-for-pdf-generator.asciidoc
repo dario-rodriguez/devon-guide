@@ -31,7 +31,7 @@ The pdf generator tool uses the structure of each wiki page to generate the stru
 
 * Avoid the `#` character in levels use always `=`
 
-* For titles of chapters or sections *avoid always* special characters like `@`, `/`, `(`, `)` `"` or `!` (those characters break the pdf titles structure)
+* For titles of chapters or sections *avoid always* special characters like `@`, `/`, `(`, `)` `"` `'`or `!` (those characters break the pdf titles structure)
 
 * For quotation marks avoid:
 
