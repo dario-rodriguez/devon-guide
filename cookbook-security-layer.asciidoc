@@ -275,7 +275,7 @@ Now this method _findTable_ can only be called if the user that is logged-in has
 
 More in detail, imagine that you have two types of users in your app: _customers_ and _admins_. So you want to allow both of them to see your products but only _admins_ can create new ones. In the Devonfw based apps ( _JSR250_ annotations) the way you should proceed to achieve that would be 
 
-1. Define the roles in the _access-control-schema.xml_ file (usually located on `/src/main/resources/config/app/security`)
+1 - Define the roles in the _access-control-schema.xml_ file (usually located on `/src/main/resources/config/app/security`)
 
 [source,xml]
 ----
@@ -302,7 +302,7 @@ More in detail, imagine that you have two types of users in your app: _customers
 
 As you can see we have created two roles _Customer_ and _Admin_. The _Customer_ can _SeeProducts_ and the _Admin_ inherits permissions from _Customer_, so he can also _SeeProducts_, and in addition to that we have defined an new permission _CreateProduct_ to allow only him to create new products.
 
-. Is recommended, although optional, to use an intermediate class to manage the permission terminology to avoid errors. So we could create a class _PermissionConstants_ and store there the permission names.
+2 - Is recommended, although optional, to use an intermediate class to manage the permission terminology to avoid errors. So we could create a class _PermissionConstants_ and store there the permission names.
 
 [source,java]
 ----
@@ -317,7 +317,7 @@ public abstract class PermissionConstants {
 }
 ----
 
-. Finally, in our theorical _Productmanagement_ use case, at implementation level ( `src/main/java/my/devonfw/app/productmanagement/logic/impl/ProductmanagementImpl.java` ) , we can define the permissions for each method using the `@RolesAllowed` annotation
+3 - Finally, in our theorical _Productmanagement_ use case, at implementation level ( `src/main/java/my/devonfw/app/productmanagement/logic/impl/ProductmanagementImpl.java` ) , we can define the permissions for each method using the `@RolesAllowed` annotation
 
 [source,java]
 ----
