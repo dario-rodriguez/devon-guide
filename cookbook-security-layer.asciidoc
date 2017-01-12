@@ -265,38 +265,86 @@ We will use the _JSR250_ annotations, mainly `@RolesAllowed`, for authorizing me
 
 [source,java]
 ----
-public class UcFindTableImpl extends AbstractTableUc implements UcFindTable {
-
   @RolesAllowed(PermissionConstants.FIND_TABLE)
   public TableEto findTable(Long id) {
-
     return getBeanMapper().map(getTableDao().findOne(id), TableEto.class);
   }
-}
 ----
-Now this method can only be called if the user that is logged-in has the permission `FIND_TABLE`.
 
-//////////////////////////////////////////
-JH: IMHO too much options causing confusion. When necessary one can still study the spring-sec documentation.
-The jsr250 has to be enabled using the similarly named attribute of global-method-security.
-Custom authorization managers could be registered using the access-decision-manager-ref in the global-method-security. Here an example:
+Now this method _findTable_ can only be called if the user that is logged-in has the permission `FIND_TABLE`.
 
-.Extensive example of authorization using jsr250
+More in detail, imagine that you have two types of users in your app: _customers_ and _admins_. So you want to allow both of them to see your products but only _admins_ can create new ones. In the Devonfw based apps ( _JSR250_ annotations) the way you should proceed to achieve that would be 
+
+1. Define the roles in the _access-control-schema.xml_ file (usually located on `/src/main/resources/config/app/security`)
+
 [source,xml]
 ----
-<security:global-method-security pre-post-annotations="enabled" secured-annotations="enabled"
-    jsr250-annotations="enabled" access-decision-manager-ref="MethodAccessDecisionManager">
-</security:global-method-security>
+<?xml version="1.0" encoding="UTF-8"?>
+<access-control-schema>
+  ...
+  <group id="Customer" type="role">
+    <permissions>
+      <permission id="SeeProducts"/>
+    </permissions>
+  </group>
 
-<bean id="MethodAccessDecisionManager" class="org.springframework.security.access.vote.UnanimousBased">
-    <constructor-arg>
-      <list>
-        <bean class="org.springframework.security.access.annotation.Jsr250Voter"/>
-      </list>
-    </constructor-arg>
-</bean>
+  <group id="Admin" type="role">
+    <inherits>
+      <group-ref>Customer</group-ref>
+    </inherits>
+    <permissions>
+      <permission id="CreateProduct"/>
+    </permissions>
+  </group>
+  ...
+</access-control-schema>
 ----
-//////////////////////////////////////////
+
+As you can see we have created two roles _Customer_ and _Admin_. The _Customer_ can _SeeProducts_ and the _Admin_ inherits permissions from _Customer_, so he can also _SeeProducts_, and in addition to that we have defined an new permission _CreateProduct_ to allow only him to create new products.
+
+2. Is recommended, although optional, to use an intermediate class to manage the permission terminology to avoid errors. So we could create a class _PermissionConstants_ and store there the permission names.
+
+[source,java]
+----
+public abstract class PermissionConstants {
+
+  public static final String SEE_PRODUCTS = "SeeProducts";
+
+  public static final String CREATE_PRODUCT = "CreateProduct";
+
+  ...
+
+}
+----
+
+3. Finally, in our theorical _Productmanagement_ use case, at implementation level ( `src/main/java/my/devonfw/app/productmanagement/logic/impl/ProductmanagementImpl.java` ) , we can define the permissions for each method using the `@RolesAllowed` annotation
+
+[source,java]
+----
+public class ProductmanagementImpl extends AbstractComponentFacade implements Productmanagement {
+
+  @Override
+  @RolesAllowed(PermissionConstants.SEE_PRODUCTS)
+  public ProductEto findProduct(Long id) {
+
+    ProductEntity product = getProductDao().load(id);
+    return getBeanMapper().map(product, ProductEto.class);
+  }
+
+  @Override
+  @RolesAllowed(PermissionConstants.CREATE_PRODUCT)
+  public ProductEto saveProduct(ProductEto product) {
+
+    Objects.requireNonNull(product, "product");
+
+    ProductEntity persistedProduct = getProductDao().save(getBeanMapper().map(product, ProductEntity.class));
+    return getBeanMapper().map(persistedProduct, ProductEto.class);
+  }
+
+}
+----
+
+At this point, with these three simple steps, the regular customers can see the products but not create new ones, while _admins_ can do both operations. 
 
 ==== Check Data-based Permissions
 Currently, we have no best practices and reference implementations to apply permission based access on an application's data.
