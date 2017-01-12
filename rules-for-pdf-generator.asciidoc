@@ -31,7 +31,12 @@ The pdf generator tool uses the structure of each wiki page to generate the stru
 
 * Avoid the `#` character in levels use always `=`
 
-* For titles of chapters or sections *AVOID ALWAYS* special characters like `?`, `&`, `@`, `/`, `(`, `)`, `"`, `'` or `!` (those characters break the pdf titles structure)
+* For titles of chapters or sections *AVOID ALWAYS* special characters like `?`, `&`, `@`, `/`, `(`, `)`, `"`, `'` or `!` . Those characters break the pdf titles structure (not the wiki titles) and, as a result, in the pdf you will find titles like:
+
+[source,txt]
+----
+[[cookbook-i18n-module_adding-@componentscan-to-the-class-level]] === Adding @ComponentScan to the class level
+----
 
 * For quotation marks avoid:
 
