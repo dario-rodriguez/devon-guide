@@ -28,6 +28,9 @@ This is the final structure. Following is the detailed explanation for each file
 === conf
 As we previously mentioned, this directory is created executing the _create-or-update-workspace.bat_. This is the directory where Maven will store its local repository, in a _.m2/repository_ path. Moreover, in the _conf_ directory, we can find two settings files. The _settings.json_ with distribution info and the _settings.xml_ with the Maven connection settings.
 
+=== doc
+In this folder the user can find, in pdf format, the documentation available for both starting the development tasks with the framework, and implement its more advanced features.
+
 === scripts
 This folder stores the scripts referenced in the _.bat_ files in the root directory. These scripts are related to internal tasks of the distribution.
 

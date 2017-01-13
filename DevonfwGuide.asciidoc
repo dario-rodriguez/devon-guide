@@ -1,6 +1,6 @@
 = Devonfw Guide
 Jhonatan Core <jhcore@capgemini.com>
-v2.1.0.c
+v2.1.1
 
 :imagesdir: ./images
 :footnote: test footnote from asciidoc
@@ -15,8 +15,8 @@ This document contains the complete compendium of the https://troom.capgemini.co
 
 **Current versions:**
 
-* DevonfwGuide - v2.1.0.c
-* Devonfw - v2.1.0
+* DevonfwGuide - v2.1.1
+* Devonfw - v2.1.1
 
 **Authors:**
 
@@ -39,7 +39,7 @@ include::devcon-user-guide[]
 
 :toc:
 
-== Getting Started with the Service Layer
+== Getting started with the Service Layer
 
 :leveloffset: 2
 

@@ -351,6 +351,6 @@ D:\>devon dist install -user john -password 1234 -path D:\Temp\MyDistribution -t
 
 Regarding the order of the command parameters, devcon will order them internally so that you don't have to concern about that point and you can specify them in the order you want. The only requirement is that all mandatory parameters should be provided.
 
-==  Devon Command Reference
+==  Devcon command reference
 
 For a full reference of all the available commands in Devcon, see the link:devcon-command-reference[Devcon Command Reference]
