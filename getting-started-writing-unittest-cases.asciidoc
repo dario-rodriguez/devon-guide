@@ -13,7 +13,7 @@ In order to understand how the Unit Tests work in Eclipse we are going to create
 
 ==== Step 1: Create a new class
 
-Create a class with the name _MyClass.java_ (you can https://github.com/devonfw/devon-guide/wiki/getting-started-creating-new-devonfw-application[create a new application] if you need). In Eclipse do right click in the package of the application and then select _New > Class_. Name it _MyClass_ and press _Finish_.
+Create a class with the name _MyClass.java_ (you can link:getting-started-creating-new-devonfw-application[create a new application] if you need). In Eclipse do right click in the package of the application and then select _New > Class_. Name it _MyClass_ and press _Finish_.
 
 ==== Step 2: Create a JUnit test
 
@@ -60,7 +60,7 @@ Eclipse provide us with a very helpful view to test our applications. If you can
 
 Now, over our test, press right click _Run As > JUnit test_
 
-image::images/writing-unittest-cases/getting-started-writing-unittest-cases-failed.png[,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/writing-unittest-cases/getting-started-writing-unittest-cases-failed.png"]
+image::images/writing-unittest-cases/getting-started-writing-unittest-cases-failed.png[,width="450", link="images/writing-unittest-cases/getting-started-writing-unittest-cases-failed.png"]
 
 As you can see in the image, Eclipse shows us a red rectangle because one of the test of our test class has failed (in this case we have a single test). The fails of a test are marked with a blue cross but we can get three marks:
 
@@ -84,7 +84,7 @@ public class MyClassTest extends ComponentTest {
 
 Now we need to run the test again. And we are going to get the next result
 
-image::images/writing-unittest-cases/getting-started-writing-unittest-cases-ok.png[,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/writing-unittest-cases/getting-started-writing-unittest-cases-ok.png"]
+image::images/writing-unittest-cases/getting-started-writing-unittest-cases-ok.png[,width="450", link="images/writing-unittest-cases/getting-started-writing-unittest-cases-ok.png"]
 
 As you can see, now the test ends successfully and Eclipse show us a green rectangle and the test with a green check.
 
@@ -157,7 +157,7 @@ public class CalculatorTest extends ComponentTest {
 
 Run the test and this should be the result
 
-image::images/writing-unittest-cases/getting-started-writing-unittest-cases-TDD-failed.png[,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/writing-unittest-cases/getting-started-writing-unittest-cases-TDD-failed.png"]
+image::images/writing-unittest-cases/getting-started-writing-unittest-cases-TDD-failed.png[,width="450", link="images/writing-unittest-cases/getting-started-writing-unittest-cases-TDD-failed.png"]
 
 Obviously the test gets some failures, is the expected because the Calculator doesn't work yet. 
 
@@ -193,7 +193,7 @@ Lest's go to implement the method `add()` and see what happens.
 
 If you run now the test you will get the next result
 
-image::images/writing-unittest-cases/getting-started-writing-unittest-cases-TDD-failed2.png[,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/writing-unittest-cases/getting-started-writing-unittest-cases-TDD-failed2.png"]
+image::images/writing-unittest-cases/getting-started-writing-unittest-cases-TDD-failed2.png[,width="450", link="images/writing-unittest-cases/getting-started-writing-unittest-cases-TDD-failed2.png"]
 
 Now we have a success result for the method `add()` and a failure result for the method `sub()`. As you can see it's not necessary that we get all test OK to run the tests, we can check whenever we want the result of the test and work to satisfy it. This is, again, the idea of TDD.
 
@@ -220,7 +220,7 @@ public class Calculator {
 
 If we run now the application we can see the next result
 
-image::images/writing-unittest-cases/getting-started-writing-unittest-cases-TDD-ok.png[,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/writing-unittest-cases/getting-started-writing-unittest-cases-TDD-ok.png"]
+image::images/writing-unittest-cases/getting-started-writing-unittest-cases-TDD-ok.png[,width="450", link="images/writing-unittest-cases/getting-started-writing-unittest-cases-TDD-ok.png"]
 
 Finally we have our first application implemented with TDD methodology!
 

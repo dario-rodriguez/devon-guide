@@ -3,7 +3,7 @@ toc::[]
 
 = Devcon Command Reference
 
-image::images/devconlogo_full.png[,align="center",width="200",Devcon, link="https://github.com/devonfw/devon-guide/wiki/images/devconlogo_full.png"]
+image::images/devconlogo_full.png[,align="center",width="200",Devcon, link="images/devconlogo_full.png"]
 
 In the introduction to Devcon we mentioned that Devcon is a tool based on modules that group commands so the different functionalities are stored in these modules that act as utilities containers.
 The current version of devcon has been released with the following modules

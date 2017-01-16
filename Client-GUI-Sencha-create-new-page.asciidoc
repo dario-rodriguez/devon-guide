@@ -149,4 +149,4 @@ Ext.define('demo.controller.main.MainController', {
 
 Navigate to the application in the browser and check the result:
 
-image::images/client-gui-sencha/newPage.PNG[App Structure,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/newPage.PNG"]
+image::images/client-gui-sencha/newPage.PNG[App Structure,width="450", link="images/client-gui-sencha/newPage.PNG"]

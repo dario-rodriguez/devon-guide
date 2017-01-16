@@ -13,14 +13,14 @@ Sencha provides support for both MVC and MVVM application architectures.
 * **Models** are an interface to data
 * The application is easier to test and mantain.  Code is more reusable
 
-image::images/client-gui-sencha/mvcArchitecture.png[MVC,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/mvcArchitecture.png"]
+image::images/client-gui-sencha/mvcArchitecture.png[MVC,width="450", link="images/client-gui-sencha/mvcArchitecture.png"]
 
 ## MVVM (Model, View, Controller, ViewModel, ViewController):
 
 * Features an abstraction of a **View** called the **ViewModel**. The ViewModel coordinates the changes between a Model's data and the View's presentation of that data using a technique called **"data binding"**
 * The result is that the **Model** and framework perform as much work as possible, minimizing or eliminating application logic that directly manipulates the **View**
 
-image::images/client-gui-sencha/mvvmArchitecture.png[MVVM,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/mvvmArchitecture.png"]
+image::images/client-gui-sencha/mvvmArchitecture.png[MVVM,width="450", link="images/client-gui-sencha/mvvmArchitecture.png"]
 
 # Structure of a Devon4sencha application
 
@@ -148,7 +148,7 @@ With this results, the view is modified to reflect those changes.
 
 Having Controllers and ViewControllers could be a bit confusing.  Let's have a look at the image below in order to clearly understand how these concetps are organized in a Devon4sencha application:
 
-image::images/client-gui-sencha/mvcArchitectureDevon.png[Devon4Sencha MVVM,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/mvcArchitectureDevon.png"]
+image::images/client-gui-sencha/mvcArchitectureDevon.png[Devon4Sencha MVVM,width="450", link="images/client-gui-sencha/mvcArchitectureDevon.png"]
 
 A Devon4sencha application will have different Controllers.  Each of them will control several views related to the same business logic.   Each of these Views will have its own ViewController and ViewModel.   That ViewController will be in charge of managing specific events for that particular View.
 

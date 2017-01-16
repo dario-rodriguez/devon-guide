@@ -9,7 +9,7 @@ This section explains how to download the sample application and run it. Setup D
 
 == Downloading Sample Application
 
-First of all, download or clone the application from the https://github.com/oasp/oasp4j[GitHub repository]. We recommend to use the Git Bash to work with our repository of GitHub. You can download Git and Git Bash for Windows system https://git-for-windows.github.io/[here]. Also you can learn more about the best practices of work with Git and GitHub on Devonfw https://github.com/devonfw/devon-guide/wiki/devon-guide-working-with-git-and-github[here].
+First of all, download or clone the application from the https://github.com/oasp/oasp4j[GitHub repository]. We recommend to use the Git Bash to work with our repository of GitHub. You can download Git and Git Bash for Windows system https://git-for-windows.github.io/[here]. Also you can learn more about the best practices of work with Git and GitHub on Devonfw link:devon-guide-working-with-git-and-github[here].
 
 To clone the repository, open the Git Bash console and run the following command:
 
@@ -27,7 +27,7 @@ image::images/devconlogo_imgonly.png[,width="50"]
 [NOTE]
 You can automate the following steps using devcon with the `devon oasp4j run` command link:devcon-command-reference#oasp4j-run[learn more here]
 
-We can run the application in two ways or whatever other Devonfw application based on Spring boot: https://github.com/devonfw/devon-guide/wiki/getting-started-running-sample-application#embedded-tomcat-server[Running with the embedded Tomcat 8 server of Spring Boot] or https://github.com/devonfw/devon-guide/wiki/getting-started-running-sample-application#external-tomcat-server[using an external Tomcat 8 server].
+We can run the application in two ways or whatever other Devonfw application based on Spring boot: link:getting-started-running-sample-application#embedded-tomcat-server[Running with the embedded Tomcat 8 server of Spring Boot] or link:getting-started-running-sample-application#external-tomcat-server[using an external Tomcat 8 server].
 
 === Embedded Tomcat server
 
@@ -43,15 +43,15 @@ First of all, import above Sample Application into Eclipse using the following s
 
 1. Select "Maven - Existing Maven Projects"
 +
-image::images/running-sample-application/running_sample_application_1_import_maven_prject.png[, width="450", link="https://github.com/devonfw/devon-guide/wiki/images/running-sample-application/running_sample_application_1_import_maven_prject.png",]
+image::images/running-sample-application/running_sample_application_1_import_maven_prject.png[, width="450", link="images/running-sample-application/running_sample_application_1_import_maven_prject.png",]
 
 1. Select the directory "workspaces/examples/oasp4j/samples
 +
-image::images/running-sample-application/running_sample_application_2_select_folder_oasp.png[, width="450", link="https://github.com/devonfw/devon-guide/wiki/images/running-sample-application/running_sample_application_2_select_folder_oasp.png",]
+image::images/running-sample-application/running_sample_application_2_select_folder_oasp.png[, width="300", link="images/running-sample-application/running_sample_application_2_select_folder_oasp.png",]
 
 1. Press "Finish"
 +
-image::images/running-sample-application/running_sample_application_3_import_maven.png[, width="450", link="https://github.com/devonfw/devon-guide/wiki/images/running-sample-application/running_sample_application_3_import_maven.png",]
+image::images/running-sample-application/running_sample_application_3_import_maven.png[, width="450", link="images/running-sample-application/running_sample_application_3_import_maven.png",]
 
 1. Wait for Eclipse to finish importing the sample project. This process might take several minutes, depending on the speed of your internet connection.
 
@@ -59,7 +59,7 @@ image::images/running-sample-application/running_sample_application_3_import_mav
 
 The embedded Tomcat server of the Spring Boot Application can be running with a simple right click on the Java file *oasp4j-sample-core/src/main/java/io/oasp/gastronomy/restaurant/SpringBootApp.java* > Run as... > 2 Java Application
 
-image::images/running-sample-application/running_sample_application_1_run_embedded_server.png[, width="450", link="https://github.com/devonfw/devon-guide/wiki/images/running-sample-application/running_sample_application_1_run_embedded_server.png",]
+image::images/running-sample-application/running_sample_application_1_run_embedded_server.png[, width="450", link="images/running-sample-application/running_sample_application_1_run_embedded_server.png",]
 
 Now you can open you favorite browser and see the Sample Application running in the next URL
 
@@ -80,11 +80,11 @@ Normally we want to deploy our application in a external server, so we can do th
 
 * In servers view do right click -> New -> Server
 
-image::images/running-sample-application/running_sample_application_1_new_server.png[, width="450", link="https://github.com/devonfw/devon-guide/wiki/images/running-sample-application/running_sample_application_1_new_server.png",]
+image::images/running-sample-application/running_sample_application_1_new_server.png[, width="450", link="images/running-sample-application/running_sample_application_1_new_server.png",]
 
 * In the wizard panel you need to configure the server as Tomcat 8 and press Next.
 
-image::images/running-sample-application/running_sample_application_2_new_server.png[, width="450", link="https://github.com/devonfw/devon-guide/wiki/images/running-sample-application/running_sample_application_2_new_server.png",]
+image::images/running-sample-application/running_sample_application_2_new_server.png[, width="450", link="images/running-sample-application/running_sample_application_2_new_server.png",]
 
 It's possible that Eclipse ask you for the path of Tomcat 8. If you don't have Tomcat 8 in your distribution of Devonfw you can download it https://tomcat.apache.org/download-80.cgi[here] and extract the zip in the software folder of your distribution.
 
@@ -92,13 +92,13 @@ It's possible that Eclipse ask you for the path of Tomcat 8. If you don't have T
 
 Now we need to go to the Server View and do right click in your new Tomcat 8 server -> Add and Remove... -> add the oasp4j-sample-server -> Finish.
 
-image::images/running-sample-application/running_sample_application_3_new_server.png[, width="450", link="https://github.com/devonfw/devon-guide/wiki/images/running-sample-application/running_sample_application_3_new_server.png",]
+image::images/running-sample-application/running_sample_application_3_new_server.png[, width="450", link="images/running-sample-application/running_sample_application_3_new_server.png",]
 
 ==== Step 3: Run the server
 
 Now we need to press Run or Debugg in the Server View with our new Tomcat server selected. And the application will be deployed by the server.
 
-image::images/running-sample-application/running_sample_application_4_new_server.png[, width="450", link="https://github.com/devonfw/devon-guide/wiki/images/running-sample-application/running_sample_application_4_new_server.png",]
+image::images/running-sample-application/running_sample_application_4_new_server.png[, width="450", link="images/running-sample-application/running_sample_application_4_new_server.png",]
 
 Now you can open you favorite browser and see the Sample Application running in the next URL
 

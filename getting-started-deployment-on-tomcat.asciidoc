@@ -9,11 +9,12 @@ After setting up functional server and client applications, we may want to packa
 == General description of the packaging process
 The application packaging is based on _Maven_ _package_ functionality. The general overview of the packaging process is as follows:
 
-image::images/devonfw-deployment/tutorial_devon_jspackaging_process.png[,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devonfw-deployment/tutorial_devon_jspackaging_process.png"]
+image::images/devonfw-deployment/tutorial_devon_jspackaging_process.png[,width="450",link="images/devonfw-deployment/tutorial_devon_jspackaging_process.png"]
 
 == Preparing the client
 
 Firstly (1), both client applications (the Sencha and the Angular one) should contain a _java_ directory with a _pom.xml_ file which executes the build process (the "production" build, creating a single, compressed Javascript file from all the application files) through the command (2) `mvn install`. We must verify that the information about the _groupId_, the _artifactId_ and the _version_ are provided within the _pom.xml_ file where we should find something like
+
 [source,xml]
 ----
 ...
@@ -25,19 +26,20 @@ Firstly (1), both client applications (the Sencha and the Angular one) should co
 
 So from the client application, in the _java_ directory we launch the command
 
-[source]
+[source,bash]
 ----
 myClientApp\java>mvn install
 ----
 
 After that, if the process goes right, the client app should have been "installed" in the local Maven repository of our environment so in the _\conf\.m2\repository\com\capgemini\devonfw\extjs-sample\1.0.0-SNAPSHOT_ directory we should find the _.jar_ file with the client app packaged
 
-image::images/devonfw-deployment/tutorial_devon_jspackaging_process02.png[,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devonfw-deployment/tutorial_devon_jspackaging_process02.png"]
+image::images/devonfw-deployment/tutorial_devon_jspackaging_process02.png[,width="450",link="images/devonfw-deployment/tutorial_devon_jspackaging_process02.png"]
 
 == Preparing the server
 The Java server application contains a _pom.xml_ file (3). In this _pom.xml_ file we should add the dependency to the _.jar_ client that we have just created using the references to the _groupId_, _artifactId_ and _version_ that we have spefified in the client _pom.xml_.
 
 So in the _pom.xml_ file of our server project we should add:
+
 [source,xml]
 ----
     <dependency>

@@ -31,7 +31,8 @@ public class MessageEntity extends AbstractPersistenceEntity {
     this.text = text;
   }
  }
----- 
+----
+
 The _@Entity_ annotation defines that instances of this class will be entities which can be stored in the database. The _@Table_ annotation is optional and can be used to define the name of the corresponding table in the database. If it is not specified, the simple name of the entity class is used instead.
 
 In order to specify how to map the attributes to columns we annotate the corresponding getter methods (technically also private field annotation is also possible but approaches can not be mixed).
@@ -43,17 +44,21 @@ The _@Id_ annotation specifies that a property should be used as xref:primary-ke
 public class Employee 
 {
   private Long id;
-...
+
+  ...
+  
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   public Long getId() {
 
     return this.id;
   }
-...
+  ...
+}
 ----
 
 With the help of the _@Column_ annotation it is possible to define the name of the column that an attribute is mapped to as well as other aspects such as _nullable_ or _unique_. If no column name is specified, the name of the property is used as default.
+
 [source,java]
 ----
 @Column(name="DESCRIPTION", nullable=false, length=512)
@@ -67,8 +72,10 @@ Note that every entity class needs a constructor with public or protected visibi
 Entities should be simple POJOs and not contain business logic.
 
 ==== Entities and Datatypes
+
 Standard datatypes like _Integer_, _BigDecimal_, _String_, etc. are mapped automatically by JPA. Custom link:https://github.com/oasp/oasp4j/wiki/guide-datatype[datatypes] are mapped as serialized xref:blob[BLOB] by default what is typically undesired. 
 In order to map atomic custom datatypes (implementations of _SimpleDatatype_) we implement an _AttributeConverter_. Here is a simple example:
+
 [source,java]
 ----
 @Converter(autoApply = true)
@@ -83,6 +90,7 @@ public class MoneyAttributeConverter implements AttributeConverter<Money, BigDec
   }
 }
 ----
+
 The annotation _@Converter_ is detected by the JPA vendor if the annotated class is in the packages to scan (see _beans-jpa.xml_). Further, _autoApply = true_ implies that the converter is automatically used for all properties of the handled datatype. Therefore all entities with properties of that datatype will automatically be mapped properly (in our example _Money_ is mapped as _BigDecimal_).
 
 In case you have a composite datatype that you need to map to multiple columns the JPA does not offer a real solution. As a workaround you can use a bean instead of a real datatype and declare it as xref:embeddable[_@Embeddable_]. If you are using hibernate you can implement _CompositeUserType_. Via the _@TypeDef_ annotation it can be registered to hibernate. If you want to annotate the _CompositeUserType_ implementation itself you also need another annotation (e.g. _MappedSuperclass_ although not technically correct) so it is found by the scan.
@@ -110,6 +118,7 @@ public Blob getAttachment() {
 
 ===== Date and Time
 To store date and time related values, the _@Temporal_ annotation can be used as shown in the listing below:
+
 [source,java]
 ----
 @Temporal(TemporalType.TIMESTAMP)
@@ -117,6 +126,7 @@ public java.util.Date getStart() {
   return start;
 }
 ----
+
 Until Java8 the java data type _java.util.Date_ (or http://joda-time.sourceforge.net/quickstart.html[Jodatime]) has to be used. 
 _TemporalType_ defines the granularity. In this case, a precision of nanoseconds is used. If this granularity is not wanted, _TemporalType.DATE_ can be used instead, which only has a granularity of milliseconds. 
 Mixing these two granularities can cause problems when comparing one value to another. This is why we *only*  use _TemporalType.TIMESTAMP_.
@@ -130,6 +140,7 @@ _Data Acccess Objects_ (DAOs) are part of the persistence layer. They are respon
 
 ==== DAO Interface
 For each DAO there is an interface named _<Entity>Dao_ that defines the API. For CRUD support and common naming we derive it from the interface _io.oasp.module.jpa.persistence.api.Dao_:
+
 [source,java]
 ----
 public interface MyEntityDao extends Dao<MyEntity> { 
@@ -137,6 +148,7 @@ public interface MyEntityDao extends Dao<MyEntity> {
   List<MyEntity> findByCriteria(MyEntitySearchCriteria criteria);
 }
 ----
+
 As you can see, the interface _Dao_ has a type parameter for the entity class. All CRUD operations are only inherited so you only have to declare the additional methods.
 
 ==== DAO Implementation
@@ -198,9 +210,12 @@ public interface StaffMemberDao extends ApplicationDao<StaffMemberEntity>, Maste
   StaffMemberEntity findByLogin(String login);
 
 ...
+
+}
 ----
 
 And the implementation of the interface would be:
+
 [source,java]
 ----
 public class StaffMemberDaoImpl extends ApplicationMasterDataDaoImpl<StaffMemberEntity> implements StaffMemberDao {
@@ -217,6 +232,8 @@ public class StaffMemberDaoImpl extends ApplicationMasterDataDaoImpl<StaffMember
   }
 
 ...
+
+}
 ----
 
 The _EntityManager_ contains a method called _createNamedQuery(String)_, which takes as parameter the name of the query and creates a new query object. The parameters of the query have to be set using the _setParameter(String, Object)_ method.
@@ -394,9 +411,6 @@ POST oasp4j-sample-server/services/rest/tablemanagement/v1/table/search
 ---- 
 
 
-
-
-
 ==== Query Meta-Parameters
 Queries can have meta-parameters and the OASP4J currently provides support for _timeout_.
 OASP4J provides the method _applyCriteria_ in _AbstractGenericDao_ that applies meta-parameters to a query based on _SearchCriteriaTo_.
@@ -407,6 +421,7 @@ If you already use the pagination support (see above), you do not need to call _
 Entities often do not exist independently but are in some relation to each other. For example, for every period of time one of the StaffMember's of the restaurant example has worked, which is represented by the class +WorkingTime+, there is a relationship to this StaffMember. 
 				
 The following listing shows how this can be modeled using JPA:
+
 [source,java]
 ----
 ...
@@ -660,7 +675,7 @@ The concurrency control defines the way concurrent access to the same data of a 
 
 A remaining anomaly is when two stakeholders concurrently access a record, do some changes and write them back to the database. The JPA addresses this with different locking strategies (see http://www.objectdb.com/java/jpa/persistence/lock[here] or https://weblogs.java.net/blog/2009/07/30/jpa-20-concurrency-and-locking[here]).
 
-As a best practice we are using optimistic locking for regular end-user https://github.com/devonfw/devon-guide/wiki/getting-started-Creating-Rest-Service[services] (OLTP) and pessimistic locking for https://github.com/devonfw/devon-guide/wiki/cookbook-batch-layer[batches].
+As a best practice we are using optimistic locking for regular end-user link:getting-started-Creating-Rest-Service[services] (OLTP) and pessimistic locking for link:cookbook-batch-layer[batches].
 
 ==== Optimistic Locking
 The class _io.oasp.module.jpa.persistence.api.AbstractPersistenceEntity_ already provides optimistic locking via a _modificationCounter_ with the _@Version_ annotation. Therefore JPA takes care of optimistic locking for you. When entities are transferred to clients, modified and sent back for update you need to ensure the _modificationCounter_ is part of the game. If you follow our guides about https://github.com/oasp/oasp4j/wiki/guide-transferobject[transfer-objects] and https://github.com/oasp/oasp4j/wiki/guide-service-layer[services] this will also work out of the box.
@@ -672,7 +687,7 @@ Assume an entity _A_ contains a collection of _B_ entities. Should there be a lo
 According to KISS our recommendation is that the user gets an error displayed that tells him to do his change again on the recent data. Try to design your system and the work processing in a way to keep such conflicts rare.
 
 ==== Pessimistic Locking
-For back-end https://github.com/devonfw/devon-guide/wiki/getting-started-Creating-Rest-Service[services] and especially for https://github.com/devonfw/devon-guide/wiki/cookbook-batch-layer[batches] optimistic locking is not suitable. A human user shall not cause a large batch process to fail because he was editing the same entity. Therefore such use-cases use pessimistic locking what gives them a kind of priority over the human users.
+For back-end link:getting-started-Creating-Rest-Service[services] and especially for link:cookbook-batch-layer[batches] optimistic locking is not suitable. A human user shall not cause a large batch process to fail because he was editing the same entity. Therefore such use-cases use pessimistic locking what gives them a kind of priority over the human users.
 In your xref:data-access-object[DAO] implementation you can provide methods that do pessimistic locking via http://docs.oracle.com/javaee/6/api/javax/persistence/EntityManager.html[_EntityManager_] operations that take a http://docs.oracle.com/javaee/6/api/javax/persistence/LockModeType.html[_LockModeType_]. Here is a simple example:
 [source,java]
 ----
@@ -684,7 +699,7 @@ Use one of the types if you want to modify the entity later on, for read only ac
 As you might have noticed, the behavior of Hibernate deviates from what one would expect by looking at the _LockModeType_ (especially _LockModeType.READ_ should not cause a `select ... for update` to be issued). The framework actually deviates from what is http://docs.oracle.com/javaee/6/api/javax/persistence/LockModeType.html[specified] in the JPA for unknown reasons.
 
 === Database Auditing
-See https://github.com/devonfw/devon-guide/wiki/getting-started-logging-and-auditing#auditing-with-hibernate-envers[auditing guide].
+See link:getting-started-logging-and-auditing#auditing-with-hibernate-envers[auditing guide].
 
 === Testing Entities and DAOs
 See https://github.com/oasp/oasp4j/wiki/guide-testing[testing guide].
@@ -697,7 +712,7 @@ We strongly recommend these principles:
 * Keep your entities simple and avoid putting advanced logic into entity methods.
 
 == Database Configuration
-The https://github.com/devonfw/devon-guide/wiki/getting-started-understanding-oasp4j-spring-boot-config[configuration] for Spring and Hibernate is already provided by OASP4J in our sample application and the application template. So you only need to worry about a few things to customize.
+The link:getting-started-understanding-oasp4j-spring-boot-config[configuration] for Spring and Hibernate is already provided by OASP4J in our sample application and the application template. So you only need to worry about a few things to customize.
 
 === Database System and Access
 Obviously you need to configure which type of database you want to use as well as the location and credentials to access it. To configure a new database we must follow next steps 
@@ -726,7 +741,8 @@ Create a file in _src/resources/config_ named _application-{PROFILE_NAME}.proper
 Add database configuration in _application-{PROFILE_NAME}.properties_ file. For e.g
 
 MySQL:
-[source]
+[source,java]
+----
 spring.jpa.database=mysql
 spring.datasource.url=jdbc:mysql://localhost:3306/restaurant?user=root&password=root&connectTimeout=10000&socketTimeout=10000&autoReconnect=true
 spring.jpa.database-platform=org.hibernate.dialect.MySQL5Dialect
@@ -734,14 +750,17 @@ spring.datasource.username=root
 spring.datasource.password=root
 spring.datasource.driver-class-name=com.mysql.jdbc.Driver
 flyway.locations=classpath:db/migration,classpath:db/migration/mysql
+----
 
 ==== Activate the new profile
 
 To activate new profile update _src/main/resources/application.properties_ file. Set _spring.profiles.active= profile-name_. In our example profile-name is mysql. 
  
 MySQL:
-[source]
+[source,java]
+----
 spring.profiles.active=mysql 
+----
 
 ==== Update database script files
 
@@ -759,19 +778,22 @@ flyway.locations=classpath:db/migration,classpath:db/migration/mysql
 
 Here we can mention classpath or filesystems path.
 
-You can see more examples of database configurations https://github.com/devonfw/devon-guide/wiki/getting-started-database-configuration[here]
+You can see more examples of database configurations link:getting-started-database-configuration[here]
 
 === Database Migration
 See https://github.com/oasp/oasp4j/wiki/guide-database-migration[database migration guide].
 
 == Security
-=== SQL-Injection
-A common https://github.com/devonfw/devon-guide/wiki/cookbook-security-layer[security] threat is http://en.wikipedia.org/wiki/SQL_injection[SQL-injection]. Never build queries with string concatenation or your code might be vulnerable as in the following example:
+
+=== SQL injection
+A common link:cookbook-security-layer[security] threat is http://en.wikipedia.org/wiki/SQL_injection[SQL-injection]. Never build queries with string concatenation or your code might be vulnerable as in the following example:
+
 [source, java]
 ----
   String query = "Select op from OrderPosition op where op.comment = " + userInput;
   return getEntityManager().createQuery(query).getResultList();
 ----
+
 Via the parameteter _userInput_ an attacker can inject SQL (JPQL) and execute arbitrary statements in the database causing extreme damage. In order to prevent such injections you have to strictly follow our rules for xref:queries[queries]: Use named queries for static queries and QueryDSL for dynamic queries. Please also consult the https://www.owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet[SQL Injection Prevention Cheat Sheet].
 
 === Limited Permissions for Application

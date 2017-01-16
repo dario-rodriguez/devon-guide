@@ -255,11 +255,11 @@ Ext.define('MyApp.view.MyGrid', {
 
     Example 1A BAD: Poor folder estructure:
 
-image::images/devon4sencha-badPractices/bad-practices/poor-folder-stucture.png[Bad folder estructure,align="center",width="175",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/poor-folder-stucture.png"]
+image::images/devon4sencha-badPractices/bad-practices/poor-folder-stucture.png[Bad folder estructure,align="center",width="175",link="images/devon4sencha-badPractices/bad-practices/poor-folder-stucture.png"]
 
     Example 1B Good: Folder estructure to follow:
 
-image::images/devon4sencha-badPractices/bad-practices/good-folder-stucture.png[Good folder estructure,align="center",width="175",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/good-folder-stucture.png"]
+image::images/devon4sencha-badPractices/bad-practices/good-folder-stucture.png[Good folder estructure,align="center",width="175",link="images/devon4sencha-badPractices/bad-practices/good-folder-stucture.png"]
 
 == Use of global variables
 
@@ -275,7 +275,7 @@ MyLastCustomer= 123456;
 
     We use 
 
-image::images/devon4sencha-badPractices/bad-practices/global-variable-I.png[Global variable 2,align="center",width="175",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/global-variable-I.png"]
+image::images/devon4sencha-badPractices/bad-practices/global-variable-I.png[Global variable 2,align="center",width="175",link="images/devon4sencha-badPractices/bad-practices/global-variable-I.png"]
 
 [source,javascript] 
 ----
@@ -630,7 +630,7 @@ for (var i = 0; i < 1000; i++) {
 
 - Waste
 
-image::images/devon4sencha-badPractices/bad-practices/Improperly-idented-code.png[Identation 1,width="300",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/Improperly-idented-code.png"]
+image::images/devon4sencha-badPractices/bad-practices/Improperly-idented-code.png[Identation 1,width="300",link="images/devon4sencha-badPractices/bad-practices/Improperly-idented-code.png"]
 
 * Always code for readability.
 
@@ -775,7 +775,7 @@ for (var j=0; j<6; j++)
 
 - API documentation generator for Sencha.
 
-image::images/devon4sencha-badPractices/bad-practices/js-duck.png[Documentation 2,align="center",width="250",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/js-duck.png"]
+image::images/devon4sencha-badPractices/bad-practices/js-duck.png[Documentation 2,align="center",width="250",link="images/devon4sencha-badPractices/bad-practices/js-duck.png"]
 
 == Operators
 
@@ -785,7 +785,7 @@ Use "===" "!==" instead of "==" "!="
 
 - When you receive data in a json structure and you are not sure about what you are getting you should be more restrictive.
 
-image::images/devon4sencha-badPractices/bad-practices/comparator-operation.png[Operators,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/comparator-operation.png"]
+image::images/devon4sencha-badPractices/bad-practices/comparator-operation.png[Operators,width="450",link="images/devon4sencha-badPractices/bad-practices/comparator-operation.png"]
 
 == Be lazy
 
@@ -818,7 +818,7 @@ image::images/devon4sencha-badPractices/bad-practices/comparator-operation.png[O
 
 - Reuse things: Save yourself some time!
 
-image::images/devon4sencha-badPractices/bad-practices/bill-gate-says.png[Be lazy 2,align="center",width="250",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha-badPractices/bad-practices/bill-gate-says.png"]
+image::images/devon4sencha-badPractices/bad-practices/bill-gate-says.png[Be lazy 2,align="center",width="250",link="images/devon4sencha-badPractices/bad-practices/bill-gate-says.png"]
 
 == Knowing this
 

@@ -99,7 +99,7 @@ Navigate to our application and check the changes
 
 Now, if we check our sample, we will see that when we select a record from the grid the buttons enabled and disabled depending on the logic we have just added.
 
-image::images/client-gui-sencha/changeState1.PNG[Change State,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/changeState1.PNG"]
+image::images/client-gui-sencha/changeState1.PNG[Change State,width="450", link="images/client-gui-sencha/changeState1.PNG"]
 
 The last step is to add the functions of these buttons in the file `TableListVC.js`:
 

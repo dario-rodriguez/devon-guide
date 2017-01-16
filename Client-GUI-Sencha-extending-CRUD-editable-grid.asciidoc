@@ -176,7 +176,7 @@ Ext.define('demo.view.employee.i18n.Employee_en_EN',{
 
 Now, check the output and see that we have created a list of employees:
 
-image::images/client-gui-sencha/employees.PNG[Employees,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/employees.PNG"]
+image::images/client-gui-sencha/employees.PNG[Employees,width="450", link="images/client-gui-sencha/employees.PNG"]
 
 ## Cellediting plugin
 
@@ -211,21 +211,22 @@ Edit the file `app/view/employee/EmployeeV.js`:
 [source,javascript]
 ----
 columns: [{
-    text: i18n.employees.grid.name,
-    dataIndex: 'name',
-    flex: 1,
-    editor: {
-        allowBlank: false
+        text: i18n.employees.grid.name,
+        dataIndex: 'name',
+        flex: 1,
+        editor: {
+            allowBlank: false
+        }
+        },{
+        text: i18n.employees.grid.rol,
+        dataIndex: 'rol'
     }
-},{
-    text: i18n.employees.grid.rol,
-    dataIndex: 'rol'
-}
+]
 ----
 
 Check that we can edit the column `Name`:
 
-image::images/client-gui-sencha/editEmployeeCell.PNG[Cellediting,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/editEmployeeCell.PNG"]
+image::images/client-gui-sencha/editEmployeeCell.PNG[Cellediting,width="450", link="images/client-gui-sencha/editEmployeeCell.PNG"]
 
 ### Combobox as an editing cell
 
@@ -291,7 +292,7 @@ columns: [{
 
 Check the output in the screen with the changes we have made:
 
-image::images/client-gui-sencha/editingCombo.PNG[Cellediting Combobox,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/editingCombo.PNG"]
+image::images/client-gui-sencha/editingCombo.PNG[Cellediting Combobox,width="450", link="images/client-gui-sencha/editingCombo.PNG"]
 
 ### Dirty
 
@@ -341,7 +342,7 @@ plugins: {
 
 Navigate to the application and check the new behaviour when editing the grid:
 
-image::images/client-gui-sencha/rowediting.PNG[Rowediting,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/rowediting.PNG"]
+image::images/client-gui-sencha/rowediting.PNG[Rowediting,width="450", link="images/client-gui-sencha/rowediting.PNG"]
 
 ## Add empty records
 

@@ -7,7 +7,7 @@ Ext.grid.Panel is one of the centerpieces of Ext JS. It's an incredibly versatil
 
 == Basic Grid Panel
 
-image::images/devon4sencha/grids/devon_guide_sencha_grids_simple_grid.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha/grids/devon_guide_sencha_grids_simple_grid.png"]
+image::images/devon4sencha/grids/devon_guide_sencha_grids_simple_grid.png[Disable Buttons,width="450",link="images/devon4sencha/grids/devon_guide_sencha_grids_simple_grid.png"]
 
 Let's get started by creating a basic Ext.grid.Panel. Here's all you need to know to get a simple grid up and running:
 

@@ -33,7 +33,7 @@ toc::[]
 
 === Minimum requirements:
 
-* Downloaded and deployed devonfw (https://github.com/devonfw/devon-guide/wiki/getting-started-download-and-install)
+* Downloaded and deployed link:getting-started-download-and-install[devonfw]
 * NodeJs installed (using the one included in devonfw or another one)
 * Java JDK 7 or superior (required by Cordova)
 

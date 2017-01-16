@@ -16,11 +16,11 @@ The following steps assume that you already have setup your Devon environment, a
 
 1. Open a Devon command prompt by executing the batch file `console.bat`.
 +
-image::images/client-gui-sencha/tutorial_running_sample_1_console.png[Running Sample 1,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/tutorial_running_sample_1_console.png"]
+image::images/client-gui-sencha/tutorial_running_sample_1_console.png[Running Sample 1,width="450", link="images/client-gui-sencha/tutorial_running_sample_1_console.png"]
 
 1. Enter the `workspaces\examples\devon4sencha\ExtSample` directory
 +
-image::images/client-gui-sencha/tutorial_running_sample_2_directory.png[Running Sample 2,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/tutorial_running_sample_2_directory.png"]
+image::images/client-gui-sencha/tutorial_running_sample_2_directory.png[Running Sample 2,width="450", link="images/client-gui-sencha/tutorial_running_sample_2_directory.png"]
 
 1. Execute the  the command `sencha app watch`. It might take some time the first time you run this command.
 +
@@ -28,7 +28,7 @@ This command will compile the devon4sencha sample application and start a webser
 +
 On first run, you probably will see something similar to the image below. We do not distribute ExtJS itself with our sample application. Instead, the ExtJS SDK is downloaded on first use if not already available.
 +
-image::images/client-gui-sencha/tutorial_running_sample_3_downloading_ext.png[Running Sample 3,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/tutorial_running_sample_3_downloading_ext.png"]
+image::images/client-gui-sencha/tutorial_running_sample_3_downloading_ext.png[Running Sample 3,width="450", link="images/client-gui-sencha/tutorial_running_sample_3_downloading_ext.png"]
 +
 If you have a valid ExtJS license, you can simply copy the ExtJS 6 SDK into `workspaces\examples\devon4sencha\ext` and it will automatically get picked up.
 +
@@ -39,8 +39,8 @@ If you see an error while executing this command, first try to delete the local 
 
 1. As soon as you see `Waiting for changes...`, the application has been compiled and is ready.
 +
-image::images/client-gui-sencha/tutorial_running_sample_3_1_watch_finished.png[Running Sample 3,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/tutorial_running_sample_3_1_watch_finished.png"]
+image::images/client-gui-sencha/tutorial_running_sample_3_1_watch_finished.png[Running Sample 3,width="450", link="images/client-gui-sencha/tutorial_running_sample_3_1_watch_finished.png"]
 
 1. Open http://localhost:1841/ExtSample/[] in a browser. Use `waiter` as both user and password.
 +
-image::images/client-gui-sencha/tutorial_running_sample_4_app.png[Running Sample 4,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/tutorial_running_sample_4_app.png"]
+image::images/client-gui-sencha/tutorial_running_sample_4_app.png[Running Sample 4,width="450", link="images/client-gui-sencha/tutorial_running_sample_4_app.png"]

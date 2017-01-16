@@ -315,9 +315,9 @@ Navigate to the application and check the result
 
 After all these steps if we check the result on the browser we will see two grids, one with the information about the menu and the other one with the information about what we have ordered for that table.   When we select one item from the `Menu` grid we can add that item on the `Orders` grid so we can complete our order.
 
-image::images/client-gui-sencha/editOrder.PNG[Edit order,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/editOrder.PNG"]
+image::images/client-gui-sencha/editOrder.PNG[Edit order,width="450", link="images/client-gui-sencha/editOrder.PNG"]
 
-image::images/client-gui-sencha/editOrderView.PNG[Edit order View,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/editOrderView.PNG"]
+image::images/client-gui-sencha/editOrderView.PNG[Edit order View,width="450", link="images/client-gui-sencha/editOrderView.PNG"]
 
 ## Drag and drop
 
@@ -409,4 +409,4 @@ We are adding again the element that we have just dropped from the first grid.
 
 Navigate to the application to check the results
 
-image::images/client-gui-sencha/editOrderDragDrop.PNG[Edit Order Drag Drop,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/editOrderDragDrop.PNG"]
+image::images/client-gui-sencha/editOrderDragDrop.PNG[Edit Order Drag Drop,width="450", link="images/client-gui-sencha/editOrderDragDrop.PNG"]

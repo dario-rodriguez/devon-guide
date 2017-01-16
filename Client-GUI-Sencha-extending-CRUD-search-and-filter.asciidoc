@@ -125,7 +125,7 @@ Ext.define('demo.view.table.TableListVM', {
 
 Navigate to the view in our browser.  We can see that we have created a collapsible panel above the grid with two fields and two buttons:
 
-image::images/client-gui-sencha/searching.PNG[Searching,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/searching.PNG"]
+image::images/client-gui-sencha/searching.PNG[Searching,width="450", link="images/client-gui-sencha/searching.PNG"]
 
 Now it is time to define what we are going to do with these buttons we have just created.  So we edit `TableListVC.js` to create the functions doSearch and doClean:
 
@@ -158,4 +158,4 @@ Check the changes in the application.
 
 Now, we can see that if we filter by number or state in the grid we only see the records that match with these filters.
 
-image::images/client-gui-sencha/searching2.PNG[Filtering,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/searching2.PNG"]
+image::images/client-gui-sencha/searching2.PNG[Filtering,width="450", link="images/client-gui-sencha/searching2.PNG"]

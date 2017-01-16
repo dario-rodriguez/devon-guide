@@ -7,7 +7,7 @@ We are going to do a simple exercise to practice with **layouts**.  Previosly we
 
 Therefore, our goal here is to show the grids as you can see below:
 
-image::images/client-gui-sencha/layout.PNG[Layout,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/layout.PNG"]
+image::images/client-gui-sencha/layout.PNG[Layout,width="450", link="images/client-gui-sencha/layout.PNG"]
 
 In order to get that output we should make some changes in our code.
 
@@ -222,4 +222,4 @@ Ext.define("demo.view.table.TableOrderV", {
 
 For more information about the configuration property `flex` check Sencha documentation:
 
-image::images/client-gui-sencha/flex.PNG[Flex,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/flex.PNG"]
+image::images/client-gui-sencha/flex.PNG[Flex,width="450", link="images/client-gui-sencha/flex.PNG"]

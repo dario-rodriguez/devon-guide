@@ -23,7 +23,7 @@ The OASP4J archetype generates a Maven Modules Project. It has 3 Maven modules a
 
 The Core module of the project contains the base classes and the base configuration of the application. It's divided in three main packages: _java_, _resources_ and _test_.
 
-image::images/oasp-app-structure/app-structure.png["App structure",width="450",link="images/oasp-app-structure/app-structure.png"]
+image::images/oasp-app-structure/app-structure.png["App structure",width="150",link="images/oasp-app-structure/app-structure.png"]
 
 Following section explains each of the package in detail:
 
@@ -40,6 +40,10 @@ The _java_ package contains all Java files that implement the application and it
 ==== General 
 
 The *general* package contains all Java files of OASP4J application. It is further divided in the following sub-packages:
+
+===== Batch impl config
+
+This first package stores a class _BeansBatchConfig.java_ that contains the configuration of batch beans.
 
 ====== Common
 
@@ -71,7 +75,7 @@ The resources package contains the data related to some specific functionality o
 
 This package is divided in four folders: _config_, _db_, _META-INF_ and _static_. This package also contains *application.properties* file. Read more about OASP4J Spring Boot configuration link:getting-started-understanding-oasp4j-spring-boot-config[here]. 
 
-image::images/oasp-app-structure/config-structure.png["App structure 2",width="450",link="images/oasp-app-structure/config-structure.png"]
+image::images/oasp-app-structure/config-structure.png["App structure 2",width="250",link="images/oasp-app-structure/config-structure.png"]
 
 ====== config
 
@@ -81,7 +85,7 @@ The *config* folder has a folder called *app* this folder is divided in the foll
 
 ** batch: contains the configuration of the batch process. In the Sample Application, for example, we have the bill exports and products to import.
 
-** common: contains the Spring bean configuration of http://dozer.sourceforge.net/documentation/about.html[Dozer]. find more about OASP4j Bean-Mapping https://github.com/devonfw/devon-guide/wiki/getting-started-bean-mapping-using-dozer[here]. 
+** common: contains the Spring bean configuration of http://dozer.sourceforge.net/documentation/about.html[Dozer]. find more about OASP4j Bean-Mapping link:getting-started-bean-mapping-using-dozer[here]. 
 
 ** gui: this folder contains the *dispatcher-servlet.xml*. The _DispatcherServlet_ will take help from _ViewResolver_ to pickup the defined view for the request.
 

@@ -88,4 +88,4 @@ image::images/download-install/devon_guide_environment_setup_9_proxy_eclipse.png
 
 The working Devonfw environment is ready!
 
-You can find example projects inside `workspaces\examples`. You can learn how to run the Devonfw example application https://github.com/devonfw/devon-guide/wiki/getting-started-running-sample-application[here].
+You can find example projects inside `workspaces\examples`. You can learn how to run the Devonfw example application link:getting-started-running-sample-application[here].

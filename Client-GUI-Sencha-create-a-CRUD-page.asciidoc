@@ -315,5 +315,5 @@ Ext.define('demo.view.table.i18n.Table_en_EN',{
 
 Navigate to our application in the browser and check the changes we have just made.  The result should be like this one:
 
-image::images/client-gui-sencha/CRUD.PNG[CRUD,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/CRUD.PNG"]
+image::images/client-gui-sencha/CRUD.PNG[CRUD,width="450", link="images/client-gui-sencha/CRUD.PNG"]
 

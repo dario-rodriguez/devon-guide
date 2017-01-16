@@ -114,7 +114,7 @@ Test the demo application. We will see that it is working as before.
 
 The only difference, as we said before, is that when there is no record selected, the `Edit` and `Delete` buttons are disabled:
 
-image::images/client-gui-sencha/disableButtons.PNG[Disable Buttons,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/disableButtons.PNG"]
+image::images/client-gui-sencha/disableButtons.PNG[Disable Buttons,width="450", link="images/client-gui-sencha/disableButtons.PNG"]
 
 Besides that, we can add to our ViewModel `TableListVM.js` the store we have defined for the Table entity:
 
@@ -211,7 +211,7 @@ Ext.define('demo.Application', {
 
 Alter all of these changes we can navigate to the grid and we can observe that the store has been loaded correctly:
 
-image::images/client-gui-sencha/disableButtons.PNG[Disable Buttons,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/disableButtons.PNG"]
+image::images/client-gui-sencha/disableButtons.PNG[Disable Buttons,width="450", link="images/client-gui-sencha/disableButtons.PNG"]
 
 Now, it is time for the edition window.  So, we are going to create the ViewModel for this window defining the file `TableEditVM.js`:
 
@@ -438,4 +438,4 @@ Now, we are using a ViewModel even to send parameters to the window.   Then, in 
 
 Navigate to the browser and check that everything is working as before so we can add or edit tables without any problem:
 
-image::images/client-gui-sencha/editTableVM.PNG[Edit Table,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/editTableVM.PNG"]
+image::images/client-gui-sencha/editTableVM.PNG[Edit Table,width="450", link="images/client-gui-sencha/editTableVM.PNG"]

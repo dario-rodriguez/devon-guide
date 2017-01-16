@@ -36,7 +36,7 @@ Let's to see how we can customized our own Configuration Class
 
 In Devon, the Configuration Classes reside in the folder `src/main/general/configuration/` and it's recommended to include the new Configuration Classes here. This is just to keep a clear structure of our projects, the fact is that you can include the Configuration Classes in wherever place in the project, it is responsibility of Spring Boot to scan the application.
 
-image::images/devonfw-getting-started-conf/devon_guide_configuration_getting_started_configuration_folder.PNG[,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/devonfw-getting-started-conf/devon_guide_configuration_getting_started_configuration_folder.PNG"]
+image::images/devonfw-getting-started-conf/devon_guide_configuration_getting_started_configuration_folder.PNG[,width="450", link="images/devonfw-getting-started-conf/devon_guide_configuration_getting_started_configuration_folder.PNG"]
 
 Therefore, we need to create our Configuration Class, for example _src/main/general/configuration/MyConfigurationClass.java_
 
@@ -69,7 +69,7 @@ There are several ways of setting the parameters value:
 * Initialize the variable in the code.
 
 [source,java]
----- 
+----
 (...)
 public int     propertie1 = 0;
 public String  propertie2 = "0";
@@ -83,12 +83,12 @@ Obviously, this is the most simple way to define the parameters but isn't a good
 
 First, we need to define the properties in the _application.properties_ file. We can define the properties in _/main/resources/application.properties_ or in _/main/resources/config/application.properties_. If we are running the server with the embedded Tomcat of the application, we can use the both files, but if we are deploying the application on a external Tomcat, we need to define our properties in the first one. 
 
-image::images/devonfw-getting-started-conf/devon_guide_configuration_getting_started_application.properties_files.PNG[,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/devonfw-getting-started-conf/devon_guide_configuration_getting_started_application.properties_files.PNG"]
+image::images/devonfw-getting-started-conf/devon_guide_configuration_getting_started_application.properties_files.PNG[,width="450", link="images/devonfw-getting-started-conf/devon_guide_configuration_getting_started_application.properties_files.PNG"]
 
 Learn more about how to run the application https://github.com/devonfw/devon/wiki/tutorial-sample[here].
 
 [source,java]
-----  
+----
 mybean.property1=0
 mybean.property2=0
 mybean.property3=0.0f
@@ -96,7 +96,7 @@ mybean.property3=0.0f
 
 Finally we can access to our defined properties in the code using the _@Value_ annotation:
 [source,java]
----- 
+----
 (...)
 @Value("${mybean.property1}")
 public int property1;

@@ -67,7 +67,7 @@ Navigate to the demo application and check the output
 
 The result should be like this:
 
-image::images/client-gui-sencha/pagination.PNG[Pagination,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/pagination.PNG"]
+image::images/client-gui-sencha/pagination.PNG[Pagination,width="450", link="images/client-gui-sencha/pagination.PNG"]
 
 If we open the folder `packages\local\devon-extjs\src\grid\plugin` we can see the source code for this plugin in the file `Pagination.js`:
 

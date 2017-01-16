@@ -22,7 +22,7 @@ In the Devon distribution we have a code generator to create CRUD code, called *
 
 image::images/devon-ide/cobigen.png[,width="450",link="images/devon-ide/cobigen.png"]
 
-Cobigen is distributed in the Devon distribution as an Eclipse plugin, and is available to all Devon developers for Capgemini engagements. Due to the importance of this component and the scope of its functionality, it is fully described https://github.com/devonfw/devon-guide/wiki/getting-started-Cobigen[here].
+Cobigen is distributed in the Devon distribution as an Eclipse plugin, and is available to all Devon developers for Capgemini engagements. Due to the importance of this component and the scope of its functionality, it is fully described link:getting-started-Cobigen[here].
 
 == IDE Plugins:
 
@@ -196,4 +196,3 @@ image::images/devon-ide/sonarQube-issues-view.png["sonarQube-issues-view", width
 
 
 Or you can go to link http://loclahost:9000 and login with admin as id and admin as password and goto Dashboard.you can see all the statistics of analysis of the configured projects on sonar server.
-

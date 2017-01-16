@@ -56,7 +56,7 @@ The render method is called (This is done by a Container’s layout manager). Th
 
 
 
-image::images/devon4sencha/ext-component-subclass.png[Disable Buttons,width="450",link="https://github.com/devonfw/devon-guide/wiki/images/devon4sencha/ext-component-subclass.png"]
+image::images/devon4sencha/ext-component-subclass.png[Disable Buttons,width="450",link="images/devon4sencha/ext-component-subclass.png"]
 
 Here is an example of a Component subclass that implements the onRender method:
 

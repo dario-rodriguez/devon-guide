@@ -196,7 +196,7 @@ Afterwards, click on "Finish" to let CobiGen do its work.
 ====
 It is possible that you will see a final dialog containing some warnings about ambigous imports. You should review the mentioned files, and fix the imports yourself.
 
-image::images/devonfw-cobigen/devon_guide_cobigen_4_warnings.png[,width="350", link="https://github.com/devonfw/devon-guide/wiki/images/devonfw-cobigen/devon_guide_cobigen_4_warnings.png"]
+image::images/devonfw-cobigen/devon_guide_cobigen_4_warnings.png[,width="350", link="images/devonfw-cobigen/devon_guide_cobigen_4_warnings.png"]
 
 In many cases, the imports are easily fixable by letting Eclipse auto-complete them by pressing "Ctrl-Shift-O".
 
@@ -230,7 +230,7 @@ Right click on the _access-control-schema.xml_ and select _Cobigen > Generate...
 
 This action opens a code generator wizard, like this:
 
-image::images/devonfw-cobigen/devon_guide_cobigen_8a_permissions_template_selection.png[,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/devonfw-cobigen/devon_guide_cobigen_8a_permissions_template_selection.png"]
+image::images/devonfw-cobigen/devon_guide_cobigen_8a_permissions_template_selection.png[,width="450", link="images/devonfw-cobigen/devon_guide_cobigen_8a_permissions_template_selection.png"]
 
 In this case you have only one option. Select _Permissions Constants_ and press _Finish_. You should see now the new Permissions added in the file _/oasp4j-sample-core/src/main/java/io/oasp/gastronomy/restaurant/general/common/api/constants/PermissionConstants.java_
 
@@ -248,7 +248,7 @@ public static final String DELETE_STAFFMEMBER = "DeleteStaffMember";
 ====
 It is possible that you can't press _Finish_ button in CobiGen.
 
-image::images/devonfw-cobigen/devon_guide_cobigen_8_permissions_template_selection.png[,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/devonfw-cobigen/devon_guide_cobigen_8_permissions_template_selection.png"]
+image::images/devonfw-cobigen/devon_guide_cobigen_8_permissions_template_selection.png[,width="450", link="images/devonfw-cobigen/devon_guide_cobigen_8_permissions_template_selection.png"]
 
 This happens because you are using an old version of CobiGen and the wizard can't merge the class _PermissionConstants_. To work around this you need to delete the class _PermissionConstants.java_ and try again. Cobigen will generate for us the class and will fill it with the updated content.
 ====
@@ -257,14 +257,14 @@ This happens because you are using an old version of CobiGen and the wizard can'
 
 When launching the _Cobigen > Generate_ wizard you may find problems related to the context, like the following one
 
-image::images/devonfw-cobigen/devon_guide_cobigen_5_error.png[,width="250", link="https://github.com/devonfw/devon-guide/wiki/images/devonfw-cobigen/devon_guide_cobigen_5_error.png"]
+image::images/devonfw-cobigen/devon_guide_cobigen_5_error.png[,width="250", link="images/devonfw-cobigen/devon_guide_cobigen_5_error.png"]
 
 This happens because you need to update the templates. So do again right click on the _access-control-schema.xml_ and select this time the _Cobigen > Health Check_ option and you will see a window with a message like the following
 
-image::images/devonfw-cobigen/devon_guide_cobigen_6_error.png[,width="250", link="https://github.com/devonfw/devon-guide/wiki/images/devonfw-cobigen/devon_guide_cobigen_6_error.png"]
+image::images/devonfw-cobigen/devon_guide_cobigen_6_error.png[,width="250", link="images/devonfw-cobigen/devon_guide_cobigen_6_error.png"]
 
 Click in _Advance Health Check_
 
-image::images/devonfw-cobigen/devon_guide_cobigen_7_error.png[,width="250", link="https://github.com/devonfw/devon-guide/wiki/images/devonfw-cobigen/devon_guide_cobigen_7_error.png"]
+image::images/devonfw-cobigen/devon_guide_cobigen_7_error.png[,width="250", link="images/devonfw-cobigen/devon_guide_cobigen_7_error.png"]
 
 Now upgrade the template to _constants/security_permissions_ and press _OK_. You now should be able to use Cobigen to generate the _PermissionConstants_ class content.

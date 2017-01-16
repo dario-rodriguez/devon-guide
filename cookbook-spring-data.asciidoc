@@ -25,21 +25,21 @@ More feasible option to integrate spring data in core module will be option 2 i.
 
 Consider TableEntity as an example.
 
-image::images/Integrating-Spring-Data/Existing_Dataaccess_Structure.JPG[, width="450", link="https://github.com/devonfw/devon-guide/wiki/images/Integrating-Spring-Data/Existing_Dataaccess_Structure.JPG"]
+image::images/Integrating-Spring-Data/Existing_Dataaccess_Structure.JPG[, width="450", link="images/Integrating-Spring-Data/Existing_Dataaccess_Structure.JPG"]
 
-image::images/Integrating-Spring-Data/TableDaoImpl_Structure.JPG[, width="450", link="https://github.com/devonfw/devon-guide/wiki/images/Integrating-Spring-Data/TableDaoImpl_Structure.JPG"]
+image::images/Integrating-Spring-Data/TableDaoImpl_Structure.JPG[, width="450", link="images/Integrating-Spring-Data/TableDaoImpl_Structure.JPG"]
 
 
 == Structure of Dataaccess Layer with Spring Data
 
-image::images/Integrating-Spring-Data/Structure_With_Spring_Data.JPG[, width="450", link="https://github.com/devonfw/devon-guide/wiki/images/Integrating-Spring-Data/Structure_With_Spring_Data.JPG"]
+image::images/Integrating-Spring-Data/Structure_With_Spring_Data.JPG[, width="450", link="images/Integrating-Spring-Data/Structure_With_Spring_Data.JPG"]
 
 Below are steps need to integrate Spring Data in data access layer:
 
 
 * Add dependency for Spring Data in pom.xml of oasp4j-samples-core project
 
-[source,java]
+[source,xml]
 --------
 		<dependency>
 		  <groupId>org.springframework.boot</groupId>

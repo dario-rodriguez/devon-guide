@@ -160,4 +160,4 @@ image::images/database-configuration/db-config4.png[,width="450",link="images/da
 
 Once these all steps are done, start the db server, in our case (MySQL server) and run the application. Flyway will run migrations on application startup, as we have set "database.migration.auto=true" in application.properties file, while setting up flyway for our application. It should not be set to true in production environment.
 
-For configuring database please refer https://github.com/devonfw/devon-guide/wiki/getting-started-database-configuration[Database Configuration].
+For configuring database please refer link:getting-started-database-configuration[Database Configuration].

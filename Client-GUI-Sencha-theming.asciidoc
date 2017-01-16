@@ -29,7 +29,7 @@ This command should have created a new `demo-theme` folder, with the theme files
 
 All Sencha theme packages are part of a larger hierarchy of themes and each theme package must extend a parent theme. The next step in creating our custom theme is to select which theme to extend. The following image is an overview of Sencha theme hierarchy.
 
-image::images/client-gui-sencha/senchaThemes.PNG[Sencha Themes,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/senchaThemes.PNG"]
+image::images/client-gui-sencha/senchaThemes.PNG[Sencha Themes,width="450", link="images/client-gui-sencha/senchaThemes.PNG"]
 
 In this tutorial we will create a custom theme that extends the Triton theme. The first step is to configure our custom theme with the name of the theme it is extending. This is done by changing the extend property in `packages/local/demo-theme/package.json` from its default value as shown here:
 
@@ -49,7 +49,7 @@ To configure your test application to use your custom theme, change the theme se
 
 Run the application and check it the new style. Now the application theme should be like triton theme because we have extended this theme in our **demo-theme**.
 
-image::images/client-gui-sencha/theming1.PNG[Theming 1,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/theming1.PNG"]
+image::images/client-gui-sencha/theming1.PNG[Theming 1,width="450", link="images/client-gui-sencha/theming1.PNG"]
 
 ## Making changes in the Theme
 
@@ -66,7 +66,7 @@ Check the new look of our application.
 
 Sencha components style has been defined with CSS variables, so in every component Sencha documentation, there is a section for CSS vars. 
 
-image::images/client-gui-sencha/senchaDocs.PNG[Sencha Docs,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/senchaDocs.PNG"]
+image::images/client-gui-sencha/senchaDocs.PNG[Sencha Docs,width="450", link="images/client-gui-sencha/senchaDocs.PNG"]
 
 Changing the value of these variables, we can adapt the style of these components to our desired style.
 For example, we are going to change a bit the style of the buttons.
@@ -83,7 +83,7 @@ $button-default-base-color: #A4A4A4;
 
 Go to the application and check the grey background-color and the white color of the `page1` and `My new page` toolbar buttons.
 
-image::images/client-gui-sencha/theming2.PNG[Theming 2,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/theming2.PNG"]
+image::images/client-gui-sencha/theming2.PNG[Theming 2,width="450", link="images/client-gui-sencha/theming2.PNG"]
 
 ## Adding customs UI’s
 
@@ -145,4 +145,4 @@ Add button ui property in the Search button in the file `TableListV.js`.
 
 Check the result.
 
-image::images/client-gui-sencha/theming3.PNG[Theming 3,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/theming3.PNG"]
+image::images/client-gui-sencha/theming3.PNG[Theming 3,width="450", link="images/client-gui-sencha/theming3.PNG"]

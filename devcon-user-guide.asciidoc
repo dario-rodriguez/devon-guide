@@ -3,7 +3,7 @@ toc::[]
 
 = Devcon User Guide
 
-image::images/devconlogo_full.png[,align="center",width="200",Devcon, link="https://github.com/devonfw/devon-guide/wiki/images/devconlogo_full.png"]
+image::images/devconlogo_full.png[,align="center",width="200",Devcon, link="images/devconlogo_full.png"]
 
 The Devon Console, *Devcon*, is a cross-platform command line tool running on the JVM that provides many automated tasks around the full life-cycle of Devon applications, from installing the basic working environment and generating a new project, to running a test server and deploying an application to production.
 
@@ -74,11 +74,11 @@ devon -g
 
 The following application window will appear.
 
-image::images/Devcon_homepage.JPG[,align="center",width="250",Devcon, link="https://github.com/devonfw/devon-guide/wiki/images/Devcon_homepage.JPG"]
+image::images/Devcon_homepage.JPG[,align="center",width="250",Devcon, link="images/Devcon_homepage.JPG"]
 
 If you navigate to a particular module, it will show all the available commands from the respective module. You can find the "Exit" option to close the application, in the first menu on the left. Once you click on any command, the corresponding command form will be displayed on the screen. Refer following screen shot:
 
-image::images/Devcon_Form.JPG[,align="center",width="250",Devcon, link="https://github.com/devonfw/devon-guide/wiki/images/Devcon_Form.JPG"]
+image::images/Devcon_Form.JPG[,align="center",width="250",Devcon, link="images/Devcon_Form.JPG"]
  
 === Using command prompt:
 

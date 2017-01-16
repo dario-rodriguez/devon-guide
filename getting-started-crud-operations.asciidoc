@@ -136,6 +136,7 @@ public interface Table extends ApplicationEntity {
 
 }
 ----
+
 [NOTE]
 ====
 You may have compilation errors related to _TableState_ that is not yet implemented. We will take care of that in the next step.
@@ -202,7 +203,7 @@ If Eclipse shows errors still, after you've created the `TableState` enum, open 
 Finally, we should create the entity implementation. Create the package `devonfw.tutorial.tablemanagement.dataaccess.api`, create the class `TableEntity` inside it and paste the following code:
 
 [source,java]
----- 
+----
 package devonfw.tutorial.tablemanagement.dataaccess.api;
 
 import devonfw.tutorial.general.dataaccess.api.ApplicationPersistenceEntity;
@@ -269,16 +270,16 @@ public class TableEntity extends ApplicationPersistenceEntity implements Table {
     this.state = state;
   }
 
-} 
-----
+}
 
+----
 
 ===== Validation
 
 We want tables to never have negative numbers, so we are going to add a validation to our `TableEntity`. Change the definition of the `getNumber` method of the `TableEntity` class as follows:
 
 [source,java]
----- 
+----
   @Min(0)
   @Column(unique = true)
   public Long getNumber() {
@@ -311,7 +312,7 @@ Create the following DAO interface for our `Table` entity:
 .TableDao.java
 
 [source,java]
----- 
+----
 package devonfw.tutorial.tablemanagement.dataaccess.api.dao;
 
 import devonfw.tutorial.general.dataaccess.api.dao.ApplicationDao;
@@ -432,7 +433,7 @@ As you can see _ApplicationMasterDataDaoImpl_ already implements the CRUD operat
 
 The business logic of our application is defined in the logic layer, as proposed by the OASP4J Guide.
 
-The logic layer also maps entities from the dataaccess layer to/from transfer objects, so we do not expose internal details of the application's implementation to higher layers.
+The logic layer also maps entities from the dataaccess layer to/from transfer objects, so we do not expose internal details of the applications implementation to higher layers.
 
 In Devonfw applications, there are several different types of _Transfer Objects_ (short TO). One is the _Entity Transfer Object_ (ETO) used to transfer a representation of an Entity.
 
@@ -555,7 +556,7 @@ In Devonfw, we define CRUD logic into a `<Entity>management` class. So we are go
 
 .Tablemanagement.java
 [source,java]
----- 
+----
 package devonfw.tutorial.tablemanagement.logic.api;
 
 import devonfw.tutorial.tablemanagement.logic.api.to.TableEto;
@@ -772,7 +773,7 @@ Web applications need to get data from the server, so we have to expose the meth
 
 This is an example of a REST API for our `Table` use case using JAX-RS.
 
-Also note that the implementation does not follow the dogmatic _RESTFUL_ approach as Devonfw proposes a more pragmatic way to use REST. Please refer to the guide https://github.com/devonfw/devon-guide/wiki/getting-started-Creating-Rest-Service[Creating Rest Service] for more information on the subject.
+Also note that the implementation does not follow the dogmatic _RESTFUL_ approach as Devonfw proposes a more pragmatic way to use REST. Please refer to the guide link:getting-started-Creating-Rest-Service[Creating Rest Service] for more information on the subject.
  
 .TablemanagementRestServiceImpl.java
 [source,java]
@@ -1238,6 +1239,7 @@ Now add the following method to `TableDaoImpl`:
 
 [source,java]
 ----
+
   private void addOrderBy(JPAQuery query, EntityPathBase<TableEntity> alias, TableEntity table, List<OrderByTo> sort) {
 
       if (sort != null && !sort.isEmpty()) {
@@ -1265,7 +1267,6 @@ Now add the following method to `TableDaoImpl`:
                   } else {
                       query.orderBy(Alias.$(table.getState()).desc());
                   }
-
               }
           }
       }

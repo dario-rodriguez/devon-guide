@@ -70,7 +70,7 @@ If the command is not recognized check the Subversion install process.
 
 ==== Adding Jasypt client
 
-Jasypt is a java library which allows the developer to add basic encryption capabilities to the projects with minimum effort. Jasypt allows to manage and transparently decrypt encrypted values in .properties files used by Spring applications. In this case the Jasypt client is a tool needed for configuring thehttps://github.com/devonfw/devon-guide/wiki/cookbook-winauth-module[winauth] module in order to generate the encrypted passwords that will be stored in the application.properties file. To facilitate to the developer the usage of the Devon framework the Jasypt client is included as a default plugin in the distribution.
+Jasypt is a java library which allows the developer to add basic encryption capabilities to the projects with minimum effort. Jasypt allows to manage and transparently decrypt encrypted values in .properties files used by Spring applications. In this case the Jasypt client is a tool needed for configuring the link:cookbook-winauth-ad-module[winauth] module in order to generate the encrypted passwords that will be stored in the application.properties file. To facilitate to the developer the usage of the Devon framework the Jasypt client is included as a default plugin in the distribution.
 
 *1. Download the client*
 
@@ -345,7 +345,7 @@ But to check if the installation is completely successful we should compile the 
 
 ==== Jasypt client
 
-Jasypt is a java library which allows the developer to add basic encryption capabilities to the projects with minimum effort. Jasypt allows to manage and transparently decrypt encrypted values in .properties files used by Spring applications. In this case the Jasypt client is a tool needed for configuring thehttps://github.com/devonfw/devon-guide/wiki/cookbook-winauth-module[winauth] module in order to generate the encrypted passwords that will be stored in the application.properties file. To facilitate to the developer the usage of the Devon framework the Jasypt client is included as a default plugin in the distribution.
+Jasypt is a java library which allows the developer to add basic encryption capabilities to the projects with minimum effort. Jasypt allows to manage and transparently decrypt encrypted values in .properties files used by Spring applications. In this case the Jasypt client is a tool needed for configuring the link:cookbook-winauth-ad-module[winauth] module in order to generate the encrypted passwords that will be stored in the application.properties file. To facilitate to the developer the usage of the Devon framework the Jasypt client is included as a default plugin in the distribution.
 
 *1. Download the client*
 

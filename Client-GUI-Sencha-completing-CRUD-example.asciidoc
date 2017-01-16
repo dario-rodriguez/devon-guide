@@ -361,29 +361,29 @@ Navigate to our application in the browser and check the result of the changes
 
 Now, we can see that we have three new buttons above our grid:
 
-image::images/client-gui-sencha/gridCRUD.PNG[Grid CRUD,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/gridCRUD.PNG"]
+image::images/client-gui-sencha/gridCRUD.PNG[Grid CRUD,width="450", link="images/client-gui-sencha/gridCRUD.PNG"]
 
 If we click the `Add` button, the application will open a new window:
 
-image::images/client-gui-sencha/addCRUD.PNG[Add CRUD,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/addCRUD.PNG"]
+image::images/client-gui-sencha/addCRUD.PNG[Add CRUD,width="450", link="images/client-gui-sencha/addCRUD.PNG"]
 
 If we select a record from the grid and we click the `Edit` button:
 
-image::images/client-gui-sencha/editCRUD.PNG[Edit CRUD,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/editCRUD.PNG"]
+image::images/client-gui-sencha/editCRUD.PNG[Edit CRUD,width="450", link="images/client-gui-sencha/editCRUD.PNG"]
 
 If we select a record from the grid and we click the `Delete` button:
 
-image::images/client-gui-sencha/deleteCRUD.PNG[Delete CRUD,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/deleteCRUD.PNG"]
+image::images/client-gui-sencha/deleteCRUD.PNG[Delete CRUD,width="450", link="images/client-gui-sencha/deleteCRUD.PNG"]
 
 If we try to delete a record from the grid we will obtain the following error:
 
-image::images/client-gui-sencha/deleteCRUDerror.PNG[Delete CRUD error,width="450", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/deleteCRUDerror.PNG"]
+image::images/client-gui-sencha/deleteCRUDerror.PNG[Delete CRUD error,width="450", link="images/client-gui-sencha/deleteCRUDerror.PNG"]
 
 This is because the user `waiter` does not have enough permission to do this functionality.
 
 Instead of using this user, we can use the user `chief` for this purpose:
 
-image::images/client-gui-sencha/chiefLogin.PNG[Chief Login,width="300", link="https://github.com/devonfw/devon-guide/wiki/images/client-gui-sencha/chiefLogin.PNG"]
+image::images/client-gui-sencha/chiefLogin.PNG[Chief Login,width="300", link="images/client-gui-sencha/chiefLogin.PNG"]
 
 Use the `chief` user and try to delete a record from the tables grid
 

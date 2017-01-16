@@ -48,7 +48,7 @@ As mentioned earlier in the guide, distribution comes with _Tomcat8_ by default,
 == Using Tomcat7 for deploying
 
 You can download tomcat externally and deploy war on it.
-For more information on this, please visit this https://github.com/devonfw/devon-guide/wiki/getting-started-deployment-on-tomcat#deploy-on-tomcat-7[link].
+For more information on this, please visit this link:getting-started-deployment-on-tomcat#deploy-on-tomcat-7[link].
 
 == Linux and Windows Compatibility
 
