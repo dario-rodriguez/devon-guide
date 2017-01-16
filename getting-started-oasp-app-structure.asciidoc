@@ -41,7 +41,7 @@ The _java_ package contains all Java files that implement the application and it
 
 The *general* package contains all Java files of OASP4J application. It is further divided in the following sub-packages:
 
-===== Batch impl config
+====== Batch impl config
 
 This first package stores a class _BeansBatchConfig.java_ that contains the configuration of batch beans.
 
