@@ -7,11 +7,11 @@ To make your Devon4sencha application development easy, you will find, included 
 
 http://www.sencha.com/products/sencha-cmd/#overview[Sencha Cmd] is a cross-platform command line tool that provides many automated tasks around the full life-cycle of your applications from generating a new project to deploying an application to production.
 
-It provides a collection of powerful features that work together and in conjunction with the Sencha Ext JS and Sencha Touch frameworks like code generation, javascript compiler, workspace management, mobile native packaging, build scripts, theming and so on.
+It provides a collection of powerful features that work together and in conjunction with the Sencha Ext JS framework like code generation, javascript compiler, workspace management, mobile native packaging, build scripts, theming and so on.
 
-The workspace management feature allows the import of the Devon4sencha package the applications needs, like `devon-extjs` package.
+The workspace management feature allows the import of "packages" into your application. That way you can modularize and create packages for sharing functionality between applications. Devon provides one of these packages called `devon-extjs`.
 
-During application development, we can use the `sencha app watch` feature for compile and test the application on a browser. This command must be launched from the application root folder and starts a web server with the client application ready to access from the browser.
+The most usual way to use Cmd during application development, is just running `sencha app watch` to compile and test the application on a browser. This command must be launched from the application root folder and starts a web server with the client application ready to access from the browser.
 
 Sencha Cmd is not a must for Devon4sencha development application, but using it makes your life easier. So, it's highly recommended to use it.
   
@@ -55,11 +55,26 @@ This code will be automatically added to the final application when building the
 
 During application development, we can use the http://www.sencha.com/products/sencha-cmd/#overview[Sencha Cmd] *app watch* feature to compile and test the application in a browser. This command must be launched from the application root folder.
 
-
 [source]
 ----
+$ cd devon4sencha
+$ cd ExtSample
 $ sencha app watch
-
 ----
 
 Any code changes to the application files will be detected by Sencha Cmd and it will update the application being served. It requires a manual refresh on the browser though to effectively see the changes.
+
+Since this is intended for development and in order to speed up things, only the first "build" defined on app.json will be processed. This means that if you are developing an "universal" app for desktop and mobile you will have several "build" sections defined. 
+
+To trigger a concrete "build" you can name it after the `watch` argument
+
+[source]
+----
+$ sencha app watch modern
+----
+
+
+.*Speed up development*
+[NOTE]
+When in development, you can speed things up even more if you are not modifying the sass styles. You can set `skip.sass=1` on the `build.properties` file of your workspace application (i.e: in the restaurant application it would be `devon4sencha/ExtSample/.sencha/app/build.properties`). Don't forget to revert to `0` if you modify styles or change to other build type (classic/modern)
+
