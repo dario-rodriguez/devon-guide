@@ -3,7 +3,7 @@ toc::[]
 
 # Application architecture
 
-Sencha provides support for both MVC and MVVM application architectures.
+Sencha provides support for both MVC and MVVM application architectures. Please note that this is properly documented on the Sencha docs site. Take this document as an extension of the official documentation to make things more clear.
 
 ## MVC (Model, View, Controller):
 
@@ -179,3 +179,81 @@ Ext.define("Sample.view.table.TableEdit", {
 ----
 
 In this sample the loading mask and text will be displayed/hidden according to the value of the viewModel `orderInfo` data property. This is something that usually requires calling the show/hide methods of the mask object programmatically and by using the MVVM model, this greatly simplified.
+
+
+# Universal applications
+
+When you have to provide a front-end for both desktop and tablet/mobile you can leverage Sencha "universal" application feature. This means that you will have two different outputs from your source code (or more if you have more different profiles to support i.e. TV, POS, smartwatch?)
+
+First thing is to define the "builds" you want to have on the `app.json` file, you will find near the bottom something like this:
+
+[source, javascript]
+------
+"builds": {
+        "classic": {
+            "toolkit": "classic",
+            "theme": "theme-crisp",
+            "sass": {
+                // "save": "classic/sass/save.scss"
+            }
+        },
+
+        "modern": {
+            "toolkit": "modern",
+            "theme": "theme-triton",
+            "sass": {
+                // "save": "modern/sass/save.scss"
+            }
+        }
+------
+
+[NOTE]
+You can call `Ext.isModern` or `Ext.isClassic` anytime in your code if you need to know which toolkit are you using at runtime (maybe for showing/hidding elements on a page)
+
+The way "universal" works is by overriding specific files of your application using files specific for those "builds". This is done by having one folder per "build" type on the application root folder replicating the application usual structure. Let's see an example.
+
+In a "normal" application you will have this structure:
+
+[source, bash]
+----
+
+app
+   + controller
+   + model
+   + store
+   + view
+      + main
+          Main.js
+          MainVC.js
+          MainVM.js
+ 
+----
+
+Now, if we have two builds called "classic" and "modern" and want to have specific views defined for `Main` component we will have this structure:
+
+[source, bash]
+----
+
+app
+   + controller
+   + model
+   + store
+   + view
+      + main
+          MainVC.js
+          MainVM.js
+classic
+   + src
+       + view
+          + main
+             Main.js 
+modern
+   + src
+       + view
+          + main
+             Main.js
+----
+
+
+
+
