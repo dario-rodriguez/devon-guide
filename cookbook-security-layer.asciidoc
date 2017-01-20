@@ -304,7 +304,7 @@ More in detail, imagine that you have two types of users in your app: _customers
 
 As you can see we have created two roles _Customer_ and _Admin_. The _Customer_ can _SeeProducts_ and the _Admin_ inherits permissions from _Customer_, so he can also _SeeProducts_, and in addition to that we have defined an new permission _CreateProduct_ to allow only him to create new products.
 
-2 - Is recommended, although optional, to use an intermediate class to manage the permission terminology to avoid errors. So we could create a class _PermissionConstants_ and store there the permission names.
+2 - Is recommended, although optional, to use an intermediate class to manage the permission terminology to avoid errors. So we could create a class _PermissionConstants_ and store there the permission names. You can use link:getting-started-Cobigen#creating-user-permissions[Cobigen] to easily generate this class.
 
 [source,java]
 ----
