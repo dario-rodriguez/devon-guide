@@ -348,7 +348,7 @@ OASP4J advises to specify all queries in one mapping file called _orm.xml_ locat
 <entity-mappings version="1.0" xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemalocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd">
 
   <named-query name="get.free.tables">
-    <query><!--[CDATA[SELECT t FROM TableEntity t WHERE t.state = devonfw.tutorial.tablemanagement.common.api.datatype.TableState.FREE]]--></query>
+    <query><![CDATA[SELECT t FROM TableEntity t WHERE t.state = devonfw.tutorial.tablemanagement.common.api.datatype.TableState.FREE]]></query>
   </named-query>
 
 </entity-mappings>
