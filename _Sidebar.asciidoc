@@ -104,3 +104,4 @@
 * link:devcon-command-developers-guide[Devcon Command Developers Guide]
 * link:devon-guide-Devon-Module-Developer-Guide[devonfw Module Developer's Guide]
 * link:components-list[Components list]
+* link:201_210_migrate[DevonFW 2.0.1 to DevonFW 2.1.0 Migration]
