@@ -18,7 +18,7 @@ If you want to migrate a Sencha app created with Devonfw 2.0.1 to the new Devonf
     D:\Devon-dist_2.1.0\workspaces\examples>cd {your-app-name}
     ----
 
-    now execute the _upgrade_ command
+now execute the _upgrade_ command
 
     [source,bash]
     ----
