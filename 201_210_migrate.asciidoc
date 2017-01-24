@@ -13,19 +13,19 @@ If you want to migrate a Sencha app created with Devonfw 2.0.1 to the new Devonf
 
 * option 2 *Upgrade*: copy your app into the _devon4sencha_ workspace, in the new Devonfw 2.1.0 release, and go inside its directory 
 
-    [source,bash]
-    ---
+[source,bash]
+---
     D:\Devon-dist_2.1.0\workspaces\examples>cd {your-app-name}
-    ----
+----
 
   now execute the _upgrade_ command
 
-    [source,bash]
-    ----
+[source,bash]
+----
     D:\Devon-dist_2.1.0\workspaces\examples\your-app-name> sencha app upgrade 
-    ----
+----
 
-After doing this you should be able to run your existing Sencha app into the new release of Devonfw.
+After doing this you should be able to run your existing Sencha app into the _devon4sencha_ workspace of the 2.1.0 release of Devonfw.
 
 == OASP4J
 
