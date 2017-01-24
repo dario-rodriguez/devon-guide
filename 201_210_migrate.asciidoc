@@ -5,6 +5,28 @@ toc::[]
 
 == Devon4Sencha
 
+In the Devonfw 2.1.0 release the Sencha _extJS_ has been updated from release 6.0.0 to release 6.2.0 and the _Sencha Cmd_ has been updated from version 6.1.2.15 to version 6.2.1.29. 
+
+If you want to migrate a Sencha app created with Devonfw 2.0.1 to the new Devonfw 2.1.0 release you have two options:
+
+* option 1 *keeping your previous extJS*: if you want to keep your old _extJS_, copy your existing app to the _devon4sencha_ workspace, in the new Devonfw 2.1.0 release, and replace the existing _ext_ folder with the _ext_ folder of the previous Devonfw release (2.0.1).
+
+* option 2 *Upgrade*: copy your app into the _devon4sencha_ workspace, in the new Devonfw 2.1.0 release, and go inside its directory 
+
+    [source,bash]
+    ---
+    D:\Devon-dist_2.1.0\workspaces\examples>cd {your-app-name}
+    ----
+
+    now execute the _upgrade_ command
+
+    [source,bash]
+    ----
+    D:\Devon-dist_2.1.0\workspaces\examples\your-app-name> sencha app upgrade 
+    ----
+
+After doing this you should be able to run your existing Sencha app into the new release of Devonfw.
+
 == OASP4J
 
 == CobiGen
