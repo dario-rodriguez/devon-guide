@@ -33,6 +33,17 @@ After doing this you should be able to run your existing Sencha app into the _de
 
 == OASP4J
 
+To migrate to OASP4J 2.2.0, one doesn't need to update anything. Major features added as part of OASP4J 2.2.0 release are 
+
+. Upgrade to Spring Boot 1.3.8.RELEASE
+. Upgrade to Apache CXF 3.1.8
+. Database Integration with Oracle 11g
+. Added Servlet for HTTP-Debugging
+. Refactored code and improved JavaDoc
+. Bugfix: mvn spring-boot:run executes successfully for oasp4j application created using oasp4j template 
+. Added subsystem tests of SalesmanagementRestService and several other tests
+. Added Tests to test java packages conformance to OASP conventions
+
 == CobiGen
 
 Regarding CobiGen, there is no need to update anything. The 2.1.0 release only adds new functionalities to the CobiGen plugin as:
