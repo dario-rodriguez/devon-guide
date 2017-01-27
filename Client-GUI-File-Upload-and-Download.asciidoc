@@ -153,7 +153,7 @@ const URL = 'https://evening-anchorage-3159.herokuapp.com/api/';
 [source,bash]
 ----
 // new code change : connecting to the customized web-service
-const URL = 'http://localhost:8081/oasp4j-sample-server/services/rest/offermanagement/v1/product/uploadFile/';
+const URL = 'CUSTOMIZED WEBSERVICE-URL';
 ----
 
 * If you face above mentioned error, add headers content to the code as mentioned below.
