@@ -138,3 +138,22 @@ Below is the template for anchor tag.
 ----
 <a class="btn btn-success" href='<WEBSERVICE-URL>'>File Download</a>
 ----
+
+= Appendix
+== Code change for File Upload Package
+
+* To point the file upload package to the customize web-service, we need to change the URL in simple-demo.ts (\demo\components\file-upload).
+
+[source,bash]
+----
+// default code from package
+const URL = 'https://evening-anchorage-3159.herokuapp.com/api/';
+---- 
+
+[source,bash]
+----
+// new code change : connecting to the customized web-service
+const URL = 'http://localhost:8081/oasp4j-sample-server/services/rest/offermanagement/v1/product/uploadFile/';
+----
+
+
