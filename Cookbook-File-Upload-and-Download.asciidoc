@@ -58,9 +58,9 @@ Following table explains the annotations used for download functionality along w
 If no methods in a resource are able to produce the MIME type in a client request, the JAX-RS runtime sends back an HTTP "406 Not Acceptable" error.
 
 The value of @Produces is an array of String of MIME types.
-For example:@Produces({"image/jpeg,image/png"})
+For example: @Produces({"image/jpeg,image/png"})
 
-The following example shows how to apply @Produces at both the class and method levels:
+The following example shows how to apply @Produces at both, the class and method levels:
 
 [source,java]
 --------
@@ -107,7 +107,7 @@ public Response uploadFile(List<Attachment> attachments) throws SQLException, IO
 
 And here is a simple implementation of the service:
 
-Add annotation @Transactional at class level and Inject UcManageBinaryObject class object.
+Add annotation @Transactional at class level and inject UcManageBinaryObject class object.
 
 [source,java]
 --------
@@ -134,7 +134,7 @@ Web Service method implementation:
 --------
 @POST
 @Consumes ("multipart/mixed")
-// use @Consumes(MediaType.MULTIPART_FORM_DATA) if request contains multipart form data and import //javax.ws.rs.core.MediaType;
+// use @Consumes(MediaType.MULTIPART_FORM_DATA) if request contains multi-part form data and import //javax.ws.rs.core.MediaType;
 @Path ("/upload")
 public Response uploadFile(List<Attachment> attachments) {
     BinaryObjectEto binaryObject = new BinaryObjectEto();
@@ -164,7 +164,7 @@ public Response uploadFile(List<Attachment> attachments) {
 In the above code snippet, we are iterating the attachments that are uploaded and extracting InputStream for each Attachment. Each InputStream is converted to the bytearray and a Blob object is created out of it. The Blob object is
 saved to the database by calling saveBinaryObject(blob, binaryObject).
 
-Following table explains the annotations used for upload functionality along with its description.
+Following table explains the annotations used for upload functionality:
 
 .Annotations used for upload functionality
 |===
@@ -176,13 +176,13 @@ Following table explains the annotations used for upload functionality along wit
 
 === Consumes Annotation
 
-The @Consumes annotation is used to specify MIME media types that can be accepted, or consumed, from the client. If @Consumes is applied at the class level, all the response methods accept the specified MIME types by default. If applied at the method level, @Consumes overrides any @Consumes annotation applied at the class level.
+The @Consumes annotation is used to specify MIME media type that can be accepted, or consumed, from the client. If @Consumes is applied at the class level, all the response methods accept the specified MIME type by default. If applied at the method level, @Consumes overrides any @Consumes annotation applied at the class level.
 
 If a resource is unable to consume the MIME type of a client request, the JAX-RS runtime sends back an HTTP 415 ("Unsupported Media Type") error.
 
-The value of @Consumes is an array of String of acceptable MIME types. For example:@Consumes({"text/plain,text/html"})
+The value of @Consumes is an array of String of acceptable MIME types. For example: @Consumes({"text/plain,text/html"})
 
-The following example shows how to apply @Consumes at both the class and method levels:
+The following example shows how to apply @Consumes at both, the class and method levels:
 
 [source,java]
 --------
