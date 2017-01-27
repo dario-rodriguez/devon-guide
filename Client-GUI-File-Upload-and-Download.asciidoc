@@ -8,7 +8,7 @@ toc::[]
 Synchronous File Upload is uploading files to the server in a single request at the same time.
 
 
-To enable multiple files upload, you need to add multiple attribute to input of type file and it will be enabled automatically.
+To enable multiple file upload, you need to add multiple attribute to input of type file and it will be enabled automatically.
 And the template would look something like:
 
 [source,bash]
@@ -45,7 +45,7 @@ And the template would look something like:
 
 ----
 
-Browser renders the above html as shown in the screen shot below.
+Browser renders the above html as shown in the screen shot below:
 
 image::images/client-gui-sencha/file_upload_syncronous.png[,width="350",File Upload Syncronous,link="images/client-gui-sencha/file_upload_syncronous.png"]
 
@@ -63,7 +63,7 @@ Click on button "Upload File" to upload the selected files.
 
 Asynchronous File Upload is uploading files to the server in a separate request per file.
 
-For asynchronous file upload in Angular2, use 'ng2-file-upload' package from valor-software. In order to use this package, execute following command line instructions:
+For asynchronous file upload in Angular2, use 'ng2-file-upload' package of valor-software. In order to use this package, execute following command line instructions:
 
 . git clone --recursive https://github.com/valor-software/ng2-file-upload.git 
   (OR download v1.1.3-0.zip from https://github.com/valor-software/ng2-file-upload/releases)
@@ -85,23 +85,23 @@ image::images/client-gui-sencha/ng2-file-upload-fileupload.png[,width="450",File
 
 
 One can face cross browser issues with header 'Access-Control-Allow-Origin' in Google Chrome for instance.
-More details on this issue follows:
+More details on this issue are as follows:
 
 *Error :*
-"Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource."
+"Response to preflight request doesn't pass the access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource."
 
 *Cause of the problem :*
-Higher versions of Google chrome browser sends the empty string for the request header parameter "Access-Control-Request-Headers".This parameter is added by Google chrome, which is not seen for other browsers.
+Higher versions of Google chrome browser sends the empty string for the request header parameter "Access-Control-Request-Headers". This parameter is added by Google chrome, which is not seen for other browsers.
 
 image::images/client-gui-sencha/Cause-Access-control-request-header.png[,width="450",Cause-Access-control-request-header,link="images/client-gui-sencha/Cause-Access-control-request-header.png"]
 
 
 *Solution :*
-Google chrome extention "Change HTTP Request Header" can be used to fix this issue.
+Google chrome extension "Change HTTP Request Header" can be used to fix this issue.
 
-1) Add "Change HTTP Request Header" extention to google chrome and enable it.
+1) Add "Change HTTP Request Header" extension to google chrome and enable it.
 
-2) Set the value for parameter "Access-Control-Request-Headers" .For example "content-type".
+2) Set the value for parameter "Access-Control-Request-Headers". For example: "content-type".
 
 
 image::images/client-gui-sencha/Extension-Change-http-request-header.png[,width="450",Extension-Change-http-request-header,link="images/client-gui-sencha/Extension-Change-http-request-header.png"]
@@ -111,7 +111,7 @@ image::images/client-gui-sencha/Extension-Change-http-request-header.png[,width=
 
 To validate the extension "Change HTTP Request Header"  is added to the Google Chrome correctly, hit the service URL once again.
 
-Press 'F12' and see the result in network tab of the browser debugger. The value for parameter 'Access-Control-Request-Headers' should not be empty.
+Press 'F12' and see the result in the network tab of the browser debugger. The value for parameter 'Access-Control-Request-Headers' should not be empty.
 
 image::images/client-gui-sencha/Result_Google_Chrome.png[,width="450",Result_Google_Chrome,link="images/client-gui-sencha/Result_Google_Chrome.png"]
 
@@ -132,11 +132,11 @@ Below is the template for anchor tag.
 = Appendix
 == Code change for File Upload Package
 
-* To integrate this package (https://github.com/valor-software/ng2-file-upload/) with the customized webservice for file upload (that is developed in your application), follow below steps:
+To integrate this package (https://github.com/valor-software/ng2-file-upload/) with the customized web service for file upload (that is developed in your application), follow below steps:
 
 * cd '\demo\components\file-upload' (from package root).
 * Open file 'simple-demo.ts'.
-* Edit variable 'URL' with the webservice URL. It will look like 
+* Edit variable 'URL' with the web service URL. It will look like:
 [source,bash]
 ----
 const URL = '<WEBSERVICE_URL>';
@@ -156,11 +156,11 @@ const URL = 'WEBSERVICE-URL';
 
 * 'npm start' (Restart the server to reflect the change).
 
-* If you face above mentioned cross browser error, add headers content to the code as mentioned below.
+* If you face above mentioned cross browser error then add header's content to the code as mentioned below:
 
-Error: "Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource."
+Error: "Response to preflight request doesn't pass the access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource."
 
-Add below mentioned changes in file '\components\file-upload\file-uploader.class.ts'
+Add below mentioned changes in the file '\components\file-upload\file-uploader.class.ts'
 
 [source,bash]
 ----
