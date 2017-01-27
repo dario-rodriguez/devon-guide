@@ -84,17 +84,6 @@ In the above screen, you can choose single/multiple files from the buttons 'Choo
 image::images/client-gui-sencha/ng2-file-upload-fileupload.png[,width="450",File Upload Asyncronous,link="images/client-gui-sencha/ng2-file-upload-fileupload.png"]
 
 
-To integrate this package with the customized webservice for file upload (that is developed in your application), follow below steps:
-
-* cd '\demo\components\file-upload' (from package root).
-* Open file 'simple-demo.ts'.
-* Edit variable 'URL' with the webservice URL. It will look like 
-[source,bash]
-----
-const URL = '<WEBSERVICE_URL>';
-----
-* 'npm start' (Restart the server to reflect the change).
-
 One can face cross browser issues with header 'Access-Control-Allow-Origin' in Google Chrome for instance.
 More details on this issue follows:
 
@@ -143,7 +132,15 @@ Below is the template for anchor tag.
 = Appendix
 == Code change for File Upload Package
 
-* To point the file upload package to the customize web-service, we need to change the URL in simple-demo.ts (\demo\components\file-upload).
+* To integrate this package with the customized webservice for file upload (that is developed in your application), follow below steps:
+
+* cd '\demo\components\file-upload' (from package root).
+* Open file 'simple-demo.ts'.
+* Edit variable 'URL' with the webservice URL. It will look like 
+[source,bash]
+----
+const URL = '<WEBSERVICE_URL>';
+----
 
 [source,bash]
 ----
@@ -157,7 +154,9 @@ const URL = 'https://evening-anchorage-3159.herokuapp.com/api/';
 const URL = 'CUSTOMIZED WEBSERVICE-URL';
 ----
 
-* If you face above mentioned error, add headers content to the code as mentioned below.
+* 'npm start' (Restart the server to reflect the change).
+
+* If you face above mentioned cross browser error, add headers content to the code as mentioned below.
 
 Error: "Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource."
 
