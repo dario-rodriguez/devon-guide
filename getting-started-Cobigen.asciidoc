@@ -168,7 +168,7 @@ public class StaffMemberEntity extends ApplicationPersistenceEntity implements S
 
 ===== Step 2: Generate classes
 
-To generate the rest of the classes concerning the StaffMember CRUD, we only have to do a right click on the `TableEntity.java` class in Eclipse Project Explorer and select "CobiGen ' Generate".
+To generate the rest of the classes concerning the StaffMember CRUD, we only have to do a right click on the `StaffMemberEntity.java` class in Eclipse Project Explorer and select "CobiGen ' Generate".
 
 image::images/devonfw-cobigen/devon_guide_cobigen_1_context_menu.png[,width="450", link="images/devonfw-cobigen/devon_guide_cobigen_1_context_menu.png"]
 
