@@ -40,7 +40,7 @@ public Response  getDownloadableFile() throws SQLException, IOException {
 
 In the above code snippet, we construct a file object by supplying path of the file to be downloaded. ResponseBuilder is created from this file object and finally the response is built from ResponseBuilder object.
 
-Following table explains the annotations used for download functionality along with its description.
+Following table explains the annotations used for download functionality:
 
 .Annotations used for download functionality
 |===
