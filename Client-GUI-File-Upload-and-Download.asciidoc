@@ -132,7 +132,7 @@ Below is the template for anchor tag.
 = Appendix
 == Code change for File Upload Package
 
-* To integrate this package with the customized webservice for file upload (that is developed in your application), follow below steps:
+* To integrate this package (https://github.com/valor-software/ng2-file-upload/) with the customized webservice for file upload (that is developed in your application), follow below steps:
 
 * cd '\demo\components\file-upload' (from package root).
 * Open file 'simple-demo.ts'.
