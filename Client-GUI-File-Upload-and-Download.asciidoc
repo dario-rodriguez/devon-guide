@@ -156,4 +156,37 @@ const URL = 'https://evening-anchorage-3159.herokuapp.com/api/';
 const URL = 'http://localhost:8081/oasp4j-sample-server/services/rest/offermanagement/v1/product/uploadFile/';
 ----
 
+* To solve above mentioned error, add headers content to the code as mentioned below.
+
+Error: "Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource."
+
+Add below mentioned changes in file '\components\file-upload\file-uploader.class.ts'
+
+[source,bash]
+----
+// default code from package
+public options:FileUploaderOptions = {
+    autoUpload: false,
+    isHTML5: true,
+    filters: [],
+    removeAfterUpload: false,
+    disableMultipart: false
+};
+---- 
+
+
+[source,bash]
+----
+// new code change : Added headers
+public options:FileUploaderOptions = {
+    autoUpload: false,
+    isHTML5: true,
+    filters: [],
+    removeAfterUpload: false,
+    disableMultipart: false,
+    headers: [{name: "dummy", value: "dummy"}]
+  };
+----
+
+
 
