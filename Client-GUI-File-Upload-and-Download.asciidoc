@@ -65,7 +65,8 @@ Asynchronous File Upload is uploading files to the server in a separate request 
 
 For asynchronous file upload in Angular2, use 'ng2-file-upload' package from valor-software. In order to use this package, execute following command line instructions:
 
-. git clone --recursive https://github.com/valor-software/ng2-file-upload.git
+. git clone --recursive https://github.com/valor-software/ng2-file-upload.git 
+  (OR download v1.1.3-0.zip from https://github.com/valor-software/ng2-file-upload/releases)
 . cd <Root directory of the package that is downloaded by executing above command>
 . npm install  
 . npm start
