@@ -151,7 +151,7 @@ const URL = 'https://evening-anchorage-3159.herokuapp.com/api/';
 [source,bash]
 ----
 // new code change : connecting to the customized web-service
-const URL = 'CUSTOMIZED WEBSERVICE-URL';
+const URL = 'WEBSERVICE-URL';
 ----
 
 * 'npm start' (Restart the server to reflect the change).
