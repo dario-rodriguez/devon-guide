@@ -19,6 +19,7 @@
 |=======================
 
 .Devon Components
+[options="header"]
 |=======================
 |Component|Version
 |OASP4J|2.2.0
