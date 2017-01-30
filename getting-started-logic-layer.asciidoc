@@ -41,7 +41,7 @@ public class StaffManagementImpl extends AbstractComponentFacade implements Staf
     return getBeanMapper().map(staffMember, StaffMemberEto.class);
   }
 
-  public StaffMemberEto getStaffMember(Login id) {
+  public StaffMemberEto getStaffMember(Long id) {
     StaffMemberEntity staffMember = getStaffMemberDao().find(id);
     return getBeanMapper().map(staffMember, StaffMemberEto.class);
   }
