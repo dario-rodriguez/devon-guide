@@ -58,10 +58,10 @@ And in the same path, we are going to create a new file (if it do not exist) to 
 [source,sql]
 ----
 
-INSERT INTO STAFFMEMBER (id, login, firstname, lastname, modificationCounter) VALUES (0, 'chief', 3, 'Charly', 'Chief', 0);
-INSERT INTO STAFFMEMBER (id, login, firstname, lastname, modificationCounter) VALUES (1, 'cook', 0, 'Carl', 'Cook', 0);
-INSERT INTO STAFFMEMBER (id, login, firstname, lastname, modificationCounter) VALUES (2, 'waiter', 1, 'Willy', 'Waiter', 0);
-INSERT INTO STAFFMEMBER (id, login, firstname, lastname, modificationCounter) VALUES (3, 'barkeeper', 2, 'Bianca', 'Barkeeper', 0);
+INSERT INTO STAFFMEMBER (id, login, firstname, lastname, modificationCounter) VALUES (0, 'chief', 'Charly', 'Chief', 0);
+INSERT INTO STAFFMEMBER (id, login, firstname, lastname, modificationCounter) VALUES (1, 'cook', 'Carl', 'Cook', 0);
+INSERT INTO STAFFMEMBER (id, login, firstname, lastname, modificationCounter) VALUES (2, 'waiter', 'Willy', 'Waiter', 0);
+INSERT INTO STAFFMEMBER (id, login, firstname, lastname, modificationCounter) VALUES (3, 'barkeeper', 'Bianca', 'Barkeeper', 0);
 
 ----
 
