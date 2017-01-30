@@ -18,6 +18,14 @@
 |subversion|1.9.3
 |=======================
 
+.Devon Components
+|=======================
+|Component|Version
+|OASP4J|2.2.0
+|devon4sencha|2.0.1
+|Oasp4js|1.1.0-SNAPSHOT
+|=======================
+
 .IP Modules
 [options="header,footer"]
 |=======================
