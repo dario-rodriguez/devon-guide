@@ -63,3 +63,27 @@ Be very careful when copying and pasting text from documents and webs to the wik
 |Element      |Version |Version |Version |Version|Version |Version |Version |Version|Version |Version |Version |Version
 |ant	       |1.9.6 |1.9.6 |1.9.6 |1.9.6 |1.9.6 |1.9.6 |1.9.6 |1.9.6 |1.9.6 |1.9.6 |1.9.6 |1.9.6
 |=======================
+
+Define table with default width for comparison.
+ 
+.Table full width (default)
+|===
+| Name | Description
+ 
+| Asciidoctor
+| Awesome way to write documentation
+ 
+|===
+ 
+ 
+Define new table and set width to 50%.
+ 
+.Table half width (50%)
+[width="50%"]
+|===
+| Name | Description
+ 
+| Asciidoctor
+| Awesome way to write documentation
+ 
+|===
