@@ -79,7 +79,7 @@ Define table with default width for comparison.
 Define new table and set width to 50%.
  
 .Table half width (50%)
-[width="50%"]
+[width="25%"]
 |===
 | Name | Description
  
