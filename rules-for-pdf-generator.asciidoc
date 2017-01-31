@@ -58,7 +58,7 @@ Be very careful when copying and pasting text from documents and webs to the wik
 'width=450' is the maximum size for images to be showed properly in the PDF.
 
 .Environment Elements
-[options="header", width="80%"]
+[options="header", width="30%"]
 |=======================
 |Element      |Version |Version |Version |Version|Version |Version |Version |Version|Version |Version |Version |Version
 |ant	       |1.9.6 |1.9.6 |1.9.6 |1.9.6 |1.9.6 |1.9.6 |1.9.6 |1.9.6 |1.9.6 |1.9.6 |1.9.6 |1.9.6
