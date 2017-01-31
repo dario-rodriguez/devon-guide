@@ -78,12 +78,9 @@ Define table with default width for comparison.
  
 Define new table and set width to 50%.
  
-.Table half width (25%)
-[width="25%"]
+.Table half width (450)
+[width="450"]
 |===
 | Name | Description
- 
-| Asciidoctor
-| Awesome way to write documentation
- 
+| Asciidoctor| Awesome way to write documentation
 |===
