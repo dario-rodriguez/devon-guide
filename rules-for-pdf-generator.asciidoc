@@ -79,7 +79,7 @@ Define table with default width for comparison.
 Define new table and set width to 50%.
  
 .Table half width (600)
-[cols="50e,50e"]
+[cols="40e,60e"]
 |===
 | Name | Description
 | Asciidoctor| Awesome way to write documentation
