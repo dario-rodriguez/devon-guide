@@ -13,7 +13,7 @@
 * link:getting-started-database-configuration[Database Configuration]
 * link:getting-started-set-up-and-maintain-database-schemas-with-flyway[Set up and maintain database schemas with Flyway]
 * link:getting-started-bean-mapping-using-dozer[Bean Mapping using Dozer]
-* link:getting-started-write-unittest-cases[Write Unit Test Cases]
+* link:getting-started-writing-unittest-cases[Write Unit Test Cases]
 * link:getting-started-logging-and-auditing[Logging and Auditing]
 * link:getting-started-Data-Access-Layer[Data Access Layer]
 * link:getting-started-crud-operations[CRUD Operations and DAO Implementation]
@@ -104,3 +104,4 @@
 * link:devcon-command-developers-guide[Devcon Command Developers Guide]
 * link:devon-guide-Devon-Module-Developer-Guide[devonfw Module Developer's Guide]
 * link:components-list[Components list]
+* link:201_210_migrate[DevonFW 2.0.1 to DevonFW 2.1.0 Migration]

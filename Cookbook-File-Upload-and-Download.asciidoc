@@ -1,11 +1,11 @@
 :toc: macro
 toc::[]
 
-Apache CXF is an open source services framework. CXF helps you build and develop services using frontend programming APIs, like JAX-WS and JAX-RS.
+Apache CXF is an open source services framework. CXF helps you build and develop services using front-end programming APIs, like JAX-WS and JAX-RS.
 
 == File download from CXF
 
-*org.apache.cxf* provides option to download files of different MIME (Multipurpose Internet Mail Extensions) types.
+*org.apache.cxf* provides the option to download files of different MIME (Multipurpose Internet Mail Extensions) types.
 
 *Example:*
 
@@ -29,7 +29,7 @@ And here is a simple implementation of the service:
 --------
 @Override
 public Response  getDownloadableFile() throws SQLException, IOException {
-    // FILE_PATH - specifies the location of the file in the filesystem.
+    // FILE_PATH - specifies the location of the file in the file system.
     File file = new File("FILE_PATH");
     ResponseBuilder response = Response.ok((Object) file);
     // FILENAME.FILE_EXTENSION - specifies the filename and its extension after download.
@@ -38,9 +38,9 @@ public Response  getDownloadableFile() throws SQLException, IOException {
 }
 --------
 
-In the above code snippet, we construct file object by supplying path of the file to be downloaded. ResponseBuilder is created from this file object and finally the response is build from ResponseBuilder object.
+In the above code snippet, we construct a file object by supplying path of the file to be downloaded. ResponseBuilder is created from this file object and finally the response is built from ResponseBuilder object.
 
-Following table explains the annotations used for download functionality along with its description.
+Following table explains the annotations used for download functionality:
 
 .Annotations used for download functionality
 |===
@@ -53,14 +53,14 @@ Following table explains the annotations used for download functionality along w
 
 === Produces Annotation
 
-@Produces annotation is used to specify the MIME media type that can be produced and sent back to the client. If @Produces is applied at the class level, all the methods in a resource produces the specified MIME type by default. If applied at the method level, the annotation overrides any @Produces annotation applied at the class level.
+@Produces annotation is used to specify the MIME media type that can be produced and sent back to the client. If @Produces is applied at the class level, all the methods in a resource produce the specified MIME type by default. If applied at the method level, the annotation overrides any @Produces annotation applied at the class level.
 
 If no methods in a resource are able to produce the MIME type in a client request, the JAX-RS runtime sends back an HTTP "406 Not Acceptable" error.
 
 The value of @Produces is an array of String of MIME types.
-For example:@Produces({"image/jpeg,image/png"})
+For example: @Produces({"image/jpeg,image/png"})
 
-The following example shows how to apply @Produces at both the class and method levels:
+The following example shows how to apply @Produces at both, the class and method levels:
 
 [source,java]
 --------
@@ -107,7 +107,7 @@ public Response uploadFile(List<Attachment> attachments) throws SQLException, IO
 
 And here is a simple implementation of the service:
 
-Add annotation @Transactional at class level and Inject UcManageBinaryObject class object.
+Add annotation @Transactional at class level and inject UcManageBinaryObject class object.
 
 [source,java]
 --------
@@ -134,7 +134,7 @@ Web Service method implementation:
 --------
 @POST
 @Consumes ("multipart/mixed")
-// use @Consumes(MediaType.MULTIPART_FORM_DATA) if request contains multipart form data and import //javax.ws.rs.core.MediaType;
+// use @Consumes(MediaType.MULTIPART_FORM_DATA) if request contains multi-part form data and import //javax.ws.rs.core.MediaType;
 @Path ("/upload")
 public Response uploadFile(List<Attachment> attachments) {
     BinaryObjectEto binaryObject = new BinaryObjectEto();
@@ -162,27 +162,27 @@ public Response uploadFile(List<Attachment> attachments) {
 
 
 In the above code snippet, we are iterating the attachments that are uploaded and extracting InputStream for each Attachment. Each InputStream is converted to the bytearray and a Blob object is created out of it. The Blob object is
-saved to database by calling saveBinaryObject(blob, binaryObject).
+saved to the database by calling saveBinaryObject(blob, binaryObject).
 
-Following table explains the annotations used for upload functionality along with its description.
+Following table explains the annotations used for upload functionality:
 
 .Annotations used for upload functionality
 |===
 |*Annotation*|*Description*
-|@Consumes|It is used to specify MIME media type that can be accepted, or consumed, from the client.
+|@Consumes|It is used to specify MIME media types that can be accepted, or consumed, from the client.
 |@GET|It is a request method designator defined by JAX-RS and corresponds to the similarly named HTTP method.
 |@PATH|This identifies the URI path template to which the resource responds, and is specified at the class level of a resource.
 |===
 
 === Consumes Annotation
 
-The @Consumes annotation is used to specify MIME media type that can be accepted, or consumed, from the client. If @Consumes is applied at the class level, all the response methods accept the specified MIME types by default. If applied at the method level, @Consumes overrides any @Consumes annotation applied at the class level.
+The @Consumes annotation is used to specify MIME media type that can be accepted, or consumed, from the client. If @Consumes is applied at the class level, all the response methods accept the specified MIME type by default. If applied at the method level, @Consumes overrides any @Consumes annotation applied at the class level.
 
 If a resource is unable to consume the MIME type of a client request, the JAX-RS runtime sends back an HTTP 415 ("Unsupported Media Type") error.
 
-The value of @Consumes is an array of String of acceptable MIME types.For example:@Consumes({"text/plain,text/html"})
+The value of @Consumes is an array of String of acceptable MIME types. For example: @Consumes({"text/plain,text/html"})
 
-The following example shows how to apply @Consumes at both the class and method levels:
+The following example shows how to apply @Consumes at both, the class and method levels:
 
 [source,java]
 --------
@@ -205,6 +205,6 @@ public class SomeResource {
 
 == MIME Types
 
-MIME stands for "Multipurpose Internet Mail Extensions". It is a way of identifying files on the Internet according to their nature and format. For example, using the "Content-type" header value defined in a HTTP response, the browser can open the file with the proper extension/plugin.
+MIME stands for "Multipurpose Internet Mail Extensions". It is a way of identifying files on the Internet, according to their nature and format. For example, using the "Content-type" header value defined in an HTTP response, the browser can open the file with the proper extension/plugin.
 
 For more information visit : http://www.freeformatter.com/mime-types-list.html

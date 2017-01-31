@@ -85,7 +85,7 @@ First, we need to define the properties in the _application.properties_ file. We
 
 image::images/devonfw-getting-started-conf/devon_guide_configuration_getting_started_application.properties_files.PNG[,width="450", link="images/devonfw-getting-started-conf/devon_guide_configuration_getting_started_application.properties_files.PNG"]
 
-Learn more about how to run the application https://github.com/devonfw/devon/wiki/tutorial-sample[here].
+Learn more about how to run the application link:getting-started-running-sample-application#step-2-run-the-application[here].
 
 [source,java]
 ----

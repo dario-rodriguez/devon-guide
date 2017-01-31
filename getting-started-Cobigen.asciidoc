@@ -48,8 +48,7 @@ CREATE TABLE STAFFMEMBER(
     modificationCounter INTEGER NOT NULL,
     firstname VARCHAR(255),
     lastname VARCHAR(255),
-    login VARCHAR(255),
-    role INTEGER
+    login VARCHAR(255)
 );
 
 ----
@@ -59,10 +58,10 @@ And in the same path, we are going to create a new file (if it do not exist) to 
 [source,sql]
 ----
 
-INSERT INTO STAFFMEMBER (id, login, role, firstname, lastname, modificationCounter) VALUES (0, 'chief', 3, 'Charly', 'Chief', 0);
-INSERT INTO STAFFMEMBER (id, login, role, firstname, lastname, modificationCounter) VALUES (1, 'cook', 0, 'Carl', 'Cook', 0);
-INSERT INTO STAFFMEMBER (id, login, role, firstname, lastname, modificationCounter) VALUES (2, 'waiter', 1, 'Willy', 'Waiter', 0);
-INSERT INTO STAFFMEMBER (id, login, role, firstname, lastname, modificationCounter) VALUES (3, 'barkeeper', 2, 'Bianca', 'Barkeeper', 0);
+INSERT INTO STAFFMEMBER (id, login, firstname, lastname, modificationCounter) VALUES (0, 'chief', 'Charly', 'Chief', 0);
+INSERT INTO STAFFMEMBER (id, login, firstname, lastname, modificationCounter) VALUES (1, 'cook', 'Carl', 'Cook', 0);
+INSERT INTO STAFFMEMBER (id, login, firstname, lastname, modificationCounter) VALUES (2, 'waiter', 'Willy', 'Waiter', 0);
+INSERT INTO STAFFMEMBER (id, login, firstname, lastname, modificationCounter) VALUES (3, 'barkeeper', 'Bianca', 'Barkeeper', 0);
 
 ----
 
@@ -80,7 +79,6 @@ import javax.persistence.Table;
 
 import devonfw.tutorial.general.dataaccess.api.ApplicationPersistenceEntity;
 import devonfw.tutorial.general.dataaccess.api.StaffMember;
-import devonfw.tutorial.general.dataaccess.api.datatype.Role;
 
 //Add imports with respect to the package structure.
 
@@ -102,8 +100,6 @@ public class StaffMemberEntity extends ApplicationPersistenceEntity implements S
   private String firstName;
 
   private String lastName;
-
-  private Role role;
 
   /**
    * The constructor.
@@ -150,25 +146,13 @@ public class StaffMemberEntity extends ApplicationPersistenceEntity implements S
     this.lastName = lastName;
   }
 
-  @Override
-  public Role getRole() {
-
-    return this.role;
-  }
-
-  @Override
-  public void setRole(Role role) {
-
-    this.role = role;
-  }
-
 }
 
 ----
 
 ===== Step 2: Generate classes
 
-To generate the rest of the classes concerning the StaffMember CRUD, we only have to do a right click on the `TableEntity.java` class in Eclipse Project Explorer and select "CobiGen ' Generate".
+To generate the rest of the classes concerning the StaffMember CRUD, we only have to do a right click on the `StaffMemberEntity.java` class in Eclipse Project Explorer and select "CobiGen ' Generate".
 
 image::images/devonfw-cobigen/devon_guide_cobigen_1_context_menu.png[,width="450", link="images/devonfw-cobigen/devon_guide_cobigen_1_context_menu.png"]
 

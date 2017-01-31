@@ -47,7 +47,11 @@ config section that specifies which build uses which toolkit and theme:
 ----
 
 The basic idea here is to have two set of toolkits in a single framework in order to
-target the desktop and mobile devices.
+target the desktop and mobile devices. When building the application it will create two different bundles for classic and modern.
+
+When accessing from a desktop, the classic bundle will be used. When accessing from a tablet/mobile the modern bundle will be selected.
+
+The sample restaurant application is an example of an *universal* application targeting both toolkits.
 
 # Legal considerations
 

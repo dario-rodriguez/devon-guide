@@ -13,9 +13,18 @@
 |java	|1.8.0_101
 |maven	|3.3.9
 |nodejs|5.0.0
-|sencha|6.1.2.15
+|sencha|6.2.1.29
 |Tomcat|8.0.32
 |subversion|1.9.3
+|=======================
+
+.Devon Components
+[options="header"]
+|=======================
+|Component|Version
+|OASP4J|2.2.0
+|devon4sencha|2.0.1
+|Oasp4js|1.1.0-SNAPSHOT
 |=======================
 
 .IP Modules
