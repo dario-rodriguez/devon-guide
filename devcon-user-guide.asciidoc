@@ -13,7 +13,7 @@ Devcon is the easiest way to use Devonfw. By accompanying on project automation,
 
 You will need to have a Java JDK 1.7 or 1.8 installed on your system. It is *not* necessary to use the Devonfw Distribution as Devcon can be used independently from that environment. You might even want to use Devcon itself to download & extract the Devon Distribution zip file to and on your system! (see down...) 
 
-== Getting started: Download Devcon
+== Download Devcon
 
 From the Devonfw version 2.1.1 onwards Devcon is included by default within the Devonfw distributions.
 
@@ -55,6 +55,7 @@ Devcon is based on three basic elements:
 So Devcon is a tool based on modules where each module groups several commands related to the module functionality and each command may need parameters to work in one way or another. 
 Each command is used to accomplish one task and may need some parameters in order to achieve its goal. These parameters can be mandatory or optional. The mandatory parameters must be provided by the user when launching the command and the optional parameters can be provided by the user in the same way but if not, they can be read from a configuration file. Apart from this, we can use global parameters that are independent from the modules and commands and that will be helpful in order to obtain Devcon information (like help) or other basic configuration features, these parameters will be explained later.
 
+
 == Devcon basic usage
 
 There are two ways to run Devcon:
@@ -80,7 +81,7 @@ If you navigate to a particular module, it will show all the available commands 
 
 image::images/Devcon_Form.JPG[,align="center",width="250",Devcon, link="images/Devcon_Form.JPG"]
  
-=== Using command prompt:
+=== Using command prompt
 
 Accordingly with the defined structure, the devcon usage is based on the definition of each of its element named : module, command and parameters. Therefore, in the command prompt, one must specify each of these elements in the correct order:
 

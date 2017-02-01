@@ -94,7 +94,7 @@ Please check the link:gulp-task-test#gulp-task-test[gulp test tasks description]
 
 +oasp4js+ uses http://jasmine.github.io/[Jasmine] for js tests.
 
-== html Files
+== html files
 
 The html files should be placed under the +html+ directory. When the html template is placed directly under the +html+ directory, then it is retrieved from the server every time when a request for the template is sent. If the template should be cached on the client side, then it should be placed in the +cached+ directory placed directly under the +html+ directory. The implemented mechanism will automatically put the template in the +$templateCache+ service. Cached templates can be obtained without an additional request to the server.
 

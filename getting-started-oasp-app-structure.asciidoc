@@ -32,7 +32,7 @@ Following section explains each of the package in detail:
 
 The _java_ package contains all Java files that implement the application and its configurations.
 
-==== SpringBootApp and SpringBootBatchApp 
+==== SpringBootApp and SpringBootBatchApp
 
 *SpringBootApp* is the class that contains the main method to run the Spring Boot application. Spring Boot is responsible to scan the project and find the beans and configuration of the application. Therefore, this is the most important class in the application as it's the basis for running the application. Read more about Spring Boot http://docs.spring.io/spring-boot/docs/current/reference/html/[here].
 

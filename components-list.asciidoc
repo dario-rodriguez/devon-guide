@@ -1,7 +1,7 @@
 
 = List of Components
 
-== Devonfw Release 2.1.0
+== Devonfw Release 2.1.1
 
 .Environment Elements
 [options="header"]

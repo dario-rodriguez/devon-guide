@@ -46,9 +46,9 @@ Template Methods
 
 Ext JS uses the Template method pattern to delegate to subclasses, behavior which is specific only to that subclass.
 
-This means each class in the inheritance chain may “contribute” an extra piece of logic to certain phases in the Component’s lifecycle. Each class implements its own special behavior while allowing the other classes in the inheritance chain to continue to contribute their own logic.
+This means each class in the inheritance chain may "contribute" an extra piece of logic to certain phases in the Component’s lifecycle. Each class implements its own special behavior while allowing the other classes in the inheritance chain to continue to contribute their own logic.
 
-An example is the render function. render is a method defined in Component. It is responsible for initiating the rendering phase of the Component lifecycle. render must not be overridden, but it calls onRender during processing to allow the subclass implementor to add an onRender method to perform class-specific processing. Every onRender method must call its superclass’ onRender method before “contributing” its extra logic.
+An example is the render function. render is a method defined in Component. It is responsible for initiating the rendering phase of the Component lifecycle. render must not be overridden, but it calls onRender during processing to allow the subclass implementor to add an onRender method to perform class-specific processing. Every onRender method must call its superclass’ onRender method before "contributing" its extra logic.
 
 The diagram below illustrates the functioning of the onRender template method.
 

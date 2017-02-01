@@ -5,7 +5,7 @@ toc::[]
  
 https://flywaydb.org/documentation/[Flyway]  is an open-source database migration tool. It strongly favors simplicity and convention over configuration.
 
-== Why we use flyway?
+== Why we use flyway
 Lets say we have our application(a piece of software) and our database. Great. And this could very well all you need. 
 
 But on most projects, this simple view of the world very quickly translates into this

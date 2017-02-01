@@ -1,7 +1,7 @@
 :toc: macro
 toc::[]
 
-== Sencha data package
+= Sencha data package
 
 Sencha provides a powerful data package with *models*, *stores* and *associations*. But this power comes with added complexity added that usually doesn't justify the price.
 

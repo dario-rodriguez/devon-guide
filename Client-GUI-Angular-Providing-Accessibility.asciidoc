@@ -13,7 +13,9 @@ You should be aware of the following types of disabilities while constructing we
 Considering sight disability, it is crucial to adopt the application for popular https://github.com/oasp/oasp4js/wiki/Tutorial-Accessibility#screen-readers[screen readers]. It is also necessary to have a good keyboard support for disabilities of any kind.
 
 == ngAria
+
 === Adding ngAria to application
+
 In order to add ngAria to the project:
 Add the ngAria dependency to gower.json
 [source,javascript]

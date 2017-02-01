@@ -8,6 +8,7 @@ toc::[]
 The Devon IDE is the general name for two distinct versions of a customized Eclipse which comes in a Open Source variant, called OASP4J-IDE, and a more extended version included in the "Devon Dist" which is only available for Capgemini engagements.
 
 === Features and advantages
+
 Devonfw comes with a fully featured IDE in order to simplify the installation, configuration and maintenance of this instrumental part of the development environment. As it is being included in the distribution, the IDE is ready to be used and some specific configuration of certain plugins only takes a few  minutes.
 
 image::images/devon-ide/integrated-ide.png["Integrated IDE",width="450", link="images/devon-ide/integrated-ide.png"]
@@ -15,9 +16,11 @@ image::images/devon-ide/integrated-ide.png["Integrated IDE",width="450", link="i
 As with the remainder of the distribution, the advantage of this approach is that you can have as many instances of the -ide "installed" on your machine for different projects with different tools, tool versions and configurations. No physical installation and no tweaking of your operating system required. "Installations" of the Devon distribution do not interfere with each other nor with other installed software.
 
 === Multiple Workspaces
+
 There is inbuilt support for working with different workspaces on different branches. Create and update new workspaces with a few clicks. You can see the workspace name in the title-bar of your IDE so you do not get confused and work on the right branch.
 
 == Cobigen
+
 In the Devon distribution we have a code generator to create CRUD code, called *Cobigen*. This is a generic incremental generator for end to end code generation tasks, mostly used in Java projects. Due to a template-based approach, CobiGen generates any set of text-based documents and document fragments.
 
 image::images/devon-ide/cobigen.png[,width="450",link="images/devon-ide/cobigen.png"]

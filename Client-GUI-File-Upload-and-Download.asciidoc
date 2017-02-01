@@ -129,8 +129,8 @@ Below is the template for anchor tag.
 <a class="btn btn-success" href='<WEBSERVICE-URL>'>File Download</a>
 ----
 
-= Appendix
-== Code change for File Upload Package
+== Appendix
+=== Code change for File Upload Package
 
 To integrate this package (https://github.com/valor-software/ng2-file-upload/) with the customized web service for the file upload (i.e. developed in your application), follow below steps:
 
@@ -156,11 +156,11 @@ const URL = 'WEBSERVICE-URL';
 
 * 'npm start' (Restart the server to reflect the change).
 
-* If you face above mentioned cross browser error then add header's content to the code as mentioned below:
+* If you face above mentioned cross browser error then add header content to the code as mentioned below:
 
-Error: "Response to preflight request doesn't pass the access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource."
+Error: "Response to preflight request does not pass the access control check: No Access-Control-Allow-Origin header is present on the requested resource."
 
-Add below mentioned changes in the file '\components\file-upload\file-uploader.class.ts'
+Add below mentioned changes in the file `\components\file-upload\file-uploader.class.ts`
 
 [source,bash]
 ----
@@ -172,7 +172,7 @@ public options:FileUploaderOptions = {
     removeAfterUpload: false,
     disableMultipart: false
 };
----- 
+----
 
 
 [source,bash]

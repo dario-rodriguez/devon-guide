@@ -37,8 +37,6 @@ include::devcon-user-guide[]
 
 :leveloffset: 0
 
-:toc:
-
 == Getting started with the Service Layer
 
 :leveloffset: 2
@@ -378,3 +376,11 @@ include::devcon-command-developers-guide[]
 <<<<
 
 include::components-list[]
+
+<<<<
+
+include::release-notes[]
+
+<<<<
+
+:leveloffset: 0

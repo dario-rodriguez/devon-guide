@@ -31,7 +31,7 @@ public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
   }
   
   ...
-
+}
 ----
 
 The _@Configuration_ annotation indicates that this is a Spring configuration class.
