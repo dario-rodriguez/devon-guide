@@ -56,31 +56,3 @@ Be very careful when copying and pasting text from documents and webs to the wik
 
 === max size
 'width=450' is the maximum size for images to be showed properly in the PDF.
-
-.Environment Elements
-[options="header", width="450"]
-|=======================
-|Element      |Version |Version |Version |Version|Version |Version |Version |Version|Version |Version |Version |Version
-|ant	       |1.9.6 |1.9.6 |1.9.6 |1.9.6 |1.9.6 |1.9.6 |1.9.6 |1.9.6 |1.9.6 |1.9.6 |1.9.6 |1.9.6
-|=======================
-
-Define table with default width for comparison.
- 
-.Table full width (default)
-|===
-| Name | Description
- 
-| Asciidoctor
-| Awesome way to write documentation
- 
-|===
- 
- 
-Define new table and set width to 50%.
- 
-.Table half width (600)
-[width="450e"]
-|===
-| Name | Description
-| Asciidoctor| Awesome way to write documentation
-|===
