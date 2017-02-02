@@ -87,7 +87,7 @@ Now verify that the server redirects to the client checking the `...\MyServerApp
 %>
 ----
 
-Then we have to add some unsecured resources in the method _configure(HttpSecurity http)_ of the _../general/configuration/WebSecurityConfig.java_ class. 
+Then we have to add some unsecured resources in the method _configure(HttpSecurity http)_ of the `general/service/impl/config/BaseWebSecurityConfig.java` class. 
 
 Edit the _unsecureResources_ to have something like that:
 [source,java]
