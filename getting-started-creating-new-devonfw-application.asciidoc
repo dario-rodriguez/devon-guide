@@ -6,7 +6,7 @@ toc::[]
 image::images/devconlogo_imgonly.png[,width="50"]
 .*Using devcon*
 [NOTE]
-You can automate the following steps using devcon with the `devon oasp4j create` command. to learn more, click link:devcon-command-reference#oasp4j-create[here]
+You can automate the following steps using devcon with the `devon oasp4j create` command. to learn more, click link:devcon-command-reference#oasp4j-create[here].
 
 == Running the archetype
 
