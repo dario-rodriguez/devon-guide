@@ -4,15 +4,15 @@ toc::[]
 = Create New Application
 
 image::images/devconlogo_imgonly.png[,width="50"]
-.*Using devcon*
+.*Using Devcon*
 [NOTE]
-You can automate the following steps using devcon with the `devon oasp4j create` command. To learn more, click link:devcon-command-reference#oasp4j-create[here].
+You can automate the following steps using Devcon with the `devon oasp4j create` command. To learn more, click link:devcon-command-reference#oasp4j-create[here].
 
 == Running the archetype
 
 In order to create a new application, you must use the archetype provided by devon which uses the maven archetype functionality.
 
-There are two alternatives to use the archetype to create a new application. One is to create using command line. Another way is within eclipse which is in more visual manner.
+There are two alternatives for using the archetype to create a new application. One is to create using command line. Another way is within eclipse, which is a more visual manner.
 
 === Using command Line
 
@@ -22,7 +22,7 @@ Open the Devonfw console by executing the batch file _console.bat_ from the Devo
 
 ==== Step 2: Change the directory
 
-You can create the project anywhere you want, but it is a good practice to create the projects into your `workspace` directory. Therefore, run the following command in the console to change to the directory to `workspaces\main`.
+You can create the project anywhere you want, but it is a good practice to create the projects in your `workspace` directory. Therefore, run the following command in the console to change to the directory to `workspaces\main`.
 
 [source,bash]
 ----
@@ -66,7 +66,7 @@ This will create a new directory inside `workspaces\main` with the name of your 
 If you use a proxy to connect to the Internet, then the above steps will not will not work as Eclipse has a known bug where the archetype discovery does not work behind a proxy. In this case, please use the command line version documented above.
 ====
 
-To create a new application with Eclipse, you should have installed https://coconet.capgemini.com/sf/frs/do/listReleases/projects.apps2_devon/frs.devon_distribution[Devonfw distribution]. Then follow below steps to create new application:
+To create a new application using Eclipse, you should have installed https://coconet.capgemini.com/sf/frs/do/listReleases/projects.apps2_devon/frs.devon_distribution[Devonfw distribution]. Then, follow below steps to create a new application:
 
 ==== Step 1 - Create a new Maven Project
 
@@ -80,7 +80,7 @@ image::images/create-new-app/devon-guide-newapp-choose-archetype.PNG[,width="450
 
 [NOTE]
 ====
-If you are not able to access the archetype even after checking the _Include snapshot archetypes_ option, then try adding the archetype repository manually. You can do it with the _Configure_ button located next to the _Catalogs_ dropdown and then clicking the _Add Remote Catalog_ button. Finally you need to add the repository URL _https://repo1.maven.org/maven2_ and as _Description_ you can use _Maven Central_.
+If you are not able to access the archetype even after checking the _Include snapshot archetypes_ option, then try adding the archetype repository manually. You can do it with the _Configure_ button located next to the _Catalogs_ dropdown and then clicking the _Add Remote Catalog_ button. Finally, you need to add the repository URL _https://repo1.maven.org/maven2_ and as _Description_ you can use _Maven Central_.
 
 image::images/create-new-app/devon-guide-newapp-add-archetype.png[,width="450", link="images/create-new-app/devon-guide-newapp-add-archetype.png"]
 
@@ -101,8 +101,8 @@ If you only want a WAR generation, you can remove the property _earProjectName_.
 image::images/create-new-app/devon-guide-newapp-archetype-parameters.PNG[,width="450", link="images/create-new-app/devon-guide-newapp-archetype-parameters.PNG"]
 [EAR]
 
-* Click on the Finish button and project will be ready for execution.
+* Click on the Finish button and the project will be ready for execution.
 
 == What is generated
 
-You can read more about the OASP4J application structure link:getting-started-oasp-app-structure[here].
+To read more about the OASP4J application structure, click link:getting-started-oasp-app-structure[here].
