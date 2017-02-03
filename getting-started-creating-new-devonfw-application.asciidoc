@@ -63,7 +63,7 @@ This will create a new directory inside `workspaces\main` with the name of your 
 
 [NOTE]
 ====
-If you use a proxy to connect to the Internet, then the above steps will not will not work as Eclipse has a known bug where the archetype discovery does not work behind a proxy. In this case, please use the command line version documented above.
+If you use a proxy to connect to the Internet, then the above steps will not work as Eclipse has a known bug where the archetype discovery does not work behind a proxy. In this case, please use the command line version documented above.
 ====
 
 To create a new application using Eclipse, you should have installed https://coconet.capgemini.com/sf/frs/do/listReleases/projects.apps2_devon/frs.devon_distribution[Devonfw distribution]. Then, follow below steps to create a new application:
