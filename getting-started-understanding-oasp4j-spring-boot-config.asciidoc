@@ -194,7 +194,7 @@ The database table `business_configuration` has the following columns:
 * Property value
 * Description
 
-According to the entries in above table, the administrative GUI shows a generic form to change business configuration. The hierarchy of the properties determines the place in the GUI, so the GUI bundles the properties from the same hierarchy level and name. `Boolean` values are shown as checkboxes, `integer` and `string` values as text fields. The properties are read and saved in a typed form, an error is raised if you try to save a `string` in an `integer` property, for example.
+According to the entries in the above table, the administrative GUI shows a generic form to change business configuration. The hierarchy of the properties determines the place in the GUI, so the GUI bundles the properties from the same hierarchy level and name. `Boolean` values are shown as checkboxes, `integer` and `string` values as text fields. The properties are read and saved in a typed form, an error is raised if you try to save a `string` in an `integer` property, for example.
 
 Following base layout is recommended for the hierarchical business configuration:
 
