@@ -8,7 +8,7 @@ An application needs to be configured in order to allow internal setup such as C
 In general, the kinds of configuration can be distinguished as explained in the following sections:
 
 * xref:internal-application-configuration[Internal Application configuration] maintained by developers
-* xref:externalized-environment-configuration[Externalized Environment configuration] maintained by the operators
+* xref:environment-configuration[Externalized Environment configuration] maintained by the operators
 * xref:business-configuration[Externalized Business configuration] maintained by business administrators
 
 == Internal Application Configuration
