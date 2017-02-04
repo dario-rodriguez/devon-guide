@@ -8,14 +8,14 @@ An application needs to be configured in order to allow internal setup such as C
 In general, the kinds of configuration can be distinguished as explained in the following sections:
 
 * xref:internal-application-configuration[Internal Application configuration] maintained by developers
-* xref:externalized-environment-configuration[Externalized Environment configuration] maintained by operators
+* xref:externalized-environment-configuration[Externalized Environment configuration] maintained by the operators
 * xref:business-configuration[Externalized Business configuration] maintained by business administrators
 
 == Internal Application Configuration
 
-The application configuration contains all the internal settings and the wiring of the application (bean wiring, database mappings, etc.) and is maintained by the application developers at development time. Usually, there is a main configuration registered with main Spring Boot App, but differing configurations to support automated test of the application can be defined using profiles (not detailed in this guide).
+The application configuration contains all the internal settings and the wiring of the application (bean wiring, database mappings, etc.) and is maintained by the application developers at development time. Usually, there is a main configuration registered with the main Spring Boot App, but differing configurations to support automated test of the application can be defined using profiles (not detailed in this guide).
 
-_web.xml_ is referred as a place for all the web related configurations but now it is no more used to configure the web app. It is empty. Therefore, let's discuss how you can configure the Devon based on Spring Boot applications!
+_web.xml_ is referred as a place for all the web related configurations, but now it is no more used to configure the web app. It is empty. Therefore, let's discuss how you can configure the Devon based on Spring Boot applications!
 
 === Standard beans configuration
 
