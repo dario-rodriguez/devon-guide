@@ -3,8 +3,8 @@ toc::[]
 
 = Database Configuration
 
-In this tutorial, you will see how to configure your application to connect with a real database of your choice. Devonfw gives us a simple configuration, so you just need to add the dependency of the database libraries, create a profile, set the information of your database in the profile and activate it, update the script files, if any, as per DB syntax.
-All these steps need to be done in generated (through oasp4j-template server archetype), xxx-core project.
+In this tutorial, you will see how to configure your application to connect with a real database of your choice. Devonfw gives us a simple configuration, so you just need to add the dependency of the database libraries, create a profile, set the information about your database in the profile and activate it, update the script files, if any, as per DB syntax.
+All these steps need to be done in the generated (through oasp4j-template server archetype), xxx-core project.
 By default, it comes with configured http://www.h2database.com/html/quickstart.html[h2] database. If you want to configure another database such as MySQL, MS SQL or PostGre SQL, refer below sections.
 
 == Add dependencies
@@ -64,7 +64,7 @@ image::images/database-configuration/db-config3.png[,width="450",link="images/da
 == Further Details on Database Configurations
 === MySQL
 
-The use of the MySQL is already being illustrated in the above example. However, as mentioned, the GPL licensed (native) MySQL driver should *not* be used in a production environment. As an alternative, the free and liberally licensed "mariaDB" (a MySQL clone) library could be used. 
+The use of the MySQL has already been illustrated in the above example. However, as mentioned, the GPL licensed (native) MySQL driver should *not* be used in a production environment. As an alternative, the free and liberally licensed "mariaDB" (a MySQL clone) library could be used. 
 
 The dependency declaration consists of:
 
@@ -140,7 +140,7 @@ spring.datasource.password=root
 spring.datasource.driver-class-name=com.microsoft.sqlserver.jdbc.SQLServerDriver
 
 
-(replace _root_ with your actual username / password)
+(Replace _root_ with your actual username / password)
 
 For further information see: https://wiki.jasig.org/pages/viewpage.action?pageId=57578731[MS SQL Server and MS JDBC Driver ]
 
@@ -181,5 +181,5 @@ You can see that the credentials properties are included in the URL. If you want
 
 [NOTE]
 ====
-The http://www-01.ibm.com/support/docview.wss?uid=swg21363866[IBM Drivers] are not free distributed, so you can't find them in Maven. You need to get in contact with IBM or just find the license in whatever IBM software product.
+The http://www-01.ibm.com/support/docview.wss?uid=swg21363866[IBM Drivers] are not freely distributed, so you can't find them in Maven. You need to get in contact with IBM or just find the license in whatever IBM software product.
 ====
