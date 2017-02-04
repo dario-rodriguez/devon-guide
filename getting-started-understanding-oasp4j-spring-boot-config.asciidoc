@@ -3,7 +3,7 @@ toc::[]
 
 = Understanding the OASP4J and Spring Boot Configuration
 
-An application needs to be configured in order to allow internal setup such as CDI (Context and Dependency Injection), but also to allow externalized configuration of a deployed package (e.g. integration into runtime environment). Using http://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/[Spring Boot], you can rely on a comprehensive configuration approach following a "convention over configuration" pattern. This guide adds on to this by detailed instructions and best-practices to deal with configurations.
+An application needs to be configured in order to allow internal setup such as CDI (Context and Dependency Injection), but also to allow externalized configuration of a deployed package (e.g. integration into runtime environment). Using http://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/[Spring Boot], you can rely on a comprehensive configuration approach following a "convention over configuration" pattern. The Spring Boot guide adds on to this by detailed instructions and best-practices to deal with configurations.
 
 In general, the kinds of configuration can be distinguished as explained in the following sections:
 
