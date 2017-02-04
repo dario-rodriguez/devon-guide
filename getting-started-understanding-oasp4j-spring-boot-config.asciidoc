@@ -30,7 +30,7 @@ These beans will be known when wiring the application at runtime. The required c
 
 For beans that needs separate configuration for any reason, additional Configuration Classes (using annotation @Configuration) can be used and will be automatically evaluated during application startup. 
 
-Let's to see how you can customized your own Configuration Class
+Lets see how you can customize your own Configuration Class
 
 ==== Step 1: Creating the Configuration Class
 
@@ -64,7 +64,7 @@ With the annotation _@Configuration_ Spring Boot will manage your class as a con
 
 In the last step, you have a Configuration Class that configures a simple bean (MyBean). Let's see how you can set values as per your configuration.
 
-There are several ways of setting the parameters value:
+There are several ways of setting the parameter's value:
 
 * Initialize the variable in the code.
 
@@ -77,11 +77,11 @@ public float   propertie3 = 0.0f;
 (...)
 ----
 
-Obviously, this is the simplest way to define the parameters but isn't a good practice. Therefore, it is recommended to use some of the following ways to define the values in configuration.
+Obviously, this is the simplest way to define the parameters, but isn't a good practice. Therefore, it is recommended to use some of the following ways to define the values in configuration.
 
 * Using _@Value_ annotation and _application.properties_ file
 
-First, you need to define the properties in the _application.properties_ file. You can define the properties in _/main/resources/application.properties_ or in _/main/resources/config/application.properties_. If you are running the server with the embedded Tomcat of the application, you can use both the files, but if you are deploying the application on a external Tomcat, you need to define your properties in the first one. 
+First, you need to define the properties in the _application.properties_ file. You can define the properties in _/main/resources/application.properties_ or in _/main/resources/config/application.properties_. If you are running the server with the embedded Tomcat of the application, you can use both the files, but if you are deploying the application on an external Tomcat, you need to define your properties in the first one. 
 
 image::images/devonfw-getting-started-conf/devon_guide_configuration_getting_started_application.properties_files.PNG[,width="450", link="images/devonfw-getting-started-conf/devon_guide_configuration_getting_started_application.properties_files.PNG"]
 
@@ -94,7 +94,7 @@ mybean.property2=0
 mybean.property3=0.0f
 ----
 
-Finally you can access the defined properties in the code using the _@Value_ annotation:
+Finally, you can access the defined properties in the code using the _@Value_ annotation:
 [source,java]
 ----
 (...)
@@ -155,11 +155,11 @@ public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
 
 == Externalized Configuration
 
-Externalized configuration is provided separately to a deployment package and can be maintained undisturbed by redeployments.
+Externalized configuration is provided separately in a deployment package and can be maintained undisturbed by redeployments.
 
 === Environment Configuration
 
-The environment configuration contains the configuration parameters (typically port numbers, host names, passwords, logins, timeouts, certificates, etc.) specific for the different environments. These are under the control of the operators responsible for the application. 
+The environment configuration contains the configuration parameters (typically port numbers, host names, passwords, logins, timeouts, certificates, etc.) specifically for the different environments. These are under the control of the operators responsible for the application. 
 
 The environment configuration is maintained in the `application.properties` files, defining various properties. 
 These properties are explained in the corresponding configuration sections of the guides for each topic:
@@ -168,7 +168,7 @@ These properties are explained in the corresponding configuration sections of th
 * link:getting-started-Creating-Rest-Service#jax-rs-configuration[service configuration]
 * link:getting-started-logging-and-auditing#configuration[logging guide]
 
-There are two properties files exists within the example server:
+There are two properties files exist within the example server:
 
 * `src/main/resources/application.properties` provides a default configuration - bundled and deployed with the application package. It further acts as a template to derive a tailored minimal environment-specific configuration.
 * `src/main/resources/config/application.properties` provides the additional properties only required at development time (for all local deployment scenarios). This property file is excluded from all packaging.
@@ -181,7 +181,7 @@ The location of the tailored _application.properties_ file after deployment depe
 
 In this `application.properties`, only define the minimum properties that are environment specific and inherit everything else from the bundled `src/main/resources/application.properties`. In any case, make sure that the class loader will find the file.
 
-Also, assure that the properties are thoroughly documented by providing a comment to each property. This inline documentation is most valuable for your operating department. 
+Also, assure that the properties are thoroughly documented by providing a comment to each property. This inline documentation is most valuable for your operations department. 
 
 === Business Configuration
 The business configuration contains all business configuration values of the application, which can be edited by administrators through the GUI. The business configuration values are stored in the database in key/value pairs.
