@@ -3,7 +3,7 @@ toc::[]
 
 = Database Configuration
 
-In this tutorial, you will see how to configure your application to connect with a real database of your choice. Devonfw gives us a simple configuration, so you just need to add the dependency of the database libraries, create a profile, set the information about your database in the profile and activate it, update the script files, if any, as per DB syntax.
+In this tutorial, you will see how to configure your application to connect with a real database of your choice. Devonfw gives you a simple configuration, so that you just need to add the dependency of the database libraries, create a profile, set the information about your database in the profile and activate it, update the script files, if any, as per DB syntax.
 All these steps need to be done in the generated (through oasp4j-template server archetype), xxx-core project.
 By default, it comes with configured http://www.h2database.com/html/quickstart.html[h2] database. If you want to configure another database such as MySQL, MS SQL or PostGre SQL, refer below sections.
 
