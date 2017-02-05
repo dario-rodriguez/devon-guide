@@ -25,7 +25,7 @@ Many projects still rely on manually applied SQL scripts. And sometimes not even
 
 Most often the answer to above questions is: We don't know. 
 
-Database migration (where the flyway comes into the picture) is the great way to regain control of this mess.
+Database migration (where the flyway comes into the picture) is the great way to regain control over the above turmoil.
 
 They allow you to:
 
