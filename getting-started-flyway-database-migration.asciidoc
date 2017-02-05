@@ -5,20 +5,17 @@ toc::[]
  
 https://flywaydb.org/documentation/[Flyway]  is an open-source database migration tool. It strongly favors simplicity and convention over configuration.
 
-== Why we use flyway
-Lets say we have our application (a piece of software) and our database. Great. And this could very well all you need. 
+== Why use flyway
 
-But on most projects, this simple view of the world very quickly translates into this
+Consider, you have an application (a piece of software) and a database. Great! And this could be all you need. 
+
+But in most of the projects, this simple view of the world very quickly translates into this:
 
 image::images/setup-and-maintain-db-schemas-with-flyway/environments.png[,scaledwidth=80%]
 
+Then you not only have to deal with one copy of the environment, but with several. This presents a number of challenges to maintain the databases across various environments. 
 
-
-We not only have to deal with one copy of environment, but with several. This presents a number of challenges in maintain the databases across various environments. 
-
-Many projects still rely on manually applied sql scripts. And sometimes not even that (a quick sql statement here or there to fix a problem). And soon many questions arise:
-
-
+Many projects still rely on manually applied SQL scripts. And sometimes not even that (a quick SQL statement here or there to fix a problem). And soon many questions arise:
 
 
 *   What state is the database in on this machine?
@@ -26,25 +23,18 @@ Many projects still rely on manually applied sql scripts. And sometimes not even
 *   Has the quick fix in production been applied in test afterwards?
 *   How do you set up a new database instance?
 
+Most often the answer to above questions is: We don't know. 
 
- 
-
-More often  the answer to these questions is: We don't know. 
-
-
-Database migrations(where flyway comes into picture) are a great way to regain control of this mess.
+Database migration (where the flyway comes into the picture) is the great way to regain control of this mess.
 
 They allow you to:
-
-
 
 * Recreate a database from scratch
 * Make it clear at all times what state a database is in
 * Migrate in a deterministic way from your current version of the database to a newer one.
 
 
-
-== How it works for setting up database and maintaining it
+== How it works for setting up the database and maintaining it
 
 To know which state your database is in, Flyway relies on a special metadata table for all its internal bookkeeping. 
 
@@ -55,12 +45,12 @@ To know which state your database is in, Flyway relies on a special metadata tab
 image::images/setup-and-maintain-db-schemas-with-flyway/how-flyway-works-2.png[,scaledwidth=80%]
 
 [start=2]
-. As the database is empty, Flyway won't find it and will create it instead.Now we have a database with a single empty table called SCHEMA_VERSION by default.
+. As the database is empty, Flyway won't find it and will create it instead. Now, you have a database with a single empty table called SCHEMA_VERSION by default.
 
 image::images/setup-and-maintain-db-schemas-with-flyway/how-flyway-works-1.png[,scaledwidth=80%]
 
 [start=3]
-. Immediately afterwards Flyway will begin scanning the filesystem or the classpath of the application for migrations. They can be written in either Sql or Java. 
+. Immediately, Flyway will begin to scan the file system or the classpath of the application for migrations. They can be written in either SQL or Java. 
 
 [start=4]
 . The migrations are then sorted based on their version number and applied in order. As each migration gets applied, the metadata table is updated accordingly.
@@ -69,12 +59,11 @@ image::images/setup-and-maintain-db-schemas-with-flyway/how-flyway-works-1.png[,
 image::images/setup-and-maintain-db-schemas-with-flyway/how-flyway-works-3.png[,scaledwidth=80%]
 
 
+With the metadata and the initial state in place, you can now talk about migrating to newer versions. 
 
-With the metadata and the initial state in place, we can now talk about migrating to newer versions. 
+Flyway will once again scan the filesystem or the classpath of the application for migrations. The migrations are checked against the metadata table. If their version number is lower or equal to the one of the versions marked as current, they are ignored.
 
-Flyway will once again scan the filesystem or the classpath of the application for migrations. The migrations are checked against the metadata table. If their version number is lower or equal to the one of the version marked as current, they are ignored.
-
-And that's it! Every time the need to evolve the database arises, whether structure (DDL) or reference data (DML), simply create a new migration with a version number higher than the current one. The next time Flyway starts, it will find it and upgrade the database accordingly.
+And that's it! No matter when the need to evolve the database arises, whether structure (DDL) or reference data (DML), simply create a new migration with a version number higher than the current one. The next time Flyway starts, it will find it and upgrade the database accordingly.
 
 A typical metadata table looks like below:
 
@@ -83,18 +72,19 @@ image::images/setup-and-maintain-db-schemas-with-flyway/schema-version-metadata-
 
 
 
-== How to set up database 
+== How to set up a database 
 
+Flyway can be used as a standalone or integrated tool via its API to make sure the database migration takes place on startup.
+To enable auto migration on startup (not recommended for production environment), set the following property in the _application.properties_ file.
 
-Flyway can be used standalone or can be integrated via its api to make sure the database migration takes place on startup.
-To enable auto migration on startup (not recommended for productive environment) set the following property in the _application.properties_ file.
 [source, properties]
 ----
   database.migration.auto = true
 ----
-It is set to _false_ by default via _application-default.properties_ and shall be done explicitly in production environments. For development environment it is set to _true_ in order to simplify development. This is also recommended for regular test environments.
 
-If you want to use Flyway set the following property in any case to prevent _Hibernate_ from doing changes on the database (pre-configured by default of OASP4J):
+It is set to _false_ by default via _application-default.properties_ and shall be done explicitly in production environments. In a development environment, it is set to _true_ in order to simplify development. This is also recommended for regular test environments.
+
+If you want to use Flyway, set the following property in any case to prevent _Hibernate_ from making changes in the database (pre-configured by default of OASP4J):
 
 [source, properties]
 ----
@@ -108,8 +98,8 @@ If you want flyway to clear the database before applying the migrations (all dat
   database.migration.clean = true
 ----
 
-New database migrations are added to `src/main/resources/db/migrations`. They can be http://flywaydb.org/documentation/migration/sql.html[SQL] based or http://flywaydb.org/documentation/migration/java.html[Java] based and follow this naming convention:
-V<version>\__<description> (e.g.: V0003__Add_new_table.sql). For new SQL based migrations also stick to the following conventions:
+New database migrations are added to `src/main/resources/db/migrations`. They can be http://flywaydb.org/documentation/migration/sql.html[SQL] based or http://flywaydb.org/documentation/migration/java.html[Java] based and follow below naming convention:
+V<version>\__<description> (e.g.: V0003__Add_new_table.sql). For new SQL based migrations, stick to the following conventions:
 
 * properties in camelCase
 * tables in UPPERCASE
@@ -122,7 +112,7 @@ V<version>\__<description> (e.g.: V0003__Add_new_table.sql). For new SQL based m
 * Insert properties always starting with id, modificationCounter, [dtype, ] ...
 
 
-So, for example, we can see, a sample script (migration) as shown below:
+For example, look at the sample script (migration) as shown below:
 
 [source , properties]
 ----
@@ -138,10 +128,11 @@ CREATE TABLE STAFFMEMBER(
 ----
 
 
-It is also possible to use Flyway for test data. To do so place your test data migrations in `src/main/resources/db/test-data/` and set property
+It is also possible to use Flyway for test data. To do so, place your test data migrations in `src/main/resources/db/test-data/` and set property
 
 [source, properties]
 ----
   database.migration.testdata = true
 ----
-Than Flyway scans the additional location for migrations and applies all in the order specified by their version. If migrations _V_01__..._ and _V_02__..._ exist and a test data migration should be applied in between you can name it _V_01_1__..._.
+
+Then, Flyway scans the additional location for migrations and applies all in the order specified by their version. If migrations _V_01__..._ and _V_02__..._ exist and a test data migration should be applied, in between, you can name it _V_01_1__..._.
