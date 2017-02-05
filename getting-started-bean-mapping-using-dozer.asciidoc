@@ -6,7 +6,7 @@ toc::[]
 == Why use Bean-Mapping
 A mapping framework is useful in a layered architecture, where you can create layers of abstraction by encapsulating changes to particular data objects vs. propagating these objects to other layers (i.e. External service data objects, domain objects, data transfer objects, internal service data objects). A mapping framework is an ideal and can be used within Mapper type classes that are responsible for mapping data from one data object to another. 
 
-For distributed systems, a side effect is the passing of domain objects between different systems. Typically, you don't want internal domain objects to be exposed to the outside world and not allow external domain objects to bleed into your system. 
+The challenge in distributed systems is passing the domain objects between different systems. Typically, you don't want internal domain objects to be exposed to the outside world and not allow external domain objects to bleed into your system. 
 
 Mapping between data the objects has been traditionally addressed by hand coding value object assemblers (or converters) that copy data between the objects. Most programmers will develop some sort of custom mapping framework and spend countless hours and thousands of lines of code mapping to and from their different data object. 
 
