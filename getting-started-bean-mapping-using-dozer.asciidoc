@@ -8,7 +8,7 @@ A mapping framework is useful in a layered architecture, where you can create la
 
 The challenge in distributed systems is passing the domain objects between different systems. Typically, you don't want internal domain objects to be exposed to the outside world and not allow external domain objects to bleed into your system. 
 
-Mapping between data the objects has been traditionally addressed by hand coding value object assemblers (or converters) that copy data between the objects. Most programmers will develop some sort of custom mapping framework and spend countless hours and thousands of lines of code mapping to and from their different data object. 
+Mapping between the data objects has been traditionally addressed by hand coding value object assemblers (or converters) that copy data between the objects. Most programmers will develop some sort of custom mapping framework and spend countless hours and thousands of lines of code mapping to and from their different data object. 
 
 A generic mapping framework solves these problems. Dozer (which is configured and used in Devonfw) is an open source mapping framework that is robust, generic, flexible, reusable, and configurable. 
 
