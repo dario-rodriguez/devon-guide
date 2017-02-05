@@ -112,7 +112,7 @@ V<version>\__<description> (e.g.: V0003__Add_new_table.sql). For new SQL based m
 * Insert properties always starting with id, modificationCounter, [dtype, ] ...
 
 
-For example, look at the sample script (migration) as shown below:
+For example, look at the sample script (migration) shown below:
 
 [source , properties]
 ----
