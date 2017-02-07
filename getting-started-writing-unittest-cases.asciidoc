@@ -13,14 +13,14 @@ In order to understand how the Unit Tests works in Eclipse, lets discuss how to 
 
 ==== Step 1: Create a new class
 
-Create a class with the name _MyClass.java_ (you can link:getting-started-creating-new-devonfw-application[create a new application] as per need). In Eclipse, do right click on the package in the application and then select _New > Class_. Name it _MyClass_ and press _Finish_.
+Create a class with the name _MyClass.java_ (you can link:getting-started-creating-new-devonfw-application[create a new application] as per need). In Eclipse, right click on the package in the application and then select _New > Class_. Name it _MyClass_ and press _Finish_.
 
 ==== Step 2: Create a JUnit test
 
-In Project Explorer, over your new _MyClass.java class_, you need to do right click and then _New > Other >_ and select _JUnit Test Case_. Name it _MyClassTest_ (name by default) and select source folder and package of your application where you want to create the test, e.g. `src/test/java` (this is a good practice). 
+In Project Explorer, over the new _MyClass.java class_, then right click and go to _New > Other >_ and select _JUnit Test Case_. Name it _MyClassTest_ (name by default) and select source folder and package in the application to create the test. e.g. `src/test/java` (this is a good practice). 
 
 ==== Step 3: Implement the test
-Fist of all, check if you have the dependency of the module in your project's _pom.xml_ file.
+Fist of all, check the dependencies of the module in _pom.xml_ file.
 
 [source,xml]
 ----
