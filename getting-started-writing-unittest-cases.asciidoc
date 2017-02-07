@@ -132,7 +132,7 @@ public class Calculator {
 }
 ----
 
-Thus, you have the wire of your calculator. In this case, the implementations is very simple, but you can scale this to a more complex logic. Now, you need to include the test data required to run the class _CalculatorTest_. 
+Thus, you have the wire of your calculator. In this case, the implementation is very simple, but you can scale it to a  more complex logic. Now, you need to include the test data required to run the class _CalculatorTest_. 
 
 CalculatorTest.java
 [source,java]
@@ -155,7 +155,7 @@ public class CalculatorTest extends ComponentTest {
 
 ==== Step 2: Run the test new test
 
-Run the test and this should be the result.
+Run the test and the result is as shown below:
 
 image::images/writing-unittest-cases/getting-started-writing-unittest-cases-TDD-failed.png[,width="450", link="images/writing-unittest-cases/getting-started-writing-unittest-cases-TDD-failed.png"]
 
@@ -166,12 +166,12 @@ The fact, this is more of a metaphoric step, as the implementation is in progres
 
 [NOTE]
 =====
-In the methods named `add()` and `sub()`,  the `Object` is returned because if the methods return an `int`, you will get a "red cross error" pointing `NullPointerException` instead of "blue cross error" of `assetThat()`. It's just for this tutorial.
+Methods named `add()` and `sub()`, returns `Object` as return value because if the methods return an `int`, you will get a "red cross error" pointing `NullPointerException` instead of "blue cross error" of `assetThat()`. It's just for this tutorial.
 =====
 
 ==== Step 3: Write the implementation code
 
-So far, you had a perfect test and an awful implementation of the Calculator. Let's start with the implementation.
+So far, you have seen a perfect test and an awful implementation of the Calculator. Let's start with the implementation.
 
 Let's implement the method `add()` and see what happens.
 
@@ -219,7 +219,7 @@ public class Calculator {
 
 ==== Step 6: Run the test -return to step 2-
 
-If you run the application, you can see the following result:
+If you run the application, you will get the following result:
 
 image::images/writing-unittest-cases/getting-started-writing-unittest-cases-TDD-ok.png[,width="450", link="images/writing-unittest-cases/getting-started-writing-unittest-cases-TDD-ok.png"]
 
