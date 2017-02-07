@@ -56,13 +56,13 @@ You can include a configuration location in the last annotation, if you need it,
 
 ==== Step 4: Run the test
 
-Eclipse provides a very helpful view to test the applications. If you can't see it press the menu: _Windows > Show View > Other_ and select _JUnit_. 
+Eclipse provides a very helpful view to test the applications. If you can't see, press the menu: _Windows > Show View > Other_ and select _JUnit_.
 
 Now, over the test, press right click _Run As > JUnit test_
 
 image::images/writing-unittest-cases/getting-started-writing-unittest-cases-failed.png[,width="450", link="images/writing-unittest-cases/getting-started-writing-unittest-cases-failed.png"]
 
-As you can see in the image, Eclipse shows a red rectangle because one of the tests of your test class has been failed (in this case, a single test). The failure of the tests is marked with a blue cross but you can observe three different marks:
+In the above image, Eclipse shows a red rectangle because one of the tests has been failed (in this case, a single test). The failure of the test is marked with a blue cross but you can observe three different marks:
 
 * Red cross: the test has some fatal error as, e.g context error, null pointer exceptions, etc.
 * Blue cross: the test fails in some test method like `asserThan()` (like your case)
