@@ -102,7 +102,7 @@ The procedure of doing TDD is following:
 * Run all the tests
 * Refactor
 
-=== TDD on Eclipse
+=== TDD in Eclipse
 
 As discussed, now, you are acquainted with how to create, write and run a test, you can start with a simple tutorial in order to get the most clear idea about TDD.
 
@@ -166,14 +166,14 @@ The fact, this is more of a metaphoric step, as the implementation is in progres
 
 [NOTE]
 =====
-Clearly, in the methods `add()` and `sub()`,  the `Object` is returned, because if the methods return an `int` now, we get a "red error" of `NullPointerException` instead of "blue error" of `assetThat()`. It's just for this tutorial.
+In the methods named `add()` and `sub()`,  the `Object` is returned because if the methods return an `int`, you will get a "red cross error" pointing `NullPointerException` instead of "blue cross error" of `assetThat()`. It's just for this tutorial.
 =====
 
 ==== Step 3: Write the implementation code
 
-Until now we have a very awesome test and an awful implementation of our Calculator, so we need to implement it now.
+So far, you had a perfect test and an awful implementation of the Calculator. Let's start with the implementation.
 
-Lest's go to implement the method `add()` and see what happens.
+Let's implement the method `add()` and see what happens.
 
 [source,java]
 ----
@@ -192,15 +192,15 @@ Lest's go to implement the method `add()` and see what happens.
 
 ==== Step 4: Run the test -again-
 
-If you run now the test you will get the next result
+If you run the test, you will get the following result:
 
 image::images/writing-unittest-cases/getting-started-writing-unittest-cases-TDD-failed2.png[,width="450", link="images/writing-unittest-cases/getting-started-writing-unittest-cases-TDD-failed2.png"]
 
-Now we have a success result for the method `add()` and a failure result for the method `sub()`. As you can see it's not necessary that we get all test OK to run the tests, we can check whenever we want the result of the test and work to satisfy it. This is, again, the idea of TDD.
+Now, you have a success result for the method `add()` and a failure result for the method `sub()`. Clearly, it's not necessary to get all the tests results as OK to run the tests, you can check the result of the test and work on to satisfy it. This the idea of TDD.
 
 ==== Step 5: Refactor
 
-Now we finally need to implement the method `sub()`
+Now, let's implement the method `sub()`
 
 [source,java]
 ----
@@ -219,10 +219,10 @@ public class Calculator {
 
 ==== Step 6: Run the test -return to step 2-
 
-If we run now the application we can see the next result
+If you run the application, you can see the following result:
 
 image::images/writing-unittest-cases/getting-started-writing-unittest-cases-TDD-ok.png[,width="450", link="images/writing-unittest-cases/getting-started-writing-unittest-cases-TDD-ok.png"]
 
-Finally we have our first application implemented with TDD methodology!
+Finally, here is your first application implemented with TDD methodology!
 
-As you can see, in this tutorial we have a very simple application, so we don’t need another round of the TDD cycle, but in a real application, you may need to repeat this cycle more times to get a successful result.
+Therefore, in this tutorial, you have dealt with a very simple application, so you don’t need another round of the TDD cycle, but in the real applications, you may need to repeat the cycle several times to get a successful result.
