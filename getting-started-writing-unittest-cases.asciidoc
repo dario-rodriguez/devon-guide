@@ -94,7 +94,7 @@ With the discussed knowledge base, you can start testing all the applications.
 
 Test-driven development (TDD) is a software development process that relies on the repetition of a very short development cycle: first the developer writes an (initially failing) automated test case that defines a desired improvement or new function, then produces the minimum amount of code to pass that test, and finally refactors the new code to acceptable standards.
 
-The procedure of doing TDD is following:
+The process of TDD is described as follows:
 
 * Create a test
 * Run all the tests
@@ -104,7 +104,7 @@ The procedure of doing TDD is following:
 
 === TDD in Eclipse
 
-As discussed, now, you are acquainted with how to create, write and run a test, you can start with a simple tutorial in order to get the most clear idea about TDD.
+Now, you are acquainted with the skills of creating, writing and running the test. Therefore, you can start with a simple tutorial in order to get the most clear idea about TDD.
 
 The goal is create a simple calculator that has two methods: add(int,int) and sub(int,int).
 
