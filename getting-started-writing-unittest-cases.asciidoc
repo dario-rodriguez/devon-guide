@@ -5,22 +5,22 @@ toc::[]
 
 == Unit Test
 
-In computer programming, unit testing is a software testing method by which individual units of source code, sets of one or more computer program modules together with associated control data, usage procedures, and operating procedures, are tested to determine whether they are fit for use. Intuitively, one can view a unit as the smallest testable part of an application. For more information visit https://en.wikipedia.org/wiki/Unit_testing[wikipedia].
+In computer programming, unit testing is a software testing method by which individual units of source code, sets of one or more computer program modules together with associated control data, usage procedures, and operating procedures, are tested to determine whether they are fit for the use. Intuitively, one can view a unit as the smallest testable part of an application. For more information, visit https://en.wikipedia.org/wiki/Unit_testing[wikipedia].
 
-=== Unit Test on Eclipse
+=== Unit Test in Eclipse
 
-In order to understand how the Unit Tests work in Eclipse we are going to create and run a simple test.
+In order to understand how the Unit Tests works in Eclipse, lets discuss how to create and run a simple test.
 
 ==== Step 1: Create a new class
 
-Create a class with the name _MyClass.java_ (you can link:getting-started-creating-new-devonfw-application[create a new application] if you need). In Eclipse do right click in the package of the application and then select _New > Class_. Name it _MyClass_ and press _Finish_.
+Create a class with the name _MyClass.java_ (you can link:getting-started-creating-new-devonfw-application[create a new application] if you need). In Eclipse, do right click in the package of the application and then select _New > Class_. Name it _MyClass_ and press _Finish_.
 
 ==== Step 2: Create a JUnit test
 
-In Project Explorer, over our new _MyClass.java class_, we need to do right click and then _New > Other >_ and select _JUnit Test Case_. Name it _MyClassTest_ (name by default) and select source folder and package of your application where you want to create the test, e.g. `src/test/java` (this is a good practice). 
+In Project Explorer, over your new _MyClass.java class_, you need to do right click and then _New > Other >_ and select _JUnit Test Case_. Name it _MyClassTest_ (name by default) and select source folder and package of your application where you want to create the test, e.g. `src/test/java` (this is a good practice). 
 
 ==== Step 3: Implement the test
-Fist of all check if you have the dependency of the module in your project's _pom.xml_ file.
+Fist of all, check if you have the dependency of the module in your project's _pom.xml_ file.
 
 [source,xml]
 ----
@@ -31,7 +31,7 @@ Fist of all check if you have the dependency of the module in your project's _po
 </dependency>
 ----
 
-In a OASP4J project we have our own Component Test methods, so we need our new _JUnit Test_ class to extend _ComponentTest_ class of the OASP4J module test.
+In a OASP4J project, you have your own Component Test methods, so you need your new _JUnit Test_ class to extend _ComponentTest_ class of the OASP4J module test.
 
 [source,java]
 ----
@@ -45,30 +45,30 @@ public class MyClassTest extends ComponentTest {
 }
 ----
 
-This is a very simple test that verifies if the boolean value `true` is true. And is the case to start testing OASP4J application. As you can imagine our test is going to fail but we will see it later.
+This is a very simple test that verifies if the boolean value `true` is true. And is the case to start testing OASP4J application. As you can imagine that the test is going to fail, but you will see the details in later part.
 
 [NOTE]
 =====
-As you can see we are including the `@SpringApplicartionContext` annotation in order to define an application context to our test. Without the context of the application, the test gets a fatal error, because you can't test a non-running application. 
+You are including the `@SpringApplicartionContext` annotation in order to define an application context to your test. Without the context of the application, the test gets a fatal error, because you can't test a non-running application. 
 
-We can include a configuration location in the last annotation, if we need it, or use `@ContextConfiguration(locations = { "classpath:my-bean-context.xml" })`. For this tutorial it's unnecessary because our test is the most very simple test we can do.
+You can include a configuration location in the last annotation, if you need it, or use `@ContextConfiguration(locations = { "classpath:my-bean-context.xml" })`. For this tutorial, it's unnecessary because your test is the most simplest test you can perform.
 =====
 
 ==== Step 4: Run the test
 
-Eclipse provide us with a very helpful view to test our applications. If you can't see it press the menu: _Windows > Show View > Other_ and select _JUnit_. 
+Eclipse provides a very helpful view to test the applications. If you can't see it press the menu: _Windows > Show View > Other_ and select _JUnit_. 
 
-Now, over our test, press right click _Run As > JUnit test_
+Now, over the test, press right click _Run As > JUnit test_
 
 image::images/writing-unittest-cases/getting-started-writing-unittest-cases-failed.png[,width="450", link="images/writing-unittest-cases/getting-started-writing-unittest-cases-failed.png"]
 
-As you can see in the image, Eclipse shows us a red rectangle because one of the test of our test class has failed (in this case we have a single test). The fails of a test are marked with a blue cross but we can get three marks:
+As you can see in the image, Eclipse shows a red rectangle because one of the tests of your test class has been failed (in this case, a single test). The failure of the tests is marked with a blue cross but you can observe three different marks:
 
 * Red cross: the test has some fatal error as, e.g context error, null pointer exceptions, etc.
-* Blue cross: the test fails in some test method like `asserThan()` (like our case)
+* Blue cross: the test fails in some test method like `asserThan()` (like your case)
 * Green check: the test is OK
 
-In our case we have a very simple failure because in the test we have `assertThat(false).isTrue()` that is the same as check if `true == false`. Now, we are going to fix the failure and run the test again.
+In above case, you have a simple failure because your test has a `assertThat(false).isTrue()` meaning check if `true == false`. Now, lets discuss how to fix the failure and run the test again.
 
 [source,java]
 ----
@@ -82,13 +82,13 @@ public class MyClassTest extends ComponentTest {
 }
 ----
 
-Now we need to run the test again. And we are going to get the next result
+Now, you need to run the test again. And you will get the next result as shown in below image.
 
 image::images/writing-unittest-cases/getting-started-writing-unittest-cases-ok.png[,width="450", link="images/writing-unittest-cases/getting-started-writing-unittest-cases-ok.png"]
 
-As you can see, now the test ends successfully and Eclipse show us a green rectangle and the test with a green check.
+Evidently, the test ends successfully and Eclipse shows a green rectangle and the test with a green check.
 
-With this knowledge base we can start testing all our applications. 
+With the discussed knowledge base, you can start testing all the applications. 
 
 == TDD Test-driven development
 
@@ -97,24 +97,24 @@ Test-driven development (TDD) is a software development process that relies on t
 The procedure of doing TDD is following:
 
 * Create a test
-* Run all tests
+* Run all the tests
 * Write the implementation code
-* Run all tests
+* Run all the tests
 * Refactor
 
 === TDD on Eclipse
 
-Now that we know how to create, write and run a test, we can start with a simple tutorial in order to get the most clear idea about TDD.
+As discussed, now, you are acquainted with how to create, write and run a test, you can start with a simple tutorial in order to get the most clear idea about TDD.
 
-The goal is create a very simple calculator that has 2 methods: add(int,int) and sub(int,int).
+The goal is create a simple calculator that has two methods: add(int,int) and sub(int,int).
 
 ==== Step 1: Create a test
 
-The idea is very simple, first we are going to create the tests for the methods of a class that we are going to implement after. That allow us to get the control of the result of our work and verify from the beginning that our code is working properly.
+The idea is very simple, you will create the tests for the methods of a class that needs to be implemented later. That allow to get the control of the result of your work and verify from the beginning that your code is working properly.
 
-We need to create a test called `CalculatorTest` in our test package and our class `Calculator` in our java package. 
+You need to create a test called `CalculatorTest` in test package and a class `Calculator` in the java package. 
 
-In this test class we are going to include a variable of our class _Calculator_ and the test to the future _add()_ and _sub()_ methods of _Calculator_ class.
+In this test class, you will include a variable of a class _Calculator_ and the test to the future _add()_ and _sub()_ methods of _Calculator_ class.
 
 Calculator.java
 [source,java]
@@ -132,7 +132,7 @@ public class Calculator {
 }
 ----
 
-As you can see we have the wire of our calculator, in this case the implementations is very simple but you can scale this to a more complex logic. Now we need to include in the class _CalculatorTest_ the result we want to get when we finished the implementation of our Calculator.
+Thus, you have the wire of your calculator. In this case, the implementations is very simple, but you can scale this to a more complex logic. Now, you need to include the test data required to run the class _CalculatorTest_. 
 
 CalculatorTest.java
 [source,java]
@@ -155,17 +155,18 @@ public class CalculatorTest extends ComponentTest {
 
 ==== Step 2: Run the test new test
 
-Run the test and this should be the result
+Run the test and this should be the result.
 
 image::images/writing-unittest-cases/getting-started-writing-unittest-cases-TDD-failed.png[,width="450", link="images/writing-unittest-cases/getting-started-writing-unittest-cases-TDD-failed.png"]
 
-Obviously the test gets some failures, is the expected because the Calculator doesn't work yet. 
+Obviously, the test shows some failures as expected because the Calculator doesn't work yet. 
 
-The fact is that this is more a metaphoric step, we are implementing this tests and is obvious that we will get errors if we run it. But this is the cycle of TDD, we write a test that will, obviously, fail and then we write the code to satisfy the test. That help us to make sure that our code is strong.
+The fact, this is more of a metaphoric step, as the implementation is in progress and it is obvious to get errors after running the test. As it is the cycle of the TDD, you need to write a test that will fail certainly so that the code to satisfy the test can be written. Surely, this will help to keep the code simple and lean.
+
 
 [NOTE]
 =====
-As you can see in the methods `add()` and `sub()` we are returning an `Object`, this is because if the methods return an `int` now, we get a "red error" of `NullPointerException` instead of "blue error" of `assetThat()`. It's just for this tutorial.
+Clearly, in the methods `add()` and `sub()`,  the `Object` is returned, because if the methods return an `int` now, we get a "red error" of `NullPointerException` instead of "blue error" of `assetThat()`. It's just for this tutorial.
 =====
 
 ==== Step 3: Write the implementation code
