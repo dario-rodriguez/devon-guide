@@ -110,7 +110,7 @@ The goal is create a simple calculator that has two methods: add(int,int) and su
 
 ==== Step 1: Create a test
 
-The idea is very simple, you will create the tests for the methods of a class that needs to be implemented later. That allow to get the control of the result of your work and verify from the beginning that your code is working properly.
+The idea is very simple, you will create the tests for the methods of a class that needs to be implemented later. It will allow you to get the control of the result and verify that the code is working properly from the beginning.
 
 You need to create a test called `CalculatorTest` in test package and a class `Calculator` in the java package. 
 
