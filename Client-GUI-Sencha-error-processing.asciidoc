@@ -35,7 +35,7 @@ In case the application wants to manage the processing of the errors in its own 
 In the case that we received the field `errors`, Devon will perform a search in the current view for a component with the same `reference` property as the error key (`reference` it is a Sencha property to distinguish a component from other component) and it will mark as invalid the component, showing the message received alongside.
  
 In our example, Devon will find a component that has as a `reference` property with value `"number"` and it will mark it as invalid.
-By default, Devon starts searching for components to match with the error validation key from the top of the view, although you can tell Devon where to start the search with the property `failureReferenceView`. The value of the property `failureReferenceView` also has to be the value of a view component reference property.
+By default, Devon starts searching for components to match with the error validation key from the top of the view, although you can tell Devon where to start the search with the property `referenceView`. The value of the property `referenceView` also has to be the value of a view component reference property.
 
 [source,javascript]
 .SampleViewController.js
@@ -43,7 +43,7 @@ By default, Devon starts searching for components to match with the error valida
     Devon.rest.tablemanagement.table.post({
         scope: this,
         jsonData : vm.get('table'),
-        failureReferenceView: 'panel',
+        referenceView: 'panel',
         success: this.tableCrudClose
     });
 ----
