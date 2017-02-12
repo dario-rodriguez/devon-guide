@@ -3,19 +3,19 @@ toc::[]
 
 # The Reporting module - Report generation with JasperReports
 
-Reporting is a fundamental part of the larger movement towards improved business intelligence and knowledge management. Often implementation involves extract, transform, and load (ETL) procedures in coordination with a data warehouse and then using one or more reporting tools. With this module Devon provides an implementation of one of these reporting tools based on the Jasper Reports library.
+Reporting is a fundamental part of the larger movement towards the improved business intelligence and knowledge management. Often, the implementation involves extract, transform, and load (ETL) procedures in coordination with a data warehouse and then using one or more reporting tools. With this module, Devon provides an implementation of one of these reporting tools based on the Jasper Reports library.
 
 JasperReports is an open source Java reporting tool that can write to a variety of targets, such as: screen, a printer, into PDF, HTML, Microsoft Excel, RTF, ODT, Comma-separated values or XML files.
 It can be used in Java-enabled applications, including Java EE or web applications, to generate dynamic content. It reads its instructions from an XML or .jasper file.
 
-For more information visit http://community.jaspersoft.com/project/jasperreports-library[JasperReports]
+For more information, visit http://community.jaspersoft.com/project/jasperreports-library[JasperReports]
 
 
 == Include Reporting in a Devon project
 
-The Reporting module provide you with a report generation for your Devon applications. For implement the Reporting module in a Devon project you must follow these steps:
+The Reporting module provides you a report generator for your Devon applications. To implement the Reporting module in a Devon project, you must follow these steps:
 
-=== Step 1: Adding the dependency in our project
+=== Step 1: Adding the dependency in your project
 
 Include the module dependency in your pom.xml
 [source,xml]
@@ -29,18 +29,18 @@ Include the module dependency in your pom.xml
 
 [WARNING]
 ====
-The IP modules of Devonfw are stored in https://www.jfrog.com/artifactory/[Artifactory]. In case you do not have access to that repository, as the modules are included in the Devonfw distribution, you can install them manually. To do so open a Devonfw command line (_console.bat_), go to `Devon-dist\workspaces\examples\devon` and execute the command `mvn install`.
-If project is already imported in Eclipse then update project: Right click on _project_ > _Maven_ > _Update Project_ > check the _Force update of Snapshot/Releases_ checkbox > _Ok_
+The IP modules of Devonfw are stored in https://www.jfrog.com/artifactory/[Artifactory]. In case, you do not have access to that repository, as the modules are included in the Devonfw distribution, you can install them manually. To do so, open a Devonfw command line (_console.bat_), go to `Devon-dist\workspaces\examples\devon` and execute the command `mvn install`.
+If the project is already imported in Eclipse, then update project: Right click on _project_ > _Maven_ > _Update Project_ > check the _Force update of Snapshot/Releases_ checkbox > _Ok_
 ====
 
 === Step 2: Properties configuration
 
 [NOTE]
 ====
-This step is only needed in case you are going to generate _.txt_ reports
+This step is only needed in case you are going to generate _.txt_ reports.
 ====
 
-In order to use the Reporting module for creating txt reports is necessary to define some parameters related to the size of the elements in the application.properties file of the project.
+In order to use the Reporting module for creating txt reports, it is necessary to define some parameters related to the size of the elements in the application.properties file in the project.
 [source,xml]
 ----
 # Reporting module params
@@ -52,7 +52,7 @@ devon.reporting.txtConfig.PageHeightInChars=47
 
 == Basic implementation
 
-First of all we will need to add the scanner for dependency injection. To do so, in the _SpringBoot_ main class, we must add the following annotations
+First and foremost, you need to add the scanner for dependency injection. To do so, you must add the following annotations in the _SpringBoot_ main class:
 
 [source,java]
 ----
@@ -65,18 +65,18 @@ public class MyBootApp {
 }
 ----
 
-Remember to add the package of the module in the _basePackages_ attribute of the `@ComponentScan` annotation alongside the packages for the rest of relevant Spring Boot components.
+Remember to include the package of the module in the _basePackages_ attribute of the `@ComponentScan` annotation alongside the packages for the rest of the relevant Spring Boot components.
 
 [source,java]
 ----
 @ComponentScan(basePackages = { "com.capgemini.devonfw.module.reporting" , "my.other.component.location.package" })
 ----
 
-As you can see the _basePackages_ of the _@ComponentScan_ points to the Reporting module package so now we can start using the module.
+As you can see, the _basePackages_ of the _@ComponentScan_ points to the Reporting module package. Now, you can start using the module.
 
 === The injection of the module
 
-To access to the modules functionalities we need to inject the module in a private property, we will do this using the _@Inject_ annotation
+To access the module functionalities, you need to inject the module in a private property, it can be done using the _@Inject_ annotation
 
 [source,java]
 ----
@@ -90,11 +90,11 @@ public class MyClass {
 }
 ----
 
-After that we can use that `reportManager` object in order to access to the module functionalities, we will see how later.
+Hereafter, you can use the `reportManager` object in order to access the module functionalities, it will be discussed later.
 
 === The Report entity
 
-Basically for configuring the report we will need to instantiate a `Report` object and define only two properties:
+Basically, for configuring the report, you need to instantiate a `Report` object and define only two properties:
 
 - the data: the information that the report should show.
 
@@ -108,11 +108,12 @@ myReport.setData(getMockData());
 myReport.setTemplatePath("path\to\the\template\fooTemplate.jrxml");
 ----
 
-The _setData_ method needs a *collection of HashMap* with the pairs key/value to bind template fields with the data.
+The _setData_ method needs the *collection of HashMap* with the pairs key/value to bind template fields with the data.
 
-In the _setTemplatePath_ we need to pass the location of the template to be used to create the report. You can learn more about how to create Jasper templates http://community.jaspersoft.com/documentation/tibco-jaspersoft-studio-user-guide/v60/report-templates[here] and http://community.jaspersoft.com/wiki/creating-custom-template-jaspersoft-studio[here]
+In the _setTemplatePath_, you need to pass the location of the template which will be used to create the report. You can learn more about how to create Jasper templates http://community.jaspersoft.com/documentation/tibco-jaspersoft-studio-user-guide/v60/report-templates[here] and http://community.jaspersoft.com/wiki/creating-custom-template-jaspersoft-studio[here].
 
-In the `Report` object we can also add parameters to be used from within the template
+In the `Report` object, you can also add parameters that can be used within the template:
+
 [source,java]
 ----
 HashMap<String, Object> params = new HashMap<>();
@@ -124,7 +125,7 @@ myReport.setParams(params);
 
 === Using the reportManager
 
-Once we have the `Report` object defined and configured we can generate the report. Following example shows a basic implementation for the creation of a report in pdf file
+Once the `Report` object is defined and configured, you can generate the report. Following example shows a basic implementation for the creation of a report in pdf file
 
 [source,java]
 ----
@@ -132,7 +133,7 @@ File file = new File("D:\\Temp\\pdf_Report.pdf");
 reportManager.generateReport(myReport, file, ReportFormat.PDF);
 ----
 
-So once the Report object is defined the report generation is very simple, it only needs:
+Therefore, once the Report object is defined, the report generation is very simple, it only needs:
 
 * a report manager (the object with the injection of the module).
 
@@ -144,11 +145,11 @@ So once the Report object is defined the report generation is very simple, it on
 
 == Working with templates
 
-As we have saw in the previous sections the Reporting module works using the _Jasper Reports_ templates. This templates are basically _xml_ files (with extension _jrxml_) with some custom structure.
+With reference to previous sections, the Reporting module works using the _Jasper Reports_ templates. These templates are basically _xml_ files (with extension _jrxml_) with some custom structure.
 
 === The parts of a template
 
-The _jrxml_ templates are divided in several blocks of information. These blocks can be of two types:
+The _jrxml_ templates are divided into several blocks of information. These blocks can be of two types:
 
 - blocks with static information.
 
@@ -156,9 +157,9 @@ The _jrxml_ templates are divided in several blocks of information. These blocks
 
 The static information is the information defined by the template itself or by the parameters passed to the template and it remains unchanged over the different _pages_ of the report.
 
-The dynamic information is the information defined by the _data_ that we are passing to the `Report` object as our report main content.
+The dynamic information is the information defined by the _data_ that is passed to the `Report` object as it is the report's main content.
 
-A basic _jrxml_ structure would be like that
+A basic _jrxml_ structure would be like below:
 
 [source,xml]
 ----
@@ -187,21 +188,21 @@ A basic _jrxml_ structure would be like that
 </jasperReport>
 ----
 
-- *title* tag: will store static information and will appear only once in the first page of the report.
+- *title* tag: will store static information and will appear only once on the first page of the report.
 
-- *pageHeader* tag: will contain static information and will appear on every report page in the top of the page.
+- *pageHeader* tag: will contain static information and will appear on every report page at the top of the page.
 
-- *columnHeader* tag: will show static information and will appear on every report page just above the _detail_ info.
+- *columnHeader* tag: will show static information and will appear on every report page, just above the _detail_ info.
 
-- *detail* tag: will contain the dynamic content of the report and will be repeated (in row format) so many times as the ocurrences of the data that we have passed in the _setData_ method. The detail will fill the page report and continue in following pages if is necessary.
+- *detail* tag: will contain the dynamic content of the report and will be repeated (in row format) many times as the occurrence of the data that is passed in the _setData_ method. The detail will fill the page report and continue in the following pages if is necessary.
 
-- *columnFooter* tag: will show static information and will appear on every report page just below the _detail_ info, at the end of the detail info gap in every report page.
+- *columnFooter* tag: will show static information and will appear on the every report page, just below the _detail_ info, at the end of the detail info gap in every report page.
 
 - *pageFooter* tag: will contain static information and will appear on every report page in the bottom of the page.
 
 === Defining parameters
 
-We will define the parameters in the templates in this way and after the `<jasperReport>` tag.
+Parameters in the templates can be defined in this way and after the `<jasperReport>` tag.
 
 [source, xml]
 ----
@@ -211,7 +212,7 @@ We will define the parameters in the templates in this way and after the `<jaspe
 
 === Using parameters in the template
 
-After the parameter definition we can use the parameters within the template with a structure like the following
+After the parameter definition, you can use the parameters within the template with a structure shown below:
 
 [source, xml]
 ----
@@ -226,7 +227,7 @@ After the parameter definition we can use the parameters within the template wit
 
 === Defining Fields
 
-The fields are the elements linked with the report dynamic data. We will define the fields in the templates in this way and after the `<jasperReport>` tag.
+The fields are the elements linked with the reports dynamic data. The fields can be defined in the templates in this way and after the `<jasperReport>` tag.
 
 [source, xml]
 ----
@@ -236,7 +237,7 @@ The fields are the elements linked with the report dynamic data. We will define 
 
 === Using fields in the template
 
-After the field definition we will use the fields inside the `<detail>` tag as part of the dynamic data.
+After the field definition, you can use the fields inside the `<detail>` tag as the part of the dynamic data.
 
 [source, xml]
 ----
@@ -268,11 +269,11 @@ After the field definition we will use the fields inside the `<detail>` tag as p
 
 === Creating templates with GUI software
 
-Working with _xml_ can be sometimes complex and it adds a layer of difficulty when trying to visualize a graphic result. For that reason Jaspersoft provides a software to manage the Reports and this software includes a complete functionality to generate and export _jrxml_ templates.
+Working with _xml_ can be sometimes complex and it adds a layer of difficulty when trying to visualize a graphic result. For that reason, Jaspersoft provides a software to manage the Reports and this software includes a complete functionality to generate and export _jrxml_ templates.
 
-We are talking about Jaspersoft Studio and you can get it from the Jaspersoft site http://community.jaspersoft.com/project/jaspersoft-studio[here].
+It is about Jaspersoft Studio and you can get it from the Jaspersoft site http://community.jaspersoft.com/project/jaspersoft-studio[here].
 
-In the same way the Jaspersoft site provides the users with many documentation and examples of how to use Jaspersoft studio, how to install it and how to generate templates:
+In the similar way, the Jaspersoft site provides the users with many documentation and examples of how to use Jaspersoft studio, how to install it and how to generate templates:
 
 - http://community.jaspersoft.com/wiki/getting-started-jaspersoft-studio[Getting Started with Jaspersoft Studio]
 
@@ -283,22 +284,22 @@ In the same way the Jaspersoft site provides the users with many documentation a
 
 == Subreports
 
-A subreport is a report included inside another report. This allows the creation of very complex layouts with different portions of a single document filled using different data sources and reports. To know more about subreports you can visit http://community.jaspersoft.com/wiki/subreports[this link].
+A subreport is a report included inside another report. This allows the creation of very complex layouts with different portions of a single document filled using different data sources and reports. To know more about subreports, refer this http://community.jaspersoft.com/wiki/subreports[link].
 
-A basic example of the subreports usage with the Reporting module:
+A basic example of the subreports usage with the Reporting module is below:
 [source,java]
 ----
 File file = File.createTempFile("subreport_", ".pdf");
 this.reportManager.generateSubreport(masterReport, subreports, file, ReportFormat.PDF);
 ----
 
-* the _masterReport_ is the report that will house the sub-reports. It is defined as explained in the previous section.
-* the _subreports_ is a List of reports to be included within the main report.
-* the rest of parameters are explained in the previous section.
+* The _masterReport_ is the report that will house the sub-reports. It is defined as it is explained in the previous section.
+* The _subreports_ is a List of reports to be included within the main report.
+* The rest of parameters are explained in the previous section.
 
 ===== Defining a Subreport
 
-The subreport definition is the same as for a regular report, the only point that we must be aware of is defining the _setDataSourceName_.
+The subreport definition is same as for a regular report, the only point is to define the _setDataSourceName_.
 
 [source,java]
 ----
@@ -314,7 +315,7 @@ sureport01.setTemplatePath(path\to\the\template\sureport01Template.jrxml);
 this.subreports.add(sureport01);
 ----
 
-The _DataSourceName_ is the name that later will be used to bind the subreport with its data so it has to be defined also in the master report template in order to pass it to the subreport as a parameter.
+The _DataSourceName_ is the name, that will be later used to bind the subreport with its data, so that it has to be defined in the master report template in order to pass it to the subreport as a parameter.
 
 [source,xml]
 ----
@@ -334,14 +335,14 @@ The _DataSourceName_ is the name that later will be used to bind the subreport w
 
 ===== How to pass a parameter to a subreport
 
-We can pass a parameter to a subreport using the _setParams_ method of the master report.
+You can pass a parameter to a subreport using the _setParams_ method of the master report.
 [source,java]
 ----
-// We will have a HashMap for "global" parameters
+// You will have a HashMap for "global" parameters
 HashMap<String, Object> allParams = new HashMap<>();
 ----
 
-Then, when defining a subreport we can add its parameters to the _global_ parameters
+Then, when defining a subreport, you can add its parameters to the _global_ parameters:
 [source,java]
 ----
 HashMap<String, Object> subreport01Params = new HashMap<>();
@@ -355,7 +356,7 @@ And during the master report definition:
 this.masterReport.setParams(allParams);
 ----
 
-Finally, in the master report template we will define the parameter and pass it to the subreport
+Finally, in the master report template, you will define the parameter and pass it to the subreport.
 [source,xml]
 ----
 [...]
@@ -376,11 +377,11 @@ Finally, in the master report template we will define the parameter and pass it 
 
 === Concatenated reports
 
-Other functionality of the Reporting module is to generate concatenated reports. A concatenated report is a set of reports _printed_ in a single file. In other words you can have several reports and generate a single file to contain them all.
+Other functionality of the Reporting module is to generate concatenated reports. A concatenated report is a set of reports _printed_ in a single file. In other words, you can have several reports and generate a single file to contain them all.
 
 A basic example of this:
 [source,java]
 ----
 this.reportManager.concatenateReports(reports, file, ReportFormat.PDF);
 ----
-The _reports_ parameter is a List of _Report_ objects. The rest of the parameters are the same as explained in previous sections.
+The _reports_ parameter is a List of _Report_ objects. The rest of the parameters are same as explained in the previous sections.
