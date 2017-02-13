@@ -7,17 +7,17 @@ This Devonfw IP module allows the applications to authenticate the users against
 
 == Authentication with Active Directory
 
-Active Directory (AD) is a directory service that Microsoft developed for Windows domain networks. It is included in most Windows Server operating systems as a set of processes and services. Initially, Active Directory was only in charge of centralized domain management. Starting with Windows Server 2008, however, Active Directory became an umbrella title for a broad range of directory-based identity-related services.
+Active Directory (AD) is a directory service that Microsoft developed for Windows domain networks. It is included in the most Windows Server operating systems as a set of processes and services. Initially, Active Directory was only in charge of centralized domain management. Starting with Windows Server 2008, however, Active Directory became an umbrella title for a broad range of directory-based identity-related services.
 
-For more information visit https://en.wikipedia.org/wiki/Active_Directory[wikipedia].
+For more information, visit https://en.wikipedia.org/wiki/Active_Directory[wikipedia].
 
 === Include Winauth-ad in a Devon project
 
-Winauth-ad module provides you a simple authentication for your Devon applications. If you want to implement this kind of authentication in a Devon project you need to follow the next steps:
+Winauth-ad module provides a simple authentication for your Devon applications. To implement authentication in your Devon project, follow the next steps:
 
 ==== Step 1: Add the module dependency
 
-Include the dependency of the module in your pom.xml
+Include the dependency of the module in pom.xml
 
 [source,xml]
 ----
@@ -30,7 +30,7 @@ Include the dependency of the module in your pom.xml
 
 [WARNING]
 ====
-The IP modules of Devonfw are stored in https://www.jfrog.com/artifactory/[Artifactory]. In case you do not have access to that repository, as the modules are included in the Devonfw distribution, you can install them manually. To do so open a Devonfw command line (_console.bat_), go to `Devon-dist\workspaces\examples\devon` and execute the command `mvn install`.
+The IP modules of Devonfw are stored in https://www.jfrog.com/artifactory/[Artifactory]. In case you do not have access to that repository, as the modules are included in the Devonfw distribution, you can install them manually. To do so, open a Devonfw command line (_console.bat_), go to `Devon-dist\workspaces\examples\devon` and execute the command `mvn install`.
 If project is already imported in Eclipse then update project: Right click on _project_ > _Maven_ > _Update Project_ > check the _Force update of Snapshot/Releases_ checkbox > _Ok_
 ====
 
@@ -46,7 +46,7 @@ private AuthenticationManagerAD authenticationManagerAD;
 
 [NOTE]
 ====
-For previous versions of the _oasp4j_ based apps you may find `BaseWebSecurityConfig` in a different location: `general/configuration/BaseWebSecurityConfig.java` 
+For previous versions of the _oasp4j_ based apps, you may find `BaseWebSecurityConfig` in a different location: `general/configuration/BaseWebSecurityConfig.java` 
 ====
 
 Remember to add the package of the module to the `@ComponentScan` annotation in the Spring Boot main class.
@@ -58,7 +58,7 @@ Remember to add the package of the module to the `@ComponentScan` annotation in 
 
 ==== Step 3: Define the provider
 
-Also in the `BaseWebSecurityConfig.java` class add the LDAP provider to the AuthenticationManagerBuilder in the `configureGlobal(AuthenticationManagerBuilder auth)` method 
+Also, in the `BaseWebSecurityConfig.java` class, add the LDAP provider to the AuthenticationManagerBuilder in the `configureGlobal(AuthenticationManagerBuilder auth)` method 
 
 [source,java]
 ----
@@ -67,7 +67,7 @@ auth.authenticationProvider(this.authenticationManagerAD.LdapAuthenticationProvi
 
 [NOTE]
 ====
-For previous version of _oasp4j_ apps you won't find 'configureGlobal' method so you should add it in the `init()` method instead (in these cases you should find an AuthenticationManagerBuilder available in the class). 
+For previous version of _oasp4j_ apps, you won't find 'configureGlobal' method. Therefore, you should add it in the `init()` method instead (in such cases, you should find an AuthenticationManagerBuilder available in the class). 
 
 [source,java]
 ----
@@ -205,14 +205,14 @@ public class UserDetailsContextMapperImpl implements UserDetailsContextMapper {
 
 [NOTE]
 ====
-As you can see in the code, you build the user with the Active Directive information. And the map of the groups in the configuration.
+Therefore, the above code builds the user with the Active Directive information. And the map of the groups in the configuration.
 
-You can build this User whatever you want. For e.g. you could use a query to Active Directory (like the example) or a query to your own User database.  
+You can build any User you want. For e.g. you could use a query to Active Directory (like the example) or a query to your own User database.  
 ====
 
 ==== Step 5: Configure the LDAP-AD connection
 
-Now we need to configure the LDAP parameters in application.properties. By default the _winauth-ad_ module works with a LDAP Authentication and a query to AD to have the authorization, so we need to define all these properties. If you are using a customized _UserDetails_ without AD query you don't need to define the AD properties. The same happens if you don't use the _Role Mapping_ class.
+Now, you need to configure the LDAP parameters in _application.properties_. By default, the _winauth-ad_ module works with a LDAP Authentication and a query to AD to have the authorization, so you need to define all these properties. If you are using a customized _UserDetails_ without AD query, you don't need to define the AD properties. The same happens, if you don't use the _Role Mapping_ class.
 
 [source,xml]
 ----
@@ -255,11 +255,11 @@ As you can see the property password is encrypt. You can find more information a
 
 === Using the UserDetailsContextMapper with AD
 
-As is mentioned above you can implement your own _UserDetailsContextMapper_ or use the _UserDetailsContextMapper_ gived in this tutorial. If you use the last one, you need to keep in mind the next points.
+As mentioned above, you can implement your own _UserDetailsContextMapper_ or use the _UserDetailsContextMapper_ given in this tutorial. If you use the last one, you need to keep in mind the next points.
 
 ==== Roler and Groups mapper
 
-_Winauth-ad_ includes a group mapper that gives a simple tool to map the groups of the Active Directory with a roles/groups of your application. To use it you need to configure the mapping just like that:
+_Winauth-ad_ includes a group mapper that gives a simple tool to map the groups of the Active Directory with a roles/groups of your application. To use it, you need to configure the mapping as shown below:
 
 [source,xml]
 ----
