@@ -5,16 +5,16 @@ toc::[]
 
 == Introduction
 
-Internationalization (sometimes shortened to "i18n , meaning "i-eighteen letters-n") is the process of designing a software application so that it can potentially be adapted to various languages and regions without engineering changes.
+Internationalization (also called "i18n , meaning "i-eighteen letters-n") is the process of designing a software application so that it can potentially be adapted to various languages and regions without engineering changes.
 
 The internationalization process is sometimes called translation or localization enablement.
 
 == The i18n IP Module
 
-The i18n module provides easy creation and maintenance of distinct translations for your Devon applications . By including it in your project, you will be able to leverage MMM/devonfw features for internationalization by following few steps and  avoiding the complex details of the implementation.
+The i18n module provides an easy creation and maintenance of the distinct translations for the Devon applications. Using i18n module, you will be able to leverage MMM/devonfw features for internationalization by following a few steps and  avoiding the complex details of the implementation.
 
-=== Adding the i18n module dependency to your project
-To get access to the functionality of the i18n module you will need to include its dependency in your project's pom.xml
+=== Adding the i18n module dependency in the project
+To access the functionality of the i18n module, you will need to include its dependency in project's pom.xml
 
 [source,xml]
 ----
@@ -27,8 +27,8 @@ To get access to the functionality of the i18n module you will need to include i
 
 [WARNING]
 ====
-The IP modules of Devonfw are stored in the https://www.jfrog.com/artifactory/[Artifactory] service provided by Capgemini Shared Services. In case you do not have access to that repository, as the modules are included in the Devonfw distribution, you can install them manually. To do so open a Devonfw command line (_console.bat_), go to `Devon-dist\workspaces\examples\devon` and execute the command `mvn install`.
-If project is already imported in Eclipse then update project: Right click on _project_ > _Maven_ > _Update Project_ > check the _Force update of Snapshot/Releases_ checkbox > _Ok_
+The IP modules of Devonfw are stored in the https://www.jfrog.com/artifactory/[Artifactory] service provided by Capgemini Shared Services. In case you do not have access to that repository, as the modules are included in the Devonfw distribution, you can install them manually. To do so, open a Devonfw command line (_console.bat_), go to `Devon-dist\workspaces\examples\devon` and execute the command `mvn install`.
+If the project is already imported in Eclipse then update project: Right click on _project_ > _Maven_ > _Update Project_ > check the _Force update of Snapshot/Releases_ checkbox > _Ok_
 ====
 
 === Adding ComponentScan annotation
@@ -42,18 +42,18 @@ Remember to add the package of the module to the `@ComponentScan` annotation in 
 
 === Reading property files via default implementation provided by i18n module
 
-In Spring applications, "locales" are standard java property files that contain the translations of the applications texts as well as display format of elements namely dates, numbers etc. These property files are located at _src/main/resources/locale_
+In Spring applications, "locales" are standard Java property files that contain the translation of the application's text as well as the display format of the elements namely dates, numbers etc. These property files are located in _src/main/resources/locale_ as shown below:
 
 image::images/devonfw-i18n/locale_path.png[,width="350",locale path, link="images/devonfw-i18n/locale_path.png"]
 
-These properties files store the information in the form of key value pair. The i18n module of devonfw exposes a REST service to request the locale (information in the property files) in JSON format. Users can also request part of the locale by applying a filter. The filter should have the following format 
+These properties files store the information in the form of key value pairs. The i18n module of devonfw exposes a REST service to request the locale (information in the property files) in JSON format. Users can also request part of the locale by applying a filter. The filter should have the following format: 
 
 [source,xml]
 ----
 <service root>/locale/en_US?filter=main.info. 
 ----
 
-The returned JSON will have nested objects and will have the following format
+The returned JSON will have nested objects and will have the following format:
 
 [source,json]
 ----
@@ -73,13 +73,13 @@ _net.sf.mmm.util.nls.base.ResourceBundleSynchronizer_  is used to create .proper
 
 ==== Instructions to create locales, property files, via MMM
 
-This process produces locale files at location _\src\main\resources\com\capgemini\devonfw\module\i18n\common\api\nls_
+This process produces locale files at the following location _\src\main\resources\com\capgemini\devonfw\module\i18n\common\api\nls_
 
 - Right click on 'i18n' module.
 - Go to Run As > Run Configurations 
 - Right click on 'Java Application' 
 - Click on 'New'
-- In the dialog box that is displayed , provide name for the configuration (eg. _ResouceBundleSyncronizer_) and provide main class name as _net.sf.mmm.util.nls.base.ResouceBundleSyncronizer_
+- In the displayed dialog box, provide the name for the configuration (eg. _ResouceBundleSyncronizer_) and provide main class name as _net.sf.mmm.util.nls.base.ResouceBundleSyncronizer_.
 
 
 image::images/devonfw-i18n/ResourceBundleSync_Main.png[,width="350",ResourceBundleSync_Main,link="images/devonfw-i18n/ResourceBundleSync_Main.png"]
@@ -91,9 +91,9 @@ image::images/devonfw-i18n/ResourceBundleSync_Main.png[,width="350",ResourceBund
 image::images/devonfw-i18n/ResourceBundleSync_argument.png[,width="350",ResourceBundleSync_argument,link="images/devonfw-i18n/ResourceBundleSync_argument.png"]
 
 
-8. Apply the changes and click 'Run' button.
+- Apply the changes and click 'Run' button.
 
-File _config.properties_ provides flag value true/false, which is used to switch between default implementation and MMM implementation.
+File _config.properties_ provide a flag value true/false, which is used to switch between default implementation and MMM implementation.
 
 [source,xml]
 ----
@@ -102,7 +102,7 @@ i18n.mmm.enabled=true
 
 === Build Project and Run
 
-Perform the operations clean & build for your project in eclipse and launch _SpringBootApp.java_. You can view i18n REST service in available REST webservices (http://localhost:8081/oasp4j-sample-server/services/rest/). 
+Perform Clean & Build for the project in eclipse and launch _SpringBootApp.java_. You can view i18n REST service in available REST webservices (http://localhost:8081/oasp4j-sample-server/services/rest/). 
 
 === Test i18n REST Service
 
