@@ -12,7 +12,7 @@ In the synchronous request/response processing model, client connection is accep
 The idea behind the asynchronous processing model is to separate connection acceptance and request processing operations. Technically, it means to allocate two different threads, one to accept the client connection (acceptor) and the other to handle heavy and time consuming operations (worker) releasing the first one.
 
 == The async IP module
-The above concept, is implemented in Devonfw through the _async module_. Therefore, you can include it in your project and will be able to apply the async process of requests in the REST services of your apps in a few steps, avoiding the complex details of the implementation.
+The above concept is implemented in Devonfw through the _async module_. Therefore, you can include it in your project and will be able to apply the async process of requests in the REST services of your apps in a few steps, avoiding the complex details of the implementation.
 
 === Adding the async module dependency to your project
 To access the functionality of the _async module_, you will need to include its dependency in your project's pom.xml
