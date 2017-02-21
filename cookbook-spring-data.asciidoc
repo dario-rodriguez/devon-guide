@@ -67,8 +67,6 @@ public class RegistrationBean {
    * The constructor.
    */
   public RegistrationBean() {
-
-
   }
 
 
@@ -76,7 +74,6 @@ public class RegistrationBean {
    * @return tableRepo
    */
   public TableRepo getTableRepo() {
-
 
     return this.tableRepo;
   }
@@ -105,10 +102,8 @@ public class RegistrationBean {
 @ComponentScan(basePackages = { "io.oasp.gastronomy.restaurant.tablemanagement.dataaccess.api.dao" })
 public class TestClass extends ComponentTest {
 
-
   @Inject
   RegistrationBean registrationBean;
-
 
   /**
    * @return registerationBean
@@ -118,7 +113,6 @@ public class TestClass extends ComponentTest {
 
     return this.registrationBean;
   }
-
 
   /**
    * @param registerationBean the registerationBean to set
@@ -376,22 +370,22 @@ Like the JPA Criteria API, it uses a Java 6 annotation processor to generate met
 
 [source,java]
 --------
-  	<plugin>
+<plugin>
  <groupId>com.mysema.maven</groupId>
   <artifactId>apt-maven-plugin</artifactId>
   <version>1.1.1</version>
   <executions>
       <execution>
-<phase>generate-sources</phase>
+           <phase>generate-sources</phase>
             <goals>
               <goal>process</goal>
             </goals>
             <configuration>
-            <processor>com.mysema.query.apt.jpa.JPAAnnotationProcessor</processor>
+              <processor>com.mysema.query.apt.jpa.JPAAnnotationProcessor</processor>
             </configuration>
           </execution>
         </executions>
-   </plugin>
+</plugin>
 --------
 
 * Execute _mvn clean install_ on the project. This will create special query classes e.g for DrinkEntity class generated will be QDrinkEntity.
