@@ -11,7 +11,9 @@ This chapter specifies a possible solution for integrating the Spring Data modul
 
 
 To integrate Spring Data in devonfw, there can be 2 approaches as stated below:
+
 * Create a new module for spring data
+
 * Integrate Spring Data in an existing core project
 
 More feasible option to integrate spring data in core module will be option 2 i.e integrate it into an existing core project instead of creating a new module. Below are the reasons for not preferring a creation of a different module supporting spring data:
