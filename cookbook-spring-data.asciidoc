@@ -467,9 +467,8 @@ public interface TableRepo extends JpaRepository<TableEntity, Long>, TableRepoCu
 [source,java]
 --------
  @Test
-  public void testFindTableByState1() {
-
-
+  public void testFindTableByState1() 
+ {
     PageRequest pageRequest = new PageRequest(0, 2, Direction.DESC, "state");
     Page<TableEntity> pageEntity =
         getRegisterationBean().getTableRepo().findByTableState1(TableState.FREE, pageRequest);
@@ -477,8 +476,6 @@ public interface TableRepo extends JpaRepository<TableEntity, Long>, TableRepoCu
     for (TableEntity table : tableList) {
       System.out.println("Table details: " + table.getId() + " , " + table.getWaiterId() + " , " + table.getState());
     }
-
-
   }
 --------
 
