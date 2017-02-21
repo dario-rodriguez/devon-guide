@@ -80,7 +80,7 @@ public class MyAsyncTask implements AsyncTask {
 }
 ----
 
-- Provide an Async Response, to do so, use the `@Suspended` annotation and add the `AsyncResponse` object to your REST method.
+- Provide an Async Response. To do so, use the `@Suspended` annotation and add the `AsyncResponse` object in your REST method.
 
 Now, you can call the module using its _execute_ method. The request will be bound to the async response and the async task provided.
 
