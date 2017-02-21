@@ -14,7 +14,6 @@ To integrate Spring Data in devonfw, there can be 2 approaches as stated below:
 * Create a new module for spring data
 * Integrate Spring Data in an existing core project
 
-
 More feasible option to integrate spring data in core module will be option 2 i.e integrate it into an existing core project instead of creating a new module. Below are the reasons for not preferring a creation of a different module supporting spring data:
 
 * It does not follow KISS (Keep it simple, stupid) principle. In the existing structure of sample application, Entity classes along with some abstract implementation classes are included in oasp4j-samples-core project. You need to refer these classes while implementing spring-data. If you try to refer it in different module, it will become complex to compare it to the first approach. 
@@ -33,8 +32,7 @@ image::images/Integrating-Spring-Data/TableDaoImpl_Structure.JPG[, width="450", 
 
 image::images/Integrating-Spring-Data/Structure_With_Spring_Data.JPG[, width="450", link="images/Integrating-Spring-Data/Structure_With_Spring_Data.JPG"]
 
-Below are the steps needed to integrate Spring Data in the data access layer:
-
+Below are the steps, to integrate Spring Data in the data access layer:
 
 * Add dependency for Spring Data in pom.xml of oasp4j-samples-core project
 
@@ -95,7 +93,7 @@ public class RegistrationBean {
 }
 --------
 
-* Here, you are ready to test the functionality. Create test class to test above changes.
+* Here, you are ready to test the functionality. Create a test class to test above changes.
 
 [source,java]
 --------
@@ -155,9 +153,9 @@ public class TestClass extends ComponentTest {
 }
 --------
 
-Note: If you get DataIntegrityViolationExceptions while saving an object in a database, modify the script to auto_increment column id. Database should be able to auto increment column id as you have @GeneratedValue annotation in ApplicationPersistenceEntity.
+Note: If you get DataIntegrityViolationExceptions while saving an object in a database, modify the script to auto_increment column id. The database should be able to auto increment column id as you have @GeneratedValue annotation in ApplicationPersistenceEntity.
 
-* Modify SpringBootApp.java class to scan the jpa repositories.
+* Modify SpringBootApp.java class to scan the JPA repositories.
 
 [source,java]
 --------
@@ -180,7 +178,7 @@ public class SpringBootApp {
 }
 --------
 
-The above example shows how can you implement default functionalities. If you want to add custom functionalities, then you need to add custom repository and provide its implementation class. Also, you need to modify TableRepo to extend the custom repository. Below are the steps which you need to perform, this is in continuation with previous example:
+The above example shows how you can implement default functionalities. If you want to add custom functionalities, then you need to add custom repository and provide its implementation class. Also, you need to modify TableRepo to extend the custom repository. Below are the steps. Make note that, this is in continuation with previous example:
 
 
 Add custom repository as below in a repo package itself:
@@ -198,7 +196,7 @@ public interface TableRepoCustom {
 }
 --------
 
-* Create an implementation class for the above custom repository in repo package itself. You have not annotated repository with any annotation, still Spring data will consider it as a custom repository. This is because spring data scan the repository package to search for any class and if it found one, then spring data consider it as a custom repository.
+* Create an implementation class for the above custom repository in a repo package itself. You have not annotated repository with any annotation, still Spring data will consider it as a custom repository. This is because spring data scan the repository package to search for any class and if it found one, then spring data consider it as a custom repository.
 
 [source,java]
 --------
@@ -271,14 +269,14 @@ With custom repository, you can implement functionality such as getrevisionHisto
 
 == Query Creation in Spring Data JPA
 
-Below are the ways to create query in Spring Data JPA:
+Below are the ways to create a query in Spring Data JPA:
 
 
 * Query creation by method names:
 	List<User> findByEmailAddressAndLastname(String emailAddress, String lastname);
 Above method is equivalent to the below query:
 select u from User u where u.emailAddress = ?1 and u.lastname = ?2
-This is explained in next section.
+This is explained in the next section.
 
 * Using JPA Named Queries
 Example: 
@@ -301,7 +299,7 @@ Include above method in repository i.e TableRepo.
 
 == Query creation by method names
 
-Consider tablemanagement as an example. First, you will create TableEntity class with attribute number ,waiterId and state. To test query creation by method names, you will create new method findByState(TableState state) in TableRepo. This method will find table based on TableState provided. Below are the steps you need to follow:
+Consider tablemanagement as an example. First, you will create a TableEntity class with attribute number, waiterId and state. To test query creation by method names, you will create new method findByState(TableState state) in TableRepo. This method will find table based on TableState provided. Follow below steps:
 
 * Create TableEntity class as below:
 
@@ -357,7 +355,7 @@ public interface TableRepo extends JpaRepository<TableEntity, Long>, TableRepoCu
 
 --------
 
-* You will have RegistrationBean  class as shown in previous example. Now, you are ready to test the method findByState(TableState state). In test class, include below test method:
+* You will have RegistrationBean class as shown in the previous example. Now, you are ready to test the method findByState(TableState state). In test class, include below test method:
 
 [source,java]
 --------
@@ -394,7 +392,7 @@ Like the JPA Criteria API, it uses a Java 6 annotation processor to generate met
    </plugin>
 --------
 
-* Execute _mvn clean install_ on project. This will create special query classes e.g for DrinkEntity class generated will be QDrinkEntity.
+* Execute _mvn clean install_ on the project. This will create special query classes e.g for DrinkEntity class generated will be QDrinkEntity.
 
 * To execute Querydsl predicates, you simply let your repository extend QueryDslPredicateExecutor<T>
 Example:
@@ -438,7 +436,7 @@ This will return list of drink entities which are nonalcoholic.
 
 == Paging and Sorting Support
 
-* For Paging and Sorting support in Spring Data JPA, you should implement PagingAndSortingRepository. Create interface as below:
+* For Paging and Sorting support in Spring Data JPA, you should implement PagingAndSortingRepository. Create an interface as shown below:
 
 [source,java]
 --------
@@ -487,7 +485,7 @@ In the above example, you are extending JpaRepository which in turn extends Pagi
 Here 0 - indicate page number.
 2 - object on a page
 Direction Desc or ASC- Sorting sequence Desc or Asc
-State -  this is property based on which query get sorted
+State -  this is a property based on which query gets sorted
 
 
   For creating pageRequest object, you have different constructors available as below:
