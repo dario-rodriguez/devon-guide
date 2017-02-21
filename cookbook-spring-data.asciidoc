@@ -10,18 +10,17 @@ toc::[]
 This chapter specifies a possible solution for integrating the Spring Data module in devonfw. It is possible to have some services using the Spring Data module while some services use JPA/Hibernate.
 
 
-To integrate Spring Data in devonfw there can be 2 approaches as stated below:
+To integrate Spring Data in devonfw, there can be 2 approaches as stated below:
 * Create a new module for spring data
 * Integrate Spring Data in an existing core project
 
 
-More feasible option to integrate spring data in core module will be option 2 i.e integrate it in existing core project instead of creating new module. Below are reasons why we will not prefer to create different module supporting spring data:
+More feasible option to integrate spring data in core module will be option 2 i.e integrate it into an existing core project instead of creating a new module. Below are the reasons for not preferring a creation of a different module supporting spring data:
 
+* It does not follow KISS (Keep it simple, stupid) principle. In the existing structure of sample application, Entity classes along with some abstract implementation classes are included in oasp4j-samples-core project. You need to refer these classes while implementing spring-data. If you try to refer it in different module, it will become complex to compare it to the first approach. 
+* If you integrate Spring Data in oasp4j, you need to annotate SpringBootApp.java class with @Enablejparepositories. If you create a different module, it will not be possible, as SpringBootApp class is in the core module.
 
-* It does not follow KISS(Keep it simple,stupid) principle.In existing structure of sample application, Entity classes along with some abstract implementation classes are included in oasp4j-samples-core project. We need to refer those classes while implementing spring-data. If we try to refer it in different module it becomes complex compare to 1st approach. 
-* If we integrate Spring Data in oasp4j we need to annotate SpringBootApp.java class with @Enablejparepositories. If we create different module it will not be possible, as SpringBootApp class is in core module.
-
-== Existing Structure of Dataaccess Layer
+== Existing Structure of Data Access Layer
 
 Consider TableEntity as an example.
 
@@ -30,11 +29,11 @@ image::images/Integrating-Spring-Data/Existing_Dataaccess_Structure.JPG[, width=
 image::images/Integrating-Spring-Data/TableDaoImpl_Structure.JPG[, width="450", link="images/Integrating-Spring-Data/TableDaoImpl_Structure.JPG"]
 
 
-== Structure of Dataaccess Layer with Spring Data
+== Structure of Data Access Layer with Spring Data
 
 image::images/Integrating-Spring-Data/Structure_With_Spring_Data.JPG[, width="450", link="images/Integrating-Spring-Data/Structure_With_Spring_Data.JPG"]
 
-Below are steps need to integrate Spring Data in data access layer:
+Below are the steps needed to integrate Spring Data in the data access layer:
 
 
 * Add dependency for Spring Data in pom.xml of oasp4j-samples-core project
@@ -47,7 +46,7 @@ Below are steps need to integrate Spring Data in data access layer:
 		</dependency>
 --------
 
-* Create Spring data Repository - Create interface which extends spring data repositories such as CRUDRepository or PagingAndSortingRepository and annotate it with @Repository annotation.Spring data has repositories such as CRUDRepository which provide default CRUD functionality .
+* Create Spring data Repository - Create interface which extends spring data repositories such as CRUDRepository or PagingAndSortingRepository and annotate it with @Repository annotation. Spring data have repositories such as CRUDRepository which provide the default CRUD functionality.
 
 [source,java]
 --------
@@ -56,7 +55,7 @@ Below are steps need to integrate Spring Data in data access layer:
         }
 --------
 
-* Create class annotate it with @Component annotation and autowire spring data repository created above
+* Create the class, annotate it with @Component annotation and autowire spring data repository created above.
 
 [source,java]
 --------
@@ -96,7 +95,7 @@ public class RegistrationBean {
 }
 --------
 
-* Here, we are ready to test the functionality.Create testclass to test above changes.
+* Here, you are ready to test the functionality. Create test class to test above changes.
 
 [source,java]
 --------
@@ -153,13 +152,10 @@ public class TestClass extends ComponentTest {
     TableEntity entity = getRegisterationBean().getTableRepo().save(table);
     System.out.println("entity id " + entity);
   }
-
-
 }
 --------
 
-Note: If you get DataIntegrityViolationExceptions while saving an object in a database , modify script to auto_increment column id. Database should be able to auto increment column id as we have @GeneratedValue annotation in ApplicationPersistenceEntity.
-
+Note: If you get DataIntegrityViolationExceptions while saving an object in a database, modify the script to auto_increment column id. Database should be able to auto increment column id as you have @GeneratedValue annotation in ApplicationPersistenceEntity.
 
 * Modify SpringBootApp.java class to scan the jpa repositories.
 
@@ -184,10 +180,10 @@ public class SpringBootApp {
 }
 --------
 
-Above example shows how can we implement default functionalities. If we need to add custom funcationalities then we need to add custom repository and provide its implementation class. Also we need to modify TableRepo to extend custom repository. Below are the steps which we need to perform, this is in continuation with prev example:
+The above example shows how can you implement default functionalities. If you want to add custom functionalities, then you need to add custom repository and provide its implementation class. Also, you need to modify TableRepo to extend the custom repository. Below are the steps which you need to perform, this is in continuation with previous example:
 
 
-Add custom repository as below in repo package itself :
+Add custom repository as below in a repo package itself:
 
 [source,java]
 --------
@@ -202,7 +198,7 @@ public interface TableRepoCustom {
 }
 --------
 
-* Create implementation class for above custom repository in repo package itself. We have not annotated repository with any annotation still Spring data will consider it as custom repository. This is because spring data scans repository package to search for any class and if it found one then spring data consider it as custom repository.
+* Create an implementation class for the above custom repository in repo package itself. You have not annotated repository with any annotation, still Spring data will consider it as a custom repository. This is because spring data scan the repository package to search for any class and if it found one, then spring data consider it as a custom repository.
 
 [source,java]
 --------
@@ -270,21 +266,21 @@ public class TestClass extends ComponentTest {
 }
 --------
 
-With custom repository we can implement functionality such as getrevisionHistory(). Also spring data supports @Query annotation. Also it supports derived query. I have attached samples for 2 entities (DrinkEntity, TableEntity) which I have implemented with spring data.
+With custom repository, you can implement functionality such as getrevisionHistory(). Additionally, spring data support @Query annotatio and derived query. Here, samples are attached for 2 entities (DrinkEntity, TableEntity) which are later implemented with spring data.
 
 
 == Query Creation in Spring Data JPA
 
-Below are ways to create query in Spring Data JPA:
+Below are the ways to create query in Spring Data JPA:
 
 
 * Query creation by method names:
 	List<User> findByEmailAddressAndLastname(String emailAddress, String lastname);
-Above method is equivalent to writing below query:
+Above method is equivalent to the below query:
 select u from User u where u.emailAddress = ?1 and u.lastname = ?2
 This is explained in next section.
 
-* Using Jpa Named Queries
+* Using JPA Named Queries
 Example: 
  @NamedQuery(name = "Drink.nonalcholic", query = "select drink from DrinkEntity drink where drink.alcoholic=false")
 
@@ -301,11 +297,11 @@ Include above method in repository i.e TableRepo.
 * Native Queries - This Queries can be created using @Query annotation and setting nativeQuery=true
 
 
-* Similar to criteria we have Predicate from QueryDsl. This is explained in section below.
+* Similar to the criteria, you have Predicate from QueryDsl. This is explained in below section.
 
 == Query creation by method names
 
-Consider tablemanagement as an example. First we we will create TableEntity class with attribute number ,waiterId and state. To test query creation by method names, we will create new method findByState(TableState state) in TableRepo. This method will find table based on TableState provided. Below are the steps we need to follow:
+Consider tablemanagement as an example. First, you will create TableEntity class with attribute number ,waiterId and state. To test query creation by method names, you will create new method findByState(TableState state) in TableRepo. This method will find table based on TableState provided. Below are the steps you need to follow:
 
 * Create TableEntity class as below:
 
@@ -361,7 +357,7 @@ public interface TableRepo extends JpaRepository<TableEntity, Long>, TableRepoCu
 
 --------
 
-* We will have RegistrationBean  class as shown in previous example.Now, we are ready to test method findByState(TableState state). In test class include below test method:
+* You will have RegistrationBean  class as shown in previous example. Now, you are ready to test the method findByState(TableState state). In test class, include below test method:
 
 [source,java]
 --------
@@ -374,7 +370,7 @@ public interface TableRepo extends JpaRepository<TableEntity, Long>, TableRepoCu
 
 == Implementing Query with QueryDsl
 
-Like the JPA Criteria API it uses a Java 6 annotation processor to generate meta-model objects and produces a much more approachable API.Another cool thing about the project is that it has not only has support for JPA but also allows querying Hibernate, JDO, Lucene, JDBC and even plain collections.
+Like the JPA Criteria API, it uses a Java 6 annotation processor to generate meta-model objects and produces a much more approachable API. Another good thing about the project is that, it not only has the support for JPA but also allows querying Hibernate, JDO, Lucene, JDBC and even plain collections.
 
 * To start with QueryDsl add below plugin in a pom.xml:
 
@@ -398,9 +394,9 @@ Like the JPA Criteria API it uses a Java 6 annotation processor to generate meta
    </plugin>
 --------
 
-* Execute mvn clean install on project.This will create special query classes e.g for DrinkEntity class generated will be QDrinkEntity.
+* Execute _mvn clean install_ on project. This will create special query classes e.g for DrinkEntity class generated will be QDrinkEntity.
 
-* To execute Querydsl predicates you simply let your repository extend QueryDslPredicateExecutor<T>
+* To execute Querydsl predicates, you simply let your repository extend QueryDslPredicateExecutor<T>
 Example:
 
 [source,java]
@@ -420,7 +416,7 @@ public interface DrinkRepo
 }
 --------
 
-* We will have registrationBean class which have above repository autowired in it.
+* You will have registrationBean class, which have above repository autowired in it.
 * Create test class and below method.
 
 [source,java]
@@ -442,7 +438,7 @@ This will return list of drink entities which are nonalcoholic.
 
 == Paging and Sorting Support
 
-* For Paging and Sorting support in Spring Data JPA we should implement PagingAndSortingRepository. Create interface as below:
+* For Paging and Sorting support in Spring Data JPA, you should implement PagingAndSortingRepository. Create interface as below:
 
 [source,java]
 --------
@@ -486,7 +482,7 @@ public interface TableRepo extends JpaRepository<TableEntity, Long>, TableRepoCu
   }
 --------
 
-In above example we are extending JpaRepository which in turn extends PagingAndSortingRepository. So we will get paging and sorting functionality. For Paging and Sorting support, we need to pass Pageable as method Parameter.
+In the above example, you are extending JpaRepository which in turn extends PagingAndSortingRepository. So, you will get paging and sorting functionality. For Paging and Sorting support, you need to pass Pageable as method Parameter.
   PageRequest pageRequest = new PageRequest(0, 2, Direction.DESC, "state");
 Here 0 - indicate page number.
 2 - object on a page
@@ -494,7 +490,7 @@ Direction Desc or ASC- Sorting sequence Desc or Asc
 State -  this is property based on which query get sorted
 
 
-  For creating pageRequest object we have different constructors available as below:
+  For creating pageRequest object, you have different constructors available as below:
 PageRequest(int page,int size)
 PageRequest(int page,int size,int sort)
 PageRequest(int page,int size,Direction direction) 
