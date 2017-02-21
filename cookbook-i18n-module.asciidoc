@@ -5,7 +5,7 @@ toc::[]
 
 == Introduction
 
-Internationalization (also called "i18n , meaning "i-eighteen letters-n") is the process of designing a software application so that it can potentially be adapted to various languages and regions without engineering changes.
+Internationalization (also called "i18n , meaning "i-eighteen letters-n") is the process of designing the software application which can potentially adapt to various languages and regions without engineering changes.
 
 The internationalization process is sometimes called translation or localization enablement.
 
@@ -27,7 +27,7 @@ To access the functionality of the i18n module, you will need to include its dep
 
 [WARNING]
 ====
-The IP modules of Devonfw are stored in the https://www.jfrog.com/artifactory/[Artifactory] service provided by Capgemini Shared Services. In case you do not have access to that repository, as the modules are included in the Devonfw distribution, you can install them manually. To do so, open a Devonfw command line (_console.bat_), go to `Devon-dist\workspaces\examples\devon` and execute the command `mvn install`.
+The IP modules of Devonfw are stored in the https://www.jfrog.com/artifactory/[Artifactory] service provided by Capgemini Shared Services. In case, you do not have access to that repository, as the modules are included in the Devonfw distribution, you can install them manually. To do so, open a Devonfw command line (_console.bat_), go to `Devon-dist\workspaces\examples\devon` and execute the command `mvn install`.
 If the project is already imported in Eclipse then update project: Right click on _project_ > _Maven_ > _Update Project_ > check the _Force update of Snapshot/Releases_ checkbox > _Ok_
 ====
 
@@ -73,7 +73,7 @@ _net.sf.mmm.util.nls.base.ResourceBundleSynchronizer_  is used to create .proper
 
 ==== Instructions to create locales, property files, via MMM
 
-This process produces locale files at the following location _\src\main\resources\com\capgemini\devonfw\module\i18n\common\api\nls_
+This process produces locale files at the following location: _\src\main\resources\com\capgemini\devonfw\module\i18n\common\api\nls_
 
 - Right click on 'i18n' module.
 - Go to Run As > Run Configurations 
@@ -93,7 +93,7 @@ image::images/devonfw-i18n/ResourceBundleSync_argument.png[,width="350",Resource
 
 - Apply the changes and click 'Run' button.
 
-File _config.properties_ provide a flag value true/false, which is used to switch between default implementation and MMM implementation.
+File _config.properties_ provides a flag value true/false, which is used to switch between the default implementation and the MMM implementation.
 
 [source,xml]
 ----
@@ -102,11 +102,11 @@ i18n.mmm.enabled=true
 
 === Build Project and Run
 
-Perform Clean & Build for the project in eclipse and launch _SpringBootApp.java_. You can view i18n REST service in available REST webservices (http://localhost:8081/oasp4j-sample-server/services/rest/). 
+Perform Clean & Build operations for the project in eclipse and launch _SpringBootApp.java_. You can view i18n REST service in available REST webservices (http://localhost:8081/oasp4j-sample-server/services/rest/). 
 
 === Test i18n REST Service
 
-To test i18n REST service, the general format of the service will be as follows:
+To test i18n REST service, the general format of the service is as follows:
 
 [source,xml]
 ----
