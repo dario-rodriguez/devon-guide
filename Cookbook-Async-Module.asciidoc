@@ -7,15 +7,15 @@ toc::[]
 
 Asynchronous processing in server side and client side, is a new feature offered by the JAX-RS 2.0.
 
-In synchronous request/response processing model, client connection is accepted and processed in a single I/O thread by the server. Normally, a pool of such I/O threads is available at server side. So when a request is received, the server dedicates one of these threads to accept and process the request. The thread blocks until the processing is finished and returned.
+In the synchronous request/response processing model, client connection is accepted and processed in a single I/O thread by the server. Generally, a pool of I/O threads is available at server side. Therefore, when a request is received at server side, the server dedicates it to one of the threads for further processing. The thread blocks, until the processing is finished and returned.
 
-The idea behind asynchronous processing model, is to separate connection accepting and request processing operations. Technically speaking it means to allocate two different threads, one to accept the client connection (acceptor) and the other to handle heavy and time consuming operations (worker) releasing the first one.
+The idea behind the asynchronous processing model is to separate connection acceptance and request processing operations. Technically, it means to allocate two different threads, one to accept the client connection (acceptor) and the other to handle heavy and time consuming operations (worker) releasing the first one.
 
 == The async IP module
-The previous concept, is implemented in Devonfw through the _async module_ so, including it in your project, you will be able to aply the async process of requests in the REST services of your apps in a few steps, avoiding the complex details of the implementation.
+The above concept, is implemented in Devonfw through the _async module_. Therefore, you can include it in your project and will be able to apply the async process of requests in the REST services of your apps in a few steps, avoiding the complex details of the implementation.
 
 === Adding the async module dependency to your project
-To get access to the functionality of the _async module_ you will need to include its dependency in your project's pom.xml
+To access the functionality of the _async module_, you will need to include its dependency in your project's pom.xml
 
 [source,xml]
 ----
@@ -28,8 +28,8 @@ To get access to the functionality of the _async module_ you will need to includ
 
 [WARNING]
 ====
-The IP modules of Devonfw are stored in https://www.jfrog.com/artifactory/[Artifactory]. In case you do not have access to that repository, as the modules are included in the Devonfw distribution, you can install them manually. To do so open a Devonfw command line (_console.bat_), go to `Devon-dist\workspaces\examples\devon` and execute the command `mvn install`.
-If project is already imported in Eclipse then update project: Right click on _project_ > _Maven_ > _Update Project_ > check the _Force update of Snapshot/Releases_ checkbox > _Ok_
+The IP modules of Devonfw are stored in https://www.jfrog.com/artifactory/[Artifactory]. In case, you do not have access to that repository, as the modules are included in the Devonfw distribution, you can install them manually. To do so, open a Devonfw command line (_console.bat_), go to `Devon-dist\workspaces\examples\devon` and execute the command `mvn install`.
+If the project is already imported in Eclipse then update project: Right click on _project_ > _Maven_ > _Update Project_ > check the _Force update of Snapshot/Releases_ checkbox > _Ok_
 ====
 
 === Injecting the module
@@ -63,7 +63,7 @@ Remember to add the package of the module to the `@ComponentScan` annotation in 
 
 
 === Call the module
-Before calling the module you will need to complete two previous steps:
+Before calling the module, you will need to complete two previous steps:
 
 - Wrap your long process in the _run_ method of a class that implements the `AsyncTask`.
 
@@ -80,11 +80,11 @@ public class MyAsyncTask implements AsyncTask {
 }
 ----
 
-- provide an Async Response, to do so use the `@Suspended` annotation and add the `AsyncResponse` object to your REST method.
+- Provide an Async Response, to do so, use the `@Suspended` annotation and add the `AsyncResponse` object to your REST method.
 
-Now you can call the module using its _execute_ method. The request will be binded to the async response and the async task provided.
+Now, you can call the module using its _execute_ method. The request will be binded to the async response and the async task provided.
 
-The call will be like the following
+The call will be like the following:
 
 [source,java]
 ----
@@ -109,13 +109,13 @@ public class Rest {
   }
 ----
 
-That's all. With these simple steps, you will have an async process implemented. Now let's see some more features of the module.
+That's all. After above simple steps, you will have an async process implemented. Now, let's see some more features of the module.
 
 === Passing parameters
 
-You also can pass parameters to be used in the long task process.
+You can also pass the parameters to be used, in the long task process.
 
-In this case the module call would be
+In this case, the module call would be:
 
 [source,java]
 ----
@@ -128,7 +128,7 @@ In this case the module call would be
   }
 ----
 
-And the wrapper class
+And the wrapper class:
 
 [source,java]
 ----
@@ -151,11 +151,11 @@ public class MyAsyncTask implements AsyncTask {
 
 === Module Configuration
 
-Internally the Async module process can be configured in two main parameters:
+Internally, the Async module process can be configured in two main parameters:
 
 - *core pool size*: Sets the ThreadPoolExecutor's core pool size.
 
-- *time out*: The amount of time that the process will wait for our long task, to be finished before return. A timeout of < 0, will cause an immediate return of the process. A timeout of 0, will wait indefinitely.
+- *time out*: The amount of time that the process will wait for the long task, to be finished before return. A timeout of < 0, will cause an immediate return of the process. A timeout of 0, will wait indefinitely.
 
 
 The default values provided in the module are:
@@ -181,7 +181,7 @@ However, you can edit those values by overriding the configuration properties in
 | time out media type | devonfw.async.timeout.mediatype 
 |===
 
-As example, the next could be a valid `application.properties` configuration file, for an application in which we want an async process with a _core pool size_ of 20, and a _timeout_ of 10 seconds, returning with a status of 500 (internal server error) and a response in _json_ format:
+As an example, the next could be a valid `application.properties` configuration file, for an application in which, you want an async process with a _core pool size_ of 20, and a _timeout_ of 10 seconds, returning with a status of 500 (internal server error) and a response in _json_ format:
 
 [source,java]
 ----
@@ -191,4 +191,3 @@ devonfw.async.timeout.status=500
 devonfw.async.timeout.mediatype=application/json
 devonfw.async.timeout.responseContent={"response":[{"message":"error", "cause":"time out"}]}
 ----
-
