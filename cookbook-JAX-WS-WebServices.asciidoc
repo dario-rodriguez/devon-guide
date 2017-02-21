@@ -164,7 +164,7 @@ If you look at the above interface, you can tell that it is a normal Java interf
 * _@WebResult_ - The @WebResult annotation allows you to specify the properties of the generated wsdl:part that is generated for the method's return value.
 * _@WebParam_ - The @WebParam annotation is defined by the javax.jws.WebParam interface. It is placed on the parameters on the methods defined in the SEI. The @WebParam annotation allows you to specify the direction of the parameter, if the parameter will be placed in the SOAP header, and other properties of the generated wsdl:part.
 
-The _@WebService_ annotation on the implementation class lets CXF know which interface to use when creating WSDL. In this case, its simply our _TablemanagmentWebService_ interface.
+The _@WebService_ annotation on the implementation class lets CXF know which interface to use when creating WSDL. In this case, it's simply our _TablemanagmentWebService_ interface.
 
 Finally, you have to register the service implementation in the spring in this _@Configuration_-annotated Class. Here, the CXF and end point is initialized. So, the _@Configuration_-annotated Class that is _ServiceConfiguration.java_ can be found within the sample app in `src/main/java/io.oasp.gastronomy.restaurant/general/configuration` of xxx-core project.
 
