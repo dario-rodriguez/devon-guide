@@ -2,56 +2,56 @@
 toc::[]
 
 
-= WebServices (JAX WS)
+= Web Services (JAX WS)
 
 
-== What are Webservices
+== What are Web Services
 
-A Web Service can be defined by following ways:
+A Web service can be defined by following ways:
 
-* a client server application or application component for communication.
-* a method of communication between two devices over network.
+* a client-server application or an application component for the communication.
+* a method of communication between the two devices over network.
 * a software system for interoperable machine to machine communication.
-* a collection of standards or protocols for exchanging information between two devices or application.
+* a collection of standards or protocols for exchanging information between the two devices or an application.
 
 
 image::images/jax-ws-webservices/web-services.png[,scaledwidth=80%]
 
 
 
-As you can see in the figure, java, .net or PHP applications can communicate with other applications through web service over the network. For example, java application can interact with Java, .Net and PHP applications. So web service is a language independent way of communication.
+In the above figure, java, .net or PHP applications can communicate with other applications through the web service over the network. For example, a java application can interact with Java, .Net and PHP applications. Hence, the web service is a language independent way of communication.
 
-There are mainly two types of web services.
+There are mainly two types of web services:
 
 . SOAP web services.
 . RESTful web services.
 
-Here, we will describe more about JAX-WS (SOAP based) webServices.
+Next section describes more about JAX-WS (SOAP based) web services.
 
 
-== Why use WebServices
+== Why use Web Services
 
 *Exposing the Existing Function on the network*
 
-A web service is a unit of managed code that can be remotely invoked using HTTP, that is, it can be activated using HTTP requests. Web services allows you to expose the functionality of your existing code over the network. Once it is exposed on the network, other application can use the functionality of your program.
+A web service is a unit of managed code that can be remotely invoked using HTTP, that is, it can be activated using HTTP requests. Web services allow you to expose the functionality of your existing code over the network. Once it is exposed on the network, other applications can use the functionality of your program.
 
 *Interoperability*
 
-Web services allow various applications to talk to each other and share data and services among themselves. Other applications can also use the web services. For example, a VB or .NET application can talk to Java web services and vice versa. Web services are used to make the application platform and technology independent.
+Web services allow various applications to talk to each other and share data and services among themselves. Other applications can also use the web services. For example, a VB or .NET application can talk to Java web services and vice versa. Web services are used to make the application, platform and technology independent.
 
 *Standardized Protocol*
 
-Web services use standardized industry standard protocol for the communication. All the four layers (Service Transport, XML Messaging, Service Description, and Service Discovery layers) use well-defined protocols in the web services protocol stack. This standardization of protocol stack gives the business many advantages such as a wide range of choices, reduction in the cost due to competition, and increase in the quality.
+Web services use standardized industry standard protocol for the communication. All the four layers (Service Transport, XML Messaging, Service Description, and Service Discovery layers) use well-defined protocols in the web services protocol stack. This standardization of protocol stack gives the business many advantages, such as a wide range of choices, reduction in the cost due to competition, and increase in the quality.
 
 *Low Cost of Communication*
 
-Web services use SOAP over HTTP protocol, so you can use your existing low-cost internet for implementing web services. This solution is much less costly compared to proprietary solutions like EDI/B2B. Besides SOAP over HTTP, web services can also be implemented on other reliable transport mechanisms like FTP.
+Web services use SOAP over HTTP protocol, so you can use your existing low-cost internet for implementing web services. This solution is much less costly compared to the proprietary solutions like EDI/B2B. Besides SOAP over HTTP, web services can also be implemented on the other reliable transport mechanisms like FTP.
 
-== Characteristics of WebServices
+== Characteristics of Web Services
 
 *XML-Based*
 
-Web Services uses XML at data representation and data transportation layers. Using XML eliminates any networking, operating system, or platform binding. Web Services based applications are highly interoperable application at their core level.
+Web Services uses XML at data representation and data transportation layers. Using XML, eliminates any networking, operating system, or platform binding. Web Services based applications are highly interoperable application at their core level.
 
 *Loosely Coupled*
 
@@ -59,7 +59,7 @@ A consumer of a web service is not tied to that web service directly. The web se
 
 *Coarse-Grained*
 
-Object-oriented technologies such as Java expose their services through individual methods. An individual method is too fine an operation to provide any useful capability at a corporate level. Building a Java program from scratch requires the creation of several fine-grained methods that are then composed into a coarse-grained service that is consumed by either a client or another service.
+Object-oriented technologies such as Java expose their services through individual methods. An individual method is a too fine operation to provide any useful capability at a corporate level. Building a Java program from scratch requires the creation of several fine-grained methods that are then composed into a coarse-grained service that is consumed by either a client or the other service.
 
 Businesses and the interfaces that they expose should be coarse-grained. Web services technology provides a natural way of defining coarse-grained services that access the right amount of business logic.
 
@@ -67,11 +67,11 @@ Businesses and the interfaces that they expose should be coarse-grained. Web ser
 
 Synchronicity refers to the binding of the client to the execution of the service. In synchronous invocations, the client blocks and waits for the service to complete its operation before continuing. Asynchronous operations allow a client to invoke a service and then execute other functions.
 
-Asynchronous clients retrieve their result at a later point in time, while synchronous clients receive their result when the service has completed. Asynchronous capability is a key factor in enabling loosely coupled systems.
+Asynchronous clients retrieve their results at a later point in time, while synchronous clients receive their results, when the service has completed. Asynchronous capability is a key factor in enabling loosely coupled systems.
 
-== Components of SOAP based WebService:
+== Components of SOAP based Web Service:
 
-There are three major web service components.
+There are three major web service components:
 
 . SOAP
 . WSDL
@@ -82,7 +82,7 @@ There are three major web service components.
 
 SOAP is an acronym for Simple Object Access Protocol.
 
-SOAP is a XML-based protocol for accessing web services.
+SOAP is an XML-based protocol for accessing web services.
 
 SOAP is a W3C recommendation for communication between applications.
 
@@ -93,9 +93,9 @@ SOAP is XML based, so it is platform independent and language independent. In ot
 
 WSDL is an acronym for Web Services Description Language.
 
-WSDL is a xml document containing information about web services such as method name, method parameter and how to access it.
+WSDL is an xml document containing information about web services such as method name, method parameter and how to access it.
 
-WSDL is a part of UDDI. It acts as a interface between web service applications.
+WSDL is a part of UDDI. It acts as an interface between web service applications.
 
 WSDL is pronounced as "wiz-dull".
 
@@ -104,7 +104,7 @@ WSDL is pronounced as "wiz-dull".
 
 UDDI is an acronym for Universal Description, Discovery and Integration.
 
-UDDI is a XML based framework for describing, discovering and integrating web services.
+UDDI is an XML based framework for describing, discovering and integrating web services.
 
 UDDI is a directory of web service interfaces described by WSDL, containing information about web services.
 
@@ -112,25 +112,25 @@ UDDI is a directory of web service interfaces described by WSDL, containing info
 == Apache CXF and JAX WS 
 
 
-CXF implements the JAX-WS APIs which make building web services easy. JAX-WS encompasses many different areas:
+CXF implements the JAX-WS APIs which makes building web services easier. JAX-WS encompasses many different areas:
 
 * Generating WSDL from Java classes and generating Java classes from WSDL
 * Provider API which allows you to create simple messaging receiving server endpoints
-* Dispatch API which allows you to send raw XML messages to server endpoints.
-* Spring integration.
-* It supports Restful services too.
+* Dispatch API which allows you to send raw XML messages to server endpoints
+* Spring integration
+* It supports Restful services too
 
-In devonfw , we use Apache CXF implementation of JAX WS.
+In devonfw, Apache CXF implementation of JAX WS is used.
 
 
-== Creation of WebService using Apache CXF
+== Creation of Web Service using Apache CXF
 
 *Developing the service*
 
-This can be done in two ways: _code-first_ and _contract-first_. We will be using the _code-first_ approach.
+This can be done in two ways: _code-first_ and _contract-first_. The _code-first_ approach is used below:
 
 Here is an example in case you define a _code-first_ service.
-We define a regular interface to define the API of the service and annotate it with JAX-WS annotations:
+Create a regular interface to define the API of the service and annotate it with JAX-WS annotations:
 [source,java]
 --------
 @WebService
@@ -157,18 +157,16 @@ public class TablemanagementWebServiceImpl implements TablemanagmentWebService {
     return this.tableManagement.findTable(id);
   }
 --------
-If you look at the above interface you can tell that it is a normal java interface with exception of three annotation
+If you look at the above interface, you can tell that it is a normal Java interface with the exception of three annotations:
 
-* _@WebService_ – Specifies that the JWS file implements a Web Service turning a normal https://en.wikipedia.org/wiki/Plain_Old_Java_Object[POJO] into a webservice. In our case the annotation is placed right above the interface definition and it notifies that TablemanagmentWebService is not a normal interface rather an webservice interface or SEI. 
-* _@WebMethod_ – This annotation is optional and is mainly used to provide a name attribute to the public method in wsdl.
+* _@WebService_ – Specifies that the JWS file implements a web service turning a normal https://en.wikipedia.org/wiki/Plain_Old_Java_Object[POJO] into a web service. In the above case, the annotation is placed right above the interface definition and it notifies that TablemanagmentWebService is not a normal interface rather an web service interface or SEI. 
+* _@WebMethod_ – This annotation is optional and is mainly used to provide a name attribute to the public method in WSDL.
 * _@WebResult_ - The @WebResult annotation allows you to specify the properties of the generated wsdl:part that is generated for the method's return value.
 * _@WebParam_ - The @WebParam annotation is defined by the javax.jws.WebParam interface. It is placed on the parameters on the methods defined in the SEI. The @WebParam annotation allows you to specify the direction of the parameter, if the parameter will be placed in the SOAP header, and other properties of the generated wsdl:part.
 
+The _@WebService_ annotation on the implementation class lets CXF know which interface to use when creating WSDL. In this case, its simply our _TablemanagmentWebService_ interface.
 
-
-The _@WebService_ annotation on the implementation class lets CXF know which interface to use when creating WSDL. In this case its simply our _TablemanagmentWebService_ interface.
-
-Finally we have to register our service implementation in the spring in our _@Configuration_-annotated Class. There we´ll initialize CXF and our end point. So this, _@Configuration_-annotated Class that is _ServiceConfiguration.java_ can be found within the sample app in `src/main/java/io.oasp.gastronomy.restaurant/general/configuration` of xxx-core project.
+Finally, you have to register the service implementation in the spring in this _@Configuration_-annotated Class. Here, the CXF and end point is initialized. So, the _@Configuration_-annotated Class that is _ServiceConfiguration.java_ can be found within the sample app in `src/main/java/io.oasp.gastronomy.restaurant/general/configuration` of xxx-core project.
 
 [source,java]
 --------
@@ -203,26 +201,24 @@ public class ServiceConfiguration extends WsConfigurerAdapter {
 }
 --------
 
+You can see the beans _SpringBus_ and _ServletRegistrationBean_ inside the _@Configuration_-Class.
+You need to configure it to return an instance of `org.apache.cxf.jaxws.EndpointImpl`, which later will be forwarded to the _SpringBus_ and the implementor via constructor-arg:
 
+Furthermore, you have to use the _publish_ method of the `org.apache.cxf.jaxws.EndpointImpl` to define the last part of the WebService-URI.
 
-We see the beans _SpringBus_ and _ServletRegistrationBean_ inside our _@Configuration_-Class.
-We need to Configure it to return an instance of `org.apache.cxf.jaxws.EndpointImpl`, which we forward to the _SpringBus_ and our implementor via constructor-arg:
-
-Furthermore we have to use the _publish_ method of our `org.apache.cxf.jaxws.EndpointImpl` to define the last part of our WebService-URI.
-
-If you now fire up the sample application with link:getting-started-running-sample-application#step-2-run-the-application[SpringBoot], opening a browser and hit below URL where the webservice is hosted
+Now, if you are fire up the sample application with link:getting-started-running-sample-application#step-2-run-the-application[SpringBoot], opening a browser and hit below URL where the web service is hosted:
 
 [source]
 ----
 http://localhost:8081/oasp4j-sample-server/services/
 ----
 
-you should see our _TablemanagementService_ beneath "Available SOAP services" including all available webservice methods.
+You should see our _TablemanagementService_ beneath "Available SOAP services" including all available web service methods.
 
 == Soap Custom Mapping
 
-In order to map custom https://github.com/oasp/oasp4j/wiki/guide-datatype[datatypes] or other types that do not follow the Java bean conventions, you need to write adapters for JAXB https://github.com/oasp/oasp4j/wiki/guide-xml[XML]).
+In order to map custom https://github.com/oasp/oasp4j/wiki/guide-datatype[datatypes] or other types that do not follow the Java bean conventions, you need to write the adapters for JAXB https://github.com/oasp/oasp4j/wiki/guide-xml[XML]).
 
 == SOAP Testing
 
-For testing SOAP services manually we strongly recommend http://www.soapui.org/[SoapUI].
+For testing SOAP services manually, it is strongly recommended to use http://www.soapui.org/[SoapUI].
