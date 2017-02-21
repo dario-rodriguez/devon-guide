@@ -5,8 +5,8 @@ toc::[]
 
 == Introduction
 
-Asynchronous processing at server side and client side, is the new feature offered by the JAX-RS 2.0.
-
+JAX-RS 2.0 offers a new feature which provides an asynchronous processing at both, the server and the client side.
+  
 In the synchronous request/response processing model, client connection is accepted and processed in a single I/O thread by the server. Generally, a pool of I/O threads is available at server side. Therefore, when a request is received at server side, the server dedicates it to one of the threads for further processing. The thread blocks, until the processing is finished and returned.
 
 The idea behind the asynchronous processing model is to separate connection acceptance and request processing operations. Technically, it means to allocate two different threads, one to accept the client connection (acceptor) and the other to handle heavy and time consuming operations (worker) releasing the first one.
