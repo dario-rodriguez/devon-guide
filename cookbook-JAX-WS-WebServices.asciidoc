@@ -69,7 +69,7 @@ Synchronicity refers to the binding of the client to the execution of the servic
 
 Asynchronous clients retrieve their results at a later point in time, while synchronous clients receive their results, when the service has completed. Asynchronous capability is a key factor in enabling loosely coupled systems.
 
-== Components of SOAP based Web Service:
+== Components of SOAP based Web Service
 
 There are three major web service components:
 
