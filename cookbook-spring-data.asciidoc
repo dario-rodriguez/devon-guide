@@ -10,13 +10,13 @@ toc::[]
 This chapter specifies a possible solution for integrating the Spring Data module in devonfw. It is possible to have some services using the Spring Data module while some services use JPA/Hibernate.
 
 
-To integrate Spring Data in devonfw, there can be 2 approaches as stated below:
+To integrate Spring Data in devonfw, there can be two approaches as stated below:
 
 . Create a new module for spring data
 
 . Integrate Spring Data in an existing core project
 
-More feasible option to integrate spring data in core module will be option 2  i.e integrate it into an existing core project instead of creating a new module. Below are the reasons for not preferring a creation of a different module supporting spring data:
+The more feasible approach will be option 2  i.e to integrate it into an existing core project instead of creating a new module. Below are the reasons for not preferring a creation of a different module supporting spring data:
 
 * It does not follow KISS (Keep it simple, stupid) principle. In the existing structure of sample application, Entity classes along with some abstract implementation classes are included in oasp4j-samples-core project. You need to refer these classes while implementing spring-data. If you try to refer it in different module, it will become complex to compare it to the first approach. 
 * If you integrate Spring Data in oasp4j, you need to annotate SpringBootApp.java class with @Enablejparepositories. If you create a different module, it will not be possible, as SpringBootApp class is in the core module.
