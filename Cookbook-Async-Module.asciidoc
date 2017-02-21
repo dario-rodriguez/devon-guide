@@ -82,7 +82,7 @@ public class MyAsyncTask implements AsyncTask {
 
 - Provide an Async Response, to do so, use the `@Suspended` annotation and add the `AsyncResponse` object to your REST method.
 
-Now, you can call the module using its _execute_ method. The request will be binded to the async response and the async task provided.
+Now, you can call the module using its _execute_ method. The request will be bound to the async response and the async task provided.
 
 The call will be like the following:
 
@@ -167,7 +167,7 @@ The default values provided in the module are:
   * milliseconds: 0.
   * status: 503 , service unavailable (available status 400,403,404,500 and 503).
   * response Content: Operation timeout (the time out response message).
-  * mediatype: text/plain (you can response the timeout in json, xml, html, etc. formats).
+  * mediatype: text/plain (you can respond the timeout in json, xml, html, etc. formats).
 
 However, you can edit those values by overriding the configuration properties in your app. To do it, you can use the `application.properties` to add the properties you want to define.
 
