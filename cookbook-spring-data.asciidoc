@@ -483,18 +483,26 @@ public interface TableRepo extends JpaRepository<TableEntity, Long>, TableRepoCu
 --------
 
 In the above example, you are extending JpaRepository which in turn extends PagingAndSortingRepository. So, you will get paging and sorting functionality. For Paging and Sorting support, you need to pass Pageable as method Parameter.
-  PageRequest pageRequest = new PageRequest(0, 2, Direction.DESC, "state");
-Here 0 - indicate page number.
-2 - object on a page
-Direction Desc or ASC- Sorting sequence Desc or Asc
-State -  this is a property based on which query gets sorted
 
+[source,java]
+--------
+PageRequest pageRequest = new PageRequest(0, 2, Direction.DESC, "state");
 
-  For creating pageRequest object, you have different constructors available as below:
+//Here 0 - indicate page number.
+//2 - object on a page
+//Direction Desc or ASC- Sorting sequence Desc or Asc
+//State -  this is a property based on which query gets sorted
+--------
+
+For creating pageRequest object, you have different constructors available as below:
+
+[source,java]
+--------
 PageRequest(int page,int size)
 PageRequest(int page,int size,int sort)
 PageRequest(int page,int size,Direction direction) 
 PageRequest(int page, int size, Direction direction, String... properties)
+--------
 
 == References
 
