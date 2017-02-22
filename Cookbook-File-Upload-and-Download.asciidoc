@@ -3,7 +3,7 @@ toc::[]
 
 = File Upload and Download
 
-Apache CXF is an open source services framework. CXF helps you build and develop services using front-end programming APIs, like JAX-WS and JAX-RS.
+Apache CXF is an open source services framework. CXF helps you to build and develop services using front-end programming APIs, like JAX-WS and JAX-RS.
 
 == File download from CXF
 
@@ -11,7 +11,7 @@ Apache CXF is an open source services framework. CXF helps you build and develop
 
 *Example:*
 
-In JAX-RS, annotate the service method with @Produces("application/octet-stream"). We define an interface of the service and annotate it with JAX-RS annotations:
+In JAX-RS, annotate the service method with @Produces("application/octet-stream"). You can define an interface for the service and annotate it with JAX-RS annotations:
 
 
 [source,java]
@@ -40,9 +40,9 @@ public Response  getDownloadableFile() throws SQLException, IOException {
 }
 --------
 
-In the above code snippet, we construct a file object by supplying path of the file to be downloaded. ResponseBuilder is created from this file object and finally the response is built from ResponseBuilder object.
+In the above code snippet, a file object is constructed by supplying path of the file to be downloaded. ResponseBuilder is created from this file object and finally the response is built from ResponseBuilder object.
 
-Following table explains the annotations used for download functionality:
+Following table explains the annotations used for the download functionality:
 
 .Annotations used for download functionality
 |===
@@ -82,14 +82,13 @@ public class SomeResource {
 
 --------
 
-
 == File upload from CXF
 
 *org.apache.cxf* provides option to upload files of different MIME (Multipurpose Internet Mail Extensions) type.
 
 *Example:*
 
-In JAX-RS, annotate the service method with @Consumes("multipart/mixed"). We define an interface of the service and annotate it with JAX-RS annotations:
+In JAX-RS, annotate the service method with @Consumes("multipart/mixed"). You can define an interface for the service and annotate it with JAX-RS annotations:
 
 [source,java]
 --------
@@ -162,9 +161,7 @@ public Response uploadFile(List<Attachment> attachments) {
  }
 --------
 
-
-In the above code snippet, we are iterating the attachments that are uploaded and extracting InputStream for each Attachment. Each InputStream is converted to the bytearray and a Blob object is created out of it. The Blob object is
-saved to the database by calling saveBinaryObject(blob, binaryObject).
+In the above code snippet, uploaded attachments are iterated and InputStream for each attachment is extracted. Each InputStream is converted into the byte array and a Blob object is created out of it. The Blob object is saved into the database by calling saveBinaryObject(blob, binaryObject).
 
 Following table explains the annotations used for upload functionality:
 
@@ -178,7 +175,7 @@ Following table explains the annotations used for upload functionality:
 
 === Consumes Annotation
 
-The @Consumes annotation is used to specify MIME media type that can be accepted, or consumed, from the client. If @Consumes is applied at the class level, all the response methods accept the specified MIME type by default. If applied at the method level, @Consumes overrides any @Consumes annotation applied at the class level.
+The @Consumes annotation is used to specify MIME media types that can be accepted, or consumed, from the client. If @Consumes is applied at the class level, all the response methods accept the specified MIME type by default. If applied at the method level, @Consumes overrides any @Consumes annotation applied at the class level.
 
 If a resource is unable to consume the MIME type of a client request, the JAX-RS runtime sends back an HTTP 415 ("Unsupported Media Type") error.
 
@@ -204,9 +201,8 @@ public class SomeResource {
 }
 --------
 
-
 == MIME Types
 
 MIME stands for "Multipurpose Internet Mail Extensions". It is a way of identifying files on the Internet, according to their nature and format. For example, using the "Content-type" header value defined in an HTTP response, the browser can open the file with the proper extension/plugin.
 
-For more information visit : http://www.freeformatter.com/mime-types-list.html
+For more information, visit : http://www.freeformatter.com/mime-types-list.html
