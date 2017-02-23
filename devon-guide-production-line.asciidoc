@@ -58,7 +58,7 @@ https://jenkins.io/[Jenkins] is an automation engine with a great plugin ecosyst
 http://www.sonarqube.org/[SonarQube] is a tool for continuous inspection of code quality, preventing redundancies, complexity and aiming to approach to the code conventions and good practices. It performs static code analysis and allows gathering reports of the various tests performed on the application. Provides a single point with web GUI, where developers can check the test results.
 
 ==== Maven
-https://maven.apache.org/[Maven] is a build automation tool used primarily for the Java projects. Was originally created to achieve a clear definition of how to build an ANT projects. After time, thanks to community support and its plugin system, it evolved into a fully functional JAVA project management system. Within the _continuous integration_, the build process of the Devonfw applications is executed through Maven and only initiated by Jenkins.
+https://maven.apache.org/[Maven] is a build automation tool used primarily for the Java projects. Was originally created to achieve a clear definition of how to build an ANT project. Over time, thanks to community support and its plugin system, it evolved into a fully functional JAVA project management system. Within the _continuous integration_, the build process of the Devonfw applications is executed through Maven and only initiated by Jenkins.
 
 ==== Nexus
 http://www.sonatype.org/nexus/[Nexus] is a repository providing centralized storage place for the JAVA artifacts – JAR / WAR files containing built applications.
