@@ -16,7 +16,7 @@ https://en.wikipedia.org/wiki/Cloud_Foundry[Cloud Foundry] supports the full lif
 
 === Bluemix
 
-https://console.ng.bluemix.net/docs/overview/whatisbluemix.html#bluemixoverview[IBM Bluemix] is a cloud PaaS developed by IBM. It supports several programming languages and services as well as integrated DevOps to build, run, deploy and manage applications on the cloud. Bluemix is based on Cloud Foundry open technology and runs on SoftLayer infrastructure. Bluemix supports several programming languages including Java, Node.js, Go, PHP, Swift, Python, Ruby Sinatra, Ruby on Rails and can be extended to support other languages such as Scala through the use of buildpacks.
+https://console.ng.bluemix.net/docs/overview/whatisbluemix.html#bluemixoverview[IBM Bluemix] is a cloud PaaS developed by IBM. It supports several programming languages and services as well as integrated DevOps to build, run, deploy and manage applications on the cloud. Bluemix is based on Cloud Foundry open technology and runs on SoftLayer infrastructure. Bluemix supports several programming languages, including Java, Node.js, Go, PHP, Swift, Python, Ruby Sinatra, Ruby on Rails and can be extended to support other languages such as Scala through the use of buildpacks.
 
 == Bluemix Services
 
@@ -35,9 +35,9 @@ cf env APP_NAME
 
 === VCAP services on Devon
 
-To explain how work with VCAP services on Devon we are going to do a simple example. In this scenario we have a dashDB database service configured in our Devon application. So we are going to obtain the database credentials from VCAP service.
+A simple example below demostrates how to work with VCAP services on Devon. In this scenario, a dashDB database service is configured in the Devon application. So, you can obtain the database credentials from VCAP service.
 
-The JSON that Bluemix provide us with the VAP_SERVICE variable is the next
+The JSON that Bluemix provides us with the VAP_SERVICE variable is the next:
 
 [source,json]
 ----
@@ -69,7 +69,7 @@ The JSON that Bluemix provide us with the VAP_SERVICE variable is the next
 You can see more about dashDB service connection and VAP_SERVICE https://console.ng.bluemix.net/docs/services/dashDB/index.html#connect[here].
 ====
 
-Now in our Devon application we can simply create a configuration class and configure our DataSource
+Now, in the Devon application, you can simply create a configuration class and configure the DataSource:
 
 [source,java]
 ----
@@ -123,13 +123,13 @@ public class BeanJPAConfiguration {
 }
 ----
 
-As you can see we are checking if VCAP_SERVICES exist so if it doesn't exist you can configure other database, throw an error, etc.
+As you can see, the check is applied to make sure that if VCAP_SERVICES exist. So, if it doesn't exist, you can configure other database, throw an error, etc.
 
 This is a simple way to use Bluemix services, you can see https://cloud.spring.io/spring-cloud-cloudfoundry/[Spring Cloud Foundry] too.
 
 [NOTE]
 ====
-In the example we are learning how to obtain the credentials of the database. If you want to know how to configure a DB2/dashDB database you can see it link:getting-started-database-configuration#bd2[here].
+In the example, you are learning how to obtain the credentials of the database. If you want to know how to configure a DB2/dashDB database, you can see it link:getting-started-database-configuration#bd2[here].
 ====
 
 == Logs in Bluemix
@@ -175,9 +175,9 @@ Each appender has its own XML configuration file that can be found on: https://g
 
 === Bluemix logging
 
-Bluemix does not allow users to navigate through any log file and it uses its own tool to look into the logs. The Bluemix environment has a console to show the logs. Due to this fact, the default configuration for the Devon logging system is no apropiate for environments like Bluemix.
+Bluemix does not allow users to navigate through any log files and it uses its own tool to look into the logs. The Bluemix environment has a console to show the logs. Due to this fact, the default configuration for the Devon logging system is not appropriate for the environments like Bluemix.
 
-To adapt the logging system, Devon users are required to make certain changes in the default configuration. The file appenders have no sense in this environment, so they must be removed. The following example could be a valid configuration:
+To adapt the logging system, Devon users are required to make certain changes in the default configuration. The file appenders have no sense in this environment, so they must be removed. The following example, could be a valid configuration:
 
 [source, xml]
 ----
