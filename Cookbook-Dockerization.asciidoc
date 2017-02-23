@@ -20,7 +20,7 @@ If you do not use Windows 10, you can not run Docker directly on your machine. R
 - Enable Intel (R) Virtualization Technology and hit F10 and confirm the changes by hitting 'Y' option
 - Boot your machine
 
-Now, install Docker Toolbox (full installation is recommended). When the installation is done, start Docker Quickstart Terminal to see if everything works. As soon as you see some whale and a command prompt, you can try following command: `docker run hello-world`. This will download and run a container from docker hub and print some message, if this was successful.
+Now, install Docker Toolbox (full installation is recommended). When the installation is done, start Docker Quickstart Terminal to see if everything works. As soon as you see some whale and a command prompt, you can try the following command: `docker run hello-world`. This will download and run a container from docker hub and print some message, if this was successful.
 
 == Use Docker manually
 
@@ -45,7 +45,7 @@ EXPOSE 8080
 
 This will use a java 7 image as a base, which gets downloaded from the public Docker repository and copy the application in the root folder of the VM. When the container is started, Docker exposes the port 8080 towards the VM. Now, go back to the Quickstart Terminal. In the shared folder, you can type `docker build –t java7 .` (Don't forget the full stop) to build an image with the above `Dockerfile`. You can now run the container with `docker run -v /dev/urandom:/dev/random –p 8080:8080 java7 java –jar oasp-sample-server.war`. The `–p 8080:8080` maps the port of the _boot2docker_ to the port 8080 of the VM. The command `-v /dev/urandom:/dev/random` specifies where to get random numbers. Utilizing _urandom_ drastically speeds up the boot process of a container in a docker environment. When the application is started, you can connect with the IP of the VM. You can find out the IP of the VM by typing `docker-machine ip` in a console of your host machine.
 
-In above case, IP is 192.168.99.100, so the sample app can be accessed in a browser of the Windows host with 192.168.99.100:8080. To list all running containers type, use `docker ps` command. In order to stop a running container, one can use `docker stop nameOfContainer`.
+In the above case, IP is 192.168.99.100, so the sample app can be accessed in a browser of the Windows host with 192.168.99.100:8080. To list all running containers types, use `docker ps` command. In order to stop a running container, one can use `docker stop nameOfContainer`.
 
 == Fabric8io plugin
 
@@ -54,7 +54,7 @@ Various maven plugins enable the dockerziation within the process of building th
 - Executes the build process,
 - Grabs the bootable war file,
 - Builds an image based on the configuration in the `server/pom.xml` and the `server/src/main/docker/assembly.xml`,
-- Deploys the image depending on the environment variables e.g. to a local instance of docker,
+- Deploys the image depending on the environment variables e.g. To a local instance of docker,
 - Starts the application, test if it is reachable through an URL and finally 
 - Stops the container.
 
