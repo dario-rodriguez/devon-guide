@@ -36,18 +36,18 @@ After logging in, the tools can be accessed over a drop down menu (called _Servi
 === Prerequisites
 To implement the Production Line in your project, you only need:
 
-- a Production Line instance.
-- a Remote Linux host for deployment.
+- A Production Line instance.
+- A Remote Linux host for deployment.
 
 == Devonfw Continuous Delivery infrastructure
 
 === Tools
 
 ==== Git
-https://git-scm.com/[Git] is a version control system, that helps a software team to manage the changes in a source code over time. Version control software keeps the track of every modification in the code. It allows restoring the state to the earlier versions of the code or working on a parallel features of the software using branches.
+https://git-scm.com/[Git] is a version control system, that helps a software team to manage the changes in a source code over time. Version control software keeps the track of every modification in the code. It allows restoring the state to the earlier versions of the code or working on the parallel features of the software using branches.
 
 ==== Gerrit
-https://www.gerritcodereview.com/[Gerrit] is a code colaboration tool. It hosts the Git repository and extends available functionality. It implements the voting protocol, allowing automated code review by software tools as well as manual acceptance by a reviewer.
+https://www.gerritcodereview.com/[Gerrit] is a code collaboration tool. It hosts the Git repository and extends available functionality. It implements the voting protocol, allowing automated code review by software tools as well as manual acceptance by a reviewer.
 
 Gerrit can be placed in between the repository and the user’s code push request to provide the ability to discuss a change before submitting.
 
@@ -67,7 +67,7 @@ http://www.sonatype.org/nexus/[Nexus] is a repository providing centralized stor
 http://tomcat.apache.org/[Tomcat] is an open-source Java Servlet Container that implements several Java EE specifications including Java Servlet, JavaServer Pages (JSP), Java EL, and WebSocket, and provides a "pure Java" HTTP web server environment in which Java code can run.
 
 ==== Docker
-https://www.docker.com/[Docker] is a lightweight virtualization software allowing wrapping the applications into containers – running images with all the prerequisites and dependencies needed for the application to run. By letting go of operating system burden, through the usage of underlying host operating system, Docker containers can be started almost instantly. Additionally, Docker provides a set of tools that support management of the containers, hosting image repositories and many others.
+https://www.docker.com/[Docker] is a lightweight virtualization software allowing wrapping the applications into containers – running images with all the prerequisites and dependencies needed for the application to run. By letting go of the operating system burden, through the usage of the underlying host operating system, Docker containers can be started almost instantly. Additionally, Docker provides a set of tools that support management of the containers, hosting image repositories and many others.
 
 === Schema
 
@@ -83,13 +83,13 @@ image::images/productionline/pl-schema.png[,width="450", link="images/production
 - The resulting artifacts can be either deployed to a _Nexus_ repository or to an app container (Docker, Tomcat).
 - During the integration process a SonarQube instance manages the project's source quality.
 
-If some of these stages fails or doesn't fit some requirements, all the process can be freezed until a solution is included in the content of the project. Once this happens, complete process will start again.
+If some of these stages fails or doesn't fit some requirements, all the process can be frozen until a solution is included in the content of the project. Once this happens, complete process will start again.
 
 
 == Production Line implementation for Devonfw projects
 
 === Continuous Delivery Pipeline
-While preparing the process of automated build and testing, a good practice is to organize the development processes from the project into the form of the pipeline, that provides a clear view of its stages. This pipeline is reflected in Jenkins job stages and facilitates organization and issue identification.
+While preparing the process of automated build and testing, a good practice is to organize the development processes from the project in the form of the pipeline, that provides a clear view of its stages. This pipeline is reflected in Jenkins job stages and facilitates organization and issue identification.
 
 Below, you can find the _continuous delivery_ pipeline used in a basic Devonfw app:
 
