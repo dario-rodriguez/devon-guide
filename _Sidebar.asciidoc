@@ -39,7 +39,7 @@
 * link:cookbook-dockerization[devonfw on Docker]
 * link:devon-guide-production-line[devonfw on the Production Line]
 * link:devon-in-bluemix[devonfw in IBM Bluemix]
-* link:Compatibility-guide-for-Java7,-Java8-and-Tomcat7,-Tomcat8[Compatibility guide for Java7, Java8 and Tomcat7, Tomcat8]
+* link:Compatibility-guide-for-Java7-Java8-and-Tomcat7-Tomcat8[Compatibility guide for Java7, Java8 and Tomcat7, Tomcat8]
 
 == The Presentation Layer: Getting Started with Devon4Sencha
 
