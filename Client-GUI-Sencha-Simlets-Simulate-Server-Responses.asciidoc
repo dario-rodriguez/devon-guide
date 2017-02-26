@@ -14,7 +14,7 @@ Sencha out-of-box provides XML and JSON type of AJAX simlets, base classes are a
 A singleton manager class provides transparent service to catch all the requests being sent to a specific endpoint without having the developer to change the application code. Endpoint doesn't even have to be existing, again, no running server required. See `Ext.ux.ajax.SimManager` for further details.
 
 ## JSON Simlet
-First, the simlet is registered. The following one defines an endpoint, that will catch all requests sent to /users then returns an array of objects in JSON format.
+First, the simlet is registered. The following one define an endpoint, that will catch all requests sent to /users then returns an array of objects in JSON format.
 
 [source,javascript]
 ----
