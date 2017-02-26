@@ -158,7 +158,7 @@ If the project is already imported in Eclipse then update the project:
 Right click on project > Maven > Update Project > check the Force update of Snapshot/Releases checkbox > Ok
 ====
 
-==== How to install the Devon IP Modules
+==== How to install the Devon IP Modules?
 
 If you have any problems resolving the dependencies or accessing to the Devon IP modules, you can install them directly in your distribution. To achieve that, you only need to open a distribution console launching the 'console.bat' script and then go to following path `workspaces\examples\devon\modules` and use the _install_ command of _Maven_.
 
