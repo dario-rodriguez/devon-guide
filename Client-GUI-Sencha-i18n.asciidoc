@@ -2,14 +2,14 @@
 toc::[]
 
 = Internationalization
-Internationalization in Devon applications is performed independently on the client and the server side. On client we make use of literal Javascript objects to define the messages similar to the properties files used on the server side.
+Internationalization in Devon applications is performed independently on the client and the server side. On the client side, literal JavaScript objects are used to define the messages similar to the properties files used on the server side.
 
-As messages are used during definition of Sencha classes for the application, these have to be loaded prior to their usage. Devon4Sencha takes care of this by following next steps.
+As messages are used during the definition of Sencha classes for the application, these have to be loaded prior to their usage. Devon4Sencha takes care of this by following the next steps.
 
 == Configuration
-First thing to configure is the default language to use for the application when loading and the group of possible languages the application can make use of.
+Firstly, you need to configure the default language used for the application when loading and the group of possible languages the application can make use of.
 
-We use the `Config` object to set the following properties:
+`Config` object is used to set the following properties:
 
 .Config.js
 [source,javascript]
@@ -21,7 +21,7 @@ defaultLocale = 'en_EN';
 * *`defaultLocale`* (String): Default application locale.
 
 == Message bundles
-Message bundles are group of pairs key/value that define the literals for a language in a hierarchical way by using Javascript object literal format. In Devon Framework, a language bundle is a singleton class that inherits from *`Devon.I18nBundle`* class. The class name, has to end with the corresponding locale code:
+Message bundles are group of key/value pairs that defines the literals for a language in a hierarchical way by using the JavaScript object literal format. In Devon Framework, a language bundle is a singleton class that inherits from *`Devon.I18nBundle`* class. The class name, has to end with the corresponding locale code:
 [source,javascript]
 ----
 /*en_EN bundle for Table*/
@@ -49,7 +49,7 @@ Ext.define('Sample.view.table.i18n.Table_es_ES',{
   }
 });
 ----
-Note that all language key/values are inside an *`i18n`* property object, than can be used in another Sencha class by referencing a global `i18n` variable as follows:
+Note that, all the language key/values are inside an *`i18n`* property object, that can be used in another Sencha class by referencing a global `i18n` variable as follows:
 [source,javascript]
 ----
 Ext.define("Sample.view.table.TableList", {
@@ -59,8 +59,7 @@ Ext.define("Sample.view.table.TableList", {
 });
 ----
 
-
-So a view needs all referenced bundles to have been loaded before loading itself. As a recommendation, this bundles can be loaded in a main controller by requiring the message bundle object prior to the view object:
+Therefore, a view needs all the referenced bundles to get loaded before loading itself. As a recommendation, these bundles can be loaded in a main controller by requiring the message bundle object prior to the view object:
 [source,javascript]
 ----
 Ext.define('Sample.controller.table.TablesController', {
@@ -72,8 +71,7 @@ Ext.define('Sample.controller.table.TablesController', {
   ]
 });
 ----
-A language tag has to be defined at least for the default locale bundle. As we can see in the sample, the tag `i18n.only_en_EN` is only defined in the bundle `en_EN` so when the language is set to the other possible language `es_ES`, this tag has the value _"Only in english"_ 
-
+A language tag has to be defined at least for the default locale bundle. As shown in the sample, the tag `i18n.only_en_EN` is only defined in the bundle `en_EN`, so when the language is set to the other possible language `es_ES`, this tag has the value _"Only in english"_.
 
 == Change language
 The current locale for the application can be changed with the static method *`Devon.I18n.setCurrentLocale((String)locale)`*. After the method executes, the global object `*i18n*` points to the specified locale. Devon framework saves this locale in a cookie, and the page is reloaded with `*location.reload*` showing the changes:
