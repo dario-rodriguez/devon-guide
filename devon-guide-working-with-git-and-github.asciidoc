@@ -179,7 +179,7 @@ Untracked files:
 no changes added to commit
 ----
 
-Thus, git shows the changes in the branch and you need to add the file "New Text Document.txt". There are several way to add a new file in git.
+Thus, git shows the changes in the branch and you need to add the file "New Text Document.txt". There are several ways to add a new file in git.
 
 You can add file using the following command:
 
@@ -234,7 +234,7 @@ Thus, there are many extensions and folders that Git will ignore, if you use the
 
 [NOTE]
 ====
-Windows does't permit us to create a file with the name ".gitignore, so to create a new .gitignore file, you can use the following command:
+Windows doesn't permit us to create a file with the name ".gitignore, so to create a new .gitignore file, you can use the following command:
 
 [source,console]
 ----
@@ -254,7 +254,7 @@ git commit -am "Commit message"
 
 You need to keep in count the .gitignore file in this case too.
 
-=== Step 6 - Push to remote repository
+=== Step 6 - Push to the remote repository
 
 When you want to include your changes in the repository, include it in your remote repository. To do so, you need to push your local topic branch in remote branch.
 
@@ -271,11 +271,11 @@ At this point, you have the modifications in your remote repository, so you can 
 
 image::images/working-with-git/devon-guide-working-with-git-new-pull-request.PNG[,width="450",link="images/working-with-git/devon-guide-working-with-git-new-pull-request.PNG"]
 
-First of all, GitHub will check if the branch is correct and is available to do the pull request. If everything is correct, then you will see as shown in image below:
+First of all, GitHub will check if the branch is correct and is available to do the pull request. If everything is correct, then you will see as shown in the image below:
 
 image::images/working-with-git/devon-guide-working-with-git-available-to-pull.PNG[,width="450",link="images/working-with-git/devon-guide-working-with-git-new-pull-request.PNG"]
 
-As you can see, the branch is available to do the new pull request. Aditionally, you can scroll down and look the differences with respect to the original repository.
+As you can see, the branch is available to do the new pull request. Additionally, you can scroll down and look the differences with respect to the original repository.
 
 Check if everything is correct, then you can click "Create pull request" button. Then, you can see a small form with a name of the New pull request and a little description that you need to complete.
 
@@ -285,7 +285,7 @@ When you complete the form, you press the button "Create pull request" and then 
 
 === Step 8 - Synchronize the repository
 
-When your Pull request is included in the original repository, you need to actualize your local and remote repository with the original repository. To do so, first of all, you need to check that you are in the develop branch.
+When your Pull request is included in the original repository, you need to actualize your local and remote repository with the original repository. To do so, first of all, you need to check that you are in the development branch.
 
 [source,console]
 ----
@@ -301,7 +301,7 @@ git pull devon/oasp develop:develop
 
 As you can see, you can use the defined variables with the url of https://github.com/devonfw/devon[Devon] / https://github.com/oasp/oasp4j[OASP4J] (Step 3) or just the URL of the repository.
 
-When you have the local repository synchronized, you need to push the local develop branch to your remote develop branch
+When you have the local repository synchronized, you need to push the local development branch to your remote development branch
 
 [source,console]
 ----
@@ -342,9 +342,9 @@ Before you start working on an issue, check out the following points:
 ==== Definition of Done
 
 [square]
-* Actual issue is implemented (bug fixed, new feature implemented, etc.).
-* New situation is covered by tests (according to test strategy of the project e.g. for bugs, create a unit test first proving the bug and running red, then fix the bug and check that the test gets green, for new essential features create new tests, for GUI features do manual testing).
-* Check the code-style with sonar-qube in Eclipse. If there are any anomalies in the new or modified code, please rework.
+* The actual issue is implemented (bug fixed, new feature implemented, etc.).
+* The new situation is covered by tests (according to test strategy of the project e.g. for bugs, create a unit test first proving the bug and running red, then fix the bug and check that the test gets green, for new essential features create new tests, for GUI features do manual testing).
+* Check the code-style with sonar-Qube in Eclipse. If there are any anomalies in the new or modified code, please rework.
 * Check out the latest code from the branch you are working on (+svn update+, +git pull+ after +git commit+).
 * Make sure that, all the builds and tests are working correctly (+mvn clean install+).
 * Commit your code (+svn commit+, +git push+) - for all your commits, ensure that you should stick to the conventions for code contributions (see link:oasp-code-contributions[code contribution]) and provide proper comments (see link:coding-conventions[coding conventions]).
@@ -355,9 +355,9 @@ Before you start working on an issue, check out the following points:
 
 We are looking forward to your contribution to OASP4J. This page describes the few conventions to follow. Please note that this is an open and international project and all content has to be in (American) English language.
 
-For contributions to the code please consider:
+For contributions to the code, please consider:
 
-* All works on issue-based follow-up, so check if there is already an issue in the tracker for the task you want to work on or create a new issue for it.
+* All works on the issue-based follow-up, so check if there is already an issue in the tracker for the task you want to work on or create a new issue for it.
 * In case of more complex issues, please get involved with the community and ensure that there is a common understanding of what and how to do it. It is better, not to invest into something that will later be rejected by the community.
 * Before you get started, ensure that you comment the issue accordingly and you are the person assigned to the issue. If there is already someone else assigned, get in contact with him, if you still want to contribute to the same issue. It is better, not to invest into something that is already done by someone else.
 * Create a https://help.github.com/articles/fork-a-repo/[fork] of the repository on github to your private github space.
