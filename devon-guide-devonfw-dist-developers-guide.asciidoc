@@ -6,20 +6,20 @@ toc::[]
 
 == Windows
 
-In this section we focus on 
+In this section, we focus on 
 
-*  How to create a new Devon distribution environment ,in order to publish a new release of the distribution in which new features and functionalities are included.(Windows OS)
-*  How to create Devon distribution zip in case of an intermediate release.
-* How to create a new Devon Distribution environment,in order to publish a new release of the distribution in which new features and functionalities are included.(Linux OS)
+* How to create a new Devon distribution environment ,in order to publish a new release of the distribution in which new features and functionalities are included.(Windows OS)
+* How to create Devon distribution zip in case of an intermediate release.
+* How to create a new Devon Distribution environment, in order to publish a new release of the distribution in which new features and functionalities are included.(Linux OS)
 
 === Downloading the OASP IDE
 
-To create, the new Devon distribution we are going to start from the last OASP-IDE distribution that can be found https://coconet.capgemini.com/sf/go/projects.apps2_devon/frs.oasp4j_ide[here]
-Now we have an OASP .zip file so the next step is to extract the file in a folder of our local machine. After extracting the oasp4j-ide-all.zip we rename it to fit to our new devon version.
+To create the new Devon distribution, you need to start from the last OASP-IDE distribution, that can be found https://coconet.capgemini.com/sf/go/projects.apps2_devon/frs.oasp4j_ide[here].
+Now, you have an OASP .zip file, so the next step is to extract the file in a folder of your local machine. After extracting the oasp4j-ide-all.zip, rename it to fit to your new devon version.
 
 === Addition of Plugins
 
-The Devon distribution has some plugins that are not included in the OASP distribution so we need to add them to our new version. In other scenario it is possible that some existing plugin might be out of date so we would need to update it.
+The Devon distribution has some plugins that are not included in the OASP distribution, so you need to add them in the new version. In other scenario, it is possible that some existing plugin might be out of date, so you need to update it.
 Plugins to include:
 
 * Sencha
@@ -32,23 +32,23 @@ Sencha (Ext JS) is a pure JavaScript application framework for building interact
 
 *1. Download Sencha Cmd*
 
-First of all we need the last version of the software so we can download it from the https://www.sencha.com[Sencha’s website]. We must look for the Sencha Cmd package.
+Firstly, you need the latest version of the software. You can download it from the https://www.sencha.com[Sencha’s website]. You must look for the Sencha Cmd package.
 
 *2. Install Sencha*
 
-To install the software choose a proper location or directly create a Sencha directory in the software folder of the distribution and select this folder to do the installation. If we install it in other location copy the installation content to your +software\Sencha folder+.
-To complete the installation, you need to add the ext folder to the plugin. To do so we must:
+To install the software, choose a proper location or directly create a Sencha directory in the software folder of the distribution and select this folder to do the installation. If you install it in another location, copy the installation content to your +software\Sencha folder+.
+To complete the installation, you need to add the ext folder to the plugin. To do so, you must:
 
-* copy from the previous distribution the +software\Sencha\Cmd\default\repo*extract*+ directory and paste it in the  same place of our new distribution.
+* Copy from the previous distribution the +software\Sencha\Cmd\default\repo*extract*+ directory and paste it in the  same place of your new distribution.
 
-* copy from the previous distrubution the software\Sencha\Cmd\default\repo\pkgs*ext* directory and paste it in the same place of our new distribution.
+* Copy from the previous distribution the software\Sencha\Cmd\default\repo\pkgs*ext* directory and paste it in the same place of your new distribution.
 
 *3. Check the installation*
 
 A quick way to check if Sencha is installed is, to open the distribution console (launching the console.bat script) and type the command sencha, the console must return the Sencha version installed.
  
-If there is no response we must check our Sencha installation.
-But to check if the installation is completely successful we should compile the ExtSample app that we can obtain at the last section of this document. So this check will be delayed until that moment.
+If there is no response, you must check your Sencha installation.
+But, to check if the installation is completely successful, you should compile the ExtSample app that can be obtained at the end section of this document. So, this check will be delayed until that moment.
 
 ==== Adding Subversion plugin
 
@@ -60,21 +60,21 @@ Firstly, get the last version of the Subversion client that can be found http://
 
 *2.Install subversion client*
 
-As did with the Sencha plugin, you must now install the software in  local machine, by creating a subversion folder in the software directory of the distribution and do the installation directly there. If you install subversion in other location then you must copy and paste the installation content to a subversion folder in the software directory of your distribution.
+As did with the Sencha plugin, now install the software on your local machine, by creating a subversion folder in the software directory of the distribution and do the installation directly there. If you install subversion in other location, then you must copy and paste the installation content to a subversion folder in the software directory of your distribution.
 
 *3. Check the installation*
 
-To check the installation launch the console.bat script to get environment’s console and type the command svn --version. The console must recognize the command and return our subversion version installed.
+To check the installation, launch the console.bat script to get environment’s console and type the command svn --version. The console must recognize the command and return your subversion version installed.
  
-If the command is not recognized check the Subversion install process.
+If the command is not recognized, check the Subversion install process.
 
 ==== Adding Jasypt client
 
-Jasypt is a java library which allows the developer to add basic encryption capabilities to the projects with minimum effort. Jasypt allows to manage and transparently decrypt encrypted values in .properties files used by Spring applications. In this case the Jasypt client is a tool needed for configuring the link:cookbook-winauth-ad-module[winauth] module in order to generate the encrypted passwords that will be stored in the application.properties file. To facilitate to the developer the usage of the Devon framework the Jasypt client is included as a default plugin in the distribution.
+Jasypt is a java library which allows the developer to add basic encryption capabilities to the projects with minimum effort. Jasypt allows to manage and transparently decrypt encrypted values in .properties files used by Spring applications. In this case, the Jasypt client is a tool needed for configuring the link:cookbook-winauth-ad-module[winauth] module in order to generate the encrypted passwords that will be stored in the application.properties file. To facilitate to the developer the usage of the Devon framework, the Jasypt client is included as a default plugin in the distribution.
 
 *1. Download the client*
 
-The Jasypt client can be downloaded from the https://www/jasypt.org/[Jasypt site]
+The Jasypt client can be downloaded from the http://www.jasypt.org/download.html[Jasypt site]
 
 *2. Extract the files*
 
@@ -82,40 +82,42 @@ Unzip the jasypt-<VERSION>-dist.zip file into the software directory.
 
 *3. Usage*
 
-To check the Jasypt client functionality ,launch the console.bat script of  distribution and go into the bin folder of the jasypt directory. Within this location one can find the .bat files for Windows execution and we can check a basic encryption as follows
+To check the Jasypt client functionality, launch the console.bat script of distribution and go to the bin folder of the jasypt directory. Within this location, one can find the .bat files for Windows execution and you can check a basic encryption as follows:
+
 [source,xml]
 ----
 ...\software\jasypt\bin>encrypt.bat input=MyPasswordToEncrypt password=MyKey
 ----
 
-If the Jasypt client is correctly installed we should receive a response like the following
+If the Jasypt client is correctly installed, you should receive a response like the following:
+
 [source,xml]
 ----
 [...]
 
 aPZ03ig2ZCif8p592V8RNErt1aHdSXpLrwF5ECDJ/1M=
 ----
-To know more about the Jasypt client usage please visit this link
+To know more about the Jasypt client usage, please visit this http://www.jasypt.org/[link].
 
 ==== Cobigen
 
-Cobigen is a server-side code generator to create CRUD operations. Cobigen is not an external plugin but an Eclipse plugin and is included by default in the Devon distribution so there is no installation needed. The only point that we must be aware of is to obtain the last version of the templates that Cobigen uses in order to work properly.
+Cobigen is a server-side code generator to create CRUD operations. Cobigen is not an external plugin but an Eclipse plugin and is included by default in the Devon distribution, so there is no installation needed. The only point that, you must be aware of is, to obtain the last version of the templates that Cobigen uses in order to work properly.
 
 *1.Download the templates*
 
-Again get the last version of the templates from https://github.com/maybeec/tools-cobigen[here]. Clone the repository, and to do so you need a Git client for windows that can be downloaded from https://git-scm.com/downloads[here].
-After the installation of the Git client in your local machine , launch the app and clone the Cobigen repository using the command
+Again, get the last version of the templates from https://github.com/maybeec/tools-cobigen[here]. Clone the repository, and to do so, you need a Git client for windows, that can be downloaded from https://git-scm.com/downloads[here].
+After the installation of the Git client on your local machine, launch the app and clone the Cobigen repository using the command:
 
 [source,xml]
 ----
 some\local\directory>git clone https://github.com/may-bee/tools-cobigen.git
 ----
 
-In local directory now ,you have a new folder tools-cobigen and inside of it you should find a cobigen-templates\templates-oasp directory.
+In local directory, you have a new folder called tools-cobigen. Inside it, you should find a cobigen-templates\templates-oasp directory.
 
 *2.Add the templates to our distribution*
 
-Copy above created templates-oasp directory to the workspaces\main directory of  distribution and rename it as *CobiGen_Templates* (note that is mandatory to use this exact name) so you will have all the templates information in the following location
+Copy above created templates-oasp directory in the workspaces\main directory of  distribution and rename it as *CobiGen_Templates* (note that is mandatory to use this exact name), so you will have all the templates information at the following location:
 
 [source,xml]
 ----
@@ -124,15 +126,15 @@ Copy above created templates-oasp directory to the workspaces\main directory of 
 
 *3.Preparing Cobigen for first use*
 
-Now in order to use Cobigen follow the steps described in https://github.com/devonfw/devon/wiki/devon-guide-cobigen[this guide]
+Now, in order to use Cobigen, follow the steps described in https://github.com/devonfw/devon/wiki/devon-guide-cobigen[this guide]
 
 === Updating node js
 
-The node.js plugin is included in the OASP IDE distribution but you may need to update it to the last version. To do so proceed as follows:
+The node.js plugin is included in the OASP IDE distribution, but you may need to update it to the last version. To do so, proceed as follows:
 
 *1.Check the current version*
 
-In order to check the new version ,open environment’s console by launching the console.bat script. Then ,type the command +node -v+ and the console must recognize the command and return the node version installed.
+In order to check the new version, open environment’s console by launching the console.bat script. Then, type the command +node -v+ and the console must recognize the command and return the node version installed.
 
 *2. Download new version*
 
@@ -140,17 +142,18 @@ Download the latest binary (.exe) version of node.js from https://nodejs.org/en/
 
 *3.Put it in the distribution*
 
-Now we must replace the node.exe located on software\nodejs by the new node.exe that is just downloaded.
+Now, you must replace the _node.exe_ located at path _software\nodejs_ by the new _node.exe_ that is just downloaded.
 
 *4.Check the new version*
-To check the new version proceed as mentioned in the step 1. The version returned by the console must match the version that we just downloaded.
+To check the new version, proceed as mentioned in the step 1. The version returned by the console must match the version that you just downloaded.
  
-If the command is not recognized or the version doesn’t match the version  just downloaded ,check the installation process.
+If the command is not recognized or the version doesn’t match the version just downloaded, check the installation process.
 
 === Adding sample apps
 
-To complete the distribution ,include some examples of server and client apps. To do that ,use the sample applications that already are created for Devon and OASP and can be found in the https://github.com/devonfw[Devon Github] and the https://github.com/oasp[Oasp Github].
-We are going to include:
+To complete the distribution, include some examples of server and client apps. To do that, use the sample applications that are already created for Devon and OASP, and can be found in the https://github.com/devonfw[Devon Github] and the https://github.com/oasp[Oasp Github].
+
+You need to include following:
 
 * Devon Sample
 * devon4sencha Sample
@@ -159,15 +162,15 @@ We are going to include:
 
 *1.Create a examples directory*
 
-Include the examples in a folder located in the workspaces directory. So create it.
+Include the examples in a folder located in the workspaces directory. So, create it.
 
 *2.Download the sample apps*
 
-To download the examples of the apps to clone the Devon repositories. To achieve have installed the Git client for windows that can be downloaded https://git-scm.com/downloads[here].
+To download the examples of the apps, clone the Devon repositories. To achieve this, you must have installed the Git client for windows, it can be downloaded from https://git-scm.com/downloads[here].
 
-Once the git client is installed in your local machine launch it and access to created examples folder or from windows explorer in the examples folder and right click on the mouse open the Git Bash Here option.
+Once the git client is installed on your local machine, launch it and access the created examples folder or from the windows explorer in the examples folder and right click on the mouse, open the _Git Bash Here_ option.
 
-In the Git Bash window use the clone option to get the last version of each of the sample repositories:
+In the Git Bash window, use the clone option to get the last version of each of the sample repositories:
 For *devon* sample:
 [source,xml]
 ----
@@ -185,7 +188,7 @@ For *oasp server* sample:
 ...workspaces\examples>git clone https://github.com/oasp/oasp4j.git
 ----
 
-Now, you need to reset to the last stable release. To do so, in the oasp4j project in github go to releases tab or go directly from this https://github.com/oasp/oasp4j/releases[link], copy the number related to the commit of the last release and in the git console go into the oasp4j just created directory and type the following command (replacing the {last-release-commit-number} by the number copied from github)
+Now, you need to reset to the last stable release. To do so, in the oasp4j project in github, go to releases tab or go directly from this https://github.com/oasp/oasp4j/releases[link], copy the number related to the commit of the last release and in the git console go into the oasp4j just created directory and type the following command (replacing the {last-release-commit-number} by the number copied from github)
 
 [source,xml]
 ----
@@ -198,12 +201,13 @@ For *oasp client* sample:
 ...workspaces\examples>git clone https://github.com/oasp/oasp4js.git
 ----
 
-The console will return the result of each clone operation
+The console will return the result of each clone operation.
  
-After all above steps ,you must have your local examples folder all the samples.
+After all the above steps, you must have your local examples folder with all the samples.
 
-At this point check the Sencha installation as  explained in the previous section of Sencha’s installation. 
-So ,launch the distribution console (with the console.bat script) and go into _workspaces\examples\devon4sencha\ExtSample directory and type the following command
+At this point, check the Sencha installation as explained in the previous section of Sencha’s installation. 
+So, launch the distribution console (with the console.bat script) and go to _workspaces\examples\devon4sencha\ExtSample directory_ and run the following command:
+
 [source,xml]
 ----
 ...\workspaces\examples\devon4sencha\ExtSample>sencha app watch
@@ -215,21 +219,20 @@ http://localhost:1841/ExtSample/
 
 ==== S2 scripts
 
-As these *s2 scripts* are not included in OASP distribution which we downloaded as base, in very first step in this document,are related to the Shared Services funcionality included in Devonfw. The s2-init.bat configures the settings.xml file to connect with an Artifactory Repository. The s2.create.bat generates a new project in the workspaces directory and does a checkout of a Subversion repository inside. Each script needs to be launched from the distribution’s cmd (launching the console.bat script) and some parameters to work properly.
+As these *s2 scripts* are not included in OASP distribution, which are downloaded as a base, in very first step in this document, are related to the Shared Services functionality included in Devonfw. The s2-init.bat configures the _settings.xml_ file to connect with an Artifactory Repository. The s2.create.bat generates a new project in the workspaces directory and does a checkout of a Subversion repository inside. Each script needs to be launched from the distribution’s cmd (launching the console.bat script) and some parameters to work properly.
 
 ==== Add ps-console.bat 
 Add this script in script folder of distribution.
 
-
 === Modify version number of release
-As, we going to release a new version of devonfw, ensure to change version number in *settings.json* to the one which is to be released.
+As soon as the new version of devonfw will be released, ensure to change the version number in *settings.json* to the one which is to be released.
 
-settings.json can be found at 2 places as mentioned below and both needs to be modified for version number.
+_settings.json_ can be found at two places as mentioned below and both needs to be modified for version number.
 
 *  <disrtibution directory>\settings\version\settings.json
 *  <disrtibution directory>\workspaces\main\development\settings\version\settings.json
 
-Settings.json contains this
+_settings.json_ contains:
 
 [source,xml]
 ----
@@ -237,17 +240,17 @@ Settings.json contains this
   "version": "2.0.1"
 }
 ----
-So, lets say , we are creating distribution for release of next version, with some additions to features etc and version becomes "2.1.1" so, change version "2.0.1" as "2.1.1" into settings.json.
+For example, consider you are creating distribution for the next version release, with some improvements in features etc and version becomes "2.1.1". Therefore, change the version from "2.0.1" to "2.1.1" in settings.json.
 
 === Add changeLOG file
 
-Add a simple .txt file named changelog, which contains information about new enhancements, features etc to be released in this version .
+Add a simple .txt file named changelog, which contains information about new enhancements, features etc to be released in this version.
 
 === Verification and creation of the zip
 
 [NOTE]
 ====
-For creating the zip file from the distribution directory avoid using the Windows default compression tool (it doesn't work properly for large tree structures). The recommended tool for doing this is _7zip_
+For creating the zip file from the distribution directory, avoid using the Windows default compression tool (it doesn't work properly for large tree structures). The recommended tool for doing this is _7zip_.
 ====
 
 Once all above mentioned steps are performed, verify the zip ,by running all apps present in examples directory.
@@ -259,20 +262,19 @@ For verifying oasp4j and devon , go to sample projects respectively, and launch 
 mvn clean install
 ----
 
-if everything goes well, you will see a build success message, then deploy the generated war from sample project's target folder and deploy on tomcat server.
-It should give a login screen.
+if everything goes well, you will see a build success message, then deploy the generated war from sample project's target folder and deploy on tomcat server. It should give a login screen.
 
 As you run all the apps, you would find a folder +conf+ in the root of distribution directory, remove it off before creation of zip. 
 
-For creation of zip, use 7z software. and provide name of zip as Devon-dist_{version}.
+For the creation of zip, use 7z software and name the zip as Devon-dist_{version}.
 
 === Upload to Teamforge
 
-Once everything runs successfully, upload it to teamforge.
+Once everything runs successfully, upload it in teamforge.
 
 === Creation of Devon distribution in case of intermediate release
 
-When there needs to be an intermediate release, lets say a bug fix release, the ,you can use the last devon distribution zip.
+In case of an intermediate release, such as a bug fix release, you can use the last devon distribution zip.
 Download it from https://coconet.capgemini.com/sf/frs/do/listReleases/projects.apps2_devon/frs.devon_distribution[here].
 
 Once you download it, extract it and then skip *Adding plugins* step, and directly follow step *Adding sample apps* .
@@ -280,22 +282,22 @@ If there are any modifications in scripts etc, put new scripts at appropriate di
 
 == Linux
 
-For Linux, we need to follow  the steps mentioned below.
+For Linux, you need to follow the steps mentioned below.
 
 
 === Download the OASP IDE
 
-To create, the new Devon distribution we are going to start from the latest OASP-IDE distribution that can be found https://coconet.capgemini.com/sf/go/projects.apps2_devon/frs.oasp4j_ide[here].
+To create the new Devon distribution, you need to start from the latest OASP-IDE distribution that can be found https://coconet.capgemini.com/sf/go/projects.apps2_devon/frs.oasp4j_ide[here].
 In this link, you will get OASP-IDE distribution for _Windows OS_ .
-So, we need to align linux devon distribution with Windows version.
-Now we have an OASP .zip file so the next step is to extract the file in a folder of our local machine. After extracting the oasp4j-ide-all.zip we rename it to fit to our new devon version.Now please execute below command from extracted directory.
+So, you need to align this linux devon distribution with Windows version.
+Now, you have an OASP .zip file. Thus, the next step is to extract the file in a folder of your local machine. After extracting the oasp4j-ide-all.zip, you can rename it to fit to your new devon version. Now, execute below command from extracted directory:
 
 [source,xml]
 ----
 find . -type f -exec dos2unix {} \;
 ----
 
-After extraction, delete all the binaries present in software folder.And we need to have below listed binaries in linux versions.
+After extraction, delete all the binaries present in software folder. And you need to have below listed binaries in linux versions.
 
 * ant
 * eclipse
@@ -310,7 +312,7 @@ After extraction, delete all the binaries present in software folder.And we need
 
 === Adding Plugins
 
-The Devon distribution has some plugins that are not included in the OASP distribution so we need to add them to our new version. In other scenario it is possible that some existing plugin might be out of date so we would need to update it.
+The Devon distribution has some plugins that are not included in the OASP distribution, so you need to add them to your new version. In other scenario, it is possible that some existing plugin might be out of date, so you may need to update it.
 Plugins to include:
 
 * Sencha
@@ -323,25 +325,23 @@ Sencha (Ext JS) is a pure JavaScript application framework for building interact
 
 *1. Download Sencha Cmd*
 
-First of all we need the last version of the software so we can download it from the https://www.sencha.com[Sencha’s website]. We must look for the Sencha Cmd package.
+Firstly, you need the last version of the software, so that you can download it from the https://www.sencha.com[Sencha’s website]. You must look for the Sencha Cmd package.
 
 *2. Install Sencha*
 
-To install the software choose a proper location or directly create a Sencha directory in the software folder of the distribution and select this folder to do the installation. If we install it in other location copy the installation content to your +software\Sencha folder+.
-To complete the installation, you need to add the ext folder to the plugin. To do so we must:
+To install the software, choose a proper location or directly create a Sencha directory in the software folder of the distribution and select this folder to do the installation. If you install it in other location, copy the installation content to your +software\Sencha folder+.
+To complete the installation, you need to add the ext folder to the plugin. To do so, you must:
 
-* copy from the previous distribution the +software\Sencha\Cmd\default\repo*extract*+ directory and paste it in the  same place of our new distribution.
+* Copy from the previous distribution the +software\Sencha\Cmd\default\repo*extract*+ directory and paste it in the  same place of the new distribution.
 
-* copy from the previous distrubution the software\Sencha\Cmd\default\repo\pkgs*ext* directory and paste it in the same place of our new distribution.
+* Copy from the previous distribution the software\Sencha\Cmd\default\repo\pkgs*ext* directory and paste it in the same place of the new distribution.
 
 *3. Check the installation*
 
 A quick way to check if Sencha is installed is, to open the distribution console (launching the console.bat script) and type the command sencha, the console must return the Sencha version installed.
  
-If there is no response we must check our Sencha installation.
-But to check if the installation is completely successful we should compile the ExtSample app that we can obtain at the last section of this document. So this check will be delayed until that moment.
-
-
+If there is no response, you must check your Sencha installation.
+But, to check if the installation is completely successful, you should compile the ExtSample app that you can obtain in the last section of this document. So, this check will be delayed until that moment.
 
 ==== Jasypt client
 
