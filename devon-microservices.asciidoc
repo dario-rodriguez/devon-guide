@@ -301,4 +301,325 @@ hystrix.command.default.execution.timeout.enabled=false
 
 - `hystrix.command.default.execution.timeout.enabled`: Enables or disables the timeout parameter to consider a microservices as unavailable. By default the value for this property is 1 second. Any request that takes more than this will be consider failed. By default in the archetype this property is disabled.
 
-Having an _Eureka_ client activated, the _Zuul_ service will refresh its content every 30 seconds, so a just registered service may still have not been cached in _Zuul_. On the contrary, if a service is unavailable, 3 cycles of 30 seconds must pass before _Eureka_ sets its register as _dead_, and other 30 seconds for _Zuul_ to refresh its cache. 
+Having an _Eureka_ client activated, the _Zuul_ service will refresh its content every 30 seconds, so a just registered service may still have not been cached in _Zuul_. On the contrary, if a service is unavailable, 3 cycles of 30 seconds must pass before _Eureka_ sets its register as _dead_, and other 30 seconds for _Zuul_ to refresh its cache.
+
+=== Security, Authentication and authorization
+
+The most commonly used authentication in micro-service environments is authentication based on https://jwt.io/[json web tokens], since the server does not need to store any type of user information (stateless) and therefore favors the scalability of the microservices.
+
+It works as follows:
+
+- The user is authenticated in our application, either through a user / password access, or through a third provider.
+
+- This authentication request is launched against the Zuul server which will redirect it to an instance of the _Auth_ microservice.
+
+- The _Auth_ microservice will check the user, retrieve their roles and metadata and generate two tokens: one with user access information and another needed to refresh the access token. This information will be returned to the customer.
+
+image::images/microservices/microservices_03.png[,width="450", link="images/microservices/microservices_03.png"]
+
+the `service-auth` service is already prepared to listen to the `/login` path and generate the two mentioned tokens. To do so we can use the `JsonWebTokenUtility` class that is implemented in Devonfw
+
+[source,java]
+----
+      UserDetailsJsonWebTokenAbstract clientTo = new UserDetailsJsonWebTokenTo();
+      clientTo.setId(1L);
+      clientTo.setUsername("demo");
+      clientTo.setRoles(new ArrayList<>(Arrays.asList("DEMO")));
+      clientTo.setExpirationDate(buildExpirationDate(this.expirationTime * 60 * 1000L));
+
+      return new ResponseEntity<>(new JwtHeaderTo(this.jsonWebTokenUtility.createJsonWebTokenAccess(clientTo),
+          this.jsonWebTokenUtility.createJsonWebTokenRefresh(clientTo),
+          this.expirationTime * 60 * 1000L), HttpStatus.OK);
+----
+
+This will generate a response like the following
+
+[source,json]
+----
+{
+  "accessToken": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkZW1vIiwiZmlyc3ROYW1lIjoiZGVtbyIsImxhc3ROYW1lIjoiZGVtbyIsImV4cCI6MTQ4Nzg3NTAyMSwicm9sZXMiOlsiREVNTyJdfQ.aEdJWEpyvRlO8nF_rpSMSM7NXjRIyeJF425HRt8imCTsq4iGiWbmi1FFZ6pydMwKjd-Uw1-ZGf2WF58qjWc4xg",
+  "refreshToken": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkZW1vIiwiZmlyc3ROYW1lIjoiZGVtbyIsImxhc3ROYW1lIjoiZGVtbyIsImV4cCI6MTQ4Nzg3NTAyMSwicm9sZXMiOlsiUkVGUkVTSF9KV1QiXX0.YtK8Bh07O-h1GTsyTK36YHxkGniyiTlxnazZXi8tT-RtUxxW8We8cdiYJn6tw0RoFkOyr1F5EzvkGyU0HNoLyw",
+  "expirationTime": 900000,
+  "accessHeaderName": "Authorization",
+  "refreshHeaderName": "Authorization-Refresh"
+}
+----
+
+The client now should store, in the header defined in `accessHeaderName`, the token included as `accessToken`. By default, when using https://github.com/devonfw/devon4sencha[devon4sencha], this functionality is already implemented.
+
+When configuring the `service-auth` module is very important to have into account the following aspects:
+
+- The _expiration date_ of the token can be configured in the properties file with the property `jwt.expirationTime` (will appear in minutes).
+
+- The key for the token generation can be configured also in the properties file using the property `jwt.encodedKey` which will have a _Base64_ encoded value.
+
+- The roles inserted in the token should be the list of the access roles of the user. Doing this we avoid that each microservice has to look for the roles that belong to a profile.
+
+- If you want to use a specific UserDetails for the project, with new fields, you must extend the behavior as explained in link:devon-microservices#how-to-modify-the-UserDetails-information.
+
+From now on, the client will be able to make calls to the microservices, sending the _access token_ in the header of the request.
+
+image::images/microservices/microservices_04.png[,width="450", link="images/microservices/microservices_04.png"]
+
+Once the request reaches the microservice, the app must validate the token and register the user in the security context. These operations will be automatic as long as the microservice has enabled the security inherited from the `JsonWebTokenSecurityConfig` class. This is done using the following code:
+
+[source,java]
+----
+@Configuration
+@EnableWebSecurity
+public class WebSecurityConfig extends JsonWebTokenSecurityConfig {
+
+  @Override
+  public JsonWebTokenUtility getJsonWebTokenUtility() {
+
+    return new JsonWebTokenUtility();
+  }
+
+  @Override
+  protected void setupAuthorization(HttpSecurity http) throws Exception {
+
+    http.authorizeRequests()
+        // authenticate all other requests
+        .anyRequest().authenticated();
+  }
+
+}
+----
+
+In addition, Devonfw has already implemented the needed interceptors and filters to resend the security header each time that a microservice calls other microservice of the ecosystem.
+
+When validating the token, it is also checked its expiration date, so it is highly recommended that the client refresh from time to time the token, in order to update its expiration date. This is done by launching a request to `/refresh_jwt` within the `service-auth` module and sending both the _access token_ and the _refresh token_ in the header.
+
+image::images/microservices/microservices_05.png[,width="450", link="images/microservices/microservices_05.png"]
+
+When using https://github.com/devonfw/devon4sencha[devon4sencha] that requests are automated by the framework.
+
+If for any reason an attempt is made to access a business operation without having a valid token, or without sufficient _role_ level permission to execute that operation, the microservice response will be *Forbidden*.
+
+image::images/microservices/microservices_06.png[,width="450", link="images/microservices/microservices_06.png"]
+
+==== How to modify the UserDetails information
+
+In order to modify the _UserDetails_ information we will need to accomplish two steps: modify the authentication service to generate the authentication token with the custom attributes embedded, and modify the pre-authentication filter of the microservices to convert the token into an _Object_ with the custom attributes available.
+
+===== Modify the authentication service to generate a new token
+
+We must modify the `service-auth` that is in charge of logging the user and generate the security token.
+
+The first thing to do is to create a _UserDetails_ class that contains the required attributes and custom attributes. In the code sample we will call this class _UserDetailsJsonWebTokenCustomTo_, and must either implement the generic _UserDetailsJsonWebTokenAbstract_ interface or extend it from the current _UserDetailsJsonWebTokenTo_ class, since the services are prepared to work with it. In the example, we will add two new attributes `firstName` and `lastName`.
+
+[source,java]
+----
+public class UserDetailsJsonWebTokenCustomTo extends UserDetailsJsonWebTokenTo {
+
+  private String firstName;
+  private String lastName;
+
+  public String getFirstName() {
+    return this.firstName;
+  }
+
+  public String getLastName() {
+    return this.lastName;
+  }
+
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
+
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
+}
+----
+
+In case that the `UserDetailsJsonWebTokenAbstract` interface is implemented, in addition to the new attributes the rest of the interface must be implemented.
+
+The next step would be to override the component that performs the conversions _Token→UserDetails_ and _UserDetails→Token_. This component is the `JsonWebTokenUtility`, so you should create a new class that extends from this, in the example we will call it `JsonWebTokenUtilityCustom`. In this new class, you must overwrite the only two methods that are allowed to perform the conversions, to add _writing_ and _reading_ operations for the new custom attributes.
+
+[source,java]
+----
+public class JsonWebTokenUtilityCustom extends JsonWebTokenUtility {
+
+  @Override
+  protected UserDetailsJsonWebTokenAbstract addCustomPropertiesClaimsToUserDetails(Claims claims) {
+
+    UserDetailsJsonWebTokenCustomTo userDetails = new UserDetailsJsonWebTokenCustomTo();
+
+    userDetails.setFirstName(claims.get("firstName", String.class));
+    userDetails.setLastName(claims.get("lastName", String.class));
+
+    return userDetails;
+  }
+
+  @Override
+  protected void addCustomPropertiesUserDetailsToJwt(UserDetailsJsonWebTokenAbstract authTokenDetailsDTO, JwtBuilder jBuilder) {
+
+    UserDetailsJsonWebTokenCustomTo userDetails = (UserDetailsJsonWebTokenCustomTo) authTokenDetailsDTO;
+
+    jBuilder.claim("firtName", userDetails.getFirstName());
+    jBuilder.claim("lastName", userDetails.getLastName());
+  }
+}
+----
+
+Now you should enable that new converter to replace the default one. In the `WebSecurityConfig` class you must change the related `@Bean` to start using this new class
+
+[source,java]
+----
+@Configuration
+@EnableWebSecurity
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+...
+
+  @Bean
+  public JsonWebTokenUtility getJsonWebTokenUtility() {
+    return new JsonWebTokenUtilityCustom();
+  }
+
+...
+
+}
+----
+
+Finally, in the login process the new attributes should be filled in when creating the user. In our example in the class `SecuritymanagementRestServiceImpl`.
+
+[source,java]
+----
+      UserDetailsJsonWebTokenCustomTo clientTo = new UserDetailsJsonWebTokenCustomTo();
+      clientTo.setId(1L);
+      clientTo.setUsername("demo");
+      clientTo.setRoles(new ArrayList<>(Arrays.asList("DEMO")));
+      clientTo.setExpirationDate(buildExpirationDate(this.expirationTime * 60 * 1000L));
+
+      clientTo.setFirstName("firstName");
+      clientTo.setLastName("lastName");
+
+
+      return new ResponseEntity<>(new JwtHeaderTo(this.jsonWebTokenUtility.createJsonWebTokenAccess(clientTo),
+          this.jsonWebTokenUtility.createJsonWebTokenRefresh(clientTo), //
+          this.expirationTime * 60 * 1000L), HttpStatus.OK);
+----
+
+===== Modify the pre-authentication filter to read the new token
+
+Once a token with custom attributes has been obtained, the steps to read it and put it in the security context are very simple. The changes shown in this point should be reproduced in those microservices where you want to use the new custom attributes. The steps to follow are those:
+
+- Create a `UserDetailsJsonWebTokenCustomTo` class that contains the new attributes, as was done in the previous section. The ideal would be to reuse the same class.
+
+- Create a `JsonWebTokenUtilityCustom` class that extends the implementation of the token generator, just as it was done in the previous section. Again, the ideal would be to reuse the same class.
+
+- Configure the creation of this new `@Bean` in the `WebSecurityConfig` class just like in the previous section.
+
+With these three steps you can use the new security object with the custom attributes. One way to use it could be as follows:
+
+[source,java]
+----
+   UserDetailsJsonWebToken principal = (UserDetailsJsonWebToken) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+   UserDetailsJsonWebTokenCustomTo userDetails = (UserDetailsJsonWebTokenCustomTo) principal.getUserDetailsJsonWebTokenAbstract();
+
+   userDetails.getFirstName();
+----
+
+=== How to start with a microservice
+
+Once the microservice has been created through its archetype, you need to have a series of points in mind to configure it correctly:
+
+- The microservice must have as dependency `<groupId> com.capgemini.devonfw.archetypes </ groupId> <artifactId> microservices </ artifactId>` in its `pom.xml` configuration to be able to use the interceptors and the generic configuration.
+
+- It should be annotated in its initial class with `@EnableMicroservices`, this will activate the annotations for _Eureka_ client, _CircuitBreaker_ and the client Feign. All of this is configured in the properties file.
+
+- This is a _bootified_ application so in the `pom.xml` file you will have to define which one is the boot class.
+
+- You must consider the boot configuration: _port_ and _context-path_. In development, each microservice must have a different port, to avoid colliding with other microservices, while the _context-path_ is recommended to be the same, to simplify the _Zuul_ configurations and calls between microservices.
+
+- You can use `@RolesAllowed` annotations in the services methods to secure them, as long as the Web security inherited from `JsonWebTokenSecurityConfig` has been enabled, since it is the responsible for putting the _UserDetails_ generated from the token into the security context.
+
+- All microservices must share the security key to encrypt and decrypt the token. And, specially, it should be the same as the `service-auth`, which will be responsible for generating the initial token.
+
+- In the _Zuul_ module, the routes must be well configured to be able to route certain URLs to the new created microservices.
+
+The rest will be treated as if it were a normal Web application, which exposes some services through a REST API.
+
+=== Calls between microservices
+
+In order to invoke a microservice manually, you would need to implement the following steps:
+
+- Obtain the instances of the microservice you want to invoke.
+
+- Choose which of all instances is the most optimal for the client.
+
+- Retrieve the security token from the source request.
+
+- Create a REST client that invokes the instance by passing the generated security token.
+
+- Intercept the response in case it causes an error, to avoid a cascade propagation.
+
+Thanks to the combination of _Feign_, _Hystrix_, _Ribbon_, _Eureka_ and _Devonfw_ it is possible to make a call to another microservice in a declarative, very simple and almost automatic way.
+
+You only need to create an interface with the methods that need to be invoked. This interface must be annotated with `@FeignClient` and each of the methods created must have a path and a method in the `@RequestMapping` annotation. An example interface might be as follows:
+
+[source,java]
+----
+@FeignClient(value = "foo")
+public interface FooClient {
+
+  @RequestMapping(method = RequestMethod.GET, value = "/${server.context-path}/services/rest/foomanagement/v1/foo")
+  FooMessageTo foo();
+
+}
+----
+
+It is important to highlight the following aspects:
+
+- The `@FeignClient` annotation comes along with the name of the microservice to be invoked. The correct and optimal would be to use the name of the microservice, but it is also possible to launch the request to the _Zuul_ server. In the latter case it would be the server itself that would perform the load balancing and self-discovery of the most appropriate microservice, but have in mind that, doing this, the proxy server is also unnecessarily overloaded with unnecessary requests.
+
+- The `@RequestMapping` annotation must have the same method and path as expected on target, otherwise the request will be thrown and no response will be found.
+
+- The input and output parameters will be mapped to _json_, so they may not be exactly the same classes in both destination and source. It will depend on how you want to send and retrieve the information.
+
+Once the interface is created and annotated, in order to use the calls, it would be enough to inject the component into the object from which we want to use it and invoke any of its methods. _Spring Cloud_ will automatically generate the required bean.
+
+[source,java]
+----
+...
+
+  @Inject
+  FooClient fooClient;
+
+  public FooMessageTo ivokeFooClient() {
+    return this.fooClient.foo();
+  }
+
+...
+----
+
+With these two annotations, almost all the functionality is covered automatically: search in _Eureka_, choice of the best instance through _Ribbon_, registration of the token and creation of the REST client. Only would be necessary to control the response in case of failure. The idea is to allow, in case of failure or fall of the invoked microservice, from the origin of the invocation is executed an alternative plan. This is as simple as activating the `fallback` in the `@FeignClient` annotation and assigning a class that will be invoked in case the REST client response fails.
+
+[source,java]
+----
+@FeignClient(value = "foo", fallback = FooClientHystrixFallback.class)
+public interface FooClient {
+
+  @RequestMapping(method = RequestMethod.GET, value = "/${server.context-path}/services/rest/foomanagement/v1/foo")
+  FooMessageTo foo();
+
+}
+----
+
+Finally, you will need to create a class annotated with `@Component` that implements the interface of the _Feign_ client. Within this implementation you can add the desired functionality in case the invocation to the REST client fails.
+
+[source,java]
+----
+@Component
+public class FooClientHystrixFallback implements FooClient {
+
+  @Override
+  public FooMessageTo foo() {
+    return new FooMessageTo("Fail Message");
+  }
+
+}
+----
