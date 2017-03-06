@@ -65,7 +65,7 @@ Using annotations, Spring-cloud generates, automatically, a fully configured RES
 
 === Router and Filter - Zuul
 
-http://cloud.spring.io/spring-cloud-static/spring-cloud-netflix/1.3.0.M1/#_router_and_filter_zuul[Zuul] is the entry point of the apps based on Spring-cloud microservices. It allows dynamic routing, load balancing, monitoring and securing of requests. By default _Zuul_ uses _Ribbon_ to locate, through Eureka, the instances of the microservice that it wants to invoke and sends the requests within a _Hystrix Command_, taking advantage of its functionality.
+link:http://cloud.spring.io/spring-cloud-static/spring-cloud-netflix/1.3.0.M1/#_router_and_filter_zuul[Zuul] is the entry point of the apps based on Spring-cloud microservices. It allows dynamic routing, load balancing, monitoring and securing of requests. By default _Zuul_ uses _Ribbon_ to locate, through Eureka, the instances of the microservice that it wants to invoke and sends the requests within a _Hystrix Command_, taking advantage of its functionality.
 
 == How to create microservices in Devonfw
 
