@@ -356,7 +356,7 @@ When configuring the `service-auth` module is very important to have into accoun
 
 - The roles inserted in the token should be the list of the access roles of the user. Doing this we avoid that each microservice has to look for the roles that belong to a profile.
 
-- If you want to use a specific UserDetails for the project, with new fields, you must extend the behavior as explained in link:devon-microservices#how-to-modify-the-UserDetails-information[here].
+- If you want to use a specific UserDetails for the project, with new fields, you must extend the behavior as explained in link:devon-microservices#how-to-modify-the-userdetails-information[here].
 
 From now on, the client will be able to make calls to the microservices, sending the _access token_ in the header of the request.
 
