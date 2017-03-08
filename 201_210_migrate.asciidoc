@@ -9,11 +9,11 @@ In the Devonfw 2.1.0 release, the Sencha _extJS_ has been updated from release 6
 
 If you want to migrate a Sencha app created with Devonfw 2.0.1 to the new Devonfw 2.1.0 release, you have two options:
 
-=== Option 1 *keeping your previous extJS*
+=== Option 1 - *keeping your previous extJS*
 
 if you want to keep your old _extJS_, copy your existing app to the _devon4sencha_ workspace, in the new Devonfw 2.1.0 release, and replace the existing _ext_ folder with the _ext_ folder of the previous Devonfw release (2.0.1).
 
-=== Option 2 *Upgrade*
+=== Option 2 - *Upgrade*
 
 Copy your app into the _devon4sencha_ workspace, in the new Devonfw 2.1.0 release, and go inside its directory. 
 
