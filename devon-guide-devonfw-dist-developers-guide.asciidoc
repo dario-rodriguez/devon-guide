@@ -126,13 +126,13 @@ Copy above created templates-oasp directory in the workspaces\main directory of 
 
 *3. Preparing Cobigen for first use*
 
-Now, in order to use Cobigen, follow the steps described in https://github.com/devonfw/devon/wiki/devon-guide-cobigen[this guide].
+Now, in order to use Cobigen, follow the steps described in https://github.com/devonfw/devon-guide/wiki/getting-started-Cobigen#preparing-cobigen-for-first-use[this guide].
 
 === Updating node js
 
 The node.js plugin is included in the OASP IDE distribution, but you may need to update it to the last version. To do so, proceed as follows:
 
-*1.Check the current version*
+*1. Check the current version*
 
 In order to check the new version, open environment’s console by launching the console.bat script. Then, type the command +node -v+ and the console must recognize the command and return the node version installed.
 
@@ -140,7 +140,7 @@ In order to check the new version, open environment’s console by launching the
 
 Download the latest binary (.exe) version of node.js from https://nodejs.org/en/download/[here].
 
-*3.Put it in the distribution*
+*3. Include it in the distribution*
 
 Now, you must replace the _node.exe_ located at path _software\nodejs_ by the new _node.exe_ that is just downloaded.
 
@@ -151,7 +151,7 @@ If the command is not recognized or the version doesn’t match the version just
 
 === Adding sample apps
 
-To complete the distribution, include some examples of server and client apps. To do that, use the sample applications that are already created for Devon and OASP, and can be found in the https://github.com/devonfw[Devon Github] and the https://github.com/oasp[Oasp Github].
+To complete the distribution, include some examples of server and client apps. To do that, use the sample applications that are already created for Devon and OASP, and can be found in the https://github.com/devonfw[Devon GitHub] and the https://github.com/oasp[OASP Github].
 
 You need to include following:
 
@@ -160,11 +160,11 @@ You need to include following:
 * oasp4j sample
 * oasp4js sample.
 
-*1.Create a examples directory*
+*1. Create a examples directory*
 
 Include the examples in a folder located in the workspaces directory. So, create it.
 
-*2.Download the sample apps*
+*2. Download the sample apps*
 
 To download the examples of the apps, clone the Devon repositories. To achieve this, you must have installed the Git client for windows, it can be downloaded from https://git-scm.com/downloads[here].
 
@@ -212,7 +212,7 @@ So, launch the distribution console (with the console.bat script) and go to _wor
 ----
 ...\workspaces\examples\devon4sencha\ExtSample>sencha app watch
 ----
-The app should be compiled and finally the console must show the message Waiting for changes and the app should be accessible from the browser in the url
+The app should be compiled and finally the console must show the message Waiting for changes and the app should be accessible from the browser using the url : 
 http://localhost:1841/ExtSample/
 
 === Updating, adding scripts
@@ -395,13 +395,13 @@ Copy above created templates-oasp directory to the _workspaces\main- directory o
 
 *3.Preparing Cobigen for first use*
 
-Now, in order to use Cobigen, follow the steps described in https://github.com/devonfw/devon/wiki/devon-guide-cobigen[this guide]
+Now, in order to use Cobigen, follow the steps described in https://github.com/devonfw/devon-guide/wiki/getting-started-Cobigen#preparing-cobigen-for-first-use[this guide]
 
 === Updating node.js
 
 The _node.js_ plugin is included in the OASP IDE distribution, but you may need to update it to the last version. To do so, proceed as follows:
 
-*1.Check the current version*
+*1. Check the current version*
 
 In order to check the new version, open environment’s console by launching the _console.bat_ script. Then, type the command +node -v+ and the console must recognize the command and return the node version installed.
 
@@ -409,18 +409,18 @@ In order to check the new version, open environment’s console by launching the
 
 Download the latest binary (.exe) version of node.js from https://nodejs.org/en/download/[here].
 
-*3.Put it in the distribution*
+*3. Include it in the distribution*
 
 Now, you must replace the _node.exe_ located on _software\nodejs_ by the newly downloaded _node.exe_.
 
-*4.Check the new version*
+*4. Check the new version*
 To check the new version, proceed as mentioned in the step 1. The version returned by the console must match the version that you just downloaded.
  
 If the command is not recognized or the version doesn’t match the downloaded version, check the installation process.
 
 === Adding the sample apps
 
-To complete the distribution, include some examples of server and client apps. To do that, use the sample applications that are already created for Devon and OASP and can be found in the https://github.com/devonfw[Devon Github] and the https://github.com/oasp[Oasp Github].
+To complete the distribution, include some examples of server and client apps. To do that, use the sample applications that are already created for Devon and OASP and can be found in the https://github.com/devonfw[Devon GitHub] and the https://github.com/oasp[OASP GitHub].
 
 We are going to include:
 
