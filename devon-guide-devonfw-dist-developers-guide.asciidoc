@@ -103,7 +103,7 @@ To know more about the Jasypt client usage, please visit this http://www.jasypt.
 
 Cobigen is a server-side code generator to create CRUD operations. Cobigen is not an external plugin but an Eclipse plugin and is included by default in the Devon distribution, so there is no installation needed. The only point that, you must be aware of is, to obtain the last version of the templates that Cobigen uses in order to work properly.
 
-*1.Download the templates*
+*1. Download the templates*
 
 Again, get the last version of the templates from https://github.com/maybeec/tools-cobigen[here]. Clone the repository, and to do so, you need a Git client for windows, that can be downloaded from https://git-scm.com/downloads[here].
 After the installation of the Git client on your local machine, launch the app and clone the Cobigen repository using the command:
@@ -115,7 +115,7 @@ some\local\directory>git clone https://github.com/may-bee/tools-cobigen.git
 
 In local directory, you have a new folder called tools-cobigen. Inside it, you should find a cobigen-templates\templates-oasp directory.
 
-*2.Add the templates to our distribution*
+*2. Add the templates to our distribution*
 
 Copy above created templates-oasp directory in the workspaces\main directory of  distribution and rename it as *CobiGen_Templates* (note that is mandatory to use this exact name), so you will have all the templates information at the following location:
 
@@ -124,9 +124,9 @@ Copy above created templates-oasp directory in the workspaces\main directory of 
 ...\workspaces\main\CobiGen_Templates
 ----
 
-*3.Preparing Cobigen for first use*
+*3. Preparing Cobigen for first use*
 
-Now, in order to use Cobigen, follow the steps described in https://github.com/devonfw/devon/wiki/devon-guide-cobigen[this guide]
+Now, in order to use Cobigen, follow the steps described in https://github.com/devonfw/devon/wiki/devon-guide-cobigen[this guide].
 
 === Updating node js
 
