@@ -256,7 +256,7 @@ Clicking on the queue name shows us the pending messages details
 
 image::images/integration/activemq_simplechannel_message.png[,width="450", link="images/integration/activemq_simplechannel_message.png"]
 
-And clicking again on the _message ID_ takes us to the _message view_ where we can see more details as the message content
+And clicking again on the _message ID_ takes us to the _message view_ where we can see more details like the message content
 
 image::images/integration/activemq_simplechannel_message2.png[,width="450", link="images/integration/activemq_simplechannel_message2.png"]
 
@@ -277,7 +277,7 @@ As in the _emitter_ case, you can edit the name for both the _channel_ and the _
 
 ===== Emitter application example
 
-As in the case of _emitter_ application you have to add the link:cookbook-integration-module#adding-the-module-to-a-project[module dependency] and link:cookbook-integration-module#injecting-the-module[inject] the module. Once that is done we can subscribe our application to a _channel/queue_ to start receiving messages from the _Integration module_ default simple channel.
+As in the case of _emitter_ application you have to add the link:cookbook-integration-module#adding-the-module-to-a-project[module dependency] and link:cookbook-integration-module#injecting-the-module[inject] the module. Once that is done we can subscribe our application to the _channel/queue_ to start receiving messages from the _Integration module_ default simple channel.
 
 [source,java]
 ----
@@ -295,7 +295,7 @@ public class MyListenerApp{
 }
 ----
 
-In this case we provide the `subscribe` method with a _Message Handler_ to manage what we want to do with each message. For the example we have implemented a basic message handler. To create your own _Message Handler_ you only need to create a class, annotate it with `@Handler` and that implements the `MessageHandler` interface. Lets see our _SimpleMessageHandler_
+In this case we provide to the `subscribe` method a _Message Handler_ to manage what we want to do with each message. For the example we have implemented a basic message handler. To create your own _Message Handler_ you only need to create a class, annotate it with `@Handler` and implement the `MessageHandler` interface. Lets see our _SimpleMessageHandler_
 
 [source,java]
 ----
@@ -326,6 +326,175 @@ MESSAGE IS: Hello world
 And going back to the Active MQ web client we can see the changes in the `Queues` section
 
 image::images/integration/activemq_simplechannel_read.png[,width="450", link="images/integration/activemq_simplechannel_read.png"]
+
+The first you should note is that now the _Number of Consumers_ is _1_ as we have subscribed an application to the channel. Then the _Pending Messages_ has changed to _0_ and the _Messages Dequeued_ has increased to _1_.
+
+At this point we have finished the example for the _in flow_ of the _Integration module_ default _simple channel_. Now you have the whole picture of how a simple integration channel works with Devonfw _Integration module_ and _Active MQ_ server.
+
+==== How to use the default request-reply channel
+
+With the _Integration module_ a _request-reply_ is provided by default. This channel will allow us to communicate systems sending and receiving messages in both sides. A first application will send a message and wait for a response, while a second application will receive the message sent by the first one and send back the response that the other app is expecting.
+
+To achieve that in our applications we only need to configure the corresponding properties to create the channel and its related queue.
+
+===== Default configuration for request-reply channel
+
+The default configuration properties for this channel, provided by default with the _Integration module_, are:
+
+[source]
+----
+integration.request-reply.emitter=false
+integration.request-reply.listener=false
+integration.request-reply.channelname=rr.Channel
+integration.request-reply.queuename=rr.queue
+integration.request-reply.receivetimeout=5000
+----
+
+- _emitter_: if your app is going to send and then receive messages through this channel.
+- _listener_ if your app is going to receive and then send back messages using this channel.
+- _channelname_: the name for the channel.
+- _queuename_: the name for the channel queue.
+- _receivetimeout_: in case of send + receive applications this is the maximum amount of milliseconds to receive a response from "the other side" of the channel. If this time is exceeded a timeout _Exception_ will be thrown.
+
+If you want to customize these properties you can overwrite them in the `application.properties` of your project.
+
+===== Sender-Receiver application configuration
+
+To enable the sending of messages through this channel you must set the _request-reply.emitter_ property to _true_ in the `application.properties` of our project.
+
+[source]
+----
+integration.request-reply.emitter=true
+----
+
+Optionally, you can edit the name for the channel and for the queue using the `integration.request-reply.channelname` and `integration.request-reply.queuename` properties. As we just mentioned, the timeout for the response can be edited adding the `integration.request-reply.receivetimeout` property to our properties file and providing a milliseconds value. By default the timeout is _5000_ (5 seconds). 
+
+
+=====  Sender-Receiver application example
+
+After you have added the link:cookbook-integration-module#adding-the-module-to-a-project[module dependency] you can start using it link:cookbook-integration-module#injecting-the-module[injecting it]. Lets see how to send and receive a simple message through that default _request-reply channel_.
+
+[NOTE]
+====
+In order to make the example run properly remember that we will need an link:cookbook-integration-module#installing-apache-active-mq[Active MQ] instance running to provide support to the _channels_ and _queues_.
+====
+
+In our _sender-receiver_ application we only need to call the _sendAndReceive_ method of the _integration_ object and provide a message content
+
+[source,java]
+----
+import com.capgemini.devonfw.module.integration.common.api.Integration;
+
+public class MyFirstApp{
+
+  @Inject
+  private Integration integration;
+
+  public void myMethod(){
+
+    String response = this.integration.sendAndReceive("Hello");
+    System.out.println("Response:" + response);
+  }
+
+}
+----
+
+If now we run the application we would get a _timeout exception_ as there is no one ready to provide a response within the defined timeout limit (5 seconds). So first, lets prepare our _other-side_ application.
+
+===== Receiver-Sender application configuration
+
+In this application we need to enable the _request-reply.listener_ property so, in the `applications.property` file of our project, we must set to _true_ that property.
+
+[source]
+----
+integration.request-reply.listener=true
+----
+
+You can also edit the name for both the _channel_ and the _queue_ (`integration.request-reply.channelname` and `integration.request-reply.queuename` properties). But, as mentioned in previous section, have into account that *these names must match* between the _sernder-receiver_ and the _receiver-sender_ applications, in order to perform the communication.
+
+===== Receiver-Sender application example
+
+As in the case of _sender-receiver_ application, you have to add the link:cookbook-integration-module#adding-the-module-to-a-project[module dependency] and link:cookbook-integration-module#injecting-the-module[inject] the module. Once that is done we can subscribe our application to the _channel/queue_ to start receiving messages and sending responses from/to the _Integration module_ default request-reply channel.
+
+[source,java]
+----
+import com.capgemini.devonfw.module.integration.common.api.Integration;
+
+public class MySecondApp{
+
+  @Inject
+  private Integration integration;
+
+  public void myMethod(){
+
+    this.integration.subscribeAndReply(new SimpleIntegrationHandler());
+  }
+}
+----
+
+In this case we provide to the `subscribeAndReply` method a _Integration Handler_ to manage the responses to each message. For the example we have implemented a basic Integration handler, to create your own one you only need to create a class, annotate it with `@Handler` and implement the `IntegrationHandler` interface. Lets see our _SimpleMessageHandler_
+
+[source,java]
+----
+@Handler
+public class SimpleIntegrationHandler implements IntegrationHandler {
+
+  @Override
+  public Object handleMessage(Message<?> m) {
+
+    System.out.println("***********************************");
+    System.out.println("MESSAGE IS: " + m.getPayload());
+    System.out.println("***********************************");
+
+    return m.getPayload().toString().concat(" World");
+  }
+
+}
+----
+
+As you can see we are simply printing the original message received, using the `getPayload()` method, and then replying adding to it "World".
+
+At this point we can run that second application and see what happens through the Active MQ web client.
+
+image::images/integration/activemq_rrchannel_subscriber.png[,width="450", link="images/integration/activemq_rrchannel_subscriber.png"]
+
+As you can see in the above image the channel and queue for our request-reply channel have been created automatically and in the _Number of Consumers_ you can see that _1_ that refers to our application.
+
+Now we can run the first application, as at this point we already have the second application ready to reply to the first one requests.
+
+The output in the second application is as expected
+
+[source]
+----
+***********************************
+MESSAGE IS: Hello
+***********************************
+---- 
+
+While the output in the first app is
+
+[source]
+----
+Response:Hello World
+----
+
+If we check out again the Active MQ web client we can see that we still have one consumer (the second application) but now we have also one _Message Enqueued_ and one _Message Dequeued_.
+
+image::images/integration/activemq_rrchannel_message.png[,width="450", link="images/integration/activemq_rrchannel_message.png"]
+
+
+We have finished the demonstration for the default Request-Reply channel provided by the _Integration module_. Now we are going to see how to accomplish the same but in an asynchronous way using the third default channel provided by the module: the _request-reply-async_ channel.
+
+
+
+
+
+
+
+
+
+
+
 
 - default out of the box infrastructure.
 
