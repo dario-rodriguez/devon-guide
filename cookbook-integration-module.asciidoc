@@ -1,1 +1,230 @@
-asdf
+:toc: macro
+toc::[]
+
+= The Integration Module
+
+== Introduction
+
+Within the _Enterprise architecture_ the *integration* (or https://en.wikipedia.org/wiki/Enterprise_integration[Enterprise Integration]) is the field focused on communication between systems: system interconnection, electronic data interchange, product data exchange, distributed computing environments, etc. So the _integration_ defines and provides an infrastructure to allow the communication between different applications or systems in a reliable way. The scope of _Integration_ groups a wide range of communication methods, the systems can communicate by file transfer, sharing a data base, by remote procedure invocation or by messaging. The approach of the _Integration Module_ implementation is based on the latter, using a solution based on _channels_ and message _queues_ to allow the exchange of information between applications.
+
+== Stack of technologies
+
+The _Integration IP Module_ is a Java module based on https://projects.spring.io/spring-integration/[Spring Integration] solution and internally is implemented using the https://github.com/spring-projects/spring-integration-java-dsl/wiki/spring-integration-java-dsl-reference[Spring integration Java dsl reference]. In the core of all those technologies the implementation relies on the https://en.wikipedia.org/wiki/Java_Message_Service[Java Message Service (JMS)] as the messaging standard to create, send, receive and read messages.
+
+- *Java Message Service*: JMS allows applications to exchange messages using reliable and loosely coupled communication. To achieve this, the communication is done through message queues so the different applications (message server, and message clients) don’t know the actual addresses of each other, so they work in an emitter/subscriber manner.  To manage those message queues, that are “out” of the applications but should be accessible, the solution provided by Devon relies on a message broker that will be in charge of messages infrastructure.
+
+- *Apache Active MQ*: The _channels_, _queues_ and _messages_ that the solution is based on, need an external infrastructure to be supported. The Devonfw implementation relies on http://activemq.apache.org/[Apache Active MQ] as the message broker to manage the messages and queues that the different applications will use as communication channel. _Active MQ_ is an open source infrastructure that is one of the most popular messaging servers and provides fully support for _JMS_.
+
+- *Spring Integration* extends the Spring framework to support the Enterprise Integration (system interconnection, electronic data interchange, product data exchange and distributed computing environments). Spring Integration enables lightweight messaging within Spring-based applications providing a simple model for building enterprise integration solutions while maintaining the separation of concerns. Among its features Spring Integration provides JMS support through Channel Adapters for receiving JMS messages.
+
+- The *Java DSL extension for Spring Integration* provides a set of convenient Builders and a fluent API to configure Spring Integration message flows from Spring configuration classes. It allows the creation of channel/queues and the message flow in applications start up time, so users can avoid the standard Spring Integration XML configuration (although it can also be used along side the DSL definitions).
+
+== Installing Apache Active MQ
+
+If you want to be ready to a quick test of the module you will need an _Active MQ_ broker. To do so you can download the _Active MQ_ message broker from the http://activemq.apache.org/download.html[official site]. After the download is over, extract the zip folder, open a command line window and go to the _bin_ folder inside the just created _apache-activemq-{version}_ folder.
+
+[source,bash]
+----
+your\location\apache-activemq-5.14.3>cd bin
+----
+
+And start the server from the bin folder
+
+[source,bash]
+----
+your\location\apache-activemq-5.14.3\bin>activemq start
+----
+
+Now open a browser and access to url `http://localhost:8161/admin`, fill the access login with `admin` for both _user_ and _password_.
+
+image::images/integration/activemq_access.png[,width="450", link="images/integration/activemq_access.png"]
+
+After logging in, you will have access to all the infrastructure of the message server
+
+image::images/integration/activemq_client.png[,width="450", link="images/integration/activemq_client.png"]
+
+[NOTE]
+====
+We are installing the Active MQ server in our local machine only for test or example purposes. If you want further configuration details please visit the http://activemq.apache.org/configuration.html[official documentation] or ask your IT department.
+====
+
+== IP Integration module details
+
+=== Adding the module to a project
+To access the functionality of the _Integration module_, you will need to include its dependency in your project's pom.xml
+
+[source,xml]
+----
+ <dependency>
+      <groupId>com.capgemini.devonfw.modules</groupId>
+      <artifactId>devonfw-integration</artifactId>
+      <version>2.1.0-SNAPSHOT</version>
+</dependency>
+----
+
+[WARNING]
+====
+The IP modules of Devonfw are stored in https://www.jfrog.com/artifactory/[Artifactory]. In case, you do not have access to that repository, as the modules are included in the Devonfw distribution, you can install them manually. To do so, open a Devonfw command line (_console.bat_), go to `Devon-dist\workspaces\examples\devon` and execute the command `mvn install`.
+If the project is already imported in Eclipse then update project: Right click on _project_ > _Maven_ > _Update Project_ > check the _Force update of Snapshot/Releases_ checkbox > _Ok_
+====
+
+=== Injecting the module
+
+After adding the dependency, in order to start using the module inject it using the `@Inject` annotation
+
+[source,java]
+----
+import com.capgemini.devonfw.module.integration.common.api.Integration;
+
+...
+
+  @Inject
+  private Integration integration;
+----
+
+We will see the detailed usage of the module in the upcoming sections.
+
+=== Default channels
+
+Based on the mentioned stack of technologies, the Devonfw _Integration module_ provides three communication channels pre-configured and ready to be used out-of-the-box. The user will only need to _enable_ it through the module configuration.
+
+==== Simple message channel
+
+This is the most basic communication channel. In this case in one side is an application (_emitter_) that sends messages to a specific queue in the message broker. In the other side a second application (_listener_) is _subscribed_ to that channel, which means that polls the message broker in a defined interval of time to ask for new messages in that particular queue.
+
+image::images/integration/simple_channel.png[,width="450", link="images/integration/simple_channel.png"]
+
+The _listener_ application doesn't provide a response, only consumes the messages.
+
+To configure your application to use this default channel you only need to edit the `application.properties` of your Spring project adding the property `integration.one-direction.emitter` or `integration.one-direction.listener`.
+
+For emitter applications set the _one-direction.emitter_ property to _true_:
+
+[source]
+----
+integration.one-direction.emitter=true
+----
+
+If your application acts as listener set the property _one-direction.listener_ to _true_:
+
+[source]
+----
+integration.one-direction.listener=true
+----
+
+Doing this, when running your app the related _Beans_ will be loaded automatically and the communication channel and its related queue will be also created.
+
+We will see more details of the simple message channel configuration further.
+
+==== Request-Reply channel 
+
+In this second approach the message flow is completed in two directions. In this case, instead of talking about an _emitter_ and _listener_ systems, we should rather talk about a _request/replay_ channel. There will exist a communication between two clients, in which the first one will send a message and wait for a response from the second one. So both sides are _emitters_ and _listeners_.
+
+image::images/integration/requestreply_channel.png[,width="450", link="images/integration/requestreply_channel.png"]
+
+To configure your application to use this default channel, as we explained in the previous section, you only need to edit the `application.properties` of your Spring project adding in this case the property `integration.request-reply.emitter` or `integration.request-reply.listener`.
+
+For emitter/listener applications set the _request-reply.emitter_ property to _true_:
+
+[source]
+----
+integration.request-reply.emitter=true
+----
+
+If your application acts as listener/emitter set the property _request-reply.listener_ to _true_:
+
+[source]
+----
+integration.request-reply.listener=true
+----
+
+Doing this, same as in the previous case, when running your app the related _Beans_ will be loaded automatically and the communication channel and its related queue will be also created.
+
+We also will see more details of the simple message channel configuration further.
+
+==== Request-Reply asynchronous channel
+
+For the cases where the previous _request/reply_ communication has to be _asynchronous_ the module provides a default _async_ communication channel.
+
+To configure your application to use this asynchronous channel, as in the previous cases, you only need to enable the corresponding properties into the `application.properties` file of your project.
+
+For emitter/listener applications set the _request-reply-async.emitter_ property to _true_:
+
+[source]
+----
+integration.request-reply-async.emitter=true
+----
+
+Otherwise, if your application is the listener/emitter, set the property _request-reply.listener_ to _true_:
+
+[source]
+----
+integration.request-reply-async.listener=true
+----
+
+We will show the complete configuration of this default channel in upcoming sections.
+
+
+=== Usage of the default channels
+
+==== How to use the default simple channel
+
+As we previously mentioned the _Integration module_ provides a simple communication channel where in one side one _emitter_ application will send a message and in the other side other _listener_ application will receive and read it.
+
+To achieve that in our applications we only need to configure the corresponding properties to create the channel and its related queue.
+
+===== Default configuration
+
+The default configuration properties for this channel, provided by default with the _Integration module_, are:
+
+[source]
+----
+integration.one-direction.emitter=false
+integration.one-direction.listener=false
+integration.one-direction.channelname=1d.Channel
+integration.one-direction.queuename=1d.queue
+integration.one-direction.poller.rate=5000
+----
+
+- _emitter_: if your app is going to send messages through this channel to the related queue.
+- _listener_ if your app is going to subscribe to the channel to read the messages of the queue.
+- _channelname_: the name for the channel.
+- _queuename_: the name for the channel queue.
+- _poller.rate_: in case of listener applications this is the interval to poll the message broker for new messages.
+
+If you want to customize these properties you can overwrite them in the `application.properties` of your project.
+
+===== Emitter application configuration
+
+As we already mentioned the _Emitter_ applications must enable the _emitter_ property so you must add to the `application.properties` file of your project the property
+
+[source]
+----
+integration.one-direction.emitter=true
+----
+
+Optionally, you can edit the name for the channel and for the queue using the `integration.one-direction.channelname` and `integration.one-direction.queuename` properties.
+
+===== Listener application configuration
+
+In the same way, for _Listener_ applications you must enable the channel through the corresponding property in the `application.properties` file of your project. 
+
+[source]
+----
+integration.one-direction.listener=true
+----
+
+In case of _listener_ applications you can also configure the interval of time to make the requests to the message broker for new messages. To do so you can add the property `integration.one-direction.poller.rate` to your `application.properties` file and give to it a milliseconds value.
+
+As in the _emitter_ case, you can edit the name for both the _channel_ and the _queue_ (`integration.one-direction.channelname` and `integration.one-direction.queuename` properties) but have into account that *these names must match* between the _emitter_ and the _listener_ applications in order to perform the communication.
+
+
+===== Emitter application example
+
+After you have added the link:cookbook-integration-module#adding-the-module-to-a-project[module dependency] the 
+
+- default out of the box infrastructure.
+
+- new channels/queues
+
+- how to configure connection with active mq broker (properties).
