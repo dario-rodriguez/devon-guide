@@ -21,6 +21,8 @@ The _Integration IP Module_ is a Java module based on https://projects.spring.io
 
 == Installing Apache Active MQ
 
+=== How to get and install the message broker
+
 If you want to be ready to a quick test of the module you will need an _Active MQ_ broker. To do so you can download the _Active MQ_ message broker from the http://activemq.apache.org/download.html[official site]. After the download is over, extract the zip folder, open a command line window and go to the _bin_ folder inside the just created _apache-activemq-{version}_ folder.
 
 [source,bash]
@@ -47,6 +49,19 @@ image::images/integration/activemq_client.png[,width="450", link="images/integra
 ====
 We are installing the Active MQ server in our local machine only for test or example purposes. If you want further configuration details please visit the http://activemq.apache.org/configuration.html[official documentation] or ask your IT department.
 ====
+
+=== Module connection configuration
+
+The _Integration module_ provides a default connection configuration for Active MQ broker through the following properties
+
+[source]
+----
+spring.activemq.broker-url=tcp://localhost:61616
+spring.activemq.user=admin
+spring.activemq.password=admin
+----
+
+If you have changed the _Active MQ_ configuration remember to overwrite the affected properties in the `application.properties` of your project.
 
 == IP Integration module details
 
@@ -205,23 +220,112 @@ integration.one-direction.emitter=true
 
 Optionally, you can edit the name for the channel and for the queue using the `integration.one-direction.channelname` and `integration.one-direction.queuename` properties.
 
+===== Emitter application example
+
+After you have added the link:cookbook-integration-module#adding-the-module-to-a-project[module dependency] you can start using it link:cookbook-integration-module#injecting-the-module[injecting it]. Lets see how to send a simple message through that default _simple channel_.
+
+[NOTE]
+====
+In order to make the example run properly remember that we will need an link:cookbook-integration-module#installing-apache-active-mq[Active MQ] instance running to provide support to the _channels_ and _queues_.
+====
+
+In our _sender_ application we only need to call the _send_ method of the _integration_ object and provide a message content
+
+[source,java]
+----
+import com.capgemini.devonfw.module.integration.common.api.Integration;
+
+public class MyEmitterApp{
+
+  @Inject
+  private Integration integration;
+
+  public void sendSimpleMessage(){
+
+    this.integration.send("hello world");
+  }
+
+}
+----
+
+Running the application will result into a message sent to the _Integration module_ default _simple channel_ with name `1d.Channel` and to the queue `1d.queue` (or the names you provided through configuration properties). So if now we go to the Active MQ web client we will see in the `Queues` section that we have a new queue created with one message as _pending messages_, no _consumers_ (as we still don't have any subscriber to this _channel/queue_) and no _dequeued messages_. 
+
+image::images/integration/activemq_simplechannel_send.png[,width="450", link="images/integration/activemq_simplechannel_send.png"]
+
+Clicking on the queue name shows us the pending messages details
+
+image::images/integration/activemq_simplechannel_message.png[,width="450", link="images/integration/activemq_simplechannel_message.png"]
+
+And clicking again on the _message ID_ takes us to the _message view_ where we can see more details as the message content
+
+image::images/integration/activemq_simplechannel_message2.png[,width="450", link="images/integration/activemq_simplechannel_message2.png"]
+
+With this we have finished the _out flow_ for the _Integration module_ default _simple channel_. Lets see now how to read that message we have sent using a different application.
+
 ===== Listener application configuration
 
-In the same way, for _Listener_ applications you must enable the channel through the corresponding property in the `application.properties` file of your project. 
+For _Listener_ applications you must enable the channel through the corresponding property in the `application.properties` file of your project. 
 
 [source]
 ----
 integration.one-direction.listener=true
 ----
 
-In case of _listener_ applications you can also configure the interval of time to make the requests to the message broker for new messages. To do so you can add the property `integration.one-direction.poller.rate` to your `application.properties` file and give to it a milliseconds value.
+In case of _listener_ applications you can also configure the interval of time to make the requests to the message broker for new messages. To do so you can add the property `integration.one-direction.poller.rate` to your `application.properties` file and provide a milliseconds amount as property value. If you don't overwrite this property its default value is _5000_ (5 seconds).
 
 As in the _emitter_ case, you can edit the name for both the _channel_ and the _queue_ (`integration.one-direction.channelname` and `integration.one-direction.queuename` properties) but have into account that *these names must match* between the _emitter_ and the _listener_ applications in order to perform the communication.
 
-
 ===== Emitter application example
 
-After you have added the link:cookbook-integration-module#adding-the-module-to-a-project[module dependency] the 
+As in the case of _emitter_ application you have to add the link:cookbook-integration-module#adding-the-module-to-a-project[module dependency] and link:cookbook-integration-module#injecting-the-module[inject] the module. Once that is done we can subscribe our application to a _channel/queue_ to start receiving messages from the _Integration module_ default simple channel.
+
+[source,java]
+----
+import com.capgemini.devonfw.module.integration.common.api.Integration;
+
+public class MyListenerApp{
+
+  @Inject
+  private Integration integration;
+
+  public void readSimpleMessage(){
+
+    this.integration.subscribe(new SimpleMessageHandler());
+  }
+}
+----
+
+In this case we provide the `subscribe` method with a _Message Handler_ to manage what we want to do with each message. For the example we have implemented a basic message handler. To create your own _Message Handler_ you only need to create a class, annotate it with `@Handler` and that implements the `MessageHandler` interface. Lets see our _SimpleMessageHandler_
+
+[source,java]
+----
+@Handler
+public class SimpleMessageHandler implements MessageHandler {
+
+  @Override
+  public void handleMessage(Message<?> message) throws MessagingException {
+
+    System.out.println("***********************************");
+    System.out.println("MESSAGE IS: " + message.getPayload());
+    System.out.println("***********************************");
+
+  }
+
+}
+----
+
+As you can see we are only showing, through console, the message content which we access through the `getPayload()` method. Now running the application we get the output
+
+[source]
+----
+***********************************
+MESSAGE IS: Hello world
+***********************************
+----
+
+And going back to the Active MQ web client we can see the changes in the `Queues` section
+
+image::images/integration/activemq_simplechannel_read.png[,width="450", link="images/integration/activemq_simplechannel_read.png"]
 
 - default out of the box infrastructure.
 
