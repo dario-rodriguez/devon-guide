@@ -222,7 +222,7 @@ Optionally, you can edit the name for the channel and for the queue using the `i
 
 ===== Emitter application example
 
-After you have added the link:cookbook-integration-module#adding-the-module-to-a-project[module dependency] you can start using it link:cookbook-integration-module#injecting-the-module[injecting it]. Lets see how to send a simple message through that default _simple channel_.
+After you have added the link:cookbook-integration-module#adding-the-module-to-a-project[module dependency] you can start using the module link:cookbook-integration-module#injecting-the-module[injecting it] in your app. Lets see how to send a simple message through that default _simple channel_.
 
 [NOTE]
 ====
@@ -275,7 +275,7 @@ In case of _listener_ applications you can also configure the interval of time t
 
 As in the _emitter_ case, you can edit the name for both the _channel_ and the _queue_ (`integration.one-direction.channelname` and `integration.one-direction.queuename` properties) but have into account that *these names must match* between the _emitter_ and the _listener_ applications in order to perform the communication.
 
-===== Emitter application example
+===== Listener application example
 
 As in the case of _emitter_ application you have to add the link:cookbook-integration-module#adding-the-module-to-a-project[module dependency] and link:cookbook-integration-module#injecting-the-module[inject] the module. Once that is done we can subscribe our application to the _channel/queue_ to start receiving messages from the _Integration module_ default simple channel.
 
@@ -333,7 +333,7 @@ At this point we have finished the example for the _in flow_ of the _Integration
 
 ==== How to use the default request-reply channel
 
-With the _Integration module_ a _request-reply_ is provided by default. This channel will allow us to communicate systems sending and receiving messages in both sides. A first application will send a message and wait for a response, while a second application will receive the message sent by the first one and send back the response that the other app is expecting.
+With the _Integration module_ a ready to be used _request-reply_ channel is provided by default. This channel will allow us to communicate systems sending and receiving messages in both sides. A first application will send a message and wait for a response, while a second application will receive the message sent by the first one and send back the response that the other app is waiting for.
 
 To achieve that in our applications we only need to configure the corresponding properties to create the channel and its related queue.
 
@@ -356,11 +356,11 @@ integration.request-reply.receivetimeout=5000
 - _queuename_: the name for the channel queue.
 - _receivetimeout_: in case of send + receive applications this is the maximum amount of milliseconds to receive a response from "the other side" of the channel. If this time is exceeded a timeout _Exception_ will be thrown.
 
-If you want to customize these properties you can overwrite them in the `application.properties` of your project.
+If you want to customize these properties you can overwrite them in the `application.properties` of your project, as we are going to see below.
 
 ===== Sender-Receiver application configuration
 
-To enable the sending of messages through this channel you must set the _request-reply.emitter_ property to _true_ in the `application.properties` of our project.
+To enable the sending of messages through this channel you must set the `request-reply.emitter` property to _true_ in the `application.properties` of our project.
 
 [source]
 ----
@@ -372,7 +372,7 @@ Optionally, you can edit the name for the channel and for the queue using the `i
 
 =====  Sender-Receiver application example
 
-After you have added the link:cookbook-integration-module#adding-the-module-to-a-project[module dependency] you can start using it link:cookbook-integration-module#injecting-the-module[injecting it]. Lets see how to send and receive a simple message through that default _request-reply channel_.
+After you have added the link:cookbook-integration-module#adding-the-module-to-a-project[module dependency] you need to link:cookbook-integration-module#injecting-the-module[inject it]. Lets see how to send and receive a simple message through that default _request-reply_ channel.
 
 [NOTE]
 ====
@@ -403,7 +403,7 @@ If now we run the application we would get a _timeout exception_ as there is no 
 
 ===== Receiver-Sender application configuration
 
-In this application we need to enable the _request-reply.listener_ property so, in the `applications.property` file of our project, we must set to _true_ that property.
+In this application we need to enable the `request-reply.listener` property so, in the `applications.property` file of our project, we must set to _true_ that property.
 
 [source]
 ----
@@ -432,7 +432,7 @@ public class MySecondApp{
 }
 ----
 
-In this case we provide to the `subscribeAndReply` method a _Integration Handler_ to manage the responses to each message. For the example we have implemented a basic Integration handler, to create your own one you only need to create a class, annotate it with `@Handler` and implement the `IntegrationHandler` interface. Lets see our _SimpleMessageHandler_
+In this case we provide to the `subscribeAndReply` method an _Integration Handler_ to manage the responses to each message. For the example we have implemented a basic Integration handler, to create your own one you only need to create a class, annotate it with `@Handler` and implement the `IntegrationHandler` interface. Lets see our _SimpleMessageHandler_
 
 [source,java]
 ----
@@ -458,7 +458,7 @@ At this point we can run that second application and see what happens through th
 
 image::images/integration/activemq_rrchannel_subscriber.png[,width="450", link="images/integration/activemq_rrchannel_subscriber.png"]
 
-As you can see in the above image the channel and queue for our request-reply channel have been created automatically and in the _Number of Consumers_ you can see that _1_ that refers to our application.
+The above image shows that the channel and queue for our request-reply channel have been created automatically and in the _Number of Consumers_ you can see that _1_ that refers to our application.
 
 Now we can run the first application, as at this point we already have the second application ready to reply to the first one requests.
 
@@ -469,7 +469,7 @@ The output in the second application is as expected
 ***********************************
 MESSAGE IS: Hello
 ***********************************
----- 
+----
 
 While the output in the first app is
 
@@ -483,18 +483,199 @@ If we check out again the Active MQ web client we can see that we still have one
 image::images/integration/activemq_rrchannel_message.png[,width="450", link="images/integration/activemq_rrchannel_message.png"]
 
 
-We have finished the demonstration for the default Request-Reply channel provided by the _Integration module_. Now we are going to see how to accomplish the same but in an asynchronous way using the third default channel provided by the module: the _request-reply-async_ channel.
+We have finished the demonstration for the default Request-Reply channel provided by the _Integration module_. Now we are going to see how to achieve the same but in an asynchronous way using the third default channel provided by the module: the _request-reply-async_ channel.
+
+==== How to use the default asynchronous request-reply channel
+
+The usage of this default channel, provided also by default within the _Integration module_, is the same than for previous channels, and specially regarding the default _request-reply_ channel explained in the previous section. Anyway let´s briefly show the basics about how to configure and use the asynchronous channel.
+
+===== Default properties for asynchronous channel
+
+[source]
+----
+integration.request-reply-async.emitter=false
+integration.request-reply-async.listener=false
+integration.request-reply-async.channelname=async.Channel
+integration.request-reply-async.queuename=async.queue
+integration.request-reply-async.receivetimeout=5000
+----
+
+The properties are the same as in the simple _request-reply_ channel.
+
+The application that is going to trigger the communication flow, sending a first message, must enable the `request-reply-async.emitter` property, setting _true_ as value.
+
+[source]
+----
+integration.request-reply-async.emitter=true
+----
+
+In the configuration of this application we can also define the timeout for the response. If exceeded, the process will be stopped and a _timeout exception_ will be thrown. This can be controlled with the property `integration.request-reply-async.receivetimeout`
+
+In the other side, the application that is subscribed to the channel and is going to receive the messages and reply to them, must have the property `request-reply-async.listener` defined as _true_.
+
+[source]
+----
+integration.request-reply-async.listener=true
+----
 
 
+===== Sender-Receiver async example
 
+After you have added the link:cookbook-integration-module#adding-the-module-to-a-project[module dependency] you need to link:cookbook-integration-module#injecting-the-module[inject it]. Lets see how to send and receive asynchronously a message through that default _request-reply-async_ channel.
 
+[NOTE]
+====
+In order to make the example run properly remember that we will need an link:cookbook-integration-module#installing-apache-active-mq[Active MQ] instance running to provide support to the _channels_ and _queues_.
+====
 
+In our _sender-receiver_ application we only need to call the _sendAndReceiveAsync_ method of the _integration_ object and provide a message content. As we are creating an asynchronous process we will use the Java http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/Future.html[Future] to handle the response. We will not complicate the example with too many details of Future's use so the code will look like the following
 
+[source,java]
+----
+import com.capgemini.devonfw.module.integration.common.api.Integration;
 
+public class MyFirstApp{
 
+  @Inject
+  private Integration integration;
 
+  public void myMethod() throws InterruptedException, ExecutionException{
 
+    Future<String> response = this.integration.sendAndReceiveAsync("Hello");
+    System.out.println("Message sent.");
+    while (!response.isDone()) {
+      // things that you can do in parallel while waiting for the response
+      System.out.println("Waiting...");
+    }
 
+    System.out.println("ASYNC RESPONSE: " + response.get());
+
+  }
+
+}
+----
+
+If now we run the application we would get a _timeout exception_ as there is no one ready to provide a response within the defined timeout limit (5 seconds). So first, lets prepare our _other-side_ application.
+
+===== Receiver-Sender async example
+
+As in the previous application, you have to add the link:cookbook-integration-module#adding-the-module-to-a-project[module dependency] and link:cookbook-integration-module#injecting-the-module[inject] the module. Once that is done we can subscribe our application to the _channel/queue_ (with the _subscribeAsync_ method) to start receiving asynchronously messages and sending responses from/to the _Integration module_ default request-reply-async channel.
+
+[source,java]
+----
+import com.capgemini.devonfw.module.integration.common.api.Integration;
+
+public class MySecondApp{
+
+  @Inject
+  private Integration integration;
+
+  public void myMethod(){
+
+    this.integration.subscribeAsync(new LongIntegrationHandler());
+  }
+}
+----
+
+In this case we provide to the `subscribeAsync` method an _Integration Handler_ to manage the responses to each message. For the example we have implemented a very simple Integration handler that blocks the process during 3 seconds to simulate a long process. To create your own _Integration Handler_ you only need to create a class, annotate it with `@Handler` and implement the `IntegrationHandler` interface. Lets see our _LongIntegrationHandler_.
+
+[source,java]
+----
+@Handler
+public class LongIntegrationHandler implements IntegrationHandler {
+
+  @Override
+  public Object handleMessage(Message<?> m) {
+
+    System.out.println("***********************************");
+    System.out.println("MESSAGE IS: " + m.getPayload());
+    System.out.println("***********************************");
+    try {
+      Thread.sleep(3000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+    return m.getPayload().toString().concat(" World");
+  }
+
+}
+----
+
+As you can see we are simply printing the original message received, using the `getPayload()` method, and after the delay of 3 seconds, it returns a reply adding "World" to the original message.
+
+Now we can run that second application, the channel and its _async.queue_ will be automatically created in the Active MQ broker and the new consumer (our second app) will be subscribed to that channel.
+
+image::images/integration/activemq_rrachannel_subscriber.png[,width="450", link="images/integration/activemq_rrachannel_subscriber.png"]
+
+If now we run the first application the output is
+
+[source]
+----
+Message Sent.
+[...]
+Waiting...
+Waiting...
+Waiting...
+ASYNC RESPONSE: Hello World
+----
+
+With this we have completed the example about the default asynchronous channel for the request-reply flow of the Devonfw _Integration module_.
+ 
+Also here ends the content about the pre-configured part of the module. Next we will see how to create, programmatically, new channels and queues.
+
+=== Creating new channels
+
+The Devonfw _Integration module_ provides the option of creating new channels programmatically. The user can generate new channels and send and receive messages defining every step in Java code, without the necessity of configure anything.
+
+==== Types of channels that can be created
+
+The types are the same than the default channels. The user will be able to create
+
+- simple channels: one app sends a message, other app receives the message.
+
+- request-reply channels: a first app sends a message, a second app receives the message and sends a response, the first app receives the response.
+
+- asynchronous request-reply channels: Same as the previous channel but with asynchronous behaviour.
+
+==== Creating and using a new simple channel
+
+After you have added the link:cookbook-integration-module#adding-the-module-to-a-project[module dependency] and link:cookbook-integration-module#injecting-the-module[injected it] you only need to call the _createChannel_ method and provide a _name_ for the channel and a _name_ for the related queue.
+
+[source,java]
+----
+import com.capgemini.devonfw.module.integration.common.api.Integration;
+
+public class MySenderApp{
+
+  @Inject 
+  private Integration integration;
+
+  public void sendSimpleMessage(){
+
+    IntegrationChannel myChannel = this.integration.createChannel("my-channel", "my-queue");
+    Boolean sent = myChannel.send("Hello");
+    if (sent) System.out.println("message successfully sent");
+  }
+}
+----
+
+Then, in the _listener_ application, after adding the link:cookbook-integration-module#adding-the-module-to-a-project[module dependency] and the link:cookbook-integration-module#injecting-the-module[injection] of it, we only need to use the _subscribeTo_ method and provide the name for the channel and the queue and the _Message Handler_ to manage the received messages. For more details about the _Message Handler_ check out the link:cookbook-integration-module#listener-application-example[listener application example] section.
+
+[source,java]
+----
+import com.capgemini.devonfw.module.integration.common.api.Integration;
+
+public class MyListenerApp{
+
+  @Inject 
+  private Integration integration;
+
+  public void readSimpleMessage(){
+
+    this.integration.subscribeTo("my-channel", "my-queue", new SimpleMessageHandler());
+  }
+}
+----
 
 - default out of the box infrastructure.
 
