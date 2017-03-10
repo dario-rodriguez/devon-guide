@@ -681,7 +681,7 @@ By default, the interval for polling the channel is _5000_ (5 seconds) and can b
 
 [source,java]
 ----
-this.integration.subscribeTo("my-channel", "my-queue", new SimpleMessageHandler() 10000);
+this.integration.subscribeTo("my-channel", "my-queue", new SimpleMessageHandler(), 10000);
 ----
 
 ==== Creating and using a new request-reply channel
