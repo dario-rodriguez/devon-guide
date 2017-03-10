@@ -764,7 +764,7 @@ IntegrationChannel demoAsyncChannel =
   this.integration.createAsyncRequestReplyChannel("my-async-channel", "my-async-queue", new MyMessageHandler(), 15, 10000);
 ----
 
-And the second app you can subscribe to the channel with the method _subscribeAndReplyAsyncTo_ and providing the names for the channel and queue (that *must match* with the names provided in the first application), and an _IntegrationHandler_ to manage the messages and provide a reply.
+In the second app you can subscribe to the channel with the method _subscribeAndReplyAsyncTo_ and providing the names for the channel and queue (that *must match* with the names provided in the first application), and an _IntegrationHandler_ to manage the messages and provide a reply.
 
 [source,java]
 ----
