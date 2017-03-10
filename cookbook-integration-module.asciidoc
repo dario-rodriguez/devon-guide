@@ -659,7 +659,7 @@ public class MySenderApp{
 }
 ----
 
-Then, in the _listener_ application, after adding the link:cookbook-integration-module#adding-the-module-to-a-project[module dependency] and the link:cookbook-integration-module#injecting-the-module[injection] of it, we only need to use the _subscribeTo_ method and provide the name for the channel and the queue and the _Message Handler_ to manage the received messages. For more details about the _Message Handler_ check out the link:cookbook-integration-module#listener-application-example[listener application example] section.
+Then, in the _listener_ application, after adding the link:cookbook-integration-module#adding-the-module-to-a-project[module dependency] and the link:cookbook-integration-module#injecting-the-module[injection] of it, we only need to use the _subscribeTo_ method and provide the name for the channel and the queue (that *must match* the provided names in the first application) and the _Message Handler_ to manage the received messages. For more details about the _Message Handler_ check out the link:cookbook-integration-module#listener-application-example[listener application example] section.
 
 [source,java]
 ----
@@ -677,8 +677,125 @@ public class MyListenerApp{
 }
 ----
 
-- default out of the box infrastructure.
+By default, the interval for polling the channel is _5000_ (5 seconds) and can be changed through property `integration.default.poller.rate` in `application.properties` file. In addition, you can define that value when creating the channel passing the milliseconds timeout as a parameter
 
-- new channels/queues
+[source,java]
+----
+this.integration.subscribeTo("my-channel", "my-queue", new SimpleMessageHandler() 10000);
+----
 
-- how to configure connection with active mq broker (properties).
+==== Creating and using a new request-reply channel
+
+In the app that is going to start the flow, after adding the link:cookbook-integration-module#adding-the-module-to-a-project[module dependency] and link:cookbook-integration-module#injecting-the-module[injected it], you only need to call the _createRequestReplyChannel_ method and provide a _name_ for the channel, a _name_ for the related queue and, this part is slightly different from the rest of module implementation, you need to provide a _Message Handler_ that will manage the received response, as we do with listener applications.
+
+[source,java]
+----
+import com.capgemini.devonfw.module.integration.common.api.Integration;
+
+public class MyFirstApp{
+
+  @Inject 
+  private Integration integration;
+
+  public void startCommunication(){
+
+    IntegrationChannel myChannel = this.integration.createRequestReplyChannel("my-channel", "my-queue", new MyMessageHandler());
+    Boolean sent = myChannel.send("Hello");
+    if (sent) System.out.println("message successfully sent");
+  }
+}
+----
+
+The _MessageHandler_ provided in the example above is exactly the same than explained previously in this _Integration module_ chapter (link:cookbook-integration-module#listener-application-example[see here]), except that, as this is a custom implementation, we don`t need to annotate the class with `@Handler`.
+
+With this code we will create the _channel/queue_ infrastructure, send the message and provide a handler for the response. Now we need to define the second side of the flow to receive the message and provide a reply.
+
+The timeout for the response can be configured through property `integration.default.receivetimeout` in `application.properties` file, by default is set to _5000_ (5 seconds).
+
+You can also configure it when creating the channel passing the _timeout_ as a parameter
+
+[source,java]
+----
+IntegrationChannel myChannel = this.integration.createRequestReplyChannel("my-channel", "my-queue", new MessageHandler(), 10000);
+----
+
+In a second application, after adding the link:cookbook-integration-module#adding-the-module-to-a-project[module dependency] and the link:cookbook-integration-module#injecting-the-module[injection] of it, we only need to use the _subscribeAndReplyTo_ method and provide the name for the channel and the queue (that *must match* the names provided in the first app) and the _Integration Handler_ to manage the received messages. The implementation is the same as the one described in the link:cookbook-integration-module#receiver-sender-application-example[receiver application example] section, except that, again, we don't need to annotate the class with `@Handler`. So our sample code will look like
+
+[source,java]
+----
+import com.capgemini.devonfw.module.integration.common.api.Integration;
+
+public class MySecondApp{
+
+  @Inject 
+  private Integration integration;
+
+  public void startCommunication(){
+
+    this.integration.subscribeAndReplyTo("my-channel", "my-queue", new MyIntegrationHandler());
+  }
+}
+----
+
+[NOTE]
+====
+Remember that if you run the first app before the listener app is running you will probably get a _timeout exception_.
+====
+
+==== Creating and using a new asynchronous request-reply channel
+
+To create that type of channels the implementation is exactly the same than the link:cookbook-integration-module#creating-and-using-a-new-request-reply-channel[previous section]. So in this section we are going to show only the code differences
+
+The first app will use the method _createAsyncRequestReplyChannel_ to create the channel, the rest is the same
+
+[source,java]
+----
+IntegrationChannel demoAsyncChannel = 
+    this.integration.createAsyncRequestReplyChannel("my-async-channel", "my-async-queue", new MyMessageHandler());
+----
+
+You can define your own values for the _ThreadPoolExecutor's core pool size_ and _response timeout_ adding the properties `integration.default.poolsize` and `integration.default.receivetimeout` to your `application.properties` file and providing a value.
+
+However, you can also define those values when creating the channel
+
+[source,java]
+----
+IntegrationChannel demoAsyncChannel = 
+  this.integration.createAsyncRequestReplyChannel("my-async-channel", "my-async-queue", new MyMessageHandler(), 15, 10000);
+----
+
+And the second app you can subscribe to the channel with the method _subscribeAndReplyAsyncTo_ and providing the names for the channel and queue (that *must match* with the names provided in the first application), and an _IntegrationHandler_ to manage the messages and provide a reply.
+
+[source,java]
+----
+this.integration.subscribeAndReplyAsyncTo("my-async-channel", "my-async-queue", new MyIntegrationHandler());
+----
+
+The implementation for the _Integration Handler_ is explained link:cookbook-integration-module#receiver-sender-application-example[here], except that we don't need to annotate the class with `@Handler`.
+
+=== Sending headers with the message
+
+The _Integration module_ also allows to send headers alongside the message content. To do so you can use the methods provided by the module that accespt a _Map_ as parameter for headers.
+
+==== Creating the headers
+
+You can create the message headers using a Java _Map_ object
+
+[source,java]
+----
+Map headers = new HashMap();
+headers.put("header1", "value1");
+headers.put("header2", "value2");
+----
+
+==== Sending the headers
+
+Each _send_ method provided with the module accepts a _Map_ object as parameter for the headers, so you can send it alongside the message content
+
+- *default simple channel*: `integration.send("Hello", headers)`
+
+- *default request-reply channel*: `integration.sendAndReceive("Hello", headers)`
+
+- *default asynchronous request-reply channel*: `integration.sendAndReceiveAsync("Hello", headers)`
+
+- *new created channels*: `new_channel.send("Hello", headers)`
