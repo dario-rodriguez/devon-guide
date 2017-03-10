@@ -744,7 +744,7 @@ Remember that if you run the first app before the listener app is running you wi
 
 ==== Creating and using a new asynchronous request-reply channel
 
-To create that type of channels the implementation is exactly the same than in the link:cookbook-integration-module#creating-and-using-a-new-request-reply-channel[previous section]. So in this section we are going to show only the code differences
+To create that type of channels the implementation is exactly the same than in the link:cookbook-integration-module#creating-and-using-a-new-request-reply-channel[previous section]. So in this section we are going to show only the code differences.
 
 The first app will use the method _createAsyncRequestReplyChannel_ to create the channel, the rest is the same
 
