@@ -528,7 +528,7 @@ With these three steps you can use the new security object with the custom attri
 
 Once the microservice has been created through its archetype, you need to have a series of points in mind to configure it correctly:
 
-- The microservice must have as dependency `<groupId> com.capgemini.devonfw.archetypes </ groupId> <artifactId> microservices </ artifactId>` in its `pom.xml` configuration to be able to use the interceptors and the generic configuration.
+- The microservice must have as dependency `<groupId>com.capgemini.devonfw</ groupId> <artifactId>microservices</ artifactId>` in its `pom.xml` configuration to be able to use the interceptors and the generic configuration.
 
 - It should be annotated in its initial class with `@EnableMicroservices`, this will activate the annotations for _Eureka_ client, _CircuitBreaker_ and the client Feign. All of this is configured in the properties file.
 
