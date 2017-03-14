@@ -130,7 +130,7 @@ The src directory contains all of the source material for building the project, 
 
 4. Directory for the language java.
 
-5. contains all the resources like .properties file etc. We can see _application.properties_ here.
+5. contains all the resources like .properties file etc. For example, _application.properties_.
 
 6. Contains all test classes(.java), like junit etc.
 
