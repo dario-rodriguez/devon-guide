@@ -11,7 +11,7 @@ Devcon is the easiest way to use Devonfw. By accompanying on project automation,
 
 == Requirements
 
-You will need to have a Java JDK 1.7 or 1.8 installed on your system. It is *not* necessary to use the Devonfw Distribution as Devcon can be used independently from that environment. You might even want to use Devcon itself to download & extract the Devon Distribution zip file to and on your system! (see down...) 
+You will need to have a Java JDK 1.7 or 1.8 installed on your system (devcon UI requires JDK 1.8). It is *not* necessary to use the Devonfw Distribution as Devcon can be used independently from that environment. You might even want to use Devcon itself to download & extract the Devon Distribution zip file to and on your system! (see down...) 
 
 == Download Devcon
 
@@ -66,7 +66,7 @@ There are two ways to run Devcon:
 
 === Using Devcon GUI:
 
-To run Devcon using the Devcon GUI, open command prompt and run below command:
+To run Devcon using the Devcon GUI, open command prompt and run below command (remember that *you will need JDK 1.8* to use Devcon's GUI):
 
 [source,batch]
 ----
