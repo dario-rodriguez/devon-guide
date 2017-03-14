@@ -314,9 +314,10 @@ As part of the _command_ object in the _commands.json_ file we can define the pa
 	* _description_: the description of the parameter to be shown to the users.
 	* _optional_: a _true_/_false_ attribute to define if the parameter is mandatory or not.
 	* _sort_: see the _sort_ attribute in the previous section.
-	* _inputType_: by default the parameters will be represented in the Devcon's graphic user interface as text boxes but, in case we want the parameter to be a drop down list, we can specify it using this _inputType_ attribute and defining some sub-attributes
-		** _name_: "list"
-		** _values_: an array with the values to be shown in the drop down.
+	* _inputType_: by default the parameters will be represented in the Devcon's graphic user interface as text boxes but, in case we want the parameter to be a drop down list, a directory picker or a password box, we can specify it using this _inputType_ attribute and defining some sub-attributes
+		** _drop down list_: `"inputType": {"name":"list", "values":["optionA", "optionB", "optionC"]}`
+		** _directory picker_: `"inputType": {"name":"path", "values":[]}`
+		** _password box_: `"inputType": {"name":"password", "values":[]}`
 
 
 In our example we are going to add two parameters, a first one that will be showed as a text box and the second one that will be a drop down with four options. The result will look like the following
