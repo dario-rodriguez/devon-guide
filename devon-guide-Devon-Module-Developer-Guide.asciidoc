@@ -87,7 +87,7 @@ So, if you don't have the latest devon distribution and you want to use this arc
 
 1. When you use archetype with java version lower than java 8, project will be created and you will get error like: 
 
-*_Unbound classpath container: 'JRE System Library [JavaSE-1.8]' in project {project_name}_*, you will have to manually point installed JRE to desired version. Please, refer [here].
+*_Unbound classpath container: 'JRE System Library [JavaSE-1.8]' in project {project_name}_*, you will have to manually point installed JRE to desired version. Please, refer https://github.com/devonfw/devon-guide/wiki/Compatibility-guide-for-Java7-Java8-and-Tomcat7-Tomcat8 [here].
 
 2. Once, the project is created and step 1 is done, you need to manually change the java version in _pom.xml_ to the desired java version. So, the generated _pom.xml_ would have version as shown below:
 
