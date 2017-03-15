@@ -111,20 +111,20 @@ image::images/integration/simple_channel.png[,width="450", link="images/integrat
 
 The _listener_ application doesn't provide a response, only consumes the messages.
 
-To configure your application to use this default channel you only need to edit the `application.properties` of your Spring project adding the property `integration.one-direction.emitter` or `integration.one-direction.listener`.
+To configure your application to use this default channel you only need to edit the `application.properties` of your Spring project adding the property `devonfw.integration.one-direction.emitter` or `devonfw.integration.one-direction.listener`.
 
 For emitter applications set the _one-direction.emitter_ property to _true_:
 
 [source]
 ----
-integration.one-direction.emitter=true
+devonfw.integration.one-direction.emitter=true
 ----
 
 If your application acts as listener set the property _one-direction.listener_ to _true_:
 
 [source]
 ----
-integration.one-direction.listener=true
+devonfw.integration.one-direction.listener=true
 ----
 
 Doing this, when running your app the related _Beans_ will be loaded automatically and the communication channel and its related queue will be also created.
@@ -137,20 +137,20 @@ In this second approach the message flow is completed in two directions. In this
 
 image::images/integration/requestreply_channel.png[,width="450", link="images/integration/requestreply_channel.png"]
 
-To configure your application to use this default channel, as we explained in the previous section, you only need to edit the `application.properties` of your Spring project adding in this case the property `integration.request-reply.emitter` or `integration.request-reply.listener`.
+To configure your application to use this default channel, as we explained in the previous section, you only need to edit the `application.properties` of your Spring project adding in this case the property `devonfw.integration.request-reply.emitter` or `devonfw.integration.request-reply.listener`.
 
 For emitter/listener applications set the _request-reply.emitter_ property to _true_:
 
 [source]
 ----
-integration.request-reply.emitter=true
+devonfw.integration.request-reply.emitter=true
 ----
 
 If your application acts as listener/emitter set the property _request-reply.listener_ to _true_:
 
 [source]
 ----
-integration.request-reply.listener=true
+devonfw.integration.request-reply.listener=true
 ----
 
 Doing this, same as in the previous case, when running your app the related _Beans_ will be loaded automatically and the communication channel and its related queue will be also created.
@@ -167,14 +167,14 @@ For emitter/listener applications set the _request-reply-async.emitter_ property
 
 [source]
 ----
-integration.request-reply-async.emitter=true
+devonfw.integration.request-reply-async.emitter=true
 ----
 
 Otherwise, if your application is the listener/emitter, set the property _request-reply.listener_ to _true_:
 
 [source]
 ----
-integration.request-reply-async.listener=true
+devonfw.integration.request-reply-async.listener=true
 ----
 
 We will show the complete configuration of this default channel in upcoming sections.
@@ -194,11 +194,11 @@ The default configuration properties for this channel, provided by default with 
 
 [source]
 ----
-integration.one-direction.emitter=false
-integration.one-direction.listener=false
-integration.one-direction.channelname=1d.Channel
-integration.one-direction.queuename=1d.queue
-integration.one-direction.poller.rate=5000
+devonfw.integration.one-direction.emitter=false
+devonfw.integration.one-direction.listener=false
+devonfw.integration.one-direction.channelname=1d.Channel
+devonfw.integration.one-direction.queuename=1d.queue
+devonfw.integration.one-direction.poller.rate=5000
 ----
 
 - _emitter_: if your app is going to send messages through this channel to the related queue.
@@ -215,10 +215,10 @@ As we already mentioned the _Emitter_ applications must enable the _emitter_ pro
 
 [source]
 ----
-integration.one-direction.emitter=true
+devonfw.integration.one-direction.emitter=true
 ----
 
-Optionally, you can edit the name for the channel and for the queue using the `integration.one-direction.channelname` and `integration.one-direction.queuename` properties.
+Optionally, you can edit the name for the channel and for the queue using the `devonfw.integration.one-direction.channelname` and `devonfw.integration.one-direction.queuename` properties.
 
 ===== Emitter application example
 
@@ -268,12 +268,12 @@ For _Listener_ applications you must enable the channel through the correspondin
 
 [source]
 ----
-integration.one-direction.listener=true
+devonfw.integration.one-direction.listener=true
 ----
 
-In case of _listener_ applications you can also configure the interval of time to make the requests to the message broker for new messages. To do so you can add the property `integration.one-direction.poller.rate` to your `application.properties` file and provide a milliseconds amount as property value. If you don't overwrite this property its default value is _5000_ (5 seconds).
+In case of _listener_ applications you can also configure the interval of time to make the requests to the message broker for new messages. To do so you can add the property `devonfw.integration.one-direction.poller.rate` to your `application.properties` file and provide a milliseconds amount as property value. If you don't overwrite this property its default value is _5000_ (5 seconds).
 
-As in the _emitter_ case, you can edit the name for both the _channel_ and the _queue_ (`integration.one-direction.channelname` and `integration.one-direction.queuename` properties) but have into account that *these names must match* between the _emitter_ and the _listener_ applications in order to perform the communication.
+As in the _emitter_ case, you can edit the name for both the _channel_ and the _queue_ (`devonfw.integration.one-direction.channelname` and `devonfw.integration.one-direction.queuename` properties) but have into account that *these names must match* between the _emitter_ and the _listener_ applications in order to perform the communication.
 
 ===== Listener application example
 
@@ -343,11 +343,11 @@ The default configuration properties for this channel, provided by default with 
 
 [source]
 ----
-integration.request-reply.emitter=false
-integration.request-reply.listener=false
-integration.request-reply.channelname=rr.Channel
-integration.request-reply.queuename=rr.queue
-integration.request-reply.receivetimeout=5000
+devonfw.integration.request-reply.emitter=false
+devonfw.integration.request-reply.listener=false
+devonfw.integration.request-reply.channelname=rr.Channel
+devonfw.integration.request-reply.queuename=rr.queue
+devonfw.integration.request-reply.receivetimeout=5000
 ----
 
 - _emitter_: if your app is going to send and then receive messages through this channel.
@@ -364,10 +364,10 @@ To enable the sending of messages through this channel you must set the `request
 
 [source]
 ----
-integration.request-reply.emitter=true
+devonfw.integration.request-reply.emitter=true
 ----
 
-Optionally, you can edit the name for the channel and for the queue using the `integration.request-reply.channelname` and `integration.request-reply.queuename` properties. As we just mentioned, the timeout for the response can be edited adding the `integration.request-reply.receivetimeout` property to our properties file and providing a milliseconds value. By default the timeout is _5000_ (5 seconds). 
+Optionally, you can edit the name for the channel and for the queue using the `devonfw.integration.request-reply.channelname` and `devonfw.integration.request-reply.queuename` properties. As we just mentioned, the timeout for the response can be edited adding the `devonfw.integration.request-reply.receivetimeout` property to our properties file and providing a milliseconds value. By default the timeout is _5000_ (5 seconds). 
 
 
 =====  Sender-Receiver application example
@@ -407,10 +407,10 @@ In this application we need to enable the `request-reply.listener` property so, 
 
 [source]
 ----
-integration.request-reply.listener=true
+devonfw.integration.request-reply.listener=true
 ----
 
-You can also edit the name for both the _channel_ and the _queue_ (`integration.request-reply.channelname` and `integration.request-reply.queuename` properties). But, as mentioned in previous section, have into account that *these names must match* between the _sernder-receiver_ and the _receiver-sender_ applications, in order to perform the communication.
+You can also edit the name for both the _channel_ and the _queue_ (`devonfw.integration.request-reply.channelname` and `devonfw.integration.request-reply.queuename` properties). But, as mentioned in previous section, have into account that *these names must match* between the _sernder-receiver_ and the _receiver-sender_ applications, in order to perform the communication.
 
 ===== Receiver-Sender application example
 
@@ -493,11 +493,11 @@ The usage of this default channel, provided also by default within the _Integrat
 
 [source]
 ----
-integration.request-reply-async.emitter=false
-integration.request-reply-async.listener=false
-integration.request-reply-async.channelname=async.Channel
-integration.request-reply-async.queuename=async.queue
-integration.request-reply-async.receivetimeout=5000
+devonfw.integration.request-reply-async.emitter=false
+devonfw.integration.request-reply-async.listener=false
+devonfw.integration.request-reply-async.channelname=async.Channel
+devonfw.integration.request-reply-async.queuename=async.queue
+devonfw.integration.request-reply-async.receivetimeout=5000
 ----
 
 The properties are the same as in the simple _request-reply_ channel.
@@ -506,16 +506,16 @@ The application that is going to trigger the communication flow, sending a first
 
 [source]
 ----
-integration.request-reply-async.emitter=true
+devonfw.integration.request-reply-async.emitter=true
 ----
 
-In the configuration of this application we can also define the timeout for the response. If exceeded, the process will be stopped and a _timeout exception_ will be thrown. This can be controlled with the property `integration.request-reply-async.receivetimeout`
+In the configuration of this application we can also define the timeout for the response. If exceeded, the process will be stopped and a _timeout exception_ will be thrown. This can be controlled with the property `devonfw.integration.request-reply-async.receivetimeout`
 
 In the other side, the application that is subscribed to the channel and is going to receive the messages and reply to them, must have the property `request-reply-async.listener` defined as _true_.
 
 [source]
 ----
-integration.request-reply-async.listener=true
+devonfw.integration.request-reply-async.listener=true
 ----
 
 
@@ -677,7 +677,7 @@ public class MyListenerApp{
 }
 ----
 
-By default, the interval for polling the channel is _5000_ (5 seconds) and can be changed through property `integration.default.poller.rate` in `application.properties` file. In addition, you can define that value when creating the channel passing the milliseconds timeout as a parameter
+By default, the interval for polling the channel is _5000_ (5 seconds) and can be changed through property `devonfw.integration.default.poller.rate` in `application.properties` file. In addition, you can define that value when creating the channel passing the milliseconds timeout as a parameter
 
 [source,java]
 ----
@@ -710,7 +710,7 @@ The _MessageHandler_ provided in the example above is exactly the same than expl
 
 With this code we will create the _channel/queue_ infrastructure, send the message and provide a handler for the response. Now we need to define the second side of the flow to receive the message and provide a reply.
 
-The timeout for the response can be configured through property `integration.default.receivetimeout` in `application.properties` file, by default is set to _5000_ (5 seconds).
+The timeout for the response can be configured through property `devonfw.integration.default.receivetimeout` in `application.properties` file, by default is set to _5000_ (5 seconds).
 
 You can also configure it when creating the channel passing the _timeout_ as a parameter
 
@@ -754,7 +754,7 @@ IntegrationChannel demoAsyncChannel =
     this.integration.createAsyncRequestReplyChannel("my-async-channel", "my-async-queue", new MyMessageHandler());
 ----
 
-You can define your own values for the _ThreadPoolExecutor's core pool size_ and _response timeout_ adding the properties `integration.default.poolsize` and `integration.default.receivetimeout` to your `application.properties` file and providing a value.
+You can define your own values for the _ThreadPoolExecutor's core pool size_ and _response timeout_ adding the properties `devonfw.integration.default.poolsize` and `devonfw.integration.default.receivetimeout` to your `application.properties` file and providing a value.
 
 However, you can also define those values when creating the channel
 
