@@ -288,9 +288,12 @@ public class MyListenerApp{
   @Inject
   private Integration integration;
 
+  @Inject
+  private MessageHandler messageHandler;
+
   public void readSimpleMessage(){
 
-    this.integration.subscribe(new SimpleMessageHandler());
+    this.integration.subscribe(this.messageHandler);
   }
 }
 ----
@@ -425,18 +428,20 @@ public class MySecondApp{
   @Inject
   private Integration integration;
 
+  @Inject
+  private IntegrationHandler simpleHandler;
+
   public void myMethod(){
 
-    this.integration.subscribeAndReply(new SimpleIntegrationHandler());
+    this.integration.subscribeAndReply(this.simpleHandler);
   }
 }
 ----
 
-In this case we provide to the `subscribeAndReply` method an _Integration Handler_ to manage the responses to each message. For the example we have implemented a basic Integration handler, to create your own one you only need to create a class, annotate it with `@Handler` and implement the `IntegrationHandler` interface. Lets see our _SimpleMessageHandler_
+In this case we provide to the `subscribeAndReply` method an _Integration Handler_ to manage the responses to each message. For the example we have implemented a basic Integration handler, to create your own one you only need to create a class and implement the `IntegrationHandler` interface. Lets see our _SimpleMessageHandler_
 
 [source,java]
 ----
-@Handler
 public class SimpleIntegrationHandler implements IntegrationHandler {
 
   @Override
@@ -570,18 +575,21 @@ public class MySecondApp{
   @Inject
   private Integration integration;
 
+  @Inject
+  private IntegrationHandler longHandler;
+
   public void myMethod(){
 
-    this.integration.subscribeAsync(new LongIntegrationHandler());
+    this.integration.subscribeAsync(this.longHandler);
   }
 }
 ----
 
-In this case we provide to the `subscribeAsync` method an _Integration Handler_ to manage the responses to each message. For the example we have implemented a very simple Integration handler that blocks the process during 3 seconds to simulate a long process. To create your own _Integration Handler_ you only need to create a class, annotate it with `@Handler` and implement the `IntegrationHandler` interface. Lets see our _LongIntegrationHandler_.
+In this case we provide to the `subscribeAsync` method an _Integration Handler_ to manage the responses to each message. For the example we have implemented a very simple Integration handler that blocks the process during 3 seconds to simulate a long process. To create your own _Integration Handler_ you only need to create a class, annotate it with `@Component` and implement the `IntegrationHandler` interface. Lets see our _LongIntegrationHandler_.
 
 [source,java]
 ----
-@Handler
+@Component
 public class LongIntegrationHandler implements IntegrationHandler {
 
   @Override
@@ -670,9 +678,12 @@ public class MyListenerApp{
   @Inject 
   private Integration integration;
 
+  @Inject 
+  private MessageHandler messageHandler;
+
   public void readSimpleMessage(){
 
-    this.integration.subscribeTo("my-channel", "my-queue", new SimpleMessageHandler());
+    this.integration.subscribeTo("my-channel", "my-queue", this.messageHandler);
   }
 }
 ----
@@ -681,7 +692,7 @@ By default, the interval for polling the channel is _5000_ (5 seconds) and can b
 
 [source,java]
 ----
-this.integration.subscribeTo("my-channel", "my-queue", new SimpleMessageHandler(), 10000);
+this.integration.subscribeTo("my-channel", "my-queue", this.messageHandler, 10000);
 ----
 
 ==== Creating and using a new request-reply channel
@@ -697,9 +708,12 @@ public class MyFirstApp{
   @Inject 
   private Integration integration;
 
+  @Inject
+  private MessageHandler messageHandler;
+
   public void startCommunication(){
 
-    IntegrationChannel myChannel = this.integration.createRequestReplyChannel("my-channel", "my-queue", new MyMessageHandler());
+    IntegrationChannel myChannel = this.integration.createRequestReplyChannel("my-channel", "my-queue", this.messageHandler);
     Boolean sent = myChannel.send("Hello");
     if (sent) System.out.println("message successfully sent");
   }
@@ -716,10 +730,10 @@ You can also configure it when creating the channel passing the _timeout_ as a p
 
 [source,java]
 ----
-IntegrationChannel myChannel = this.integration.createRequestReplyChannel("my-channel", "my-queue", new MessageHandler(), 10000);
+IntegrationChannel myChannel = this.integration.createRequestReplyChannel("my-channel", "my-queue", this.messageHandler, 10000);
 ----
 
-In a second application, after adding the link:cookbook-integration-module#adding-the-module-to-a-project[module dependency] and the link:cookbook-integration-module#injecting-the-module[injection] of it, we only need to use the _subscribeAndReplyTo_ method and provide the name for the channel and the queue (that *must match* the names provided in the first app) and the _Integration Handler_ to manage the received messages. The implementation is the same as the one described in the link:cookbook-integration-module#receiver-sender-application-example[receiver application example] section, except that, again, we don't need to annotate the class with `@Handler`. So our sample code will look like
+In a second application, after adding the link:cookbook-integration-module#adding-the-module-to-a-project[module dependency] and the link:cookbook-integration-module#injecting-the-module[injection] of it, we only need to use the _subscribeAndReplyTo_ method and provide the name for the channel and the queue (that *must match* the names provided in the first app) and the _Integration Handler_ to manage the received messages. The implementation is the same as the one described in the link:cookbook-integration-module#receiver-sender-application-example[receiver application example] section. So our sample code will look like
 
 [source,java]
 ----
@@ -730,9 +744,12 @@ public class MySecondApp{
   @Inject 
   private Integration integration;
 
+  @Inject
+  private IntegrationHandler myIntegrationHandler;
+
   public void startCommunication(){
 
-    this.integration.subscribeAndReplyTo("my-channel", "my-queue", new MyIntegrationHandler());
+    this.integration.subscribeAndReplyTo("my-channel", "my-queue", this.myIntegrationHandler);
   }
 }
 ----
@@ -751,7 +768,7 @@ The first app will use the method _createAsyncRequestReplyChannel_ to create the
 [source,java]
 ----
 IntegrationChannel demoAsyncChannel = 
-    this.integration.createAsyncRequestReplyChannel("my-async-channel", "my-async-queue", new MyMessageHandler());
+    this.integration.createAsyncRequestReplyChannel("my-async-channel", "my-async-queue", this.myIntegrationHandler);
 ----
 
 You can define your own values for the _ThreadPoolExecutor's core pool size_ and _response timeout_ adding the properties `devonfw.integration.default.poolsize` and `devonfw.integration.default.receivetimeout` to your `application.properties` file and providing a value.
@@ -761,21 +778,21 @@ However, you can also define those values when creating the channel
 [source,java]
 ----
 IntegrationChannel demoAsyncChannel = 
-  this.integration.createAsyncRequestReplyChannel("my-async-channel", "my-async-queue", new MyMessageHandler(), 15, 10000);
+  this.integration.createAsyncRequestReplyChannel("my-async-channel", "my-async-queue", this.myMessageHandler, 15, 10000);
 ----
 
 In the second app you can subscribe to the channel with the method _subscribeAndReplyAsyncTo_ and providing the names for the channel and queue (that *must match* with the names provided in the first application), and an _IntegrationHandler_ to manage the messages and provide a reply.
 
 [source,java]
 ----
-this.integration.subscribeAndReplyAsyncTo("my-async-channel", "my-async-queue", new MyIntegrationHandler());
+this.integration.subscribeAndReplyAsyncTo("my-async-channel", "my-async-queue", this.myIntegrationHandler);
 ----
 
-The implementation for the _Integration Handler_ is explained link:cookbook-integration-module#receiver-sender-application-example[here], except that we don't need to annotate the class with `@Handler`.
+The implementation for the _Integration Handler_ is explained link:cookbook-integration-module#receiver-sender-application-example[here].
 
 === Sending headers with the message
 
-The _Integration module_ also allows to send headers alongside the message content. To do so you can use the methods provided by the module that accespt a _Map_ as parameter for headers.
+The _Integration module_ also allows to send headers alongside the message content. To do so you can use the methods provided by the module that accept a _Map_ as parameter for headers.
 
 ==== Creating the headers
 
