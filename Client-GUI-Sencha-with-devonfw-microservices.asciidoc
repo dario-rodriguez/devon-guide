@@ -1,1 +1,119 @@
-asdf
+:toc: macro
+toc::[]
+
+
+
+In order to use _devon4sencha_ applications with the link:cookbook-integration-module[Devonfw implementation for microservices], we will need to adapt the Security configuration of the framework to authenticate our client app against the _auth_ service of the microservices solution.
+
+To do so we will need to add some changes in the way _Sencha_ authenticates. The changes only affect to the `devon4sencha\packages\local\devon-extjs\src\Security.js` file so we can open it with an editor and add bellow code:
+
+- changing the _loginOperation_: During logging process we are going to check if the server is based on microservices (if headers _accessHeaderName_ and _accessToken_ are presents) and in this case we are going to store the token in a security variable and schedule a refresh operation for the token. The new _loginOperation_ function will look like bellow
+
+[source,javascript]
+----
+    loginOperation: function(options) {
+		var me = this;
+		
+        Devon.rest.security.login.post({
+            jsonData: {
+                j_username: options.user,
+                j_password: options.password
+            },
+            success: function(data, response, opts) {
+				
+				//Check if JWT security is activated
+                if (data && data.accessHeaderName && data.accessToken) {
+                    me.jwtData = data;
+                    var headers = {};
+                    headers[data.accessHeaderName] = data.accessToken;
+                    Ext.Ajax.setDefaultHeaders(headers);
+                    if (options.success) {
+                        options.success.call(options.scope, this.currentUser);
+                    }
+					
+					var task = {
+						run: function(){
+							me.refreshJwtData();
+							return true;
+						},
+						interval: data.expirationTime / 3,
+						scope: me						
+					}
+					Ext.TaskManager.start(task);
+                }
+				
+				options.success(data, response, opts);
+            },
+            failure: options.failure,
+            scope: options.scope
+        });
+    }
+----
+
+- Adding the refresh token function: The _refreshJwtData_ function will be
+
+[source,javascript]
+----
+	refreshJwtData: function(options) {
+		var me = this;
+		
+		var headers = {};
+		headers[me.jwtData.accessHeaderName] = me.jwtData.accessToken;
+		headers[me.jwtData.refreshHeaderName] = me.jwtData.refreshToken;
+		
+        Devon.rest.security.jwtRefresh.post({
+			headers: headers,
+            success: function(data, response, opts) {
+				if (data && data.accessHeaderName && data.accessToken) {
+                    me.jwtData = data;
+                    var headers = {};
+                    headers[data.accessHeaderName] = data.accessToken;
+                    Ext.Ajax.setDefaultHeaders(headers);
+                }			
+			}
+		});
+	}
+----
+
+- changing _getCSRF_ function: we will check if the _token_ related to microservices is present
+
+[source,javascript]
+----
+    getCSRF: function(options) {
+        Devon.Log.trace("->onUserLoaded");
+		
+		//JWT Security
+		if (this.jwtData != null) {
+			options.success.call(options.scope, this.currentUser);
+		}
+		
+		//JsessionId Security
+		else {
+			Devon.rest.security.csrftoken.get({
+				scope: this,
+				failure: Ext.emptyFn,
+				success: function(csrf, response, opts) {
+					if (csrf && csrf.headerName && csrf.token) {
+						this.csrf = csrf;
+						var headers = {};
+						headers[csrf.headerName] = csrf.token;
+						Ext.Ajax.setDefaultHeaders(headers);
+						if (options.success) {
+							options.success.call(options.scope, this.currentUser);
+						}
+					}
+				},
+				callback: function() {
+					if (!this.csrf) {
+						if (options.failure) {
+							options.failure.call(options.scope);
+						}
+
+					}
+				}
+			});
+		}
+    }
+----
+
+With above changes the _devon4sencha_ app will be able to authenticate against a _devonfw microservices_ app.
