@@ -540,7 +540,14 @@ Once the microservice has been created through its archetype, you need to have a
 
 - All microservices must share the security key to encrypt and decrypt the token. And, specially, it should be the same as the `service-auth`, which will be responsible for generating the initial token.
 
-- In the _Zuul_ module, the routes must be well configured to be able to route certain URLs to the new created microservices.
+- In the _Zuul_ module, the routes must be well configured to be able to route certain URLs to the new created microservices. So, if we have added a _sampleapp1_ with `server.context-path=/sampleapp1` we will need to map that service in the _Zuul's_ `application.properties` file adding
+
+[source]
+----
+zuul.routes.sampleapp1.path=/sampleapp1/services/rest/**
+zuul.routes.sampleapp1.serviceId=sampleapp1
+zuul.routes.sampleapp1.stripPrefix=false
+----
 
 The rest will be treated as if it were a normal Web application, which exposes some services through a REST API.
 
