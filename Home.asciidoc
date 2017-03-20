@@ -59,6 +59,8 @@
 
 - link:cookbook-async-module[devonfw Async module]
 
+- link:cookbook-integration-module[devonfw Integration module]
+
 - link:cookbook-security-layer[Security: Authentication and Authorization]
 
 - link:cookbook-JAX-WS-WebServices[JAX-WS Web Services]
