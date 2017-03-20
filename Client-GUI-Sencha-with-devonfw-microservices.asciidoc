@@ -12,7 +12,7 @@ In order to use _devon4sencha_ applications with the link:devon-microservices[De
 
 To do so we will need to add some changes in the way _Sencha_ authenticates. The changes only affect to the `devon4sencha\packages\local\devon-extjs\src\Security.js` file so we can open it with an editor and add bellow code:
 
-- changing the _loginOperation_: During logging process we are going to check if the server is based on microservices (if headers _accessHeaderName_ and _accessToken_ are presents) and in this case we are going to store the token in a security variable and schedule a refresh operation for the token. The new _loginOperation_ function will look like bellow
+- changing the _loginOperation_: In microservices we can not use the _session_ as a security resource so we will start using _security tokens_ to allow our apps to authenticate. During logging process, when it is successful, we are going to check if the server is based on microservices (if headers _accessHeaderName_ and _accessToken_ are presents) and in this case we are going to store the obtained _token_ in a security variable, and schedule a refresh operation for the token. The new _loginOperation_ function will look like bellow
 
 [source,javascript]
 ----
@@ -80,7 +80,7 @@ To do so we will need to add some changes in the way _Sencha_ authenticates. The
 	}
 ----
 
-- changing _getCSRF_ function: we will check if the _token_ related to microservices is present
+- changing _getCSRF_ function: we will check if the _token_ related to microservices is present. If that is the case we are going to call directly the `options.success.call`
 
 [source,javascript]
 ----
