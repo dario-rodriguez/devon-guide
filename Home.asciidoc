@@ -73,7 +73,7 @@
 
 - link:cookbook-File-Upload-and-Download[File Upload and Download]
 
-- link:devon-microservices [devonfw microservices]
+- link:devon-microservices[devonfw microservices]
 
 - link:cookbook-dockerization[devonfw on Docker]
 
