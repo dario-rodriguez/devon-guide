@@ -30,12 +30,14 @@
 * link:cookbook-winauth-sso-module[devonfw Windows Single Sign-on Auth module]
 * link:cookbook-i18n-module[devonfw I18N Module]
 * link:cookbook-async-module[devonfw Async Module]
+* link:cookbook-integration-module[devonfw Integration module]
 * link:cookbook-security-layer[Security: Authentication and Authorization]
 * link:cookbook-JAX-WS-WebServices[JAX-WS Web Services]
 * link:cookbook-batch-layer[Batch Layer]
 * link:cookbook-spring-data[Integrating Spring Data]
 * link:cookbook-websocket[WebSocket]
 * link:cookbook-File-Upload-and-Download[File Upload and Download]
+* link:devon-microservices[devonfw microservices]
 * link:cookbook-dockerization[devonfw on Docker]
 * link:devon-guide-production-line[devonfw on the Production Line]
 * link:devon-in-bluemix[devonfw in IBM Bluemix]
@@ -74,6 +76,7 @@
 * link:Client-GUI-Sencha-devon4Sencha-tools[Javascript Code Analysis Tools]
 * link:Client-GUI-Sencha-devon4Sencha-code-review[How to do effective Devon4Sencha Code Reviews]
 * link:Client-GUI-Sencha-devon4Sencha-test[Devon4Sencha Testing Tools]
+* link:Client-GUI-Sencha-with-devonfw-microservices[Devon4Sencha apps with devonfw microservices]
 * link:Client-GUI-Cordova-How-to-start-cordova-project[Start a Cordova project from a Sencha project]
 
 == The Presentation Layer: Getting Started with OASP4JS
