@@ -143,6 +143,8 @@
 
 - link:Client-GUI-Sencha-devon4Sencha-test[Devon4Sencha Testing Tools]
 
+- link:Client-GUI-Sencha-with-devonfw-microservices[Devon4Sencha apps with devonfw microservices]
+
 - link:Client-GUI-Cordova-How-to-start-cordova-project[Start a Cordrova project from a Sencha project]
 
 ## The Presentation Layer: Getting Started with OASP4JS
