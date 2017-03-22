@@ -79,6 +79,17 @@ to
 ----
 "postinstall": "bower install  -–allow-root",
 ----
+* Install git for linux.
+* Once this is done, run from the same oasp4js directory
+----
+
+npm install
+
+----
+
+* Now you should be able to see "bower_components" folder created in the root of oasp4js.
+* Once done, execute *gulp serve* which will automatically open app in default browser.
+
 
 === Why it is worth using
 
