@@ -4,7 +4,16 @@ toc::[]
 = Steps to use Devon distribution in Linux OS
 
 .  Navigate to devon dist folder and open a terminal.
-. On the terminal, execute command
+. On the terminal, execute env.sh script, using [.]
+  *[.]* is a command in linux shell 
+    it sources a script 
+    so it is included into your current shell environment.
+
+
+[source,console]
+----
+. env.sh
+----
 
 
 
