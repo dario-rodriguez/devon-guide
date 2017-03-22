@@ -59,6 +59,16 @@ https-proxy=http://user:password@proxy:port
 http-proxy=http://user:password@proxy:port
 ----
 
+=== Running of application in Linux
+If, one wants to run sample restaurant application in Linux environment,follow these steps:
+*  Open a terminal inside devon distribution, and execute env.sh script as below
+----
+. env.sh
+
+----
+* Traverse to directory where OASP4JS code is present.
+* Change below mentioned line as shown in _package.json_ file.
+
 === Why it is worth using
 
 ==== It offers more than other application seeds
