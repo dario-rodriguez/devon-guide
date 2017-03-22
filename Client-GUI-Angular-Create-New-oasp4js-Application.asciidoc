@@ -74,12 +74,7 @@ Comment this line
 "postinstall": "bower install -F -–allow-root",
 ----
 * Install git for linux.
-* Once this is done, run from the same oasp4js directory
-----
 
-npm install
-
-----
 * Install bower
 ----
 npm bower install --allow-root
@@ -89,6 +84,12 @@ npm bower install --allow-root
 
 ----
 npm install -g gulp
+----
+* Once this is done, run from the same oasp4js directory.
+----
+
+npm install
+
 ----
 
 * Now you should be able to see "bower_components" folder created in the root of oasp4js.
