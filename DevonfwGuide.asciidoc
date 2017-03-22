@@ -375,6 +375,10 @@ include::devcon-command-developers-guide[]
 
 <<<<
 
+include::devon-guide-devonfw-dist-user-guide-for-linux[]
+
+<<<<
+
 include::components-list[]
 
 <<<<
