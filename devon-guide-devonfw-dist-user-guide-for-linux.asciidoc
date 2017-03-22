@@ -19,6 +19,8 @@ toc::[]
 
 * Once above steps are done, run create-or-update-workspace script, which inturn creates scripts for eclipse like eclipse-main .
 
+For more details on devon distro in general, refer https://github.com/devonfw/devon-guide/wiki/getting-started-distribution-structure[here].
+
 
 
 
