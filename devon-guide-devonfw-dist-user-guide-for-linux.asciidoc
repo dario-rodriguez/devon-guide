@@ -1,3 +1,10 @@
 :toc: macro
 toc::[]
 
+= Steps to use Devon distribution in Linux OS
+
+.  Navigate to devon dist folder and open a terminal.
+. On the terminal, execute command
+
+
+
