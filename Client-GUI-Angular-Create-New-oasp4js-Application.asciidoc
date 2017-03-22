@@ -69,15 +69,9 @@ If, one wants to run sample restaurant application in Linux environment,follow t
 ----
 * Traverse to directory where OASP4JS code is present.
 * Change below mentioned line as shown in _package.json_ file.
-Change this line
+Comment this line
 ----
 "postinstall": "bower install -F -–allow-root",
-----
-
-to
-
-----
-"postinstall": "bower install  -–allow-root",
 ----
 * Install git for linux.
 * Once this is done, run from the same oasp4js directory
@@ -85,6 +79,16 @@ to
 
 npm install
 
+----
+* Install bower
+----
+npm bower install --allow-root
+
+----
+* Install gulp
+
+----
+npm install -g gulp
 ----
 
 * Now you should be able to see "bower_components" folder created in the root of oasp4js.
