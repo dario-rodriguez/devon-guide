@@ -93,6 +93,12 @@ npm install
 ----
 
 * Now you should be able to see "bower_components" folder created in the root of oasp4js.
+If not then, again execute
+----
+npm bower install --allow-root
+
+----
+
 * Once done, execute *gulp serve* which will automatically open app in default browser.
 
 
