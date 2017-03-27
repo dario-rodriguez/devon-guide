@@ -1,9 +1,11 @@
 :toc: macro 
 toc::[]
 
-= Deployment of sample application created from oasp4j maven archetype template onto WebSphere Liberty
+= Deploy oasp4j application to WebSphere Liberty
 
-== Setup and Configure Web Sphere Liberty in Developer’s Machine (Development Environment)
+Following describes the steps to install and configure WebSphere Liberty in Eclipse Neon that is provided as part of the Devonfw distribution and also details the steps to deploy oasp4j sample application created from oasp4j maven archetype template onto WebSphere Liberty.  
+
+== Setup and Configure WebSphere Liberty
 
 Launch Eclipse Neon from devonfw distribution and 
 
@@ -35,60 +37,59 @@ mvn -DarchetypeVersion=2.2.0 -DarchetypeGroupId=io.oasp.java.templates -Darchety
 ...
 
 <dependencyManagement>
-    	<dependencies>
-      			<dependency>
-        				<groupId>com.sun.xml.bind</groupId>
-        				<artifactId>jaxb-impl</artifactId>
-        				<scope>provided</scope>
-      			</dependency>
-      			<dependency>
-        				<groupId>com.sun.xml.bind</groupId>
-        				<artifactId>jaxb-core</artifactId>
-        				<scope>provided</scope>
-      			</dependency>
-      			<dependency>
-        				<groupId>org.springframework.boot</groupId>
-        				<artifactId>spring-boot-starter-tomcat</artifactId>
-        				<scope>provided</scope>
-      			</dependency>
-     			 <dependency>
-        				<groupId>org.apache.tomcat</groupId>
-       				 <artifactId>tomcat-jdbc</artifactId>
-       				 <scope>provided</scope>
-      			</dependency>
-      			<dependency>
-        				<groupId>org.apache.tomcat.embed</groupId>
-        				<artifactId>tomcat-embed-el</artifactId>
-       				 <scope>provided</scope>
-      			</dependency>
-      			<dependency>
-        				<groupId>javax.ws.rs</groupId>
-       				 <artifactId>javax.ws.rs-api</artifactId>
-        				<scope>provided</scope>
-     			 </dependency>
-      			<dependency>
-        				<groupId>xml-apis</groupId>
-        				<artifactId>xml-apis</artifactId>
-        				<scope>provided</scope>
-      			</dependency>
-      			<dependency>
-        				<groupId>org.hibernate.javax.persistence</groupId>
-        				<artifactId>hibernate-jpa-2.1-api</artifactId>
-        				<scope>provided</scope>
-      			</dependency>
-      			<dependency>
-        				<groupId>javax.annotation</groupId>
-        				<artifactId>javax.annotation-api</artifactId>
-        				<scope>provided</scope>
-      			</dependency>
-      			<dependency>
-        				<groupId>javax.inject</groupId>
-        				<artifactId>javax.inject</artifactId>
-        				<scope>provided</scope>
-      				</dependency>
-    			</dependencies>
+  <dependencies>
+    <dependency>
+      <groupId>com.sun.xml.bind</groupId>
+      <artifactId>jaxb-impl</artifactId>
+      <scope>provided</scope>
+      </dependency>
+    <dependency>
+      <groupId>com.sun.xml.bind</groupId>
+      <artifactId>jaxb-core</artifactId>
+      <scope>provided</scope>
+      </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-tomcat</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.tomcat</groupId>
+      <artifactId>tomcat-jdbc</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.tomcat.embed</groupId>
+      <artifactId>tomcat-embed-el</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>javax.ws.rs</groupId>
+      <artifactId>javax.ws.rs-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>xml-apis</groupId>
+      <artifactId>xml-apis</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.hibernate.javax.persistence</groupId>
+      <artifactId>hibernate-jpa-2.1-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>javax.annotation</groupId>
+      <artifactId>javax.annotation-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+       <groupId>javax.inject</groupId>
+       <artifactId>javax.inject</artifactId>
+       <scope>provided</scope>
+    </dependency>
+   </dependencies>
   </dependencyManagement>
-
 ...
 ---- 
 
@@ -101,10 +102,10 @@ mvn -DarchetypeVersion=2.2.0 -DarchetypeGroupId=io.oasp.java.templates -Darchety
 ...
  
 <featureManager>
-  			<feature>webProfile-7.0</feature>
-       			<feature>localConnector-1.0</feature>
-       			<feature>jaxb-2.2</feature>
-<feature>jaxws-2.2</feature>
+  <feature>webProfile-7.0</feature>
+  <feature>localConnector-1.0</feature>
+  <feature>jaxb-2.2</feature>
+  <feature>jaxws-2.2</feature>
 </featureManager>
 
 ...
