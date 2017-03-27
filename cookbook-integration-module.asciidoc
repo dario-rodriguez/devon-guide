@@ -50,6 +50,50 @@ image::images/integration/activemq_client.png[,width="450", link="images/integra
 We are installing the Active MQ server in our local machine only for test or example purposes. If you want further configuration details please visit the http://activemq.apache.org/configuration.html[official documentation] or ask your IT department.
 ====
 
+== Using Apache Active MQ with Docker
+
+Active MQ can also be run with Docker, you will need to:
+
+ - Create a folder on your machine for a shared volume with the container (`c:/Users/docker/activemq` on the example below)
+ - Create an `activemq.xml` configuration file (`c:/Users/docker/activemq/conf/activemq.xml` on the example below)
+ - Run the following command
+
+[source]
+----
+docker run --rm -p 61616:61616 -p 8161:8161 -v c:/Users/docker/activemq/conf:/etc/activemq/conf -v c:/Users/docker/activemq/data:/var/activemq/data rmohr/activemq:5.14.3-alpine
+----
+
+For the `activemq.xml` file, you can use the following content (extracted from sample folder on activemq distribution)
+
+[source,xml]
+----
+<beans
+  xmlns="http://www.springframework.org/schema/beans"
+  xmlns:amq="http://activemq.apache.org/schema/core"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+  http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd
+  http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+  
+  <broker xmlns="http://activemq.apache.org/schema/core" useJmx="false">
+
+    <persistenceFactory>
+      <journalPersistenceAdapterFactory journalLogFiles="5" dataDirectory="../data"/>
+    </persistenceFactory>
+  
+    <transportConnectors>
+      <transportConnector uri="tcp://localhost:61616"/>      
+      <transportConnector uri="stomp://localhost:61613"/>
+    </transportConnectors>
+        
+  </broker>
+  
+</beans>
+
+----
+
+
 === Module connection configuration
 
 The _Integration module_ provides a default connection configuration for Active MQ broker through the following properties
