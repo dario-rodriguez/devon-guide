@@ -1,0 +1,117 @@
+:toc: macro 
+toc::[]
+
+= Deployment of sample application created from oasp4j maven archetype template onto WebSphere Liberty
+
+== Setup and Configure Web Sphere Liberty in Developer’s Machine (Development Environment)
+
+Launch Eclipse Neon from devonfw distribution and 
+
+  1. Go to Help -> Eclipse MarketPlace and search for ‘WebSphere Liberty’ and hit ‘Enter’.  In the results screen, select ‘IBM WebSphere Application Server Liberty Developer Tools’ and click ‘install’ button.
+
+  2. To download Web sphere Liberty Profile, Go to https://developer.ibm.com/wasdev/downloads/liberty-profile-using-non-eclipse-environments/. and click on the link 'Download Liberty (16.0.0.4) with Java EE 7 Web Profile'.
+
+  3. To add new Websphere Liberty server, Go to ‘Servers’ View in eclipse and click on ‘New’ and following the screenshots below.
+
+image::images/devonfw-deployment/tutorial_devon_add_websphere_liberty-1.png[,width="450",link="images/devonfw-deployment/tutorial_devon_add_websphere_liberty-1.png"]
+
+image::images/devonfw-deployment/tutorial_devon_add_websphere_liberty-2.png[,width="450",link="images/devonfw-deployment/tutorial_devon_add_websphere_liberty-2.png"]
+
+image::images/devonfw-deployment/tutorial_devon_add_websphere_liberty-3.png[,width="450",link="images/devonfw-deployment/tutorial_devon_add_websphere_liberty-3.png"]
+
+4. Create a sample oasp4j application by referring https://github.com/oasp/oasp4j/wiki/tutorial-newapp.  Alternatively, you can run the following command inside devonfw distribution.
+
+Assuming distribution is at D:\Devon2.1.0\Devon-dist_2.1.0, run the command console.bat inside this directory and then run the following command
+
+[source,bash]
+----
+mvn -DarchetypeVersion=2.2.0 -DarchetypeGroupId=io.oasp.java.templates -DarchetypeArtifactId=oasp4j-template-server archetype:generate -DgroupId=io.oasp.application -DartifactId=libertyTest -Dversion=0.1-SNAPSHOT -Dpackage=io.oasp.application.libertyTest
+----
+
+5. Add the following entries in the pom.xml of the server module just before the closing project tag
+
+[source,xml]
+----
+...
+
+<dependencyManagement>
+    	<dependencies>
+      			<dependency>
+        				<groupId>com.sun.xml.bind</groupId>
+        				<artifactId>jaxb-impl</artifactId>
+        				<scope>provided</scope>
+      			</dependency>
+      			<dependency>
+        				<groupId>com.sun.xml.bind</groupId>
+        				<artifactId>jaxb-core</artifactId>
+        				<scope>provided</scope>
+      			</dependency>
+      			<dependency>
+        				<groupId>org.springframework.boot</groupId>
+        				<artifactId>spring-boot-starter-tomcat</artifactId>
+        				<scope>provided</scope>
+      			</dependency>
+     			 <dependency>
+        				<groupId>org.apache.tomcat</groupId>
+       				 <artifactId>tomcat-jdbc</artifactId>
+       				 <scope>provided</scope>
+      			</dependency>
+      			<dependency>
+        				<groupId>org.apache.tomcat.embed</groupId>
+        				<artifactId>tomcat-embed-el</artifactId>
+       				 <scope>provided</scope>
+      			</dependency>
+      			<dependency>
+        				<groupId>javax.ws.rs</groupId>
+       				 <artifactId>javax.ws.rs-api</artifactId>
+        				<scope>provided</scope>
+     			 </dependency>
+      			<dependency>
+        				<groupId>xml-apis</groupId>
+        				<artifactId>xml-apis</artifactId>
+        				<scope>provided</scope>
+      			</dependency>
+      			<dependency>
+        				<groupId>org.hibernate.javax.persistence</groupId>
+        				<artifactId>hibernate-jpa-2.1-api</artifactId>
+        				<scope>provided</scope>
+      			</dependency>
+      			<dependency>
+        				<groupId>javax.annotation</groupId>
+        				<artifactId>javax.annotation-api</artifactId>
+        				<scope>provided</scope>
+      			</dependency>
+      			<dependency>
+        				<groupId>javax.inject</groupId>
+        				<artifactId>javax.inject</artifactId>
+        				<scope>provided</scope>
+      				</dependency>
+    			</dependencies>
+  </dependencyManagement>
+
+...
+---- 
+
+6. Create an empty file flyway.location inside the directory core\src\main\resources\db\migration\
+7. Do ‘mvn clean install’ of the complete project
+8. Open server.xml of Web sphere Liberty and add the following features,
+
+[source,xml]
+----
+...
+ 
+<featureManager>
+  			<feature>webProfile-7.0</feature>
+       			<feature>localConnector-1.0</feature>
+       			<feature>jaxb-2.2</feature>
+<feature>jaxws-2.2</feature>
+</featureManager>
+
+...
+----
+
+9. Deploy the war file on to the Websphere Liberty Profile and start the server.
+
+image::images/devonfw-deployment/tutorial_devon_add_app_websphere_liberty.png[,width="450",link="images/devonfw-deployment/tutorial_devon_add_app_websphere_liberty.png"]
+
+10. Once the application is published on to WebSphere Liberty, application url is logged in the Websphere console. Use this url and launch the application in browser.  
