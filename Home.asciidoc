@@ -83,6 +83,8 @@
 
 - link:Compatibility-guide-for-Java7-Java8-and-Tomcat7-Tomcat8[Compatibility guide for Java7, Java8 and Tomcat7, Tomcat8]
 
+- link:Deployment-of-sample-app-created-from-archetype-websphere-liberty[oasp4j on WebSphere Liberty]
+
 ## The Presentation Layer: Getting Started with Devon4Sencha
 
 - link:Client-GUI-Sencha-Introduction-to-Devon4sencha[Introduction to Devon4sencha]
