@@ -17,6 +17,10 @@ Launch Eclipse Neon from devonfw distribution and
 
 image::images/devonfw-deployment/tutorial_devon_add_websphere_liberty-1.PNG[,width="450",link="images/devonfw-deployment/tutorial_devon_add_websphere_liberty-1.PNG"]
 
+image::images/devonfw-deployment/tutorial_devon_add_websphere_liberty-2.PNG[,width="450",link="images/devonfw-deployment/tutorial_devon_add_websphere_liberty-2.PNG"]
+
+image::images/devonfw-deployment/tutorial_devon_add_websphere_liberty-3.png[,width="450",link="images/devonfw-deployment/tutorial_devon_add_websphere_liberty-3.PNG"]
+
 4. Create a sample oasp4j application by referring the https://github.com/oasp/oasp4j/wiki/tutorial-newapp[link] .  Alternatively, you can run the following command inside devonfw distribution.
 
 Assuming distribution is at D:\Devon2.1.0\Devon-dist_2.1.0, run the command console.bat inside this directory and then run the following command
@@ -91,7 +95,7 @@ mvn -DarchetypeVersion=2.2.0 -DarchetypeGroupId=io.oasp.java.templates -Darchety
 
 6. Create an empty file flyway.location inside the directory core\src\main\resources\db\migration\
 7. Do ‘mvn clean install’ of the complete project
-8. Open server.xml of Web sphere Liberty and add the following features,
+8. Open server.xml of Websphere Liberty and add the following features,
 
 [source,xml]
 ----
@@ -109,8 +113,6 @@ mvn -DarchetypeVersion=2.2.0 -DarchetypeGroupId=io.oasp.java.templates -Darchety
 
 9. Deploy the war file on to the Websphere Liberty Profile and start the server.
 
-===== Deploy war File
-
-image::images/devonfw-deployment/tutorial_devon_add_app_websphere_liberty.png[,width="450",link="images/devonfw-deployment/tutorial_devon_add_app_websphere_liberty.png"]
+image::images/devonfw-deployment/tutorial_devon_add_app_websphere_liberty.PNG[,width="450",link="images/devonfw-deployment/tutorial_devon_add_app_websphere_liberty.PNG"]
 
 10. Once the application is published on to WebSphere Liberty, application url is logged in the Websphere console. Use this url and launch the application in browser.  
