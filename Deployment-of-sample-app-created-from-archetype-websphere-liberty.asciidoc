@@ -17,9 +17,11 @@ Launch Eclipse Neon from devonfw distribution and
 
 image::images/devonfw-deployment/tutorial_devon_add_websphere_liberty-1.PNG[,width="450",link="images/devonfw-deployment/tutorial_devon_add_websphere_liberty-1.PNG"]
 
+
 image::images/devonfw-deployment/tutorial_devon_add_websphere_liberty-2.PNG[,width="450",link="images/devonfw-deployment/tutorial_devon_add_websphere_liberty-2.PNG"]
 
-image::images/devonfw-deployment/tutorial_devon_add_websphere_liberty-3.png[,width="450",link="images/devonfw-deployment/tutorial_devon_add_websphere_liberty-3.PNG"]
+
+image::images/devonfw-deployment/tutorial_devon_add_websphere_liberty-3.PNG[,width="450",link="images/devonfw-deployment/tutorial_devon_add_websphere_liberty-3.PNG"]
 
 4. Create a sample oasp4j application by referring the https://github.com/oasp/oasp4j/wiki/tutorial-newapp[link] .  Alternatively, you can run the following command inside devonfw distribution.
 
@@ -112,6 +114,7 @@ mvn -DarchetypeVersion=2.2.0 -DarchetypeGroupId=io.oasp.java.templates -Darchety
 ----
 
 9. Deploy the war file on to the Websphere Liberty Profile and start the server.
+
 
 image::images/devonfw-deployment/tutorial_devon_add_app_websphere_liberty.PNG[,width="450",link="images/devonfw-deployment/tutorial_devon_add_app_websphere_liberty.PNG"]
 
