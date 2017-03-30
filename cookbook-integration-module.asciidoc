@@ -346,10 +346,9 @@ In this case we provide to the `subscribe` method a _Message Handler_ to manage 
 
 [source,java]
 ----
-@Handler
+@Component
 public class SimpleMessageHandler implements MessageHandler {
 
-  @Override
   public void handleMessage(Message<?> message) throws MessagingException {
 
     System.out.println("***********************************");
