@@ -11,17 +11,23 @@ Launch Eclipse Neon from devonfw distribution and
 
   1. Go to Help -> Eclipse MarketPlace and search for ‘WebSphere Liberty’ and hit ‘Enter’.  In the results screen, select ‘IBM WebSphere Application Server Liberty Developer Tools’ and click ‘install’ button.
 
-  2. To download Web sphere Liberty Profile, Go to https://developer.ibm.com/wasdev/downloads/liberty-profile-using-non-eclipse-environments/. and click on the link 'Download Liberty (16.0.0.4) with Java EE 7 Web Profile'.
+  2. To download Web sphere Liberty Profile, Go to https://developer.ibm.com/wasdev/downloads/liberty-profile-using-non-eclipse-environments/[link] and click on the link 'Download Liberty (16.0.0.4) with Java EE 7 Web Profile'.
 
-  3. To add new Websphere Liberty server, Go to ‘Servers’ View in eclipse and click on ‘New’ and following the screenshots below.
+  3. To add new Websphere Liberty server, Go to ‘Servers’ View in eclipse and click on ‘New’ and follow the screenshots below.
+
+===== 1.
 
 image::images/devonfw-deployment/tutorial_devon_add_websphere_liberty-1.png[,width="450",link="images/devonfw-deployment/tutorial_devon_add_websphere_liberty-1.png"]
 
+===== 2.
+
 image::images/devonfw-deployment/tutorial_devon_add_websphere_liberty-2.png[,width="450",link="images/devonfw-deployment/tutorial_devon_add_websphere_liberty-2.png"]
+
+===== 3.
 
 image::images/devonfw-deployment/tutorial_devon_add_websphere_liberty-3.png[,width="450",link="images/devonfw-deployment/tutorial_devon_add_websphere_liberty-3.png"]
 
-4. Create a sample oasp4j application by referring https://github.com/oasp/oasp4j/wiki/tutorial-newapp.  Alternatively, you can run the following command inside devonfw distribution.
+4. Create a sample oasp4j application by referring the https://github.com/oasp/oasp4j/wiki/tutorial-newapp[link] .  Alternatively, you can run the following command inside devonfw distribution.
 
 Assuming distribution is at D:\Devon2.1.0\Devon-dist_2.1.0, run the command console.bat inside this directory and then run the following command
 
@@ -112,6 +118,8 @@ mvn -DarchetypeVersion=2.2.0 -DarchetypeGroupId=io.oasp.java.templates -Darchety
 ----
 
 9. Deploy the war file on to the Websphere Liberty Profile and start the server.
+
+===== Deploy war File
 
 image::images/devonfw-deployment/tutorial_devon_add_app_websphere_liberty.png[,width="450",link="images/devonfw-deployment/tutorial_devon_add_app_websphere_liberty.png"]
 
