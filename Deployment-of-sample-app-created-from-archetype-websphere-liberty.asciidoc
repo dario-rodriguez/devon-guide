@@ -15,15 +15,9 @@ Launch Eclipse Neon from devonfw distribution and
 
   3. To add new Websphere Liberty server, Go to ‘Servers’ View in eclipse and click on ‘New’ and follow the screenshots below.
 
-===== 1.
-
 image::images/devonfw-deployment/tutorial_devon_add_websphere_liberty-1.png[,width="450",link="images/devonfw-deployment/tutorial_devon_add_websphere_liberty-1.png"]
 
-===== 2.
-
 image::images/devonfw-deployment/tutorial_devon_add_websphere_liberty-2.png[,width="450",link="images/devonfw-deployment/tutorial_devon_add_websphere_liberty-2.png"]
-
-===== 3.
 
 image::images/devonfw-deployment/tutorial_devon_add_websphere_liberty-3.png[,width="450",link="images/devonfw-deployment/tutorial_devon_add_websphere_liberty-3.png"]
 
