@@ -12,7 +12,7 @@ If everything goes fine, you'll see the results in the console as below
 
 ![Archetype Installation Sucessful](images/devon4sencha/sencha-client-archetype/archetype_install_success.png)
 
-### Creation of project
+### Create project
 In Eclipse, go to _File_ --> _New_ --> _Maven Project_.  
 A dialog box will open, click _Next_. On this screen, select checkbox _Include snapshot archetype_ and search for Artifact Id _**oasp4j-template-client-server**_. Select the archetype and click _Next_.
 
@@ -76,4 +76,23 @@ Example shown below
    This command will create Sencha base application in the _webapps_ directory of client's module as shown below.
 
 ![Sencha Base Application](images/devon4sencha/sencha-client-archetype/sencha_base_app.png)
+
+
+### Build Project
+
+1. Right click on the parent module and click _Run As_ --> _Maven Build..._ as shown below
+
+![Build Menu](images/devon4sencha/sencha-client-archetype/build_menu.png)
+
+
+2. A dialog box will open. In _Goals_ field enter **clean package** and click _Run_ as shown below
+
+![Project packaging](images/devon4sencha/sencha-client-archetype/project_package.png)
+ 
+  This will compile and build all three modules viz. Client, Core and Server, ready for deployement.
+
+
+### Run Project
+
+1. Right click on Server module and select _Run As_ --> _Run on Server_. This will run the project on server.
 
