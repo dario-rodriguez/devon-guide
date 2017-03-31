@@ -11,7 +11,7 @@ Internationalization is the process of designing a software application so that 
 
 The i18n module provides easy creation and maintenance of distinct translations for your Devon applications. OASP, Angular and Sencha  - three distinct platforms currently forming Devon. Each provides their own specific mechanisms for L10N. I18n module fits within the context of the facilities offered by each platform. I18n artifacts are available at compile/build time and not just “run-time”. It is based on a namespaced name-value system (“properties”).
 
-=== Conceptual schema\Functionality
+=== Conceptual schema
 
 image::images/devonfw-i18n/conceptual_schema_without_mmm_impl.png[,width="350",conceptual schema without mmm impl, link="images/devonfw-i18n/conceptual_schema_without_mmm_impl.png"]
 
