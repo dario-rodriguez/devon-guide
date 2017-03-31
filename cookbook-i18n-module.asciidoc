@@ -59,12 +59,14 @@ In case of an invalid Locale, user will receive DevonfwUnknownLocaleException.
 === I18N mechanism integration
 
 Currently three libraries are available for server-side i18n. Those libraries are:
+
 - mmm-util-core and mmm-util-cli 
-- standard library (i18n module use com.google.code.gson to convert java property file to json)
+- Standard library (i18n module use com.google.code.gson to convert java property file to json)
 - Customized library (User needs to develop this module)
+
 In devonfw-i18n module, config.properties file contains ‘i18n.input.name‘ property to denote library used for i18n.User needs to set module name in config.properties file. User can either set ‘standard’ or ‘mmm’ or customized module name.
 
-- mmm-util-core and mmm-util-cli
+==== mmm-util-core and mmm-util-cli
 
 For server-side i18n mmm library is recommended. More details for mmm can be found at http://m-m-m.sourceforge.net/apidocs/net/sf/mmm/util/nls/api/package-summary.html 
 For example , if user wants to use mmm library for internationalization, he has to make an entry in config.properties as
@@ -166,7 +168,7 @@ Note: You can create add module as well. Refer to section add own module in i18n
 eg. localhost:8081/oasp4j-sample-server/services/rest/i18n/locales/en_US
 ----
 
-- standard library (i18n module use com.google.code.gson to convert java property file to json)
+==== standard library (i18n module use com.google.code.gson to convert java property file to json)
 
 To use standard library from i18n module, user needs to set ‘i18n.input.name’ property value to ‘standard’ in config.properties.
 
@@ -177,7 +179,7 @@ i18n.input.name=standard
 
 This library use com.google.code.gson to convert java property file to json. This data will be returned to user via REST call.
 
-- Customized library(Adding own module in I18n)
+==== Customized library(Adding own module in I18n)
 
 To add own module in i18n user needs to follow below step:
 - Create new module which will be able to return json data from method call.
