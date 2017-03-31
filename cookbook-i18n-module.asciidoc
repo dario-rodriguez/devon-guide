@@ -5,16 +5,118 @@ toc::[]
 
 == Introduction
 
-Internationalization (also called "i18n , meaning "i-eighteen letters-n") is the process of designing the software application which can potentially adapt to various languages and regions without engineering changes.
-
-The internationalization process is sometimes called translation or localization enablement.
+Internationalization is the process of designing a software application so that it can potentially be adapted to specific local languages and regions without engineering changes. This constitutes much more than just “translating text or correct number formats”. Think of internationalization as readiness for localization. Sometimes written as "i18n", internationalization evolved from a growing demand for multilingual products and applications.
 
 == The i18n IP Module
 
-The i18n module provides an easy creation and maintenance of the distinct translations for the Devon applications. Using i18n module, you will be able to leverage MMM/devonfw features for internationalization by following a few steps and  avoiding the complex details of the implementation.
+The i18n module provides easy creation and maintenance of distinct translations for your Devon applications. OASP, Angular and Sencha  - three distinct platforms currently forming Devon. Each provides their own specific mechanisms for L10N. I18n module fits within the context of the facilities offered by each platform. I18n artifacts are available at compile/build time and not just “run-time”. It is based on a namespaced name-value system (“properties”).
 
-=== Adding the i18n module dependency in the project
-To access the functionality of the i18n module, you will need to include its dependency in project's pom.xml
+=== Conceptual schema
+
+image::images/devonfw-i18n/conceptual_schema_without_mmm_impl.png[,width="350",conceptual schema without mmm impl, link="images/devonfw-i18n/conceptual_schema_without_mmm_impl.png"]
+
+As shown in above diagram, spring applications will have properties file defined for respective locales. This file will contains the translations of the applications texts as well as display format of elements like dates, numbers etc. These should be places within the src/main/resources/locale folder/namespace as shown in below dig.
+
+image::images/devonfw-i18n/locale_path.png[,width="350",locale path, link="images/devonfw-i18n/locale_path.png"]
+
+I18n will convert these files to json data which will be return from REST services. The json files will reflect in structure the “dot namespaces” from the property file. So: 
+main.intro.name = Devon fw control panel
+Becomes
+
+[source,xml]
+----
+{“main”:
+	{“intro”:
+		{
+		 “name”:”Devon fw control panel”
+		}
+	}
+}
+----
+
+To retrieve the response in the above said JSON format, User should make the Rest Service call by hitting the rest service.
+Url will be in form
+
+[source,xml]
+----
+<service root>/locales/<locale>
+For example:
+http://localhost:8081/oasp4j-sample-server/services/rest/i18n/locales/en_US
+----
+
+Filters:
+
+If user is interested in retrieving the value of the property, he can get the same by using the feature ‘Filters’. 
+For Example:
+<service root>/locale/en_US?filter=main.info 
+In the example above, key ‘main.info’ is supplied as filter. Rest Service retrieves the corresponding value for this key and the JSON format of the value is returned to the user.
+
+=== Exception behavior
+
+In case of usage of filter and no data returned (no properties were found), an empty JSON response is returned denoting no results.
+In case of an invalid Locale, user will receive DevonfwUnknownLocaleException.
+
+=== I18N mechanism integration
+
+Currently three libraries are available for server-side i18n. Those libraries are:
+
+- mmm-util-core and mmm-util-cli 
+- Standard library (i18n module use com.google.code.gson to convert java property file to json)
+- Customized library (User needs to develop this module)
+
+In devonfw-i18n module, config.properties file contains ‘i18n.input.name‘ property to denote library used for i18n.User needs to set module name in config.properties file. User can either set ‘standard’ or ‘mmm’ or customized module name.
+
+==== mmm-util-core and mmm-util-cli
+
+For server-side i18n mmm library is recommended. More details for mmm can be found at http://m-m-m.sourceforge.net/apidocs/net/sf/mmm/util/nls/api/package-summary.html 
+For example , if user wants to use mmm library for internationalization, he has to make an entry in config.properties as
+
+[source,xml]
+----
+i18n.input.name=mmm
+----
+
+‘mmm’ is default mechanism for i18n.
+
+Reading property files via MMM implementation:
+
+net.sf.mmm.util.nls.base.ResourceBundleSynchronizer is used to create .properties files for the locales via MMM implementation.
+Steps to create locales, property files, via MMM:
+Below are steps to produce locale files at location \src\main\resources\com\capgemini\devonfw\module\i18n\common\api\nls
+- Right click on 'i18n' module.
+- Go to Run As > Run Configurations
+- Right click on 'Java Application'
+- Click on 'New'
+- In the dialog box that is displayed , provide name for the configuration (eg. ResouceBundleSyncronizer) and provide main class name as   	net.sf.mmm.util.nls.base.ResouceBundleSyncronizer
+
+image::images/devonfw-i18n/ResourceBundleSync_Main.png[,width="350",ResourceBundleSync Main, link="images/devonfw-i18n/ResourceBundleSync_Main.png"]
+
+- Click on Arguments tab besides Main tab.
+- Enter program Arguments as "--locale <locale>" eg. "--locale en"
+
+image::images/devonfw-i18n/ResourceBundleSync_argument.png[,width="350",ResourceBundleSync argument, link="images/devonfw-i18n/ResourceBundleSync_argument.png"]
+
+Apply the changes and click 'Run' button.
+File in config.properties file will have below property:
+[source,xml]
+----
+i18n.input.name=mmm
+----
+
+To enable i18n functionality in oasp4j based application we need to follow below steps:
+- Maven clean and build your application
+- Maven clean build devonfw-i18n with below dependency commented:
+
+[source,xml]
+----
+<dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <version>1.6.1</version>
+</dependency>
+----
+
+- Add following dependency to your oasp4j application:
 
 [source,xml]
 ----
@@ -25,91 +127,71 @@ To access the functionality of the i18n module, you will need to include its dep
 </dependency>
 ----
 
-[WARNING]
-====
-The IP modules of Devonfw are stored in the https://www.jfrog.com/artifactory/[Artifactory] service provided by Capgemini Shared Services. In case, you do not have access to that repository, as the modules are included in the Devonfw distribution, you can install them manually. To do so, open a Devonfw command line (_console.bat_), go to `Devon-dist\workspaces\examples\devon` and execute the command `mvn install`.
-If the project is already imported in Eclipse then update project: Right click on _project_ > _Maven_ > _Update Project_ > check the _Force update of Snapshot/Releases_ checkbox > _Ok_
-====
-
-=== Adding ComponentScan annotation
-
-Remember to add the package of the module to the `@ComponentScan` annotation in the Spring Boot main class.
-
-[source,java]
-----
-@ComponentScan(basePackages = { "com.capgemini.devonfw.module.i18n" , "my.other.components.package" })
-----
-
-=== Reading property files via default implementation provided by i18n module
-
-In Spring applications, "locales" are standard Java property files that contain the translation of the application's text as well as the display format of the elements namely dates, numbers etc. These property files are located in _src/main/resources/locale_ as shown below:
-
-image::images/devonfw-i18n/locale_path.png[,width="350",locale path, link="images/devonfw-i18n/locale_path.png"]
-
-These properties files store the information in the form of key value pairs. The i18n module of devonfw exposes a REST service to request the locale (information in the property files) in JSON format. Users can also request part of the locale by applying a filter. The filter should have the following format: 
+- Comment below statement from SpringBootApp.java:
 
 [source,xml]
 ----
-<service root>/locale/en_US?filter=main.info. 
+@EntityScan(basePackages = { "test.cg.i18nConfigSample" }, basePackageClasses = { AdvancedRevisionEntity.class })
 ----
 
-The returned JSON will have nested objects and will have the following format:
-
-[source,json]
-----
-{
-  "main": {
-     "intro":{
-        "name": "Devon fw control panel",
-	     … etc etc ...
-      }
-   }
-}
-----
- 
-=== Reading property files via MMM implementation
-
-_net.sf.mmm.util.nls.base.ResourceBundleSynchronizer_  is used to create .properties files for the locales via MMM implementation.
-
-==== Instructions to create locales, property files, via MMM
-
-This process produces locale files at the following location: _\src\main\resources\com\capgemini\devonfw\module\i18n\common\api\nls_
-
-- Right click on 'i18n' module.
-- Go to Run As > Run Configurations 
-- Right click on 'Java Application' 
-- Click on 'New'
-- In the displayed dialog box, provide the name for the configuration (eg. _ResouceBundleSyncronizer_) and provide main class name as _net.sf.mmm.util.nls.base.ResouceBundleSyncronizer_.
-
-
-image::images/devonfw-i18n/ResourceBundleSync_Main.png[,width="350",ResourceBundleSync_Main,link="images/devonfw-i18n/ResourceBundleSync_Main.png"]
-
-
-- Click on _Arguments_ tab besides Main tab.
-- Enter program Arguments as "--locale <locale>" eg. "--locale en"
-
-image::images/devonfw-i18n/ResourceBundleSync_argument.png[,width="350",ResourceBundleSync_argument,link="images/devonfw-i18n/ResourceBundleSync_argument.png"]
-
-
-- Apply the changes and click 'Run' button.
-
-File _config.properties_ provides a flag value true/false, which is used to switch between the default implementation and the MMM implementation.
+- Add below statement to SpringBootApp.java class:
 
 [source,xml]
 ----
-i18n.mmm.enabled=true
+@ComponentScan(basePackages = { "com.capgemini.devonfw.module.i18n",
+"my.other.component" }, basePackageClasses = { AdvancedRevisionEntity.class })
 ----
 
-=== Build Project and Run
+Here my.other.component refers to any other package which user needs to scan. User should provide basePackages from @EntityScan annotation. Refer below figure for example:
 
-Perform Clean & Build operations for the project in eclipse and launch _SpringBootApp.java_. You can view i18n REST service in available REST webservices (http://localhost:8081/oasp4j-sample-server/services/rest/). 
+image::images/devonfw-i18n/code_springbootapp.png[,width="350",code springbootapp, link="images/devonfw-i18n/code_springbootapp.png"]
 
-=== Test i18n REST Service
-
-To test i18n REST service, the general format of the service is as follows:
+- Add below statement to ServiceConfig.java :
 
 [source,xml]
 ----
-General Format : <service root>/i18n/locales/<local indicator>
+@ComponentScan(basePackages = { "com.capgemini.devonfw.module" })
+----
+
+- In config.properties set module name which you want to use for i18n-
+Available modules are”mmm” and “standard”.
+Note: You can create add module as well. Refer to section add own module in i18n.
+
+- Once above changes are done clean build your project in eclipse and launch SpringBootApp.java. User can view i18n REST service in available REST webservices (http://localhost:8081/oasp4j-sample-server/services/rest/)
+
+- To test i18n REST service, the general format of the service will be as follows:
+
+[source,xml]
+----
+<service root>/locale/<locale indicator>
+
+eg. localhost:8081/oasp4j-sample-server/services/rest/i18n/locales/en_US
+----
+
+==== standard library (i18n module use com.google.code.gson to convert java property file to json)
+
+To use standard library from i18n module, user needs to set ‘i18n.input.name’ property value to ‘standard’ in config.properties.
+
+[source,xml]
+----
+i18n.input.name=standard
+----
+
+This library use com.google.code.gson to convert java property file to json. This data will be returned to user via REST call.
+
+==== Customized library(Adding own module in I18n)
+
+To add own module in i18n user needs to follow below step:
+- Create new module which will be able to return json data from method call.
+- Add dependency of this module in devonfw-i18n module. 
+- In config.properties set
+i18n.input.name =USER_MODULE_NAME
+- In class com.capgemini.devonfw.module.i18n.logic.impl.I18nImpl modify getResourceObject() method add your switch case in it. 
+- Clean and build your application and launch SpringBootApp.java. You can view i18n REST service in available REST webservices (http://localhost:8081/oasp4j-sample-server/services/rest/)
+- To test i18n REST service, the general format of the service will be as follows:
+
+[source,xml]
+----
+<service root>/locale/<locale indicator>
 eg. localhost:8081/oasp4j-sample-server/services/rest/i18n/locales/en_US
 ----
