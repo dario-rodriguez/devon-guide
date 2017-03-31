@@ -12,8 +12,7 @@ If everything goes fine, you'll see the results in the console as below
 
 ![Archetype Installation Sucessful](images/devon4sencha/sencha-client-archetype/archetype_install_success.png)
 
-### Creation of Sencha Client Application
-
+### Creation of project
 In Eclipse, go to _File_ --> _New_ --> _Maven Project_.  
 A dialog box will open, click _Next_. On this screen, select checkbox _Include snapshot archetype_ and search for Artifact Id _**oasp4j-template-client-server**_. Select the archetype and click _Next_.
 
@@ -26,7 +25,9 @@ A new project will be created in Eclipse with structure as shown below
 ![Project Structure](images/devon4sencha/sencha-client-archetype/project_modules.png)
 
 
-### Setup Client module
+### Setup Client module  
+
+**Disable Javascript file Validation on Build**
 
 By Default, auto validation of Javascript files is enabled in Eclipse. For client module it is time saving to set it to manual since it will take long time to validate all javascript files, every time build is triggered. To do the same follow the steps below.
 
@@ -43,6 +44,36 @@ By Default, auto validation of Javascript files is enabled in Eclipse. For clien
 
 ![Unselect Validation on Build](images/devon4sencha/sencha-client-archetype/project_validation_checkbox.png)
 
-5. Click _Apply_ and then _OK_.
+5. Click _Apply_ and then _OK_.  
 
+
+
+**Configure client module properties**
+
+1. Open pom.xml, under _properties_ set the following
+
+   a. _sencha.cmd.version_. This is the Sencha cmd version for your distribution. You can find it in   _software\Sencha\Cmd\default_ of your Devonfw distribution.  
+   b. _dist.path_. This is the absolute path to your distribution  
+   
+Example shown below
+
+![Unselect Validation on Build](images/devon4sencha/sencha-client-archetype/client_properties.png)
+
+
+**Create Sencha base appllication**
+
+1. Open the Devonfw console by executing the batch file console.bat from the Devonfw distribution.
+2. Go to Sencha SDK which is located at _software\Sencha\Cmd\default\repo\extract\ext\6.2.0.981_ in your Devonfw distribtion. Note: _6.2.0.981_ is SDK version, so this maybe different depending on the SDK version in your distribution.
+3. Execute the following command
+
+   **sencha generate app <app_name> <path_to_client_module_webapps>**
+
+   Here, _app_name_ is name for Sencha base app that will be created.
+   _path_to_client_module_webapps_, is the absolute path to the _webapps_ directory of client module.
+
+   e.g sencha generate app SenchaClient D:\Workspace\Development\Test\Devon-dist_2.1.1\workspaces\main\SenchaServerApp\client\src\main\webapp
+
+   This command will create Sencha base application in the _webapps_ directory of client's module as shown below.
+
+![Sencha Base Application](images/devon4sencha/sencha-client-archetype/sencha_base_app.png)
 
