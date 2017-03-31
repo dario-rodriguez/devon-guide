@@ -9,3 +9,5 @@ In the console, Go to <root_of_the_directory>/templates and run the following co
 _mvn clean install_
 
 If everything goes fine, you'll see the results in the console as below
+
+![]( images/devon4sencha/sencha-client-archetype/archetype_install_success.png)
