@@ -57,6 +57,8 @@
 
 - link:cookbook-i18n-module[devonfw I18N module]
 
+- link:cookbook-i18n-resource-converter[Devcon Locale -i18n resource converter]
+
 - link:cookbook-async-module[devonfw Async module]
 
 - link:cookbook-integration-module[devonfw Integration module]
