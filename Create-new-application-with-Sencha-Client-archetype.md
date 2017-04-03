@@ -4,7 +4,11 @@ Download the archetype from [here](https://github.com/devonfw/oasp4j-template-cl
 ### Installing the archetype
 Open the Devonfw console by executing the batch file console.bat from the Devonfw distribution. It is a pre-configured console which automatically uses the software and configuration provided by the Devonfw distribution.  
 
-In the console, Go to _oasp4j-template-client-server/templates_ and run the following command to install the archetpye  
+In the console, Go to  
+
+_oasp4j-template-client-server/templates_ 
+
+and run the following command to install the archetpye  
 
 _mvn clean install_
 
