@@ -98,5 +98,12 @@ Example shown below
 
 ### Run Project
 
-1. Right click on Server module and select _Run As_ --> _Run on Server_. This will run the project on server.
+1. Right click on Server module(SenchaServerApp-server) and select _Run As_ --> _Run on Server_. This will run the project on server.
+2. Access the application in browser using  
+
+http://localhost:8081/SenchaServerApp-server/
+
+And you should see the home page for Sencha application like one below
+
+![Sencha Home Screen](images/devon4sencha/sencha-client-archetype/sencha_application_home.png)
 
