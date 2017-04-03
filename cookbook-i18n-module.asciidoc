@@ -182,13 +182,14 @@ This library use com.google.code.gson to convert java property file to json. Thi
 ==== Customized library(Adding own module in I18n)
 
 To add own module in i18n user needs to follow below step:
-- Create new module which will be able to return json data from method call.
-- Add dependency of this module in devonfw-i18n module. 
-- In config.properties set
+
+1. Create new module which will be able to return json data from method call.
+2. Add dependency of this module in devonfw-i18n module. 
+3. In config.properties set
 i18n.input.name =USER_MODULE_NAME
-- In class com.capgemini.devonfw.module.i18n.logic.impl.I18nImpl modify getResourceObject() method add your switch case in it. 
-- Clean and build your application and launch SpringBootApp.java. You can view i18n REST service in available REST webservices (http://localhost:8081/oasp4j-sample-server/services/rest/)
-- To test i18n REST service, the general format of the service will be as follows:
+4. In class com.capgemini.devonfw.module.i18n.logic.impl.I18nImpl modify getResourceObject() method add your switch case in it. 
+5. Clean and build your application and launch SpringBootApp.java. You can view i18n REST service in available REST webservices (http://localhost:8081/oasp4j-sample-server/services/rest/)
+6. To test i18n REST service, the general format of the service will be as follows:
 
 [source,xml]
 ----
