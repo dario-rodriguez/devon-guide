@@ -9,30 +9,32 @@ Following describes the steps to install and configure WebSphere Liberty in Ecli
 
 Launch Eclipse Neon from devonfw distribution and 
 
-  1. Go to Help -> Eclipse MarketPlace and search for ‘WebSphere Liberty’ and hit ‘Enter’.  In the results screen, select ‘IBM WebSphere Application Server Liberty Developer Tools’ and click ‘install’ button.
+  - Go to Help -> Eclipse MarketPlace and search for ‘WebSphere Liberty’ and hit ‘Enter’.  In the results screen, select ‘IBM WebSphere Application Server Liberty Developer Tools’ and click ‘install’ button.
 
-  2. To download Web sphere Liberty Profile, Go to https://developer.ibm.com/wasdev/downloads/liberty-profile-using-non-eclipse-environments/[link] and click on the link 'Download Liberty (16.0.0.4) with Java EE 7 Web Profile'.
+  - To download Web sphere Liberty Profile, Go to https://developer.ibm.com/wasdev/downloads/liberty-profile-using-non-eclipse-environments/[link] and click on the link 'Download Liberty (16.0.0.4) with Java EE 7 Web Profile'.
 
-  3. To add new Websphere Liberty server, Go to ‘Servers’ View in eclipse and click on ‘New’ and follow the screenshots below.
+  - To add new Websphere Liberty server, Go to ‘Servers’ View in eclipse and click on ‘New’ and in the screen that is displayed (see below), please select 'WebSphere Application Server Liberty' as the server type and click 'Next' button. 
 
 image::images/devonfw-deployment/tutorial_devon_add_websphere_liberty-1.PNG[,width="450",link="images/devonfw-deployment/tutorial_devon_add_websphere_liberty-1.PNG"]
 
+  - In the screen that is displayed (see below), assuming that WebSphere Liberty is installed at          'D:\Users\vkiran\D_Backup\softwares\WS-Liberty\wlp' , click the radio button 'Choose an existing installation', and browse    the Path 'D:\Users\vkiran\D_Backup\softwares\WS-Liberty\wlp' and click 'Next' button. 
 
 image::images/devonfw-deployment/tutorial_devon_add_websphere_liberty-2.PNG[,width="450",link="images/devonfw-deployment/tutorial_devon_add_websphere_liberty-2.PNG"]
 
+  - In the screen that is displayed (see below), select the 'server type' as 'Stand-alone server' and enter server name in the text box 'Server name'  and click 'Finish' button. 
 
 image::images/devonfw-deployment/tutorial_devon_add_websphere_liberty-3.PNG[,width="450",link="images/devonfw-deployment/tutorial_devon_add_websphere_liberty-3.PNG"]
 
-4. Create a sample oasp4j application by referring the https://github.com/oasp/oasp4j/wiki/tutorial-newapp[link] .  Alternatively, you can run the following command inside devonfw distribution.
+  - Create a sample oasp4j application by referring the https://github.com/oasp/oasp4j/wiki/tutorial-newapp[link] .  Alternatively, you can run the following command inside devonfw distribution.
 
-Assuming distribution is at D:\Devon2.1.0\Devon-dist_2.1.0, run the command console.bat inside this directory and then run the following command
+  - Assuming distribution is at D:\Devon2.1.0\Devon-dist_2.1.0, run the command console.bat inside this directory and then  run the following command
 
 [source,bash]
 ----
 mvn -DarchetypeVersion=2.2.0 -DarchetypeGroupId=io.oasp.java.templates -DarchetypeArtifactId=oasp4j-template-server archetype:generate -DgroupId=io.oasp.application -DartifactId=libertyTest -Dversion=0.1-SNAPSHOT -Dpackage=io.oasp.application.libertyTest
 ----
 
-5. Add the following entries in the pom.xml of the server module just before the closing project tag
+  - Add the following entries in the pom.xml of the server module just before the closing project tag
 
 [source,xml]
 ----
@@ -95,9 +97,10 @@ mvn -DarchetypeVersion=2.2.0 -DarchetypeGroupId=io.oasp.java.templates -Darchety
 ...
 ---- 
 
-6. Create an empty file flyway.location inside the directory core\src\main\resources\db\migration\
-7. Do ‘mvn clean install’ of the complete project
-8. Open server.xml of Websphere Liberty and add the following features,
+ - In ...../general/service/impl/config/WebConfig.java, please remove the import statement 'import org.apache.catalina.filters.SetCharacterEncodingFilter;' and add the import 'import org.springframework.web.filter.CharacterEncodingFilter;' 
+ - Create an empty file flyway.location inside the directory core\src\main\resources\db\migration\
+ - Do ‘mvn clean install’ of the complete project
+ - Open server.xml of Websphere Liberty and add the following features,
 
 [source,xml]
 ----
@@ -113,9 +116,9 @@ mvn -DarchetypeVersion=2.2.0 -DarchetypeGroupId=io.oasp.java.templates -Darchety
 ...
 ----
 
-9. Deploy the war file on to the Websphere Liberty Profile and start the server.
+ - Deploy the war file on to the Websphere Liberty Profile and start the server.
 
 
 image::images/devonfw-deployment/tutorial_devon_add_app_websphere_liberty.PNG[,width="450",link="images/devonfw-deployment/tutorial_devon_add_app_websphere_liberty.PNG"]
 
-10. Once the application is published on to WebSphere Liberty, application url is logged in the Websphere console. Use this url and launch the application in browser.  
+ - Once the application is published on to WebSphere Liberty, application url is logged in the Websphere console. Use this url and launch the application in browser.  
