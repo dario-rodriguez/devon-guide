@@ -1,0 +1,71 @@
+= Production Line for Beginners (Practical Guide) 
+
+== 1. Production Line description
+The Production Line is a set of tools that will allow us to trigger some actions like testing, packaging, building, storage, etc.
+This will help us to improve our development having a quick and real-time feedback about how good is our work according to some pre-set rules. 
+
+== 2. Jenkins
+Jenkins will allow us to create those processes that will evaluate, test, package, build or whatever action we might need. Ideally, those processes should be triggered every time we push some changes to the repository of the project we want to pass through the Production Line. 
+
+=== 2.1 Jobs
+A Jenkins job will execute a single and specific action. For example, we want to ng build an Angular2 project. We could do it by creating a Jenkins job that fetches the repository and builds what’s on it. 
+
+image::images/productionline/practical-guide/jenkins-job-steps.PNG
+
+The way of creating it consists in add the URL of the location of the repository we’re working on. In this case is the Production Line’s Gerrit, but it could equally be Git or SVN (necessary little bit of further work with SVN, but valid as well).
+
+image::images/productionline/practical-guide/jenkins-job-git-repository.PNG
+
+Then, add to our Job all the tools we need to use the commands (necessary to have them previously installed in our instance either as a general tool or as a custom tool), in that case we’d need NodeJS and Angular-CLI:
+
+image::images/productionline/practical-guide/jenkins-job-custom-tools.PNG
+
+Finally, it’s time to set up our script, which is the main part of the Jenkins Job. In that script we tell our Job to, for example, install (via NodeJS) all the dependencies of the project on the PL’s workspace, build the project (via Angular-CLI) as a distributable set of files and at the end, serve it to an external server (for example, why not?) via ssh connection, and perform some Docker actions in there (don’t worry about that). Obviously, we’ll need to tell the Job about this SSH thing, adding some credentials for it.
+
+image::images/productionline/practical-guide/jenkins-job-ssh-agent.PNG
+image::images/productionline/practical-guide/jenkins-job-script.PNG
+
+If everything is correctly set up, we should build our Jenkins Job and wait for it to give us some feedback.
+
+=== 2.2 Pipelines
+
+Let’s thing about pipelines as a set of jobs. Using pipelines will give us good feedback about each process of the chain as well.
+
+image::images/productionline/practical-guide/jenkins-pipeline-steps.PNG
+
+A pipeline will mostly consist in a Jenkins script (wrote in Groovy) that will define every single task or process that we want to trigger for our project. 
+We’ll define each process as a stage and one could be used, for example, to trigger project’s tests, another one to build or package the project, and another one to deploy this built project to somewhere.
+
+image::images/productionline/practical-guide/jenkins-pipeline-script.PNG
+
+There is a helpful guide to write some pipeline commands. Just press “Pipeline Syntax”, below the script box.
+
+== 3. Nexus
+
+=== 3.1 Upload artifacts to a Nexus repository
+
+This process seems quite interesting as a final stage of our pipeline’s script. It makes sense to trigger project’s tests, then build and package the application and then publish it to a repository where someone could download it and use it, or just have it as a backup.
+This process will be defined from our project’s pom.xml file. There is a section called `<distributionManagement>` that will tell Maven where to upload the created project’s artifact. 
+
+image::images/productionline/practical-guide/devonfw-project-distribution-management.PNG
+
+Having this, we’ll store two artifacts on the Nexus repositories every time we package our project on a Production Line job or pipeline. In case of this pipeline, we build an Angular2 project as a JS/HTML project. After we store it on Nexus, we can always download it and publish it wherever we want.
+
+image::images/productionline/practical-guide/nexus-repository.PNG
+
+=== 3.2 Upload files to a Nexus repository (direct upload)
+
+Surely there will be some cases on we will need to store something on a Nexus repository we’ve created before. For example, for Sencha projects, we need to retrieve the license if we want to compile or build the project. 
+We will follow the next steps:
+
+* 1.	Get the project from our repository (Gerrit/GitLab/GitHub…)
+* 2.	Get the license from Nexus (ext.zip)
+* 3.	Follow with every extJS command we need
+* 4.	…
+
+So, the question is: How we upload a file on a Nexus repository of the PL? There is an API to deal with it:
+[source,bash,numbered]
+---------------------------------------------------------------------
+curl -L -u myusername:mypassword --upload-file ext.zip https://url-to-your-nexus-repository
+---------------------------------------------------------------------
+This command below will upload the file ext.zip on the nexus repository with the url `http://url-to-your-nexus-repository` using the credentials myusername/mypassword. 

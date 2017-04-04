@@ -79,6 +79,8 @@
 
 - link:cookbook-dockerization[devonfw on Docker]
 
+- link:devon-guide-production-line-for-beginners[Production Line for Beginners]
+
 - link:devon-guide-production-line[devonfw on the Production Line]
 
 - link:devon-in-bluemix[devonfw in IBM Bluemix]
