@@ -1,0 +1,105 @@
+:toc:
+toc::[]
+
+= IDE Setup with the Oomph Installer
+
+. The installer can be downloaded http://de-mucevolve02/files/oomph/installer/releases/[from within the corp network].
+. Unarchive it in a folder of your choice (e.g. `%home%\Eclipse Installer\` if you want to use the installer frequently)
+. Run `eclipse-inst.exe` or `eclipse-inst` on linux
+
+[WARNING]
+===============================
+Before starting the installation make sure to
+
+. have `git` configured for your prefered github authentication method
+. have `git` configured to handle long file names (e.g. by setting `git config --system core.longpaths true`)
+. have reading access to http://de-mucevolve02/ in the corp network
+===============================
+
+== Quick start guide
+. On the Product page choose `devon-ide`
+. On the Project page choose at most one project to ne checked out automatically during installation
+- Other projects can be checked out from within eclipse
+
+== Detailed Walkthrough
+
+=== The Difference between Product and Project
+
+The Oomph enginge differs between _Products_ and _Projects_. Before continuing we will shortly explain the difference of those two.
+
+A _Product_ can be seen as the eclipse installation itself. It contains the eclipse platform and plugins requiered by the Products purpose (e.g. Java development or Eclipse Modelling or ...). In the case of the devon-ide it also contains the oasp/devon-scripts, and internal and external software packages like devcon or nodejs.
+
+A _Project_ contains the configuration to work on a specified project. This includes additional eclipse plugins, a dedicated JDK, and/or the git checkout.
+
+=== The Product Page
+
+On the first installer page you need to choose what Eclipse bundle you want to use. The _Product page_ (picture below) displays the possible choices.
+image:images/howtos/installation/01_productpage.png[Product page of the installer]
+
+. the current Product Catalogs. Each entry represents a pre-configured Eclipse bundle. For the devon-ide chose `devon-ide` in the `devonfw` catalog
+. the Eclipse version to be installed.
+. the bitness of the Eclipse version. Be sure to choose the bitness of your OS
+. the Java VM used _during_ installation. The default value will do.
+. the update indicator. If those arrows spin you can update the installer or any of it's components by clicking on this button
+. Chooses the selected product and continues with the installation
+. With this button you can add products to the Product Page manually
+. In this dropdown menu you can de-/select available product catalogs
+
+=== The Project Page
+
+The next installer page lets you choose a project to be checked out during installation.
+image:images/howtos/installation/02_projectpage.png[Project page of the installer]
+
+. the current Project Catalogs. Since the installer can only maintain create a single workspace during installation chose at most one project.
+. the overview of the projects to be checked out.
+. the _Stream_ of the project. A Stream refers to a specific project configuration. In most cases a Stream is equivalent to a git branch.
+
+=== Installation of external Oomph Tasks
+
+After choosing a project the installer fetches additional Oomph tasks. You need to accept the installation of said tasks in order to proceed.
+
+image:images/howtos/installation/03_additionaltasks.png[Installation of external Oomph tasks]
+
+The installer restarts then and opens at the _Project page_ again. Simply repeat the instructions for the _Project page_. Installation and restart is only done the first time a new task is requested by a product or project configuration.
+
+=== The Variables Page
+
+By proceeding with the _Next_ button the installer opens the _Variables page_. On this page the installation and configuration of the Eclipse bundle and the chosen project is done by setting the variables presented.
+
+image:images/howtos/installation/04_variablepage.png[Variable page of the installer]
+
+. the devon-ide only requires an installation folder to be set. Use the _Browse..._ button to select the folder. Although it is possible to type the location directly into the text field we do not recommend it (due to a randomly occuring bug).
+. other products or projects may require other variables to be set.
+
+The _Next_ button can only be used if *all* variables are set.
+
+=== The Installation Summary
+
+Proceeding the installer opens the _Confirmation page_. All tasks needed for installation are shown here with all variables resolved. Only the tasks needed for the installation are activated. Tasks like _Project import_ are triggered at first startup of Eclipse.
+
+image:images/howtos/installation/05_summarypage.png[Confirmation page]
+
+The _Finish_ button triggers the installation process. Once started the installation proceeds automatically.
+
+=== The Installation Process Page
+On this page the installer provides information about the installation process.
+
+image:images/howtos/installation/06_installationpage.png[Progress page]
+
+. the tasks queue. The bold task is currently executed. By clicking on a task the log jumps to the output of that task
+. the installation log.
+. if _Dismiss automatically_ is activated the installer closes automatically after a successfull installation
+. cancels the installation process
+
+== Tweaking the installer
+
+The installer comes with a most-of-the-cases configuration. By changing some flags in the configuration file `eclipse-inst.ini` the installer can be adapted to personal needs.
+
+- `-Doomph.p2.pool=@none` disables the _p2 pool_ functionality. Remove this line to activate it. A p2 pool allows different eclipse installations to share the p2 plugins in the pool. This can be helpfull for testing product and project configurations since the download size of artifacts is reduced.
+- `-Doomph.setup.launch.automatically` presets the _Dismiss automatically_ checkbox on the Installation Process Page
+- `-Declipse.p2.unsignedPolicy` specifies if a warning should pop up when the user tries to install unsigned content. If `true` unsigned content will be installed without informing the user of it's unsignednes
+- `-Doomph.setup.installer.skip.projects` disables the project page if set to `true`
+- `-Doomph.redirection.x=http://some/url->file:/other/url` allows to redirect any URI to another. `x` can be replaced with any identifier. There are some special cases:
+- the URI `index:/redirectable.projects.setup` points to the redirected projects catalog. If not set this catalog is hidden in the installer. If the redirection is set the target project catalog can be accessed. This works for products analogous. This allows to add catalogs to your installer without changing the index.
+- `-Doomph.redirection.setups=index:/->` resets the used index.
+- `-Doomph.installer.update.url` allows to set another than the default update location for the installer. Currently we use our own update site.

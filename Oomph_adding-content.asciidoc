@@ -1,0 +1,68 @@
+:toc:
+toc::[]
+
+= Adding Content to the Index
+
+On this page we'll give a tutorial on how the index works and how to contribute to our index at http://de-mucevolve02/files/oomph/indices/devon[de-mucevolve02].
+
+== Structure of the Index
+
+image:images/howtos/contribution/01_index-structure.png[Structure of the Index]
+
+=== The Index
+
+The Index file (mostly named `org.eclipse.setup`) defines all available Product and Project Catalogs. For devon the index file can be found http://de-mucevolve02/files/oomph/indices/devon/org.eclipse.setup[here].
+
+=== The Catalogs
+
+There are two different kinds of Catalogs: the Product and the Project Catalogs. In this section we'll talk about the Product Catalog since the Project Catalog works in the exact same way.
+
+A Product Catalog contains the Product setup files. Furthermore tasks that are shared across all Products can be defined here. In case of the devon Product Catalog those are the p2 plugins for the Oomph tasks and the general _Installation_ task that triggers the installation of a product.
+
+The devon Product Catalog can be found http://de-mucevolve02/files/oomph/products/catalof_devonfw.setup[here].
+
+The devon Project Catalog can be found http://de-mucevolve02/files/oomph/projects/catalof_devonfw.setup[here].
+
+=== The Content
+
+Product and Project setup files are described in link:./mgmt_ide-setup-oomph.asciidoc[Setup of the devon-ide with oomph]
+
+== Adding a Catalog to the Index
+
+To add a Catalog located at `http://your/catalog.setup` to the devon Index you add
+
+[source,xml]
+----
+<productCatalog href="http://your/catalog.setup#/"/>
+----
+or
+
+[source,xml]
+----
+<projectCatalog href="http://your/catalog.setup#/"/>
+----
+to the http://de-mucevolve02/files/oomph/indices/devon/org.eclipse.setup[devon Index file]. Apply your changes to the files in this repository as well to prevent accidental deletions.
+
+== Adding a Product or a Project to a Catalog
+
+Similar to adding a Catalog to the index you can add an Product or Project to a Catalog. You can only add Projects to a Project Catalog and Products to a Product Catalog.
+
+If you intent to add a Product or Project to the devon Index you should upload it to `http://de-mucevolve02/files/oomph/products` or `./projects` (and include it to the version control).
+
+To add e.g. a Product at `http://de-mucevolve02/files/oomph/products/your-product.setup` to the devon Index you add
+
+[source,xml]
+----
+<product href="http://de-mucevolve02/files/oomph/products/your-product.setup#/"/>
+----
+to the http://de-mucevolve02/files/oomph/products/catalog_devonfw.setup[devon Product Catalog file].
+
+To add a Project add
+
+[source,xml]
+----
+<project href="http://youhttp://de-mucevolve02/files/oomph/projects/your-project.setup#/"/>
+----
+to the http://de-mucevolve02/files/oomph/projects/catalog_devonfw.setup[devon Project Catalog file].
+
+Apply your changes to the files in this repository as well to prevent accidental deletions.

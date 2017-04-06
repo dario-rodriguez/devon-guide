@@ -1,0 +1,25 @@
+:toc:
+toc::[]
+
+= Oomph Tasks Basics
+
+Oomph authors Eclipse using tasks. The tasks are defined in the different files of the Index and handle everything from downloading resources, defining which plugins to install or cloning git repositories.
+
+If a task is executed is determined by the tasks accepted _triggers_. Oomph knows three triggers:
+
+* `BOOTSTRAP` is fired during the installation with the _Eclipse Oomph Installer_ and only then.
+* `STARTUP` is fired at each start of Eclipse.
+* `MANUAL` is fired each time the user calls _Perform Setup Tasks_ or adds a new Project to her/his workspace.
+
+A task can be activated by any combination of those triggers.
+
+The _Variable_ task is a special task worth mentioning. This task is used to set variables that can be accessed by other tasks. In some cases you want to set them directly to a value (e.g. the `workspaces.location` variable is defined as `${installation.root/workspaces}` in the devon-ide) and in other cases you want the user to set them (e.g. the `installation.root` variable in the devon-ide). If a variable has no value when it's triggered then the user is asked to give it a value.
+
+A _variable_ task has the property _Storage_ that defines where the value of the variable will be kept. There are three storages, although you can only access two from inside of a setup file:
+
+- `scope://User` is the storage you cannot access in your setups. This storage keeps the users personal variables and preference tasks. Those variable values can be read by all Eclipse installations on your machine. If a variable in this storage is used for user input the user will be asked for a value once per installation.
+- `scope://Installation` is the storage of the current Eclipse installation. Every workspace of this installation can access it.
+- `scope://Workspace` is the storage of the current workspace. Variable values in this storage can only be read from within this workspace. If a variable in this storage is used for user input the user will be asked for a value once in each workspace.
+- `scope://` denotes that the variable value won't get stored. if this variable is also used for user input the user will be asked for it's value each time it's needed.
+
+Good practice is to store Product related variables in `scope://Installation` and Project related variables in `scope://Workspace`.

@@ -1,0 +1,63 @@
+:toc:
+toc::[]
+
+= Creation of Projects in the devon Project Catalog
+
+In this chapter we'll provide a tutorial to contribute to the devon Project Catalog.
+
+To create Project files you need to install the Plugin _Oomph Setup_ from http://download.eclipse.org/oomph/updates/milestone/latest
+
+== Tasks already provided by the Project Catalog
+
+The following tasks are already included in the devon Project Catalog. If you want to create a Project outside of it then make sure to at least include the _Workspace_ task in your setup file.
+
+* Variables:
+** `eclipse.target.platform` specifies the eclipse version you want your project to work with (in case of eclipse plugins). This is NOT the installed eclipse version. Currently _Mars_ and above can be selected. Default is _None_ which will install no target platform.
+** `workspace.location` specifies the workspace. Although the OASP scripts handle the workspace this variables allows references to that folder. It's default value is `${workspaces.location/${scope.project.label}}`. `scope.project.label` refers to the label of the selected Project.
+
+* _Workspace creation_ creates a workspace at `${workspace.location}`. This task is necessary to store workspace related tasks.
+
+* _Target Platform Definition_ that will install the target platform for Eclipse plugin projects.
+
+== Example Github Project
+
+In this section we'll describe the starting point for a Project that clones a Github repository and sets up the workspace.
+
+Create a new Project file (`Ctrl+N`->Oomph->Setup Project Model).
+
+image:images/oomph/project/01_new.png[New Wizard]
+
+Chose _Simple Project_ and fill in the gaps. The label will be used when the Project is displayed in Oomph and the name is used internally only. Per convention the location of the setup file is `/docs/oomph/projects/` (with activated gh pages on the `docs` folder).
+
+image:images/oomph/project/02_creation.png[New Project Wizard]
+
+You'll end up with the following content : image:images/oomph/project/03_emptyfile.png[New Project File]
+
+The file contains now only the meta data for the Project (name, description, and so on) and a default Stream called master. In this tutorial a Stream will be equivalent to a git branch, although a Stream allows more specification than just switching on another git branch.
+
+=== Cloning from git
+
+Cloning from a Github repository can be done with the _Git Clone_ task. To configure it open the _Properties View_:
+
+* `ID`: defines the ID of the task. This can be left empty. If set an ID has to be unique. Furthermore can you access the properties of a task via it's ID (e.g. if `ID=git.a` you can access the `location` property via `${git.a.location}`)
+* `Description`: The description of the task. Can be left empty if it's purpose is obvious.
+* `Location`: The target location. Since Eclipse has problems with projects at it's workspace root it's recommended to use a folder inside the workspace as git clone target. If you want the folder to be named like your Project you can insert `${workspace/${scope.project.label}}` or `${workspace/${scope.project.name}}`
+* `Remote Name`: the name of the remote git. Default is _origin_.
+* `Remote URI`: insert here `${github.remote.uri}`. This variable will be added below
+* `Push URI`: same as _Remote URI_
+* `Checkout Branch`: the branch to be checked out. Default is `{scope.project.stream.name}` which resolves in the name of the user chosen Stream. Since we want to use the Streams as git branches we keep that value.
+* `Recursive`: if the clone should be done recursive
+* `Restrict to checkout branch`: if true, you cannot change the branch of the cloned repository but the clone process will be quicker and the clone will need less space.
+
+Now we introduce the `github.remote.uri` variable from above:
+Right click on the Git Clone Task > _new Sibling_ > _Variable_ and name that variable `github.remote.uri`. Select as `Storage URI` `scope://Workspace`
+Right Click now on the created variable task and add as a child a _Variable Choice_. Each _Variable Choice_ will be represent a way to connect with github. Most commonly it will be via HTTP or SSH. The following set up will allow to checkout forks. For that we introduce the `github.user.name` variable. If you don't want that simply replace the variable with the Github user of your choice.
+
+* For HTTPS access set the value to `https://github.com/${github.user.name}/ ... .git`. As label you should choose 'HTTP'. The label will be visible to the user in the Dropdown menue of this variable.
+* For SSH access set the value to `ssh://git@github.com:${github.user.name}/ ... .git`.
+
+Now add a variable called `github.user.name` with a default value of your choice, typically the original user of the repository (in our case `devonfw`).
+
+Your file will look like this:
+
+image:images/oomph/project/04_gitclone.png[Project with git checkout]
