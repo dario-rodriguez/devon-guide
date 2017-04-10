@@ -41,7 +41,7 @@ Cloning from a Github repository can be done with the _Git Clone_ task. To confi
 
 * `ID`: defines the ID of the task. This can be left empty. If set an ID has to be unique. Furthermore can you access the properties of a task via it's ID (e.g. if `ID=git.a` you can access the `location` property via `${git.a.location}`)
 * `Description`: The description of the task. Can be left empty if it's purpose is obvious.
-* `Location`: The target location. Since Eclipse has problems with projects at it's workspace root it's recommended to use a folder inside the workspace as git clone target. If you want the folder to be named like your Project you can insert `${workspace/${scope.project.label}}` or `${workspace/${scope.project.name}}`
+* `Location`: The target location. Since Eclipse has problems with projects at it's workspace root it's recommended to use a folder inside the workspace as git clone target. If you want the folder to be named like your Project you can insert `${workspace.location/${scope.project.label}}` or `${workspace.location/${scope.project.name}}`
 * `Remote Name`: the name of the remote git. Default is _origin_.
 * `Remote URI`: insert here `${github.remote.uri}`. This variable will be added below
 * `Push URI`: same as _Remote URI_
