@@ -23,3 +23,5 @@ A _variable_ task has the property _Storage_ that defines where the value of the
 - `scope://` denotes that the variable value won't get stored. if this variable is also used for user input the user will be asked for it's value each time it's needed.
 
 Good practice is to store Product related variables in `scope://Installation` and Project related variables in `scope://Workspace`.
+
+Have also a look at https://wiki.eclipse.org/Eclipse_Oomph_Authoring#Variable_Extensions[The Eclipse Wiki Page about Oomph Variables].

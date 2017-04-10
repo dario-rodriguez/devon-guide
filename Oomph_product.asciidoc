@@ -1,0 +1,102 @@
+:toc:
+toc::[]
+
+= Creating an Oomph Product based on devon-ide
+
+In this chapter we'll provide a tutorial on how to create your own Oomph Product based in the devon-ide and to contribute to the devon Product Catalog.
+
+To work with Product files you need to install the Plugin _Oomph Setup_ from http://download.eclipse.org/oomph/updates/milestone/latest
+
+== Tasks already provided by the Product Catalog
+
+The following tasks are already included in the devon Product Catalog. If you want to create a Product outside of this Catalog make sure to incluce at least the _Installatoin_ task. otherwise your installation won't start at all.
+
+* _Installation_ triggers the installation process.
+* _P2 Director (Oomph)_ contains the p2 artifacts of most of the Oomph tasks.
+
+== Customizing the devon-ide Product
+
+Base line for this is of course the devon-ide setup file (https://github.com/devonfw/devon-ide/blob/master/docs/oomph/products/DevonIde.setup).
+
+=== Adding / Removing Eclipse p2 Features
+
+Devon-ide comes with a lot of features and plugins. Most of them are contained in the _P2 Director (Devon 2.1.1)_. Removal and changing the version number of a feature or plugin is straight foward. For adding a feature or plugin you have to distinguish between three cases, depending on the Eclipse Version dependency:
+
+. *The feature / plugin doesn't depend on the Eclipse Version*: Simply add the feature / plugin with the desired version or version range *and* it's update site to the _P2 Director (Devon 2.1.1)_.
+. *The feature / plugin uses the same version number for different Eclipse Versions*: In this case the feature / plugin usually has multiple update sites, one for each Eclipse Version. Add the feature / plugin to the _P2 Director (Devon 2.1.1)_ and the correct update site to the _P2 Director_ task inside the corresponding Product Version.
+. *The feature's / plugin's version depends on the Eclipse Version*: In this case add both feature / plugin with version number *and* it's update site to the Product Version _P2 Director_
+
+=== Adding / Removing External Software
+
+In the devon-ide Product the external software packages are downloaded in the _download software packages_ Compound and installed in either the _unarchive software packages_ or the _install msi packages_ Compounds.
+
+Make sure to set all the download / unzip / install tasks to the Trigger `BOOTSTRAP`. Most of the time you don't want Oomph to download files at each start of Eclipse. To do so you need to activate the _Show Advanced Properties_ button image:images/oomph/product/01_advprop.png[Show Advanced Properties button] in the _Properties_ View.
+
+To download a package use the _Resource Copy_ Task:
+
+* `Source URL`: the location from where to download the file as URL.
+* `Target URL`: the location where the file will be stored as URL. Filename included. If you want to download let's say the file `software.zip` you can enter here `${tmp.download.location/software.zip|uri}`. This will download the package into the temp folder. That folder and all his content will be deletet after completion of the installation.
+
+You can also download os specific packages if needed. To do so add a child _Compound_ to the _download software packages_ and modify it's `Filter` (an advanced property). The children of that _Compound_ will then only be executed if the `Filter` evaluates to true. Use
+
+* `(osgi.arch=x86)` to restrict execution of the _Compound_ to 32-bit systems only.
+* `(osgi.arch=x86_64)` to restrict execution to 64-bit systems.
+* `(os.name=Windows*)` to restrict execution to Windows systems.
+* `(osgi.os=linux)` to restrict execution to Linux systems.
+
+==== Software Packages
+
+Many software packages come as archives, mostly `.zip` and `.tar.gz`. To unarchive them use the _unzip_ Task. This isn't part of the native Oomph tasks and need to be installed separately from http://maybeec.github.io/oomph-task-unzip/update .
+
+The unzip task can then be placed in the _unarchive software packages_ or in any of it's sub _Compounds_. Despite it's name the _unzip_ task can process most of the free archive file formats. To unarchive a software package set the _unzip_ tasks properties as follow:
+
+* `Zip File`: the file location of the archive as a String. Typically it will be `${tmp.download.location/... .zip}`.
+* `Destination Dir`: the target directory of the archives content.
+* `Priority`: a value when this task has to be executed. `500` denotes normal execution time. Smaller numbers mean earlier. This is usefull if you need to have the archive beeing unarchived before certain events during installation. But more important is that you set the corresponding _Resource Copy_ task as this tasks predecessor (an advanced property) to guarantee that the archive is actually present.
+
+==== MSI Installers
+
+Some software for Windows based systems isn't available as a zipped archive but as a MSI installation package. Using the _Command Line Interface_ task (installable from http://maybeec.github.io/oomph-task-cli/update) you can evoke `msiexec` to install the MSI packages content to the place of destination. Those tasks are located in the _install msi packages_ Compound.
+
+The _Command Line Interface_ task is a quute powerfull task that let's you execute single commands or scripts using the Java ProcessBuilder. Output of the commands will be displayed in the Oomph Installer Process Log window. The _cli_ task has the following properties:
+
+* `Directory`: the execution directory of the command
+* `Command`: the command to be executed. This needs to be a single word
+* `Argument`: the list of arguments. Note that the arguments are separated by white spaces. Arguments must not contain whitespaces by themself.
+* `Priority`: a value when this task has to be executed. `500` denotes normal execution time. Smaller numbers mean earlier.
+
+Due to some problems in Javas ProcessBuilder class spaces in paths can lead to problems if using `msiexec`. To cope with that we provide a helper script at https://raw.githubusercontent.com/oasp/oasp4j-ide/dev_oomph/oasp4j-ide-oomph-setups/resources/msiinstall.bat[OASP4J-IDE dev_oomph branch] that can be used to install msi packages properly.
+`msiinstall.bat` is thightly tailored to the oasp/devon-ide structure. It's first argument denotes the MSI package name without extension inside the `${tmp.download.location}` folder. It's second argument is the subfolder inside the `${software.location}` in which the MSI package will install it's content. This argument can be omitted.
+
+.Example
+====
+To install the MSI package `a.msi` from the temp folder to `software/a-package/` the _cli_ task looks like:
+
+[options="header"]
+|=====
+|Property|Value
+|Directory|`${installation.root}`
+|Command|`msiinstall.bat`
+|Argument|`a`, `a-package`
+|=====
+
+It is assumed that `msiinstall.bat` is located in the `${installation.root}`
+====
+
+=== Adding / Changing the JDK
+
+Currently the devon-ide comes with a prebundled Java 1.8.101 for both 32-bit and 64-bit systems. To change the used JDK you need to adapt up to three tasks in the _JDK Config_ Compound:
+
+. Changing the JDK Version:
+.. Adapting the `Source URL` in the _Resource Copy_ task of each bitness. The Java package you want to download needs to be in a zip or tar.gz archive *without* a root folder (the corresponding _unzip_ task expects that). The `Target URL` is `${tmp.download.location/java18.zip}`. You don't need to change that even if your java isn't of version 8. If you change it you also need to adapt the corresponding _unzip_ task.
+
+. Adding addtional JDKs:
+. Adding a _Resource Copy_ task for each bitness. The target file name must be unique concerning other downloaded JDK versions.
+. Adding an _unzip_ task to unzip the JDK. To prevent namespace problems with the devon-ide scripts only the executing JDK should be placed in `${software.location/java}`. All other JDKs should be placed in a subfolder like `${software.location/java/AdditionalJdk/1.7.xxx}`.
+
+=== Adding Eclipse Versions
+
+You can add new Eclipse Versions with the _Product Version_ task. This task cannot be placed in a Compound. `Name` and `Label` can be chosen at will. Again `Name` is for internal processes only and `Label` is displayed to the user. `Required Java Version` sets the minimum Java Version this Product Version needs to run.
+
+Which Eclipse Version is actually installed can be managed by a nested _P2 Director_ since the Eclipse Version is derived from different p2 plugins / features.
+

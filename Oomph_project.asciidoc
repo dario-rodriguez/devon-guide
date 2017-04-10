@@ -3,7 +3,7 @@ toc::[]
 
 = Creation of Projects in the devon Project Catalog
 
-In this chapter we'll provide a tutorial to contribute to the devon Project Catalog.
+In this chapter we'll provide a tutorial on how to contribute to the devon Project Catalog.
 
 To create Project files you need to install the Plugin _Oomph Setup_ from http://download.eclipse.org/oomph/updates/milestone/latest
 
@@ -61,3 +61,43 @@ Now add a variable called `github.user.name` with a default value of your choice
 Your file will look like this:
 
 image:images/oomph/project/04_gitclone.png[Project with git checkout]
+
+For better readability of the file the git related task can be boundled in a _Compound Task_.
+
+To enable all branches of your project add now a _Stream_ for each branch. The _name_ property of the Stream should be exactly the same as the branch represented by the Stream. The _label_ is up to you.
+
+=== Importing your Project into the workspace
+
+The _Git Clone_ task only clones the git repository of your choice into the file system. To import it into Eclipse a special _Maven Import_ or _Projects Import_ is needed. Both tasks import projects based on either a `pom.xml` or Eclipses `.project` file.
+
+We'll discuss the _Maven Import_ here:
+
+Add as a new child a _Maven Import_ task to your project. `ID`, `Description` and `Project Name Template` are optional. Add now a new _Source Locator_ child to the _Maven Import_ task.
+
+The _Source Locator_ searches for projects in the specified `Root Folder`. Its properties are:
+
+* `Root Folder`: the folder in which this task looks for projects. If you gave the git task an `ID`, let it be `git.project`, you can enter here `${git.project.location}`.
+* `Excluded Paths`: paths that should not be searched in. Given as a Java Regex.
+* `Locate Nested Projects`: specifies if the _Source Locator_ should search inside of projects after nested projects.
+
+Furthermore you can add logical predicates as children to the _Source Locator_ to narrow down the search results. A project is then importet if the predicate resolves to true on that particular project.
+
+You can add multiple _Source Locators_ to the _Maven Import_.
+
+image:images/oomph/project/05_basicproject.PNG[Basic Project Build]
+
+== Additional Project Configurations
+
+=== Working sets
+
+Working sets are a good way to organize Workspaces with many projects. Oomph allows to define working sets based on predicates.
+
+_Working Set_ task are bundeld in the _Working Sets_ task. The predicate definition is the same as with the _Maven Import_.
+
+=== Targlets
+
+If the project contains code to directly work with Eclipse you may want to test against different Eclipse versions than just the one you're working on.
+
+Targlets allow to use different Eclipse or Plugin versions for testing your code. The devon Index defines a Targlet for a user choosable Eclipse version but you can alway add more Targlets to your project.
+
+Targlets can be created similar to the _p2 Managers_.

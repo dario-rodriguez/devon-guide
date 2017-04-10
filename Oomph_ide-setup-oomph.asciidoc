@@ -9,11 +9,7 @@ toc::[]
 
 [WARNING]
 ===============================
-Before starting the installation make sure to
-
-. have `git` configured for your prefered github authentication method
-. have `git` configured to handle long file names (e.g. by setting `git config --system core.longpaths true`)
-. have reading access to http://de-mucevolve02/ in the corp network
+Before starting the installation make sure to have reading access to http://de-mucevolve02/ in the corp network
 ===============================
 
 == Quick start guide
@@ -34,7 +30,7 @@ A _Project_ contains the configuration to work on a specified project. This incl
 === The Product Page
 
 On the first installer page you need to choose what Eclipse bundle you want to use. The _Product page_ (picture below) displays the possible choices.
-image:images/howtos/installation/01_productpage.png[Product page of the installer]
+image:images/oomph/installation/01_productpage.png[Product page of the installer]
 
 . the current Product Catalogs. Each entry represents a pre-configured Eclipse bundle. For the devon-ide chose `devon-ide` in the `devonfw` catalog
 . the Eclipse version to be installed.
@@ -48,7 +44,7 @@ image:images/howtos/installation/01_productpage.png[Product page of the installe
 === The Project Page
 
 The next installer page lets you choose a project to be checked out during installation.
-image:images/howtos/installation/02_projectpage.png[Project page of the installer]
+image:images/oomph/installation/02_projectpage.png[Project page of the installer]
 
 . the current Project Catalogs. Since the installer can only maintain create a single workspace during installation chose at most one project.
 . the overview of the projects to be checked out.
@@ -58,7 +54,7 @@ image:images/howtos/installation/02_projectpage.png[Project page of the installe
 
 After choosing a project the installer fetches additional Oomph tasks. You need to accept the installation of said tasks in order to proceed.
 
-image:images/howtos/installation/03_additionaltasks.png[Installation of external Oomph tasks]
+image:images/oomph/installation/03_additionaltasks.png[Installation of external Oomph tasks]
 
 The installer restarts then and opens at the _Project page_ again. Simply repeat the instructions for the _Project page_. Installation and restart is only done the first time a new task is requested by a product or project configuration.
 
@@ -66,7 +62,7 @@ The installer restarts then and opens at the _Project page_ again. Simply repeat
 
 By proceeding with the _Next_ button the installer opens the _Variables page_. On this page the installation and configuration of the Eclipse bundle and the chosen project is done by setting the variables presented.
 
-image:images/howtos/installation/04_variablepage.png[Variable page of the installer]
+image:images/oomph/installation/04_variablepage.png[Variable page of the installer]
 
 . the devon-ide only requires an installation folder to be set. Use the _Browse..._ button to select the folder. Although it is possible to type the location directly into the text field we do not recommend it (due to a randomly occuring bug).
 . other products or projects may require other variables to be set.
@@ -77,14 +73,14 @@ The _Next_ button can only be used if *all* variables are set.
 
 Proceeding the installer opens the _Confirmation page_. All tasks needed for installation are shown here with all variables resolved. Only the tasks needed for the installation are activated. Tasks like _Project import_ are triggered at first startup of Eclipse.
 
-image:images/howtos/installation/05_summarypage.png[Confirmation page]
+image:images/oomph/installation/05_summarypage.png[Confirmation page]
 
 The _Finish_ button triggers the installation process. Once started the installation proceeds automatically.
 
 === The Installation Process Page
 On this page the installer provides information about the installation process.
 
-image:images/howtos/installation/06_installationpage.png[Progress page]
+image:images/oomph/installation/06_installationpage.png[Progress page]
 
 . the tasks queue. The bold task is currently executed. By clicking on a task the log jumps to the output of that task
 . the installation log.
