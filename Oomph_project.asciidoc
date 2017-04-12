@@ -84,7 +84,7 @@ Furthermore you can add logical predicates as children to the _Source Locator_ t
 
 You can add multiple _Source Locators_ to the _Maven Import_.
 
-image:images/oomph/project/05_basicproject.PNG[Basic Project Build]
+image:images/oomph/project/05_basicproject.png[Basic Project Build]
 
 == Additional Project Configurations
 

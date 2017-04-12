@@ -1,0 +1,33 @@
+:toc:
+toc::[]
+
+= Troubleshooting Oomph Setups
+
+Creating and maintaining Oomph setup files tends to be quite troublesome. In this section we'll try to cover most problems encountered while working with Oomph.
+
+== Unkown Variables show up on the _Variables_ Page during installation
+
+=== Problem Description
+
+During installation unkown and unset variables are listed on the _Variable_ page of the installer. Those variables will lack an readable label, i.e. look like `some.var.name`.
+
+=== Potential Causes
+
+. Typo: The unkown variable has the same name as another intentionally used variable but with a typo. Find the mispelled variable usage and use the proper name.
+. Unescaped useages of `$`: The useage of the `$` character in Oomph is always and anywhere subject to variable resolution. E.g. if you use the _Resource Creation_ task to create a shell script you will probably use variables in thats script. Make sure to escape all of them with an additional `$`.
+
+== P2 Task fails
+
+=== Problem Description
+
+One of the P2 Tasks fails during installation.
+
+=== Potential Causes
+
+. Typo in the artifact: If the p2 artifact isn't properly named it cannot be found by the p2 management.
+. Problems with the update site: technically same problem as above. If the p2 manager cannot find an artifact in the given update sites an exception is thrown and the installation fails. From the point of update sites this can be caused by:
+
+.. Typo in the update site
+.. Missing update site (e.g. you added an artifact and forgot to add the update site too)
+.. unresponsive update site (e.g. the update site is correct but for what ever reason the site doesn't answer)
+
