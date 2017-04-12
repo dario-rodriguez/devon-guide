@@ -180,7 +180,7 @@
 ## IDE and Project Setup with Oomph
 
 - link:Oomph_ide-setup-oomph[IDE Setup with Oomph]
-- link:Oomph_ide-setup-oomph[Using Oomph]
+- link:Oomph_working-with-oomph[Using Oomph]
 - link:Oomph_oomph_basics[Oomph Task Basics]
 - link:Oomph_adding-content[Contributing to the Index]
 - link:Oomph_product[Creating an Oomph Product]
