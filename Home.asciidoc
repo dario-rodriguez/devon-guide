@@ -181,7 +181,7 @@
 
 - link:Oomph_ide-setup-oomph[IDE Setup with Oomph]
 - link:Oomph_working-with-oomph[Using Oomph]
-- link:Oomph_oomph_basics[Oomph Task Basics]
+- link:Oomph_oomph-basics[Oomph Task Basics]
 - link:Oomph_adding-content[Contributing to the Index]
 - link:Oomph_product[Creating an Oomph Product]
 - link:Oomph_project[Creating an Oomph project]
