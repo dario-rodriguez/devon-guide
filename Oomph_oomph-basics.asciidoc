@@ -13,7 +13,15 @@ If a task is executed is determined by the tasks accepted _triggers_. Oomph know
 
 A task can be activated by any combination of those triggers.
 
-The _Variable_ task is a special task worth mentioning. This task is used to set variables that can be accessed by other tasks. In some cases you want to set them directly to a value (e.g. the `workspaces.location` variable is defined as `${installation.root/workspaces}` in the devon-ide) and in other cases you want the user to set them (e.g. the `installation.root` variable in the devon-ide). If a variable has no value when it's triggered then the user is asked to give it a value.
+The _Variable_ task is a special task worth mentioning. This task is used to set variables that can be accessed by other tasks. In some cases you want to set them directly to a value (e.g. the `workspaces.location` variable is defined as `${installation.root/workspaces}` in the devon-ide) and in other cases you want the user to set them (e.g. the `installation.root` variable in the devon-ide). If a variable has no value when it's triggered then the user is asked to give it a value during task execution (e.g. during installation or Eclipse startup). A variable value is accessed with `${your.varname}`. Oomph will then replace any variable occurence before performing a task with it's value. Avoid nested variable calls like `${var.1/${var.2}}` since Oomph somtimes resolves only the inner variable. If you want to call a variable for a _Filter_ check you need to omit the `$` and the curly brackets (e.g. `(your.var=true)` to check if the variable `your.var` has the value `true`).
+
+If the variable value will represent a path you should define the path inside the curly brackets if possible. This will convert the path separator to comply with the used os (e.g. use `${installation.root/software/node}` instead of `${installation.root}/software/node`).
+
+A variable can has a type. Most of the time this can be _STRING_ but others are possible. The most important are:
+
+- `STRING`: presents itself as a simple text box, if to be set by the user
+- `FOLDER`: presents itself as a simple text box with a _Browse..._ button, if to be set by the user
+- `BOOLEAN`: presents itself as a simple check box, if to be set by the user. Only use the values `true` and `false`.
 
 A _variable_ task has the property _Storage_ that defines where the value of the variable will be kept. There are three storages, although you can only access two from inside of a setup file:
 
