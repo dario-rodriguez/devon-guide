@@ -12,6 +12,10 @@ The features and plugins concerning Oomph are located in the devon Product Catal
 
 == Compounds
 
+=== Webclipse
+
+This Compound contains the _P2 Director_ to include the _Webclipse Full Suite_ p2 artifacts as well as a switch variable (`TYPE: BOOLEAN`) that lets the user decide if he/she wants to install _Webclipse_ or not. The choice is made once for the installation.
+
 === version config of non-eclipse resources
 
 This Compound contains only variables. Each variable sets the version for one of the external software packages (located at http://de-mucevolve02/files/oomph/resources/devon). Changing a version number without providing a corresponding software package will cause the installation to fail.
@@ -60,7 +64,9 @@ This Compound contains _unzip_ tasks to unarchive the OASP4J script archives. Al
 
 This Compound contains preset UI preferences.
 
-- `/instance/org.eclipse.oomph.setup.ui/showToolBarContributions = true`: enables the _Oomph Tool Bar_.
+- `/instance/org.eclipse.oomph.setup.ui/showToolBarContributions = true`: enables the _Oomph Tool Bar_
+
+and a _P2 Director_ to install the _Webclipse Darkest Dark Theme_ at users choice (choice is made for the intire installation).
 
 === Eclipse Index Redirect
 
