@@ -28,7 +28,7 @@ Devon-ide comes with a lot of features and plugins. Most of them are contained i
 
 === Adding / Updating / Removing External Software
 
-In the devon-ide Product the external software packages are downloaded in the _download software packages_ Compound and installed in either the _unarchive software packages_ or the _install msi packages_ Compounds.
+In the devon-ide Product the external software packages are downloaded into the _download software packages_ Compound and installed in either the _unarchive software packages_ or the _install msi packages_ Compounds.
 
 Make sure to set all the download / unzip / install tasks to the Trigger `BOOTSTRAP`. Most of the time you don't want Oomph to download files at each start of Eclipse. To do so you need to activate the _Show Advanced Properties_ button image:images/oomph/product/01_advprop.png[Show Advanced Properties button] in the _Properties_ View.
 
@@ -44,13 +44,13 @@ You can also download os specific packages if needed. To do so add a child _Comp
 * `(os.name=Windows*)` to restrict execution to Windows systems.
 * `(osgi.os=linux)` to restrict execution to Linux systems.
 
-If you want to update an already used software package you can simply change the corresponding version number in the _version config of non-eclipse resources_ Compound. Make sure to also provide a software package at http://de-mucevolve02/files/oomph/resources/devon/ . The software package should be named like the already used except for it's version number. Most of the time you can simply download the package from the manufactures website and put it on http://de-mucevolve02/files/oomph/resources/devon/ . In some cases you need to perform some refactoring on the packages.
+If you want to update an already used software package you can simply change the corresponding version number in the _version config of non-eclipse resources_ Compound. Make sure to also provide a software package at http://de-mucevolve02/files/oomph/resources/ . The software package should be named like the already used except for it's version number. Most of the time you can simply download the package from the manufactures website and put it on http://de-mucevolve02/files/oomph/resources/ into it's corresponding folder (or create a folder if it isn't there yet). In some cases you need to perform some refactoring on the packages.
 
 * JDK on Windows:
 . Download the JDK (for each bitness) and install it on your machine.
 . Go to the JDK installation and zip it. Make sure to zip it without it's root folder. The content of the zip file (when opening it) should look like
 image:images/oomph/product/02_headlessjdk.png["Headless" JDK]
-. For fewer changes in the devon-ide file name them `jdk-${java.version}.zip` and `jdk-${java.version}_x64.zip`
+. For fewer changes in the devon-ide file name them `jdk-${java.version}.zip` and `jdk-${java.version}_x64.zip` for Windows or `jdk-${java.version}_linux.zip` and `jdk-${java.version}_linux_x64.zip` for Linux.
 * Sencha Cmd and Subversion Client:
 . Download the installation `.exe` file and install it on your machine.
 . Go the installation location and zip the installation folder. Contrary to the JDK the folder of the installation needs to be part of the zip file. In case of Sencha Cmd the zip file should look like this:
@@ -105,9 +105,13 @@ Currently the devon-ide comes with a prebundled Java 1.8.101 for both 32-bit and
 . Changing the JDK Version:
 .. Adapting the `Source URL` in the _Resource Copy_ task of each bitness. The Java package you want to download needs to be in a zip or tar.gz archive *without* a root folder (the corresponding _unzip_ task expects that). The `Target URL` is `${tmp.download.location/java18.zip}`. You don't need to change that even if your java isn't of version 8. If you change it you also need to adapt the corresponding _unzip_ task.
 
-. Adding addtional JDKs:
-. Adding a _Resource Copy_ task for each bitness. The target file name must be unique concerning other downloaded JDK versions.
-. Adding an _unzip_ task to unzip the JDK. To prevent namespace problems with the devon-ide scripts only the executing JDK should be placed in `${software.location/java}`. All other JDKs should be placed in a subfolder like `${software.location/java/AdditionalJdk/1.7.xxx}`.
+. Adding additional JDKs
+.. Add a variable of the type `BOOLEAN` in the _additional JDKs_ Subcompound, e.g. `jdk.1.7` .
+.. Add a new Subcompound in _additional JDKs_, usually called like your variable from above. The following tasks need to be placed in this Compound. Add `(jdk.1.7=true)` as it's filter (Advanced Property. Adapt the variable name for your case).
+.. Add a new Variable for the JDK version (e.g. `jdk.1.7.version`) and set it's value.
+.. Add a new Variable for the target folder of the JDK (e.g. `jdk.1.7.location`). Set it's value to be a subfolder of `software/java/additionalJDKs`, e.g. `${jdk.add.location/17045}`.
+.. Add a _JRE Task_ with the correct version and the JDK target folder as location.
+.. Add now analogous to the default JDK the tasks for downloading and unarchiving the JDK. Make sure that the tasks only respond to the `BOOTSTRAP` trigger, else it would be downloaded and unarchived with each eclipse start.
 
 === Adding Eclipse Versions
 

@@ -12,13 +12,10 @@ The features and plugins concerning Oomph are located in the devon Product Catal
 
 == Compounds
 
-=== Webclipse
-
-This Compound contains the _P2 Director_ to include the _Webclipse Full Suite_ p2 artifacts as well as a switch variable (`TYPE: BOOLEAN`) that lets the user decide if he/she wants to install _Webclipse_ or not. The choice is made once for the installation.
 
 === version config of non-eclipse resources
 
-This Compound contains only variables. Each variable sets the version for one of the external software packages (located at http://de-mucevolve02/files/oomph/resources/devon). Changing a version number without providing a corresponding software package will cause the installation to fail.
+This Compound contains only variables. Each variable sets the version for one of the external software packages (located at http://de-mucevolve02/files/oomph/resources). Changing a version number without providing a corresponding software package will cause the installation to fail.
 
 === config of commonly used paths
 
@@ -54,7 +51,7 @@ This Compound sets the target folder for the Eclipse installation to `${software
 
 === download tasks of external resources
 
-This Compound contains _Resource Copy_ tasks to load the OASP4J-IDE scripts. In case of a Windows os a helper script is also loaded for the inital `update-all-workspaces.bat` call at the end of the installation process. All tasks react only to the `BOOTSTRAP` trigger.
+This Compound contains _Resource Copy_ tasks to load the OASP4J-IDE scripts. In case of a Windows os a helper script is also loaded for the inital `update-all-workspaces.bat` call at the end of the installation process. All tasks react only to the `BOOTSTRAP` trigger. Nested in the Compound are Compounds for Windows or Linux specific tasks, e.g. resources than work only with either Windows or Linux os.
 
 === unzip tasks of external resources
 
