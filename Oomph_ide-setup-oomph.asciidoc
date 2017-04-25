@@ -4,8 +4,8 @@ toc::[]
 = IDE Setup with the Oomph Installer
 
 . The installer can be downloaded http://de-mucevolve02/files/oomph/installer/releases/[from within the corp network].
-. Unarchive it in a folder of your choice (e.g. `%home%\Eclipse Installer\` if you want to use the installer frequently)
-. Run `eclipse-inst.exe` or `eclipse-inst` on linux
+. Unarchive it in a folder of your choice (e.g. `%home%\Eclipse Installer\` if you want to use the installer frequently). If you use Windows you can also use the `eclipse-inst.exe` and `eclipse-inst_x64.exe` files. Those are self-extracting archives for Windows users.
+. Run `eclipse-inst.exe` or `eclipse-inst` on linux. If you use the self-extracting archives on Windows, you will be asked if you want to keep the installer on a permanent location. You can safely chose no if not.
 
 [WARNING]
 ===============================
@@ -86,6 +86,12 @@ image:images/oomph/installation/06_installationpage.png[Progress page]
 . the installation log.
 . if _Dismiss automatically_ is activated the installer closes automatically after a successfull installation
 . cancels the installation process
+
+On Linux systems the installer will aks you if you want to trust the certificates on the p2 artifacts before installing them.
+
+image:images/oomph/installation/07_certificate.png[Certificate Warning]
+
+Activate the checkboxes of the corresponding certificates (or click _Select All_) and proceed. Not trusting a certificate here cancels the installation.
 
 == Tweaking the installer
 
