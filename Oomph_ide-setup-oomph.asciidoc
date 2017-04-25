@@ -64,7 +64,10 @@ By proceeding with the _Next_ button the installer opens the _Variables page_. O
 
 image:images/oomph/installation/04_variablepage.png[Variable page of the installer]
 
-. the devon-ide only requires an installation folder to be set. Use the _Browse..._ button to select the folder. Although it is possible to type the location directly into the text field we do not recommend it (due to a randomly occuring bug).
+. _Install Darkest Dark Theme_: If activated, the _Darkest Dark_ theme of link:https://www.genuitec.com/tech/darkest-dark/[Genuitec] will be installed and by default used in the devon-ide.
+. _Additional JDK 1.7_: If activated a JDK 1.7 version 45 will be downloaded in addition to the JDK 1.8 version 101 and placed in `software/java/additionalJDKs/17045`.
+. the devon-ide requires an installation folder to be set. Use the _Browse..._ button to select the folder. Although it is possible to type the location directly into the text field we do not recommend it (due to a randomly occuring bug).
+. Enter your credentials for accessing the corp nexus and fileserver. Those values will be stored in the `variables-customized` file as plain text. Oomph also saves them as plain text in `%USERHOME%/.eclipse/org.eclipse.oomph.setup/setups/user.setup`.
 . other products or projects may require other variables to be set.
 
 The _Next_ button can only be used if *all* variables are set.
