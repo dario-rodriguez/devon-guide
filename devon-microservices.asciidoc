@@ -127,7 +127,7 @@ mvn -DarchetypeVersion=2.1.0-SNAPSHOT -DarchetypeGroupId=com.capgemini.devonfw.m
 
 That command generates a simple application containing the source code for the microservice. By default, the `pom.xml` includes the `devon-microservices` module, that contains the security configuration, jwt interceptors, _Hystrix_, _Ribbon_ and _FeignClient_ configuration and some properties common to all microservices.
 
-The created microservice runs by default on port _9091_ and has the `context-path` with the same name than the project. This parameters can be changed through the 'application.properties' file of the project.
+The created microservice runs by default on port _9001_ and has the `context-path` with the same name than the project. This parameters can be changed through the 'application.properties' file of the project.
 
 == How to use microservices in Devonfw
 
