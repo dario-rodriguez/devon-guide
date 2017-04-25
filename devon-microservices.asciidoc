@@ -528,9 +528,10 @@ With these three steps you can use the new security object with the custom attri
 
 Once the microservice has been created through its archetype, you need to have a series of points in mind to configure it correctly:
 
-- The microservice must have as dependency in its `pom.xml` configuration to be able to use the interceptors and the generic configuration.
+- The microservice must have the `microservices` module as dependency in its `pom.xml` configuration to be able to use the interceptors and the generic configuration.
 
 [source,xml]
+----
 <dependency>
   <groupId>com.capgemini.devonfw.microservices</groupId>
   <artifactId>microservices</artifactId>
