@@ -337,9 +337,9 @@ the `service-auth` service is already prepared to listen to the `/login` path an
 =======
 In our example you can make a POST request to:
 
-http://localhost:8081/service-auth/services/rest/login
-- HEADER Content-Type : application/json
-- BODY   { "j_username" : "xxx", "j_password" : "xxx"}
+http://localhost:8081/service-auth/services/rest/login +
+{nbsp}{nbsp}{nbsp}{nbsp} HEADER{nbsp}{nbsp}{nbsp}{nbsp}  Content-Type : application/json +
+{nbsp}{nbsp}{nbsp}{nbsp} BODY {nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}   { "j_username" : "xxx", "j_password" : "xxx"}
 =======
 
 This will generate a response like the following
