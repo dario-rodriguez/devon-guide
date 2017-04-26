@@ -333,6 +333,15 @@ the `service-auth` service is already prepared to listen to the `/login` path an
           this.expirationTime * 60 * 1000L), HttpStatus.OK);
 ----
 
+[NOTE]
+=======
+In our example you can make a POST request to:
+
+http://localhost:8081/service-auth/services/rest/login
+- HEADER Content-Type : application/json
+- BODY   { "j_username" : "xxx", "j_password" : "xxx"}
+=======
+
 This will generate a response like the following
 
 [source,json]
