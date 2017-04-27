@@ -127,7 +127,7 @@ mvn -DarchetypeVersion=2.1.0-SNAPSHOT -DarchetypeGroupId=com.capgemini.devonfw.m
 
 That command generates a simple application containing the source code for the microservice. By default, the `pom.xml` includes the `devon-microservices` module, that contains the security configuration, jwt interceptors, _Hystrix_, _Ribbon_ and _FeignClient_ configuration and some properties common to all microservices.
 
-The created microservice runs by default on port _9091_ and has the `context-path` with the same name than the project. This parameters can be changed through the 'application.properties' file of the project.
+The created microservice runs by default on port _9001_ and has the `context-path` with the same name than the project. This parameters can be changed through the 'application.properties' file of the project.
 
 == How to use microservices in Devonfw
 
@@ -333,6 +333,15 @@ the `service-auth` service is already prepared to listen to the `/login` path an
           this.expirationTime * 60 * 1000L), HttpStatus.OK);
 ----
 
+[NOTE]
+=======
+In our example you can make a POST request to:
+
+http://localhost:8081/service-auth/services/rest/login +
+{nbsp}{nbsp}{nbsp}{nbsp} HEADER{nbsp}{nbsp}{nbsp}{nbsp}  Content-Type : application/json +
+{nbsp}{nbsp}{nbsp}{nbsp} BODY {nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}   { "j_username" : "xxx", "j_password" : "xxx"}
+=======
+
 This will generate a response like the following
 
 [source,json]
@@ -528,9 +537,10 @@ With these three steps you can use the new security object with the custom attri
 
 Once the microservice has been created through its archetype, you need to have a series of points in mind to configure it correctly:
 
-- The microservice must have as dependency in its `pom.xml` configuration to be able to use the interceptors and the generic configuration.
+- The microservice must have the `microservices` module as dependency in its `pom.xml` configuration to be able to use the interceptors and the generic configuration.
 
 [source,xml]
+----
 <dependency>
   <groupId>com.capgemini.devonfw.microservices</groupId>
   <artifactId>microservices</artifactId>
