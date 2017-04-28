@@ -31,3 +31,12 @@ One of the P2 Tasks fails during installation.
 .. Missing update site (e.g. you added an artifact and forgot to add the update site too)
 .. unresponsive update site (e.g. the update site is correct but for what ever reason the site doesn't answer)
 
+== Packaged IDE : Setup Tasks are not triggered
+
+=== Problem Description
+
+A zipped or gzipped IDE doesn't trigger the `STARTUP` tasks. The same holds true for the `MANUAL` tasks.
+
+=== Potential Causes
+
+. The `prepare-packaging.sh` script wasn't executed before packaging of the IDE (see link:Oomph_ide-setup-oomph[IDE Setup with Oomph: Packaging the Installation])

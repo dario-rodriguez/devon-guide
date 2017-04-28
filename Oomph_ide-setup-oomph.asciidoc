@@ -107,3 +107,28 @@ The installer comes with a most-of-the-cases configuration. By changing some fla
 - the URI `index:/redirectable.projects.setup` points to the redirected projects catalog. If not set this catalog is hidden in the installer. If the redirection is set the target project catalog can be accessed. This works for products analogous. This allows to add catalogs to your installer without changing the index.
 - `-Doomph.redirection.setups=index:/->` resets the used index.
 - `-Doomph.installer.update.url` allows to set another than the default update location for the installer. Currently we use our own update site.
+
+== Packaging the Installation
+
+To ship the installation as a single `zip` or `tar.gz` file you need to call the `prepare-packaging.sh` script, created during installation. Oomph uses the full paths provided during the installation process in its configuration files. The `prepare-packaging.sh` script removes those full paths in the relevant files by walking the file tree of `software/eclipse` and `workspaces` and replaces them with `../../` (the execution path is always the current workspace. So `../../` points to the installation root again). The replacement is OS dependant. The path separators used are those of the OS (`\` on Windows, `/` on Unix).
+
+We recommend to call the script directly after finishing the installation.
+
+=== Potential Problems on Windows
+
+Some components of Eclipse use the unix path separator for paths in their configuration files. Those are not found by the script as it's provided (there is currently no way in the installer to transform paths from Windows style to Unix style).
+
+In the current devon-ide such problems haven't occured.
+
+You can adapt the script by adding
+
+[source,bash]
+----
+if grep -q '.*C:\/path\/to\/devon\/installation' $file
+then
+	echo "Found path in $file"
+	sed -ie 's/C:\/path\/to\/devon\/installation/..\/..\//g' $file
+fi
+----
+
+inside the first `if then` statement (between line 7 and 8).
