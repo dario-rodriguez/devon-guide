@@ -6,7 +6,14 @@ toc::[]
 Following describes the steps to install and configure Wilfly 10.x
 
 . Download WildFly 10.x from http://wildfly.org/downloads/ 
-. Place the extracted folder under distribution/software folder.
-. Run console.bat under distribution package.
-. Navigate to path distribution/software/{extracted wildfly folder}/bin
+. Place the extracted folder under {DISTRIBUTION_PATH}/software folder.
+. Run console.bat under {DISTRIBUTION_PATH}.
+. Navigate to path {DISTRIBUTION_PATH}/software/{extracted wildfly folder}/bin
 . Run standalone.bat file.
+
+image::images/devonfw-deployment/wildfly/tutorial_devon_standalone.PNG[,width="450",link="images/devonfw-deployment/wildfly/tutorial_devon_standalone.PNG"]
+
+It will start the administration console at http://localhost:9990/console. If the console asks for login credentials, provide "admin" as username and password.
+
+
+
