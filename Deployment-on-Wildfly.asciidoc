@@ -13,7 +13,16 @@ Following describes the steps to install and configure Wilfly 10.x
 
 image::images/devonfw-deployment/wildfly/tutorial_devon_standalone.PNG[,width="450",link="images/devonfw-deployment/wildfly/tutorial_devon_standalone.PNG"]
 
-It will start the administration console at http://localhost:9990/console. If the console asks for login credentials, provide "admin" as username and password.
+It will start the administration console at http://localhost:9990/console. If the administration console asks for login credentials, provide "admin" as username and password.
+
+Administration console is up and running at http://localhost:9990/console/App.html#home
+
+image::images/devonfw-deployment/wildfly/tutorial_devon_administration_console.PNG[,width="450",link="images/devonfw-deployment/wildfly/tutorial_devon_administration_console.PNG"]
+
+
+To run .war file on Wildfly administration console, follow below steps:
+* Click on start (highlighted in below screenshot)
+image::images/devonfw-deployment/wildfly/tutorial_devon_administration_console_start.PNG[,width="450",link="images/devonfw-deployment/wildfly/tutorial_devon_administration_console_start.PNG"]
 
 
 
