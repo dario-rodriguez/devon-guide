@@ -17,7 +17,7 @@ It will start the administration console at http://localhost:9990/console. If th
 
 Administration console is up and running at http://localhost:9990/console/App.html#home
 
-image::images/devonfw-deployment/wildfly/tutorial_devon_administration_console.PNG[,width="450",link="images/devonfw-deployment/wildfly/tutorial_devon_administration_console.PNG"]
+image::images/devonfw-deployment/wildfly/tutorial_devon_administration_console.png[,width="450",link="images/devonfw-deployment/wildfly/tutorial_devon_administration_console.png"]
 
 
 To run .war file on Wildfly administration console, follow below steps:
@@ -27,20 +27,20 @@ image::images/devonfw-deployment/wildfly/tutorial_devon_administration_console_s
 
 * Click on Add button (highlighted in below screenshot)
 
-image::images/devonfw-deployment/wildfly/tutorial_devon_administration_console_Add.PNG[,width="450",link="images/devonfw-deployment/wildfly/tutorial_devon_administration_console_Add.PNG"]
+image::images/devonfw-deployment/wildfly/tutorial_devon_administration_console_Add.png[,width="450",link="images/devonfw-deployment/wildfly/tutorial_devon_administration_console_Add.png"]
 
 * Upload new deployement.
 
-image::images/devonfw-deployment/wildfly/tutorial_devon_administration_UploadDeployement.PNG[,width="450",link="images/devonfw-deployment/wildfly/tutorial_devon_administration_UploadDeployement.PNG"]
+image::images/devonfw-deployment/wildfly/tutorial_devon_administration_UploadDeployement.png[,width="450",link="images/devonfw-deployment/wildfly/tutorial_devon_administration_UploadDeployement.png"]
 
 * Choose .war file for the deployment.
 
-image::images/devonfw-deployment/wildfly/tutorial_devon_administration_choose_file.PNG[,width="450",link="images/devonfw-deployment/wildfly/tutorial_devon_administration_choose_file.PNG"]
+image::images/devonfw-deployment/wildfly/tutorial_devon_administration_choose_file.png[,width="450",link="images/devonfw-deployment/wildfly/tutorial_devon_administration_choose_file.png"]
 
 * Verify upload and finish
 
 
-image::images/devonfw-deployment/wildfly/tutorial_devon_administration_verify_upload.PNG[,width="450",link="images/devonfw-deployment/wildfly/tutorial_devon_administration_verify_upload.PNG"]
+image::images/devonfw-deployment/wildfly/tutorial_devon_administration_verify_upload.png[,width="450",link="images/devonfw-deployment/wildfly/tutorial_devon_administration_verify_upload.png"]
 
 
 
