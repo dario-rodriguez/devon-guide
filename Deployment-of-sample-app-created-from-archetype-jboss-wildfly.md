@@ -1,0 +1,1 @@
+Deployment-of-sample-app-created-from-archetype-jboss-wildfly
