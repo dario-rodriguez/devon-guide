@@ -21,6 +21,7 @@ image::images/devonfw-deployment/wildfly/tutorial_devon_administration_console.p
 
 
 To run .war file on Wildfly administration console, follow below steps:
+
 * Click on start (highlighted in below screenshot)
 
 image::images/devonfw-deployment/wildfly/tutorial_devon_administration_console_start.png[,width="450",link="images/devonfw-deployment/wildfly/tutorial_devon_administration_console_start.png"]
@@ -39,8 +40,15 @@ image::images/devonfw-deployment/wildfly/tutorial_devon_administration_choose_fi
 
 * Verify upload and finish
 
-
 image::images/devonfw-deployment/wildfly/tutorial_devon_administration_verify_upload.png[,width="450",link="images/devonfw-deployment/wildfly/tutorial_devon_administration_verify_upload.png"]
+
+* Successful deployment
+
+image::images/devonfw-deployment/wildfly/tutorial_devon_administration_deployment_success.png[,width="450",link="images/devonfw-deployment/wildfly/tutorial_devon_administration_deployment_success.png"]
+
+
+Execute below mentioned steps to create .war file :
+
 
 
 
