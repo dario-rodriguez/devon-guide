@@ -1,7 +1,7 @@
 :toc: macro 
 toc::[]
 
-= Deployment on Widfly
+= Deployment on Wildfly
 
 Following describes the steps to install and configure Wilfly 10.x
 
