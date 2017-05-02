@@ -4,3 +4,9 @@ toc::[]
 = Deploy oasp4j application to Wildfly
 
 Following describes the steps to install and configure Wilfly 10.x
+
+. Download WildFly 10.x from http://wildfly.org/downloads/ 
+. Place the extracted folder under distribution/software folder.
+. Run console.bat under distribution package.
+. Navigate to path distribution/software/{extracted wildfly folder}/bin
+. Run standalone.bat file.
