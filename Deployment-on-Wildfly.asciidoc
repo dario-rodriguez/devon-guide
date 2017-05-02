@@ -27,6 +27,7 @@ image::images/devonfw-deployment/wildfly/tutorial_devon_administration_console_s
 
 * Click on Add button (highlighted in below screenshot)
 
+image::images/devonfw-deployment/wildfly/tutorial_devon_administration_console_Add.PNG[,width="450",link="images/devonfw-deployment/wildfly/tutorial_devon_administration_console_Add.PNG"]
 
 
 
