@@ -29,5 +29,13 @@ image::images/devonfw-deployment/wildfly/tutorial_devon_administration_console_s
 
 image::images/devonfw-deployment/wildfly/tutorial_devon_administration_console_Add.PNG[,width="450",link="images/devonfw-deployment/wildfly/tutorial_devon_administration_console_Add.PNG"]
 
+* Upload new deployement.
+
+image::images/devonfw-deployment/wildfly/tutorial_devon_administration_UploadDeployement.PNG[,width="450",link="images/devonfw-deployment/wildfly/tutorial_devon_administration_UploadDeployement.PNG"]
+
+* Choose .war file for the deployment.
+
+image::images/devonfw-deployment/wildfly/tutorial_devon_administration_choose_file.PNG[,width="450",link="images/devonfw-deployment/wildfly/tutorial_devon_administration_choose_file.PNG"]
+
 
 
