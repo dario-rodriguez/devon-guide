@@ -47,7 +47,55 @@ image::images/devonfw-deployment/wildfly/tutorial_devon_administration_verify_up
 image::images/devonfw-deployment/wildfly/tutorial_devon_administration_deployment_success.png[,width="450",link="images/devonfw-deployment/wildfly/tutorial_devon_administration_deployment_success.png"]
 
 
-Execute below mentioned steps to create .war file :
+*Execute below mentioned steps to create .war file :*
+
+.  start a new oasp4j project from the template
+mvn -DarchetypeVersion=2.2.0 -DarchetypeGroupId=io.oasp.java.templates -DarchetypeArtifactId=oasp4j-template-server archetype:generate -DgroupId=io.oasp.application -DartifactId=sampleapp -Dversion=0.1-SNAPSHOT -Dpackage=io.oasp.application.sampleapp
+
+. On SpringBootApp.java 
+- Remove the exclude=xxxx option on the @SpringBootApplication annotation
+- Remove the @EnableGlobalMethodSecurity annotation
+
+. Remove the SpringBootBatchApp file.
+
+. In pom.xml add
+
+<dependency>
+<groupId>org.apache.cxf</groupId>
+<artifactId>cxf-spring-boot-starter-jaxrs</artifactId>
+<version>3.1.10</version>
+</dependency>
+<dependency>
+<groupId>javax.xml.ws</groupId>
+<artifactId>jaxws-api</artifactId>
+<version>2.2.11</version>
+</dependency>
+
+remove:
+<!-- <dependency>
+<groupId>org.springframework</groupId>
+<artifactId>spring-websocket</artifactId>
+</dependency>
+-->
+<!-- 
+<dependency>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot-starter-actuator</artifactId>
+</dependency>
+-->
+
+change:
+<dependency>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot-starter-web</artifactId>
+<exclusions>
+<exclusion>
+<groupId>org.apache.tomcat.embed</groupId>
+<artifactId>tomcat-embed-websocket</artifactId>
+</exclusion>
+</exclusions>
+</dependency>
+
 
 
 
