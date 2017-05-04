@@ -60,7 +60,7 @@ mvn -DarchetypeVersion=2.2.0 -DarchetypeGroupId=io.oasp.java.templates -Darchety
 
 . In pom.xml 
 
-Add below dependecy 
+Add below dependecy: 
 [source,xml]
 ----
 
@@ -113,8 +113,49 @@ Modify below dependency:
 </exclusions>
 </dependency>
 
-
 ---- 
+
+5. create a file for a new rest controller
+[source,xml]
+----
+package io.oasp.application.sampleapp.general.service.impl.rest;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+import org.springframework.stereotype.Component;
+
+@Component
+@Path("/hello")
+public class HelloWorldEndpoint {
+@GET
+@Path("/world")
+@Produces(MediaType.TEXT_PLAIN)
+public String test() {
+
+return "Hello world!";
+}
+}
+----
+
+6. server logback.xml comment non console loggers:
+[source,xml]
+----
+<!-- <property name="logPath" value="../logs"/> -->
+<!-- <include resource="io/oasp/logging/logback/appenders-file-all.xml" /> -->
+
+<!-- <appender-ref ref="ERROR_APPENDER"/>
+<appender-ref ref="INFO_APPENDER"/>
+<appender-ref ref="DEBUG_APPENDER"/> -->
+
+----
+
+7. Build your application with command “mvn clean install” and created the .war file and deploy it to wildfly 10 Administration console and start the application.  
+
+
+
+
 
 
 
