@@ -60,6 +60,10 @@ mvn -DarchetypeVersion=2.2.0 -DarchetypeGroupId=io.oasp.java.templates -Darchety
 
 . In pom.xml add
 
+[source,xml]
+----
+...
+
 <dependency>
 <groupId>org.apache.cxf</groupId>
 <artifactId>cxf-spring-boot-starter-jaxrs</artifactId>
@@ -96,7 +100,8 @@ change:
 </exclusions>
 </dependency>
 
-
+...
+---- 
 
 
 
