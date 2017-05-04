@@ -63,7 +63,7 @@ mvn -DarchetypeVersion=2.2.0 -DarchetypeGroupId=io.oasp.java.templates -Darchety
 Add below dependecy 
 [source,xml]
 ----
-...
+
 
 <dependency>
 <groupId>org.apache.cxf</groupId>
@@ -75,13 +75,13 @@ Add below dependecy
 <artifactId>jaxws-api</artifactId>
 <version>2.2.11</version>
 </dependency>
-....
+
 ----
 
 Remove below dependency:
 [source,xml]
 ----
-...
+
 <!-- <dependency>
 <groupId>org.springframework</groupId>
 <artifactId>spring-websocket</artifactId>
@@ -93,7 +93,7 @@ Remove below dependency:
 <artifactId>spring-boot-starter-actuator</artifactId>
 </dependency>
 -->
-....
+
 ----
 
 
@@ -101,7 +101,7 @@ Modify below dependency:
 
 [source,xml]
 ----
-...
+
 <dependency>
 <groupId>org.springframework.boot</groupId>
 <artifactId>spring-boot-starter-web</artifactId>
@@ -113,7 +113,7 @@ Modify below dependency:
 </exclusions>
 </dependency>
 
-...
+
 ---- 
 
 
