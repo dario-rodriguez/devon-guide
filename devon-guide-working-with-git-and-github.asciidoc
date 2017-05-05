@@ -29,7 +29,7 @@ The image below can help you to have a clear view about the way to work with Git
 
 image::images/working-with-git/devon-guide-working-with-git-diagram.PNG[,width="450", link="images/working-with-git/devon-guide-working-with-git-diagram.PNG"]
 
-=== Step 1 - Create a new Fork
+=== Step 1 Create a new Fork
 
 To avoid problems with OASP/Devon repositories, you need to create your own copy (a "fork") of the repository.
 
@@ -41,7 +41,7 @@ A fork is a copy of a repository. Forking a repository, allows you to freely exp
 
 Most commonly, forks are used, either to propose changes to someone else's project or to use someone else's project as a starting point for your own ideas.
 
-=== Step 2 - Clone the repository
+=== Step 2 Clone the repository
 
 Now, copy the forked repo (created in the last step) on your local machine. This process is called "making a clone". To do so, you need to open a console (for example: GitBash) and then execute the next commands, in the directory where you want to create the local copy of the remote repository.
 
@@ -59,7 +59,7 @@ git clone https://github.com/<your_git_user>/oasp4j
 
 Now, you have a local copy of the repository.
 
-=== Step 3 - Define the repository URL
+=== Step 3 Define the repository URL
 
 To avoid problems with the Git URLs repositories, you can redefine the label used by git as a shortcut for the repository´s URL. The standard label "origin" will be replaced by your GitHub username.
 
@@ -114,7 +114,7 @@ Now, rename the origin remote repository the with following command:
 git remote rename origin <your_git_user>
 ----
 
-=== Step 4 - Working with Topic Branches
+=== Step 4 Working with Topic Branches
 
 The previous steps were an introduction about how you can get the remote repositories on your local machine. Now, you need to work with this repository. To do so, you need to create a new topic branch.
 
@@ -150,7 +150,7 @@ To move to another branch, you need to use:
 git checkout <name_of_existing_branch>
 ----
 
-=== Step 5 - Commit the changes
+=== Step 5 Commit the changes
 
 When you are working in a branch and you want to change the branch or you just want to save your change in your local repository, you need to commit the changes.
 
@@ -254,7 +254,7 @@ git commit -am "Commit message"
 
 You need to keep in count the .gitignore file in this case too.
 
-=== Step 6 - Push to the remote repository
+=== Step 6 Push to the remote repository
 
 When you want to include your changes in the repository, include it in your remote repository. To do so, you need to push your local topic branch in remote branch.
 
@@ -265,7 +265,7 @@ git push <remote_repository> <topic_branch_origin>:<topic_branch_destiny>
 
 As shown, the <remote_repository> can be the URL of the GitHub repository or the name that you defined in the step 3.
 
-=== Step 7 - Pull request
+=== Step 7 Pull request
 
 At this point, you have the modifications in your remote repository, so you can make a pull request to the remote https://github.com/devonfw/devon[Devon] / https://github.com/oasp/oasp4j[OASP4J] repository. To do so, you need to go to your fork repository of https://github.com/devonfw/devon[Devon] / https://github.com/oasp/oasp4j[OASP4J], open the branch you want to pull and then press the button "New pull request".
 
@@ -283,7 +283,7 @@ image::images/working-with-git/devon-guide-working-with-git-new-pull-request-des
 
 When you complete the form, you press the button "Create pull request" and then the pull is sent to be checked and added in the remote original repository.
 
-=== Step 8 - Synchronize the repository
+=== Step 8 Synchronize the repository
 
 When your Pull request is included in the original repository, you need to actualize your local and remote repository with the original repository. To do so, first of all, you need to check that you are in the development branch.
 
