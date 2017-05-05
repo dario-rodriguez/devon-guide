@@ -60,7 +60,7 @@ mvn -DarchetypeVersion=2.2.0 -DarchetypeGroupId=io.oasp.java.templates -Darchety
 
 . In pom.xml 
 
-Add below dependecy: 
+Add below dependecies: 
 [source,xml]
 ----
 
@@ -70,6 +70,12 @@ Add below dependecy:
 <artifactId>cxf-spring-boot-starter-jaxrs</artifactId>
 <version>3.1.10</version>
 </dependency>
+<dependency>
+<groupId>javax.xml.ws</groupId>
+<artifactId>jaxws-api</artifactId>
+<version>2.2.11</version>
+</dependency>
+
 <dependency>
 <groupId>javax.xml.ws</groupId>
 <artifactId>jaxws-api</artifactId>
@@ -151,7 +157,7 @@ return "Hello world!";
 
 ----
 
-7. Build your application with command “mvn clean install” and created the .war file and deploy it to wildfly 10 Administration console and start the application.  
+7. Build your application with command “mvn clean install” and create the .war file and deploy it to wildfly 10 Administration console and start the application.  
 
 
 
