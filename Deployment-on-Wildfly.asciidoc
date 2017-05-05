@@ -160,6 +160,7 @@ return "Hello world!";
 7. Build your application with command “mvn clean install” and create the .war file and deploy it to wildfly 10 Administration console and start the application.  
 
 
+image::images/devonfw-deployment/wildfly/tutorial_devon_administration_LoginPage.PNG[,width="450",link="images/devonfw-deployment/wildfly/tutorial_devon_administration_LoginPage.PNG"]
 
 
 
