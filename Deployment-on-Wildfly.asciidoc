@@ -157,7 +157,7 @@ return "Hello world!";
 
 ----
 
-* Build your application with command “mvn clean install” and create the .war file and deploy it to wildfly 10 Administration console and start the application.  
+* Build your application with command “mvn clean install” and create the .war file and deploy it to wildfly 10 Administration console and start the application. You can hit the URL based on the context root of your project which is deployed on Wildfly.  
 
 
 image::images/devonfw-deployment/wildfly/tutorial_devon_administration_LoginPage.png[,width="450",link="images/devonfw-deployment/wildfly/tutorial_devon_administration_LoginPage.png"]
