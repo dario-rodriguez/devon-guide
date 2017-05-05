@@ -44,7 +44,7 @@ image::images/devonfw-deployment/wildfly/tutorial_devon_administration_verify_up
 
 * Successful deployment
 
-image::images/devonfw-deployment/wildfly/tutorial_devon_administration_deployment_success.png[,width="450",link="images/devonfw-deployment/wildfly/tutorial_devon_administration_deployment_success.png"]
+image::images/devonfw-deployment/wildfly/tutorial_devon_administration_deployment_success.PNG[,width="450",link="images/devonfw-deployment/wildfly/tutorial_devon_administration_deployment_success.PNG"]
 
 
 *Execute below mentioned steps to create .war file :*
@@ -160,7 +160,7 @@ return "Hello world!";
 * Build your application with command “mvn clean install” and create the .war file and deploy it to wildfly 10 Administration console and start the application.  
 
 
-image::images/devonfw-deployment/wildfly/tutorial_devon_administration_LoginPage.PNG[,width="450",link="images/devonfw-deployment/wildfly/tutorial_devon_administration_LoginPage.PNG"]
+image::images/devonfw-deployment/wildfly/tutorial_devon_administration_LoginPage.PNG[,width="450",link="images/devonfw-deployment/wildfly/tutorial_devon_administration_LoginPage.png"]
 
 
 
