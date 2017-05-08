@@ -162,7 +162,7 @@ return "Hello world!";
 
 image::images/devonfw-deployment/wildfly/tutorial_devon_administration_LoginPage.png[,width="450",link="images/devonfw-deployment/wildfly/tutorial_devon_administration_LoginPage.png"]
 
-To test the webservice created on server, hit the URL http://localhost:8080/sampleProj-server-0.0.1-SNAPSHOT/services/rest/hello/world on browser.
+* To test the webservice created on server, hit the URL http://localhost:8080/sampleProj-server-0.0.1-SNAPSHOT/services/rest/hello/world on browser.
 
 image::images/devonfw-deployment/wildfly/tutorial_devon_administration_RestServiceCall.png[,width="450",link="images/devonfw-deployment/wildfly/tutorial_devon_administration_RestServiceCall.png"]
 
