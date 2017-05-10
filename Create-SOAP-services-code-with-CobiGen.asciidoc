@@ -31,6 +31,7 @@ To generate SOAP services with CobiGen follow below steps:
 Consider there are 3 or more entities which are interrelated with each other; we will generate a code which will return this relationship along with attributes in it i.e currently cobigen services return ETO classes, we have enhanced CobiGen to return CTO classes (ETO + relationship). 
 
 Steps to generate code with CobiGen are as below:
+
 1.	If you are using cobigen for first time , setup cobigen following instructions on https://github.com/devonfw/devon-guide/wiki/getting-started-Cobigen#preparing-cobigen-for-first-use .
 2.	Once Cobigen is setup, we can start generating code.
 3.	To generate SOAP code with nested data you need to select below options as shown in figure:
