@@ -1,0 +1,39 @@
+:toc: macro
+toc::[]
+
+
+= SOAP services code generation with CobiGen
+
+
+== Introduction
+In Devonfw we have a server-side code generator called Cobigen. Cobigen is capable to create CRUD code from an entity or generate the content of the class that defines the user permissions. Cobigen is distributed in the Devonfw distribution as an Eclipse plugin, and is available to all Devonfw developers.
+If you want to go deeper in Cobigen you can visit the documentation of the https://github.com/devonfw/tools-cobigen/wiki/CobiGen[here]. Previous versions of CobiGen is able to generate code for REST services only.Now it is possible to generate SOAP services code with it.
+
+There are two usecases available in CobiGen:
+1. CobiGen with SOAP functionality (without nested data)
+2. CobiGen with SOAP functionality with nested data
+
+===CobiGen with SOAP functionality (without nested data)
+
+To generate SOAP services with CobiGen follow below steps:
+
+1.	If you are using cobigen for first time, setup CobiGen following instructions on https://github.com/devonfw/devon-guide/wiki/getting-started-Cobigen#preparing-cobigen-for-first-use .
+2.	Once Cobigen is setup, we can start generating code.
+3.	To generate SOAP code (without nested data) you need to select below options as shown in figure:
+[TODO]
+4.	Once above options are selected cobigen will generate code for SOAP services as well.
+5.	To check if code is actually generated, check service package, it should have soap package inside it. Also in soap services which are generated will do CRUD operations on respective entity and will return ETO classes. 
+
+===CobiGen with SOAP functionality with nested data
+
+*What is nested data?*
+Consider there are 3 or more entities which are interrelated with each other; we will generate a code which will return this relationship along with attributes in it i.e currently cobigen services return ETO classes, we have enhanced CobiGen to return CTO classes (ETO + relationship). 
+
+Steps to generate code with CobiGen are as below:
+1.	If you are using cobigen for first time , setup cobigen following instructions on https://github.com/devonfw/devon-guide/wiki/getting-started-Cobigen#preparing-cobigen-for-first-use .
+2.	Once Cobigen is setup, we can start generating code.
+3.	To generate SOAP code with nested data you need to select below options as shown in figure:
+[TODO]
+Here we need to select option with nested prefix.
+4.	Once above options are selected cobigen will generate code for SOAP services as well.
+5.	To check if code is actually generated, check service package, it should have soap package inside it. Also in soap services which are generated will do CRUD operations on respective entity and you will have one method returning CTO class of that entity.
