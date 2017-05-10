@@ -13,7 +13,7 @@ There are two usecases available in CobiGen:
 1. CobiGen with SOAP functionality (without nested data)
 2. CobiGen with SOAP functionality with nested data
 
-==CobiGen with SOAP functionality (without nested data)
+== CobiGen with SOAP functionality (without nested data)
 
 To generate SOAP services with CobiGen follow below steps:
 
@@ -24,7 +24,7 @@ To generate SOAP services with CobiGen follow below steps:
 4.	Once above options are selected cobigen will generate code for SOAP services as well.
 5.	To check if code is actually generated, check service package, it should have soap package inside it. Also in soap services which are generated will do CRUD operations on respective entity and will return ETO classes. 
 
-==CobiGen with SOAP functionality with nested data
+== CobiGen with SOAP functionality with nested data
 
 *What is nested data?*
 
