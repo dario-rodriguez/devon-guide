@@ -23,7 +23,7 @@
 * link:getting-started-Creating-Rest-Service[Create Rest Service]
 * link:getting-started-deployment-on-tomcat[Deployment on Tomcat (Client/Server)]
 
-== OASP4J Cookbook
+== Devonfw Cookbook
 
 * link:cookbook-reporting-module[devonfw Reporting Module]
 * link:cookbook-winauth-ad-module[devonfw Active Directory Auth module]
@@ -90,7 +90,7 @@
 * link:Client-GUI-Angular-Create-New-oasp4js-Application[Create New OASP4JS Application]
 * link:Client-GUI-Angular-Implementing-CRUD[Implementing a CRUD]
 
-== Devonfw Cookbook
+== OASP4JS Cookbook
 
 * link:Client-GUI-Angular-Code-Conventions[OASP4JS Code Conventions]
 
