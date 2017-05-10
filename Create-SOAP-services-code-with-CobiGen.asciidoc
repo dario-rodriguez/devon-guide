@@ -20,7 +20,9 @@ To generate SOAP services with CobiGen follow below steps:
 1.	If you are using cobigen for first time, setup CobiGen following instructions on https://github.com/devonfw/devon-guide/wiki/getting-started-Cobigen#preparing-cobigen-for-first-use .
 2.	Once Cobigen is setup, we can start generating code.
 3.	To generate SOAP code (without nested data) you need to select below options as shown in figure:
-[TODO]
+
+image::images/SOAP_Code_Gen_CobiGen/SOAP_without_nested_data.png[, width="350", SOAP_without_nested_data, link="images/SOAP_Code_Gen_CobiGen/SOAP_without_nested_data.png"]
+
 4.	Once above options are selected cobigen will generate code for SOAP services as well.
 5.	To check if code is actually generated, check service package, it should have soap package inside it. Also in soap services which are generated will do CRUD operations on respective entity and will return ETO classes. 
 
