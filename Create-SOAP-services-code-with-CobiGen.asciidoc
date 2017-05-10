@@ -10,6 +10,7 @@ In Devonfw we have a server-side code generator called Cobigen. Cobigen is capab
 If you want to go deeper in Cobigen you can visit the documentation of the https://github.com/devonfw/tools-cobigen/wiki/CobiGen[here]. Previous versions of CobiGen is able to generate code for REST services only.Now it is possible to generate SOAP services code with it.
 
 There are two usecases available in CobiGen:
+
 1. CobiGen with SOAP functionality (without nested data)
 2. CobiGen with SOAP functionality with nested data
 
