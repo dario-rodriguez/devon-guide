@@ -124,3 +124,4 @@
 * link:devon-guide-devonfw-dist-user-guide-for-linux[User guide for devon Dist in Linux]
 * link:Deployment-on-Wildfly[Deployment on Wildfly]
 * link:Deployment-on-WebSphere[Deployment on WebSphere]
+* link:Create-SOAP-services-code-with-CobiGen[SOAP and nested data code generation with CobiGen]
