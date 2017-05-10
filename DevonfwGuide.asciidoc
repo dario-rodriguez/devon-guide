@@ -411,6 +411,10 @@ include::Deployment-on-WebSphere[]
 
 <<<<
 
+include::Create-SOAP-services-code-with-CobiGen[]
+
+<<<<
+
 include::components-list[]
 
 <<<<
