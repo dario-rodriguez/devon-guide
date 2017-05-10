@@ -47,7 +47,7 @@
 - link:getting-started-deployment-on-tomcat[Deployment on Tomcat (Client/Server)]
 
 
-## OASP4J Cookbook
+## Devonfw Cookbook
 
 - link:cookbook-reporting-module[devonfw Reporting Module]
 

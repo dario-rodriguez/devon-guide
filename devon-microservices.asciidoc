@@ -40,7 +40,7 @@ Let's explain each component
 
 === Service Discovery - Eureka
 
-link:http://cloud.spring.io/spring-cloud-static/spring-cloud-netflix/1.3.0.M1/#_service_discovery_eureka_clients[Eureka] is a server to register and locate the microservices. The main function for _Eureka_ is to register the different instances of the microservices, its location, its state and other metadata.
+link:http://cloud.spring.io/spring-cloud-static/spring-cloud-netflix/1.3.0.M1/#service_discovery_eureka_clients[Eureka] is a server to register and locate the microservices. The main function for _Eureka_ is to register the different instances of the microservices, its location, its state and other metadata.
 
 It works in a simple way, during the start of each microservice, this communicates with the _Eureka_ server to notify its availability and to send the metadata. The microservice will continue to notify its status to the Eureka server every 30 seconds (default time on Eureka server properties). This value can be changed in the configuration of the component.
 
@@ -50,7 +50,7 @@ In addition, it serves as a catalog to locate a specific microservice when routi
 
 === Circuit Breaker - Hystrix
 
-http://cloud.spring.io/spring-cloud-static/spring-cloud-netflix/1.3.0.M1/#_circuit_breaker_hystrix_clients[Hystrix] is a library that implements the https://martinfowler.com/bliki/CircuitBreaker.html[Circuit Breaker] pattern. Its main functionality is to improve the reliability of the system, isolating the entry points of the microservices, preventing the cascading failure from the lower levels of the application all the way up to the user.
+http://cloud.spring.io/spring-cloud-static/spring-cloud-netflix/1.3.0.M1/#circuit_breaker_hystrix_clients[Hystrix] is a library that implements the https://martinfowler.com/bliki/CircuitBreaker.html[Circuit Breaker] pattern. Its main functionality is to improve the reliability of the system, isolating the entry points of the microservices, preventing the cascading failure from the lower levels of the application all the way up to the user.
 
 In addition to that, it allows developers to provide a fallback in case of error. _Hystrix_ manages the requests to a service, and in case that the microservice doesn't response, allows to implement an alternative to the request.
 
@@ -65,7 +65,7 @@ Using annotations, Spring-cloud generates, automatically, a fully configured RES
 
 === Router and Filter - Zuul
 
-link:http://cloud.spring.io/spring-cloud-static/spring-cloud-netflix/1.3.0.M1/#_router_and_filter_zuul[Zuul] is the entry point of the apps based on Spring-cloud microservices. It allows dynamic routing, load balancing, monitoring and securing of requests. By default _Zuul_ uses _Ribbon_ to locate, through Eureka, the instances of the microservice that it wants to invoke and sends the requests within a _Hystrix Command_, taking advantage of its functionality.
+link:http://cloud.spring.io/spring-cloud-static/spring-cloud-netflix/1.3.0.M1/#router_and_filter_zuul[Zuul] is the entry point of the apps based on Spring-cloud microservices. It allows dynamic routing, load balancing, monitoring and securing of requests. By default _Zuul_ uses _Ribbon_ to locate, through Eureka, the instances of the microservice that it wants to invoke and sends the requests within a _Hystrix Command_, taking advantage of its functionality.
 
 == How to create microservices in Devonfw
 
@@ -135,7 +135,7 @@ In the following sections we are going to provide some patterns to manage micros
 
 === Eureka service
 
-We are going to review the general options for the _Eureka_ service. If you are interested in getting more details you can visit the official site for http://cloud.spring.io/spring-cloud-static/spring-cloud-netflix/1.3.0.M1/#_service_discovery_eureka_clients[Spring Cloud Eureka clients].
+We are going to review the general options for the _Eureka_ service. If you are interested in getting more details you can visit the official site for http://cloud.spring.io/spring-cloud-static/spring-cloud-netflix/1.3.0.M1/#service_discovery_eureka_clients[Spring Cloud Eureka clients].
 
 To create an _Eureka_ server you only need to create a new _Spring Boot_ application and add the `@EnableEurekaServer` to the main class.
 
@@ -205,7 +205,7 @@ With this the application will register automatically in _Eureka_ and will be va
 
 === Zuul service
 
-We are going to show an overview to the options of the _Zuul_ service, if you want to know more details about this particular service visit the official site of http://cloud.spring.io/spring-cloud-static/spring-cloud-netflix/1.3.0.M1/#_router_and_filter_zuul[Spring Cloud].
+We are going to show an overview to the options of the _Zuul_ service, if you want to know more details about this particular service visit the official site of http://cloud.spring.io/spring-cloud-static/spring-cloud-netflix/1.3.0.M1/#router_and_filter_zuul[Spring Cloud].
 
 _Zuul_ is the component in charge for router and filtering the requests to the microservices system. It works as a gateway that, through a rule engine, redirects the requests to the suitable microservice. In addition, it can be used as a security filter as it can implement PRE-Filters and POST-Filters.
 

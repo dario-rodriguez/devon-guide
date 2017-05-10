@@ -1,6 +1,6 @@
 = Devonfw Guide
 Jhonatan Core <jhcore@capgemini.com>
-v2.1.1
+v2.1.2
 
 :imagesdir: ./images
 :footnote: test footnote from asciidoc
@@ -15,8 +15,8 @@ This document contains the complete compendium of the https://troom.capgemini.co
 
 **Current versions:**
 
-* DevonfwGuide - v2.1.1
-* Devonfw - v2.1.1
+* DevonfwGuide - v2.1.2
+* Devonfw - v2.1.2
 
 **Authors:**
 
@@ -117,7 +117,7 @@ include::getting-started-deployment-on-tomcat[]
 
 :leveloffset: 0
 
-== OASP4J CookBook
+== Devonfw CookBook
 
 :leveloffset: 2
 
@@ -137,7 +137,15 @@ include::cookbook-i18n-module[]
 
 <<<<
 
+include::cookbook-i18n-resource-converter[]
+
+<<<<
+
 include::cookbook-async-module[]
+
+<<<<
+
+include::cookbook-integration-module[]
 
 <<<<
 
@@ -165,7 +173,15 @@ include::cookbook-File-Upload-and-Download[]
 
 <<<<
 
+include::devon-microservices[]
+
+<<<<
+
 include::cookbook-dockerization[]
+
+<<<<
+
+include::devon-guide-production-line-for-beginners[]
 
 <<<<
 
@@ -305,6 +321,10 @@ include::Client-GUI-Sencha-devon4Sencha-test[]
 
 <<<<
 
+include::Client-GUI-Sencha-with-devonfw-microservices[]
+
+<<<<
+
 include::Client-GUI-Cordova-How-to-start-cordova-project[]
 
 :leveloffset: 0
@@ -375,7 +395,19 @@ include::devcon-command-developers-guide[]
 
 <<<<
 
+include::devon-guide-Devon-Module-Developer-Guide[]
+
+<<<<
+
 include::devon-guide-devonfw-dist-user-guide-for-linux[]
+
+<<<<
+
+include::Deployment-on-Wildfly[]
+
+<<<<
+
+include::Deployment-on-WebSphere[]
 
 <<<<
 

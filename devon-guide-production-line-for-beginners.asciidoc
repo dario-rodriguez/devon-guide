@@ -39,7 +39,7 @@ We’ll define each process as a stage and one could be used, for example, to tr
 
 image::images/productionline/practical-guide/jenkins-pipeline-script.PNG[,link="images/productionline/practical-guide/jenkins-pipeline-script.png"]
 
-There is a helpful guide to write some pipeline commands. Just press “Pipeline Syntax”, below the script box.
+There is a helpful guide to write some pipeline commands. Just press "Pipeline Syntax", below the script box.
 
 == 3. Nexus
 

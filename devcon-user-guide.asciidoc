@@ -36,13 +36,13 @@ Once you know how obtain Devcon, two commands are available to open devon user g
 
 [source,bash]
 ----
-devon  doc userguide
+devon doc userguide
 devcon doc userguide
 ----
 
 to open up the Devcon user guide in your default system web browser. The commands 'devon' and 'devcon' can be used interchangeably. 
 
-== Devcon Structure
+== Devcon structure
 
 Devcon is based on three basic elements:
 
@@ -55,7 +55,6 @@ Devcon is based on three basic elements:
 So Devcon is a tool based on modules where each module groups several commands related to the module functionality and each command may need parameters to work in one way or another. 
 Each command is used to accomplish one task and may need some parameters in order to achieve its goal. These parameters can be mandatory or optional. The mandatory parameters must be provided by the user when launching the command and the optional parameters can be provided by the user in the same way but if not, they can be read from a configuration file. Apart from this, we can use global parameters that are independent from the modules and commands and that will be helpful in order to obtain Devcon information (like help) or other basic configuration features, these parameters will be explained later.
 
-
 == Devcon basic usage
 
 There are two ways to run Devcon:
@@ -64,7 +63,8 @@ There are two ways to run Devcon:
 
 - Using command prompt
 
-=== Using Devcon GUI:
+
+=== Using Devcon GUI
 
 To run Devcon using the Devcon GUI, open command prompt and run below command (remember that *you will need JDK 1.8* to use Devcon's GUI):
 

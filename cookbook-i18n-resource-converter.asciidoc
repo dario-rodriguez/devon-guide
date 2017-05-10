@@ -6,7 +6,7 @@ toc::[]
 == Introduction
 
 Devon-locale is a standalone module; basically it is resource converter for internationalization. Currently, each part of an application - OASP4J, Angular2 etc - use their native resource formats for internationalization. This becomes unwieldy in large systems, especially if part of the texts is shared by the server, client and/or different client apps.
-Devon-locale solves this problem by using one resource file as input and translating it to one or more target formats. Currently we have java property file as input file, user will mention key value pair in java property file. Current version of devon-locale is converting or translating it to JSON (format used by angular application) and EXTJS (format used by Sencha application) format. So, conceptually this module is a “translator”, a custom made program which is able to translate - or transform - to any possible destination format.
+Devon-locale solves this problem by using one resource file as input and translating it to one or more target formats. Currently we have java property file as input file, user will mention key value pair in java property file. Current version of devon-locale is converting or translating it to JSON (format used by angular application) and EXTJS (format used by Sencha application) format. So, conceptually this module is a "translator", a custom made program which is able to translate - or transform - to any possible destination format.
 
 == Devon locale structure and working 
 
@@ -46,9 +46,9 @@ As you can see in above example there are various input params which are describ
 |=======================
 |*Name*	|*Description*	|*Optional*
 |input, i	|File containing source translation	| True, default value <<console in>> 
-|informat, f 	|Format of the source translation. Possible values: ”java”	| True, default value “java”
-|output, o	|File with target translation	| True, default value“<<console out>>
-|outformat, t	|Format of the target translation Possible values: “angular” or “extjs”	| True, default value “angular”
+|informat, f 	|Format of the source translation. Possible values: "java"	| True, default value "java"
+|output, o	|File with target translation	| True, default value"<<console out>>
+|outformat, t	|Format of the target translation Possible values: "angular" or "extjs"	| True, default value "angular"
 |=======================
 
 Alternatively we can launch devon-locale from eclipse , we need to run DevonLocale.java as java application.

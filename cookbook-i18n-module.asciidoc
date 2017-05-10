@@ -5,11 +5,11 @@ toc::[]
 
 == Introduction
 
-Internationalization is the process of designing a software application so that it can potentially be adapted to specific local languages and regions without engineering changes. This constitutes much more than just “translating text or correct number formats”. Think of internationalization as readiness for localization. Sometimes written as "i18n", internationalization evolved from a growing demand for multilingual products and applications.
+Internationalization is the process of designing a software application so that it can potentially be adapted to specific local languages and regions without engineering changes. This constitutes much more than just "translating text or correct number formats". Think of internationalization as readiness for localization. Sometimes written as "i18n", internationalization evolved from a growing demand for multilingual products and applications.
 
 == The i18n IP Module
 
-The i18n module provides easy creation and maintenance of distinct translations for your Devon applications. OASP, Angular and Sencha  - three distinct platforms currently forming Devon. Each provides their own specific mechanisms for L10N. I18n module fits within the context of the facilities offered by each platform. I18n artifacts are available at compile/build time and not just “run-time”. It is based on a namespaced name-value system (“properties”).
+The i18n module provides easy creation and maintenance of distinct translations for your Devon applications. OASP, Angular and Sencha  - three distinct platforms currently forming Devon. Each provides their own specific mechanisms for L10N. I18n module fits within the context of the facilities offered by each platform. I18n artifacts are available at compile/build time and not just "run-time". It is based on a namespaced name-value system ("properties").
 
 === Conceptual schema
 
@@ -19,16 +19,16 @@ As shown in above diagram, spring applications will have properties file defined
 
 image::images/devonfw-i18n/locale_path.png[,width="350",locale path, link="images/devonfw-i18n/locale_path.png"]
 
-I18n will convert these files to json data which will be return from REST services. The json files will reflect in structure the “dot namespaces” from the property file. So: 
+I18n will convert these files to json data which will be return from REST services. The json files will reflect in structure the "dot namespaces" from the property file. So: 
 main.intro.name = Devon fw control panel
 Becomes
 
 [source,xml]
 ----
-{“main”:
-	{“intro”:
+{"main":
+	{"intro":
 		{
-		 “name”:”Devon fw control panel”
+		 "name":"Devon fw control panel"
 		}
 	}
 }
@@ -154,7 +154,7 @@ image::images/devonfw-i18n/code_springbootapp.png[,width="350",code springbootap
 ----
 
 - In config.properties set module name which you want to use for i18n-
-Available modules are”mmm” and “standard”.
+Available modules are "mmm" and "standard".
 Note: You can create add module as well. Refer to section add own module in i18n.
 
 - Once above changes are done clean build your project in eclipse and launch SpringBootApp.java. User can view i18n REST service in available REST webservices (http://localhost:8081/oasp4j-sample-server/services/rest/)
