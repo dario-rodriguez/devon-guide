@@ -42,5 +42,6 @@ image::images/SOAP_Code_Gen_CobiGen/SOAP_with_nested_data.png[, width="350", SOA
 
 
 Here we need to select option with nested prefix.
+
 4.	Once above options are selected cobigen will generate code for SOAP services as well.
 5.	To check if code is actually generated, check service package, it should have soap package inside it. Also in soap services which are generated will do CRUD operations on respective entity and you will have one method returning CTO class of that entity.
