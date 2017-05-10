@@ -90,7 +90,7 @@
 * link:Client-GUI-Angular-Create-New-oasp4js-Application[Create New OASP4JS Application]
 * link:Client-GUI-Angular-Implementing-CRUD[Implementing a CRUD]
 
-== OASP4JS Cookbook
+== Devonfw Cookbook
 
 * link:Client-GUI-Angular-Code-Conventions[OASP4JS Code Conventions]
 
