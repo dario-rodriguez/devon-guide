@@ -391,6 +391,43 @@ include::Client-GUI-File-Upload-and-Download[]
 
 :leveloffset: 0
 
+== IDE and Project Setup with Oomph
+
+:leveloffset: 2
+
+include::Oomph_ide-setup-oomph[]
+
+<<<<
+
+include::Oomph_devon-ide-oomph[]
+
+<<<<
+
+include::Oomph_working-with-oomph[]
+
+<<<<
+
+include::Oomph_oomph-basics[]
+
+<<<<
+
+include::Oomph_adding-content[]
+
+<<<<
+
+include::Oomph_product[]
+
+<<<<
+
+include::Oomph_project[]
+
+<<<<
+
+include::Oomph_troubleshooting[]
+
+
+:leveloffset: 0
+
 == Appendix
 
 :leveloffset: 2
