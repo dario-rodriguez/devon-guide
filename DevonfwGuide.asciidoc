@@ -193,6 +193,18 @@ include::devon-in-bluemix[]
 
 <<<<
 
+include::cookbook-Deployment-on-Wildfly[]
+
+<<<<
+
+include::cookbook-Deployment-on-WebSphere[]
+
+<<<<
+
+include::cookbook-cobigen-advanced-use-cases-soap-and-nested-data[]
+
+<<<<
+
 include::Compatibility-guide-for-Java7-Java8-and-Tomcat7-Tomcat8[]
 
 
@@ -387,6 +399,10 @@ include::devon-guide-frequently-asked-questions[]
 
 <<<<
 
+include::devon-guide-working-with-git-and-github[]
+
+<<<<
+
 include::devcon-command-reference[]
 
 <<<<
@@ -400,18 +416,6 @@ include::devon-guide-Devon-Module-Developer-Guide[]
 <<<<
 
 include::devon-guide-devonfw-dist-user-guide-for-linux[]
-
-<<<<
-
-include::Deployment-on-Wildfly[]
-
-<<<<
-
-include::Deployment-on-WebSphere[]
-
-<<<<
-
-include::Create-SOAP-services-code-with-CobiGen[]
 
 <<<<
 
