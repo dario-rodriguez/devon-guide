@@ -43,6 +43,9 @@
 * link:devon-guide-production-line-for-beginners[Production Line for Beginners]
 * link:devon-guide-production-line[devonfw on the Production Line]
 * link:devon-in-bluemix[devonfw in IBM Bluemix]
+* link:cookbook-Deployment-on-Wildfly[Deployment on Wildfly]
+* link:cookbook-Deployment-on-WebSphere[Deployment on WebSphere]
+* link:cookbook-cobigen-advanced-use-cases-soap-and-nested-data[Cobigen advanced use cases: SOAP and nested data]
 * link:Compatibility-guide-for-Java7-Java8-and-Tomcat7-Tomcat8[Compatibility guide for Java7, Java8 and Tomcat7, Tomcat8]
 
 == The Presentation Layer: Getting Started with Devon4Sencha
@@ -122,6 +125,4 @@
 * link:components-list[Components list]
 * link:201_210_migrate[DevonFW 2.0.1 to DevonFW 2.1.0 Migration]
 * link:devon-guide-devonfw-dist-user-guide-for-linux[User guide for devon Dist in Linux]
-* link:Deployment-on-Wildfly[Deployment on Wildfly]
-* link:Deployment-on-WebSphere[Deployment on WebSphere]
-* link:Create-SOAP-services-code-with-CobiGen[SOAP and nested data code generation with CobiGen]
+

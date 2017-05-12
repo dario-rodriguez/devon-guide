@@ -2,7 +2,7 @@
 toc::[]
 
 
-= SOAP services code generation with CobiGen
+= Cobigen advanced use cases: SOAP and nested data
 
 
 == Introduction
@@ -27,7 +27,7 @@ image::images/SOAP_Code_Gen_CobiGen/SOAP_without_nested_data.png[, width="450", 
 * Once above options are selected cobigen will generate code for SOAP services as well.
 * To check if code is actually generated, check service package, it should have soap package inside it. Also in soap services which are generated will do CRUD operations on respective entity and will return ETO classes. 
 
-== CobiGen with SOAP functionality with nested data
+== CobiGen with nested data
 
 *What is nested data?*
 
