@@ -20,7 +20,7 @@ To generate SOAP services with CobiGen follow below steps:
 
 * If you are using cobigen for first time, setup CobiGen following instructions on https://github.com/devonfw/devon-guide/wiki/getting-started-Cobigen#preparing-cobigen-for-first-use .
 * Clone latest code of CobiGen tool from https://github.com/devonfw/tools-cobigen.git 
-* Import CobiGen templates code in eclipse.
+* Import ${workspace_path}\tools-cobigen\cobigen-templates\templates-oasp4j code in eclipse.
 * Once Cobigen is setup, we can start generating code.
 * To generate SOAP code (without nested data) you need to select below options as shown in figure:
 
@@ -39,7 +39,7 @@ Steps to generate code with CobiGen are as below:
 
 * If you are using cobigen for first time , setup cobigen following instructions on https://github.com/devonfw/devon-guide/wiki/getting-started-Cobigen#preparing-cobigen-for-first-use .
 * Clone latest code of CobiGen tool from https://github.com/devonfw/tools-cobigen.git 
-* Import CobiGen templates code in eclipse.
+* Import ${workspace_path}\tools-cobigen\cobigen-templates\templates-oasp4j code in eclipse.
 * Once Cobigen is setup, we can start generating code.
 * To generate SOAP code with nested data you need to select below options as shown in figure:
 
