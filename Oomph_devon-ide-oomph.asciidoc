@@ -1,4 +1,4 @@
-:toc:
+:toc: macro
 toc::[]
 
 = Devon IDE Oomph Setup Definition

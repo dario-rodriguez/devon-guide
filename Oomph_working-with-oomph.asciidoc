@@ -1,4 +1,4 @@
-:toc:
+:toc: macro
 toc::[]
 
 = Using Oomph in the IDE
@@ -9,7 +9,7 @@ In this section we work with the _Oomph Tool Bar_. In the devon-ide based Oomph 
 
 The _Oomph Tool Bar_ looks like this
 
-image:images/oomph/working/01_oomph-bar.png[Oomph Tool Bar]
+image::images/oomph/working/01_oomph-bar.png[scalewidth="75%", align="center", title="Oomph Tool Bar", link="images/oomph/working/01_oomph-bar.png"]
 
 == Checking out a Project
 

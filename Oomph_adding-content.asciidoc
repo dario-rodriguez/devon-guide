@@ -1,4 +1,4 @@
-:toc:
+:toc: macro
 toc::[]
 
 = Adding Content to the Index
@@ -7,7 +7,7 @@ On this page we'll give a tutorial on how the index works and how to contribute 
 
 == Structure of the Index
 
-image:images/oomph/adding-content/01_index-structure.png[Structure of the Index]
+image::images/oomph/adding-content/01_index-structure.png[scalewidth="75%", align="center", title="Structure of the Index", link="images/oomph/adding-content/01_index-structure.png"]
 
 === The Index
 

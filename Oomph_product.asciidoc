@@ -1,4 +1,4 @@
-:toc:
+:toc: macro
 toc::[]
 
 = Creating an Oomph Product based on devon-ide
@@ -49,12 +49,13 @@ If you want to update an already used software package you can simply change the
 * JDK on Windows:
 . Download the JDK (for each bitness) and install it on your machine.
 . Go to the JDK installation and zip it. Make sure to zip it without it's root folder. The content of the zip file (when opening it) should look like
-image:images/oomph/product/02_headlessjdk.png["Headless" JDK]
+
+image::images/oomph/product/02_headlessjdk.png[scalewidth="75%", align="center", title="'Headless' JDK", link="images/oomph/product/02_headlessjdk.png"]
 . For fewer changes in the devon-ide file name them `jdk-${java.version}.zip` and `jdk-${java.version}_x64.zip` for Windows or `jdk-${java.version}_linux.zip` and `jdk-${java.version}_linux_x64.zip` for Linux.
 * Sencha Cmd and Subversion Client:
 . Download the installation `.exe` file and install it on your machine.
 . Go the installation location and zip the installation folder. Contrary to the JDK the folder of the installation needs to be part of the zip file. In case of Sencha Cmd the zip file should look like this:
-image:images/oomph/product/03_senchazip.png[Sencha Zip]
+image:images/oomph/product/03_senchazip.png[scalewidth="75%", align="center", title="Sencha Zip"]
 . For fewer changes to the devon-ide file name the zip file
 .. Sencha: `SenchaCmd-${sencha.version}-windows-no_jre-repacked.zip`
 .. Subversion: `Subversion-client-${subversion.version}-1-Win64-repacked.zip` and `Subversion-client-${subversion.version}-1-Win32-repacked.zip`

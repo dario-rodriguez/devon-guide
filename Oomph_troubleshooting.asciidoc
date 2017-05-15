@@ -1,4 +1,4 @@
-:toc:
+:toc: macro
 toc::[]
 
 = Troubleshooting Oomph Setups
