@@ -31,7 +31,7 @@ A _Project_ contains the configuration to work on a specified project. This incl
 
 On the first installer page you need to choose what Eclipse bundle you want to use. The _Product page_ (picture below) displays the possible choices.
 
-image::images/oomph/installation/01_productpage.png[scalewidth="75%", align="center", title="Product page of the installer", link="images/oomph/installation/01_productpage.png"]
+image::images/oomph/installation/01_productpage.png[width=450, align="center", title="Product page of the installer", link="images/oomph/installation/01_productpage.png"]
 
 . the current Product Catalogs. Each entry represents a pre-configured Eclipse bundle. For the devon-ide chose `devon-ide` in the `devonfw` catalog
 . the Eclipse version to be installed.
@@ -46,7 +46,7 @@ image::images/oomph/installation/01_productpage.png[scalewidth="75%", align="cen
 
 The next installer page lets you choose a project to be checked out during installation.
 
-image::images/oomph/installation/02_projectpage.png[scalewidth="75%", align="center", title="Project page of the installer", link="images/oomph/installation/02_projectpage.png"]
+image::images/oomph/installation/02_projectpage.png[width=450, align="center", title="Project page of the installer", link="images/oomph/installation/02_projectpage.png"]
 
 . the current Project Catalogs. Since the installer can only maintain and create a single workspace during installation chose at most one project.
 . the overview of the projects to be checked out.
@@ -56,7 +56,7 @@ image::images/oomph/installation/02_projectpage.png[scalewidth="75%", align="cen
 
 After choosing a project the installer fetches additional Oomph tasks. You need to accept the installation of said tasks in order to proceed.
 
-image::images/oomph/installation/03_additionaltasks.png[scalewidth="75%", align="center", title="Installation of external Oomph tasks", link="images/oomph/installation/03_additionaltasks.png"]
+image::images/oomph/installation/03_additionaltasks.png[width=450, align="center", title="Installation of external Oomph tasks", link="images/oomph/installation/03_additionaltasks.png"]
 
 The installer restarts then and opens at the _Project page_ again. Simply repeat the instructions for the _Project page_. Installation and restart is only done the first time a new task is requested by a product or project configuration.
 
@@ -64,7 +64,7 @@ The installer restarts then and opens at the _Project page_ again. Simply repeat
 
 By proceeding with the _Next_ button the installer opens the _Variables page_. On this page the installation and configuration of the Eclipse bundle and the chosen project is done by setting the variables presented.
 
-image::images/oomph/installation/04_variablepage.png[scalewidth="75%", align="center", title="Variable page of the installer", link="images/oomph/installation/04_variablepage.png"]
+image::images/oomph/installation/04_variablepage.png[width=450, align="center", title="Variable page of the installer", link="images/oomph/installation/04_variablepage.png"]
 
 . _Install Darkest Dark Theme_: If activated, the _Darkest Dark_ theme of link:https://www.genuitec.com/tech/darkest-dark/[Genuitec] will be installed and by default used in the devon-ide.
 . _Additional JDK 1.7_: If activated a JDK 1.7 version 45 will be downloaded in addition to the JDK 1.8 version 101 and placed in `software/java/additionalJDKs/17045`.
@@ -77,14 +77,14 @@ The _Next_ button can only be used if *all* variables are set.
 
 Proceeding the installer opens the _Confirmation page_. All tasks needed for installation are shown here with all variables resolved. Only the tasks needed for the installation are activated. Tasks like _Project import_ are triggered at first startup of Eclipse.
 
-image::images/oomph/installation/05_summarypage.png[scalewidth="75%", align="center", title="Confirmation page", link="images/oomph/installation/05_summarypage.png"]
+image::images/oomph/installation/05_summarypage.png[width=450, align="center", title="Confirmation page", link="images/oomph/installation/05_summarypage.png"]
 
 The _Finish_ button triggers the installation process. Once started the installation proceeds automatically.
 
 === The Installation Process Page
 On this page the installer provides information about the installation process.
 
-image::images/oomph/installation/06_installationpage.png[scalewidth="75%", align="center", title="Progress page", link="images/oomph/installation/06_installationpage.png"]
+image::images/oomph/installation/06_installationpage.png[width=450, align="center", title="Progress page", link="images/oomph/installation/06_installationpage.png"]
 
 . the tasks queue. The bold task is currently executed. By clicking on a task the log jumps to the output of that task
 . the installation log.
@@ -93,7 +93,7 @@ image::images/oomph/installation/06_installationpage.png[scalewidth="75%", align
 
 On Linux systems the installer will aks you if you want to trust the certificates on the p2 artifacts before installing them.
 
-image::images/oomph/installation/07_certificate.png[scalewidth="75%", align="center", title="Certificate Warning", link="images/oomph/installation/07_certificate.png"]
+image::images/oomph/installation/07_certificate.png[width=450, align="center", title="Certificate Warning", link="images/oomph/installation/07_certificate.png"]
 
 Activate the checkboxes of the corresponding certificates (or click _Select All_) and proceed. Not trusting a certificate here cancels the installation.
 

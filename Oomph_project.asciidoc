@@ -25,11 +25,11 @@ In this section we'll describe the starting point for a Project that clones a Gi
 
 Create a new Project file (`Ctrl+N`->Oomph->Setup Project Model).
 
-image::images/oomph/project/01_new.png[scalewidth="75%", align="center", title="New Wizard", link="images/oomph/project/01_new.png"]
+image::images/oomph/project/01_new.png[width=450, align="center", title="New Wizard", link="images/oomph/project/01_new.png"]
 
 Chose _Simple Project_ and fill in the gaps. The label will be used when the Project is displayed in Oomph and the name is used internally only. Per convention the location of the setup file is `/docs/oomph/projects/` (with activated gh pages on the `docs` folder).
 
-image::images/oomph/project/02_creation.png[scalewidth="75%", align="center", title="New Project Wizard", link="images/oomph/project/02_creation.png"]
+image::images/oomph/project/02_creation.png[width=450, align="center", title="New Project Wizard", link="images/oomph/project/02_creation.png"]
 
 You'll end up with the following content : image:images/oomph/project/03_emptyfile.png[New Project File]
 
@@ -60,7 +60,7 @@ Now add a variable called `github.user.name` with a default value of your choice
 
 Your file will look like this:
 
-image::images/oomph/project/04_gitclone.png[scalewidth="75%", align="center", title="Project with git checkout", link="images/oomph/project/04_gitclone.png"]
+image::images/oomph/project/04_gitclone.png[width=450, align="center", title="Project with git checkout", link="images/oomph/project/04_gitclone.png"]
 
 For better readability of the file the git related task can be boundled in a _Compound Task_.
 
@@ -84,7 +84,7 @@ Furthermore you can add logical predicates as children to the _Source Locator_ t
 
 You can add multiple _Source Locators_ to the _Maven Import_.
 
-image::images/oomph/project/05_basicproject.png[scalewidth="33%", align="center", title="Basic Project Build", link="images/oomph/project/05_basicproject.png"]
+image::images/oomph/project/05_basicproject.png[width=300, align="center", title="Basic Project Build", link="images/oomph/project/05_basicproject.png"]
 
 == Additional Project Configurations
 
