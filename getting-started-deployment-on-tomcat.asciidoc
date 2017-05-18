@@ -111,9 +111,9 @@ Finally we are going to package both client and server applications into the sam
 mvn package -P jsclient
 ----
 
-== Deploy on Tomcat 7
+== Deploy on Tomcat7/Tomcat8
 
-To deploy packaged Web Application Archive (.war) file on Tomcat 7, make below changes in java core application pom.xml file.
+To deploy packaged Web Application Archive (.war) file that is integrated with client (Angular or Sencha Client) on Tomcat7/Tomcat 8, make below changes in java core application pom.xml file.
 
 Example: For "oasp4j" project, make following changes in core application's "pom.xml" which is located in "oasp4j/samples/core/pom.xml".
 
@@ -141,6 +141,47 @@ Example: For "oasp4j" project, make following changes in core application's "pom
 ...
 ----
 
+. Make core\src\main\java\io\oasp\gastronomy\restaurant\SpringBootApp.java extend SpringBootServletInitializer.
+. Comment the code inside core\src\main\java\io\oasp\gastronomy\restaurant\general\service\impl\config\ServletInitializer.java. This is not needed as we will be overriding the 'configure' method inside core\src\main\java\io\oasp\gastronomy\restaurant\SpringBootApp.java. 
+
+[source,java]
+----
+public class SpringBootApp extends SpringBootServletInitializer {
+
+  @Override
+  protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+
+    return application.sources(SpringBootApp.class);
+  }
+
+  /**
+   * Entry point for spring-boot based app
+   *
+   * @param args - arguments
+   */
+  public static void main(String[] args) {
+
+    SpringApplication.run(SpringBootApp.class, args);
+  }
+}
+----
+. Activate the 'jsclient' profile in server/pom.xml. Please see the snippet below. 
+ 
+[source,xml]
+----
+ <profiles>
+    <profile>
+      <id>jsclient</id>
+      <activation>
+        <!--<activeByDefault>true</activeByDefault>-->
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      .....
+      .....
+     </profile>
+</profiles>
+----
+
 Build the project and create packaged .war file. 
 
 To deploy this .war file on Tomcat 7, follow the steps given below:
@@ -151,4 +192,4 @@ To deploy this .war file on Tomcat 7, follow the steps given below:
 . Start Tomcat by running "startup.bat" under "TOMCAT_HOME/bin" folder.
 . By default Tomcat will start on port "8080".
 
-
+Note : To deploy packaged war (without angular or sencha client integrated) onto Tomcat7/Tomcat 8, delete server\src\main\webapp\index.jsp and build the project and create packaged .war file and deploy the same.
