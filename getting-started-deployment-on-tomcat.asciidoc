@@ -111,7 +111,7 @@ Finally we are going to package both client and server applications into the sam
 mvn package -P jsclient
 ----
 
-== Deploy on Tomcat7/Tomcat8
+== Deploy on Tomcat
 
 To deploy packaged Web Application Archive (.war) file that is integrated with client (Angular or Sencha Client) on Tomcat7/Tomcat 8, make below changes in java core application pom.xml file.
 
