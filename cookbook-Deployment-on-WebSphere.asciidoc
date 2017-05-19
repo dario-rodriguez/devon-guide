@@ -98,15 +98,15 @@ mvn -DarchetypeVersion=2.2.0 -DarchetypeGroupId=io.oasp.java.templates -Darchety
 ---- 
 
  - In ...../general/service/impl/config/WebConfig.java, please remove the import statement 'import org.apache.catalina.filters.SetCharacterEncodingFilter;' and add the import 'import org.springframework.web.filter.CharacterEncodingFilter;' 
- - Code inside method setCharacterEncodingFilter in ...../general/service/impl/config/WebConfig.java should be changed accordingly to use org.apache.catalina.filters.SetCharacterEncodingFilter
+ - Code inside method setCharacterEncodingFilter in ...../general/service/impl/config/WebConfig.java should be changed accordingly to use org.apache.catalina.filters.SetCharacterEncodingFilter as follows :
 
 [source,xml]
 ----
 ....
 ....
-    CharacterEncodingFilter setCharacterEncodingFilter = new CharacterEncodingFilter();
-    setCharacterEncodingFilter.setEncoding("UTF-8");
-    setCharacterEncodingFilter.setForceEncoding(false);
+CharacterEncodingFilter setCharacterEncodingFilter = new CharacterEncodingFilter();
+setCharacterEncodingFilter.setEncoding("UTF-8");
+setCharacterEncodingFilter.setForceEncoding(false);
 ....
 ....
 ----
