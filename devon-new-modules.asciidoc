@@ -89,10 +89,10 @@ Try to be coherent with the resources and style of the Devonfw modules code and 
 
 == Distribution
 
-The https://github.com/devonfw/devon[Devon project on Github] is the place where the source code modules is stored.
+The https://github.com/devonfw/devon[Devon project on Github] is the place where the source code of the modules is stored.
 
 As artifacts, the Devonfw modules will be available in both Nexus and Artifactory repositories.
 
 == How to contribute
 
-To provide a new Devonfw module you can fork the the https://github.com/devonfw/devon[Devon project on Github] and work over this creating your module functionalities, try to do it in a descriptive named branch. Once you are done you can push the changes to your fork and create a Pull Request that will ve tested and validated by the Devonfw Core Team. Once your Pull Request is accepted your module will be part of the Devonfw official modules. 
+To provide a new Devonfw module you can fork the the https://github.com/devonfw/devon[Devon project on Github] and work over this creating your module functionalities, try to do it in a descriptive named branch. Once you are done you can push the changes to your fork and create a Pull Request that will be tested and validated by the Devonfw Core Team. Once your Pull Request is accepted your module will be part of the Devonfw official modules. 
