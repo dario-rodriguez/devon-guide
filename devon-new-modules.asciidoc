@@ -11,7 +11,7 @@ In order to create self-contained elements that are pluggable to Devon based pro
 
 [source,xml]
 ----
- <dependency>
+<dependency>
       <groupId>com.capgemini.devonfw.modules</groupId>
       <artifactId>[module-name]</artifactId>
       <version>[module-version]</version>
