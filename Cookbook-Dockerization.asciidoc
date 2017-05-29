@@ -59,3 +59,15 @@ Various maven plugins enable the dockerziation within the process of building th
 - Stops the container.
 
 In detail, if you want to test this on your local machine, you need to have docker installed as mentioned above. In the console, type `docker-machine env` to see the IP and other properties of your VM. To set the environment variables, so that the plugin deploys the application into your local docker instance, type the last line of that output (something like `eval $("C:\Program Files\Docker Toolbox\docker-machine.exe" env)`). Now, navigate to your workspace, where the project is located. In the `devon/sample` folder, you can now execute `mvn -Pdocker install` and see how the process starts. If you only want to build the container, you can navigate into `/devon/sample/server` and execute `mvn -Pdocker package docker:build` or start the container with `mvn -Pdocker docker:start`.
+
+
+== Docker tips
+
+=== Run WAR file on Tomcat
+
+If you have a WAR file and want to run on Tomcat without installing you can use docker and mount the WAR file under the `/usr/local/tomcat/webapps/yourapp.war`.
+
+
+`docker run --name tomcat -it -p 8080:8080 --rm -v c:/__path_to_your__/app.war:/usr/local/tomcat/webapps/app.war tomcat:8-alpine`
+
+The format for Docker for Windows is `c:/` whereas if using Docker Toolbox with Virtualbox you should use `/c/Users/`
