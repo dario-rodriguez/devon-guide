@@ -2,3 +2,97 @@
 toc::[]
 
 = New Devon modules
+
+Features that Devon modules must meet.
+
+== Container pluggable
+
+In order to create self-contained elements that are pluggable to Devon based projects, the Devon modules for backend side should be created as _Maven_ projects and based on _Spring Boot_ framework. Doing so the users will be able to _connect_ the module just adding it as a dependency in the _pom_ file of their projects and injecting the module to access to its features
+
+[source,xml]
+----
+ <dependency>
+      <groupId>com.capgemini.devonfw.modules</groupId>
+      <artifactId>[module-name]</artifactId>
+      <version>[module-version]</version>
+</dependency>
+----
+
+[source,java]
+----
+import com.capgemini.devonfw.module.MyModule;
+
+public class MyApp{
+
+  @Inject
+  private MyModule myModule;
+
+  public void doingSomething(){
+
+    this.myModule.foo();
+  }
+
+}
+----
+
+== Autoconfiguration
+
+The modules should be as auto-configurable as possible, so the users don't need to take care of too much details to get the module working (just dependency and injection as mentioned above). To achieve this Spring Boot provides a configuration file, that we must call _spring.factories_, and create in the folder `src/main/resources/META-INF`. With this file we can point to a configuration class that Spring Boot will load when running the app and that is compatible with the main class configuration in the user's project.
+
+=== autoconfiguration with _spring.factories_ file
+
+In the case of Spring Boot modules, apart from the dependency and the injection, the user would need to point the _component scanner_ of his project to our module package (by default Spring Boot is going to load the components only from the main package of the project) in order to be able to inject it and access to it.
+
+This is a clear example of how _auto-configuration_ can make our module more usable thanks to the _spring.factories_ file and a Java class.
+
+First, using a Java class, we can add in our own module the _Component Scan_ configuration that the user would need.
+
+[source,java]
+----
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.integration.annotation.IntegrationComponentScan;
+import org.springframework.integration.config.EnableIntegration;
+
+@Configuration
+@EnableIntegration
+@ComponentScan(basePackages = { "com.capgemini.devonfw.module.mymodule" })
+public class ModuleConfig {
+
+}
+----
+
+Then we can create the _spring.factories_ file in `src/main/resources/META-INF` directory and point to our just created configuration class.
+
+[source]
+----
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.capgemini.devonfw.module.mymodule.configuration.ModuleConfig
+----
+
+=== autoconfiguration with the  _properties_ file
+
+We can also use the _properties_ file of our module to provide to the user some default values in case it is needed. This values can be overwritten by the user in the _application.properties_ of the Spring Boot project where the module is used.
+
+== Documentation
+
+Every Devonfw module has its own wiki page on the https://github.com/devonfw/devon-guide[devon-guide Github repository]. The new modules should be documented using its own new page and detailing the installation and usage of the module.
+
+== Coherence with current Devonfw modules
+
+Try to be coherent with the resources and style of the Devonfw modules code and solutions. Take a look to the official _oasp_ documentation to have an idea of how to address the main solutions:
+
+- https://github.com/oasp/oasp4j/wiki/guide-logging[Logging]
+
+- https://github.com/oasp/oasp4j/wiki/guide-dependency-injection[Dependency Injection]
+
+- https://github.com/oasp/oasp4j/wiki/guide-configuration[Spring Boot Configuration]
+
+== Distribution
+
+The https://github.com/devonfw/devon[Devon project on Github] is the place where the source code modules is stored.
+
+As artifacts, the Devonfw modules will be available in both Nexus and Artifactory repositories.
+
+== How to contribute
+
+To provide a new Devonfw module you can fork the the https://github.com/devonfw/devon[Devon project on Github] and work over this creating your module functionalities, try to do it in a descriptive named branch. Once you are done you can push the changes to your fork and create a Pull Request that will ve tested and validated by the Devonfw Core Team. Once your Pull Request is accepted your module will be part of the Devonfw official modules. 
