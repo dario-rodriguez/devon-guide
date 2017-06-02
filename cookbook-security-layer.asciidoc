@@ -352,17 +352,15 @@ At this point, with these three simple steps, the regular customers can see the 
 Currently, we have no best practices and reference implementations to apply permission based access on an application's data.
 Nevertheless, this is a very important topic due to the high standards of data privacy & protection especially in germany. We will further investigate this topic and we will adress it in one of the next releases. For further tracking have a look at https://github.com/oasp/oasp4j/issues/125[issue #125].
 
-=== Usage of Spring org.springframework.security.core.userdetails.UserDetailsService in OASP4J
+=== Spring Security APIs and their usage in OASP4j
 ==== UsersDetailsService
-UserDetailsService is a core interface used to load user-specific data. It has loadUserByUsername() method to find a user entity and can be overriden to provide custom implementation. For further reading follow the link http://docs.spring.io/spring-security/site/docs/current/apidocs/org/springframework/security/core/userdetails/UserDetailsService.html[here]
+*UserDetailsService* is a core interface used to load user-specific data. It has loadUserByUsername() method to find a user entity and can be overridden to provide custom implementation. For further reading follow the Spring Security documentation http://docs.spring.io/spring-security/site/docs/current/apidocs/org/springframework/security/core/userdetails/UserDetailsService.html[here]
 
 ==== BaseUserDetailsService
-This is a custom implementation of Spring's UserDetailsService. It overrides loadUserByUsername() method and returns UserDetails with user data and authorities. This implementation of UserDetailsService is further used in AbstractWebSecurityConfig.
+This is a custom implementation of Spring's *UserDetailsService*. It overrides loadUserByUsername() method and returns *UserDetails* with user data and authorities. This implementation of *UserDetailsService* is further used in *AbstractWebSecurityConfig*.
 
 ==== AbstractWebSecurityConfig
-This class extends WebSecurityConfigurerAdapter and overrides configure() method. Here BaseUserDetailsService is set in Spring HttpSecurity that configures web based security for http requests.
-
-
+This class extends Spring Security's class *WebSecurityConfigurerAdapter* and overrides configure() method. Here *BaseUserDetailsService* is set in Spring HttpSecurity that configures web based security for http requests.
 
 == Vulnerabilities and Protection
 Independent from classical authentication and authorization mechanisms there are many common pitfalls that can lead to vulnerabilities and security issues in your application such as XSS, CSRF, SQL-injection, log-forging, etc. A good source of information about this is the https://www.owasp.org[OWASP].
