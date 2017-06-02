@@ -352,6 +352,9 @@ At this point, with these three simple steps, the regular customers can see the 
 Currently, we have no best practices and reference implementations to apply permission based access on an application's data.
 Nevertheless, this is a very important topic due to the high standards of data privacy & protection especially in germany. We will further investigate this topic and we will adress it in one of the next releases. For further tracking have a look at https://github.com/oasp/oasp4j/issues/125[issue #125].
 
+== Usage of Spring org.springframework.security.core.userdetails.UserDetailsService in OASP4J
+
+
 
 == Vulnerabilities and Protection
 Independent from classical authentication and authorization mechanisms there are many common pitfalls that can lead to vulnerabilities and security issues in your application such as XSS, CSRF, SQL-injection, log-forging, etc. A good source of information about this is the https://www.owasp.org[OWASP].
