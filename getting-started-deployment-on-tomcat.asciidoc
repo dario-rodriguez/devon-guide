@@ -140,8 +140,6 @@ Example: For "oasp4j" project, make following changes in core application's "pom
 </dependency>
 ...
 ----
-
-. cd oasp4j\samples\server\tra.
 . Comment the code inside core\src\main\java\io\oasp\gastronomy\restaurant\general\service\impl\config\ServletInitializer.java. This is not needed as we will be overriding the 'configure' method inside core\src\main\java\io\oasp\gastronomy\restaurant\SpringBootApp.java. 
 
 [source,java]
