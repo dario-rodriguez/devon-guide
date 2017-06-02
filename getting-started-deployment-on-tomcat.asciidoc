@@ -202,4 +202,8 @@ To run bootified war file , follow the steps given below:
 . Execute 'java -jar oasp4j-sample-server-bootified.war'
 
 === Application context root
-In the case of bootified war, the context root will be '/' and not 'oasp4j-sample-server'. So, to access the application after the bootified war is launched , one has to access it via http://localhost:8080/login or if the user wants to have a context root , then they can define the context 'oasp4j-sample-server' in oasp4j\samples\core\src\main\resources\application.properties , make sure oasp4j\samples is built by executing 'mvn clean install' for this oasp4j\samples project and access it via http://localhost:8080/oasp4j-sample-server. The context root defined in oasp4j\samples\core\src\main\resources\config\application.properties will not be available since it is excluded from the war that is generated.  
+In the case of bootified war, the context root will be '/' and not 'oasp4j-sample-server'. 
+
+So, to access the application after the bootified war is launched , one has to access it via http://localhost:8080/login or if the user wants to have a context root , then they can define the context 'oasp4j-sample-server' in oasp4j\samples\core\src\main\resources\application.properties 
+
+Make sure oasp4j\samples is built by executing 'mvn clean install' for this oasp4j\samples project and access it via http://localhost:8080/oasp4j-sample-server. The context root defined in oasp4j\samples\core\src\main\resources\config\application.properties will not be available since it is excluded from the war that is generated.  
