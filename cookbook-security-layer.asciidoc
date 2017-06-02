@@ -354,10 +354,10 @@ Nevertheless, this is a very important topic due to the high standards of data p
 
 === Usage of Spring org.springframework.security.core.userdetails.UserDetailsService in OASP4J
 ==== UsersDetailsService
-This interface is used to load user-specific data. It has method to find a user entity and can be overriden to provide custom implementation. For further reading follow the link http://docs.spring.io/spring-security/site/docs/current/apidocs/org/springframework/security/core/userdetails/UserDetailsService.html[here]
+UserDetailsService is a core interface used to load user-specific data. It has loadUserByUsername() method to find a user entity and can be overriden to provide custom implementation. For further reading follow the link http://docs.spring.io/spring-security/site/docs/current/apidocs/org/springframework/security/core/userdetails/UserDetailsService.html[here]
 
 ==== BaseUserDetailsService
-This is a custom implementation of Spring's UserDetailsService. Here loadUserByUsername() method from UserDetailsService is overriden. And UserDetails is returned with user data and authorities. This implementation is further used in AbstractWebSecurityConfig.
+This is a custom implementation of Spring's UserDetailsService. It overrides loadUserByUsername() method and returns UserDetails with user data and authorities. This implementation of UserDetailsService is further used in AbstractWebSecurityConfig.
 
 ==== AbstractWebSecurityConfig
 This class extends WebSecurityConfigurerAdapter and overrides configure() method. Here BaseUserDetailsService is set in Spring HttpSecurity that configures web based security for http requests.
