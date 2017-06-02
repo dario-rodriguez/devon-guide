@@ -352,7 +352,15 @@ At this point, with these three simple steps, the regular customers can see the 
 Currently, we have no best practices and reference implementations to apply permission based access on an application's data.
 Nevertheless, this is a very important topic due to the high standards of data privacy & protection especially in germany. We will further investigate this topic and we will adress it in one of the next releases. For further tracking have a look at https://github.com/oasp/oasp4j/issues/125[issue #125].
 
-== Usage of Spring org.springframework.security.core.userdetails.UserDetailsService in OASP4J
+=== Usage of Spring org.springframework.security.core.userdetails.UserDetailsService in OASP4J
+==== UsersDetailsService
+This interface is used to load user-specific data. It has method to find a user entity and can be overriden to provide custom implementation. For further reading follow the link http://docs.spring.io/spring-security/site/docs/current/apidocs/org/springframework/security/core/userdetails/UserDetailsService.html[here]
+
+==== BaseUserDetailsService
+This is a custom implementation of Spring's UserDetailsService. Here loadUserByUsername() method from UserDetailsService is overriden. And UserDetails is returned with user data and authorities. This implementation is further used in AbstractWebSecurityConfig.
+
+==== AbstractWebSecurityConfig
+This class extends WebSecurityConfigurerAdapter and overrides configure() method. Here BaseUserDetailsService is set in Spring HttpSecurity that configures web based security for http requests.
 
 
 
