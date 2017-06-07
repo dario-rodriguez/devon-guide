@@ -16,47 +16,31 @@ To prove his authenticity the user provides some secret called _credentials_. Th
 
 NOTE: Please never implement your own authentication mechanism or credential store. You have to be aware of implicit demands such as salting and hashing credentials, password life-cycle with recovery, expiry, and renewal including email notification confirmation tokens, central password policies, etc. This is the domain of access managers and identity management systems. In a business context you will typically already find a system for this purpose that you have to integrate (e.g. via LDAP).
 
-oasp4j uses Spring Security as a framework for authentication purposes. Therefore you need to define an authentication provider implementing the `org.springframework.security.authentication.AuthenticationProvider` interface from Spring Security. The implemented authentication provider can be registered as main authentication provider using the authentication-manager declaration.
-[source,xml]
+oasp4j uses Spring Security as a framework for authentication purposes. AuthenticationManagerBuilder from Spring Security is used to set-up an in memory user store with predefined users. Users are given a username, password and a role as shown below.
+[source,java]
 ----
-<beans:beans xmlns="http://www.springframework.org/schema/security" xmlns:beans="http://www.springframework.org/schema/beans">
+  @SuppressWarnings("javadoc")
+  @Inject
+  public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 
-  <beans:bean id="restaurantAuthenticationProvider"
-              class="io.oasp.gastronomy.restaurant.general.common.api.security.ServletAuthenticationProvider"/>
-
-  <authentication-manager alias="restaurantAuthenticationManager" erase-credentials="false">
-    <authentication-provider ref="restaurantAuthenticationProvider"/>
-  </authentication-manager>
-</beans:beans>
+    auth.inMemoryAuthentication().withUser("user").password("password").roles("USER");
+  }
 ----
 
 === Mechanisms
 
 ==== Basic
-Http-Basic authentication can be easily implemented with this configuration:
-
-[source,xml]
-----
-<http auto-config="true" use-expressions="true">
-  ...
-  <http-basic/>
-  ...
-</http>
-----
+Http-Basic authentication can be easily implemented using BasicAuthenticationFilter:
 
 ==== Form Login
 For a form login the spring security implementation might look like this:
 
-[source,xml]
+[source,java]
 ----
-<http auto-config="false" use-expressions="true">
-    ...
-    <form-login login-page="/login" authentication-failure-url="/login?authentication_failed=1"
-      login-processing-url="/j_spring_security_login" default-target-url="/services"/>
-    <logout logout-url="/j_spring_security_logout" logout-success-url="/login?logout=1" invalidate-session="true"/>
-    <access-denied-handler error-page="/login?access_denied=1"/>
-    ...
-</http>
+.formLogin().successHandler(new SimpleUrlAuthenticationSuccessHandler()).defaultSuccessUrl("/")
+        .failureUrl("/login.html?error").loginProcessingUrl("/j_spring_security_login").usernameParameter("username")
+        .passwordParameter("password").and()
+        .logout().logoutSuccessUrl("/login.html")
 ----
 
 The interesting part is, that there is a login-processing-url, which should be adressed to handle the internal spring security authentication and similarly there is a logout-url, which has to be called to logout a user.
@@ -74,32 +58,34 @@ First, declare the filter with:
 * `restoreUrlPattern` a regular expression matching the URL, where anchors should be restored
 * `cookieName` the name of the cookie to save the anchors in the intermediate time
 
-[source,xml]
+[source,java]
 ----
-<beans:bean id="retainAnchorFilter" class="io.oasp.module.security.common.web.api.RetainAnchorFilter">
-    <!-- first [^/]+ part describes host name and possibly port, second [^/]+ is the application name -->
-    <beans:property name="storeUrlPattern" value="http://[^/]+/[^/]+/login.*"/>
-    <beans:property name="restoreUrlPattern" value="http://[^/]+/[^/]+/.*"/>
-    <beans:property name="cookieName" value="TARGETANCHOR"/>
-</beans:bean>
+  @Bean
+  public RetainAnchorFilter retainAnchorFilter() {
+
+    RetainAnchorFilter retainAnchorFilter = new RetainAnchorFilter();
+    
+    // first [^/]+ part describes host name and possibly port, second [^/]+ is the application name
+    retainAnchorFilter.setStoreUrlPattern("http://[^/]+/[^/]+/login.*");
+    retainAnchorFilter.setRestoreUrlPattern("http://[^/]+/[^/]+/.*");
+    retainAnchorFilter.setCookieName("TARGETANCHOR");
+    return retainAnchorFilter;
+  }
 ----
 
 Second, register the filter as first filter in the request filter chain. You might want to use the before="FIRST" or after="FIRST" attribute if you have multiple request filters, which should be run before the default filters.
 
 .simple Spring Security filter insertion
-[source,xml]
+[source,java]
 ----
-<http auto-config="false" use-expressions="true">
-    <custom-filter ref="retainAnchorFilter" after="FIRST"/>
-</http>
+.addFilterAfter(FIRST, RetainAnchorFilter.class)
 ----
 
 Nevertheless, the oasp4j follows a different approach. The simple interface of Spring Security for inserting custom filters as stated above is driven by a relative alignment of the different filters been executed. You relatively can insert custom filters before or after existing ones and also at the beginning or at the end. You might easily see, that the real filter chain will get more and more invisible. Thus the oasp4j follows the default ordering of the Spring Security filter chain, such that it gets more transparent for any developer, which filters will be executed in which order and at which position a new custom filter may be inserted.
 
-This documentation depends on Spring Security v3.2.5.RELEASE:
+This documentation depends on Spring Security v4.2.3.RELEASE:
 
-* http://docs.spring.io/spring-security/site/docs/3.2.5.RELEASE/reference/htmlsingle/#filter-ordering[general filter ordering]
-* http://docs.spring.io/spring-security/site/docs/3.2.5.RELEASE/reference/htmlsingle/#ns-custom-filters[detailed filter ordering]
+* http://docs.spring.io/spring-security/site/docs/4.2.3.BUILD-SNAPSHOT/reference/htmlsingle/#ns-custom-filters
 
 These lists will be maintained each release, which will include a Spring Security upgrade. Thus first, we will not loose any changes from the possibly updated default filter chain of Spring Security. Second, due to the absolute declaration of the filter order, you might not get any strange behavior in your system after upgrading to a new version of Spring Security.
 
@@ -207,25 +193,30 @@ This example `access-control-schema.xml` declares
 
 The oasp4j-security module automatically validates the schema configuration and will throw an exception if invalid.
 
-Unfortunately, Spring Security does not provide differentiated interfaces for authentication and authorization. Thus we have to provide an `AuthenticationProvider`, which is provided from Spring Security as an interface for authentication and authorization simultaneously.
-To integrate the oasp4j-security provided access control schema, you can simply inherit your own implementation from the oasp4j-security provided abstract class `AbstractAccessControlBasedAuthenticationProvider` and register your `ApplicationAuthenticationProvider` as an `AuthenticationManager`. Doing so, you also have to declare the two Beans `AccessControlProvider` and `AccessControlSchemaProvider` as listed below, which are precondition for the `AbstractAccessControlBasedAuthenticationProvider`.
+The permissions and roles defined in `access-control-schema.xml` are loaded using implementation of _AccessControlSchemaProvider_ interface as show below.
 
-.Example integration of oasp4j-security access control schema
-[source,xml]
+[source,java]
 ----
-<bean id="AuthenticationManager" class="org.springframework.security.authentication.ProviderManager">
-    <constructor-arg>
-      <list>
-        <ref bean="ApplicationAuthenticationProvider"/>
-      </list>
-    </constructor-arg>
-</bean>
-  
-<bean id="AccessControlProvider" 
-class="io.oasp.module.security.common.impl.accesscontrol.AccessControlProviderImpl"/>
+InputStream inputStream = this.accessControlSchema.getInputStream()) {
+AccessControlSchema schema = this.accessControlSchemaMapper.read(inputStream);
+----
 
-<bean id="AccessControlSchemaProvider"
-class="io.oasp.module.security.common.impl.accesscontrol.AccessControlSchemaProviderImpl"/>
+Group permissions are collected that principal is part of and is used to decide access to application resources as shown below
+
+[source,java]
+----
+Set<GrantedAuthority> authorities = new HashSet<>();
+    Collection<String> accessControlIds = this.principalAccessControlProvider.getAccessControlIds(principal);
+    Set<AccessControl> accessControlSet = new HashSet<>();
+    for (String id : accessControlIds) {
+      boolean success = this.accessControlProvider.collectAccessControls(id, accessControlSet);
+      if (!success) {
+        LOG.warn("Undefined access control {}.", id);
+      }
+    }
+    for (AccessControl accessControl : accessControlSet) {
+      authorities.add(new AccessControlGrantedAuthority(accessControl));
+    }
 ----
 
 ==== Configuration on URL level
@@ -233,32 +224,12 @@ class="io.oasp.module.security.common.impl.accesscontrol.AccessControlSchemaProv
 The authorization (in terms of Spring security "access management") can be enabled seperately for different url patterns, the request will be matched against. The order of these url patterns is essential as the first matching pattern will declare the access restriction for the incoming request (see access attribute). Here an example:
 
 .Extensive example of authorization on URL level
-[source,xml]
+[source,java]
 ----
-<bean id="FilterSecurityInterceptor" 
-      class="org.springframework.security.web.access.intercept.FilterSecurityInterceptor">
-    <property name="authenticationManager" ref="AuthenticationManager"/>
-    <property name="accessDecisionManager" ref="FilterAccessDecisionManager"/>
-    <property name="securityMetadataSource">
-      <security:filter-security-metadata-source use-expressions="true">
-        <security:intercept-url pattern="/" access="isAnonymous()"/>
-        <security:intercept-url pattern="/index.jsp" access="isAnonymous()"/>
-        <security:intercept-url pattern="/security/login*" access="isAnonymous()"/>
-        <security:intercept-url pattern="/j_spring_security_login*" access="isAnonymous()"/>
-        <security:intercept-url pattern="/j_spring_security_logout*" access="isAnonymous()"/>
-        <security:intercept-url pattern="/services/rest/security/currentuser/" access="isAnonymous() or isAuthenticated()"/>
-        <security:intercept-url pattern="/**" access="isAuthenticated()"/>
-      </security:filter-security-metadata-source>
-    </property>
-</bean>
-  
-<bean id="FilterAccessDecisionManager" class="org.springframework.security.access.vote.UnanimousBased">
-    <constructor-arg>
-      <list>
-        <bean class="org.springframework.security.web.access.expression.WebExpressionVoter"/>
-      </list>
-    </constructor-arg>
-</bean>
+.authorizeRequests()
+          .antMatchers("/login", "/home").permitAll()
+          .antMatchers("/admin/**").hasRole("ADMIN")
+          .anyRequest().authenticated()
 ----
 
 ==== Configuration on Java Method level
