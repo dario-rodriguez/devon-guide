@@ -205,7 +205,7 @@ Group permissions are collected that principal is part of and is used to decide 
 
 [source,java]
 ----
-Set<GrantedAuthority> authorities = new HashSet<>();
+    Set<GrantedAuthority> authorities = new HashSet<>();
     Collection<String> accessControlIds = this.principalAccessControlProvider.getAccessControlIds(principal);
     Set<AccessControl> accessControlSet = new HashSet<>();
     for (String id : accessControlIds) {
