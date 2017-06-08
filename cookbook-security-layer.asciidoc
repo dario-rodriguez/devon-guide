@@ -291,7 +291,7 @@ public abstract class PermissionConstants {
 }
 ----
 
-3 - Finally, in our theorical _Productmanagement_ use case, at implementation level ( `src/main/java/my/devonfw/app/productmanagement/logic/impl/ProductmanagementImpl.java` ) , we can define the permissions for each method using the `@RolesAllowed` annotation
+3 - Finally, in our theoretical _Productmanagement_ use case, at implementation level ( `src/main/java/my/devonfw/app/productmanagement/logic/impl/ProductmanagementImpl.java` ) , we can define the permissions for each method using the `@RolesAllowed` annotation
 
 [source,java]
 ----
