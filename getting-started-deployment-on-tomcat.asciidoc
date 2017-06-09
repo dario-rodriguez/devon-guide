@@ -190,8 +190,6 @@ To deploy this .war file on Tomcat 7, follow the steps given below:
 . Start Tomcat by running "startup.bat" under "TOMCAT_HOME/bin" folder.
 . By default Tomcat will start on port "8080".
 
-Note : To deploy packaged war (without angular or sencha client integrated) onto Tomcat7/Tomcat 8, delete server\src\main\webapp\index.jsp and build the project and create packaged .war file and deploy the same.
-
 == Running Bootified War
 
 To run bootified war file , follow the steps given below:
