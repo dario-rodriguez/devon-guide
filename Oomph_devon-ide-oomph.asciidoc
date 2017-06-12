@@ -6,7 +6,7 @@ toc::[]
 In this section we'll explain the devon-ide Oomph Product definition.
 
 == P2 Director (Devon 2.1.1)
-This _P2 Director_ is the main container for all features and plugins of the Product as well as it's update sites. The version numbers on all features / plugins are set to match the _Devon 2.1.1 Balu_ release.
+This _P2 Director_ is the main container for all features and plugins of the Product as well as it's update sites. The version numbers on all features / plugins are set to match the _Devon 2.1.1 Balu_ release. We recommend to be only as specific with the feature / plugin version numbers as neccessary.
 
 The features and plugins concerning Oomph are located in the devon Product Catalog.
 
@@ -73,9 +73,16 @@ This Compound contains the _Eclipse Ini_ task to set the redirection from the of
 
 This Compound contains _Resource Copy_ tasks to load additional resources for the devon-ide like scripts and the `main` workspace. All tasks react only to the `BOOTSTRAP` trigger.
 
-=== unarchive additonal resources
+=== unarchive additional resources
 
 This Compound contains _unzip_ tasks to unarchive the additional devon-ide resources. All tasks react only to the `BOOTSTRAP` trigger.
+
+==== Notes on the resources
+
+* devonscripts: currently only uploaded for windows. Contains the `scripts` folder from the devon-distribution and the `ps-console.bat`, `s2-create.bat`, `s2-init.bat` files.
+* doc: the Guides and `Release notes` of the current release.
+* settings: the content of the `settings` folder of the release.
+* workspacemain: the main workspace simply zipped. Top folder is `main`.
 
 === download software packages
 
@@ -85,6 +92,17 @@ This Compound contains _Resource Copy_ tasks to load the software packages for t
 
 This Compound contains _unzip_ tasks to unarchive the software archives for the devon-ide. All tasks react only to the `BOOTSTRAP` trigger.
 
+==== Notes on the software packages
+
+Most of the software packages are simply downloaded from their respective websites and renamed (if necessary). They're stored in `${server}/files/oomph/resources/${softwareName}`. Make sure to always provide a package for windows and unix as well as one for both bitnesses, if necessary.
+
+Some packages need more preparation before they can be uploaded:
+
+* devcon: this package contains the devcon jar file and calling scripts in the os specific command line (`.bat` and extentionless shell scripts) named `devcon` and `devon`. Make sure to use `.tar.gz` for the linux package to preserve the execution flags.
+* sencha cmd: for linux upload the installer files (`SenchaCmd-${version}-linux-${arch}.sh`). For windows install the jre-less package and package the programm files so, that you have the following structure in the resulting archive : `Sencha/Cmd/${version}`.
+* subversion: Upload the rpm packages for linux. For windows install the subversion client to your machine and package the `Subversion Client` folder (the folder `Sencha Client` has to be included into the archive).
+
+
 === install msi packages
 
 This Compound contains _cli_ tasks to install the software packages that are bundles as `.msi` files. The tasks react only to the `BOOTSTRAP` trigger and are only executed on a Windows machine. All _cli_ tasks here use the `msiinstall.bat` script, loaded in the _download additional resources_ Compound. This script bypasses problems that may occur on paths with white spaces during Windows `msiexec` execution.
@@ -92,6 +110,10 @@ This Compound contains _cli_ tasks to install the software packages that are bun
 === JDK config
 
 This Compounds contains tasks for the JDK configuration. Since the oasp scripts handle the JDK for eclipse the contained tasks only load and unarchive a JDK into `${software.location/java}`.
+
+==== Notes on the software packages
+
+Since Oracle provides only installers you need to install the java package to your machine and package it. Use `.tar.gz` for the linux systems to preserve the executable flags on the files. Package the java folder _without_ it's root folder, i.e. the `bin` folder should be on the top level of the archive.
 
 === Renaming
 
