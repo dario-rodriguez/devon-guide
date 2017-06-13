@@ -79,10 +79,12 @@ This Compound contains _unzip_ tasks to unarchive the additional devon-ide resou
 
 ==== Notes on the resources
 
-* devonscripts: currently only uploaded for windows. Contains the `scripts` folder from the devon-distribution and the `ps-console.bat`, `s2-create.bat`, `s2-init.bat` files.
-* doc: the Guides and `Release notes` of the current release.
-* settings: the content of the `settings` folder of the release.
-* workspacemain: the main workspace simply zipped. Top folder is `main`.
+All of the packages are stored in `${server}/files/oomph/resources/devon` and follow the naming convention `${packageName}${version}{.zip|\_win.zip|\_linux.tar.gz}`
+
+* `devonscripts`: currently only uploaded for windows. Contains the `scripts` folder from the devon-distribution and the `ps-console.bat`, `s2-create.bat`, `s2-init.bat` files.
+* `doc`: the Guides and `Release notes` of the current release.
+* `settings`: the content of the `settings` folder of the release.
+* `workspacemain`: the main workspace simply zipped. Top folder is `main`.
 
 === download software packages
 
@@ -94,12 +96,23 @@ This Compound contains _unzip_ tasks to unarchive the software archives for the 
 
 ==== Notes on the software packages
 
-Most of the software packages are simply downloaded from their respective websites and renamed (if necessary). They're stored in `${server}/files/oomph/resources/${softwareName}`. Make sure to always provide a package for windows and unix as well as one for both bitnesses, if necessary.
+Most of the software packages are simply downloaded from their respective websites and renamed (if necessary). They're stored in `${server}/files/oomph/resources/${softwareName}`. Make sure to always provide a package for windows and unix as well as one for both bitnesses, if necessary. Currently we use the following names for the packages.
+
+* ant: `apache-ant-${version}-bin.{zip|tar.gz}`
+* jasypt: `jasypt-${version}-dist.zip`
+* maven: `apache-maven-${version}-bin.{zip|tar.gz}`
+* nodejs: `node-v${version}-{|linux-}${x86|x64}.${msi|tar.gz}`
+* sonarqube: `sonarqube-${version}.zip`
+* tomcat: `apache-tomcat-${version}{-windows-{x64|x86}.zip|tar.gz}`
 
 Some packages need more preparation before they can be uploaded:
 
-* devcon: this package contains the devcon jar file and calling scripts in the os specific command line (`.bat` and extentionless shell scripts) named `devcon` and `devon`. Make sure to use `.tar.gz` for the linux package to preserve the execution flags.
-* sencha cmd: for linux upload the installer files (`SenchaCmd-${version}-linux-${arch}.sh`). For windows install the jre-less package and package the programm files so, that you have the following structure in the resulting archive : `Sencha/Cmd/${version}`.
+* devcon: this package contains the devcon jar file and calling scripts in the os specific command line (`.bat` and extentionless shell scripts) named `devcon` and `devon`. Make sure to use `.tar.gz` for the linux package to preserve the execution flags. The current naming is `devcon${version}_${win.zip|linux.tar.gz}`
+* sencha cmd: for linux upload the installer files (`SenchaCmd-${version}-linux-${arch}.sh`). For windows install the jre-less package and package the programm files so, that you have the following structure in the resulting archive : `Sencha/Cmd/${version}`. The archive should look like this
+
+image::images/oomph/product/03_senchazip.png[width=450, align="center", title="Sencha Zip"]
+
+The naming for the windows package is `SenchaCmd-${version}-windows-no_jre-repacked.zip`
 * subversion: Upload the rpm packages for linux. For windows install the subversion client to your machine and package the `Subversion Client` folder (the folder `Sencha Client` has to be included into the archive).
 
 
@@ -113,7 +126,11 @@ This Compounds contains tasks for the JDK configuration. Since the oasp scripts 
 
 ==== Notes on the software packages
 
-Since Oracle provides only installers you need to install the java package to your machine and package it. Use `.tar.gz` for the linux systems to preserve the executable flags on the files. Package the java folder _without_ it's root folder, i.e. the `bin` folder should be on the top level of the archive.
+Since Oracle provides only installers you need to install the java package to your machine and package it. Use `.tar.gz` for the linux systems to preserve the executable flags on the files. Package the java folder _without_ it's root folder. The Archive should look like
+
+image::images/oomph/product/02_headlessjdk.png[width=450, align="center", title="'Headless' JDK", link="images/oomph/product/02_headlessjdk.png"]
+
+The naming for the devon jdks is `jdk-${version}{|\_linux}{|\_x64}.{zip|tar.gz}`
 
 === Renaming
 
