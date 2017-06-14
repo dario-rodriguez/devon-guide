@@ -36,7 +36,7 @@ In a OASP4J project, you have your own Component Test methods, so you need your 
 [source,java]
 ----
 @SpringBootTest(classes = { SpringBootApp.class })
-public class MyClassTest extends ComponentTest {
+public class MyClassTest extends AbstractComponentTest {
 
   @Test
   public void test() {
@@ -68,12 +68,12 @@ In the above image, Eclipse shows a red rectangle because one of the tests has b
 * Blue cross: the test fails in some test method like `asserThan()` (like your case)
 * Green check: the test is OK
 
-In above case, you have a simple failure because your test has a `assertThat(false).isTrue()` meaning check if `true == false`. Now, lets discuss how to fix the failure and run the test again.
+In above case, you have a simple failure because your test has a `assertThat(false).isTrue()` meaning check if `true == false`. Now, let's discuss how to fix the failure and run the test again.
 
 [source,java]
 ----
 @SpringBootTest(classes = { SpringBootApp.class })
-public class MyClassTest extends ComponentTest {
+public class MyClassTest extends AbstractComponentTest {
 
   @Test
   public void test() {
