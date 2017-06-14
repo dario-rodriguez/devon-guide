@@ -10,3 +10,9 @@ spellcheck : From "re-used" to "reused".
 section : Using Devcon GUI
 
 sellcheck : From "screen shot" to "screenshot".
+
+**3. download and install devonfw**
+
+section : Pre-requisites
+
+sellcheck : From "Pre-requisites" to "Prerequisites"
