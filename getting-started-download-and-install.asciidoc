@@ -7,9 +7,9 @@ In this section, you will learn how to setup the Devonfw environment and start w
 
 The Devonfw environment contains all software and tools necessary to develop applications with Devonfw.
 
-== Pre-requisites
+== Prerequisites
 
-In order to setup the environment, following are the pre-requisites:
+In order to setup the environment, following are the prerequisites:
 
 * Internet connection (including details of your proxy configuration, if necessary)
 * 2GB of free disk space
