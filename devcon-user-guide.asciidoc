@@ -77,7 +77,7 @@ The following application window will appear.
 
 image::images/Devcon_homepage.JPG[,align="center",width="250",Devcon, link="images/Devcon_homepage.JPG"]
 
-If you navigate to a particular module, it will show all the available commands from the respective module. You can find the "Exit" option to close the application, in the first menu on the left. Once you click on any command, the corresponding command form will be displayed on the screen. Refer following screen shot:
+If you navigate to a particular module, it will show all the available commands from the respective module. You can find the "Exit" option to close the application, in the first menu on the left. Once you click on any command, the corresponding command form will be displayed on the screen. Refer following screenshot:
 
 image::images/Devcon_Form.JPG[,align="center",width="250",Devcon, link="images/Devcon_Form.JPG"]
  
