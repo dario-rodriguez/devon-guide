@@ -31,11 +31,11 @@ Fist of all, check the dependencies of the module in _pom.xml_ file.
 </dependency>
 ----
 
-In a OASP4J project, you have your own Component Test methods, so you need your new _JUnit Test_ class to extend _ComponentTest_ class of the OASP4J module test.
+In a OASP4J project, you have your own Component Test methods, so you need your new _JUnit Test_ class to extend _AbstractComponentTest_ class of the OASP4J module test.
 
 [source,java]
 ----
-@SpringApplicationConfiguration(classes = { SpringBootApp.class })
+@SpringBootTest(classes = { SpringBootApp.class })
 public class MyClassTest extends ComponentTest {
 
   @Test
@@ -49,7 +49,7 @@ This is a very simple test that verifies if the boolean value `true` is true. An
 
 [NOTE]
 =====
-You are including the `@SpringApplicartionContext` annotation in order to define an application context to your test. Without the context of the application, the test gets a fatal error, because you can't test a non-running application. 
+You are including the `@SpringBootTest` annotation in order to define an application context to your test. Without the context of the application, the test gets a fatal error, because you can't test a non-running application. 
 
 You can include a configuration location in the last annotation, if you need it, or use `@ContextConfiguration(locations = { "classpath:my-bean-context.xml" })`. For this tutorial, it's unnecessary because your test is the most simplest test you can perform.
 =====
@@ -72,7 +72,7 @@ In above case, you have a simple failure because your test has a `assertThat(fal
 
 [source,java]
 ----
-@SpringApplicationConfiguration(classes = { SpringBootApp.class })
+@SpringBootTest(classes = { SpringBootApp.class })
 public class MyClassTest extends ComponentTest {
 
   @Test
@@ -137,8 +137,8 @@ Thus, you have the wire of your calculator. In this case, the implementation is 
 CalculatorTest.java
 [source,java]
 ----
-@SpringApplicationConfiguration(classes = { SpringBootApp.class })
-public class CalculatorTest extends ComponentTest {
+@SpringBootTest(classes = { SpringBootApp.class })
+public class CalculatorTest extends AbstractComponentTest {
   private Calculator calculator = new Calculator();
 
   @Test
