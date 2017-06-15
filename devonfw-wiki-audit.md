@@ -23,4 +23,9 @@ sellcheck :
 From "you need to take in to account" to "you need to take into account"
 
 From " Debugg" to " Debug"
+
+**5. devonfw distribution structure**
+
+sellcheck : 
+From "lunching" to "launching"
             
