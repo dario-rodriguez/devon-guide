@@ -28,4 +28,9 @@ From " Debugg" to " Debug"
 
 sellcheck : 
 From "lunching" to "launching"
+
+**6. OASP4J Application Structure**
+
+sellcheck : 
+From "websockects" to "web sockets"
             
