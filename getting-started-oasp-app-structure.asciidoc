@@ -92,7 +92,7 @@ The *config* folder has a folder called *app* this folder is divided in the foll
 
 ** security: contains the *access-control-schema.xml* file that contains the definition of groups/roles and permissions of the application.
 
-** websocket: contains the scan component package definition for websockects.
+** websocket: contains the scan component package definition for web sockets.
 
 ====== db
 
