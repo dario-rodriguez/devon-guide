@@ -16,3 +16,11 @@ sellcheck : From "screen shot" to "screenshot".
 section : Pre-requisites
 
 sellcheck : From "Pre-requisites" to "Prerequisites"
+
+**4. started running sample application**
+
+sellcheck : 
+From "you need to take in to account" to "you need to take into account"
+
+From " Debugg" to " Debug"
+            
