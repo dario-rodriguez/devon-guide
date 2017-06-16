@@ -1,15 +1,15 @@
 **1. Introduction to devonfw**
 
-section : Welcome to Devonfw 
+Section: Welcome to Devonfw 
 
-spellcheck : From "re-used" to "reused". 
+Spellcheck: From "re-used" to "reused". 
 
 
 **2. devcon user guide**
 
-section : Using Devcon GUI
+Section: Using Devcon GUI
 
-sellcheck : From "screen shot" to "screenshot".
+Spellcheck: From "screen shot" to "screenshot".
 
 **3. download and install devonfw**
 
@@ -19,18 +19,24 @@ sellcheck : From "Pre-requisites" to "Prerequisites"
 
 **4. started running sample application**
 
-sellcheck : 
-From "you need to take in to account" to "you need to take into account"
+spellcheck : 
+From "you need to take into account" to "you need to take into account"
 
 From " Debugg" to " Debug"
 
 **5. devonfw distribution structure**
 
-sellcheck : 
+spellcheck : 
 From "lunching" to "launching"
 
 **6. OASP4J Application Structure**
 
-sellcheck : 
+spellcheck : 
 From "websockects" to "web sockets"
+
+**7. set up and maintain database schemas with flyway**
+
+Hyperlink in header not working: 
+Header: How to set up db using flyway in the project ? 
+Changes: Removed space between "project" and "?"
             
