@@ -1,6 +1,6 @@
 # devonfw Guide
 
-*version 2.1.1-SNAPSHOT*
+*version 2.2-SNAPSHOT*
 
 ## Getting Started with the Service Layer
 
