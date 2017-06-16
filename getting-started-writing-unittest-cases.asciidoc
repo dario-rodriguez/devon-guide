@@ -161,7 +161,7 @@ image::images/writing-unittest-cases/getting-started-writing-unittest-cases-TDD-
 
 Obviously, the test shows some failures as expected because the Calculator doesn't work yet. 
 
-The fact, this is more of a metaphoric step, as the implementation is in progress and it is obvious to get errors after running the test. As it is the cycle of the TDD, you need to write a test that will fail certainly so that the code to satisfy the test can be written. Surely, this will help to keep the code simple and lean.
+The fact, this is more of a metaphoric step, as the implementation is in progress and it is obvious to get errors after running the test. As it is the cycle of the TDD, you need to write a test that will fail certainly so that the code to satisfy the test can be written. Surely, this will help to keep the code simple and clean.
 
 
 [NOTE]
