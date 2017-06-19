@@ -13,9 +13,9 @@ In the _pom.xml_ of your application add this dependency (that also adds transit
 [source,xml]
 ----
 <dependency>
-  <groupId>io.oasp.java</groupId>
+  <groupId>io.oasp.java.modules</groupId>
   <artifactId>oasp4j-logging</artifactId>
-  <version>1.0.0</version>
+  <version>2.3.0</version>
 </dependency>
 ----
 
