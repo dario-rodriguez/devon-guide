@@ -136,7 +136,7 @@ We only use simple Long values as primary keys (IDs). By default it is auto gene
 In case you have business oriented keys (often as _String_), you can define an additional property for it and declare it as unique (_@Column(unique=true)_).
 
 === Data Access Object
-_Data Acccess Objects_ (DAOs) are part of the persistence layer. They are responsible for a specific xref:entity[entity] and should be named _<Entity>Dao[Impl]_. The DAO offers the so called CRUD-functionalities (create, retrieve, update, delete) for the corresponding entity. Additionally a DAO may offer advanced operations such as query or locking methods.
+_Data Access Objects_ (DAOs) are part of the persistence layer. They are responsible for a specific xref:entity[entity] and should be named _<Entity>Dao[Impl]_. The DAO offers the so called CRUD-functionalities (create, retrieve, update, delete) for the corresponding entity. Additionally a DAO may offer advanced operations such as query or locking methods.
 
 ==== DAO Interface
 For each DAO there is an interface named _<Entity>Dao_ that defines the API. For CRUD support and common naming we derive it from the interface _io.oasp.module.jpa.persistence.api.Dao_:
@@ -693,7 +693,7 @@ In your xref:data-access-object[DAO] implementation you can provide methods that
 ----
   getEntityManager().lock(entity, LockModeType.READ);
 ----
-When using the _lock(Object, LockModeType)_ method with _LockModeType.READ_, Hibernate will issue a `select ... for update`. This means that no one else can update the entity (see http://docs.oracle.com/cd/B28359_01/server.111/b28286/statements_10002.htm[here] for more information on the statement). If _LockModeType.WRITE_ is specified, Hibernate issues a `select ... for update nowait` instead, which has has the same meaning as the statement above, but if there is already a lock, the program will not wait for this lock to be released. Instead, an exception is raised. 
+When using the _lock(Object, LockModeType)_ method with _LockModeType.READ_, Hibernate will issue a `select ... for update`. This means that no one else can update the entity (see http://docs.oracle.com/cd/B28359_01/server.111/b28286/statements_10002.htm[here] for more information on the statement). If _LockModeType.WRITE_ is specified, Hibernate issues a `select ... for update nowait` instead, which has the same meaning as the statement above, but if there is already a lock, the program will not wait for this lock to be released. Instead, an exception is raised. 
 Use one of the types if you want to modify the entity later on, for read only access no lock is required.
         
 As you might have noticed, the behavior of Hibernate deviates from what one would expect by looking at the _LockModeType_ (especially _LockModeType.READ_ should not cause a `select ... for update` to be issued). The framework actually deviates from what is http://docs.oracle.com/javaee/6/api/javax/persistence/LockModeType.html[specified] in the JPA for unknown reasons.
@@ -794,7 +794,7 @@ A common link:cookbook-security-layer[security] threat is http://en.wikipedia.or
   return getEntityManager().createQuery(query).getResultList();
 ----
 
-Via the parameteter _userInput_ an attacker can inject SQL (JPQL) and execute arbitrary statements in the database causing extreme damage. In order to prevent such injections you have to strictly follow our rules for xref:queries[queries]: Use named queries for static queries and QueryDSL for dynamic queries. Please also consult the https://www.owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet[SQL Injection Prevention Cheat Sheet].
+Via the parameter _userInput_ an attacker can inject SQL (JPQL) and execute arbitrary statements in the database causing extreme damage. In order to prevent such injections you have to strictly follow our rules for xref:queries[queries]: Use named queries for static queries and QueryDSL for dynamic queries. Please also consult the https://www.owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet[SQL Injection Prevention Cheat Sheet].
 
 === Limited Permissions for Application
 We suggest that you operate your application with a database user that has limited permissions so he can not modify the SQL schema (e.g. drop tables). For initializing the schema (DDL) or to do schema migrations use a separate user that is not used by the application itself.
