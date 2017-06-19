@@ -51,6 +51,29 @@ section:security
 Page not found for URL: ( oasp4j-logging) https://github.com/oasp/oasp4j/tree/oasp4j-logging
 Need to find exact URL.
 
+changed dependency:
+
+from:
+
+[source,xml]
+----
+<dependency>
+  <groupId>io.oasp.java</groupId>
+  <artifactId>oasp4j-logging</artifactId>
+  <version>1.0.0</version>
+</dependency>
+----
+
+to:
+[source,xml]
+----
+<dependency>
+  <groupId>io.oasp.java.modules</groupId>
+  <artifactId>oasp4j-logging</artifactId>
+  <version>2.3.0</version>
+</dependency>
+---- 
+
 **9. Data Access Layer**
 
 section: Data Access Object
