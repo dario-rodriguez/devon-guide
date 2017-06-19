@@ -50,4 +50,15 @@ spellcheck: "this will help to keep the code simple and lean" to "this will help
 section:security  
 Page not found for URL: ( oasp4j-logging) https://github.com/oasp/oasp4j/tree/oasp4j-logging
 Need to find exact URL.
+
+**9. Data Access Layer**
+
+section: Data Access Object
+spellcheck: changes from "Acccess" to "Access"
+
+section: Pessimistic Locking
+spellcheck: changes from "has has" to "has"
+
+section: SQL injection
+spellcheck: changes from "parameteter"  to "parameter"
             
