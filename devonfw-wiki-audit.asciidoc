@@ -120,4 +120,5 @@ to:
 section: The Report entity
 
 Format check:  From "the data:" to "The data:" 
+
 Format check:  From "the template:" to "The template:"             
