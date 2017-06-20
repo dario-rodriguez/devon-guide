@@ -114,4 +114,12 @@ to:
   <version>2.1.2-SNAPSHOT</version>
 </dependency>
 ---- 
+
+**10. devonfw Reporting Module**   
+
+section:The Report entity
+
+Format check :  From "the data:" to "The data:" 
+
+Format check :  From "the template:" to "The template:" 
            
