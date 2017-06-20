@@ -90,6 +90,7 @@ spellcheck: changes from "parameteter"  to "parameter"
 
 **10. devonfw Reporting Module**   
 
+section:Include Reporting in a Devon project
 
 changed dependency:
 
