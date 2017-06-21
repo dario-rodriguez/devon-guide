@@ -36,7 +36,7 @@ After that, if the process goes right, the client app should have been "installe
 image::images/devonfw-deployment/tutorial_devon_jspackaging_process02.png[,width="450",link="images/devonfw-deployment/tutorial_devon_jspackaging_process02.png"]
 
 == Preparing the server
-The Java server application contains a _pom.xml_ file (3). In this _pom.xml_ file we should add the dependency to the _.jar_ client that we have just created using the references to the _groupId_, _artifactId_ and _version_ that we have spefified in the client _pom.xml_.
+The Java server application contains a _pom.xml_ file (3). In this _pom.xml_ file we should add the dependency to the _.jar_ client that we have just created using the references to the _groupId_, _artifactId_ and _version_ that we have specified in the client _pom.xml_.
 
 So in the _pom.xml_ file of our server project we should add:
 
