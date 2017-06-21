@@ -209,6 +209,6 @@ Format check:  From "blocks" to "Blocks"
 
 **2. devonfw Active Directory Auth module**   
 
-section:Configure the LDAP-AD connection
+Section:Configure the LDAP-AD connection
 
 Link associated with "here" text is not redirected to info page. it always redirects to create new page.      
