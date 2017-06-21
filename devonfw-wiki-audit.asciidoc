@@ -88,7 +88,53 @@ section: SQL injection
 
 spellcheck: changes from "parameteter"  to "parameter"
 
-**10. devonfw Reporting Module**   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**COOKBOOK**  
+
+**1. devonfw Reporting Module**   
 
 section:Include Reporting in a Devon project
 
@@ -115,7 +161,7 @@ to:
 </dependency>
 ---- 
 
-**10. devonfw Reporting Module**   
+**1. devonfw Reporting Module**   
 
 section:The Report entity
 
