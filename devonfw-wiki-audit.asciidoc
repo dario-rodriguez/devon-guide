@@ -94,6 +94,15 @@ spellcheck: changes from "parameteter"  to "parameter"
 section:  Add pagination
 spellcheck: from "funcionality" to "functionality"
 
+**11. Generate code with Cobigen**
+
+section: Preparing Cobigen for first use
+
+spellcheck: 
+from "directoy" to "directory", 
+from "ambigous" to "ambiguous"
+
+
 
 
 
