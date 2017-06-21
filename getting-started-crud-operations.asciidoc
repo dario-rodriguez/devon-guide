@@ -975,7 +975,7 @@ In the example, we use the function _getBeanMapper()_. This function provides us
 
 ==== Step 6: Add pagination
 
-To add pagination support to our Table CRUD, the first step is creating a new Table TO that extends the `SearchCriteriaTo` class. This class forms the foundation for every request which needs search or pagination funcionality.
+To add pagination support to our Table CRUD, the first step is creating a new Table TO that extends the `SearchCriteriaTo` class. This class forms the foundation for every request which needs search or pagination functionality.
 
 .TableSearchCriteriaTo.java
 [source,java]
