@@ -188,4 +188,22 @@ section:The Report entity
 Format check :  From "the data:" to "The data:" 
 
 Format check :  From "the template:" to "The template:" 
+
+
+**3. devonfw Reporting Module**   
+
+section: Using the reportManager
+
+Format check:  From "a report manager.." to "A report manager" 
+Format check:  From "the Report" to "The Report" 
+Format check:  From "the Report" to "The Report" 
+Format check:  From "a file" to "A file" 
+Format check:  From "a format" to "A format" 
+
+**13. devonfw Reporting Module**   
+
+section: The parts of a template
+
+Format check:  From "blocks" to "Blocks" 
+
            
