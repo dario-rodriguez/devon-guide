@@ -89,6 +89,12 @@ section: SQL injection
 spellcheck: changes from "parameteter"  to "parameter"
 
 
+**10. CRUD Operations and DAO Implementation**
+
+section:  Add pagination
+spellcheck: from "funcionality" to "functionality"
+
+
 
 
 
