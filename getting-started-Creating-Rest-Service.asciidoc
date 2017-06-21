@@ -115,7 +115,7 @@ In REST, there is no restriction on the format of a resource representation. A c
 
 *Linkablity:* A resource can have a linkage to another resource, a format should be able to handles such situations.
 
-=== RESTful Web Services - Messages
+=== RESTful Web Services-Messages
 
 RESTful web services make use of HTTP protocol as a medium of communication between client and server. A client sends a message in form of a HTTP Request and server responds in form of a HTTP Response. This technique is terms as Messaging. These messages contain message data and metadata that is information about message itself. Let's have a look on HTTP Request and HTTP Response messages for HTTP 1.1.
 
