@@ -181,7 +181,7 @@ to:
 </dependency>
 ---- 
 
-**1. devonfw Reporting Module**   
+**2. devonfw Reporting Module**   
 
 section:The Report entity
 
