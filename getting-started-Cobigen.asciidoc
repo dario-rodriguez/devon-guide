@@ -17,7 +17,7 @@ Before you can use Cobigen, you have to install the templates to be used by Cobi
 
 1. Select "General - Existing projects into workspace"
 
-1. Select the directoy `workspaces\main\CobiGen_Templates`
+1. Select the directory `workspaces\main\CobiGen_Templates`
 
 1. Finish the import.
 
@@ -178,7 +178,7 @@ Afterwards, click on "Finish" to let CobiGen do its work.
 
 [NOTE]
 ====
-It is possible that you will see a final dialog containing some warnings about ambigous imports. You should review the mentioned files, and fix the imports yourself.
+It is possible that you will see a final dialog containing some warnings about ambiguous imports. You should review the mentioned files, and fix the imports yourself.
 
 image::images/devonfw-cobigen/devon_guide_cobigen_4_warnings.png[,width="350", link="images/devonfw-cobigen/devon_guide_cobigen_4_warnings.png"]
 
