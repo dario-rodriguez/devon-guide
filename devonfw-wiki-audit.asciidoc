@@ -160,7 +160,7 @@ spellcheck: from "spefified" to "specified"
 
 **1. devonfw Reporting Module**   
 
-section:Include Reporting in a Devon project
+Section:Include Reporting in a Devon project
 
 changed dependency:
 
@@ -185,13 +185,13 @@ to:
 </dependency>
 ---- 
  
-section:The Report entity
+Section: The Report entity
 
 Format check :  From "the data:" to "The data:" 
 
 Format check :  From "the template:" to "The template:" 
  
-section: Using the reportManager
+Section: Using the reportManager
 
 Format check:  From "a report manager.." to "A report manager" 
 
@@ -203,7 +203,7 @@ Format check:  From "a file" to "A file"
 
 Format check:  From "a format" to "A format" 
 
-section: The parts of a template
+Section: The parts of a template
 
 Format check:  From "blocks" to "Blocks" 
 
