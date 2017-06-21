@@ -184,18 +184,13 @@ to:
   <version>2.1.2-SNAPSHOT</version>
 </dependency>
 ---- 
-
-**2. devonfw Reporting Module**   
-
+ 
 section:The Report entity
 
 Format check :  From "the data:" to "The data:" 
 
 Format check :  From "the template:" to "The template:" 
-
-
-**3. devonfw Reporting Module**   
-
+ 
 section: Using the reportManager
 
 Format check:  From "a report manager.." to "A report manager" 
@@ -207,8 +202,6 @@ Format check:  From "the Report" to "The Report"
 Format check:  From "a file" to "A file" 
 
 Format check:  From "a format" to "A format" 
-
-**4. devonfw Reporting Module**   
 
 section: The parts of a template
 
