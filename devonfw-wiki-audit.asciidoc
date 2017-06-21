@@ -106,6 +106,10 @@ from "ambigous" to "ambiguous"
 Header Hyperlink not working.
 changed "RESTful Web Services - Messages" to RESTful Web Services-Messages
 
+**13. Deployment on Tomcat (Client/Server)**
+
+spellcheck: from "spefified" to "specified"
+
 
 
 
