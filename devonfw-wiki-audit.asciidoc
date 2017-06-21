@@ -211,4 +211,29 @@ Format check:  From "blocks" to "Blocks"
 
 Section:Configure the LDAP-AD connection
 
-Link associated with "here" text is not redirected to info page. it always redirects to create new page.      
+Link associated with "here" text is not redirected to info page. it always redirects to create new page. 
+
+section:Include Reporting in a Devon project
+
+changed dependency:
+
+from:
+
+[source,xml]
+----
+<dependency>
+      <groupId>com.capgemini.devonfw.modules</groupId>
+      <artifactId>devonfw-winauth-ad</artifactId>
+      <version>2.1.0-SNAPSHOT</version>
+</dependency>
+----
+
+to:
+[source,xml]
+----
+<dependency>
+      <groupId>com.capgemini.devonfw.modules</groupId>
+      <artifactId>devonfw-winauth-ad</artifactId>
+      <version>2.1.2-SNAPSHOT</version>
+</dependency>
+----      
