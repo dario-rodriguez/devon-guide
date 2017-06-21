@@ -295,4 +295,16 @@ to:
 </dependency>
 
 ---- 
+
+**5.  devonfw Async Module**   
+
+section:Module Configuration
+
+Format check :  From "core pool size:" to "Core pool size:" 
+Format check :  From "time out:" to "Time out:" 
+Format check :  From "core pool size: 10." to "Core pool size: 10." 
+Format check :  From "milliseconds: 0." to "Milliseconds: 0." 
+Format check :  From "response Content:" to "Response Content:" 
+Format check :  From "mediatype:" to "mediatype:" 
+
      
