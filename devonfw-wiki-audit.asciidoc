@@ -362,3 +362,7 @@ spellcheck:  From "behaviour" to "behavior"
 Section:Authentication
 
 spellcheck:  From "overriden " to "overridden" 
+
+Section: Configuration on URL level
+
+spellcheck:  From " seperately " to " separately" 
