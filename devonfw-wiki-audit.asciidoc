@@ -312,4 +312,10 @@ Format check:  From "response Content:" to "Response Content:"
 
 Format check:  From "mediatype:" to "Mediatype:" 
 
+**6.  devonfw Integration module**   
+
+section:Module Configuration 
+
+spellcheck check :  From "data base" to "database" 
+
      
