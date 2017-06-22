@@ -356,3 +356,9 @@ spellcheck: From "sernder" to "sender"
 Section:Types of channels that can be created
 
 spellcheck:  From "behaviour" to "behavior"
+
+**7.  Security: Authentication and Authorization**  
+
+Section:Authentication
+
+spellcheck:  From "overriden " to "overridden" 
