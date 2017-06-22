@@ -353,4 +353,6 @@ Section: Receiver-Sender application configuration
 
 spellcheck: From "sernder" to "sender"
 
-     
+Section:Types of channels that can be created
+
+spellcheck:  From "behaviour" to "behavior"
