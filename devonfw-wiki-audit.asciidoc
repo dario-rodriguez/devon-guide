@@ -366,3 +366,7 @@ spellcheck:  From "overriden " to "overridden"
 Section: Configuration on URL level
 
 spellcheck:  From " seperately " to " separately" 
+
+Section:Check Data-based Permissions
+
+spellcheck:  From " adress  " to " address"
