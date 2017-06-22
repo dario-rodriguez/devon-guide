@@ -347,6 +347,10 @@ to:
 
 Section:Emitter application example 
 
-spellcheck :  From "Lets" to "Let's"
+Spellcheck:  From "Lets" to "Let's"
+
+Section: Receiver-Sender application configuration
+
+spellcheck: From "sernder" to "sender"
 
      
