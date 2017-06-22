@@ -346,6 +346,7 @@ to:
 ---- 
 
 Section:Emitter application example 
-spell check :  From "Lets" to "Let's"
+
+spellcheck :  From "Lets" to "Let's"
 
      
