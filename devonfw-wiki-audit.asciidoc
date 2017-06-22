@@ -370,3 +370,11 @@ spellcheck:  From " seperately " to " separately"
 Section:Check Data-based Permissions
 
 spellcheck:  From " adress  " to " address"
+
+**8. Batch Layer**
+
+Section: Chunk Processing
+
+spellcheck:  From "comprsie" to " comprise" 
+
+spellcheck:  From "chuncks" to "chunks." 
