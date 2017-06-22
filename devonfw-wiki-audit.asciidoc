@@ -378,3 +378,10 @@ Section: Chunk Processing
 spellcheck:  From "comprsie" to " comprise" 
 
 spellcheck:  From "chuncks" to "chunks." 
+
+
+**9.  devonfw microservices**
+
+Section:Introduction
+
+spellcheck:  From "data base" to "database" 
