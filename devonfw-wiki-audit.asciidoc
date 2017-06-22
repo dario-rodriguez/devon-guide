@@ -316,6 +316,6 @@ Format check:  From "mediatype:" to "Mediatype:"
 
 section:Module Configuration 
 
-spellcheck check :  From "data base" to "database" 
+spell check :  From "data base" to "database" 
 
      
