@@ -45,6 +45,7 @@
 * link:devon-in-bluemix[devonfw in IBM Bluemix]
 * link:cookbook-Deployment-on-Wildfly[Deployment on Wildfly]
 * link:cookbook-Deployment-on-WebSphere[Deployment on WebSphere]
+* link:Deployment-on-WebLogic[Deployment on WebLogic]
 * link:cookbook-cobigen-advanced-use-cases-soap-and-nested-data[Cobigen advanced use cases: SOAP and nested data]
 * link:Compatibility-guide-for-Java7-Java8-and-Tomcat7-Tomcat8[Compatibility guide for Java7, Java8 and Tomcat7, Tomcat8]
 
