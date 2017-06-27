@@ -30,15 +30,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http:/
   
 </weblogic-web-app>`
 
-3. To exclude Tomcat dependecies, open _/oasp4j-sample-core/pom.xml_ and add scope to _spring-boot-starter-tomcat_ in _embedded_ profile as _provided_
-
-        <dependency>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-starter-tomcat</artifactId>
-          <scope>provided</scope>
-        </dependency>
-
-4. To avoid multiple logging libraries exclude _logback-classic_ dependency from _spring-boot-starter-web_ 
+3. To avoid multiple logging libraries exclude _logback-classic_ dependency from _spring-boot-starter-web_ 
 
 
 <dependency>
@@ -60,13 +52,19 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http:/
         </exclusion>
 </dependency>
 
-5. Resolve unique REST method error on WebLogic by changing the _@Path_ as given below.
+4. Resolve unique REST method error on WebLogic by changing the _@Path_ as given below.
    * Change URL from _@Path("/bill/{billId}/payment")_ to _@Path("/bill/{billId}/paymentdata")_ for method _doPayment(@PathParam("billId") long billId, PaymentData paymentData)_ in _SalesmanagementRestService.java_.
    * Change URL from _@Path("/table/")_ to _@Path("/createtable/")_ for method _TableEto createTable(TableEto table)_ in `TablemanagementRestService.java`
 
 ### Sencha
 
-6. Enable CORS.
+5. Enable CORS.
    * Set _corsEnabled_ to _true_ in _BaseWebSecurityConfig_.
    * Set _security.cors.enabled_ to _true_ in _/oasp4j-sample-core/src/main/resources/application.properties_.
-7. Change server details in _ExtSample/app/Config.js_ accroding to WebLogic server.
+6. Change server details in _ExtSample/app/Config.js_ accroding to WebLogic server.
+
+### Packaging
+
+1. Package your application by Executing the command below from within oasp4j/samples project
+
+   > mvn clean package -P-embedded,jsclient
