@@ -1,4 +1,4 @@
-## Deployment on WebLogic Server
+Make the following changes to OASP4J Server-client application for deployment on WebLogic
 
 1. Create an empty **_weblogic.xml_** file under directory _oasp4j/samples/server/src/main/webapp/WEB-INF/_ and paste the code below into it. _weblogic.xml_  set application deployment configurations for WebLogic server.
 
