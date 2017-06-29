@@ -385,3 +385,8 @@ spellcheck:  From "chuncks" to "chunks."
 Section:Introduction
 
 spellcheck:  From "data base" to "database" 
+
+** 10. cobigen advanced use cases soap and nested data**
+
+section:Cobigen advanced use cases: SOAP and nested data
+Grammer changes: changes from"to create" to "of creating"  
