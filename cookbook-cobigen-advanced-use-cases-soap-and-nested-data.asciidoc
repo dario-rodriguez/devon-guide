@@ -6,7 +6,7 @@ toc::[]
 
 
 == Introduction
-In Devonfw we have a server-side code generator called Cobigen. Cobigen is capable to create CRUD code from an entity or generate the content of the class that defines the user permissions. Cobigen is distributed in the Devonfw distribution as an Eclipse plugin, and is available to all Devonfw developers.
+In Devonfw we have a server-side code generator called Cobigen. Cobigen is capable of creating CRUD code from an entity or generate the content of the class that defines the user permissions. Cobigen is distributed in the Devonfw distribution as an Eclipse plugin, and is available to all Devonfw developers.
 If you want to go deeper in Cobigen you can visit the documentation of the https://github.com/devonfw/tools-cobigen/wiki/CobiGen[here]. Previous versions of CobiGen is able to generate code for REST services only.Now it is possible to generate SOAP services code with it.
 
 There are two usecases available in CobiGen:
