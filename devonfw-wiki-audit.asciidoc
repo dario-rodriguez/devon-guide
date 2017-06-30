@@ -386,7 +386,18 @@ Section:Introduction
 
 spellcheck:  From "data base" to "database" 
 
-** 10. cobigen advanced use cases soap and nested data**
+**10. cobigen advanced use cases soap and nested data**
 
 section:Cobigen advanced use cases: SOAP and nested data
-Grammer changes: changes from"to create" to "of creating"  
+Grammer changes: changes from"to create" to "of creating" 
+
+**11. cobigen advanced use cases soap and nested data **
+
+section: Introduction
+
+Grammer change from "to create" to "creating" 
+
+**12. Compatibility guide for Java7 Java8 and Tomcat7 Tomcat8 **
+
+Header Hyperlink "Change installed jre in eclipse" not working
+Changed Hyperlink from "Change _installed_ jre in eclipse" to "Change installed jre in eclipse" : Removed Italic
