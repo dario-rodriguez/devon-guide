@@ -14,7 +14,7 @@ We also have integrated _TOMCAT8_ with the Devon distribution and oasp4j IDE. Th
 One can download java7 from http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html[here].
 Once java7 is downloaded, run .exe and follow instructions.
 
-=== Change _installed jre_ in eclipse
+=== Change installed jre in eclipse
 
 When you open the eclipse, follow the below steps to change installed jre preferences:
 
