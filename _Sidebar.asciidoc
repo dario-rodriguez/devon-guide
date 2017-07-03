@@ -43,6 +43,7 @@
 * link:devon-guide-production-line-for-beginners[Production Line for Beginners]
 * link:devon-guide-production-line[devonfw on the Production Line]
 * link:devon-in-bluemix[devonfw in IBM Bluemix]
+* link:Configuring-&-Running-Bootified-WAR[Configuring & Running Bootified WAR]
 * link:cookbook-Deployment-on-Wildfly[Deployment on Wildfly]
 * link:cookbook-Deployment-on-WebSphere[Deployment on WebSphere]
 * link:Deployment-on-WebLogic[Deployment on WebLogic]
