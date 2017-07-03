@@ -85,6 +85,8 @@
 
 - link:devon-in-bluemix[devonfw in IBM Bluemix]
 
+- link:Configuring-&-Running-Bootified-WAR[Configuring & Running Bootified WAR]
+
 - link:cookbook-Deployment-on-Wildfly[Deployment on Wildfly]
 
 - link:cookbook-Deployment-on-WebSphere[Deployment on WebSphere]
