@@ -8,6 +8,8 @@
 
 - link:devcon-user-guide[Devcon - User Guide]
 
+### Devonfw Basic Documentation
+
 - link:getting-started-download-and-install[Download and Install devonfw]
 
 - link:getting-started-the-devon-ide[The devonfw IDE]
@@ -103,6 +105,10 @@
 
 - link:Compatibility-guide-for-Java7-Java8-and-Tomcat7-Tomcat8[Compatibility guide for Java7, Java8 and Tomcat7, Tomcat8]
 
+## The Presentation Layer: Getting Started with OASP4JS
+
+- link:getting-started-oasp4js-introduction[Introduction to OASP4JS]
+
 ## The Presentation Layer: Getting Started with Devon4Sencha
 
 - link:Client-GUI-Sencha-Introduction-to-Devon4sencha[Introduction to Devon4sencha]
@@ -167,6 +173,7 @@
 
 - link:Client-GUI-Cordova-How-to-start-cordova-project[Start a Cordrova project from a Sencha project]
 
+////
 ## The Presentation Layer: Getting Started with OASP4JS
 
 - link:Client-GUI-Angular-Introduction-to-oasp4js[Introduction to OASP4JS]
@@ -190,6 +197,7 @@
 - link:Client-GUI-Angular-Gulp-Tasks[Gulp Tasks]
 
 - link:Client-GUI-File-Upload-and-Download[File Upload and Download]
+////
 
 ## IDE and Project Setup with Oomph
 

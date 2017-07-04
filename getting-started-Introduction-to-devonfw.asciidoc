@@ -54,3 +54,7 @@ Devonfw Platform is organized in a way that it is easy for you to contribute. Th
 In order to contribute code we use _git_ and _github_ _pull-requests_. Lead developers can directly commit to the git repository while (later) everybody can clone and fork the repository and create _pull-requests_. These can be reviewed, commented and discussed and finally integrated (or rejected).
 
 We are very happy to receive contributions from projects or individual experts. Before you invest your time and work into a larger change or contribution please get in contact before, to ensure that you will not waste your energy (somebody else might already work on the same thing, etc.). To get in touch and discuss with us please meet us in _Yammer_.
+
+== Devonfw backend tutorial
+
+https://github.com/oasp/oasp-tutorial-sources/wiki/OASP4jGettingStartedHome[Oasp4j tutorial]: You can follow a complete tutorial for the Devonfw backend implementation based on _Oasp4j_. In this tutorial you will see an overview of the backend technologies and how to implement a basic (but fully functional) backend application based on Devonfw.
