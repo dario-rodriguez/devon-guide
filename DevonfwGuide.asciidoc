@@ -149,6 +149,10 @@ include::cookbook-integration-module[]
 
 <<<<
 
+include::cookbook-compose-for-redis-module[devonfw Compose for Redis module]
+
+<<<<
+
 include::cookbook-security-layer[]
 
 <<<<
