@@ -1,1 +1,149 @@
-asdf
+:toc: macro
+toc::[]
+
+= Compose for Redis module
+
+== Introduction
+
+https://redis.io/[Redis] is an open-source, blazingly fast, key/value low maintenance store. https://www.compose.com/redis[Compose]'s platform gives you a configuration pre-tuned for high availability and locked down with additional security features. The component will manage the service connection and the main methods to manage the key/values on the storage.
+
+== Include Compose for Redis in a Devon project
+
+The module provides you a connection to a compose for redis service, and a bunch of predefined operations for managing the objects inside the service, for your Devon applications.
+To implement the module in a Devon project, you must follow these steps:
+
+=== Step 1: Adding the dependency in your project
+
+Include the module dependency in your pom.xml, verifying that the _version_ matches the last available version of the module
+[source,xml]
+----
+<dependency>
+  <groupId>com.capgemini.devonfw.modules</groupId>
+  <artifactId>devonfw-compose-redis</artifactId>
+  <version>2.2.0</version>
+</dependency>
+----
+
+[WARNING]
+====
+The IP modules of Devonfw are stored in https://www.jfrog.com/artifactory/[Artifactory]. In case, you do not have access to that repository, as the modules are included in the Devonfw distribution, you can install them manually. To do so, open a Devonfw command line (_console.bat_), go to `Devon-dist\workspaces\examples\devon\modules` and execute the command `mvn install`.
+If the project is already imported in Eclipse then update project: Right click on _project_ > _Maven_ > _Update Project_ > check the _Force update of Snapshot/Releases_ checkbox > _Ok_
+====
+
+=== Step 2: Properties configuration
+
+In order to use the module for managing the cache service, it is necessary to define some connection parameters in the application.properties file in the project.
+[source,xml]
+----
+# Compose for Redis module params
+devon.redis.service.name = compose-for-redis
+devon.redis.uri = redis://admin:RFAAVWWDZSXXXXX@sl-eu-lon-2-portal.1.dblayer.com:16552
+devon.redis.runTests.enable = false
+----
+
+- The parameter `devon.redis.service.name` is used to lookup the service in a cloud environment from the environment variable information `VCAP_SERVICES`. Default value `compose-for-redis`.
+- The parameter `devon.redis.uri` is used to indicate the service's uri in case we need to connect to the service outside of a cloud environment. There is no default value.
+- The parameter `devon.redis.runTests.enable` is used for enabling the test execution. By default this execution is disabled. 
+
+[NOTE]
+====
+- When the parameter `devon.redis.service.name` is indicated, and the application is running on a cloud environment, the parameter `devon.redis.uri` will be never used. 
+- The paramenter `devon.redis.uri` is used when there is no value for the paramenter `devon.redis.service.name` or when  
+ the application is not running on a cloud environment.
+- In case the test execution is enabled (true) the service's uri (`devon.redis.uri`) must be indicated because the test execution context will be outside a cloud environment.
+====
+
+== Basic implementation
+////
+First and foremost, you need to add the scanner for dependency injection. To do so, you must add the following annotations in the _SpringBoot_ main class:
+
+[source,java]
+----
+@Configuration
+@ComponentScan(basePackages = { "com.capgemini.devonfw.module.composeredis" })
+@EnableAutoConfiguration
+public class MyBootApp {
+
+    [...]
+}
+----
+
+Remember to include the package of the module in the _basePackages_ attribute of the `@ComponentScan` annotation alongside the packages for the rest of the relevant Spring Boot components.
+
+[source,java]
+----
+@ComponentScan(basePackages = { "com.capgemini.devonfw.module.composeredis" , "my.other.component.location.package" })
+----
+
+As you can see, the _basePackages_ of the _@ComponentScan_ points to the Composeredis module package. Now, you can start using the module.
+////
+=== The injection of the module
+
+To access the module functionalities, you need to inject the module in a private property, it can be done using the _@Inject_ annotation
+
+[source,java]
+----
+public class MyClass {
+
+    @Inject
+    LettuceManagement lettuceManagement;
+
+    [...]
+
+}
+----
+
+The _lettuceManagement_ object will give us access to all the module functionalities described in the following section.
+
+== Available operations
+
+[source,java]
+----
+/**
+   * Set a hash entry
+   * @param hashName hash name
+   * @param key key
+   * @param value value
+   * @return true if the entry has been set, false otherwise
+   */
+  boolean setHashEntry(String hashName, String key, String value);
+
+  /**
+   * Get a hash entry
+   * @param hashName hash name
+   * @param key key
+   * @return value
+   */
+  String getHashEntry(String hashName, String key);
+
+  /**
+   * Get a hash map
+   * @param hashName hash name
+   * @return map
+   */
+  Map<String, String> getHash(String hashName);
+
+  /**
+   * Check if a Hash Entry exists
+   * @param hashName hash name
+   * @param key key
+   * @return true if it exists, false otherwise
+   */
+  Boolean hashEntryExists(String hashName, String key);
+
+  /**
+   * Set a hash map
+   * @param hashName The name for the map
+   * @param map The map object to be persisted on Redis
+   * @return simple-string-reply
+   */
+  String setHash(String hashName, Map<String, String> map);
+
+  /**
+   * Delete hash map entries
+   * @param hashName The name for the map
+   * @param fields Field names to be deleted
+   * @return True if all the given fields has been deleted, false otherwise
+   */
+  Boolean deleteHashEntries(String hashName, String... fields);
+----

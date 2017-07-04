@@ -17,14 +17,14 @@ Winauth-ad module provides a simple authentication for your Devon applications. 
 
 ==== Step 1: Add the module dependency
 
-Include the dependency of the module in pom.xml
+Include the dependency of the module in pom.xml. Verify that the _version_ matches the last available version of the module.
 
 [source,xml]
 ----
 <dependency>
       <groupId>com.capgemini.devonfw.modules</groupId>
       <artifactId>devonfw-winauth-ad</artifactId>
-      <version>2.1.0-SNAPSHOT</version>
+      <version>2.2.0</version>
 </dependency>
 ----
 
