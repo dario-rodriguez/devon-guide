@@ -54,8 +54,6 @@ image::images/oasp4js/1.Intro/flex_box.jpeg[, link="images/oasp4js/1.Intro/flex_
 
 In the following chapters we are going to see an example of a finished Oasp4Js application, how to build your own Oasp4Js app from the scratch and all you need to know about about each part of the architecture in order to start building your own applications.
 
-= link:AnOASP4JsApplication[Next chapter: An OASP4Js application]
-
 == Oasp4js tutorial
 
 https://github.com/oasp/oasp-tutorial-sources/wiki/OASP4jsGettingStartedHome[Oasp4js tutorial]: You can follow a complete tutorial of a client implementation based on _Oasp4j_ (https://angular.io/[Angular]). In this tutorial you will see how to implement a basic (but fully functional) client application based on _Oasp4js_, from how to start new applications to how to connect with a backend service.
