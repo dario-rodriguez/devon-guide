@@ -56,4 +56,4 @@ In the following chapters we are going to see an example of a finished Oasp4Js a
 
 == Oasp4js tutorial
 
-https://github.com/oasp/oasp-tutorial-sources/wiki/OASP4jsGettingStartedHome[Oasp4js tutorial]: You can follow a complete tutorial of a client implementation based on _Oasp4j_ (https://angular.io/[Angular]). In this tutorial you will see how to implement a basic (but fully functional) client application based on _Oasp4js_, from how to start new applications to how to connect with a backend service.
+You can follow the https://github.com/oasp/oasp-tutorial-sources/wiki/OASP4jsGettingStartedHome[Oasp4js tutorial]: a complete tutorial of a client implementation based on _Oasp4j_ (https://angular.io/[Angular]). In this tutorial you will see how to implement a basic (but fully functional) client application based on _Oasp4js_, from how to start new applications to how to connect with a backend service.
