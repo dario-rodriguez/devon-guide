@@ -49,6 +49,8 @@
 
 ## Devonfw Cookbook
 
+### IP modules
+
 - link:cookbook-reporting-module[devonfw Reporting Module]
 
 - link:cookbook-winauth-ad-module[devonfw Active Directory Auth module]
@@ -63,6 +65,12 @@
 
 - link:cookbook-integration-module[devonfw Integration module]
 
+- link:devon-microservices[devonfw microservices]
+
+- link:cookbook-compose-for-redis-module[devonfw Compose for Redis module]
+
+### Advanced topics
+
 - link:cookbook-security-layer[Security: Authentication and Authorization]
 
 - link:cookbook-JAX-WS-WebServices[JAX-WS Web Services]
@@ -74,8 +82,6 @@
 - link:cookbook-websocket[WebSocket]
 
 - link:cookbook-File-Upload-and-Download[File Upload and Download]
-
-- link:devon-microservices[devonfw microservices]
 
 - link:cookbook-dockerization[devonfw on Docker]
 
