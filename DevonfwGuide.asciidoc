@@ -349,6 +349,8 @@ include::Client-GUI-Cordova-How-to-start-cordova-project[]
 
 :leveloffset: 2
 
+include::getting-started-oasp4js-introduction[]
+////
 include::Client-GUI-Angular-Introduction-to-oasp4js[]
 
 <<<<
@@ -392,7 +394,7 @@ include::Client-GUI-Angular-Gulp-Tasks[]
 
 include::Client-GUI-File-Upload-and-Download[]
 
-
+////
 :leveloffset: 0
 
 == IDE and Project Setup with Oomph
