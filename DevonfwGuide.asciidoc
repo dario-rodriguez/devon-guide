@@ -397,6 +397,7 @@ include::Client-GUI-File-Upload-and-Download[]
 ////
 :leveloffset: 0
 
+////
 == IDE and Project Setup with Oomph
 
 :leveloffset: 2
@@ -433,7 +434,7 @@ include::Oomph_troubleshooting[]
 
 
 :leveloffset: 0
-
+////
 == Appendix
 
 :leveloffset: 2
