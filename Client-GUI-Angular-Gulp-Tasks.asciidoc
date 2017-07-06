@@ -88,7 +88,7 @@ It works in the +.tmp+ directory.
 
 === build ci
 
-`build:ci` performs a distribution build and runs a full CI test (link:gulp-task-build#build-dist[build:dist], karma:ci)
+`build:ci` performs a distribution build and runs a full CI test (link:Client-GUI-Angular-Gulp-Tasks#build[build:dist], karma:ci)
 
 === test
 
