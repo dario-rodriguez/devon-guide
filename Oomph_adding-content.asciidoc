@@ -55,6 +55,10 @@ To add e.g. a Product at `http://devonfw.github.io/oomph/products/your-product.s
 ----
 <product href="http://devonfw.github.io/oomph/products/your-product.setup#/"/>
 ----
+
+////
+TODO: fix link
+////
 to the https://github.com/devonfw/devon-ide/blob/master/docs/oomph/products/catalog_devonfw.setup[devon Product Catalog file].
 
 To add a Project add
@@ -63,4 +67,8 @@ To add a Project add
 ----
 <project href="http://devonfw.github.io/oomph/projects/your-project.setup#/"/>
 ----
+
+////
+TODO: fix link
+////
 to the https://github.com/devonfw/devon-ide/blob/master/docs/oomph/projects/catalog_devonfw.setup[devon Project Catalog file].
