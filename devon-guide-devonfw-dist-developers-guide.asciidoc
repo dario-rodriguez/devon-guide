@@ -397,28 +397,60 @@ Copy above created templates-oasp directory to the _workspaces\main- directory o
 
 Now, in order to use Cobigen, follow the steps described in https://github.com/devonfw/devon-guide/wiki/getting-started-Cobigen#preparing-cobigen-for-first-use[this guide]
 
-=== Updating node.js
+=== Updating OASP4Js module
 
-The _node.js_ plugin is included in the OASP IDE distribution, but you may need to update it to the last version. To do so, proceed as follows:
+_Simple guide to update node version and adding angular/cli to Devon’s OASP4Js module._
 
-*1. Check the current version*
+==== Prerequisites
 
-In order to check the new version, open environment’s console by launching the _console.bat_ script. Then, type the command +node -v+ and the console must recognize the command and return the node version installed.
+In order to access to the installation of node and angular/cli, we need to have them installed in our machine:
 
-*2. Download new version*
+*1.	Node*: Download the version you decide of node from https://nodejs.org/en/
 
-Download the latest binary (.exe) version of node.js from https://nodejs.org/en/download/[here].
+*2.	Angular/cli*: Once Node is installed we have access to npm, so we execute the following command: *npm install –g @angular/cli*. It will install angular cli on global mode.
 
-*3. Include it in the distribution*
+Now we have all we need on our machine to substitute the old files and add angular/cli. If everything went fine, we should have the following folders:
 
-Now, you must replace the _node.exe_ located on _software\nodejs_ by the newly downloaded _node.exe_.
+image::images/devonfw-dist-developers-guide/nodejs-fig1.png[,align="center",width="200",Devonfw, link="images/devonfw-dist-developers-guide/nodejs-fig1.png"]
+Figure 1. Content of nodejs folder where you installed NodeJS.
 
-*4. Check the new version*
-To check the new version, proceed as mentioned in the step 1. The version returned by the console must match the version that you just downloaded.
+And, at least, the highlighted files from the following figures:
+
+image::images/devonfw-dist-developers-guide/npm-fig2.png[,align="center",width="200",Devonfw, link="images/devonfw-dist-developers-guide/npm-fig2.png"]
+Figure 2.1. Content of npm folder inside of C:\Users\<YourUser>\AppData\Roaming\npm
  
-If the command is not recognized or the version doesn’t match the downloaded version, check the installation process.
+image::images/devonfw-dist-developers-guide/node-modules-fig2-2.png[,align="center",width="200",Devonfw, link="images/devonfw-dist-developers-guide/node-modules-fig2-2.png"]
+Figure 2.2. Content of node_modules inside of the folder from figure 2.1
 
-=== Adding the sample apps
+==== Instructions
+
+*1.	First*, we are going to add NodeJs and npm. To do so, copy the content showed in the *figure 1*. And paste it into <Distribution>/software/nodejs. This will make accessible node and npm from the distribution.
+
+Make sure you did correctly this step by opening *console.bat* and running *node –v* and *npm –v*. They should show you the versions of the packages installed and confirming they have been installed successfully.
+
+*2.	Secondly*, to add angular/cli copy the *ng* and *ng.cmd* files from *figure 2*. And paste them at nodejs at the same level as step 1.
+
+Your distribution nodejs folder should look like this:
+
+image::images/devonfw-dist-developers-guide/nodejs-result.png[,align="center",width="200",Devonfw, link="images/devonfw-dist-developers-guide/nodejs-result.png"]
+
+*3.	Finally*, let’s add the module of angular/cli into our distribution. We copy the *highlighted files* from *figure 2*. And paste them into <Distribution>/software/nodejs/node_modules folder.
+
+In the end, your nodejs/node_modules should contain *npm* and *@angular* like this:
+
+image::images/devonfw-dist-developers-guide/node-modules-result.png[,align="center",width="200",Devonfw, link="images/devonfw-dist-developers-guide/node-modules-result.png"]
+
+==== Important considerations
+
+===== Angular/cli global dependency
+Once this done, you should be able to execute angular/cli commands, but as angular/cli has been installed globally, it will always look first for this global dependency instead of our local in the distribution.
+
+In order to be sure we done correctly all the steps, lets uninstall angular/cli globally from our machine executing this command: *npm uninstall –g @angular/cli*. Now if we open *console.bat* we should be able to run *ng –v* to show the version of our angular/cli installation inside our distribution, not the global one we installed at the beginning.
+
+===== Yarn vs npm
+This guide does not include how to install Yarn locally, this means it is expected to use npm instead, but *take into account that if you set globally Yarn as your default package manager, it will affect to your configuration inside of the distribution*. So, if you have in your machine Yarn installed and you set it as default package manager, node from the distribution will use it by default and will run successfully, but if you set it and you do not have Yarn installed, it will *not run*.
+
+==== Adding the sample apps
 
 To complete the distribution, include some examples of server and client apps. To do that, use the sample applications that are already created for Devon and OASP and can be found in the https://github.com/devonfw[Devon GitHub] and the https://github.com/oasp[OASP GitHub].
 
