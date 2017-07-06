@@ -90,7 +90,7 @@ It is recommended to develop modules according to the best coding practices and 
 
 For example, the test file for the +business-module.module.js+ file should be named +business-module.module.spec.js+.
 
-Please check the link:Client-GUI-Angular-gulp-task-test#gulp-task-test[gulp test tasks description] to see how to run js tests.
+Please check the link:Client-GUI-Angular-Gulp-Tasks#tests[gulp test tasks description] to see how to run js tests.
 
 +oasp4js+ uses http://jasmine.github.io/[Jasmine] for js tests.
 
