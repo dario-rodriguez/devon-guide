@@ -376,7 +376,7 @@ Jasypt is a java library which allows the developer to add basic encryption capa
 
 *1. Download the client*
 
-The Jasypt client can be downloaded from the https://www/jasypt.org/[Jasypt site]
+The Jasypt client can be downloaded from the https://www.jasypt.org/[Jasypt site]
 
 *2. Extract the files*
 
