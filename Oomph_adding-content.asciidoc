@@ -3,7 +3,7 @@ toc::[]
 
 = Adding Content to the Index
 
-On this page we'll give a tutorial on how the index works and how to contribute to our index at http://devonfw.github.io/devon-ide/oomph/index
+On this page we'll give a tutorial on how the index works and how to contribute to our index at http://devonfw.github.io/devon-ide/oomph/index/org.eclipse.setup
 
 == Structure of the Index
 
