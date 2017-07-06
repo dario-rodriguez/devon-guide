@@ -73,7 +73,7 @@ The first line contains:
 
 .. load an appropriate dialog when the specified path is given
 
-.. enable internationalization - for details please see the link:adding-business-module#i18n-files[i18n section]
+.. enable internationalization - for details please see the link:Client-GUI-Angular-adding-business-module#i18n-files[i18n section]
 
 It is very important to add a dependency to the created angular module in the main app module definition, in the +app.module.js+ file. Eventually the first line of the file should look like this:
 
@@ -90,7 +90,7 @@ It is recommended to develop modules according to the best coding practices and 
 
 For example, the test file for the +business-module.module.js+ file should be named +business-module.module.spec.js+.
 
-Please check the link:gulp-task-test#gulp-task-test[gulp test tasks description] to see how to run js tests.
+Please check the link:Client-GUI-Angular-Gulp-Tasks#tests[gulp test tasks description] to see how to run js tests.
 
 +oasp4js+ uses http://jasmine.github.io/[Jasmine] for js tests.
 
