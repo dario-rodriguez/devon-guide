@@ -91,7 +91,7 @@ To generate a new microservices infrastructure application through the Devonfw a
 
 [source, bash]
 ----
-mvn -DarchetypeVersion=2.1.2-DarchetypeGroupId=com.capgemini.devonfw.microservices -DarchetypeArtifactId=microservices-infra-archetype archetype:generate -DgroupId=com.capgemini -DartifactId=sampleinfra -Dversion=0.1-SNAPSHOT -Dpackage=com.capgemini.sampleinfra
+mvn -DarchetypeVersion=2.2.0 -DarchetypeGroupId=com.capgemini.devonfw.microservices -DarchetypeArtifactId=microservices-infra-archetype archetype:generate -DgroupId=com.capgemini -DartifactId=sampleinfra -Dversion=0.1-SNAPSHOT -Dpackage=com.capgemini.sampleinfra
 ----
 
 Once the _Maven_ command has finished an application with the following modules should be created:
@@ -122,7 +122,7 @@ To generate a new microservice project through the Devonfw archetype, as in prev
 
 [source, bash]
 ----
-mvn -DarchetypeVersion=2.1.2 -DarchetypeGroupId=com.capgemini.devonfw.microservices -DarchetypeArtifactId=microservices-archetype archetype:generate -DgroupId=com.capgemini -DartifactId=sampleapp1 -Dversion=0.1-SNAPSHOT -Dpackage=com.capgemini.sampleapp1
+mvn -DarchetypeVersion=2.2.0 -DarchetypeGroupId=com.capgemini.devonfw.microservices -DarchetypeArtifactId=microservices-archetype archetype:generate -DgroupId=com.capgemini -DartifactId=sampleapp1 -Dversion=0.1-SNAPSHOT -Dpackage=com.capgemini.sampleapp1
 ----
 
 That command generates a simple application containing the source code for the microservice. By default, the `pom.xml` includes the `devon-microservices` module, that contains the security configuration, jwt interceptors, _Hystrix_, _Ribbon_ and _FeignClient_ configuration and some properties common to all microservices.
