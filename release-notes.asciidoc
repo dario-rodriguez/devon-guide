@@ -9,13 +9,21 @@ Devonfw is now fully supported on the Production Line v1.3 and the coming v2.0. 
 == OASP4js 2.0
 
 The main focus of the Courage release is the renewed introduction of "OASP for JavaScript", or OASP4js. This new version is a completely new implementation based on Angular (version 4). This new "stack" comes with:
+
 - New application templates for Angular 4 application (as well as Ionic 3)
+
 - A new reference application
+
 - A new tutorial (and Architecture Guide following soon)
-- Component Gallery 
+
+- Component Gallery
+
 - New Cobigen templates for generation of both Angular 4 and Ionic 3 UI components ("screens")
+
 - Integration of Covalent and Bootstrap offering a large number of components
+
 - my-thai-star, a showcase and reference implementation in Angular of a real, responsive usable app using recommended architecture and patterns
+
 - A new Tutorial using my-thai-star as a starting point
 
 See: 
@@ -30,22 +38,34 @@ As part of the new framework(s) we have also done a complete redesign of the OAS
 
 Major changes in this release:
 
+* Support for multi-module projects
 
-Support for multi-module projects
-Client UI Generation:
-New Angular 4 templates based on the latest - angular project seed
-Basic Typescript Merger
-Basic Angular Template Merger
-JSON Merger
-Refactored oasp4j templates to make use of Java template logic feature
-Bugfixes:
-Fixed merging of nested Java annotations including array values
-more minor issues
-Under the hood:
-Large refactoring steps towards language agnostic templates
-formatting sensitive placeholder descriptions automatically formatting camelCase to TrainCase to snake-case, etc.
-Easy setup of CobiGen IDE to enable fluent contribution
-CI integration improved to integrate with GitHub for more valuable feedback
+* Client UI Generation:
+
+** New Angular 4 templates based on the latest - angular project seed
+
+** Basic Typescript Merger
+
+** Basic Angular Template Merger
+
+** JSON Merger
+
+* Refactored oasp4j templates to make use of Java template logic feature
+
+* Bugfixes:
+
+** Fixed merging of nested Java annotations including array values
+
+** more minor issues
+
+* Under the hood:
+
+** Large refactoring steps towards language agnostic templates formatting sensitive placeholder descriptions automatically formatting camelCase to TrainCase to snake-case, etc.
+
+* Easy setup of CobiGen IDE to enable fluent contribution
+
+* CI integration improved to integrate with GitHub for more valuable feedback
+
 
 See: https://github.com/devonfw/tools-cobigen/releases
 
@@ -54,8 +74,11 @@ See: https://github.com/devonfw/tools-cobigen/releases
 A major part of the new devonfw release is the incorporation of a new application, "my-thai-star" which among others:
 
 - serve as an example of how to make a "real" devonfw application (i.e. the application could be used for real)
-- Serves  as an attractive showcase 
+
+- Serves  as an attractive showcase
+
 - Serves as a reference application of devonfw patterns and practices as well as the standard example in the new devonfw tutorial
+
 - highlights modern security option like JWT Integration
 
 The application is  accompanied by a substantial new documentation asset, the devonfw methodology, which described in detail the whole lifecycle of the development of a devonfw application, from requirements gathering to technical design. Officially my-that-star is still considered to be an incubator as especially this last part is still not as mature as it could be. But the example application and tutorial are 100% complete and functional and form a marked improvement over the "old" restaurant example app. My-Thai-star will become the standard example app from devonfw 3.0 onwards. 
@@ -81,19 +104,29 @@ Oasp4fn tutorial: https://github.com/oasp/oasp-tutorial-sources/wiki/OASP4FnGett
 "OASP for Java" or OASP4j now includes updated versions of the latest stable versions of Spring Boot and the Spring Framework and all related dependencies. This allows guaranteed, stable, execution of any devonfw 2.X application on the latest versions of the Industry Standard Spring stack. 
 Another important new feature is a new testing architecture/infrastructure. All database options are updated to the latest versions as well as guaranteed to function on all Application Servers which should cause less friction and configuration time when starting a new OASP4j project. 
 
-Details: 
+Details:
+
 - Spring Boot Upgrade to 1.5.3
+
 - Updated all underlying dependencies
+
 - Spring version is 4.3.8
+
 - Exclude Third Party Libraries that are not needed from sample restaurant application
+
 - Bugfix:Fixed the 'WhiteLabel' error received when tried to login to the sample restaurant application that is deployed onto external Tomcat
+
 - Bugfix:Removed the API api.org.apache.catalina.filters.SetCharacterEncodingFilter and used spring framework's API org.springframework.web.filter.CharacterEncodingFilter instead
+
 - Bugfix:Fixed the error "class file for javax.interceptor.InterceptorBinding not found" received when executing the command 'mvn site' when trying to generate javadoc using Maven javadoc plugin
-- Removed the deprecated API io.oasp.module.web.common.base.PropertiesWebApplicationContextInitializer-
+
+- Removed the deprecated API io.oasp.module.web.common.base.PropertiesWebApplicationContextInitializer
+
 - Documentation of the usage of UserDetailsService of Spring Security
 
 
 See: https://github.com/oasp/oasp4j
+
 Wiki: https://github.com/oasp/oasp4j/wiki
 
 == Microservices Netflix
@@ -122,17 +155,17 @@ See: https://github.com/devonfw/devon/wiki/cookbook-integration-module
 == Devonfw Harvest contributions
 Devonfw contains a whole series of new components obtained through the Harvesting process. Examples are : 
 
-- New backend IP module Compose for Redis: management component for cloud environments. Redis is an open-source, blazingly fast, key/value low maintenance store. Compose's platform gives you a configuration pre-tuned for high availability and locked down with additional security features. The component will manage the service connection and the main methods to manage the key/values on the storage. The library used is "lettuce".
+* New backend IP module Compose for Redis: management component for cloud environments. Redis is an open-source, blazingly fast, key/value low maintenance store. Compose's platform gives you a configuration pre-tuned for high availability and locked down with additional security features. The component will manage the service connection and the main methods to manage the key/values on the storage. The library used is "lettuce".
 
-- Sencha component for extending GMapPanel with the following functionality :
-  - Markers management
-  - Google Maps options management
-  - Geoposition management
-  - Search address and coordinates management
-  - Map events management
-  - Map life cycle and behavior management
+* Sencha component for extending GMapPanel with the following functionality :
+** Markers management
+** Google Maps options management
+** Geoposition management
+** Search address and coordinates management
+** Map events management
+** Map life cycle and behavior management
 
-- Sencha responsive Footer that moves from horizontal to vertical layout depending on the screen resolution or the device type. It is a simple functionality but we consider it very useful and reusable.
+* Sencha responsive Footer that moves from horizontal to vertical layout depending on the screen resolution or the device type. It is a simple functionality but we consider it very useful and reusable.
 
 See: https://github.com/devonfw/devon/wiki/cookbook-compose-for-redis-module
 
@@ -154,8 +187,8 @@ From different Business Units (countries) have contributed "incubator" framework
 
 - OASP4NET (Stack based on .NET Core / .NET "Classic" (4.6))
 - OASP4X (Stack based on Xamarin) 
-- OASP4Fn (Stack based on Node-js/Serverless)
+- OASP4Fn (Stack based on Node-js/Serverless): https://github.com/oasp/oasp4fn
 
-An "incubator" status means that the frameworks are production ready, all are actually already used in production, but  are still not fully compliant with the OASP definition of a "Minimally Viable Product". 
+An "incubator" status means that the frameworks are production ready, all are actually already used in production, but  are still not fully compliant with the OASP definition of a "Minimally Viable Product".     
 
-See:    https://github.com/oasp/oasp4fn
+During this summer the OASP4NET and OASP4X repos will be properly installed. In the mean time, if you want to have access to the source code, please contact the _Devonfw Core Team_.
