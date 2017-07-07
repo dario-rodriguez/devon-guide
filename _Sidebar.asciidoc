@@ -117,6 +117,7 @@
 
 == Appendix
 
+* link:release-notes-version-2.2[Release Notes devonfw version 2.2]
 * link:release-notes-version-2.1[Release Notes devonfw version 2.1]
 * link:devon-guide-frequently-asked-questions[Frequently Asked Questions (FAQ)]
 * link:devon-guide-working-with-git-and-github[Working with Git and Github]
