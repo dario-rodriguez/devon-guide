@@ -38,33 +38,33 @@ As part of the new framework(s) we have also done a complete redesign of the OAS
 
 Major changes in this release:
 
-- Support for multi-module projects
+* Support for multi-module projects
 
-- Client UI Generation:
+* Client UI Generation:
 
-  - New Angular 4 templates based on the latest - angular project seed
+** New Angular 4 templates based on the latest - angular project seed
 
-  - Basic Typescript Merger
+** Basic Typescript Merger
 
-  - Basic Angular Template Merger
+** Basic Angular Template Merger
 
-  - JSON Merger
+** JSON Merger
 
-- Refactored oasp4j templates to make use of Java template logic feature
+* Refactored oasp4j templates to make use of Java template logic feature
 
-- Bugfixes:
+* Bugfixes:
 
-  - Fixed merging of nested Java annotations including array values
+** Fixed merging of nested Java annotations including array values
 
-  - more minor issues
+** more minor issues
 
-- Under the hood:
+* Under the hood:
 
-  - Large refactoring steps towards language agnostic templates formatting sensitive placeholder descriptions automatically formatting camelCase to TrainCase to snake-case, etc.
+** Large refactoring steps towards language agnostic templates formatting sensitive placeholder descriptions automatically formatting camelCase to TrainCase to snake-case, etc.
 
-- Easy setup of CobiGen IDE to enable fluent contribution
+* Easy setup of CobiGen IDE to enable fluent contribution
 
-- CI integration improved to integrate with GitHub for more valuable feedback
+* CI integration improved to integrate with GitHub for more valuable feedback
 
 
 See: https://github.com/devonfw/tools-cobigen/releases
@@ -126,6 +126,7 @@ Details:
 
 
 See: https://github.com/oasp/oasp4j
+
 Wiki: https://github.com/oasp/oasp4j/wiki
 
 == Microservices Netflix
