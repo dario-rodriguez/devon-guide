@@ -40,7 +40,7 @@ The pdf generator tool uses the structure of each wiki page to generate the stru
 
 * For quotation marks avoid:
 
-** U+201C LEFT DOUBLE QUOTATION MARK (`“`) and U+201D RIGHT DOUBLE QUOTATION MARK (`”`)
+** U+201C LEFT DOUBLE QUOTATION MARK (`"`) and U+201D RIGHT DOUBLE QUOTATION MARK (`"`)
 
 ** Use instead U+0022 QUOTATION MARK (`"`)
 

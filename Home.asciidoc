@@ -212,7 +212,7 @@
 
 ## Appendix
 
-* link:release-notes-version-2.1[Release Notes devonfw version 2.1]
+* link:release-notes-version-2.2[Release Notes devonfw version 2.2]
 * link:devon-guide-frequently-asked-questions[Frequently Asked Questions (FAQ)]
 * link:devon-guide-working-with-git-and-github[Working with Git and Github]
 * link:devon-guide-devonfw-dist-developers-guide[Devonfw Dist (IDE) Developers Guide]
@@ -220,5 +220,7 @@
 * link:devcon-command-developers-guide[Devcon Command Developers Guide]
 * link:devon-guide-Devon-Module-Developer-Guide[Devcon Module Developers Guide]
 * link:components-list[Components List]
+////
 * link:201_210_migrate[Migrating from DevonFW 2.0.1 to DevonFW 2.1.0]
+////
 * link:devon-guide-devonfw-dist-user-guide-for-linux[User guide for devon Dist in Linux]
