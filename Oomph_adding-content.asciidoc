@@ -3,7 +3,7 @@ toc::[]
 
 = Adding Content to the Index
 
-On this page we'll give a tutorial on how the index works and how to contribute to our index at http://devonfw.github.io/devon-ide/oomph/index
+On this page we'll give a tutorial on how the index works and how to contribute to our index at http://devonfw.github.io/devon-ide/oomph/index/org.eclipse.setup
 
 == Structure of the Index
 
@@ -19,9 +19,9 @@ There are two different kinds of Catalogs: the Product and the Project Catalogs.
 
 A Product Catalog contains the Product setup files. Furthermore tasks that are shared across all Products can be defined here. In case of the devon Product Catalog those are the p2 plugins for the Oomph tasks and the general _Installation_ task that triggers the installation of a product.
 
-The devon Product Catalog can be found http://devonfw.github.io/devon-ide/oomph/products/catalof_devonfw.setup[here].
+The devon Product Catalog can be found http://devonfw.github.io/devon-ide/oomph/products/catalog_devonfw.setup[here].
 
-The devon Project Catalog can be found http://devonfw.github.io/devon-ide/oomph/projects/catalof_devonfw.setup[here].
+The devon Project Catalog can be found http://devonfw.github.io/devon-ide/oomph/projects/catalog_devonfw.setup[here].
 
 === The Content
 
