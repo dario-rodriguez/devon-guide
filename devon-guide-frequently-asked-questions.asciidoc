@@ -6,6 +6,21 @@ toc::[]
 
 == Server
 
+=== Data Base
+
+==== Can you connect two databases in a single OASP4J project ?
+
+You can create two _Spring_ active profiles, one for each database, in `oasp4j\samples\core\src\main\resources\config`. If , for instance , the databases that you are using are _MYSQL_ and _MSSQL_ , you can create two Spring active profiles namely `application-myssql.properties` and `application-mssql.properties` and follow the instructions below
+
+1. Define connection details in `application-mysql.properties` and `application-mssql.properties`. Make sure the entry for flyway is not present in the files.
+
+2. Comment the entry 'spring.profiles.active=h2mem' in `oasp4j\samples\core\src\main\resources\application.properties`.
+
+3. Add the entries for the spring active profiles that you have created.
+`spring.profiles.active=mysql,mssql`.
+
+4. Comment the entry `spring.profiles.active=junit` in `oasp4j\samples\core\src\test\resources\`.
+
 === Security
 
 ==== How to disable Spring Boot Security?
