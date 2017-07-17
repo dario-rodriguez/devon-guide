@@ -274,6 +274,11 @@ _settings.json_ contains:
 ----
 For example, consider you are creating distribution for the next version release, with some improvements in features etc and version becomes "2.1.1". Therefore, change the version from "2.0.1" to "2.1.1" in settings.json.
 
+=== Update Components List
+
+As part of the process of updating documentation, we must update the link::components-list[Component List]
+From sample root project we can use the `mvn dependency:analyse-report` command that will generate for us a list with all the libraries used in the Oasp4j project alongside other info like the version. The output files with the data will be stored in the `target` directory of each project.
+
 === Add changelog file
 
 Add a simple .txt file named changelog, which contains information about new enhancements, features etc to be released in this version.
