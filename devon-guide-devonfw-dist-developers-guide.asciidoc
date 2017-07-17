@@ -276,7 +276,9 @@ For example, consider you are creating distribution for the next version release
 
 === Update Components List
 
-As part of the process of updating documentation, we must update the link:components-list[Component List]. To do so, from sample root project we can use the `mvn dependency:analyse-report` command that will generate for us a list with all the libraries used in the Oasp4j project alongside other info like the version. The output files with the data will be stored in the `target` directory of each project.
+As part of the process of updating documentation, we must update the link:components-list[Component List] (**Java Libraries Table**). To do so, from sample root project we can use the `mvn dependency:analyse-report` command that will generate for us a list with all the libraries used in the Oasp4j project alongside other info like the version. The output files with the data will be stored in the `target` directory of each project.
+
+The rest of the components metadata info (IP Modules, included Tools) must be updated manually.
 
 === Add changelog file
 
