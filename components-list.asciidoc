@@ -44,180 +44,87 @@
 |Compose for Redis	|2.2.0  |Implementation of Compose for Redis
 |=======================
 
-
 .Java Libraries
 [options="header,footer"]
 |=======================
-|Library|Version
-|javax.transaction API	|1.2
-|mmm-util-search	|7.3.0
-|Querydsl - JPA support	|3.4.3
-|Querydsl - Core module	|3.4.3
-|Guava: Google Core Libraries for Java	|17.0.0
-|Commons Lang	|0.2.4
-|spring-batch-core	|3.0.7.RELEASE
-|com.ibm.jbatch-tck-spi	|1.0
-|javax.batch-api	|1.0
-|XStream Core	|1.4.7
-|xmlpull	|1.1.3.1
-|jettison	|1.2
-|spring-batch-infrastructure	|3.0.5.RELEASE
-|spring-retry	|1.1.2.RELEASE
-|spring-batch-integration	|3.0.5.RELEASE
-|spring-integration-core	|4.3.9.RELEASE
-|oasp4j-logging	|2.0.0
-|Logback Classic Module	|1.1.3
-|Logback Core Module	|1.1.3
-|jcl-over-slf4j	|1.7.13
-|Javax.inject	|1
-|Janino	|2.7.8
-|Commons-Compiler	|2.7.8
-|HttpComponents Apache HttpClient	|4.5.1
-|Httpcore	|4.4.4
-|Commons-codec	|1.9
-|Oasp4j-beanmapping	|2.0.0
-|Dozer	|5.5.1
-|Commons-beanutils	|1.9.2
-|Commons-lang3	|3.2.1
-|Mmm-util-core	|7.0.0
-|Oasp4j-security	|2.0.0
-|Spring-security-config	|4.0.3.RELEASE
-|Spring-security-core	|4.0.3.RELEASE
-|Spring-security-web	|4.0.3.RELEASE
-|Javax.annotation-api	|1.2
-|Oasp4j-rest	|2.0.0
-|javax.ws.rs-api	|2.0.1
-|Bean Validation API	|1.1.0.Final
-|Spring-context	|4.3.8.RELEASE
-|Expression Language 2.2 Implementation	|2.2.4
-|oasp4j-basic	|2.0.0
-|oasp4j-jpa-envers	|2.0.0
-|hibernate-envers	|4.3.11.Final
-|oasp4j-web	|2.0.0
-|Javax.servlet-api	|3.1.0
-|Spring.aop	|4.3.8.RELEASE
-|Aopalliance	|1.0
-|Spring-beans	|4.3.8.RELEASE
-|Spring-core	|4.3.8.RELEASE
-|Commons-logging	|1.2
-|Spring-test	|4.3.8.RELEASE
-|Spring-webmvc	|4.3.8.RELEASE
-|Spring-expression	|4.3.8.RELEASE
-|Spring-web	|4.3.8.RELEASE
-|Jstl	|1.2
-|Spring-orm	|4.3.8.RELEASE
-|Spring-jdbc	|4.3.8.RELEASE
-|Spring-tx	|4.3.8.RELEASE
-|Hibernate-entitymanager	|4.3.11.Final
-|Jboss-logging	|3.3.0.Final
-|Jboss-logging-annotations	|1.2.0.Beta
-|Hibernate-core	|4.3.11.Final
-|Antlr	|2.7.7
-|Jandex	|1.1.0.Final
-|Dom4j	|1.6.1
-|Xml-apis	|1.0.b.2
-|Hibernate-commons-annotations	|4.0.5.Final
-|Jboss-transaction-api	|1.2
-|Javassist	|3.18.1
-|H2	|1.4.190
-|Flyway-core	|3.2.1
-|hibernate-jpa-2.1-api	|1.0.0.Final
-|Cglib	|3.1
-|Asm	|4.2
-|Hibernate-validator	|5.2.2.Final
-|Classmate	|1.1.0
-|Cxf-rt-frontend-jaxws	|3.1.4
-|Xml-resolver	|1.2
-|Cxf-core	|3.1.4
-|Woodstox-core-asl	|4.4.1
-|Stax2-api	|3.1.4
-|Xmlschema-core	|2.2.1
-|Cxf-rt-bindings-soap	|3.1.4
-|Cxf-rt-wsdl	|3.1.4
-|Wsdl4j	|1.6.3
-|Cxf-rt-databinding-jaxb	|3.1.4
-|Jaxb-impl	|2.2.11
-|Jaxb-core	|2.2.11
-|Cxf-rt-bindings-xml	|3.1.4
-|Cxf-rt-frontend-simple	|3.1.4
-|Cxf-rt-ws-addr	|3.1.4
-|Cxf-rt-ws-policy	|3.1.4
-|Neethi	|3.0.3
-|Cxf-rt-frontend-jaxrs	|3.1.4
-|Cxf-rt-rs-service-description	|3.1.4
-|Cxf-rt-transports-http	|3.1.4
-|Jackson-jaxrs-json-provider	|2.4.2
-|Jackson-jaxrs-base	|2.4.2
-|Jackson-core	|2.6.3
-|Jackson-module-jaxb-annotations	|2.4.2
-|Spring-websocket	|4.3.8.RELEASE
-|Spring-messaging	|4.3.8.RELEASE
-|Spring-batch-test	|3.0.5.RELEASE
-|Commons-collections	|3.2..1
-|Commons-io	|2.4
-|Hamcrest-all	|1.3
-|Oasp4j-test	|2.0.0
-|Assertj-core	|2.0.0
-|Memoryfilesystem	|0.6.4
-|Mockito-core	|1.10.19
-|Objenesis	|2.1
-|Javax.el-api	|2.2.4
-|Spring-boot-starter-web	|1.5.3.RELEASE
-|Spring-boot-starter	|1.5.3.RELEASE
-|Spring-boot	|1.5.3.RELEASE
-|Spring-boot-autoconfigure	|1.5.3.RELEASE
-|Spring-boot-starter-logging	|1.5.3.RELEASE
-|Jul-to-slf4j	|1.7.13
-|Log4j-over-slf4j	|1.7.13
-|Snakeyaml	|1.16
-|Spring-boot-starter-tomcat	|1.5.3.RELEASE
-|Tomcat-embed-core	|8.0.28
-|Tomcat-embed-el	|8.0.28
-|Tomcat-embed-logging-juli	|8.0.28
-|Tomcat-embed-websocket	|8.0.28
-|Spring-boot-starter-validation	|1.5.3.RELEASE
-|Spring-boot-starter-jdbc	|1.5.3.RELEASE
-|Tomcat-jdbc	|8.0.28
-|Tomcat-juli	|8.0.28
-|Spring-boot-starter-actuator	|1.5.3.RELEASE
-|Spring-boot-actuator	|1.5.3.RELEASE
-|Spring-boot-starter-security	|1.5.3.RELEASE
-|Scala-library	|2.10.4
-|Spring-boot-starter-ws	|1.5.3.RELEASE
-|Spring-jms	|4.3.8.RELEASE
-|Spring-oxm	|4.3.8.RELEASE
-|Spring-ws-core	|2.2.3.RELEASE
-|Spring-xml	|2.2.3.RELEASE
-|Spring-ws-support	|2.2.3.RELEASE
-|Junit	|4.12
-|Hamcrest-core	|1.3
-|Slf4j-api	|1.7.13
-|jgit	|4.4.0.201605250940-rc1
-|jsch	|0.1.53
-|javaEWAH	|0.7.9
-|reflections	|0.9.10
-|javaassist	|3.19.0
-|annotations	|2.0.1
-|commons-cli	|1.2
-|commons-lang3	|3.4
-|commons-exec	|1.3
-|json-simple	|1.1.1
-|commons-io	|2.5
-|java-semver	|0.9.0
-|javax.activation	|1.0.2
-|axis	|1.4
-|commons-discovery	|0.2
-|commons-logging	|1.0.4
-|JAX-RPC	|1.1
-|javax.mail	|1.3.1
-|javax/xml/soap (SAAJ)	|1.2
-|httpclient	|4.3.6
-|httpcore	|4.3.3
-|commons-codec	|1.6
-|httpasyncclient	|4.0.2
-|httpmime	|4.3.6
-
-|jasperreports	|6.2.1
-|itext	|2.1.7.js5
-|poi	|3.14
+|GroupId|ArtifactId|Version
+|io.oasp.java.modules   |oasp4j-batch   |2.4.0
+|io.oasp.java.modules   |oasp4j-logging |2.4.0
+|io.oasp.java.modules   |oasp4j-beanmapping   |2.4.0
+|io.oasp.java.modules   |oasp4j-security   |2.4.0
+|io.oasp.java.modules   |oasp4j-rest   |2.4.0
+|io.oasp.java.modules   |oasp4j-basic   |2.4.0
+|io.oasp.java.modules   |oasp4j-jpa-envers  |2.4.0
+|javax.servlet   |javax.servlet-api   |3.1.0
+|org.springframework   |spring-webmvc   |4.3.8.RELEASE
+|org.springframework   |spring-web   |4.3.8.RELEASE
+|org.flywaydb  |flyway-core   |3.2.1
+|org.hibernate.javax.persistence   |hibernate-jpa-2.1-api   |1.0.0.Final
+|org.apache.cxf   |cxf-rt-frontend-jaxws   |3.1.8
+|org.apache.cxf   |cxf-rt-frontend-jaxrs   |3.1.8
+|org.apache.cxf   |cxf-rt-rs-client   |3.1.8
+|org.apache.cxf   |cxf-rt-transports-http   |3.1.8
+|com.fasterxml.jackson.jaxrs   |jackson-jaxrs-json-provider   |2.8.8
+|org.springframework   |spring-websocket   |4.3.8.RELEASE
+|org.springframework   |spring-messaging   |4.3.8.RELEASE
+|org.springframework.batch   |spring-batch-test   |3.0.7.RELEASE
+|io.oasp.java.modules   |oasp4j-test   |2.4.0
+|com.mysema.querydsl   |querydsl-jpa   |3.7.4
+|org.skyscreamer   |jsonassert   |1.3.0
+|junit   |junit   |4.12
+|org.slf4j  |slf4j-api   |1.7.25
+|com.fasterxml.jackson.core   |jackson-annotations   |2.8.0
+|io.oasp.java.modules |oasp4j-jpa |2.4.0
+|org.springframework.security |spring-security-core |4.2.2.RELEASE
+|org.mockito |mockito-core |1.10.19
+|com.google.guava |guava |17.0
+|org.springframework |spring-tx |4.3.8.RELEASE
+|org.assertj |assertj-core |2.6.0
+|com.fasterxml.jackson.core | jackson-core|2.8.8
+|org.springframework |spring-beans |4.3.8.RELEASE
+|com.mysema.querydsl |querydsl-core |3.7.4
+|org.springframework.batch |spring-batch-infrastructure |3.0.7.RELEASE
+|commons-io |commons-io|2.4
+|org.json |json |20140107
+|javax.ws.rs |javax.ws.rs-api |2.0.1
+|org.springframework.boot |spring-boot-actuator |1.5.3.RELEASE
+|net.sf.dozer |dozer |5.5.1
+|javax.validation|validation-api|1.1.0.Final
+|net.sf.m-m-m |mmm-util-entity |7.3.0
+|org.apache.cxf |cxf-core |3.1.8
+|org.springframework.batch |spring-batch-core |3.0.7.RELEASE
+|org.springframework.boot |spring-boot-test |1.5.3.RELEASE
+|net.sf.m-m-m |mmm-util-core |7.3.0
+|org.hibernate |hibernate-envers |5.0.12.Final
+|org.springframework.security |spring-security-config |4.2.2.RELEASE
+|commons-codec | commons-codec|1.10
+|org.springframework|spring-test|4.3.8.RELEASE
+|javax.annotation|javax.annotation-api|1.2
+|javax.inject|javax.inject|1
+|org.springframework.security|spring-security-web|4.2.2.RELEASE
+|org.springframework|spring-core|4.3.8.RELEASE
+|org.springframework|spring-context|4.3.8.RELEASE
+|org.springframework.boot|spring-boot-autoconfigure|1.5.3.RELEASE
+|org.springframework.boot|spring-boot|1.5.3.RELEASE
+|javax.transaction|javax.transaction-api|1.2
+|com.fasterxml.jackson.core|jackson-databind|2.8.8
+|org.springframework.ws|spring-ws-core|2.4.0.RELEASE
+|io.oasp.java.modules|oasp4j-web|2.4.0
+|org.springframework|spring-aop|4.3.8.RELEASE
+|org.springframework.boot|spring-boot-starter-test|1.5.3.RELEASE
+|org.springframework|spring-orm|4.3.8.RELEASE
+|org.hibernate|hibernate-entitymanager|5.0.12.Final
+|com.h2database|h2|1.4.194
+|cglib|cglib|3.1
+|org.hibernate|hibernate-validator|5.3.5.Final
+|org.apache.cxf|xf-rt-rs-service-description|3.1.8
+|javax.el|javax.el-api|2.2.4
+|org.springframework.boot|spring-boot-starter-web|1.5.3.RELEASE
+|org.springframework.boot|spring-boot-starter-actuator|1.5.3.RELEASE
+|org.springframework.boot|spring-boot-starter-web-services|1.5.3.RELEASE
+|com.mysema.querydsl|querydsl-apt|3.7.4
+|org.springframework.boot|spring-boot-starter-tomcat|1.5.3.RELEASE
+|net.sf.jasperreports|jasperreports	|6.2.1
+| |itext	|2.1.7.js5
+|org.apache.poi|poi	|3.14
 |=======================
