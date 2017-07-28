@@ -60,13 +60,6 @@ public abstract class BaseWebSecurityConfig extends WebSecurityConfigurerAdapter
 For previous versions of the _oasp4j_ based apps, you may find `BaseWebSecurityConfig` in a different location: `general/configuration/BaseWebSecurityConfig.java`. 
 ====
 
-Remember to add the package of the module to the `@ComponentScan` annotation in the Spring Boot main class.
-
-[source,java]
-----
-@ComponentScan(basePackages = { "com.capgemini.devonfw.module.winauthsso" , "my.other.components.package" })
-----
-
 ==== Step 3: Define the security entry point and filter
 
 Also, add the winauth SSO configuration down in the void _configure(HttpSecurity)_ method in the BaseWebSecurityConfig.java` class
@@ -77,7 +70,9 @@ Also, add the winauth SSO configuration down in the void _configure(HttpSecurity
 public void configure(HttpSecurity http) throws Exception {
 
     //Winauth SSO configuration
-    http.addFilterAfter(this.sso.getSSOFilter(), BasicAuthenticationFilter.class).exceptionHandling()
+    http.
+    [...]
+    .addFilterAfter(this.sso.getSSOFilter(), BasicAuthenticationFilter.class).exceptionHandling()
         .authenticationEntryPoint(this.sso.getSSOFilterEntryPoint());
 }
 ----
