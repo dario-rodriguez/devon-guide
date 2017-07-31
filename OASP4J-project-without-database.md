@@ -29,7 +29,7 @@ Another option is to disable the database , remove the database package and it's
  Remove the all dependence that related with database . 
 
 ````java
-    for Object Relational Mapping (JPA/Hibernate)
+    
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-orm</artifactId>
