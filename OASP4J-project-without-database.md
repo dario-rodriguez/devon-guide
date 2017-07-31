@@ -23,7 +23,7 @@ Remove @name from Dao package class , which are related with dao class and from 
 
 #### Remove dataaccess package
 
-Another option is disable the database , remove the database package and it's implementation class from OASP4J template application.
+Another option is to disable the database , remove the database package and it's implementation class from OASP4J template application.
    
  
  
