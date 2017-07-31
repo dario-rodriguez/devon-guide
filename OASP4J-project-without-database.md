@@ -1,1 +1,1 @@
-OASP4J application template is made up with database , Restful webservice and security package. If someone don't want database in his oasp4j template application , he can the follow document run the oasp4j application without database not the any error.     
+OASP4J application template is made up with database , Restful webservice and security package. If someone don't want database in his oasp4j template application , he can the below steps to run the oasp4j application without database not having the any error.     
