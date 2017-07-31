@@ -19,7 +19,7 @@ public class BeansBatchConfig {
 
 #### Remove @name annotation
   
-Remove @name from Dao package class , which related with dao class and from it's implementation class.
+Remove @name from Dao package class , which are related with dao class and from it's implementation class.
 
 #### Remove dataaccess package
 
