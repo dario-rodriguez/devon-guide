@@ -26,7 +26,7 @@ Remove @name from Dao package class , which are related with dao class and from 
 Another option is to disable the database , remove the database package and it's implementation class from OASP4J template application.
    
  #### Remove the dependences
- Remove the all dependence that related with database . 
+ Remove the all dependency from the pom.xml file ,  that related with database . 
 
 ````java
     
