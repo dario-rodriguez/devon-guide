@@ -17,5 +17,17 @@ public class BeansBatchConfig {
   private JobRepositoryFactoryBean jobRepository;
 ````
 
+#### Remove @name annotation
+  
+Remove @name from Dao package class , which related with dao class and from it's implementation class.
+
+#### Remove dataaccess package
+
+Another option is disable the database , remove the database package and it's implementation class from OASP4J template application.
+   
+ 
+ 
+
+
 
    
