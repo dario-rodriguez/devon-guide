@@ -6,5 +6,16 @@ src->main->resources-> application.properties
 ````java
 spring.autoconfigure.exclude=org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
 ````
+### Remove annotation 
+
+Remove the @Configuration Annotation from the file com.carpool.general.batch.impl.config -> BeansBatchConfig
+
+````java
+@Configuration
+public class BeansBatchConfig {
+
+  private JobRepositoryFactoryBean jobRepository;
+````
+
 
    
