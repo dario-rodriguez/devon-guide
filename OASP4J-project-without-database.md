@@ -3,8 +3,8 @@ OASP4J application template is made up with database , Restful webservice and se
 ### Add Property  
 src->main->resources-> application.properties 
 
-----
+````java
 spring.autoconfigure.exclude=org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
-----
+````
 
    
