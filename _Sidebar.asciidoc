@@ -49,6 +49,7 @@
 * link:Deployment-on-WebLogic[Deployment on WebLogic]
 * link:cookbook-cobigen-advanced-use-cases-soap-and-nested-data[Cobigen advanced use cases: SOAP and nested data]
 * link:Compatibility-guide-for-Java7-Java8-and-Tomcat7-Tomcat8[Compatibility guide for Java7, Java8 and Tomcat7, Tomcat8]
+* link:OASP4J-project-without-database[OASP4J project without database]
 
 == The Presentation Layer: Getting Started with Devon4Sencha
 
