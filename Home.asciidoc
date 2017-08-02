@@ -1,5 +1,3 @@
-// TH (02.08.201): Blabla 
-
 # devonfw Guide
 
 *version 2.2-SNAPSHOT*
