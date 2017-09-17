@@ -22,7 +22,7 @@
 
 - link:getting-started-oasp-app-structure[OASP4J Application Structure]
 
-- link:getting-started-understanding-oasp4j-spring-boot-config[Understanding the OASP4J & Spring Boot Configuration]
+- link:getting-started-understanding-oasp4j-spring-boot-config[Understanding the OASP4J and Spring Boot Configuration]
 
 - link:getting-started-database-configuration[Database Configuration]
 
@@ -40,13 +40,13 @@
 
 - link:getting-started-Cobigen[Generate code with Cobigen]
 
-- link:getting-started-transfer-objects[Transfer Objects : ETOs and CTOs]
+- link:getting-started-transfer-objects[Transfer Objects as ETOs and CTOs]
 
 - link:getting-started-logic-layer[Logic Layer]
 
 - link:getting-started-Creating-Rest-Service[Create Rest Service]
 
-- link:getting-started-deployment-on-tomcat[Deployment on Tomcat (Client/Server)]
+- link:getting-started-deployment-on-tomcat[Client Server Deployment on Tomcat]
 
 
 ## Devonfw Cookbook
@@ -73,7 +73,7 @@
 
 ### Advanced topics
 
-- link:cookbook-security-layer[Security: Authentication and Authorization]
+- link:cookbook-security-layer[Authentication and Authorization]
 
 - link:cookbook-JAX-WS-WebServices[JAX-WS Web Services]
 
@@ -103,7 +103,7 @@
 
 - link:cookbook-cobigen-advanced-use-cases-soap-and-nested-data[Cobigen advanced use cases: SOAP and nested data]
 
-- link:Compatibility-guide-for-Java7-Java8-and-Tomcat7-Tomcat8[Compatibility guide for Java7, Java8 and Tomcat7, Tomcat8]
+- link:Compatibility-guide-for-Java7-Java8-and-Tomcat7-Tomcat8[Compatibility guide for Java7 Java8 and Tomcat7 Tomcat8]
 
 ## The Presentation Layer: Getting Started with OASP4JS
 
@@ -113,7 +113,7 @@
 
 - link:Client-GUI-Sencha-Introduction-to-Devon4sencha[Introduction to Devon4sencha]
 
-- link:Client-GUI-Sencha-Workspace-and-Sencha-Cmd[Sencha Workspace & Sencha Cmd]
+- link:Client-GUI-Sencha-Workspace-and-Sencha-Cmd[Sencha Workspace and Sencha Cmd]
 
 - link:Client-GUI-Sencha-Anatomy-of-a-Devon4sencha-application[Anatomy of a Devon4sencha application]
 
@@ -131,23 +131,23 @@
 
 - link:Client-GUI-Sencha-create-a-CRUD-page[Create a New CRUD Page]
 
-- link:Client-GUI-Sencha-completing-CRUD-example[Complete CRUD example (Create, Read, Update and Delete)]
+- link:Client-GUI-Sencha-completing-CRUD-example[Complete CRUD example]
 
 - link:Client-GUI-Sencha-define-ext-component[Define an Ext Component]
 
 - link:Client-GUI-Sencha-calling-web-service[Call Web Services]
 
-- link:Client-GUI-Sencha-models-stores-proxies[Models, Stores and Proxies]
+- link:Client-GUI-Sencha-models-stores-proxies[Models Stores and Proxies]
 
-- link:Client-GUI-Sencha-panels-windows[Panels & Windows]
+- link:Client-GUI-Sencha-panels-windows[Panels and Windows]
 
-- link:Client-GUI-Sencha-layouts-positioning[Layouts & Positioning]
+- link:Client-GUI-Sencha-layouts-positioning[Layouts and Positioning]
 
 - link:Client-GUI-Sencha-Grids[Grids]
 
 - link:Client-GUI-Sencha-Forms[Forms]
 
-- link:Client-GUI-Sencha-cors[CORS & protection against Cross Site Scription (XSS)]
+- link:Client-GUI-Sencha-cors[CORS and Protection against Cross Site Scription]
 
 - link:Client-GUI-Sencha-security[Security]
 
@@ -159,7 +159,7 @@
 
 ## Devon4Sencha Cookbook
 
-- link:Client-GUI-Sencha-Simlets-Simulate-Server-Responses[Mocks with Simlets: simulating server responses]
+- link:Client-GUI-Sencha-Simlets-Simulate-Server-Responses[Mocks with Simlets simulating server responses]
 
 - link:Client-GUI-Sencha-devon4Sencha-best-practices[Best Practices developing Devon4Sencha apps]
 
@@ -182,7 +182,7 @@
 
 - link:Client-GUI-Angular-Adding-Business-Module[Add Business Module]
 
-- link:Client-GUI-Angular-ngmodules[OASP4JS ng-modules]
+- link:Client-GUI-Angular-ngmodules[OASP4JS ng modules]
 
 - link:Client-GUI-Angular-Create-New-oasp4js-Application[Create New OASP4JS Application]
 
