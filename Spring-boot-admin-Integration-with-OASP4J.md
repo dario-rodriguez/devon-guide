@@ -7,3 +7,5 @@
 * Add the log file.
 * Setup the email notification.
 * Setup Slack notification.
+
+ ### Setup Admin server
