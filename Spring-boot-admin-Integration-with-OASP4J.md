@@ -1,0 +1,1 @@
+Spring boot admin is monitoring tool to manage multiple Spring application.
