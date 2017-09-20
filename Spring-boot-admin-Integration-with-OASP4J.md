@@ -10,5 +10,11 @@
 
  ### Setup Admin server
  To create Admin server create the Spring.io Application and follow the below steps. 
+1. Add the code in spring boot class.
+
+````java
+spring.autoconfigure.exclude=org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
+```` 
+
  
 
