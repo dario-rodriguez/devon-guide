@@ -213,3 +213,4 @@ spring.boot.admin.notify.mail.to=user@gmail.com
 
 
 ````
+### Setup Slack notification.
