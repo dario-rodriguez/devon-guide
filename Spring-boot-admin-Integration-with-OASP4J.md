@@ -214,3 +214,17 @@ spring.boot.admin.notify.mail.to=user@gmail.com
 
 ````
 ### Setup Slack notification.
+To enable Slack notifications you need to add a incoming Webhook under custom integrations on your Slack account and configure it appropriately.
+
+1. Add the properties to the application.properties file. 
+
+````java
+spring.boot.admin.notify.slack.enabled=true
+spring.boot.admin.notify.slack.username=user123
+spring.boot.admin.notify.slack.channel=general
+spring.boot.admin.notify.slack.webhook-url=https://hooks.slack.com/services/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
+spring.boot.admin.notify.slack.message="#{application.name} (#{application.id}) is #{to.status}"
+
+````
+
+
