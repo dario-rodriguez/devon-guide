@@ -87,6 +87,7 @@ security.user.password=admin123
 ### Configure the client app.
 To configure the multiple application to Admin server add the below dependency and code. 
 
+1. Add the dependency
 ````XML
 <dependency>
       <groupId>de.codecentric</groupId>
