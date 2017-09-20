@@ -4,7 +4,7 @@
 
 * Setup Admin server
 * Configure the client app.
-* Add the log file.
+* Loglevel management.
 * Setup the email notification.
 * Setup Slack notification.
 
@@ -147,4 +147,22 @@ eureka.client.fetch-registry=false
 
 health.config.enabled=true 
 ````
+### Loglevel management
 
+1. Add dependency. 
+
+````XML
+<dependency>
+    <groupId>org.jolokia</groupId>
+    <artifactId>jolokia-core</artifactId>
+</dependency>
+````
+2. Add the logback-spring.xml file in resorce folder. 
+
+````XML
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<include resource="org/springframework/boot/logging/logback/base.xml"/>
+	<jmxConfigurator/>
+</configuration>
+````
