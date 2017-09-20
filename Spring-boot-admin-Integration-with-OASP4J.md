@@ -49,5 +49,11 @@ public class SpringBootApp{
 }
 ```` 
 2. Add the dependency.
- 
+ ````XML
+<dependency>
+      <groupId>de.codecentric</groupId>
+      <artifactId>spring-boot-admin-server-ui-login</artifactId>
+      <version>1.5.3</version>
+    </dependency>
+````
 
