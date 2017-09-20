@@ -48,6 +48,6 @@ public class SpringBootApp{
 
 }
 ```` 
-2. Add the below dependency.
+2. Add the dependency.
  
 
