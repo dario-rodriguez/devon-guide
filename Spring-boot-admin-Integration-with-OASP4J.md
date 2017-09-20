@@ -76,4 +76,12 @@ public class SpringBootApp{
 ````
 3. Add the properties to the application.properties file. 
  
+````java
+spring.application.name=Admin-Application
+server.port=1111
+
+management.security.enabled=false
+security.user.name=admin
+security.user.password=admin123
+````
 
