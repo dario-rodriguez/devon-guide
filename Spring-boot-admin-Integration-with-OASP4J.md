@@ -166,3 +166,13 @@ health.config.enabled=true
 	<jmxConfigurator/>
 </configuration>
 ````
+### Setup the email notification.
+
+````XML
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-mail</artifactId>
+</dependency>
+````
+
+
