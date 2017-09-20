@@ -167,6 +167,7 @@ health.config.enabled=true
 </configuration>
 ````
 ### Setup the email notification.
+1. Add the dependency
 
 ````XML
 <dependency>
