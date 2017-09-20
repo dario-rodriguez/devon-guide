@@ -92,19 +92,17 @@ To configure the multiple application to Admin server add the below dependency a
       <groupId>de.codecentric</groupId>
       <artifactId>spring-boot-admin-starter-client</artifactId>
       <version>1.5.1</version>
-    </dependency>
+</dependency>
 
-    <dependency>
+<dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-actuator</artifactId>
-    </dependency>
+</dependency>
     
-
-    <dependency>
-      <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-starter-eureka</artifactId>
-      <version>1.3.1.RELEASE</version>
-    </dependency>
-
+ <dependency>
+     <groupId>org.springframework.cloud</groupId>
+     <artifactId>spring-cloud-starter-eureka</artifactId>
+     <version>1.3.1.RELEASE</version>
+ </dependency>
 ````
 
