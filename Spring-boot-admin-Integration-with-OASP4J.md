@@ -206,5 +206,10 @@ public class NotifierConfiguration {
 3. Add the properties to the application.properties file. 
 
 ````java
+spring.mail.host=smtp.gmail.com
+spring.boot.admin.notify.mail.to=admin@gmail.com
+spring.boot.admin.notify.mail.enabled=true
+spring.boot.admin.notify.mail.to=user@gmail.com
+
 
 ````
