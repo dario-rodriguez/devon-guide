@@ -54,6 +54,18 @@ public class SpringBootApp{
       <groupId>de.codecentric</groupId>
       <artifactId>spring-boot-admin-server-ui-login</artifactId>
       <version>1.5.3</version>
-    </dependency>
+</dependency>
+
+  <dependency>
+      <groupId>de.codecentric</groupId>
+      <artifactId>spring-boot-admin-server</artifactId>
+      <version>1.5.3</version>
+  </dependency>
+
+  <dependency>
+      <groupId>de.codecentric</groupId>
+      <artifactId>spring-boot-admin-server-ui</artifactId>
+      <version>1.5.3</version>
+  </dependency>
 ````
 
