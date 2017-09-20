@@ -175,5 +175,33 @@ health.config.enabled=true
     <artifactId>spring-boot-starter-mail</artifactId>
 </dependency>
 ````
+2 . Add the add the class NotifierConfiguration
+
+````java
+@Configuration
+@EnableScheduling
+public class NotifierConfiguration {
+  @Autowired
+  private Notifier delegate;
+
+  @Bean
+  public FilteringNotifier filteringNotifier() { 
+    return new FilteringNotifier(delegate);
+  }
+
+  @Bean
+  @Primary
+  public RemindingNotifier remindingNotifier() { 
+    RemindingNotifier notifier = new RemindingNotifier(filteringNotifier());
+    notifier.setReminderPeriod(TimeUnit.SECONDS.toMillis(10));
+    return notifier;
+  }
+
+  @Scheduled(fixedRate = 1_000L)
+  public void remind() {
+    remindingNotifier().sendReminders();
+  }
+}
+````
 
 
