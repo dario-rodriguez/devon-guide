@@ -203,5 +203,8 @@ public class NotifierConfiguration {
   }
 }
 ````
+3. Add the properties to the application.properties file. 
 
+````java
 
+````
