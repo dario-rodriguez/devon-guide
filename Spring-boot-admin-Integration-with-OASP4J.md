@@ -37,8 +37,7 @@ public class SpringBootApp{
       http.csrf().disable();
 
       // Requests for the login page and the static assets are allowed
-      http.authorizeRequests().antMatchers("/login.html", "/**/*.css", "/img/**", "/third-party/**",
-          "/api/turbine/stream/**", "/api/turbine/clusters", "/turbine.stream").permitAll();
+      http.authorizeRequests().antMatchers("/login.html", "/**/*.css", "/img/**", "/third-party/**").permitAll();
       // ... and any other request needs to be authorized
       http.authorizeRequests().antMatchers("/**").authenticated();
 
