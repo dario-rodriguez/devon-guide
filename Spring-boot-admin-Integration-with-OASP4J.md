@@ -9,3 +9,6 @@
 * Setup Slack notification.
 
  ### Setup Admin server
+ To create Admin server create the Spring.io Application and follow the below steps. 
+ 
+
