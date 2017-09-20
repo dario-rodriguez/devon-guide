@@ -106,4 +106,26 @@ To configure the multiple application to Admin server add the below dependency a
      <version>1.3.1.RELEASE</version>
  </dependency>
 ````
+2. Add the annotation @EnableEurekaClient to spring boot class
+
+````java
+@EnableEurekaClient
+@SpringBootApplication // (exclude = { EndpointAutoConfiguration.class, ErrorMvcAutoConfiguration.class })
+@EntityScan(basePackages = { "com.carpool" }, basePackageClasses = { AdvancedRevisionEntity.class })
+@EnableGlobalMethodSecurity(jsr250Enabled = true)
+public class SpringBootApp {
+
+  /**
+   * Entry point for spring-boot based app
+   *
+   * @param args - arguments
+   */
+  public static void main(String[] args) {
+
+    SpringApplication.run(SpringBootApp.class, args);
+
+  }
+
+}
+````
 
