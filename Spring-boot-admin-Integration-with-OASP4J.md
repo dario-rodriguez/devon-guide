@@ -74,4 +74,6 @@ public class SpringBootApp{
       <version>1.5.3</version>
   </dependency>
 ````
+3. Add the properties to the file. 
+ 
 
