@@ -5,8 +5,6 @@ Spring boot admin is monitoring Application to manage multiple Spring applicatio
 * Setup Admin server
 * Configure the client app.
 * Loglevel management.
-* Setup the email notification.
-* Setup Slack notification.
 
  ### Setup Admin server
  To create Admin server create the Spring.io Application and follow the below steps. 
@@ -165,66 +163,6 @@ health.config.enabled=true
 	<include resource="org/springframework/boot/logging/logback/base.xml"/>
 	<jmxConfigurator/>
 </configuration>
-````
-### Setup the email notification.
-1. Add the dependency
-
-````XML
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-mail</artifactId>
-</dependency>
-````
-2 . Add the add the class NotifierConfiguration
-
-````java
-@Configuration
-@EnableScheduling
-public class NotifierConfiguration {
-  @Autowired
-  private Notifier delegate;
-
-  @Bean
-  public FilteringNotifier filteringNotifier() { 
-    return new FilteringNotifier(delegate);
-  }
-
-  @Bean
-  @Primary
-  public RemindingNotifier remindingNotifier() { 
-    RemindingNotifier notifier = new RemindingNotifier(filteringNotifier());
-    notifier.setReminderPeriod(TimeUnit.SECONDS.toMillis(10));
-    return notifier;
-  }
-
-  @Scheduled(fixedRate = 1_000L)
-  public void remind() {
-    remindingNotifier().sendReminders();
-  }
-}
-````
-3. Add the properties to the application.properties file. 
-
-````java
-spring.mail.host=smtp.gmail.com
-spring.boot.admin.notify.mail.to=admin@gmail.com
-spring.boot.admin.notify.mail.enabled=true
-spring.boot.admin.notify.mail.to=user@gmail.com
-
-
-````
-### Setup Slack notification.
-To enable Slack notifications you need to add a incoming Webhook under custom integrations on your Slack account and configure it appropriately.
-
-1. Add the properties to the application.properties file. 
-
-````java
-spring.boot.admin.notify.slack.enabled=true
-spring.boot.admin.notify.slack.username=user123
-spring.boot.admin.notify.slack.channel=general
-spring.boot.admin.notify.slack.webhook-url=https://hooks.slack.com/services/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
-spring.boot.admin.notify.slack.message="#{application.name} (#{application.id}) is #{to.status}"
-
 ````
 
 
