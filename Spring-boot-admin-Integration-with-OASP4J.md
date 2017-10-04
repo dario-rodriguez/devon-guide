@@ -89,7 +89,7 @@ The following steps are for using Eureka, but other Spring Cloud Discovery imple
   <artifactId>spring-cloud-starter-eureka</artifactId>
 </dependency>
 ````
-
+2. Add the Spring Boot Admin Server configuration via adding @EnableAdminServer to your spring boot class.
 
 ````java
 @EnableEurekaClient
