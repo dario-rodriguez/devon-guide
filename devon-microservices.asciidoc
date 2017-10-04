@@ -69,6 +69,37 @@ link:http://cloud.spring.io/spring-cloud-static/spring-cloud-netflix/1.3.0.M1/#r
 
 == How to create microservices in Devonfw
 
+Follow the instructions in the link below to set up Devonfw distribution
+
+link:getting-started-download-and-install[getting started download and install Devonfw distribution] 
+
+Next, install Devonfw modules and dependencies
+
+==== Step 1: Open the console
+
+Open the Devonfw console by executing the batch file _console.bat_ from the Devonfw distribution. It is a pre-configured console which automatically uses the software and configuration provided by the Devonfw distribution.
+
+==== Step 2: Change the directory
+
+Run the following command in the console to change to the directory to `workspaces\examples\devon`.
+
+[source,bash]
+----
+cd workspaces\examples\devon
+---- 
+
+==== Step 3: Install
+
+To install modules and dependencies, you need to execute the following command:
+
+[source,bash]
+----
+mvn install
+----
+
+[NOTE]
+In case `mvn install` fails, try running the command again as it can be due to hitch in the network connection. If the the install is still not successful try installing subset of the modules using `mvn --projects <module1>,<module2> --also-make install`.
+
 In order to generate microservices in a Devonfw project we can choose between two approaches:
 
 - generate a new OASP4J application and implement one by one all the needed components (based on Spring Cloud).
