@@ -3,42 +3,17 @@ Spring Boot Admin is a application to manage and monitor your Spring Boot Applic
  ### Setup the Spring boot Admin server
   To run the spring boot admin. First, you need to setup admin server. To do this create the spring.io project and follow the below steps.     
 
-1. Add the code in spring boot class.
+1. Add the Spring Boot Admin Server configuration via adding @EnableAdminServer to your spring boot class.
 
 ````java
-@EnableAdminServer
+
 @Configuration
-@EnableDiscoveryClient
-@SpringBootApplication
+@EnableAutoConfiguration
+@EnableAdminServer
 public class SpringBootApp{
-
-  public static void main(String[] args) {
-
-    SpringApplication.run(BootadminApplication.class, args);
-  }
-
-  @Configuration
-  public static class SecurityConfig extends WebSecurityConfigurerAdapter {
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-
-      // Page with login form is served as /login.html and does a POST on /login
-      http.formLogin().loginPage("/login.html").loginProcessingUrl("/login").permitAll();
-      // The UI does a POST on /logout on logout
-      http.logout().logoutUrl("/logout");
-      // The ui currently doesn't support csrf
-      http.csrf().disable();
-
-      // Requests for the login page and the static assets are allowed
-      http.authorizeRequests().antMatchers("/login.html", "/**/*.css", "/img/**", "/third-party/**").permitAll();
-      // ... and any other request needs to be authorized
-      http.authorizeRequests().antMatchers("/**").authenticated();
-
-      // Enable so that the clients can authenticate via HTTP basic for registering
-      http.httpBasic();
+    public static void main(String[] args) {
+        SpringApplication.run(SpringBootAdminApplication.class, args);
     }
-  }
-
 }
 ```` 
 2. Add the dependency.
