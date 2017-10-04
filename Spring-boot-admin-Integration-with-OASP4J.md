@@ -31,7 +31,18 @@ public class SpringBootApp{
     }
 }
 ```` 
-3. Add the properties to the application.properties file. 
+3. If you want the login for the sever , then add the login depedency . 
+
+````Xml
+<dependency>
+    <groupId>de.codecentric</groupId>
+    <artifactId>spring-boot-admin-server-ui-login</artifactId>
+    <version>1.5.3</version>
+</dependency>
+
+````
+
+4. Add the properties to the application.properties file. 
  
 ````java
 spring.application.name=Admin-Application
