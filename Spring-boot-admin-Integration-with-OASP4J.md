@@ -53,7 +53,8 @@ security.user.name=admin
 security.user.password=admin123
 ````
 ### Register the client app.
-To configure the multiple application to Admin server add the below dependency and code to each app. 
+
+Spring boot admin gives the monitoring status of multiple spring.io application and these applications are registered as the client application to spring boot admin server. 
 
 1. Add the dependency
 ````XML
