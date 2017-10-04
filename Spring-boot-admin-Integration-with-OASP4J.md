@@ -31,32 +31,6 @@ public class SpringBootApp{
     }
 }
 ```` 
-2. Add the dependency.
- ````XML
-
- <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-security</artifactId>
- </dependency>
-
-<dependency>
-      <groupId>de.codecentric</groupId>
-      <artifactId>spring-boot-admin-server-ui-login</artifactId>
-      <version>1.5.3</version>
-</dependency>
-
-  <dependency>
-      <groupId>de.codecentric</groupId>
-      <artifactId>spring-boot-admin-server</artifactId>
-      <version>1.5.3</version>
-  </dependency>
-
-  <dependency>
-      <groupId>de.codecentric</groupId>
-      <artifactId>spring-boot-admin-server-ui</artifactId>
-      <version>1.5.3</version>
-  </dependency>
-````
 3. Add the properties to the application.properties file. 
  
 ````java
