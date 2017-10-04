@@ -52,6 +52,38 @@ management.security.enabled=false
 security.user.name=admin
 security.user.password=admin123
 ````
+
+5. Securing Spring Boot Admin Server
+
+Since there are several approaches on solving authentication and authorization in distributed web applications Spring Boot Admin doesn’t ship a default one. If you include the spring-boot-admin-server-ui-login in your dependencies it will provide a login page and a logout button.
+
+Add the below configuration. 
+
+````Java
+@Configuration
+  public static class SecurityConfig extends WebSecurityConfigurerAdapter {
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+      // Page with login form is served as /login.html and does a POST on /login
+      http.formLogin().loginPage("/login.html").loginProcessingUrl("/login").permitAll();
+      // The UI does a POST on /logout on logout
+      http.logout().logoutUrl("/logout");
+      // The ui currently doesn't support csrf
+      http.csrf().disable();
+
+      // Requests for the login page and the static assets are allowed
+      http.authorizeRequests()
+          .antMatchers("/login.html", "/**/*.css", "/img/**", "/third-party/**")
+          .permitAll();
+      // ... and any other request needs to be authorized
+      http.authorizeRequests().antMatchers("/**").authenticated();
+
+      // Enable so that the clients can authenticate via HTTP basic for registering
+      http.httpBasic();
+    }
+  }
+````
+
 ### Register the client app.
 
 Spring boot admin gives the monitoring status of multiple spring.io application.These applications are registered as the client application to spring boot admin server.You can register application with the spring-boot-admin-client or with use Spring Cloud Discovery (e.g. Eureka, Consul, …​).    
