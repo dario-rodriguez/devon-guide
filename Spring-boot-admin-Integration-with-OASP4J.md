@@ -61,19 +61,9 @@ Spring boot admin gives the monitoring status of multiple spring.io application 
 <dependency>
       <groupId>de.codecentric</groupId>
       <artifactId>spring-boot-admin-starter-client</artifactId>
-      <version>1.5.1</version>
+      <version>1.5.3</version>
 </dependency>
 
-<dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-actuator</artifactId>
-</dependency>
-    
- <dependency>
-     <groupId>org.springframework.cloud</groupId>
-     <artifactId>spring-cloud-starter-eureka</artifactId>
-     <version>1.3.1.RELEASE</version>
- </dependency>
 ````
 2. Add the annotation @EnableEurekaClient to spring boot class
 
