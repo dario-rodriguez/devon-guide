@@ -52,7 +52,7 @@ management.security.enabled=false
 security.user.name=admin
 security.user.password=admin123
 ````
-### Configure the client app.
+### Register the client app.
 To configure the multiple application to Admin server add the below dependency and code to each app.
 
 1. Add the dependency
