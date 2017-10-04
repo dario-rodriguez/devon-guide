@@ -56,7 +56,7 @@ security.user.password=admin123
 
 Spring boot admin gives the monitoring status of multiple spring.io application and these applications are registered as the client application to spring boot admin server. 
 
-1. Add the dependency
+1. Register  the spring-boot-admin-starter-client  
 ````XML
 <dependency>
       <groupId>de.codecentric</groupId>
