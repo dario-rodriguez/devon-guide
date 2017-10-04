@@ -1,9 +1,9 @@
-Spring Boot Admin is a application to manage and monitor your Spring Boot Applications. The applications register with our Spring Boot Admin Client (via HTTP) or are discovered using Spring Cloud (e.g. Eureka). The UI is just an AngularJs application on top of the Spring Boot Actuator endpoints.
+Spring Boot Admin is application to manage and monitor your Spring Boot Applications. The applications register with our Spring Boot Admin Client (via HTTP) or are discovered using Spring Cloud (e.g. Eureka). The UI is just an AngularJs application on top of the Spring Boot Actuator endpoints. It 
 
  ### Setup the Spring boot Admin server
   To run the spring boot admin. First, you need to setup admin server. To do this create the spring.io project and follow the below steps.  
 
-1. Add Spring Boot Admin Server and the UI depedency to the pom.xml file . 
+1. Add Spring Boot Admin Server and the UI dependency to the pom.xml file. 
 ````Xml
 <dependency>
     <groupId>de.codecentric</groupId>
@@ -54,9 +54,10 @@ security.user.password=admin123
 ````
 ### Register the client app.
 
-Spring boot admin gives the monitoring status of multiple spring.io application .These applications are registered as the client application to spring boot admin server. 
+Spring boot admin gives the monitoring status of multiple spring.io application.These applications are registered as the client application to spring boot admin server. 
 
-1. Register  the spring-boot-admin-starter-client  
+###Register with spring-boot-admin-starter-client  
+
 ````XML
 <dependency>
       <groupId>de.codecentric</groupId>
