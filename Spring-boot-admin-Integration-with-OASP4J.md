@@ -54,7 +54,7 @@ security.user.password=admin123
 ````
 ### Register the client app.
 
-Spring boot admin gives the monitoring status of multiple spring.io application and these applications are registered as the client application to spring boot admin server. 
+Spring boot admin gives the monitoring status of multiple spring.io application .These applications are registered as the client application to spring boot admin server. 
 
 1. Register  the spring-boot-admin-starter-client  
 ````XML
