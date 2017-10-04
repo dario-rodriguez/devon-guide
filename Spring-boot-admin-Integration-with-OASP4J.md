@@ -56,7 +56,9 @@ security.user.password=admin123
 
 Spring boot admin gives the monitoring status of multiple spring.io application.These applications are registered as the client application to spring boot admin server. 
 
-###Register with spring-boot-admin-starter-client  
+### Register with spring-boot-admin-starter-client  
+
+1. Add spring-boot-admin-starter-client dependency to the pom.xml file. 
 
 ````XML
 <dependency>
@@ -66,6 +68,13 @@ Spring boot admin gives the monitoring status of multiple spring.io application.
 </dependency>
 
 ````
+2. Enable the SBA Client by configuring the URL of the Spring Boot Admin Server:
+
+````java
+spring.boot.admin.url= http://localhost:8080  
+management.security.enabled= false 
+````
+
 2. Add the annotation @EnableEurekaClient to spring boot class
 
 ````java
