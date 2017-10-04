@@ -75,7 +75,21 @@ spring.boot.admin.url= http://localhost:8080
 management.security.enabled= false 
 ````
 
-2. Add the annotation @EnableEurekaClient to spring boot class
+### Spring Cloud Discovery
+
+If you already use Spring Cloud Discovery for your applications you don’t need the SBA Client. Just make the Spring Boot Admin Server a DiscoveryClient, the rest is done by our AutoConfiguration.
+
+The following steps are for using Eureka, but other Spring Cloud Discovery implementations are supported as well. There are examples using Consul and Zookeeper.
+
+1. Add spring-cloud-starter-eureka dependency to the pom.xml file. 
+
+````Xml
+<dependency>
+  <groupId>org.springframework.cloud</groupId>
+  <artifactId>spring-cloud-starter-eureka</artifactId>
+</dependency>
+````
+
 
 ````java
 @EnableEurekaClient
