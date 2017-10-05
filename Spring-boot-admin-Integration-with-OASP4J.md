@@ -113,7 +113,7 @@ management.security.enabled= false
 
 If you already use Spring Cloud Discovery for your applications you don’t need the SBA Client. Just make the Spring Boot Admin Server a DiscoveryClient, the rest is done by our AutoConfiguration.
 
-The following steps are for using Eureka, but other Spring Cloud Discovery implementations are supported as well. There are examples using [[ Consul |https://github.com/codecentric/spring-boot-admin/tree/master/spring-boot-admin-samples/spring-boot-admin-sample-consul/]]and [[ Zookeeper |https://github.com/codecentric/spring-boot-admin/tree/master/spring-boot-admin-samples/spring-boot-admin-sample-zookeeper/]].
+The following steps are for using Eureka, but other Spring Cloud Discovery implementations are supported as well. There are examples using [[ Consul |https://github.com/codecentric/spring-boot-admin/tree/master/spring-boot-admin-samples/spring-boot-admin-sample-consul/]] and [[ Zookeeper |https://github.com/codecentric/spring-boot-admin/tree/master/spring-boot-admin-samples/spring-boot-admin-sample-zookeeper/]].
 
 1. Add spring-cloud-starter-eureka dependency to the pom.xml file. 
 
