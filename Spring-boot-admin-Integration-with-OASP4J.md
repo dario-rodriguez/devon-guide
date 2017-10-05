@@ -88,7 +88,7 @@ Add the below configuration.
 
 ### Register the client app.
 
-Spring boot admin gives the monitoring status of multiple [[ spring.io|http://start.spring.io]] application.These applications are registered as the client application to spring boot admin server.You can register application with the spring-boot-admin-client or with use Spring Cloud Discovery (e.g. Eureka, Consul, …​).    
+Spring boot admin gives the monitoring status of multiple [[ spring.io|http://start.spring.io]] application.These applications are registered as the client application to spring boot admin server.You can register the application with the spring-boot-admin-client or  use [[ Spring Cloud Discovery|http://projects.spring.io/spring-cloud/spring-cloud.html]] (e.g. Eureka, Consul, …).    
 
 #### Register with spring-boot-admin-starter-client  
 
