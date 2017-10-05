@@ -94,11 +94,11 @@ To install modules and dependencies, you need to execute the following command:
 
 [source,bash]
 ----
-mvn install
+mvn --projects bom,modules/microservices/microservices,modules/microservices/microservice-archetype,modules/microservices/microservice-infra-archetype  --also-make install
 ----
 
 [NOTE]
-In case `mvn install` fails, try running the command again as it can be due to hitch in the network connection. If installation is still not successful try installing subset of the modules using `mvn --projects <module1>,<module2> --also-make install` e.g `mvn --projects modules/microservices --also-make install` to install just Microservices module and its dependencies.
+In case installation fails, try running the command again as it is often due to hitch in the network.
 
 Now, you can use the Microservices archetype given below to create Microservices. 
 
