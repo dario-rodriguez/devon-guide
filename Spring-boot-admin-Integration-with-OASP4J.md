@@ -1,6 +1,8 @@
 Spring Boot Admin is an application to manage and monitor your [[ Spring Boot Applications|http://projects.spring.io/spring-boot/]]. The applications register with our Spring Boot Admin Client (via HTTP) or are discovered using Spring Cloud (e.g. Eureka). The UI is just an AngularJs application on top of the Spring Boot Actuator endpoints.  
 
 ## Configure the Spring boot admin for the OASP4J App.  
+ 
+Following shows that 
 
 [[images/springbootadmin/springbootadminserver.PNG]]
 
