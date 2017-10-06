@@ -201,3 +201,15 @@ Now we will see another feature called notifications from Spring Boot Admin. Thi
 * Slack Notifications
 * Let’s Chat Notifications
 
+Here, we will configure Slack notifications. Add the below properties to the Spring Boot Admin Server’s application.properties file.To enable Slack notifications you need to add an incoming Webhook under custom integrations on your Slack account and configure it appropriately.
+
+````java
+spring.boot.admin.notify.slack.enabled=true
+spring.boot.admin.notify.slack.username=user123
+spring.boot.admin.notify.slack.channel=general
+spring.boot.admin.notify.slack.webhook-url=https://hooks.slack.com/services/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
+spring.boot.admin.notify.slack.message="#{application.name} (#{application.id}) is #{to.status}"
+
+````
+
+
