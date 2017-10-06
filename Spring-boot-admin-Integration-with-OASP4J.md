@@ -1,11 +1,7 @@
 Spring Boot Admin is an application to manage and monitor your [[ Spring Boot Applications|http://projects.spring.io/spring-boot/]]. The applications register with our Spring Boot Admin Client (via HTTP) or are discovered using Spring Cloud (e.g. Eureka). The UI is just an AngularJs application on top of the Spring Boot Actuator endpoints.  
 
 ## Configure the Spring boot admin for the OASP4J App.  
- 
-Following shows that 
-
-[[images/springbootadmin/springbootadminserver.PNG]]
-
+  
  ### Setting up Spring boot Admin server
   To run the spring boot admin. First, you need to setup admin server. To do this create the [[ spring.io|http://start.spring.io]] project and follow the below steps.  
 
@@ -89,6 +85,9 @@ Add the below configuration.
     }
   }
 ````
+ Below is the screenshot of the Admin Server UI.
+
+[[images/springbootadmin/springbootadminserver.PNG]]
 
 ### Register the client app.
 
@@ -114,8 +113,6 @@ management.security.enabled= false
 ````
 
 #### Register with Spring Cloud Discovery
-
-[[images/springbootadmin/Springbootclient.PNG]]
 
 If you already use Spring Cloud Discovery for your applications you don’t need the SBA Client. Just make the Spring Boot Admin Server a DiscoveryClient, the rest is done by our AutoConfiguration.
 
@@ -169,6 +166,10 @@ eureka.client.fetch-registry=false
 
 health.config.enabled=true 
 ````
+Detailed view of an application is given below. In this view we can see the tail of the log file, metrics, environment variables, log configuration where we can dynamically switch the log levels at the component level, root level or package level and other information.
+
+[[images/springbootadmin/Springbootclient.PNG]]
+
 ### Loglevel management
 
 1. Add dependency. 
