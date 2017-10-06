@@ -2,6 +2,7 @@ Spring Boot Admin is an application to manage and monitor your [[ Spring Boot Ap
 
 ## Configure the Spring boot admin for the OASP4J App.  
 
+[[images/springbootadmin/springbootadminserver.PNG]]
 
  ### Setting up Spring boot Admin server
   To run the spring boot admin. First, you need to setup admin server. To do this create the [[ spring.io|http://start.spring.io]] project and follow the below steps.  
