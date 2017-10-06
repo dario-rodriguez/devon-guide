@@ -172,6 +172,8 @@ Detailed view of an application is given below. In this view we can see the tail
 
 ### Loglevel management
 
+For applications using Spring Boot 1.5.x (or later) you can manage loglevels out-of-the-box. For applications using older versions of Spring Boot the loglevel management is only available for [[ Logback|https://logback.qos.ch/]]. It is accessed via JMX so include Jolokia in your application. In addition you have configure Logback’s JMXConfigurator:
+
 1. Add dependency. 
 
 ````XML
