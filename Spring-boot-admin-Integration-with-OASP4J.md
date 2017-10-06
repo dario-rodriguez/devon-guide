@@ -191,3 +191,13 @@ Detailed view of an application is given below. In this view we can see the tail
 ````
 [[images/springbootadmin/Logging.PNG]]
 
+### Notification
+
+Now we will see another feature called notifications from Spring Boot Admin. This will notify the administrators when the application status is  DOWN or an application status is coming UP. Spring Boot admin supports the below channels to notify the user.
+
+* Email Notifications
+* Pagerduty Notifications
+* Hipchat Notifications
+* Slack Notifications
+* Let’s Chat Notifications
+
