@@ -51,6 +51,8 @@
 * link:Compatibility-guide-for-Java7-Java8-and-Tomcat7-Tomcat8[Compatibility guide for Java7, Java8 and Tomcat7, Tomcat8]
 * link:OASP4J-project-without-database[OASP4J project without database]
 * link:Spring-boot-admin-Integration-with-OASP4J[Spring boot admin integration with OASP4J]
+* link:Integrate-Spring-boot-admin-with-client-as-module-for-OASP4J--apps[Integrate spring boot admin with OASP4j app 
+ client module]
 
 == The Presentation Layer: Getting Started with Devon4Sencha
 
