@@ -36,6 +36,7 @@
 * link:cookbook-JAX-WS-WebServices[JAX-WS Web Services]
 * link:cookbook-batch-layer[Batch Layer]
 * link:cookbook-spring-data[Integrating Spring Data]
+* link:cookbook-Mybatis[Integrating Mybatis]
 * link:cookbook-websocket[WebSocket]
 * link:cookbook-File-Upload-and-Download[File Upload and Download]
 * link:devon-microservices[devonfw microservices]
