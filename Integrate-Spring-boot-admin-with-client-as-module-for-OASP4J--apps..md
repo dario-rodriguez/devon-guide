@@ -17,7 +17,7 @@ You can directly check out the Spring boot Admin server from the [[ repo |https:
 ``` 
  **2. Add the below property and change the values as per server configuration like admin.url , username, password 
 
-```xml
+```java
 eureka.client.serviceUrl.defaultZone=${EUREKA_URI:http://localhost:8180/eureka}
 spring.boot.admin.url=http://localhost:1111
 management.security.enabled=false
