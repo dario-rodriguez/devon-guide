@@ -6,7 +6,7 @@ You can directly check out the Spring boot Admin server from the [[ repo |https:
 
 ###  Configure OASP4J app as a client. 
   
-  **1. Add the module dependency  
+  **1. Add the module dependency.  
   
 ```xml
   <dependency>
@@ -15,6 +15,22 @@ You can directly check out the Spring boot Admin server from the [[ repo |https:
       <version>2.2.0</version>
   </dependency>
 ``` 
+ **2. Add the below property and change the values as per server configuration like admin.url , username, password 
+
+```xml
+eureka.client.serviceUrl.defaultZone=${EUREKA_URI:http://localhost:8180/eureka}
+spring.boot.admin.url=http://localhost:1111
+management.security.enabled=false
+spring.boot.admin.username=admin
+spring.boot.admin.password=admin123
+logging.file=target/${spring.application.name}.log
+
+eureka.instance.hostname=localhost
+eureka.client.register-with-eureka=false
+eureka.client.fetch-registry=false
+
+health.config.enabled=true 
+```
 
  
 
