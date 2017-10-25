@@ -17,7 +17,7 @@ Check out the Spring boot Admin server from the [[ repo |https://github.com/Hima
       <version>2.2.0</version>
   </dependency>
 ``` 
-  2. Add the below property and change the values as per the spring boot admin server configuration like admin.url , username, password 
+  2. Add the below property to application.properties file and change the values as per the spring boot admin server configuration like admin.url , username, password 
 
 ```java
 eureka.client.serviceUrl.defaultZone=${EUREKA_URI:http://localhost:8180/eureka}
