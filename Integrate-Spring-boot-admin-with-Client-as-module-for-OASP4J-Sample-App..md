@@ -1,0 +1,1 @@
+  Spring boot admin is an application to monitor and manage the different Spring.io applications.There are the different way to configure spring boot admin with spring.io apps. As many features available in it, you can configure as per your requirement. The documents you can refer 
