@@ -7,9 +7,9 @@ To setup spring boot admin for spring.io project you can refer the above wiki or
 
 You can directly check out the Spring boot Admin server from the [[ repo |https://github.com/Himanshu122798/spring-bootadmin-server]] or you can create own using the above reference document. 
 
-###  Configure OASP4J app as a client. 
+###  Configure module to OASP4J app. 
   
-  1. Add the module dependency.  
+  1. Add the dependency in pom.xml file of the core-module   
   
 ```xml
   <dependency>
