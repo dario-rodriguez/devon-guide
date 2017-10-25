@@ -5,7 +5,7 @@ Spring boot admin is an application to monitor and manage the different Spring.i
 
 ### Spring boot Admin server
 
-You can directly check out the Spring boot Admin server from the [[ repo |https://github.com/Himanshu122798/spring-bootadmin-server]] or you can create own using the above reference document. 
+You can directly check out the Spring boot Admin server from the [[ repo |https://github.com/Himanshu122798/spring-bootadmin-server]] .
 
 ###  Configure module to OASP4J app. 
   
