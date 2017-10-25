@@ -9,8 +9,7 @@ You can directly check out the Spring boot Admin server from the [[ repo |https:
 
 ###  Configure module to OASP4J app. 
   
-  1. Add the dependency in pom.xml file of the core-module   
-  
+  1. Add the dependency in pom.xml file
 ```xml
   <dependency>
       <groupId>com.capgemini.devonfw.modules</groupId>
