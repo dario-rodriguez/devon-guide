@@ -1,4 +1,4 @@
-:toc: macro
+ :toc: macro
 toc::[]
 
 = Integrate Mybatis module
