@@ -34,6 +34,8 @@ If the project is already imported in Eclipse then update project: Right click o
 
 
 == Basic implementation
+Class diagram for mybatis module
+
 ////
 First and foremost, you need to add the Mapper scanner for dependency injection. To do so, you must add the following annotations in the _SpringBoot_ main class:
 
