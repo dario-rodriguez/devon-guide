@@ -35,7 +35,7 @@ If the project is already imported in Eclipse then update project: Right click o
 
 === Basic implementation
 
-==== Add the Mapper scanner for dependency injection. To do so, you must add the following annotations in the _SpringBoot_ main class:
+===== Add the Mapper scanner for dependency injection. To do so, you must add the following annotations in the _SpringBoot_ main class:
 
 [source,java]
 ----
@@ -46,8 +46,8 @@ public class MyBootApp {
 }
 ----
 
-==== To access the module functionalities, 
-====== create DAO class - <Component>MybatisDao that extends AbstractGenericMybatisDao, 
+===== To access the module functionalities, 
+====== Create DAO class - <Component>MybatisDao that extends AbstractGenericMybatisDao, 
 ====== Autowired Mapper 
 ====== Add constructor
 
@@ -71,7 +71,7 @@ public class <Component>MybatisDao<T, PK> extends AbstractGenericMybatisDao<T, P
 }
 ----
 
-==== Create a (Interface)Mapper, and extends GenericMybatisMapper
+===== Create a (Interface)Mapper, and extends GenericMybatisMapper
 [source,java]
 ----
 public interface <Component>Mapper extends GenericMybatisMapper<<Component>MybatisEntity, Long> {
