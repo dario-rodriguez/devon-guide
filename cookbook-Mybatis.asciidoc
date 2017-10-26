@@ -13,7 +13,7 @@ MyBatis is a fork of iBATIS 3.0 and is maintained by a team that includes the or
 The module provides you a handle to a mybatis framework, and a bunch of predefined operations for managing the objects inside the service, for your Devon applications.
 To implement the module in a Devon project, you must follow these steps:
 
-=== * Adding the dependency in your project
+=== Adding the dependency in your project
 
 Include the module dependency in your pom.xml, verifying that the _version_ matches the last available version of the module
 [source,xml]
@@ -33,9 +33,9 @@ If the project is already imported in Eclipse then update project: Right click o
 
 
 
-=== * Basic implementation
+=== Basic implementation
 
-. Add the Mapper scanner for dependency injection. To do so, you must add the following annotations in the _SpringBoot_ main class:
+==== Add the Mapper scanner for dependency injection. To do so, you must add the following annotations in the _SpringBoot_ main class:
 
 [source,java]
 ----
@@ -46,10 +46,10 @@ public class MyBootApp {
 }
 ----
 
-. To access the module functionalities, 
-. . create DAO class - <Component>MybatisDao that extends AbstractGenericMybatisDao, 
-. . Autowired Mapper 
-. . Add constructor
+==== To access the module functionalities, 
+====== create DAO class - <Component>MybatisDao that extends AbstractGenericMybatisDao, 
+====== Autowired Mapper 
+====== Add constructor
 
 [source,java]
 ----
@@ -71,7 +71,7 @@ public class <Component>MybatisDao<T, PK> extends AbstractGenericMybatisDao<T, P
 }
 ----
 
-. Create a (Interface)Mapper, and extends GenericMybatisMapper
+==== Create a (Interface)Mapper, and extends GenericMybatisMapper
 [source,java]
 ----
 public interface <Component>Mapper extends GenericMybatisMapper<<Component>MybatisEntity, Long> {
@@ -92,7 +92,7 @@ List<<component>MybatisEntity> fetch(@Param("searchCriteria") SearchCriteria sea
 
 }
 ----
-. Accessing <Component>MybatisDao in logic(<component>Impl)
+==== Accessing <Component>MybatisDao in logic(<component>Impl)
 
 [source,java]
 ----
