@@ -1,15 +1,15 @@
 :toc: macro
 toc::[]
 
-= Compose for Redis module
+= Integrate Mybatis module
 
 == Introduction
 
-https://redis.io/[Redis] is an open-source, blazingly fast, key/value low maintenance store. https://www.compose.com/redis[Compose]'s platform gives you a configuration pre-tuned for high availability and locked down with additional security features. The component will manage the service connection and the main methods to manage the key/values on the storage.
+http://www.mybatis.org/mybatis-3/[MyBatis]  is a persistence framework with support for custom SQL, stored procedures and advanced mappings. MyBatis eliminates almost all of the JDBC code and manual setting of parameters and retrieval of results. MyBatis can use simple XML or Annotations for configuration and map primitives, Map interfaces and Java POJOs (Plain Old Java Objects) to database records.
 
-== Include Compose for Redis in a Devon project
+== Include MyBatis in a Devon project
 
-The module provides you a connection to a compose for redis service, and a bunch of predefined operations for managing the objects inside the service, for your Devon applications.
+The module provides you a handle to a mybatis framework, and a bunch of predefined operations for managing the objects inside the service, for your Devon applications.
 To implement the module in a Devon project, you must follow these steps:
 
 === Step 1: Adding the dependency in your project
@@ -19,8 +19,8 @@ Include the module dependency in your pom.xml, verifying that the _version_ matc
 ----
 <dependency>
   <groupId>com.capgemini.devonfw.modules</groupId>
-  <artifactId>devonfw-compose-redis</artifactId>
-  <version>2.2.0</version>
+  <artifactId>devonfw-mybatis</artifactId>
+  <version>2.2.1-SNAPSHOT</version>
 </dependency>
 ----
 
@@ -55,13 +55,11 @@ devon.redis.runTests.enable = false
 
 == Basic implementation
 ////
-First and foremost, you need to add the scanner for dependency injection. To do so, you must add the following annotations in the _SpringBoot_ main class:
+First and foremost, you need to add the Mapper scanner for dependency injection. To do so, you must add the following annotations in the _SpringBoot_ main class:
 
 [source,java]
 ----
-@Configuration
-@ComponentScan(basePackages = { "com.capgemini.devonfw.module.composeredis" })
-@EnableAutoConfiguration
+@MapperScan({ "io.oasp.application.mtsj.<component name>.mapper", "io.oasp.application.mtsj.<component name>.mapper" })
 public class MyBootApp {
 
     [...]
@@ -79,71 +77,63 @@ As you can see, the _basePackages_ of the _@ComponentScan_ points to the Compose
 ////
 === The injection of the module
 
-To access the module functionalities, you need to inject the module in a private property, it can be done using the _@Inject_ annotation
+To access the module functionalities, We need to create DAO - <Component>MybatisDao and extends AbstractGenericMybatisDao, Also Autowired Mapper and add constructor
 
 [source,java]
 ----
-public class MyClass {
+@Service
+public class <Component>MybatisDao<T, PK> extends AbstractGenericMybatisDao<T, PK> {
 
-    @Inject
-    LettuceManagement lettuceManagement;
+    @Autowired
+  private <Component>Mapper mapper;
+  
+   @Autowired
+  public <Component>MybatisDao(<Component>Mapper myBatisMapper) {
+    super(myBatisMapper);
+  }
+  
+  Add your methods here.
 
     [...]
 
 }
 ----
 
-The _lettuceManagement_ object will give us access to all the module functionalities described in the following section.
+Create a (Interface)Mapper, and extends GenericMybatisMapper
+[source,java]
+----
+public interface <Component>Mapper extends GenericMybatisMapper<<Component>MybatisEntity, Long> {
 
-== Available operations
+    @Options(useGeneratedKeys = true)
+  @Insert("Insert Query")
+  void insert(<Component>MybatisEntity <Component>MybatisEntity);
+  
+  @Delete("delete query")
+  void delete(long id);
+ 
+ //This search query should be placed in mapper.xml
+List<<component>MybatisEntity> fetch(@Param("searchCriteria") SearchCriteria searchCriteria, RowBounds rowBounds); 
+  
+  Add other methods here.
+
+    [...]
+
+}
+----
+Accessing <Component>MybatisDao in logic(<component>Impl)
 
 [source,java]
 ----
-/**
-   * Set a hash entry
-   * @param hashName hash name
-   * @param key key
-   * @param value value
-   * @return true if the entry has been set, false otherwise
-   */
-  boolean setHashEntry(String hashName, String key, String value);
+public class <Component>Impl {
 
-  /**
-   * Get a hash entry
-   * @param hashName hash name
-   * @param key key
-   * @return value
-   */
-  String getHashEntry(String hashName, String key);
+	//Autowired Dao
+    @Autowired
+  private <Component>MybatisDao <Component>MybatisDao;
 
-  /**
-   * Get a hash map
-   * @param hashName hash name
-   * @return map
-   */
-  Map<String, String> getHash(String hashName);
+  
+  use the dao in the methods.
 
-  /**
-   * Check if a Hash Entry exists
-   * @param hashName hash name
-   * @param key key
-   * @return true if it exists, false otherwise
-   */
-  Boolean hashEntryExists(String hashName, String key);
+    [...]
 
-  /**
-   * Set a hash map
-   * @param hashName The name for the map
-   * @param map The map object to be persisted on Redis
-   * @return simple-string-reply
-   */
-  String setHash(String hashName, Map<String, String> map);
-
-  /**
-   * Delete hash map entries
-   * @param hashName The name for the map
-   * @param fields Field names to be deleted
-   * @return True if all the given fields has been deleted, false otherwise
-   */
-  Boolean deleteHashEntries(String hashName, String... fields);
+}
 ----
