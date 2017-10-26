@@ -36,7 +36,6 @@ If the project is already imported in Eclipse then update project: Right click o
 == Basic implementation
 Class diagram for mybatis module
 
-////
 First and foremost, you need to add the Mapper scanner for dependency injection. To do so, you must add the following annotations in the _SpringBoot_ main class:
 
 [source,java]
@@ -48,15 +47,6 @@ public class MyBootApp {
 }
 ----
 
-Remember to include the package of the module in the _basePackages_ attribute of the `@ComponentScan` annotation alongside the packages for the rest of the relevant Spring Boot components.
-
-[source,java]
-----
-@ComponentScan(basePackages = { "com.capgemini.devonfw.module.composeredis" , "my.other.component.location.package" })
-----
-
-As you can see, the _basePackages_ of the _@ComponentScan_ points to the Composeredis module package. Now, you can start using the module.
-////
 === The injection of the module
 
 To access the module functionalities, We need to create DAO - <Component>MybatisDao and extends AbstractGenericMybatisDao, Also Autowired Mapper and add constructor
