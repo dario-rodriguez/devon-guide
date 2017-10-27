@@ -35,7 +35,7 @@ If the project is already imported in Eclipse then update project: Right click o
 
 === Basic implementation
 
-image::images/integrating-mybatis/mybatis_devonfw_classdiagram.jpg[, width="450", link="images/integrating-mybatis/mybatis_devonfw_classdiagram.jpg"] 
+[[images/integrating-mybatis/mybatis_devonfw_classdiagram.jpg]]
 
 ===== Add the Mapper scanner for dependency injection. To do so, you must add the following annotations in the _SpringBoot_ main class:
 
