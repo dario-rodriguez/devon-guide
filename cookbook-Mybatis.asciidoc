@@ -126,6 +126,6 @@ public class <Component>Impl {
 [source,java]
 ----
 Create an Entity with the Name <component>MybatisEntity.java
-It should have below attributes, this also should be there in table
+It should have below attributes,
 private Long id;//pk
 private int modificationCounter;//used for optimistic locking
