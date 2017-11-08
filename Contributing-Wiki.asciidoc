@@ -5,7 +5,7 @@ toc::[]
 
 Our wikis are written in the so called _AsciiDoc_ format. Check the https://powerman.name/doc/asciidoc[AsciidDoc cheatsheet] and the http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/[AsciiDoc quick reference] for more information. Knowing the following basic features should allow you to convert your Word documents into the Wiki friendly AsciiDoc format. 
 
-It is mandatory to follow the link:Contributing-Code-of-Conduct.asciidoc[code of conduct] that must be present in the root of every OSS or private project as `CODE_OF_CONDUCT.asciidoc` or `CODE_OF_CONDUCT.md`. 
+It is mandatory to follow the link:Contributing-Code-of-Conduct[code of conduct] that must be present in the root of every OSS or private project as `CODE_OF_CONDUCT.asciidoc` or `CODE_OF_CONDUCT.md`. 
 
 == Text styles
 
