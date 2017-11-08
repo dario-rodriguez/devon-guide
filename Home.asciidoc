@@ -212,6 +212,14 @@
 - link:Oomph_project[Creating an Oomph project]
 - link:Oomph_troubleshooting[Troubleshooting Oomph Setups]
 
+## Contributing
+
+- link:Contributing-Wiki.asciidoc[Wiki contribution using AsciiDoc]
+- link:Contributing-Code.asciidoc[Code contribution]
+- link:Contributing-Development-Guidelines.asciidoc[Development Guidelines]
+- link:Contributing-Git-Fork-Guide.asciidoc[Working with forked repositories]
+- link:Contributing-Code-of-Conduct.asciidoc[Code of Conduct]
+
 ## Appendix
 
 * link:release-notes-version-2.2[Release Notes devonfw version 2.2]

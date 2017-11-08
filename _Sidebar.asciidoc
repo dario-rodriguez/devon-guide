@@ -102,9 +102,7 @@
 == OASP4JS Cookbook
 
 * link:Client-GUI-Angular-Code-Conventions[OASP4JS Code Conventions]
-
 * link:Client-GUI-Angular-Providing-Accessibility[Providing Accessibility]
-
 * link:Client-GUI-Angular-Gulp-Tasks[Gulp Tasks]
 * link:Client-GUI-File-Upload-and-Download[File Upload and Download]
 
@@ -118,6 +116,14 @@
 * link:Oomph_product[Creating an Oomph Product]
 * link:Oomph_project[Creating an Oomph project]
 * link:Oomph_troubleshooting[Troubleshooting Oomph Setups]
+
+== Contributing
+
+* link:Contributing-Wiki.asciidoc[Wiki contribution using AsciiDoc]
+* link:Contributing-Code.asciidoc[Code contribution]
+* link:Contributing-Development-Guidelines.asciidoc[Development Guidelines]
+* link:Contributing-Git-Fork-Guide.asciidoc[Working with forked repositories]
+* link:Contributing-Code-of-Conduct.asciidoc[Code of Conduct template]
 
 == Appendix
 
