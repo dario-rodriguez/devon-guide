@@ -55,6 +55,7 @@ $ git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.
 ----
 
 . Verify the new upstream repository you've specified for your fork.
++
 [source, bash]
 ----
 $ git remote -v
