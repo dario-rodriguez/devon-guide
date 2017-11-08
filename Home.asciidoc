@@ -214,11 +214,11 @@
 
 ## Contributing
 
-- link:Contributing-Wiki.asciidoc[Wiki contribution using AsciiDoc]
-- link:Contributing-Code.asciidoc[Code contribution]
-- link:Contributing-Development-Guidelines.asciidoc[Development Guidelines]
-- link:Contributing-Git-Fork-Guide.asciidoc[Working with forked repositories]
-- link:Contributing-Code-of-Conduct.asciidoc[Code of Conduct]
+- link:Contributing-Wiki[Wiki contribution using AsciiDoc]
+- link:Contributing-Code[Code contribution]
+- link:Contributing-Development-Guidelines[Development Guidelines]
+- link:Contributing-Git-Fork-Guide[Working with forked repositories]
+- link:Contributing-Code-of-Conduct[Code of Conduct]
 
 ## Appendix
 
