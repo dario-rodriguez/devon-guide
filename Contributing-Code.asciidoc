@@ -67,7 +67,7 @@ In order to contribute to our projects, developers must follow the following lin
 * `ISSUE_TEMPLATE.asciidoc` that defines the appropriated way to submit an issue in a project repository. 
 * `PULL_REQUEST_TEMPLATE.asciidoc` that specifies the rules in order to submit a pull request in a project repository. 
 
-This files should be included at the root folder or in a `docs` folder. A good resource to find the correct issues and pull requests templates for your repository is https://github.com/stevemao/github-issue-templates[this repository]. 
+This files should be included at the root folder or in a `docs` folder. https://github.com/stevemao/github-issue-templates[This repository] is a good resource to find the perfect templates for issues and pull requests that fit in your repository. 
 
 === Process of contributing code to the devon/OASP projects
 
