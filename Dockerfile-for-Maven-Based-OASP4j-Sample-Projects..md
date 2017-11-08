@@ -6,7 +6,7 @@ Docker can build images automatically by reading the instructions from a Dockerf
 Let’s imagine the code is hosted on GitHub, and that it’s based on Maven. Build stages would be as follows:
 
 *1. Clone the code from GitHub.
-2.* Copy the folder from the previous stage; build the app with Maven.
-3* Copy the JAR from the previous stage; run it with java -jar
+*2. Copy the folder from the previous stage; build the app with Maven.
+*3. Copy the JAR from the previous stage; run it with java -jar
 
 
