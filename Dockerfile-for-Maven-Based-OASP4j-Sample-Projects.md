@@ -45,15 +45,22 @@ CMD ["java -jar ${artifact}"] (5)
 4 artifact must be an ENV, so as to be persisted in the final app image
 5 Use the artifact value at runtime
 ```
-### Building
-The spring-boot-app image can now be built using the following command-line:
+### 2.Building
+The spring-boot-app image can now be built using the following command-line . 
+Please change the parameters as per your project e.g.:
+
 ```
-docker build --build-arg url=https://github.com/spring-projects/spring-petclinic.git\
-  --build-arg project=spring-petclinic\
-  --build-arg artifactid=spring-petclinic\
-  --build-arg version=1.5.1\
-  -t spring-boot-app - < Dockerfile
+docker build --build-arg url=https://github.com/heroku/java-getting-started.git\
+  --build-arg project=java-getting-started\
+  --build-arg artifactid=java-getting-started\
+  --build-arg version=1.0\
+  -t java-getting-started - < Dockerfile
 ```
+
+
+
+
+
 #### Here is a sample dockerfile build file to start from:
 
 ```
