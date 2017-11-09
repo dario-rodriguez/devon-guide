@@ -7,7 +7,10 @@ Let’s imagine the code is hosted on GitHub, and that it’s based on Maven. Bu
 
 1. Clone the code from GitHub.
 2. Copy the folder from the previous stage; build the app with Maven.
-3. Copy the JAR from the previous stage; run it with java -war .
+3. Copy the JAR/WAR from the previous stage; run it with java -JAR/WAR .
+
+## Create , Build and Run the Dockerfile. 
+
 
 #### Here is a sample dockerfile build file to start from:
 
@@ -50,4 +53,6 @@ Use this command to run the Spring Boot application.
 ```
 docker run -p 8080:8080 mtsj
 ```
+
+
 
