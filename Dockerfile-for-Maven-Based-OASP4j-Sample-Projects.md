@@ -9,7 +9,7 @@ Let’s imagine the code is hosted on GitHub, and that it’s based on Maven. Bu
 2. Copy the folder from the previous stage; build the app with Maven.
 3. Copy the JAR/WAR from the previous stage; run it with java -JAR/WAR .
 
-## Create , Build and Run the Dockerfile. 
+### Create , Build and Run the Dockerfile. 
 
 
 #### Here is a sample dockerfile build file to start from:
