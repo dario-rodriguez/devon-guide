@@ -9,7 +9,7 @@ Let’s imagine the code is hosted on GitHub, and that it’s based on Maven. Bu
 2. Copy the folder from the previous stage; build the app with Maven.
 3. Copy the JAR from the previous stage; run it with java -war .
 
-#### Here is a build file to start from:
+#### Here is a dockerfile build file to start from:
 
 ```
 FROM alpine/git
