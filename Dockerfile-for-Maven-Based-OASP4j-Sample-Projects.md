@@ -41,7 +41,8 @@ Build the Docker image using following commands including the dot.
 ```
 docker build -f Dockerfile -t spring-boot-docker .
 ```
-```-t – for tagging the image. (in this example tag is spring-boot-docker).
+```
+-t – for tagging the image. (in this example tag is spring-boot-docker).
 -f – point to a Docker file location.
 ```
 ## Run Docker Image
