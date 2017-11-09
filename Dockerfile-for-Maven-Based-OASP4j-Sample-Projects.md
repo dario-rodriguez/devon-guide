@@ -59,7 +59,7 @@ docker build --build-arg url=https://github.com/username/java-getting-started.gi
 ### 3.Running
 Running an image built with the above command.
 ```
-docker run -ti -p8080:8080 nfrankel/spring-petclinic
+docker run -ti -p8080:8080 java-getting-started
 ```
 
 ## Sample dockerfile build file : 
