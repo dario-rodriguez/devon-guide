@@ -14,10 +14,11 @@ Let’s imagine the code is hosted on GitHub, and that it’s based on Maven. Bu
 #### 1. Create the docker file. 
 This docker build file can be used for building any web app with the following features:
 ```
-* * * The source code is hosted on GitHub.
-* * * The build tool is Maven.
-* * * The resulting output is an executable JAR/WAR file.
+*  The source code is hosted on GitHub.
+*  The build tool is Maven.
+*  The resulting output is an executable JAR/WAR file.
 ```
+
 ```
 FROM alpine/git as clone
 ARG url (1)
@@ -38,7 +39,11 @@ EXPOSE 8080
 CMD ["java -jar ${artifact}"] (5)
 ```
 ```
-
+1 url must be passed on the command line to set which GitHub repo to clone
+2 url is replaced by the passed value
+3 Same as <1>
+4 artifact must be an ENV, so as to be persisted in the final app image
+5 Use the artifact value at runtime
 ```
 
 
