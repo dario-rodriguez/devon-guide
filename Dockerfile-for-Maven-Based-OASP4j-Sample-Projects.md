@@ -35,4 +35,4 @@ It maps the above build stages:
 4. Copy the JAR from the previous build stage
 5. Run the app
 ```
-
+## Build a Docker Image
