@@ -36,3 +36,11 @@ It maps the above build stages:
 5. Run the app
 ```
 ## Build a Docker Image
+Build the Docker image using following commands including the dot.
+
+```docker build -f Dockerfile -t spring-boot-docker .
+```
+
+
+
+
