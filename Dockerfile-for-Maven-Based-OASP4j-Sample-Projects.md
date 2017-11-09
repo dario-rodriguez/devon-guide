@@ -62,8 +62,8 @@ Running an image built with the above command.
 docker run -ti -p8080:8080 nfrankel/spring-petclinic
 ```
 
-#### Here is a sample dockerfile build file to start from:
-
+## Sample dockerfile build file : 
+File Name : Dockerfile 
 ```
 FROM alpine/git
 WORKDIR /app
@@ -88,7 +88,7 @@ It maps the above build stages:
 4. Copy the JAR from the previous build stage
 5. Run the app
 ```
-## Build a Docker Image
+### 1 .Build a Docker Image
 Build the Docker image using following commands including the dot.
 
 ```
@@ -98,7 +98,7 @@ docker build -f Dockerfile -t mtsj .
 -t – for tagging the image. (in this example tag is mtsj).
 -f – point to a Docker file location.
 ```
-## Run Docker Image
+### 2.Run Docker Image
 Use this command to run the Spring Boot application.
 ```
 docker run -p 8080:8080 mtsj
