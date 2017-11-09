@@ -11,6 +11,28 @@ Let’s imagine the code is hosted on GitHub, and that it’s based on Maven. Bu
 
 ### Create , Build and Run the Dockerfile. 
 
+1. Create the docker file. 
+```
+
+FROM alpine/git as clone
+ARG url (1)
+WORKDIR /app
+RUN git clone ${url} (2)
+FROM maven:3.5-jdk-8-alpine as build
+ARG project (3)
+WORKDIR /app
+COPY --from=clone /app/${project} /app
+RUN mvn install
+FROM openjdk:8-jre-alpine
+ARG artifactid
+ARG version
+ENV artifact ${artifactid}-${version}.jar (4)
+WORKDIR /app
+COPY --from=build /app/target/${artifact} /app
+EXPOSE 8080
+CMD ["java -jar ${artifact}"] (5)
+```
+
 
 #### Here is a sample dockerfile build file to start from:
 
