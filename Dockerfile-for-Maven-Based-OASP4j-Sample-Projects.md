@@ -11,7 +11,7 @@ Let’s imagine the code is hosted on GitHub, and that it’s based on Maven. Bu
 
 #### Here is a build file to start from:
 
-````text
+```
 FROM alpine/git
 WORKDIR /app
 RUN git clone RUN git clone https://github.com/Himanshu122798/mtsj.git (1)
@@ -25,6 +25,6 @@ COPY --from=build /app/server/target/mtsj-server-bootified.war /app (4)
 EXPOSE 8080
 ENTRYPOINT ["sh", "-c"]  
 CMD ["java -jar mtsj-server-bootified.war"] (5)
-
+```
 
 
