@@ -39,15 +39,15 @@ It maps the above build stages:
 Build the Docker image using following commands including the dot.
 
 ```
-docker build -f Dockerfile -t spring-boot-docker .
+docker build -f Dockerfile -t mtsj .
 ```
 ```
--t – for tagging the image. (in this example tag is spring-boot-docker).
+-t – for tagging the image. (in this example tag is mtsj).
 -f – point to a Docker file location.
 ```
 ## Run Docker Image
 Use this command to run the Spring Boot application.
 ```
-docker run -p 8080:8080 spring-boot-docker
+docker run -p 8080:8080 mtsj
 ```
 
