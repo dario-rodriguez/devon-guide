@@ -46,5 +46,8 @@ docker build -f Dockerfile -t spring-boot-docker .
 -f – point to a Docker file location.
 ```
 ## Run Docker Image
-
+Use this command to run the Spring Boot application.
+```
+docker run -p 8080:8080 spring-boot-docker
+```
 
