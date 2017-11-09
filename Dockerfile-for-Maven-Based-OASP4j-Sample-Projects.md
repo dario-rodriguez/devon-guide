@@ -1,7 +1,9 @@
-Docker can build images automatically by reading the instructions from a Dockerfile. A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image. Using docker build users can create an automated build that executes several command-line instructions in succession.
+Docker can build images automatically by reading the instructions from a Dockerfile. A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image. Using `docker build` users can create an automated build that executes several command-line instructions in succession.
 
-## Use multi-stage builds
-  In Docker, one of the main issues is the size of the final image. It’s not uncommon to end up with images over 1 GB even for simple Java applications. Since version 17.05 of Docker, it’s possible to have multiple builds in a single Dockerfile, and to access the output of the previous build into the current one. Those are called multi-stage builds. The final image will be based on the last build stage.
+## Multi-stage builds
+In Docker, one of the main issues is the size of the final image. It’s not uncommon to end up with images over 1 GB even for simple Java applications. Since version 17.05 of Docker, it’s possible to have multiple builds in a single Dockerfile, and to access the output of the previous build into the current one. Those are called 
+[multi-stage builds](https://docs.docker.com/engine/userguide/eng-image/multistage-build/).
+The final image will be based on the last build stage.
 
 Let’s imagine the code is hosted on GitHub, and that it’s based on Maven. Build stages would be as follows:
 
@@ -9,100 +11,116 @@ Let’s imagine the code is hosted on GitHub, and that it’s based on Maven. Bu
 * Copy the folder from the previous stage; build the app with Maven.
 * Copy the JAR/WAR from the previous stage; run it with java -JAR/WAR .
 
-### Create , Build and Run the Dockerfile. 
-
-#### 1. Create the docker file. 
-This docker build file can be used for building any web app with the following features:
+### 1. Create the Dockerfile
+This docker build file can be used for building any oasp4j web app with the following 
+features:
 
 *   The source code is hosted on GitHub.
 *   The build tool is Maven.
 *   The resulting output is an executable JAR/WAR file.
 
-File : Dockerfile
-```
-FROM alpine/git as clone
-ARG url (1)
+File: Dockerfile
+```Dockerfile
+# Stage 1. Git clone
+FROM alpine/git AS clone
+ARG url
 WORKDIR /app
-RUN git clone ${url} (2)
-FROM maven:3.5-jdk-8-alpine as build
-ARG project (3)
+RUN git clone ${url}
+
+# Stage 2. Maven build
+FROM maven:3.5-jdk-8-alpine AS build
+ARG project
 WORKDIR /app
 COPY --from=clone /app/${project} /app
 RUN mvn install
+
+# Stage 3. Run Spring Boot
 FROM openjdk:8-jre-alpine
-ARG artifactid
+ARG artifactId
 ARG version
-ENV artifact ${artifactid}-${version}.jar (4)
+ENV artifact ${artifactId}-server-bootified.war
 WORKDIR /app
-COPY --from=build /app/target/${artifact} /app
+COPY --from=build /app/server/target/${artifact} /app
+
 EXPOSE 8080
-CMD ["java -jar ${artifact}"] (5)
+
+ENTRYPOINT ["sh", "-c"]
+CMD ["java -jar ${artifact}"]
 ```
-```
-1 url must be passed on the command line to set which GitHub repo to clone
-2 url is replaced by the passed value
-3 Same as <1>
-4 artifact must be an ENV, so as to be persisted in the final app image
-5 Use the artifact value at runtime
-```
-### 2.Building
-The spring-boot-app image can now be built using the following command-line . 
-Please change the parameters as per your project e.g.:
+Note that `url`, `project`, `artifactId` and `version` are arguments that must be 
+passed on the command line. 
+`artifact` must be set as an environment variable with `ENV`, so it is persisted in the final
+app image and can be used at runtime by `java`.
+
+### 2. Build the image
+The Spring Boot app image can now be built using the following command-line. 
+Please change the parameters as per your project, e.g.:
 
 ```
-docker build --build-arg url=https://github.com/username/java-getting-started.git\
-  --build-arg project=java-getting-started\
-  --build-arg artifactid=java-getting-started\
-  --build-arg version=1.0\
-  -t java-getting-started - < Dockerfile
+docker build --build-arg url=https://github.com/username/java-getting-started.git --build-arg project=java-getting-started --build-arg artifactId=java-getting-started --build-arg version=1.0 -t java-getting-started .
 ```
-### 3.Running
-Running an image built with the above command.
+### 3. Run a new container
+Run the image built with the previous command:
 ```
-docker run -ti -p8080:8080 java-getting-started
+docker run -d -p 8090:8080 java-getting-started
 ```
 
-## Sample dockerfile build file : 
-File Name : Dockerfile 
-```
-FROM alpine/git
+## Example
+
+The next example shows how to create a Dockerfile to build and run a container 
+running the server from [My Thai Star](https://github.com/oasp/my-thai-star) application.
+
+Rather than using arguments like in the previous example, the data 
+(git repo url, project name, ...) is set directly into the Dockerfile.
+
+#### Sample Dockerfile
+File Name: Dockerfile 
+```Dockerfile
+# 1. Clone the project code
+FROM alpine/git AS clone
 WORKDIR /app
-RUN git clone RUN git clone https://github.com/Himanshu122798/mtsj.git (1)
-FROM maven:3.5-jdk-8-alpine
+RUN git clone https://github.com/Himanshu122798/mtsj.git
+
+# 2. Copy the project folder from the previous build stage and build the app with maven
+FROM maven:3.5-jdk-8-alpine AS build
 WORKDIR /app
-COPY --from=0 /app/mtsj /app (2)
-RUN mvn install (3)
+COPY --from=clone /app/mtsj /app
+RUN mvn install
+
+#3. Copy the war file from the previous build stage and run the app with java
 FROM openjdk:8-jre-alpine
 WORKDIR /app
-COPY --from=build /app/server/target/mtsj-server-bootified.war /app (4)
+COPY --from=build /app/server/target/mtsj-server-bootified.war /app
+
 EXPOSE 8080
+
 ENTRYPOINT ["sh", "-c"]  
-CMD ["java -jar mtsj-server-bootified.war"] (5)
+CMD ["java -jar mtsj-server-bootified.war"]
 ```
-It maps the above build stages:
+
+#### Build the Docker image
+Build the Docker image from the same folder as Dockerfile using this command (including the dot `.`)
 
 ```
-1. Clone the Spring maven project git repository from Github.
-2. Copy the project folder from the previous build stage
-3. Build the app
-4. Copy the JAR from the previous build stage
-5. Run the app
+docker build -t mtsj .
 ```
-#### Build a Docker Image
-Build the Docker image using following commands including the dot.
 
-```
-docker build -f Dockerfile -t mtsj .
-```
-```
--t – for tagging the image. (in this example tag is mtsj).
--f – point to a Docker file location.
-```
-#### Run Docker Image
+Where the option `-t mtsj` is used to tag the image name.
+
+#### Run the container
 Use this command to run the Spring Boot application.
 ```
-docker run -p 8080:8080 mtsj
+docker run --name mtsj0 -p 8090:8080 mtsj
+```
+Where the options:
+* `--name mtsj0` specifies the container name
+* `-p 8090:8080` maps the port 8080 of the container to 8090
+
+The command `docker ps` lists all the running containers:
+```
+λ docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
+fb0c6836838b        mtsj                "sh -c 'java -jar ..."   44 seconds ago      Up 43 seconds       0.0.0.0:8090->8080/tcp   mtsj0
 ```
 
-
-
+The application is now running on http://localhost:8090/mythaistar/.
