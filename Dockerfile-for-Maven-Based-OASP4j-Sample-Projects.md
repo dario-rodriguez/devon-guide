@@ -11,9 +11,14 @@ Let’s imagine the code is hosted on GitHub, and that it’s based on Maven. Bu
 
 ### Create , Build and Run the Dockerfile. 
 
-1. Create the docker file. 
+#### 1. Create the docker file. 
+This docker build file can be used for building any web app with the following features:
 ```
-
+The source code is hosted on GitHub.
+The build tool is Maven.
+The resulting output is an executable JAR/WAR file.
+```
+```
 FROM alpine/git as clone
 ARG url (1)
 WORKDIR /app
@@ -32,8 +37,9 @@ COPY --from=build /app/target/${artifact} /app
 EXPOSE 8080
 CMD ["java -jar ${artifact}"] (5)
 ```
+```
 
-
+```
 
 
 #### Here is a sample dockerfile build file to start from:
