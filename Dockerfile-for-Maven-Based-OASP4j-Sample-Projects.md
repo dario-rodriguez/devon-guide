@@ -56,10 +56,11 @@ docker build --build-arg url=https://github.com/heroku/java-getting-started.git\
   --build-arg version=1.0\
   -t java-getting-started - < Dockerfile
 ```
-
-
-
-
+### 3.Running
+Running an image built with the above command.
+```
+docker run -ti -p8080:8080 nfrankel/spring-petclinic
+```
 
 #### Here is a sample dockerfile build file to start from:
 
