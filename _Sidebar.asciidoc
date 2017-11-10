@@ -53,7 +53,7 @@
 * link:OASP4J-project-without-database[OASP4J project without database]
 * link:Spring-boot-admin-Integration-with-OASP4J[Spring boot admin integration with OASP4J]
 * link:Integrate-Spring-boot-admin-with-module[Integrate spring boot admin to OASP4j app with module]
-* link:Dockerfile-for-Maven-Based-OASP4j-Sample-Projects[Dockerfile for Maven Based OASP4j Sample Projects]
+* link:Dockerfile-for-the-maven-based-spring.io-projects[Dockerfile for the maven based spring.io projects]
 
 == The Presentation Layer: Getting Started with Devon4Sencha
 
