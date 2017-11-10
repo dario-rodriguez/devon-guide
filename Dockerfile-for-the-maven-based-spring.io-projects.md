@@ -19,12 +19,21 @@ Dockerfiles begin with defining an image FROM which the build process starts. Fo
 
 Dockerfile consists of two kind of main line blocks: comments and commands + arguments.
 
-### FROM 
+#### FROM 
 The FROM command initializes a new build stage and sets the Base Image for subsequent commands. Dockerfile must start with a FROM command.
 ````DockerFile
 # Usage: FROM [image name]
 FROM ubuntu
 ````
+
+#### ADD 
+ADD Commands Copy a file from the host into the container. 
+````DockerFile
+# Usage: ADD [source directory or URL] [destination directory]
+ADD /my_app_folder /my_app_folder
+````
+
+
 
 ## Multi-stage builds
 In Docker, one of the main issues is the size of the final image. It’s not uncommon to end up with images over 1 GB even for simple Java applications. Since version 17.05 of Docker, it’s possible to have multiple builds in a single Dockerfile, and to access the output of the previous build into the current one. Those are called 
