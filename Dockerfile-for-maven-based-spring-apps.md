@@ -1,4 +1,9 @@
 ### Overview 
+Docker containers are created by using [base] images. An image can be basic, with nothing but the operating-system fundamentals, or it can consist of a sophisticated pre-built application stack ready for launch.
+
+When building your images with docker, each action taken (i.e. a command executed such as apt-get install) forms a new layer on top of the previous one. These base images then can be used to create new containers.
+
+In this DigitalOcean article, we will see about automating this process as much as possible, as well as demonstrate the best practices and methods to make most of docker and containers via Dockerfiles: scripts to build containers, step-by-step, layer-by-layer, automatically from a source (base) image.
 
 #### Docker in Brief 
 Docker containers are created by using [base] images. An image can be basic, with nothing but the operating-system fundamentals, or it can consist of a sophisticated pre-built application stack ready for launch. When building your images with docker, each action taken (i.e. a command executed such as apt-get install) forms a new layer on top of the previous one. These base images then can be used to create new containers.
