@@ -3,12 +3,14 @@ Docker containers are created by using [base] images. An image can be basic, wit
 
 When building your images with docker, each action taken (i.e. a command executed such as apt-get install) forms a new layer on top of the previous one. These base images then can be used to create new containers.
 
-In this DigitalOcean article, we will see about automating this process as much as possible, as well as demonstrate the best practices and methods to make most of docker and containers via Dockerfiles: scripts to build containers, step-by-step, layer-by-layer, automatically from a source (base) image.
+In this wiki, we will see about automating this process as much as possible, as well as demonstrate the best practices and methods to make most of docker and containers via Dockerfiles: scripts to build containers, step-by-step, layer-by-layer, automatically from a source (base) image.
 
 #### Docker in Brief 
-Docker containers are created by using [base] images. An image can be basic, with nothing but the operating-system fundamentals, or it can consist of a sophisticated pre-built application stack ready for launch. When building your images with docker, each action taken (i.e. a command executed such as apt-get install) forms a new layer on top of the previous one. These base images then can be used to create new containers.
+The docker project offers higher-level tools which work together, built on top of some Linux kernel features. The goal is to help developers and system administrators port applications. - with all of their dependencies conjointly - and get them running across systems and machines headache free.
 
- Docker can build images automatically by reading the instructions from a Dockerfile. A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image. Using `docker build` users can create an automated build that executes several command-line instructions in succession.
+Docker achieves this by creating safe, LXC (i.e. Linux Containers) based environments for applications called “docker containers”. These containers are created using docker images, which can be built either by executing commands manually or automatically through Dockerfiles.
+
+
 
 ## Multi-stage builds
 In Docker, one of the main issues is the size of the final image. It’s not uncommon to end up with images over 1 GB even for simple Java applications. Since version 17.05 of Docker, it’s possible to have multiple builds in a single Dockerfile, and to access the output of the previous build into the current one. Those are called 
