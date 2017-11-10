@@ -15,7 +15,7 @@ Each Dockerfile is a script, composed of various commands (instructions) and arg
 
 Dockerfiles begin with defining an image FROM which the build process starts. Followed by various other methods, commands and arguments (or conditions), in return, provide a new image which is to be used for creating docker containers.
 
-#### Dockerfile Commands
+### Dockerfile Commands
 
 Dockerfile consists of two kind of main line blocks: comments and commands + arguments.
 ```
