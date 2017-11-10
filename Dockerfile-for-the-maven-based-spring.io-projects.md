@@ -33,7 +33,46 @@ ADD Commands Copy a file from the host into the container.
 ADD /my_app_folder /my_app_folder
 ````
 
+#### CMD 
+This command set default commands to be executed, or passed to the ENTRYPOINT 
+````DockerFile
+# Usage 1: CMD application "argument", "argument", ..
+CMD "echo" "Hello docker!"
+````
 
+#### RUN
+The RUN command will execute any commands in a new layer on top of the current image and commit the results. The resulting committed image will be used for the next step in the Dockerfile.
+````DockerFile
+# Usage: RUN [command]
+RUN mvn install
+````
+#### WORKDIR
+The WORKDIR directive is used to set where the command defined with CMD is to be executed.
+````DockerFile
+# Usage: WORKDIR /path
+WORKDIR ~/
+````
+
+#### MAINTAINER
+The MAINTAINER set the author / owner data of the Dockerfile.
+````DockerFile
+# Usage: MAINTAINER [name]
+MAINTAINER authors_name(admin@email.com)
+````
+#### EXPOSE
+Expose a port to outside.
+````DockerFile
+# Usage: EXPOSE [port]
+EXPOSE 8080
+````
+
+#### VOLUME
+The VOLUME command is used to enable access from your container to a directory on the host machine (i.e. mounting it).
+Example:
+````DockerFile
+# Usage: VOLUME ["/dir_1", "/dir_2" ..]
+VOLUME ["/my_files"]
+````
 
 ## Multi-stage builds
 In Docker, one of the main issues is the size of the final image. It’s not uncommon to end up with images over 1 GB even for simple Java applications. Since version 17.05 of Docker, it’s possible to have multiple builds in a single Dockerfile, and to access the output of the previous build into the current one. Those are called 
