@@ -10,7 +10,24 @@ The docker project offers higher-level tools which work together, built on top o
 
 Docker achieves this by creating safe, LXC (i.e. Linux Containers) based environments for applications called “docker containers”. These containers are created using docker images, which can be built either by executing commands manually or automatically through Dockerfiles.
 
+#### Dockerfiles
+Each Dockerfile is a script, composed of various commands (instructions) and arguments listed successively to automatically perform actions on a base image in order to create (or form) a new one. They are used for organizing things and greatly help with deployments by simplifying the process start-to-finish.
 
+Dockerfiles begin with defining an image FROM which the build process starts. Followed by various other methods, commands and arguments (or conditions), in return, provide a new image which is to be used for creating docker containers.
+
+#### Dockerfile Commands
+
+Dockerfile consists of two kind of main line blocks: comments and commands + arguments.
+```
+# Line blocks used for commenting
+command argument argument ..
+```
+##### Example:
+```
+# 1. Clone the project code
+FROM alpine/git AS clone
+```
+Command:  
 
 ## Multi-stage builds
 In Docker, one of the main issues is the size of the final image. It’s not uncommon to end up with images over 1 GB even for simple Java applications. Since version 17.05 of Docker, it’s possible to have multiple builds in a single Dockerfile, and to access the output of the previous build into the current one. Those are called 
