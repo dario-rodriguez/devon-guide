@@ -18,17 +18,13 @@ Dockerfiles begin with defining an image FROM which the build process starts. Fo
 ### Dockerfile Commands
 
 Dockerfile consists of two kind of main line blocks: comments and commands + arguments.
-```
-# Line blocks used for commenting
-command argument argument ..
-```
-##### Example:
-```
-# 1. Clone the project code
-FROM alpine/git AS clone
-```
 
-## FROM
+### FROM 
+The FROM command initializes a new build stage and sets the Base Image for subsequent commands. Dockerfile must start with a FROM command.
+````DockerFile
+# Usage: FROM [image name]
+FROM ubuntu
+```
 
 ## Multi-stage builds
 In Docker, one of the main issues is the size of the final image. It’s not uncommon to end up with images over 1 GB even for simple Java applications. Since version 17.05 of Docker, it’s possible to have multiple builds in a single Dockerfile, and to access the output of the previous build into the current one. Those are called 
