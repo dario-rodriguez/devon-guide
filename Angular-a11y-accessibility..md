@@ -31,4 +31,13 @@ HTML Button
 ````Html
 <button>Button</button>
 ````
+## Common Accessibility Patterns
+
+### 1.Text alternatives: 
+Add alternate text content to make visual information accessible using these W3C guidelines. The appropriate technique depends on the specific markup but can be accomplished using offscreen spans, aria-label or label elements, image alt attributes, figure/figcaption elements and more.
+
+
+## Accessibility with ngAria
+
+The goal of ngAria is to improve AngularJS's default accessibility by enabling common ARIA attributes that convey state or semantic information for assistive technologies used by persons with disabilities.
 
