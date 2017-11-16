@@ -3,5 +3,8 @@ Multiple studies suggest that around 15-20% of the population are living with a 
    
 Some people are unable to use the mouse, view a screen, see low contrast text, Hear dialogue or music and some people having difficulty to understanding the complex language.This kind of people needed the support like Keyboard support, screen reader support, high contrast text, captions and transcripts and Plain language support. This disability may change the from permanent to the situation. 
  
-To make the internet more accessible to this kind people A11y in Angular introduce. 
+To make the internet more accessible to this kind of people A11y in Angular is introduced. 
   * Write meaningful HTML
+  * Enable the keyboard
+  * Handle focus
+  * Alert the user
