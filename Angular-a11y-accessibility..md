@@ -8,3 +8,12 @@ To make the internet more accessible to this kind of people A11y in Angular is i
   * Enable the keyboard
   * Handle focus
   * Alert the user
+
+##  Meaningful HTML
+
+````Html
+<label for="roundTrip">
+   <input type="radio" id="roundTrip">
+   Round Trip
+ </label>
+````
