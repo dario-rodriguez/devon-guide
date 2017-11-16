@@ -39,5 +39,22 @@ The goal of ngAria is to improve AngularJS's default accessibility by enabling c
 
 ## Common Accessibility Patterns
 
-#### Text alternatives: 
+#### 1. Text alternatives: 
 Add alternate text content to make visual information accessible using these W3C guidelines. The appropriate technique depends on the specific markup but can be accomplished using offscreen spans, aria-label or label elements, image alt attributes, figure/figcaption elements and more.
+
+#### 2. HTML Semantics: 
+ If you're creating custom element directives, Web Components or HTML in general, use native elements wherever possible to utilize built-in events and properties. Alternatively, use ARIA to communicate semantic meaning .
+
+#### 3. Focus management:
+ Guide the user around the app as views are appended/removed. Focus should never be lost, as this causes unexpected behavior and much confusion (referred to as "freak-out mode").
+
+#### 4. Announcing changes:
+When filtering or other UI messaging happens away from the user's focus, notify with ARIA Live Regions.
+
+#### 5. Color contrast and scale:
+Make sure content is legible and interactive controls are usable at all screen sizes. Consider configurable UI themes for people with color blindness, low vision or other visual impairments.
+
+#### 6. Progressive enhancement:
+Some users do not browse with JavaScript enabled or do not have the latest browser. An accessible message about site requirements can inform users and improve the experience
+
+ 
