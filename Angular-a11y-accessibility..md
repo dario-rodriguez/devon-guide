@@ -112,7 +112,57 @@ The boolean readonly attribute is only valid for native form controls such as in
 <md-checkbox ng-readonly="val"></md-checkbox>
 ````
 
+#### ngRequired
+The boolean required attribute is only valid for native form controls such as input and textarea. To properly indicate custom element directives such as <md-checkbox> or <custom-input> as required, using ngAria with ngRequired will also add aria-required. This tells accessibility APIs when a custom control is required.
+Example
+````HTML
+<md-checkbox ng-required="val"></md-checkbox>
+````
+Becomes:
+````HTML
+<md-checkbox ng-required="val" aria-required="true"></md-checkbox>
+````
+#### ngShow
+The ngShow directive shows or hides the given HTML element based on the expression provided to the ngShow attribute. The element is shown or hidden by removing or adding the .ng-hide CSS class onto the element.
 
+Example
+````HTML
+.ng-hide {
+  display: block;
+  opacity: 0;
+}
+````
+````HTML
+<div ng-show="false" class="ng-hide" aria-hidden="true"></div>
+````
+````HTML
+<div ng-show="false" class="ng-hide" aria-hidden="true"></div>
+````
+Becomes:
+<div ng-show="true" aria-hidden="false"></div>
+
+#### ngClick and ngDblclick
+If ng-click or ng-dblclick is encountered, ngAria will add tabindex="0" to any element not in a node blacklist: Button Anchor Input Textarea Select Details/Summary To fix widespread accessibility problems with ng-click on div elements, ngAria will dynamically bind a keypress event by default as long as the element isn't in the node blacklist. You can turn this functionality on or off with the bindKeypress configuration option. ngAria will also add the button role to communicate to users of assistive technologies. This can be disabled with the bindRoleForClick configuration option. For ng-dblclick, you must still manually add ng-keypress and a role to non-interactive elements such as div or taco-button to enable keyboard access.
+Example
+````HTML
+html <div ng-click="toggleMenu()"></div> Becomes: html <div ng-click="toggleMenu()" tabindex="0"></div>
+````
+#### ngMessages
+The ngMessages module makes it easy to display form validation or other messages with priority sequencing and animation. To expose these visual messages to screen readers, ngAria injects aria-live="assertive", causing them to be read aloud any time a message is shown, regardless of the user's focus location.
+Example
+````HTML
+<div ng-messages="myForm.myName.$error">
+  <div ng-message="required">You did not enter a field</div>
+  <div ng-message="maxlength">Your field is too long</div>
+</div>
+````
+Becomes:
+````HTML
+<div ng-messages="myForm.myName.$error" aria-live="assertive">
+  <div ng-message="required">You did not enter a field</div>
+  <div ng-message="maxlength">Your field is too long</div>
+</div>
+````
 
 ## Common Accessibility Patterns
 
