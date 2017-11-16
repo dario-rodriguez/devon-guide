@@ -81,11 +81,38 @@ Much of ngAria's heavy lifting happens in the ngModel directive. For elements us
 ````
 #### ngValue and ngChecked
 To ease the transition between native inputs and custom controls, ngAria now supports ngValue and ngChecked. The original directives were created for native inputs only, so ngAria extends support to custom elements by managing aria-checked for accessibility.
-Example
+
+#####Example
 ````Html
 <custom-checkbox ng-checked="val"></custom-checkbox>
 <custom-radio-button ng-value="val"></custom-radio-button>
 ````
+#####Becomes:
+````Html
+<custom-checkbox ng-checked="val" aria-checked="true"></custom-checkbox>
+<custom-radio-button ng-value="val" aria-checked="true"></custom-radio-button>
+````
+#### ngDisabled
+The disabled attribute is only valid for certain elements such as button, input and textarea. To properly disable custom element directives such as <md-checkbox> or <taco-tab>, using ngAria with ngDisabled will also add aria-disabled. This tells assistive technologies when a non-native input is disabled, helping custom controls to be more accessible.
+
+##### Example
+````Html
+<md-checkbox ng-disabled="disabled"></md-checkbox>
+````
+##### Becomes:
+````Html
+<md-checkbox disabled aria-disabled="true"></md-checkbox>
+````
+
+#### ngReadonly
+The boolean readonly attribute is only valid for native form controls such as input and textarea. To properly indicate custom element directives such as <md-checkbox> or <custom-input> as required, using ngAria with ngReadonly will also add aria-readonly. This tells accessibility APIs when a custom control is read-only.
+
+##### Example
+````HTML
+<md-checkbox ng-readonly="val"></md-checkbox>
+````
+
+
 
 ## Common Accessibility Patterns
 
