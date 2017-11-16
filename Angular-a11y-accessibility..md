@@ -42,6 +42,10 @@ The goal of ngAria is to improve AngularJS's default accessibility by enabling c
 * Test using your keyboard to ensure tabindex is used correctly.
 * Fire up a screen reader such as VoiceOver or NVDA to check for ARIA support.
 
+````Angular
+angular.module('myApp', ['ngAria'])...
+````
+
 ### ngAria supported directives
 * ngModel
 * ngDisabled
