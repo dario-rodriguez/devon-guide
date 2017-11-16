@@ -80,8 +80,6 @@ Much of ngAria's heavy lifting happens in the ngModel directive. For elements us
 <b>Is checked:</b> {{ !!checked }}
 ````
 
-#### ngDisabled
-
 ## Common Accessibility Patterns
 
 #### 1. Text alternatives: 
