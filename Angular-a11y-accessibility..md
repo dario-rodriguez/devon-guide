@@ -32,10 +32,16 @@ HTML Button
 <button>Button</button>
 ````
 
-
 ## Accessibility with ngAria
 
-The goal of ngAria is to improve AngularJS's default accessibility by enabling common ARIA attributes that convey state or semantic information for assistive technologies used by persons with disabilities.
+The goal of ngAria is to improve AngularJS's default accessibility by enabling common ARIA attributes that convey state or semantic information for assistive technologies used by persons with disabilities. 
+
+### ngAria module
+ ngAria hooks into standard AngularJS directives and quietly injects accessibility support into your application at runtime. Most of what ngAria does is only visible "under the hood". To see the module in action, once you've added it as a dependency, you can test a few things:
+* Using your favorite element inspector, look for attributes added by ngAria in your own code.
+* Test using your keyboard to ensure tabindex is used correctly.
+* Fire up a screen reader such as VoiceOver or NVDA to check for ARIA support
+
 
 ## Common Accessibility Patterns
 
