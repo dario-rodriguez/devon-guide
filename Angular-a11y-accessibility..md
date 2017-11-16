@@ -125,7 +125,7 @@ Becomes:
 #### ngShow
 The ngShow directive shows or hides the given HTML element based on the expression provided to the ngShow attribute. The element is shown or hidden by removing or adding the .ng-hide CSS class onto the element.
 
-Example
+##### Example
 ````HTML
 .ng-hide {
   display: block;
@@ -137,6 +137,7 @@ Example
 ````
 ````HTML
 <div ng-show="false" class="ng-hide" aria-hidden="true"></div>
+````
 
 Becomes:
 ````HTML
@@ -151,14 +152,14 @@ html <div ng-click="toggleMenu()"></div> Becomes: html <div ng-click="toggleMenu
 ````
 #### ngMessages
 The ngMessages module makes it easy to display form validation or other messages with priority sequencing and animation. To expose these visual messages to screen readers, ngAria injects aria-live="assertive", causing them to be read aloud any time a message is shown, regardless of the user's focus location.
-Example
+##### Example
 ````HTML
 <div ng-messages="myForm.myName.$error">
   <div ng-message="required">You did not enter a field</div>
   <div ng-message="maxlength">Your field is too long</div>
 </div>
 ````
-Becomes:
+##### Becomes:
 
 ````HTML
 <div ng-messages="myForm.myName.$error" aria-live="assertive">
