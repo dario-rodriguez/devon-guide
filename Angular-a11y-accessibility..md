@@ -137,9 +137,11 @@ Example
 ````
 ````HTML
 <div ng-show="false" class="ng-hide" aria-hidden="true"></div>
-````
+
 Becomes:
+````HTML
 <div ng-show="true" aria-hidden="false"></div>
+````
 
 #### ngClick and ngDblclick
 If ng-click or ng-dblclick is encountered, ngAria will add tabindex="0" to any element not in a node blacklist: Button Anchor Input Textarea Select Details/Summary To fix widespread accessibility problems with ng-click on div elements, ngAria will dynamically bind a keypress event by default as long as the element isn't in the node blacklist. You can turn this functionality on or off with the bindKeypress configuration option. ngAria will also add the button role to communicate to users of assistive technologies. This can be disabled with the bindRoleForClick configuration option. For ng-dblclick, you must still manually add ng-keypress and a role to non-interactive elements such as div or taco-button to enable keyboard access.
