@@ -82,7 +82,7 @@ Much of ngAria's heavy lifting happens in the ngModel directive. For elements us
 #### ngValue and ngChecked
 To ease the transition between native inputs and custom controls, ngAria now supports ngValue and ngChecked. The original directives were created for native inputs only, so ngAria extends support to custom elements by managing aria-checked for accessibility.
 Example
-````Javascript
+````Html
 <custom-checkbox ng-checked="val"></custom-checkbox>
 <custom-radio-button ng-value="val"></custom-radio-button>
 ````
