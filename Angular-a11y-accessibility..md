@@ -1,1 +1,2 @@
 ## Overview
+Multiple studies suggest that around 15-20% of the population are living with a disability of some kind1. In comparison, that number is higher than any single browser demographic currently, other than Chrome2. Not considering those users when developing an application means excluding a large number of people from being able use it comfortable or at all.
