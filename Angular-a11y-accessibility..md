@@ -11,9 +11,24 @@ To make the internet more accessible to this kind of people A11y in Angular is i
 
 ##  Meaningful HTML
 
+HTML Radio Input
 ````Html
 <label for="roundTrip">
    <input type="radio" id="roundTrip">
    Round Trip
  </label>
 ````
+
+HTML checkbox Input
+````Html
+<label for="roundTrip">
+   <input type="check" id="roundTrip">
+   Round Trip
+ </label>
+````
+
+HTML Button
+````Html
+<button>Button</button>
+````
+
