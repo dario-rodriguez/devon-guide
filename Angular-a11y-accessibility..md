@@ -69,6 +69,18 @@ Much of ngAria's heavy lifting happens in the ngModel directive. For elements us
 * aria-required
 * aria-readonly
 * aria-disabled
+````Html
+<form>
+  <custom-checkbox role="checkbox" ng-model="checked" required
+      aria-label="Custom checkbox" show-attrs>
+    Custom checkbox
+  </custom-checkbox>
+</form>
+<hr />
+<b>Is checked:</b> {{ !!checked }}
+````
+
+#### ngDisabled
 
 ## Common Accessibility Patterns
 
