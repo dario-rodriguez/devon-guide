@@ -59,7 +59,7 @@ angular.module('myApp', ['ngAria'])...
 * ngDblClick
 * ngMessages
 
-##### ngModel
+#### ngModel
 Much of ngAria's heavy lifting happens in the ngModel directive. For elements using ngModel, special attention is paid by ngAria if that element also has a role or type of checkbox, radio, range or textbox .For those elements using ngModel, ngAria will dynamically bind and update the following ARIA attributes (if they have not been explicitly specified by the developer):
 * aria-checked
 * aria-valuemin
