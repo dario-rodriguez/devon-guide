@@ -94,7 +94,24 @@ Regions can be declared explicitly with an initial focus element by using the cd
 <a mat-list-item routerLink cdkFocusRegionEnd>Focus region end</a>
 ````
 
+### InteractivityChecker
+InteractivityChecker is used to check the interactivity of an element, capturing disabled, visible, tabbable, and focusable states for accessibility purposes.
+
+### LiveAnnouncer
+LiveAnnouncer is used to announce messages for screen-reader users using an aria-live region.
+Example 
+````HTML
+@Component({...})
+export class MyComponent {
+
+ constructor(liveAnnouncer: LiveAnnouncer) {
+   liveAnnouncer.announce("Hey Google");
+ }
+}
+````
+
 ## Common Accessibility Patterns
+
 
 #### 1. Text alternatives: 
 Add alternate text content to make visual information accessible using these W3C guidelines. The appropriate technique depends on the specific markup but can be accomplished using offscreen spans, aria-label or label elements, image alt attributes, figure/figcaption elements and more.
