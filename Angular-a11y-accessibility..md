@@ -9,7 +9,7 @@ To make the internet more accessible to this kind of people A11y in Angular is i
   * Handle focus
   * Alert the user
 
-##  Meaningful HTML
+## Meaningful HTML
 
 HTML Radio Input
 ````Html
