@@ -45,11 +45,6 @@ ListKeyManager manages the active option in a list of items based on keyboard in
 * Initialize the ListKeyManager, passing in the options.
 * Forward keyboard events from the managed component to the ListKeyManager.
 
-
-#### There are two varieties of ListKeyManager
- * FocusKeyManager 
- * ActiveDescendantKeyManager
-
 Each option should implement the ListKeyManagerOption interface:
 ````Javascript
 interface ListKeyManagerOption {
@@ -57,7 +52,47 @@ interface ListKeyManagerOption {
   getLabel?(): string;
 }
 ````
+#### Types of ListKeyManager
+ * FocusKeyManager 
+ * ActiveDescendantKeyManager
 
+### FocusKeyManager
+Used when options will directly receive browser focus. Each item managed must implement the FocusableOption interface:
+````Javascript
+interface FocusableOption extends ListKeyManagerOption {
+  focus(): void;
+}
+````
+### ActiveDescendantKeyManager
+Used when options will be marked as active via aria-activedescendant. Each item managed must implement the Highlightable interface:
+
+````Javascript
+interface Highlightable extends ListKeyManagerOption {
+  setActiveStyles(): void;
+  setInactiveStyles(): void;
+}
+````
+Each item must also have an ID bound to the listbox's or menu's aria-activedescendant.
+
+### FocusTrap
+The cdkTrapFocus directive traps Tab key focus within an element. This is intended to be used to create accessible experience for components like modal dialogs, where focus must be constrained. This directive is declared in A11yModule.
+This directive will not prevent focus from moving out of the trapped region due to mouse interaction.
+#### Example
+````HTML
+<div class="my-inner-dialog-content" cdkTrapFocus>
+  <!-- Tab and Shift + Tab will not leave this element. -->
+</div>
+````
+### Regions
+Regions can be declared explicitly with an initial focus element by using the cdkFocusRegionStart, cdkFocusRegionEnd and cdkFocusInitial DOM attributes. When using the tab key, focus will move through this region and wrap around on either end.
+
+#### example:
+````HTML
+<a mat-list-item routerLink cdkFocusRegionStart>Focus region start</a>
+<a mat-list-item routerLink>Link</a>
+<a mat-list-item routerLink cdkFocusInitial>Initially focused</a>
+<a mat-list-item routerLink cdkFocusRegionEnd>Focus region end</a>
+````
 
 ## Common Accessibility Patterns
 
