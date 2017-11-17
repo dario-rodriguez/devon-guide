@@ -39,12 +39,6 @@ API reference for Angular CDK a11y
 import {A11yModule} from '@angular/cdk/a11y';
 ````
 
-## Types of key managers
-
-* ListKeyManager
-* FocusKeyManager 
-* ActiveDescendantKeyManager
-
 ### ListKeyManager
 ListKeyManager manages the active option in a list of items based on keyboard interaction. Intended to be used with components that correspond to a role="menu" or role="listbox" pattern . Any component that uses a ListKeyManager will generally do three things:
 * Create a @ViewChildren query for the options being managed.
