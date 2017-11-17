@@ -39,6 +39,13 @@ API reference for Angular CDK a11y
 import {A11yModule} from '@angular/cdk/a11y';
 ````
 
+## Types of key managers
+
+* ListKeyManager
+* FocusKeyManager 
+* ActiveDescendantKeyManager
+
+
 ## Common Accessibility Patterns
 
 #### 1. Text alternatives: 
