@@ -32,7 +32,7 @@ HTML Button
 <button>Button</button>
 ````
 
-## Accessibility with ngAria
+## Accessibility with Material angular
 
 The goal of ngAria is to improve AngularJS's default accessibility by enabling common ARIA attributes that convey state or semantic information for assistive technologies used by persons with disabilities. 
 
