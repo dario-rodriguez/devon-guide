@@ -45,6 +45,11 @@ ListKeyManager manages the active option in a list of items based on keyboard in
 * Initialize the ListKeyManager, passing in the options.
 * Forward keyboard events from the managed component to the ListKeyManager.
 
+
+#### There are two varieties of ListKeyManager
+ * FocusKeyManager 
+ * ActiveDescendantKeyManager
+
 Each option should implement the ListKeyManagerOption interface:
 ````Javascript
 interface ListKeyManagerOption {
