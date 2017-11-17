@@ -33,7 +33,11 @@ HTML Button
 ````
 
 ## Accessibility with Material angular
-
+The a11y package provides a number of tools to improve accessibility. 
+API reference for Angular CDK a11y
+````Javascript
+import {A11yModule} from '@angular/cdk/a11y';
+````
 
 ## Common Accessibility Patterns
 
