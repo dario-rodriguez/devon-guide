@@ -8,12 +8,68 @@ Some people are unable to use the mouse, view a screen, see low contrast text, H
 * **Keyboard Accessibility** - Applications must still be usable when using only a keyboard
 * **Visual Assistance** - color contrast, focus of elements and text representations of audio and events
 
+### Semantic Markup
+
+### Keyboard Accessibility
+Keyboard accessibility is the ability of your application to be interacted with using just a keyboard. The more streamlined the site can be used this way, the more keyboard accessible it is. Keyboard accessibility is one of the largest aspects of web accessibility since it targets:
+
+* those with motor disabilities who can't use a mouse
+* users who rely on screen readers and other assistive technology, which require keyboard navigation
+* those who prefer not to use a mouse
+
+#### Focus 
+Keyboard interaction is driven by something called focus. In web applications, only one element on a document has focus at a time, and keypresses will activate whatever function is bound to that element.
+Focus element border can be styled with CSS using the  outline  property, but it should not be removed. Elements can also be styled using the  :focus  psuedo-selector.
+
+#### Tabbing
+The most common way of moving focus along the page is through the  tab  key. Elements will be traversed in the order they appear in the document outline - so that order must be carefully considered during development. 
+There is way change the default behaviour or tab order. This can be done through the  tabindex  attribute. The  tabindex  can be given the values:
+* less than zero - to let readers know that an element should be focusable but not keyboard accessible
+* 0 - to let readers know that that element should be accessible by keyboard
+* greater than zero - to let readers know the order in which the focusable element should be reached using the keyboard. Order is calculated from lowest to highest.
+
+#### Transitions
+The majority of transitions that happen in an Angular application will not involve a page reload. This means that developers will need to carefully manage what happens to focus in these cases.
+#### Example 
+````Javascript
+@Component({
+  selector: 'ngc2-modal',
+  template: `
+    <div
+      role="dialog"
+      aria-labelledby="modal-title"
+      aria-describedby="modal-description">
+      <div id="modal-title">{{title}}</div>
+      <p id="modal-description">{{description}}</p>
+      <button (click)="close.emit()">OK</button>
+    </div>
+  `,
+})
+export class ModalComponent {
+  constructor(private modal: ModalService, private element: ElementRef) { }
+
+  ngOnInit() {
+    this.modal.visible$.subscribe(visible => {
+      if(visible) {
+        setTimeout(() => {
+          this.element.nativeElement.querySelector('button').focus();
+        }, 0);
+      }
+    })
+  }
+}
+
+````
+
+
+
 ## Accessibility with Material angular
 The a11y package provides a number of tools to improve accessibility. 
 API reference for Angular CDK a11y
 ````Javascript
 import {A11yModule} from '@angular/cdk/a11y';
 ````
+
 
 ### ListKeyManager
 ListKeyManager manages the active option in a list of items based on keyboard interaction. Intended to be used with components that correspond to a role="menu" or role="listbox" pattern . Any component that uses a ListKeyManager will generally do three things:
