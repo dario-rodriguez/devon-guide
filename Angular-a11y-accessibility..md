@@ -107,7 +107,17 @@ export class ModalComponent {
 }
 
 ````
+## Visual Assistance
+One large category of disability is visual impairment. This includes not just the blind, but those who are color blind or partially sighted, and require some additional consideration.
 
+### Color Contrast
+When choosing colors for text or elements on a website, the contrast between them needs to be considered. For WCAG 2.0 AA, this means that the contrast ratio for text or visual representations of text needs to be at least 4.5:1. There are tools online to measure the contrast ratio such as this color contrast checker from WebAIM or be checked with using automation tests.
+
+### Visual Information
+Color can help a user's understanding of information, but it should never be the only way to convey information to a user. For example, a user with red/green color-blindness may have trouble discerning at a glance if an alert is informing them of success or failure. 
+
+### Audiovisual Media
+Audiovisual elements in the application such as video, sound effects or audio (ie. podcasts) need related textual representations such as transcripts, captions or descriptions. They also should never auto-play and playback controls should be provided to the user.
 
 
 ## Accessibility with Material angular
@@ -116,7 +126,6 @@ API reference for Angular CDK a11y
 ````Javascript
 import {A11yModule} from '@angular/cdk/a11y';
 ````
-
 
 ### ListKeyManager
 ListKeyManager manages the active option in a list of items based on keyboard interaction. Intended to be used with components that correspond to a role="menu" or role="listbox" pattern . Any component that uses a ListKeyManager will generally do three things:
@@ -189,25 +198,3 @@ export class MyComponent {
 }
 ````
 
-## Common Accessibility Patterns
-
-
-#### 1. Text alternatives: 
-Add alternate text content to make visual information accessible using these W3C guidelines. The appropriate technique depends on the specific markup but can be accomplished using offscreen spans, aria-label or label elements, image alt attributes, figure/figcaption elements and more.
-
-#### 2. HTML Semantics: 
- If you're creating custom element directives, Web Components or HTML in general, use native elements wherever possible to utilize built-in events and properties. Alternatively, use ARIA to communicate semantic meaning .
-
-#### 3. Focus management:
- Guide the user around the app as views are appended/removed. Focus should never be lost, as this causes unexpected behavior and much confusion (referred to as "freak-out mode").
-
-#### 4. Announcing changes:
-When filtering or other UI messaging happens away from the user's focus, notify with ARIA Live Regions.
-
-#### 5. Color contrast and scale:
-Make sure content is legible and interactive controls are usable at all screen sizes. Consider configurable UI themes for people with color blindness, low vision or other visual impairments.
-
-#### 6. Progressive enhancement:
-Some users do not browse with JavaScript enabled or do not have the latest browser. An accessible message about site requirements can inform users and improve the experience
-
- 
