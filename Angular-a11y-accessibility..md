@@ -9,6 +9,53 @@ Some people are unable to use the mouse, view a screen, see low contrast text, H
 * **Visual Assistance** - color contrast, focus of elements and text representations of audio and events
 
 ### Semantic Markup
+If you're creating custom element directives, Web Components or HTML in general, use native elements wherever possible to utilize built-in events and properties. Alternatively, use ARIA to communicate semantic meaning.
+
+ HTML tags have attributes that providers extra context on what's being displayed on the browser. For example, the  img  tag's  alt  attribute lets the reader know what is being shown using a short description.However, native tags don't cover all cases. This is where ARIA fits in. ARIA attributes can provide context on what roles specific elements have in the application or on how elements within the document relate to each other.
+
+A modal component can be given the  role  of dialog or alertdialog to let the browser know that that component is acting as a modal. The modal component template can use the ARIA attributes  aria-labelledby  and  aria-described  to describe to readers what the title and purpose of the modal is.
+
+````Javascript
+@Component({
+    selector: 'ngc2-app',
+    template: `
+      <ngc2-notification-button
+        message="Hello!"
+        label="Greeting"
+        role="button">
+      </ngc2-notification-button>
+      <ngc2-modal
+        [title]="modal.title"
+        [description]="modal.description"
+        [visible]="modal.visible"
+        (close)="modal.close()">
+      </ngc2-modal>
+    `
+})
+export class AppComponent {
+  constructor(private modal: ModalService) { }
+}
+````
+notification-button.component.ts
+
+````Javascript
+@Component({
+  selector: 'ngc2-modal',
+  template: `
+    <div
+      role="dialog"
+      aria-labelledby="modal-title"
+      aria-describedby="modal-description">
+      <div id="modal-title">{{title}}</div>
+      <p id="modal-description">{{description}}</p>
+      <button (click)="close.emit()">OK</button>
+    </div>
+  `
+})
+export class ModalComponent {
+  ...
+}
+````
 
 ### Keyboard Accessibility
 Keyboard accessibility is the ability of your application to be interacted with using just a keyboard. The more streamlined the site can be used this way, the more keyboard accessible it is. Keyboard accessibility is one of the largest aspects of web accessibility since it targets:
