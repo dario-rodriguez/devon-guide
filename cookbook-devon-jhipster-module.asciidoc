@@ -1,0 +1,98 @@
+:toc: macro
+toc::[]
+
+# Introduction to generator-jhipster-DevonModule
+
+JHipster (2) is a code generator based on Yeoman generators (1). Its default generator generator-jhipster generates a specific JHipster structure. 
+The purpose of generator-jhipster-DevonModule is to generate the structure and files in devon-style.
+Note: the term module refers to the generator-jhipster-DevonModule, our generator. 
+The term project refers to our project where we want to generate files, i.e. a Devon project.
+
+== Requirements
+
+- Node & Npm (https://nodejs.org/en/download/, fyi: https://www.npmjs.com/get-npm)
+- Yarn (https://yarnpkg.com/lang/en/docs/install/) [npm install –global yarn]
+
+== Download and install the generator-jhipster-DevonModule
+
+Clone generator-jhipster-DevonModule from git: http://gitlab-val.es.capgemini.com/gitlab/ADCenter/jhipster-devon
+You can save the project in any folder you want.
+Use a cmd as admin and navigate (“cd”) into your folder where you cloned the module.
+Execute both commands after each other:
+
+----
+yarn install 
+
+yarn link
+----
+
+After yarn link JHipster will print “You can now run `yarn link "generator-jhipster-DevonModule"` in the projects where you want to use this module and it will be used instead”.
+
+image::images/jhipster-devon-module/yarn_link.PNG[,width="450", link="images/jhipster-devon-module/yarn_link.PNG"]
+
+Note: Yarn link registers the generator-module in yarn. The module only needs to be linked (registered) once. 
+There is no need to reinstall or relink the module when you update it (i.e. through git pull).
+
+== Registering the generator-jhipster-DevonModule in your project
+
+As the generator-jhipster-DevonModule is registered now, it can be used everywhere. This means, in any folder – for example the folder which stores a Devon project.
+To use the generator-jhipster-DevonModule, use a cmd and navigate (“cd”) into your project folder. Execute
+
+----
+yarn link generator-jhipster-DevonModule
+----
+
+Note: you can type this or copy it from the JHipster message you got after linking the module.
+
+image::images/jhipster-devon-module/yarn_link_project.PNG[,width="450", link="images/jhipster-devon-module/yarn_link_project.PNG"]
+
+== Generate files
+
+As the generator-jhipster-DevonModule is now connected to the project, it can be used for generating files. 
+Execute (replacing <<YourEntityName>> by your own entity name)
+
+----
+yo jhipster-DevonModule:entity <<YourEntityName>>
+----
+
+=== Some questions need to be answered now:
+
+? Enter the package name. The package name must be the same as the devon project
+>> enter your package name: i.e. com.cap.devonproject
+
+? Do you want to add a field to your entity? (Y/n)
+>> if you want to add a field, press y. If not, n.
+
+? What is the name of your field?
+>> enter the name of your field: i.e. name (Remember the common rules as lowercase fieldnames)
+
+? What is the type of your field? (Use arrow keys)
+>> choose the type of your field: i.e. String
+
+? Do you want to add validation rules to your field? (y/N)
+>> If you want to add some validation to your field, press y. If not, n.
+
+? Which validation rules do you want to add? (Press <space> to select, <a> to toggle all, <i> to inverse selection)
+>> select the validation rules you want to use. Depends on the rule you get another question to answer accordingly (i.e. minimum length).
+
+You get a preview of your entity:
+
+image::images/jhipster-devon-module/fields.PNG[,width="450", link="images/jhipster-devon-module/fields.PNG"]
+
+More fields can be added the same way – one after each other.
+At the end JHipster will print a summary like this:
+
+image::images/jhipster-devon-module/created_entity.PNG[,width="450", link="images/jhipster-devon-module/created_entity.PNG"]
+
+Now all files regarding the entity called Moto are in place and can be used.
+
+
+When generating the same entity a second time, there are 3 options: regenerate, add more fields or remove fields. Depending on the chosen option, more questions (as explained above) will be asked to enter i.e.
+ the new field name.
+
+image::images/jhipster-devon-module/update_entity.PNG[,width="450", link="images/jhipster-devon-module/update_entity.PNG"]
+
+== Interesting links
+
+1. Yeoman: http://yeoman.io/learning/, https://github.com/yeoman/yo
+2. JHipster: http://www.jhipster.tech/

@@ -54,6 +54,7 @@
 * link:Integrate-Spring-boot-admin-with-module[Integrate spring boot admin to OASP4j app with module]
 * link:Dockerfile-for-the-maven-based-spring.io-projects[Dockerfile for the maven based spring.io projects]
 * link:Angular-a11y-accessibility.[Angular A11y accessibility]
+* link:cookbook-devon-jhipster-module[Create entity with Devon JHipster Module]
 
 == The Presentation Layer: Getting Started with Devon4Sencha
 
