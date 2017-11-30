@@ -1,7 +1,7 @@
 :toc: macro
 toc::[]
 
-= Deploying an OASP4JS application
+= OASP4JS Deployment
 
 When you have a finished version of your application and you want to deploy it somewhere you just make sure you have all your test running correctly and your app compiles. Then, run this Angular/cli command in your project root folder:
 
