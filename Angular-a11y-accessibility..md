@@ -185,6 +185,7 @@ Regions can be declared explicitly with an initial focus element by using the cd
 ### InteractivityChecker
 InteractivityChecker is used to check the interactivity of an element, capturing disabled, visible, tabbable, and focusable states for accessibility purposes.
 
+
 ### LiveAnnouncer
 LiveAnnouncer is used to announce messages for screen-reader users using an aria-live region.
 Example 
