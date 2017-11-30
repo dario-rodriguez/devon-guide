@@ -1,7 +1,7 @@
 :toc: macro
 toc::[]
 
-== Creating new OASP4Fn application 
+== Creating new OASP4Fn Application 
 In this chapter we are going to build a serverless backend with OASP4Fn. The main objective of this tutorial is to take an initial contact with OASP4Fn and the necessary tools we are going to use in the development, so at the end of it, the user will be enough confident to start developing a new project with OASP4Fn without problems.
 
 == Install tools
