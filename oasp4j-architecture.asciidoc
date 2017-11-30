@@ -1,0 +1,20 @@
+:toc: macro
+toc::[]
+
+= OASP4J Architecture
+
+OASP4J provides a solution for industrialized web apps based on _components_ and a three-layers architecture.
+
+image::images/oasp4j/1.Overview/oasp4j_architecture.png[,width="550", link="images/oasp4j/1.Overview/oasp4j_architecture.png"]
+
+A _component_ is a package that contains the services and logic related to one feature of the app.
+
+Each component will be divided in three layers: _service_, _logic_ and _dataacess_.
+
+- Service Layer: will expose the REST api to exchange information with the client applications.
+
+- Logic Layer: the layer in charge of hosting the business logic of the application.
+
+- Data Access Layer: the layer to communicate with the data base.
+
+Finally the _Oasp4j_ applications provide a _general_ package to locate the cross-cutting functionalities such as _security_, _logging_ or _exception handling_.

@@ -1,226 +1,1071 @@
 :toc: macro
 toc::[]
 
-= Create New Application
+== Building your own OASP4JS application
+In this chapter we are going to see how to build a new OASP4Js from scratch. The proposal of this tutorial is to end having enough knowledge of Angular and the rest of technologies regarding OASP4Js to know how to start developing on it and if you want more advanced and specific functionalities see them on the cookbook.
 
-You don’t have to start from scratch when creating a new client application. You can use our oasp-generator for yeoman for scaffolding an AngularJS application template.
+== End Result is Jump The Queue
+This mock-up images shows what you are going to have as a result when the tutorial is finished. An app to manage codes assigned to queuers in order to easy the management of the queue, with a code, you can jump positions in queue and know everywhere which is your position.
 
-For creating the project you can use devcon, a cross-platform command line tool or do it manually using the oasp generator.
+image::images/oasp4js/3.BuildYourOwn/JTQ_register.png[,width="250", link="images/oasp4js/3.BuildYourOwn/JTQ_register.png"]
+image::images/oasp4js/3.BuildYourOwn/JTQ_codeview.png[,width="250", link="images/oasp4js/3.BuildYourOwn/JTQ_codeview.png"]
+image::images/oasp4js/3.BuildYourOwn/JTQ_queue.png[,width="250", link="images/oasp4js/3.BuildYourOwn/JTQ_queue.png"]
 
-image::images/devconlogo_imgonly.png[,width="50"]
-.*Using devcon*
+So, hands on it, let's configure the environment and build this app!
+
+== Installing Global Tools
+
+=== Visual Code: 
+To install the editor download the installer from https://code.visualstudio.com/Download[the official page] and install it.
+
+Once installed, the first thing you should do is install the extensions that will help you during the development, to do that follow this steps:
+
+1. Install Settings Sync extension.
+
+2. Open the command palette (Ctrl+Shift+P) and introduce the command: *Sync: Download Settings*.
+
+Provide GIST ID: *d976bc200f0403d8045b7e4ee39d4361*.
+
+In the case that you are unable to set up the extensions using the method mentioned, you can also use the scripts provided in https://github.com/oasp/oasp-vscode-ide[this repository].
+
+=== Node.js
+
+Go to the https://nodejs.org/en/[node.js official page] and download the version you like the most, the LTS or the Current, as you wish.
+
+The recommendation is to install the latest version of your election, but keep in mind that to use Angular CLI your version must be at least 6.9, so if you have a node.js already installed in your computer this is a good moment to check your version and upgrade it if it's necessary.
+
+=== TypeScript
+
+Let’s install what is going to be the main language during development: TypeScript. This ES6 superset is tightly coupled to the Angular framework and will help us to get a final clean and distributable JavaScript code. This is installed globally with npm, the package manager used to install and create javascript modules in Node.js, that is installed along with Node, so for install typescript you don’t have to install npm explicitly, only run this command:
+
+`npm install –g typescript`
+
+=== Yarn
+
+As npm, https://yarnpkg.com/en/[Yarn] is a package manager, the differences are that Yarn is quite more faster and usable, so we decided to use it to manage the dependencies of Oasp4Js projects.
+
+To install it you only have to go to https://yarnpkg.com/en/docs/install[the official installation page] and follow the instructions.
+
+Even though, if you feel more comfortable with npm, you can remain using npm, there is no problem regarding this point.
+
+=== Angular/CLI
+CLI specially built for make Angular projects easier to develop, maintain and deploy, so we are going to make use of it.
+
+To install it you have to run this command in your console prompt: `npm install –g @angular/cli`
+
+Then, you should be able to run `ng version` and this will appear in the console:
+
+image::images/oasp4js/3.BuildYourOwn/angularcli.JPG[, link="images/oasp4js/3.BuildYourOwn/angularcli.JPG"]
+
+In addition, you can set Yarn as the default package manager to use with Angular/CLI running this command: 
+
+`ng set --global packageManager=yarn`
+
+Finally, once all these tools have been installed successfully, you are ready to create a new project.
+
+== Creating Basic Project
+
+One of the best reasons to install Angular/CLI is because it has a feature that creates a whole new basic project where you want just running:
+
+`ng new <project name>`
+
+Where <project name> is the name of the project you want to create. In this case, we are going to call it JumpTheQueue. This command will create the basic files and install the dependencies stored in `package.json`
+
+image::images/oasp4js/3.BuildYourOwn/ngnew.JPG[, link="images/oasp4js/3.BuildYourOwn/ngnew.JPG"]
+
+Then, if we move to the folder of the project we have just created and open visual code we will have something like this:
+
+image::images/oasp4js/3.BuildYourOwn/filesnew.JPG[, link="images/oasp4js/3.BuildYourOwn/filesnew.JPG"]
+
+Finally, it is time to check if the created project works properly. To do this, move to the projects root folder and run: 
+
+`ng serve -o`
+
+And... it worked:
+
+image::images/oasp4js/3.BuildYourOwn/appnew.JPG[, link="images/oasp4js/3.BuildYourOwn/appnew.JPG"]
+
+== Working with Google Material and Covalent Teradata
+
+=== Installing Dependencies
+
+First, we are going to add *Google Material* to project dependencies running the following commands:
+
+  `yarn add @angular/material @angular/cdk`
+
+Then we are going to add animations:
+
+  `yarn add @angular/animations`
+
+Finally, some material components need gestures support, so we need to add this dependency:
+
+  `yarn add hammerjs`
+
+That is all regarding Angular/Material. 
+
+We are now going to install *Covalent Teradata* dependency:
+
+  `yarn add @covalent/core` 
+
+Now that we have all dependencies we can check in the project's package.json file if everything has been correctly added:
+
+image::images/oasp4js/3.BuildYourOwn/installedpackages.JPG[, link="images/oasp4js/3.BuildYourOwn/installedpackages.JPG"]
+
+=== Importing Styles and Modules
+
+Now let's continue to make some config modifications to have all the styles and modules imported to use Material and Teradata:
+
+1. Angular Material and Covalent need the following modules to work: `CdkTableModule`, `BrowserAnimationsModule` and *every Covalent and Material Module* used in the application. So make sure you import them in the _imports array_ inside of _app.module.ts_. These modules come from `@angular/material`, `@angular/cdk/table`, `@angular/platform-browser/animations` and `@covalent/core`.
+
+2. Create `theme.scss`, a file to config themes on the app, we will use one _primary_ color, one secondary, called _accent_ and another one for _warning_. Also Teradata accepts a foreground and background color. Go to _/src_ into the project and create a file called *theme.scss* whose content will be like this:
++
+[source, javascript]
+----
+@import '~@angular/material/theming';
+@import '~@covalent/core/theming/all-theme';
+
+@include mat-core();
+
+$primary: mat-palette($mat-blue, 700);
+$accent:  mat-palette($mat-orange, 800);
+
+$warn:    mat-palette($mat-red, 600);
+
+$theme: mat-light-theme($primary, $accent, $warn);
+
+$foreground: map-get($theme, foreground);
+$background: map-get($theme, background);
+
+@include angular-material-theme($theme);
+@include covalent-theme($theme);
+----
+
+3. Now we have to add these styles in angular/CLI config. Go to _.angular-cli.json_ to "styles" array and add theme and Covalent platform.css to make it look like this:
+
+[source, javascript]
+----
+      "styles": [
+        "styles.css",
+        "theme.scss",
+        "../node_modules/@covalent/core/common/platform.css"
+      ],
+----
+
+With all of this finally done, we are ready to start the development.
+
+== Alternative : ng-seed
+
+Another option is to get this basic project structure with all its dependencies and styles already set is to clone the develop-covalent branch of https://github.com/oasp/oasp4js-ng-project-seed/tree/develop-covalent[ng-project-seed].
+
+Once you have cloned it, move to the project root folder and run a `yarn` to install all dependencies from package.json. The project serves as an example which also comes with some common functionalities already implemented if you want to use them.
+
+In order to make the task easier, we are going to avoid the removal of unused components, so we will use the project created on the previous point to build the app.
+
+== Start the development
+
+Now we have a fully functional blank project, all we have to do now is just create the components and services which will compose the application.
+
+First, we are going to develop the views of the app, through its components, and then we will create the services with the logic, security and back-end connection.
+
+=== Creating components
+
 [NOTE]
 ====
-You can automate these processes using devcon. With the `devon oasp4js create` command you can create a new oasp4js project link:devcon-command-reference#oasp4js-create[learn more here].
+Learn more about creating new components in OASP4Js link:AngularComponents#create-a-new-component[HERE]
 ====
 
-== generator-oasp
+The app consists of 3 main views:
 
-> http://yeoman.io[Yeoman] generator for AngularJS applications powered by https://github.com/oasp/oasp4js[OASP4JS].
+* Access
+* Code viewer
+* List of the queue
 
+To navigate between them we are going to implement routes to the components in order to use Angular Router.
 
-=== Getting Started
+To see our progress, move to the root folder of the project and run `ng serve` this will serve our client app in _localhost:4200_ and keeps watching for changing, so whenever we modify the code, the app will automatically reload.
 
-If you are going to create the application manually before you start to use generator-oasp it is important to install the prerequisites. You will need the Node.js, Bower and Gulp.
+==== Root component
+_app.component_ will be our Root component, so we do not have to create any component yet, we are going to use it to add to the app the elements that will be common no matter in what view we are.
 
-1. Open a Devon command prompt by executing the batch file console.bat in the root folder of the distribution.
-1. Most of tools used in oasp4js need the Node.js platform and its package manager (npm).
-1. Node.js is provided by default within the Devon distribution.  For installing Bower and Gulp (skip these steps if you already have Bower and Gulp installed in your machine; just check the version for both):
+[NOTE]
+====
+Learn more about the root component in OASP4Js link:AngularComponents#root-component[HERE]
+====
 
-Bower is a front-end package manager. Install the Bower globally using the npm. Type the following command in the command line tool:
+This is the case of a header element, which will be on top of the window and on top of all the components, let's build it:
+
+The first thing to know is about https://teradata.github.io/covalent/#/layouts[Covalent Layouts] because we are going to use it a lot, one for every view component.
+
+[NOTE]
+====
+Learn more about layouts in OASP4Js link:AngularComponents#teradata-layouts[HERE]
+====
+
+As we do not really need nothing more than a header we are going to use the simplest layout: *nav view*
+
+Remember that we need to import in _app.module_ the main _app.component_ and every component of *Angular Material* and *Covalent Teradata* we use (i.e. for layouts it is `CovalentLayoutModule`). Our `app.module.ts` should have the following content:
+
+[source, typescript]
 ----
-npm install –g bower
-----
-In order to check if Bower was correctly installed you can check its version by typing:
-----
-bower --version
-----
-Gulp is a streaming build system. Install the Gulp globally using the npm. Type the following command in the command line tool:
-----
-npm install –g gulp
-----
-In order to check if Gulp was correctly installed you can check its version by typing:
-----
-gulp –version
-----
+// Covalent imports
+import {
+  CovalentLayoutModule,
+  CovalentCommonModule,
+} from '@covalent/core';
 
-If you use a proxy to connect to the Internet, you have to manually configure it for npm:
+// Material imports
+import {
+  MatCardModule,
+  MatInputModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatIconModule,
+  MatSnackBarModule,
+  MatProgressBarModule,
+} from '@angular/material';
+import { CdkTableModule } from '@angular/cdk/table';
 
-Open a command line in the folder C.\Users\{user}\ and type:
-----
-echo "" > .npmrc
-----
-This is going to create a new empty file named .npmrc
+// Angular core imports
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import 'HammerJS';
 
-To configure npm, you need to open the file .npmrc and then add the following configuration:
-----
-proxy=http://user:password@proxy:port
-https-proxy=http://user:password@proxy:port
-http-proxy=http://user:password@proxy:port
-----
+// Application components and services
+import { AppComponent } from './app.component';
 
-=== Running of application in Linux
-If, one wants to run sample restaurant application in Linux environment,follow these steps:
-
-* Open a terminal inside devon distribution, and execute env.sh script as below
-----
-. env.sh
-
-----
-* Traverse to directory where OASP4JS code is present.
-* Change below mentioned line as shown in _package.json_ file.
-Comment this line
-----
-"postinstall": "bower install -F -–allow-root",
-----
-* Install git for linux.
-
-* Install bower
-----
-npm bower install --allow-root
-
-----
-* Install gulp
-
-----
-npm install -g gulp
-----
-* Once this is done, run from the same oasp4js directory.
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    MatCardModule,            // Angular Material modules we are going to use
+    MatInputModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatIconModule,
+    MatProgressBarModule,
+    MatSnackBarModule,
+    CovalentLayoutModule,     // Covalent Teradata Layout Module
+    CovalentCommonModule,
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
 ----
 
-npm install
+[NOTE]
+====
+Remember this step because you will have to repeat it for every other component from Teradata you use in your app.
+====
 
+Now we can use layouts, so lets use it on _app.component.html_ to make it look like this:
+
+[source, html]
+----
+<td-layout-nav>               // Layout tag
+  <div td-toolbar-content>
+    Jump The Queue            // Header container
+  </div>
+  <h1>
+    {{title}}                 // Main content
+  </h1>
+</td-layout-nav>
 ----
 
-* Now you should be able to see "bower_components" folder created in the root of oasp4js.
-If not then, again execute
+[NOTE]
+====
+Learn more about toolbars in OASP4Js link:AngularComponents#toolbars[HERE]
+====
+
+Once this done, our app should have a header and the "app works!" should remain in the body of the page:
+
+image::images/oasp4js/3.BuildYourOwn/root_header.JPG[,width="250", link="images/oasp4js/3.BuildYourOwn/root_header.JPG"]
+
+To make a step further, we have to modify the body of the Root component because it should be the *output of the router*, so now it is time to prepare the routing system.
+
+First we need to create a component to show as default, that will be our access view, later on we will modify it on it's section of this tutorial, but for now we just need to have it: stop the `ng serve` and run `ng generate component access`. It will add a folder to our project with all the files needed for a component. Now we can move on to the router task again. Run `ng serve` again to continue the development.
+
+Let's create the module when the Router check for routes to navigate between components.
+
+1. Create a file called _app-routing.module.ts_ and add the following code:
+
+[source, typescript]
 ----
-npm bower install --allow-root
+imports...
 
+const appRoutes: Routes = [  // Routes string, where Router will check the navigation and its properties.
+  { path: 'access', component: AccessComponent},               // Redirect if url path is /access.
+  { path: '**', redirectTo: '/access', pathMatch: 'full' }];  // Redirect if url path do not match with any other route.
+
+@NgModule({
+  imports: [
+    RouterModule.forRoot(
+      appRoutes, {
+        enableTracing: true
+      }, // <-- debugging purposes only
+    ),
+  ],
+  exports: [
+    RouterModule,
+  ],
+})
+export class AppRoutingModule {} // Export of the routing module.
 ----
 
-* Once done, execute *gulp serve* which will automatically open app in default browser.
+Time to add this _AppRoutingModule_ routing module to the app module:
 
-
-=== Why it is worth using
-
-==== It offers more than other application seeds
-
-There are various JavaScript/AngularJS application seeds such as https://github.com/angular/angular-seed[angular-seed] or https://www.npmjs.org/package/angularjs-seed[angularjs-seed]. All of them are operational, but they focus on a quick & easy start and work well for small-scale projects. oasp4js is built as a base for bigger, modularized, enterprise projects, where different modules are often developed independently and simultaneously by many teams.
-
-==== It does not reinvent the wheel
-
-oasp4js just brings its idea on an application structure and makes use of well-known tools such as http://gulpjs.com/[Gulp] or http://bower.io/[Bower] which support developers in their activities. This all makes coding, testing and building the application extremely efficient.
-
-=== What is Yeoman
-
-Trick question. It's not a thing. It's this guy:
-
-image:http://i.imgur.com/JHaAlBJ.png[,width="450",link="http://i.imgur.com/JHaAlBJ.png"]
-
-Basically, he wears a top hat, lives in your computer, and waits for you to tell him what kind of application you wish to create.
-
-Not every new computer comes with a Yeoman pre-installed. He lives in the https://npmjs.org[npm] package repository. You only have to ask for him once, then he packs up and moves into your hard drive. *Make sure you clean up, he likes new and shiny things.*
-
-Every step below is going to take several minutes depending on your network connection.
-To install yeoman, run:
-
-....
-npm install -g yo
-....
-
-_Hint: If you are using Windows Command Line it is recommended to run it as an administrator._
-
-==== Yeoman Generators
-
-Yeoman travels light. He didn't pack any generators when he moved in. You can think of a generator like a plug-in. You get to choose what type of application you wish to create, such as a Backbone application or even a Chrome extension.
-
-To install generator-oasp from npm, run:
-
-....
-npm install -g generator-oasp
-....
-
-Create a directory in which you will later call the generator:
-
-....
-mkdir <directory_name>
-cd <directory_name>
-....
-
-Finally, initiate the generator in the created directory:
-
-....
-yo oasp
-....
-
-If you use a proxy to connect to the Internet, please follow the steps for configuring bower properly:
-
-To configure bower proxy we need to open the file `.bowerrc`, is on oasp4js application folder. Then add the following configuration:
-
+[source, typescript]
 ----
-{
-    "directory": "bower_components",
-    "proxy": "http://user:password@proxy:port",
-    "https-proxy":"http://user:password@proxy:port"
+...
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    CovalentLayoutModule,
+...
+----
+
+[NOTE]
+====
+Learn more about routing in OASP4Js link:AngularComponents#routing[HERE]
+====
+
+Finally, we remove the "{{title}}" from _app.component.html_ and in its place we put a `<router-outlet></router-outlet>` tag. So the final result of our Root component will look like this:
+
+image::images/oasp4js/3.BuildYourOwn/root_router.JPG[,width="250", link="images/oasp4js/3.BuildYourOwn/root_router.JPG"]
+
+As you can see, now the body content is the html of *AccessComponent*, this is because we told the Router to redirect to Access when the path is /access, but also, redirect to it as default if any of the other routes match with the path introduced.
+
+We will definitely going to modify the header in the future to add some options like log-out but, for the moment, this is all regarding Root Component.
+
+==== AccessComponent
+
+As we have already created this component from the section before, let's move on to building the template of the access view.
+
+First, we need to add the Covalent Layout and the card:
+
+[source, html]
+----
+<td-layout>
+  <mat-card>
+    <mat-card-title>Access</mat-card-title>
+  </mat-card>
+</td-layout>
+----
+
+This will add a grey background to the view and a card on top of it with the title: "Access", now that we have the basic structure of the view, let's add the form with the information to access to our queue number:
+
+* Name of the person
+* Email
+* Telephone number
+
+One simple text field, one text field with email validation (and the legal information regarding emails) and a number field. Moreover, we are going to add this image:
+
+image::images/oasp4js/3.BuildYourOwn/jumptheq.png[,width="250", link="images/oasp4js/3.BuildYourOwn/jumptheq.png"]
+
+In order to have it available in the project to show, save it in the following path of the project: _/src/assets/images/_ and it has been named: _jumptheq.png_
+
+So the final code with the form added will look like this:
+
+[source, html]
+----
+<td-layout>
+  <mat-card>
+    <img mat-card-image src="assets/images/jumptheq.png">
+    <mat-card-title>Access</mat-card-title>
+    <form layout="column" class="pad" #accessForm="ngForm">
+
+      <mat-form-field>
+        <input matInput placeholder="Name" ngModel name="name" required>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Email" ngModel email name="email" required>
+      </mat-form-field>
+      <span class="text-sm">Filling this, I acccept to receive commercial information.</span>
+
+      <mat-form-field>
+        <input matInput placeholder="Phone" type="number" ngModel name="phone" required>
+      </mat-form-field>
+
+    <mat-card-actions>
+      <button mat-raised-button color="primary" [disabled]="!accessForm.form.valid" class="text-upper">Request it</button>
+    </mat-card-actions>
+
+    </form>
+  </mat-card>
+</td-layout>
+----
+
+This form contains three input container from Material and inside of them, the input with the properties listed above and making all required.
+
+Also, we need to add the button to send the information and redirect to code viewer or show an error if something went wrong in the process, but for the moment, as we neither have another component nor the auth service yet, we will implement the button visually and the validator to disable it if the form is not correct, but not the click event, we will come back later to make this working.
+
+[NOTE]
+====
+Learn more about forms in OASP4Js link:AngularComponents#forms[HERE]
+====
+
+This code will give us as a result something similar to this:
+
+image::images/oasp4js/3.BuildYourOwn/access_form.JPG[,width="250", link="images/oasp4js/3.BuildYourOwn/access_form.JPG"]
+
+Now lets continue with the second component: Code viewer.
+
+==== Code viewer component
+Our first step will be create the component in the exact same way we did with the access component: `ng generate component code-viewer` and we add the route in the app-routing.module.ts:
+
+[source, typescript]
+----
+const appRoutes: Routes = [
+  { path: 'access', component: AccessComponent},
+  { path: 'code', component: CodeViewerComponent}, //code-viewer route added
+  { path: '**', redirectTo: '/access', pathMatch: 'full' }];
+----
+
+With two components already created we need to use the router to navigate between them. Following the application flow of events, we are going to add a navigate function to the submit button of our access form button, so when we press it, we will be redirected to our code viewer.
+
+Turning back to _access.component.html_ we have to add this code:
+
+[source, html]
+----
+<form layout="column" class="pad" (ngSubmit)="submitAccess()" #accessForm="ngForm"> // added a ngSubmit event
+ ...
+<button mat-raised-button type="submit" color="primary" ... </button> // added type="submit"
+----
+
+This means that when the user press enter or click the button, ngSubmit will send an event to the function `submitAccess()` that should be in the _access.component.ts_, which is going to be created now:
+
+[source, typescript]
+----
+  constructor(private router: Router) { }
+
+  submitAccess(): void {
+    this.router.navigate(['code']);
+  }
+----
+
+We need to inject an instance of Router object and declare it into the name _router_ in order to use it into the code, as we did on submitAccess(), using the navigate function and redirecting to the next view, in our case, the code-viewer using the route we defined in _app.routes.ts_.
+
+Now we have a minimum of navigation flow into our application, this specific path will be secured later on to check the access data and to forbid any navigation trough the URL of the browser.
+
+Let's move on to _code-viewer_ to make the template of the component. We need a big code number in the middle and a button to move to the queue:
+
+[source, html]
+----
+<td-layout>
+  <mat-card>
+    <img mat-card-image src="assets/images/jumptheq.png">
+    <mat-card-title>Queue code for {{name}} is:</mat-card-title> // interpolation of the variable name which corresponds with the person who requested the code
+
+    <h1 style="font-size: 100px" class="text-center text-xxl push-lg">{{code}}</h1> // queue code for that person
+
+    <div class="text-center pad-bottom-lg">
+      <button mat-raised-button (click)="navigateQueue()" color="primary" class="text-upper">Watch the queue</button> // navigation function like access
+    </div>
+
+  </mat-card>
+</td-layout>
+----
+
+And the implementation of the _code-viewer.component.ts_ should be something like: 
+
+[source, typescript]
+----
+imports...
+
+export class CodeViewerComponent implements OnInit {
+
+  code: string; // declaration of vars used in the template
+  name: string;
+
+  constructor(private router: Router) { } // instance of Router
+
+  ngOnInit(): void {
+    this.code = 'Q06';        //This values in the future will be loaded from a service making a call for server information
+    this.name = 'Someone';
+  }
+
+  navigateQueue(): void {
+                           // this will be filled with the router navigate function when we have created the queue component
+  }
+----
+
+Giving this as a result:
+
+image::images/oasp4js/3.BuildYourOwn/code_viewer.JPG[,width="250", link="images/oasp4js/3.BuildYourOwn/code_viewer.JPG"]
+
+Finally, we are going to add an icon button to the header to log out, we are not able to log out or to hide the icon yet, we are just letting it prepared for the future when the auth service is implemented. Modify _app.component.html_  div tag as follows:
+
+[source, html]
+----
+  <div layout="row" layout-align="center center" td-toolbar-content flex>
+    Jump The Queue
+    <span flex></span> //Fill empty space to put the icon in the right of the header
+    <button mat-icon-button mdTooltip="Log out"><mat-icon>exit_to_app</mat-icon></button>
+  </div>
+----
+
+If everything goes correctly, you should now have an icon at the right of the header no matter which view you are at.
+
+==== Queue component
+
+For our last view component we are going to use a component from Covalent Teradata: the *data table*. Let's begin.
+
+As always: `ng generate component queue-viewer` and add a route in _app.routes.ts_ to that component `{ path: 'queue', component: QueueViewerComponent},`
+
+Now we have the component created, let's take a bit of time to complete `navigateQueue()` function in code-viewer to point to this new component: 
+
+[source, typescript]
+----
+  navigateQueue(): void {
+    this.router.navigate(['queue']);
+  }
+----
+
+Back to our recently created component, it will be quite similar to the 2 others, but in this case, the body of the card will be a data table from covalent. 
+
+1. First, import the `CovalentDataTableModule` in `app.module.ts`:
++
+[source, typescript]
+----
+// Covalent imports
+import {
+  ...
+  CovalentDataTableModule,       // Add this line 
+} from '@covalent/core';
+
+...
+
+@NgModule({
+  ...
+  imports: [
+    ...
+    CovalentDataTableModule,     // Add this line
+  ],
+  ...
+----
+
+2. Edit the HTML with the new table component:
++
+[source, html]
+----
+<td-layout>
+  <mat-card>
+    <img mat-card-image src="assets/images/jumptheq.png">
+    <mat-card-title>Queue view:</mat-card-title>
+
+    <td-data-table
+      [data]="queuers"
+      [columns]="columns">
+    </td-data-table>
+
+    <div class="text-center pad-lg">
+      <button mat-raised-button (click)="navigateCode()" color="primary" class="text-upper">Go back</button>
+    </div>
+
+  </mat-card>
+</td-layout>
+----
+
+[NOTE]
+====
+Learn more about Teradata data tables in OASP4Js link:AngularComponents#teradata-data-table[HERE]
+====
+
+What we did here is to create the component by its selector, and give the needed inputs to build the table: *columns* to display names and establish concordance with the data, and some *data* to show. Also, a button to return to the code view has been added following the same system as the navigation in code, but pointing to 'code':
+
+[source, typescript]
+----
+export class QueueViewerComponent implements OnInit {
+
+    columns: ITdDataTableColumn[] = [
+    { name: 'code',  label: 'Code'},
+    { name: 'hour', label: 'Hour' },
+    { name: 'name', label: 'Name'}];
+
+  queuers: any[] = [
+      {code: 'Q04', hour: '14:30', name: 'Elrich'},
+      {code: 'Q05', hour: '14:40', name: 'Richard'},
+      {code: 'Q06', hour: '14:50', name: 'Gabin'},
+    ];
+
+  constructor(private router: Router) { }
+
+  ngOnInit(): void {
+  }
+
+  navigateCode(): void {
+    this.router.navigate(['code']);
+  }
+
 }
 ----
 
-Obviously, you only can do this when your project has already been created as the file `.bowerrc` has to be inside the project folder.
+This will be the result:
 
-This should be done while the command `yo oasp` is being executed otherwise we will have to execute again the command.
-If we had to execute the command again, it will ask you to override the file `.bowerrc` so you have to enter ‘n’ to not override it. 
+image::images/oasp4js/3.BuildYourOwn/queue_viewer.JPG[,width="250", link="images/oasp4js/3.BuildYourOwn/queue_viewer.JPG"]
 
-=== Enjoy
+=== Creating services
 
-Please note that all commands below must be executed in project root directory.
+[NOTE]
+====
+Learn more about services in OASP4Js link:AngularServices[HERE]
+====
 
-==== Developing
+At the moment we had developed all the basic structure and workflow of our application templates, but there is still some more work to do regarding security, calls to services and logic functionalities, this will be the objective of this second part of the tutorial. We will use angular/cli to generate our services as we did to create our components.
 
-Once the project initialization has been done successfully we can start running our application.
+[NOTE]
+====
+Learn more about creating new services in OASP4Js link:AngularServices#create-a-new-service[HERE]
+====
 
-Start the application using Gulp in the project root directory:
+==== Auth service
 
+We will start with the *security*, implementing the service that will store our state and username in the application, this services will have setters and getters of these two properties. This service will be useful to check when the user is logged or not, to show or hide certain elements of the headers and to tell the guard (service that we will do next) if the navigation is permitted or not.
+
+To create the service we run: `ng generate service shared\authentication\auth`.
+
+We navigate into this new service and we add this code as described above:
+
+[source, typescript]
 ----
-gulp serve
-----
+import { Injectable } from '@angular/core';
 
-The above Gulp's task opens the application in your default browser and watches for any HTML/JavaScript/CSS changes. Once you do one, the page is reloaded automatically. The url that throws is: 'http://localhost:9000/#/main/welcome'
+@Injectable()
+export class AuthService {
+    private logged = false;   // state of the user
+    private user = '';        //username of the user
 
-If for some reason your client should talk to the server configured in a different way, you can configure the server details in the client's configuration file, <app_dir>\config.json, in the proxy part:
+    public isLogged(): boolean {
+        return this.logged;
+    }
 
-[source,json]
-----
-{
-    "proxy": {
-        "baseUrl": "http://localhost:8081",
-        "context": "/sampleapp-server"
+    public setLogged(login: boolean): void {
+        this.logged = login;
+    }
+
+    public getUser(): string {
+        return this.user;
+    }
+
+    public setUser(username: string): void {
+        this.user = username;
     }
 }
 ----
 
-==== Testing
+When the access service will be done, it will call for this setters to set them with real information, and when we log off, this information will be removed accordingly.
 
-Run application's Jasmine tests:
+As an example of use of this information service, we will move to _app.component.ts_ and will add in the constructor the AuthService to inject it and have access to its methods.
 
-....
-gulp test:tdd
-....
+Now on the template we are going to use and special property from Angular *ngIf* to show or hide the log-off depending on the state of the session of the user:
 
-This Gulp's task uses the Karma test runner to execute Jasmine tests (against the PhantomJS) and watches for any change in your JavaScript files (both sources and specs).  Test Driven Development has never been easier :)
+[source, html]
+----
+<button *ngIf="auth.isLogged()" mat-icon-button mdTooltip="Log out"><mat-icon>exit_to_app</mat-icon></button>
+----
 
-If you would like to run the tests against a real browser (rather than against the PhantomJS) or use it to debug a test, call:
+This property will hide the log-off icon button when the user is not logged and show it when it is logged.
 
-....
-gulp test:tdd:debug
-....
+[NOTE]
+====
+Learn more about authentication in OASP4Js link:AngularServices#authentication[HERE]
+====
 
-==== Building
+==== Guard service
 
-Build the application:
+With AuthService we have a service providing information about the state of the session, so we can now establish a guard checking if the user can pass or not trough the login page. We create it exactly the same way than the AuthService: `ng generate service shared\authentication\auth-guard`.
 
-....
-gulp serve:dist
-....
+This service will be a bit different, because we have to implement an interface called CanActivate, which has a method called canActivate returning a boolean, this method will be called when navigating to a specified routes and depending on the return of this implemented method, the navigation will be done or rejected.
 
-The above Gulp's task creates the `myapp/dist` directory and put there HTML documents, CSS files (compiled from Less files) and JavaScript files (merged, minimized and obfuscated).
+[NOTE]
+====
+Learn more about guards in OASP4Js link:AngularServices#guards[HERE]
+====
+
+The code should be as follows:
+
+[source, typescript]
+----
+import { Injectable } from '@angular/core';
+import { CanActivate, Router } from '@angular/router';
+import { AuthService } from './auth.service';
+
+@Injectable()
+export class AuthGuardService implements CanActivate {
+  constructor(private authService: AuthService,
+              private router: Router) {}
+
+  canActivate(): boolean {
+
+    if (this.authService.isLogged()) {   // if logged, return true and exit, allowing the navigation
+      return true;
+    }
+
+    if (this.router.url === '/') {
+      this.router.navigate(['access']); // if not logged, recheck the navigation to resend to login page in case the user tried to navigate modifying directly the URL in the browser.
+    }
+
+    return false;  // and blocking the navigation.
+  }
+}
+----
+
+Now we have to add them to our _app.module.ts_ providers array:
+
+[source, typescript]
+----
+...
+  providers: [
+    AuthGuardService,
+    AuthService,
+  ],
+  bootstrap: [AppComponent]
+...
+----
+
+Finally, we have to specify what routes are secured by this guard, so we move to _app-routing.module.ts_ and add the option "canActivate" to the paths to code-viewer and queue-viewer:
+
+[source, typescript]
+----
+const appRoutes: Routes = [
+  { path: 'access', component: AccessComponent},
+  { path: 'code', component: CodeViewerComponent, canActivate: [AuthGuardService]},
+  { path: 'queue', component: QueueViewerComponent, canActivate: [AuthGuardService]},
+  { path: '**', redirectTo: '/access', pathMatch: 'full' }];
+----
+
+If you save all the changes, you will realize you can not go trough access anymore, that is because we need to implement first our login function in the access service, which will change the value in AuthService and will let us navigate freely.
+
+==== Access service
+
+As we need to have this service in order to access again to our application, this will be the first service to be created. As always, `ng generate service access/shared/access` will do the job. Also remember to *add the service to providers in app module*.
+
+This service will contain two functions, one for login when the button is pressed and other to log off when the icon button in the header is pressed. This functions will manage to set the values of the session and navigate properly. For now we are going to use a simple `if` to check if the user credentials are correct, in the future a server will do this for us.
+
+[source, typescript]
+----
+export class AccessService {
+
+  constructor(private auth: AuthService,
+              public snackBar: MatSnackBar,  // Angular Material snackbar component to show when an error ocurred
+              private router: Router) { }
+
+  login(name, email, phone): void {
+    if (name === 'user' && email === 'asd@asd.com' && phone === 123456789) { //check the credentials introduced
+      this.auth.setLogged(true);                                             // if correct, values set and navigation made
+      this.auth.setUser(name);
+      this.router.navigate(['code']);
+    } else {
+      this.snackBar.open('access error', 'OK', {                             // if incorrect, snackbar with an error message is shown.
+        duration: 2000,
+      });
+    }
+  }
+
+  logoff(): void {                                   //remove the values, set logged to false and redirected to access view
+      this.auth.setLogged(false);
+      this.auth.setUser('');
+      this.router.navigate(['access']);
+  }
+
+}
+----
+
+image::images/oasp4js/3.BuildYourOwn/login_error.JPG[,width="250", link="images/oasp4js/3.BuildYourOwn/login_error.JPG"]
+
+Now we have to inject this service in our AccessComponent in order to consume it. We inject the dependency into the component and we change our submit function to get the values from the form and to call the service instead of just always redirecting:
+
+[source, typescript]
+----
+export class AccessComponent implements OnInit {
+
+  constructor(private accessService: AccessService) { }
+
+  ngOnInit(): void {
+  }
+
+  submitAccess(formValue): void {
+    this.accessService.login(formValue.value.name, formValue.value.email, formValue.value.phone);
+    formValue.reset();
+  }
+
+}
+----
+
+This also has to be added to the template in order to pass the parameter into the function:
+
+[source, html]
+----
+    <form layout="column" class="pad" (ngSubmit)="submitAccess(accessForm.form)" #accessForm="ngForm">
+----
+
+ngSubmit now passes as parameter the ngForm with the values introduced by the user.
+
+Having this working should be enough to have again working our access component and grant access to the code and queue viewer if we introduce the correct credentials and if we do not, the error message would be shown and the navigation not permitted, staying still in the access view.
+
+The last thing to do regarding security is to make functional our log-off icon button in the header, we move to _app.component.html_ and add the correspondent (click) event calling for a function, in my case, called "logoff()".
+
+[source, html]
+----
+    <button *ngIf="auth.isLogged()" (click)="logoff()"  mat-icon-button mdTooltip="Log out"><mat-icon>exit_to_app</mat-icon></button>
+----
+
+The name has to correspond with the one used in _app.component.ts_, where we inject AccessService so we can call its logoff function where the one from this components is called:
+
+[source, typescript]
+----
+export class AppComponent {
+
+  constructor(public auth: AuthService,
+              private accesService: AccessService) {}
+
+  logoff(): void {
+    this.accesService.logoff();
+  }
+
+}
+----
+
+Once all of this is finished and saved, we should have all the workflow and navigation of the app working fine. Now it is time to receive the data of the application from a service in order to, in the future, call a server for this information.
+
+==== Code Service
+
+First step, as always, create the service in a shared folder inside the component: `ng generate service code-viewer/shared/code-viewer`.
+
+Due to the simplicity of this view, the only purpose of this service is to provide the queue code, which will be generated by the server but, until we connect to it, we have to generate it in the service (_imports included here in order to make easier this section_):
+
+[source, typescript]
+----
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';                  // RxJS "of" operator
+
+@Injectable()
+export class CodeViewerService {
+
+  constructor() { }
+
+  getCode(): Observable<string> {  // later, this will make a call to the server
+    return Observable.of('Q06');   // but, for now, this Observable will do the work
+  }
+
+}
+----
+
+We return an Observable because when we implement calls to the server, we will use Http, and they return observables, so the best way to be prepared to this connection is having a simulation of the return of this Http calls.
+
+It is time to inject it in the component and change a bit the variables to show in the template to get their vale from auth and our code-viewer service:
+
+[source, typescript]
+----
+export class CodeViewerComponent implements OnInit {
+
+  code: string;
+  name: string;
+
+  constructor(private router: Router,
+              private auth: AuthService,
+              private codeService: CodeViewerService) { }
+
+  ngOnInit(): void {
+    this.codeService.getCode().subscribe((data: string) => {
+      this.code = data;
+    });
+    this.name = this.auth.getUser();
+  }
+
+  navigateQueue(): void {
+    this.router.navigate(['queue']);
+  }
+}
+----
+
+[NOTE]
+====
+Learn more about Observables and RxJs in OASP4Js link:AngularServices#server-communication[HERE]
+====
+
+Now if we log in the application, the name we introduce in the form will be the name displayed in the code-viewer view. And the queue code will be the one we set in the service.
+
+==== Queue service
+
+The last element to create in our application, as always: `ng generate service queue-viewer/shared/queue-viewer` and then add the service in providers at _app.module.ts_.
+
+This service will work the same way code-viewer, it will simulate an observable that returns the data that will be displayed in the data table of Covalent Teradata:
+
+[source, typescript]
+----
+Injectable()
+export class QueueViewerService {
+  queuers: any[];
+
+  constructor() { }
+
+  getQueuers(): Observable<any[]> {       // later, this will make a call to the server and return an Observable
+
+    this.queuers = [{ code: 'Q04', hour: '14:30', name: 'Elrich' },
+    { code: 'Q05', hour: '14:40', name:  'Richard' },
+    { code: 'Q06', hour: '14:50', name: 'Gabin' }];
+
+    return Observable.of(this.queuers);   // but, for now, this Observable will do the work
+  }
+}
+----
+
+And the _queue-viewer.component.ts_ will be modified the same way:
+
+[source, typescript]
+----
+export class QueueViewerComponent implements OnInit {
+
+  columns: ITdDataTableColumn[] = [
+    { name: 'code',  label: 'Code'},
+    { name: 'hour', label: 'Hour' },
+    { name: 'name', label: 'Name'}];
+
+  queuers: any[];
+
+  constructor(private router: Router,
+              private queueService: QueueViewerService) { }
+
+  ngOnInit(): void {
+    this.queueService.getQueuers().subscribe( (data) => {
+      this.queuers = data;
+    });
+  }
+
+  navigateCode(): void {
+    this.router.navigate(['code']);
+  }
+
+}
+----
+
+At the moment, we have a functional application working exclusively with mock data, but we want to connect to a real back-end server to make calls and consume its services to have more realistic data, the way we implemented our components are completely adapted to read mock data or real server data, that is why we use services, to isolate the origin of the logic and the data from the component. Is the code of our services what is going to change, and we will go to see it now.
+
+== Making Calls to Server
+
+At this point we are going to assume you have finished the OASP4J configuration and deployment or, at least, you have downloaded the project and *have it running locally on localhost:8081*.
+
+With a real server running and prepared to receive calls from our services, we are going to modify a bit more our application in order to adjust to this new status.
+
+=== Preparations
+
+First, some configurations and modifications must be done to synchronize with how the server works:
+
+1. Now our _Authentication.ts_ should have the parameter "code" along with its getters and setters, which will be the queue code of the user, this has been moved here because this information comes from the register call when we access, not when we load the code view.
+
+2. Completely remove shared service from _code-viewer_ folder, because, at this moment, the only purpose of that folder was to store a service which loads the queue-code of the user, as it is not used anymore, this service has no sense and the code-viewer.component now loads its code variable from `auth.getCode()` function.
+
+3. Create a file called _config.ts_ in _app_ folder, this config will store useful global information, in our case, the basePath to the server, so we can have it in one place and access it from everywhere, and even better, if the url changes, we only need to change it here:
+
+[source, typescript]
+----
+export const config: any = {
+    basePath: 'http://localhost:8081/jumpthequeue/services/rest/',
+};
+----
+
+=== Access Services
+
+Once done all the preparations, let's move to _acces.service.ts_, here we had a simple `if` to check if the user inputs are what we expected, now we are going to call the server and it will manage all this logic to finally return us the information we need.
+
+To call the server, you can import _Angular HttpClient_ class from _@angular/common/http_, this class is the standard used by angular to make Http calls, so we are going to use it. The register call demands 3 objects: name, email and phone, so we are going to build a post call and send that information to the proper URL of that server service, it will return an observable and we have already worked with them: first we map the result and then we subscribe to have all the response data available, also we implement the error function in case something went wrong. The new register function should be as follows:
+
+[source, typescript]
+----
+  register(name, email, phone): void {
+    this.http.post<any>(`${config.basePath}visitormanagement/v1/register`, {name: name, email: email, phone: phone})
+             .subscribe( (res) => {
+                this.auth.setLogged(true);
+                this.auth.setUser(name);
+                this.auth.setCode(res.code.code);
+                this.router.navigate(['code']);
+             }, (err) => {
+                this.snackBar.open(err.error.message, 'OK', {
+                  duration: 5000,
+                });
+             });
+  }
+----
+
+*Important:* As we can see in the code the request is mapped with the type _any_. This is made for this tutorial purposes, but in a real scenario this _any_ should be changed by the correct type (interface or class) that fits with the Http response. 
+
+As we can see, and mentioned before, our preparations to this server call we have done previously let us avoid changing anything in access component or template, everything should be working only doing that changes.
+
+Our queue-viewer will need some modifications as well, in this case, both component and services will be slightly modified. _queue_viewer.service_ will make a call to the server services as we done in _access.service_ but in this case we are not going to implement a subscription, that will be components task. So `getQueuer()` should look like this:
+
+[source, typescript]
+----
+  getQueuers(): Observable<any> {
+    return this.http.post<any>(`${config.basePath}visitormanagement/v1/visitor/search`, {}) 
+    // the post usually demands some parameters to paginate or make
+    // in this case we do not need nothing to do more
+  }
+----
+
+Regarding _queue-viewer.component_ we need to modify the columns to fit with the data received from the server and the template will be modified to use *async pipe* to subscribe the data directly and a loader to show meanwhile.
+
+About the columns, the server sends us the data array composed of two objects: _visitor_ with the queue member information and _code_ with all the code information. As we are using the name of the queuer, the time it is expected to enter and its code, the column code should be like this:
+
+[source, typescript]
+----
+  columns: ITdDataTableColumn[] = [
+    { name: 'visitor.name', label: 'Name'},
+    { name: 'code.dateAndTime', label: 'Hour', format: ( (v: string) => moment(v).format('LLL') ) },
+    { name: 'code.code',  label: 'Code'}];
+  }
+----
+
+Additionally, server sends us the date and time as timestamp, so we need to use *moment.js* to format that data to something readable, to make that, just use the format property from Teradata Covalent columns.
+
+Finally, to adapt to async pipe, `ngOnInit()` now does not subscribe, in its place, we equal the queuers variable directly to the Observable so we can load it using the `*ngIf - else` structure to show the loading bar from Material and load the queuers in the template:
+
+[source, typescript]
+----
+<td-layout>
+  <mat-card *ngIf="queuers | async as queuersList; else loading"> // load queuers and asign the result to the name queuersList and only show this card if the queuers are loaded
+    <img mat-card-image src="assets/images/jumptheq.png">
+    <mat-card-title>Queue view:</mat-card-title>
+
+    <td-data-table
+      [data]="queuersList.result"
+      [columns]="columns">
+      <ng-template tdDataTableTemplate="visitor.name" let-value="value" let-row="row" let-column="column"> // Covalent check for column values
+        <div layout="row">
+          <span *ngIf="value === auth.getUser(); else normal" flex><b>{{value}}</b></span>
+          <ng-template #normal>
+            <span flex>{{value}}</span>
+          </ng-template>
+        </div>
+      </ng-template>
+    </td-data-table>
+    
+    <div class="text-center pad-lg">
+      <button mat-raised-button (click)="navigateCode()" color="primary" class="text-upper">Go back</button>
+    </div>
+
+  </mat-card>
+    
+  <ng-template #loading> // template to show when the async pipe is loading data
+    <mat-progress-bar
+      color="accent"
+      mode="indeterminate">
+    </mat-progress-bar>
+  </ng-template>
+
+</td-layout>
+----
+
+Also, to make easier to the user read what is his position, Covalent Teradata provides with a functionality to check columns and modify the value shown, we used that to make bold the name of the user which corresponds to the user who is registered at the moment.
+
+That is all regarding how to build your own OASP4Js application example, now is up to you add features, change styles and do everything you could imagine.

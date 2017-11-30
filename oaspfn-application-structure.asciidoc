@@ -1,0 +1,33 @@
+:toc: macro
+toc::[]
+
+= Application structure
+
+OASP4Fn provides **Infraestructure as Code**. For that reason, the service made with OASP4Fn must follow a **specified folder structure**, that along with a configuration file will allow the user to avoid having to configure the service manually. 
+
+----
+/handlers
+	/Http
+		/get
+			handler1.ts
+			handler2.ts
+			…
+			handlerN.ts
+		/post
+			handler1.ts
+			handler2.ts
+		/put
+			…
+	/S3
+	...
+----
+
+In general every handler should follow the following structure:
+----
+	/{EventName}
+		/{TriggerMethod}
+			{HandlerName}.ts
+----
+
+The logic of the application will be stored in a folder, called **handlers**, inside it there will be a folder for each event used to trigger the handler and inside a folder with the name of the method that triggers the handler.
+

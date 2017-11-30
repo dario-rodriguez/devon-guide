@@ -1,0 +1,57 @@
+:toc: macro
+toc::[]
+
+= OASP4J
+
+For _Java_ based backend solutions, _OASP_ includes http://oasp.github.io/oasp4j_content/oasp4j_overview.html[_OASP 4 Java_](OASP4J) that provides a standardized architecture blueprint, an open best-of-breed technology stack as well as industry proven best practices and code conventions for a cloud ready _Spring_ based server.
+
+Included in _Devon_ framework as default server solution, https://github.com/oasp/oasp4j[_OASP4J_] is the result of applying OASP principles in a Java based technology stack. With _OASP4J_ developers are able to create web application backends in a fast and reliable way, generating web services (REST, SOAP) that web clients can consume.
+
+== OASP4J Technology stack
+
+As mentioned before, OASP4J is not only a framework but a set of tools and conventions. OASP4J provides a Java backend solution based on the following technologies:
+
+- https://spring.io/[Spring framework] as the main development framework
+
+- https://projects.spring.io/spring-boot/[Spring Boot] as project accelerator.
+
+- https://maven.apache.org/[Maven] as project and dependencies management tool. The _Maven_ projects use the _POM_ file to store all the necessary information for building the project (project configuration, dependencies, plugins, etc.). You can get more details about _POM_ files https://maven.apache.org/pom.html#What_is_the_POM[here].
+
+
+Some of the main features of *_Spring Boot_* are
+
+- Creation of stand-alone Spring applications in an easy way.
+
+- Embedded Tomcat directly (no need to deploy WAR files).
+
+- Provide 'starter' POMs to simplify your Maven configuration.
+
+- Automatically configure Spring (whenever possible).
+
+- Provide production-ready features such as metrics, health checks and externalized configuration.
+
+- No requirement for XML configuration
+
+For *_persistence_* and *_data access_*, OASP4J implements:
+
+- https://en.wikipedia.org/wiki/Java_Persistence_API[JPA] and http://hibernate.org/[Hibernate]
+
+- http://www.querydsl.com/[QueryDsl] as query manager
+
+- http://www.h2database.com/html/main.html[H2] instance embedded as _out-of-the-box_ database that is launched each time the application is started so the developers are able to start working with a real data access from scratch.
+
+- https://flywaydb.org/[Flyway] as a tool for version control of the database.
+
+- As service framework http://cxf.apache.org/[Apache CXF] that provides support for ** REST services through https://en.wikipedia.org/wiki/Java_API_for_RESTful_Web_Services[JAX-RS] and SOAP services through https://en.wikipedia.org/wiki/Java_API_for_XML_Web_Services[JAX-WS] **
+
+== OASP4J Tools
+
+=== IDE
+As part of the _Devon_ framework, OASP4J projects are integrated in a customized Eclipse instance that provides pre-configurations and pre-installed plugins focusing on code quality and productivity boosting.
+
+=== Devon Tools
+Apart from all the methodologies regarding the mentioned frameworks, inside the Devon/Oasp ecosystem there are another tools that are crucial for boosting the productivity and enhance the managing of the Java projects.
+
+- *Cobigen* : a generic incremental generator for end to end code generation that will allow us to automate the generation of the main parts of the components of our apps. Starting from an Entity, Cobigen can generate all its CRUD functionality for us, starting from the service and ending up in the persistance data layer.
+
+- *Devcon* : a Devon internal tool to manage Devon based projects. Among many other tasks, it can create, run or deploy OASP4J applications avoiding users to do it manually.

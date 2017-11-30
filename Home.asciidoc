@@ -1,57 +1,88 @@
-# devonfw Guide
+# Devonfw Guide
 
-*version 2.2-SNAPSHOT*
+Version 2.3-SNAPSHOT
 
-## Getting Started with the Service Layer
+## Quick Start with Devonfw
 
-- link:getting-started-introduction-to-devonfw[Introduction to devonfw]
+- link:getting-started-what-is-devonfw[What is Devonfw?]
 
-- link:devcon-user-guide[Devcon - User Guide]
+- link:getting-started-why-should-i-use-devonfw[Why should I use Devonfw?]
 
-### Devonfw Basic Documentation
+- link:getting-started-download-and-setup[Download and Setup]
 
-- link:getting-started-download-and-install[Download and Install devonfw]
+- link:getting-started-running-sample-application[Running your First Application]
 
-- link:getting-started-the-devon-ide[The devonfw IDE]
+## Getting Started Guides
 
-- link:getting-started-running-sample-application[Running Sample Application]
+### Service Layers
 
-- link:getting-started-distribution-structure[Devonfw Distribution Structure]
+#### OASP4J
 
-- link:getting-started-creating-new-devonfw-application[Create New Application]
+- link:getting-started-introduction-to-oasp4j[Introduction to OASP4J]
 
-- link:getting-started-oasp-app-structure[OASP4J Application Structure]
+- link:getting-started-configuring-and-running-oasp4j-application[Configuring and Running OASP4J Application]
 
-- link:getting-started-understanding-oasp4j-spring-boot-config[Understanding the OASP4J and Spring Boot Configuration]
+#### OASP4Fn
+
+- link:getting-started-introduction-to-oasp4fn[Introduction to OASP4Fn]
+
+- link:getting-started-installation-of-oasp4fn[Installation]
+
+- link:getting-started-running-oasp4fn[Running OASP4Fn]
+
+### Client Layers
+
+#### OASP4JS
+
+- link:Client-GUI-Angular-Introduction-to-oasp4js[Introduction to OASP4JS]
+
+- link:Client-GUI-Angular-download-and-setup-oasp4js[Download and Setup]
+
+- link:Client-GUI-Angular-run-oasp4js[Running OASP4JS Application]
+
+#### Devon4Sencha
+
+- link:Client-GUI-Sencha-Introduction-to-Devon4sencha[Introduction to Devon4sencha]
+
+- link:Client-GUI-Sencha-Workspace-and-Sencha-Cmd[Sencha Workspace and Sencha Cmd]
+
+- link:Client-GUI-Sencha-running-sample-application[Running Sample Application]
+
+## Topical Guides for Devonfw
+
+### A Closer Look
+
+- link:getting-started-knowing-more-about-Devonfw[The Devonfw Outline]
+
+- link:devcon-user-guide[The Devcon - User Guide]
+
+- link:getting-started-the-devon-ide[The Devonfw IDE]
+
+- link:getting-started-creating-new-devonfw-oasp4j-application[Creating your First Application]
+
+- link:Client-GUI-Angular-design-jump-the-queue[Design Philosophy : Jump the Queue]
+
+- link:getting-started-distribution-structure[The Devonfw Distribution Structure]
 
 - link:getting-started-database-configuration[Database Configuration]
 
-- link:getting-started-flyway-database-migration[Setup and maintain database schemas with Flyway]
+- link:getting-started-crud-operations[CRUD Operations and DAO Implementation] 
 
 - link:getting-started-bean-mapping-using-dozer[Bean Mapping using Dozer]
 
-- link:getting-started-writing-unittest-cases[Write Unit Test Cases]
+- link:getting-started-writing-unittest-cases[Writing Unit Test Cases]
 
-- link:getting-started-logging-and-auditing[Logging and Auditing]
+- link:getting-started-logging-and-auditing[Logging and Auditing] 
 
-- link:getting-started-Data-Access-Layer[Data Access Layer]
+- link:getting-started-Cobigen[Code Generation using Cobigen]
 
-- link:getting-started-crud-operations[CRUD Operations and DAO Implementation]
+- link:getting-started-transfer-objects[Transfer Objects as ETOs and CTOs] 
 
-- link:getting-started-Cobigen[Generate code with Cobigen]
+- link:getting-started-deployment-on-tomcat[Deployment on Tomcat]
 
-- link:getting-started-transfer-objects[Transfer Objects as ETOs and CTOs]
+### Cookbook
 
-- link:getting-started-logic-layer[Logic Layer]
-
-- link:getting-started-Creating-Rest-Service[Create Rest Service]
-
-- link:getting-started-deployment-on-tomcat[Client Server Deployment on Tomcat]
-
-
-## Devonfw Cookbook
-
-### IP modules
+#### Devonfw Modules
 
 - link:cookbook-reporting-module[devonfw Reporting Module]
 
@@ -71,9 +102,17 @@
 
 - link:cookbook-compose-for-redis-module[devonfw Compose for Redis module]
 
-### Advanced topics
+#### Advanced Topics
 
 - link:cookbook-security-layer[Authentication and Authorization]
+
+- link:getting-started-Data-Access-Layer[Data Access Layer] 
+
+- link:getting-started-flyway-database-migration[Setup and Maintain Database Schemas With Flyway]
+
+- link:getting-started-logic-layer[Logic Layer]
+
+- link:getting-started-Creating-Rest-Service[Service Layer] 
 
 - link:cookbook-JAX-WS-WebServices[JAX-WS Web Services]
 
@@ -85,13 +124,13 @@
 
 - link:cookbook-File-Upload-and-Download[File Upload and Download]
 
-- link:cookbook-dockerization[devonfw on Docker]
+- link:cookbook-dockerization[Devonfw on Docker]
 
 - link:devon-guide-production-line-for-beginners[Production Line for Beginners]
 
-- link:devon-guide-production-line[devonfw on the Production Line]
+- link:devon-guide-production-line[Devonfw on the Production Line]
 
-- link:devon-in-bluemix[devonfw in IBM Bluemix]
+- link:devon-in-bluemix[Devonfw in IBM Bluemix]
 
 - link:Configuring-&-Running-Bootified-WAR[Configuring & Running Bootified WAR]
 
@@ -103,23 +142,97 @@
 
 - link:cookbook-cobigen-advanced-use-cases-soap-and-nested-data[Cobigen advanced use cases: SOAP and nested data]
 
-- link:Compatibility-guide-for-Java7-Java8-and-Tomcat7-Tomcat8[Compatibility guide for Java7 Java8 and Tomcat7 Tomcat8]
+- link:Compatibility-guide-for-Java7-Java8-and-Tomcat7-Tomcat8[Compatibility guide for Java7, Java8, and Tomcat7, Tomcat8]
 
-## The Presentation Layer: Getting Started with OASP4JS
+- link:Dockerfile-for-the-maven-based-spring.io-projects[Dockerfile for the Maven based spring.io Projects]
 
-- link:getting-started-oasp4js-introduction[Introduction to OASP4JS]
+- link:Angular-a11y-accessibility.[Angular A11y Accessibility]
 
-## The Presentation Layer: Getting Started with Devon4Sencha
+- link:cookbook-devon-jhipster-module[Creating Entity with Devon JHipster Module]
 
-- link:Client-GUI-Sencha-Introduction-to-Devon4sencha[Introduction to Devon4sencha]
+## Topical Guides for Service Layers
 
-- link:Client-GUI-Sencha-Workspace-and-Sencha-Cmd[Sencha Workspace and Sencha Cmd]
+### OASP4J
 
-- link:Client-GUI-Sencha-Anatomy-of-a-Devon4sencha-application[Anatomy of a Devon4sencha application]
+#### A Closer Look
 
-- link:Client-GUI-Sencha-running-sample-application[Running Sample Application]
+- link:oasp4j-creating-new-oasp4j-application[Creating New OASP4J Application]
 
-- link:Client-GUI-Sencha-create-new-application[Create New Devon4sencha Application]
+- link:oasp4j-application-structure[OASP4J Application structure]
+
+- link:oasp4j-architecture[OASP4J Architecture]
+
+- link:oasp4j-components[OASP4J Components]
+
+- link:oasp4j-layers[OASP4J Layers]
+
+- link:getting-started-understanding-oasp4j-spring-boot-config[OASP4J and Spring Boot Configuration]
+
+- link:oasp4j-validations[OASP4J Validations]
+
+- link:oasp4j-testing[OASP4J Testing]
+
+- link:oasp4j-deployment[OASP4J Deployment]
+
+#### Cookbook
+
+- link:OASP4J-project-without-database[OASP4J Without Database]
+
+- link:oasp4j-creating-own-components[Creating Own Components]
+
+- link:oasp4j-creating-own-components-with-cobigen[Creating Component's Structure using Cobigen]
+
+- link:oasp4j-addons[OASP4J Additional Functionalities]
+
+- link:Spring-boot-admin-Integration-with-OASP4J[Spring Boot Admin Integration with OASP4J]
+
+- link:Integrate-Spring-boot-admin-with-module[Integrating Spring Boot Admin to OASP4J app with Module]
+
+### OASP4Fn
+
+#### A Closer Look
+
+* link:oaspfn-building-your-application[Creating new OASP4Fn Application]
+
+* link:oaspfn-application-structure[Application Structure]
+
+* link:oaspfn-API[Application Program Interface]
+
+* link:oaspfn-adapters[Adapters]
+
+* link:oaspfn-application-configuration[Application Configuration]
+
+* link:oaspfn-CLI[Command Line Interface]
+
+* link:oaspfn-application-testing[Application Testing]
+
+* link:oaspfn-application-deployment[Application Deployment]
+
+## Topical Guides for Client Layers
+
+### OASP4JS
+
+#### A Closer Look
+
+- link:Client-GUI-Angular-Create-New-oasp4js-Application[Create new OASP4JS Application]
+
+- link:Client-GUI-Angular-oasp4js-app-structure[OASP4JS Application Structure]
+
+- link:Client-GUI-Angular-oasp4js-architecture[OASP4JS Architecture]
+
+- link:Client-GUI-Angular-oasp4js-managing-angular-components[Managing Angular Components]
+
+- link:Client-GUI-Angular-oasp4js-managing-angular-services[Managing Angular Services]
+
+- link:Client-GUI-Angular-oasp4js-deployment[OASP4JS Deployment]
+
+### Devon4Sencha
+
+#### A Closer Look
+
+- link:Client-GUI-Sencha-create-new-application[Create New Application]
+
+- link:Client-GUI-Sencha-Anatomy-of-a-Devon4sencha-application[Anatomy of the Application]
 
 - link:Client-GUI-Sencha-devon4sencha-application-structure[Devon4sencha Application Structure]
 
@@ -147,7 +260,9 @@
 
 - link:Client-GUI-Sencha-Forms[Forms]
 
-- link:Client-GUI-Sencha-cors[CORS and Protection against Cross Site Scription]
+#### Cookbook
+
+- link:Client-GUI-Sencha-cors[CORS and Protection against Cross Site Scripting]
 
 - link:Client-GUI-Sencha-security[Security]
 
@@ -157,13 +272,11 @@
 
 - link:Client-GUI-Sencha-i18n[Internationalization]
 
-## Devon4Sencha Cookbook
-
 - link:Client-GUI-Sencha-Simlets-Simulate-Server-Responses[Mocks with Simlets simulating server responses]
 
 - link:Client-GUI-Sencha-devon4Sencha-best-practices[Best Practices developing Devon4Sencha apps]
 
-- link:Client-GUI-Sencha-devon4Sencha-tools[Javascript Code Analysis Tools]
+- link:Client-GUI-Sencha-devon4Sencha-tools[JavaScript Code Analysis Tools]
 
 - link:Client-GUI-Sencha-devon4Sencha-code-review[How to do effective Devon4Sencha Code Reviews]
 
@@ -171,37 +284,11 @@
 
 - link:Client-GUI-Sencha-with-devonfw-microservices[Devon4Sencha apps with devonfw microservices]
 
-- link:Client-GUI-Cordova-How-to-start-cordova-project[Start a Cordrova project from a Sencha project]
+- link:Client-GUI-Cordova-How-to-start-cordova-project[Start a Cordrova project from a Sencha Project]
 
-////
-## The Presentation Layer: Getting Started with OASP4JS
+## IDE and Project Setup with Eclipse Oomph
 
-- link:Client-GUI-Angular-Introduction-to-oasp4js[Introduction to OASP4JS]
-
-- link:Client-GUI-Angular-Application-Template-Structure[OASP4JS Application Template Structure]
-
-- link:Client-GUI-Angular-Adding-Business-Module[Add Business Module]
-
-- link:Client-GUI-Angular-ngmodules[OASP4JS ng modules]
-
-- link:Client-GUI-Angular-Create-New-oasp4js-Application[Create New OASP4JS Application]
-
-- link:Client-GUI-Angular-Implementing-CRUD[Implementing a CRUD]
-
-## OASP4JS Cookbook
-
-- link:Client-GUI-Angular-Code-Conventions[OASP4JS Code Conventions]
-
-- link:Client-GUI-Angular-Providing-Accessibility[Providing Accessibility]
-
-- link:Client-GUI-Angular-Gulp-Tasks[Gulp Tasks]
-
-- link:Client-GUI-File-Upload-and-Download[File Upload and Download]
-////
-
-## IDE and Project Setup with Oomph
-
-- link:Oomph_ide-setup-oomph[IDE Setup with Oomph]
+- link:Oomph_ide-setup-oomph[Seting up IDE with Oomph]
 - link:Oomph_devon-ide-oomph[Devon IDE Oomph Setup Definition]
 - link:Oomph_working-with-oomph[Using Oomph]
 - link:Oomph_oomph-basics[Oomph Task Basics]
@@ -212,10 +299,10 @@
 
 ## Contributing
 
-- link:Contributing-Wiki[Wiki contribution using AsciiDoc]
-- link:Contributing-Code[Code contribution]
+- link:Contributing-Wiki[Wiki Contribution using AsciiDoc]
+- link:Contributing-Code[Code Contribution]
 - link:Contributing-Development-Guidelines[Development Guidelines]
-- link:Contributing-Git-Fork-Guide[Working with forked repositories]
+- link:Contributing-Git-Fork-Guide[Working with Forked Repositories]
 - link:Contributing-Code-of-Conduct[Code of Conduct]
 
 ## Appendix

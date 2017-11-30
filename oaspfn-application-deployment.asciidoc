@@ -1,0 +1,24 @@
+:toc: macro
+toc::[]
+
+= OASP4Fn Application Deplyment
+The deployment is performed by the serverless framework and it is quite simple, since the only command needed to deploy the full service is the following one:
+
+[source, bash]
+----
+sls deploy
+----
+
+[IMPORTANT]
+====
+This command will fail if the AWS credentials are missing. For more information visit https://serverless.com/framework/docs/providers/aws/guide/credentials/[serverless credentials]
+====
+
+When the deployment is finished with no errors, the user will receive the result via command line output with details as the endpoints and the functions deployed.
+
+image::images/Deployment/sls_deploy.PNG[, link="images/Deployment/sls_deploy.PNG"]
+
+[NOTE]
+====
+For more information about the deployment process visit the https://serverless.com/framework/docs/providers/aws/cli-reference/deploy/[serverless documentation], but be aware that OASP4Fn doesn't support the deployment of a single function..
+====

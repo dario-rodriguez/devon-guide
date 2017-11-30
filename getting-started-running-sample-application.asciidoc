@@ -1,35 +1,20 @@
 :toc: macro
 toc::[]
 
-= Sample Application
+= My Thai Star
 
-Devonfw comes with a sample application, which showcases the most common features of a Devonfw application and its proposed best practices. The sample application also serves as a final test to make sure that your environment is setup correctly.
+Devonfw showcases "My Thai Start" as a sample application, which has the most common features of a Devonfw application and its proposed best practices. The sample application also serves as a final test to make sure that your environment is setup correctly. Devonfw distribution comes with a latest Master version of My Thai Star application. 
 
-This section explains how to download the sample application and run it. Setup Devonfw environment and follow the below steps:
+== Basics 
+The _My Thai Star_ application is a solution for managing the online booking and orders of a restaurant, it is addressed as a showcase app but designed with real requirements although trying to serve as example of common use cases in web apps (master-detail model, login, authorization based on roles, pagination, search with filters, etc.).
 
-== Downloading Sample Application
+image::images/running-sample-application/mts.png[,width="650", link="images/running-sample-application/mts.png"]
 
-First of all, download or clone the application from the https://github.com/oasp/oasp4j[GitHub repository]. We recommend to use the Git Bash to work with our repository of GitHub. You can download Git and Git Bash for Windows system https://git-for-windows.github.io/[here]. Also you can learn more about the best practices of work with Git and GitHub on Devonfw link:devon-guide-working-with-git-and-github[here].
-
-To clone the repository, open the Git Bash console and run the following command:
-
-[source,console]
-----
-git clone https://github.com/devonfw/devon.git
-----
-
-Now, let's discuss how to run the Sample Application.
+Setup Devonfw environment and follow the below steps:
 
 == Running Sample Application
 
-image::images/devconlogo_imgonly.png[,width="50"]
-.*Using devcon*
-[NOTE]
-You can automate the following steps using devcon with the `devon oasp4j run` command link:devcon-command-reference#oasp4j-run[learn more here]
-
-We can run the application in two ways or whatever other Devonfw application based on Spring boot: link:getting-started-running-sample-application#embedded-tomcat-server[Running with the embedded Tomcat 8 server of Spring Boot] or link:getting-started-running-sample-application#external-tomcat-server[using an external Tomcat 8 server].
-
-=== Embedded Tomcat server
+=== Server
 
 All Spring boot application have their own embedded Tomcat server. This feature help us to deploy the application in the develop time without the need to create an server. To run the application with this mode, you need to open Eclipse of your Devonfw distribution and perform the following steps:
 
@@ -37,88 +22,114 @@ All Spring boot application have their own embedded Tomcat server. This feature 
 
 First of all, import above Sample Application into Eclipse using the following steps:
 
-1. Open Eclipse by executing "eclipse-main.bat"
+1. Open Eclipse by executing "eclipse-main.bat" from "_Devon-dist_" folder.
 
-1. Select "File - Import"
+1. Select "File -> Import".
 
-1. Select "Maven - Existing Maven Projects"
+1. Select "Maven -> Existing Maven Projects" as shown below:
 +
 image::images/running-sample-application/running_sample_application_1_import_maven_prject.png[, width="450", link="images/running-sample-application/running_sample_application_1_import_maven_prject.png",]
 
-1. Select the directory "workspaces/examples/oasp4j/samples
-+
-image::images/running-sample-application/running_sample_application_2_select_folder_oasp.png[, width="300", link="images/running-sample-application/running_sample_application_2_select_folder_oasp.png",]
+1. Select the directory "workspaces/examples/my-thai-star" as shown below and later press "OK":
 
-1. Press "Finish"
 +
-image::images/running-sample-application/running_sample_application_3_import_maven.png[, width="450", link="images/running-sample-application/running_sample_application_3_import_maven.png",]
+image::images/running-sample-application/select_maven_project_1.png[, width="450 ink="images/running-sample-application/select_maven_project_1.png",]
 
-1. Wait for Eclipse to finish importing the sample project. This process might take several minutes, depending on the speed of your internet connection.
+1. Then press "Finish".
++
+image::images/running-sample-application/select_maven_project_2.png[, width="450", link="images/running-sample-application/select_maven_project_2.png",]
+
+1. Wait for Eclipse to finish importing the sample projects. This process might take several minutes, depending on the speed of your internet connection.
 
 ==== Step 2: Run the application
 
-The embedded Tomcat server of the Spring Boot Application can be running with a simple right click on the Java file *oasp4j-sample-core/src/main/java/io/oasp/gastronomy/restaurant/SpringBootApp.java* > Run as... > 2 Java Application
+Using _Spring Boot_ features,  run your _Java_ backend applications using the _Run as -> Java application_ over the _SpringBootApp.java_ main class as shown below:
 
-image::images/running-sample-application/running_sample_application_1_run_embedded_server.png[, width="450", link="images/running-sample-application/running_sample_application_1_run_embedded_server.png",]
+image::images/running-sample-application/run.png[,width="450", link="images/running-sample-application/run.png"]
 
-Now you can open you favorite browser and see the Sample Application running in the next URL
+Once, you see the console messages like : 
 
-[source]
 ----
-http://localhost:8081/oasp4j-sample-server/
-----
-
-As you can see, this embedded server is a very comfortable way to start the application. When you run the application with this server, you need to take into account that the application is using the properties of the _application.properties_ file in the *src/main/resources/config* folder.
-
-=== External Tomcat server
-
-Normally we want to deploy our application in a external server, so we can do this on Eclipse, creating a new server. The steps to run an OASP4J application in an external Tomcat server are the next:
-
-==== Step 1: Create new Tomcat server
-
-* Open the Server view in Eclipse if you don't have it opened (main menu -> Windows -> Show View -> Servers).
-
-* In servers view do right click -> New -> Server
-
-image::images/running-sample-application/running_sample_application_1_new_server.png[, width="450", link="images/running-sample-application/running_sample_application_1_new_server.png",]
-
-* In the wizard panel you need to configure the server as Tomcat 8 and press Next.
-
-image::images/running-sample-application/running_sample_application_2_new_server.png[, width="450", link="images/running-sample-application/running_sample_application_2_new_server.png",]
-
-It's possible that Eclipse ask you for the path of Tomcat 8. If you don't have Tomcat 8 in your distribution of Devonfw you can download it https://tomcat.apache.org/download-80.cgi[here] and extract the zip in the software folder of your distribution.
-
-==== Step 2: Add the application in the server
-
-Now we need to go to the Server View and do right click in your new Tomcat 8 server -> Add and Remove... -> add the oasp4j-sample-server -> Finish.
-
-image::images/running-sample-application/running_sample_application_3_new_server.png[, width="450", link="images/running-sample-application/running_sample_application_3_new_server.png",]
-
-==== Step 3: Run the server
-
-Now we need to press Run or Debug in the Server View with our new Tomcat server selected. And the application will be deployed by the server.
-
-image::images/running-sample-application/running_sample_application_4_new_server.png[, width="450", link="images/running-sample-application/running_sample_application_4_new_server.png",]
-
-Now you can open you favorite browser and see the Sample Application running in the next URL
-
-[source]
-----
-http://localhost:8080/oasp4j-sample-server/
+Tomcat started on port(s): 8081 (http)
+Started SpringBootApp in 15.985 seconds (JVM running for 16.833)
 ----
 
-As you can see the port is 8080, but you can modify this properties in the Tomcat server properties (double click over the server in the _Servers_ view) or in *src/main/resources/application.properties*. You need to take into account that this are the properties that the application will use if you deploy the application in the context of an external Tomcat server.
+you can start consuming the _Java_ backend.
 
-==== Step 4: Login at the application
+==== Step 3: Test the application
 
-When everything is already successfully set up, we can finally enter in the application by using default user credentials:
+To see the backend services results, you can use https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop[Postman] plugin for _Chrome_, although you can use any other similar application.
 
-[width="50%",frame="topbot",options="header"]
-|==========================
-|Username|Password
-|chief   |chief
-|waiter  |waiter
-|cook    |cook
-|==========================
+Now, with _Postman_, you can do a simple _GET_ request to obtain the information of a _dish_ with _id=1_ (`http://localhost:8081/mythaistar/services/rest/dishmanagement/v1/dish/1`). And you will get a result like this:
 
-Depending on which user/pass is chosen to login, the application will behave differently. For instance, by using *chief/chief* will grant access to both the table management and the kitchen management. It will not happen by using the other two credentials, *waiter/waiter* and *cook/cook* which will grant access just to the table management or to the kitchen management respectively.
+image::images/running-sample-application/get_request.png[,width="450", link="images/running-sample-application/get_request.png"]
+
+Now, Server is running successfully!!!
+
+=== Client
+
+==== Step 1: Install Dependencies
+
+*Make sure that the SERVER is Up and Running!*
+
+To run MyThaiStar front-end, you need to globally install the following dependencies:
+
+1. https://nodejs.org/en/[Node], 
+1. https://github.com/angular/angular-cli[Angular CLI]
+1. https://yarnpkg.com/lang/en/docs/install/[Yarn]
+
+Once you have installed above dependencies, you can go to the project folder 
+
+_"workspaces\examples\my-thai-star\angular"_
+
+and execute the following command:
+
+[source,bash]
+----
+yarn install 
+----
+
+After finishing, you will see something like:
+
+image::images/running-sample-application/yarn_install.png[, link="images/running-sample-application/yarn_install.png"]
+
+OR, 
+
+execute the following command:
+
+[source,bash]
+----
+npm install
+----
+
+==== Step 2: Run the application
+
+Now, you are ready to run the client using
+
+[source,bash]
+----
+ng serve
+----
+
+If everything goes well, the console output will be something like this:
+
+image::images/running-sample-application/webpack.JPG[, link="images/running-sample-application/webpack.JPG"]
+
+==== Step 3: Test the application
+
+Now, go to your browser and open 
+
+[source,bash]
+----
+localhost:4200
+----
+
+and you can see MyThaiStar client running! You can login to the application using 
+
+*username*: waiter
+
+*passowrd*: waiter
+
+as shown below:
+
+image::images/running-sample-application/my-thai-start-longin.png[, link="images/running-sample-application/my-thai-start-longin.png"]
