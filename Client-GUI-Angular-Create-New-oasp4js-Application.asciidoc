@@ -1,8 +1,8 @@
 :toc: macro
 toc::[]
 
-== Building your own OASP4JS application
-In this chapter we are going to see how to build a new OASP4Js from scratch. The proposal of this tutorial is to end having enough knowledge of Angular and the rest of technologies regarding OASP4Js to know how to start developing on it and if you want more advanced and specific functionalities see them on the cookbook.
+== Creating new OASP4JS Application
+In this chapter, you are going to see how to build a new OASP4JS from scratch. The proposal of this tutorial is to end having enough knowledge of Angular and the rest of technologies regarding OASP4JS to know how to start developing on it and if you want more advanced and specific functionalities see them on the cookbook.
 
 == End Result is Jump The Queue
 This mock-up images shows what you are going to have as a result when the tutorial is finished. An app to manage codes assigned to queuers in order to easy the management of the queue, with a code, you can jump positions in queue and know everywhere which is your position.
