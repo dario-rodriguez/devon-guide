@@ -1,7 +1,7 @@
 :toc: macro
 toc::[]
 
-= Building your First Application
+= Creating your First Application
 
 In devonfw, you can create new project using two different ways:
 
