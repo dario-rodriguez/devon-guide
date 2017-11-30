@@ -202,5 +202,11 @@ export class MyComponent {
 
 To create the A11y Project with support Material design refer the [[repo|https://github.com/Himanshu122798/a11y]] or [[document|https://slack-redir.net/link?url=https%3A%2F%2Fgithub.com%2Foasp%2Foasp-tutorial-sources%2Fwiki%2FBuildOASP4JsApplication&v=3]]. 
 
- 
+Refe the below reference link for devlopment . 
+* http://marcysutton.github.io/angular-a11y/#/12
+* https://webaccessibility.withgoogle.com/unit?unit=1
+
+### Extension to test accessibility 
+ * ChromeVox 
+ * Accessibility Developer Tools
 
