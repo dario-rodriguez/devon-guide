@@ -118,8 +118,6 @@
 
 - link:cookbook-spring-data[Integrating Spring Data]
 
-- link:cookbook-Mybatis[Integrating Mybatis]
-
 - link:cookbook-websocket[WebSocket]
 
 - link:cookbook-File-Upload-and-Download[File Upload and Download]
