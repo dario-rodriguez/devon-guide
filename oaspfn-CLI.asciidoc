@@ -1,0 +1,40 @@
+:toc: macro
+toc::[]
+
+= Command Line Interface
+OASP4Fn comes with a command line interface that makes use of the infrastructure as code and the configuration to generate the proper files which are going to help the user, testing the application an deploying it.
+
+== Usage
+The command line interface must be used inside a OASP4Fn project, to use it you only has to type the command with its options (in case you installed it globally):
+
+`oasp4fn # fun`
+
+Otherwise you can use it with the _package.json_ script that comes with the template, using `npm` or `yarn`:
+
+`yarn fun`
+
+The above commands will generate a _serverless.yml_ and a _webpack.config.json_ join with the following output:
+
+image::images/CLI/Fun.PNG[, link="images/CLI/Fun.PNG"]
+
+That command make use of the link:Configuration#default-configuration[default configuration], but the usage is the following:
+
+```
+oasp4fn [provider] [options]
+# or: fun [provider] [options]
+```
+
+And the supported options are:
+
+[width="50%", options="header"]
+|=====================================================
+| argument | alias | description
+| --options | -o | file with the options for the yml generation
+| --path | -p | directory where the handlers are stored (handlers by default)
+| --express | -e | generates an express app.ts file, for testing purposes
+| --help | -h | display the help
+|=====================================================
+
+As you can see above, you can check the options by passing the `--help` flag:
+
+image::images/CLI/FunHelp.PNG[, link="images/CLI/FunHelp.PNG"]

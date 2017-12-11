@@ -1,0 +1,37 @@
+:toc: macro
+toc::[]
+
+== Running OASP4Fn
+
+=== Run
+
+Execute the command:
+
+    $ npm run fun
+
+This command will generate the necessary files to deploy and build your handlers.
+
+=== Start
+
+Execute the command:
+
+    $ npm run offline
+
+=== Testing
+
+Before executing any test, you must create a new database for this purpose:
+
+    $ npm run database:test
+
+or
+
+    $ yarn database:test
+
+Then, you can test the correct behavior of the business logic using the command:
+
+    $ npm run test
+
+====== Additional step
+Also, you can visualize if some of the changes are wrong when you save it, without executing every time the previous command. To do this, you can run the next command on a new shell:
+
+    $ npm run test:auto

@@ -1,0 +1,43 @@
+= Running OASP4JS Application
+
+=== Run the Server
+
+*Make sure that the SERVER (OASP4J) is Up and Running! Otherwise, you wont be able to access any back-end functionalities.*
+
+You can setup the server part using steps mentioned link:getting-started-configuring-and-running-oasp4j-application[here].
+
+=== Run the MyThaiStar
+
+Now, you are ready to run the client using
+
+[source,bash]
+----
+ng serve
+----
+
+If everything goes well, the console output will be something like this:
+
+image::images/running-sample-application/webpack.JPG[, link="images/running-sample-application/webpack.JPG"]
+
+== Test the Application
+
+Now, go to your browser and open 
+
+[source,bash]
+----
+localhost:4200
+----
+
+and you can see MyThaiStar client running. UI looks like:
+
+image::images/running-sample-application/mts.png[,width="650", link="images/running-sample-application/mts.png"]
+
+Now, You can login to the application using 
+
+*username*: waiter
+
+*passowrd*: waiter
+
+as shown below:
+
+image::images/running-sample-application/my-thai-start-longin.png[, link="images/running-sample-application/my-thai-start-longin.png"]

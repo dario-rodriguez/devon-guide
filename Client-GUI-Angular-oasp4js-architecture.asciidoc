@@ -1,0 +1,22 @@
+:toc: macro
+toc::[]
+
+= OASP4JS Architecture Overview
+
+== Basic
+
+As *Angular* is the main framework for Oasp4JS, the architecture of the applications that is going to be used is the same as https://angular.io/docs/ts/latest/guide/architecture.html[Angular]:
+
+image::images/oasp4js/1.Intro/architecture_overview.png[, link="images/oasp4js/1.Intro/architecture_overview.png"]
+
+== Additional Functionalities
+
+This architecture will be enhanced with some functionalities from Covalent, Teradata and Angular Material:
+
+- *Theming*: functionality that Angular Material includes in its library and Covalent Teradata extends, it declares one primary color, one secondary color and one color for warning and alerts to be used in all the application. Also Covalent Teradata expects a color for the background and another for the foreground. This colors will be stored in one theme, where you can store as much as you want and be changed at the run-time by the user.
+
+image::images/oasp4js/1.Intro/theming.png[, link="images/oasp4js/1.Intro/theming.png"]
+
+- *Flex-box*: Along with other https://teradata.github.io/covalent/#/style-guide/utility-styles[CSS Utility Styles & Classes], Covalent Teradata comes with flex-box, useful for styling and organizing components inside of a view, which also has been extended by Covalent Teradata to achieve responsiveness. You can declare styles that change, hide or transform the component depending on the screen resolution of the device.
+
+image::images/oasp4js/1.Intro/flex_box.jpeg[, link="images/oasp4js/1.Intro/flex_box.jpeg"]

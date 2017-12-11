@@ -1,0 +1,48 @@
+= Download and Setup 
+
+== Download My Thai Star (Optional)
+
+You can download or clone the latest version of My Thai Star application from the https://github.com/oasp/my-thai-star[GitHub repository]. It is recommended to use the Git Bash to work with the repository of GitHub. You can download Git and Git Bash for Windows system https://git-for-windows.github.io/[here]. Also, you can learn more about the best practices to work with Git and GitHub on Devonfw link:devon-guide-working-with-git-and-github[here].
+
+To clone the repository, open the Git Bash console and run the following command:
+
+[source,console]
+----
+git clone https://github.com/oasp/my-thai-star.git
+----
+
+== Setup
+
+==== Install Dependencies
+
+To run MyThaiStar front-end, you need to globally install the following dependencies:
+
+1. https://nodejs.org/en/[Node], 
+1. https://github.com/angular/angular-cli[Angular CLI]
+1. https://yarnpkg.com/lang/en/docs/install/[Yarn]
+
+Once you have installed these dependencies, you can go to the project folder: 
+
+_"workspaces\examples\my-thai-star\angular"_ 
+
+and execute the following command for the installation of project specific dependencies:
+
+[source,bash]
+----
+yarn install 
+----
+
+After finishing, you will see something like:
+
+image::images/running-sample-application/yarn_install.png[, link="images/running-sample-application/yarn_install.png"]
+
+OR, 
+
+execute the following command:
+
+[source,bash]
+----
+npm install
+----
+
+Now, the environment setup is ready! 

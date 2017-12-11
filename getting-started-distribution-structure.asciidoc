@@ -7,7 +7,7 @@ In this section, you will find outlook on the Devonfw distribution structure tha
 
 Therefore, after unzipping the Devonfw distribution, you will find the following directory structure as shown in the image:
 
-image::images/devonfw-dist-structure/devonfw-dist-structure-01.png["Structure after the download",width="300", link="images/devonfw-dist-structure/devonfw-dist-structure-01.png"]
+image::images/devonfw-dist-structure/devonfw-dist-structure-01.png["Structure after the download",width="400", link="images/devonfw-dist-structure/devonfw-dist-structure-01.png"]
 
 == Understanding the structure
 
@@ -19,7 +19,7 @@ In the above image, you can find different folders and executable _.bat_ files. 
 
 Hence, after executing these two scripts, following structure will be generated:
 
-image::images/devonfw-dist-structure/devonfw-dist-structure-02.png["Structure after scripts",width="300", link="images/devonfw-dist-structure/devonfw-dist-structure-02.png"]
+image::images/devonfw-dist-structure/devonfw-dist-structure-02.png["Structure after scripts",width="400", link="images/devonfw-dist-structure/devonfw-dist-structure-02.png"]
 
 Thereon, You will have the new _conf_ directory as expected and the _eclipse-main.bat_ and the _eclipse-examples.bat_ related to the _main_ and _examples_ directories within the _workspaces_ folder.
 

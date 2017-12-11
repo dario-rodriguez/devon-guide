@@ -1,0 +1,113 @@
+:toc: macro
+toc::[]
+
+= Creating your First Application
+
+In devonfw, you can create new project using two different ways:
+
+- Using Devcon and _jumpthequeue_ Project
+
+- Using Archetype
+
+== Using Devcon
+
+You can refer the following link:oasp4j-creating-new-oasp4j-application[Creating New Application] page for more details.
+
+== Using the Archetype
+
+In order to create a new application, you must use the archetype provided by devon which uses the maven archetype functionality.
+
+There are two alternatives for using the archetype to create a new application. One is to create using command line. Another way is within eclipse, which is a more visual manner.
+
+=== Using the Command Line
+
+==== Step 1: Open the console
+
+Open the Devonfw console by executing the batch file _console.bat_ from the Devonfw distribution. It is a pre-configured console which automatically uses the software and configuration provided by the Devonfw distribution.
+
+==== Step 2: Change the directory
+
+You can create the project anywhere you want, but it is a good practice to create the projects in your `workspace` directory. Therefore, run the following command in the console to change to the directory to `workspaces\main`.
+
+[source,bash]
+----
+cd workspaces\main
+----
+
+This is the default location on Devonfw to create new applications. It is also possible to have your own workspace.
+
+==== Step 3: Create the new application
+
+To create a new application, you need to execute one of the following commands:
+
+
+** WAR packaging (arguments before archetype:generate identify the OASP4J archetype):
++
+[source,bash]
+---- 
+mvn -DarchetypeVersion=<OASP4J-VERSION> -DarchetypeGroupId=io.oasp.java.templates -DarchetypeArtifactId=oasp4j-template-server archetype:generate -DgroupId=<APPLICATION-GROUP-ID> -DartifactId=<APPLICATION-ARTIFACT-ID> -Dversion=<APPLICATION-VERSION> -Dpackage=<APPLICATION-PACKAGE-NAME>
+---- 
++
+For example 
++
+[source,bash]
+---- 
+mvn -DarchetypeVersion=2.3.0 -DarchetypeGroupId=io.oasp.java.templates -DarchetypeArtifactId=oasp4j-template-server archetype:generate -DgroupId=io.oasp.application -DartifactId=sampleapp -Dversion=0.1-SNAPSHOT -Dpackage=io.oasp.application.sampleapp
+---- 
+//////////////////////////////////////////
+** And for combined WAR and EAR packaging (arguments before archetype:generate identify the OASP4J archetype):
++
+[source]
+---- 
+mvn -DarchetypeVersion=2.1.0 -DarchetypeGroupId=io.oasp.java.templates -DarchetypeArtifactId=oasp4j-template-server archetype:generate -DgroupId=io.oasp.application -DartifactId=sampleapp -Dversion=0.1-SNAPSHOT -Dpackage=io.oasp.application.sampleapp -DearProjectName=enterprise-ear
+---- 
+//////////////////////////////////////////
+This will create a new directory inside `workspaces\main` with the name of your application with the created application inside.
+
+=== Using the Eclipse
+
+[NOTE]
+====
+If you use a proxy to connect to the Internet, then the above steps will not work as Eclipse has a known bug where the archetype discovery does not work behind a proxy. In this case, please use the command line version documented above.
+====
+
+To create a new application using Eclipse, you should have installed https://coconet.capgemini.com/sf/frs/do/listReleases/projects.apps2_devon/frs.devon_distribution[Devonfw distribution]. Then, follow below steps to create a new application:
+
+==== Step 1 - Create a new Maven Project
+
+Open Eclipse from a Devonfw distribution, by executing the batch file _eclipse-main.bat_, then go to _File > New > Maven Project_. If you don't see the option, click _File > New > Other_ and use the filter to search the option _Maven Project_
+
+==== Step 2 -  Choose the archetype
+
+In the New Maven Project wizard, you need to choose the _oas4j-template-server archetype_, as shown in below image.
+
+image::images/create-new-app/devon-guide-newapp-choose-archetype.PNG[,width="450", link="images/create-new-app/devon-guide-newapp-choose-archetype.PNG"]
+
+[NOTE]
+====
+If you are not able to access the archetype even after checking the _Include snapshot archetypes_ option, then try adding the archetype repository manually. You can do it with the _Configure_ button located next to the _Catalogs_ dropdown and then clicking the _Add Remote Catalog_ button. Finally, you need to add the repository URL _https://repo1.maven.org/maven2_ and as _Description_ you can use _Maven Central_.
+
+image::images/create-new-app/devon-guide-newapp-add-archetype.png[,width="450", link="images/create-new-app/devon-guide-newapp-add-archetype.png"]
+
+Use the _Verify_ button to check the connection. Subsequently, you will see a message with the amount of found archetypes.   
+====
+
+
+[Archetype]
+
+==== Step 3 - Configure the application properties
+
+Fill the _Group Id_, _Artifact Id_, _Version_ and _Package_ for your project. 
+//////////////////////////////////////////
+If you want to add an EAR generation mechanism to your project, you should fill the property _earProjectName_ with the value _Artifact Id_ + _-ear_. For example, _sampleapp-ear_. 
+
+If you only want a WAR generation, you can remove the property _earProjectName_.
+//////////////////////////////////////////
+image::images/create-new-app/devon-guide-newapp-archetype-parameters.PNG[,width="450", link="images/create-new-app/devon-guide-newapp-archetype-parameters.PNG"]
+[EAR]
+
+* Click on the Finish button and the project will be ready for execution.
+
+=== What is generated
+
+To read more about the OASP4J application structure, click link:oasp4j-application-structure[here].

@@ -1,0 +1,60 @@
+:toc: macro
+toc::[]
+
+= Configuring and Running OASP4J Application
+
+Devonfw distribution comes with a latest Master version of My Thai Star application. 
+
+== Configuring the Application
+
+==== Step 1: Setup the Devonfw Environment
+Configure the Devonfw environment using following steps given link:getting-started-download-and-setupp[here].
+
+==== Step 2: Import the project
+
+First of all, import above Sample Application into Eclipse using the following steps:
+
+1. Open Eclipse by executing "eclipse-main.bat" from _Devon-dist_ folder.
+
+1. Select "File -> Import".
+
+1. Select "Maven -> Existing Maven Projects" as shown below:
++
+image::images/running-sample-application/running_sample_application_1_import_maven_prject.png[, width="450", link="images/running-sample-application/running_sample_application_1_import_maven_prject.png",]
+
+1. Select the directory _"workspaces/examples/my-thai-star"_ as shown below:
+
++
+image::images/running-sample-application/select_maven_project_1.png[, width="450 ink="images/running-sample-application/select_maven_project_1.png",]
+
+1. Press "Finish"
++
+image::images/running-sample-application/select_maven_project_2.png[, width="450", link="images/running-sample-application/select_maven_project_2.png",]
+
+1. Wait for Eclipse to finish importing the sample projects. This process might take several minutes, depending on the speed of your internet connection.
+
+
+== Running the Application
+
+==== Step 1: Run the application
+
+Using _Spring Boot_ features,  run your _Java_ backend applications using the _Run as -> Java application_ over the _SpringBootApp.java_ main class as shown below:
+
+image::images/running-sample-application/run.png[,width="450", link="images/running-sample-application/run.png"]
+
+Once you see the console messages like : 
+
+----
+Tomcat started on port(s): 8081 (http)
+Started SpringBootApp in 15.985 seconds (JVM running for 16.833)
+----
+
+you can start consuming the _Java_ backend.
+
+==== Step 2: Test the application
+
+To show the backend services results, you can use https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop[Postman] plugin for _Chrome_, although you can use any other similar application.
+
+Now, with _Postman_, you can do a simple _GET_ request to obtain the info of a _dish_ with _id=1_ (`http://localhost:8081/mythaistar/services/rest/dishmanagement/v1/dish/1`). And you obtain a result like this
+
+image::images/running-sample-application/get_request.png[,width="450", link="images/running-sample-application/get_request.png"]

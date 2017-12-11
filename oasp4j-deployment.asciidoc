@@ -1,0 +1,144 @@
+:toc: macro
+toc::[]
+
+= OASP4J Deployment
+
+As we already mentioned when link:oasp4j-application-structure[introducing the oasp4j projects], the apps created with the _Oasp4j_ archetype are going to provide, apart from the _core_ project, a _server_ project that will configure the packaging of the app. 
+
+In our _Jump the Queue_ app we can verify that we have this _server_ project available
+
+image::images/oasp4j/9.Deployment/jumpthequeue_server_structure.png[width="250", link="images/oasp4j/9.Deployment/jumpthequeue_server_structure.png"]
+
+So, using _Maven_, we are going to be able to easily package our app in a _.war_ file to be deployed in an application server like _Tomcat_ (the default server provided in Devonfw).
+
+== The _server_ Project
+
+The _server_ project provided in _Oasp4j_ applications is an almost empty _Maven_ project. It only has a _pom.xml_ file that is used to configure the packaging of the _core_ project. Taking a closer look to this _pom.xml_ file we can realize that it only presents a single dependency to the core project. 
+
+[source,xml]
+----
+...
+
+<dependencies>
+<dependency>
+    <groupId>${project.groupId}</groupId>
+    <artifactId>jumpthequeue-core</artifactId>
+    <version>${project.version}</version>
+</dependency>
+</dependencies>
+...
+
+----
+
+And then it includes the https://docs.spring.io/spring-boot/docs/current/reference/html/build-tool-plugins-maven-plugin.html[spring-boot-maven-plugin] that allows us to package the project in a jar or war archives and run the application "in-place".
+
+[source,xml]
+----
+...
+
+<plugins>
+    <plugin>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-maven-plugin</artifactId>
+    ...
+
+----
+
+== Running the app with Maven
+
+So thanks to _Spring Boot_ and the `spring-boot-maven-plugin` we can run our app using Maven. To do so just open a command line with access to _Maven_ (in Devonfw we can do it using the _console.bat_). And:
+
+1.- As is explained in https://github.com/devonfw/devon/wiki/getting-started-understanding-oasp4j-spring-boot-config#step-2-including-properties[devon documentation] the `application.properties` used for packaging is `/src/main/resources/application.properties`. So we need to edit the app properties to access to the app. In `/jumpthequeue-core/src/main/resources/application.properties` configure the properties
+
+----
+server.port=8081
+server.context-path=/jumpthequeue
+----
+
+2.- install the `jumpthequeue/core` project in our local _Maven_ repository
+
+----
+D:\Devon-dist\...\jumpthequeue>mvn install
+----
+
+3.- Go to the `jumpthequeue/server` project and execute the command `mvn spring-boot:run`
+
+----
+D:\Devon-dist\...\jumpthequeue\server>mvn spring-boot:run
+----
+
+The app should be launched in the _Spring Boot_ embedded Tomcat server. Wait a few seconds until you see a console message like
+
+----
+[L: org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer] - [M: Tomcat started on port(s): 8081 (http)]
+[L: com.cap.jumpthequeue.SpringBootApp] - [M: Started SpringBootApp in 17.908 seconds (JVM running for 19.148)]
+----
+
+Now we can try to access to the app resource (GET)`http://localhost:8081/jumpthequeue/services/rest/visitormanagement/v1/visitor/1` we can verify that the app is running fine
+
+image::images/oasp4j/9.Deployment/jumpthequeue_simpleget1.png[, link="images/oasp4j/9.Deployment/jumpthequeue_simpleget1.png"]
+
+== Packaging the app with Maven
+
+In the same way, using _Maven_ we can package our project in a _.war_ file. As in the previous section, open a command line with access to _Maven_ (in Devonfw _console.bat_ script) and execute the command `mvn clean package` in the project root directory
+
+----
+D:\Devon-dist\...\jumpthequeue>mvn clean package
+----
+
+The packaging process (compilation, tests and _.war_ file generation) should be launched. Once the process is finished you should see a result like
+
+----
+[INFO] Building war: D:\Devon-dist\workspaces\jumpthequeue\server\target\jumpthe
+queue-server-0.0.1-SNAPSHOT.war
+[INFO] WEB-INF\web.xml already added, skipping
+[INFO]
+[INFO] --- spring-boot-maven-plugin:1.5.4.RELEASE:repackage (default) @ jumptheq
+ueue-server ---
+[INFO] Attaching archive: D:\Devon-dist\workspaces\jumpthequeue\server\target\
+jumpthequeue-server-bootified.war, with classifier: bootified
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO]
+[INFO] jumpthequeue ....................................... SUCCESS [  0.306 s]
+[INFO] jumpthequeue-core .................................. SUCCESS [ 27.723 s]
+[INFO] jumpthequeue-server ................................ SUCCESS [  6.628 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 35.091 s
+[INFO] Finished at: 20XX-06-28T10:11:37+02:00
+[INFO] Final Memory: 48M/216M
+[INFO] ------------------------------------------------------------------------
+----
+
+The packaging process has created a _.war_ file that has been stored in the `jumpthequeue\server\target` directory.
+
+== Deploying the war file on Tomcat
+
+After packaging the app with _Maven_, we have the _.war_ file containing our app. In addition, Devonfw provides us with a _Tomcat_ server ready to be used, so let's deploy the application in that _Tomcat_ server.
+
+1. Go to `jumpthequeue\server\target` directory. You should find a `jumpthequeue-server-{version}.war` there.
+
+2. Change the _.war_ name to something easier like `jumpthequeue.war`
+
+3. Copy the just renamed file to the _Tomcat_'s _webapps_ directory (located in `Devon-dist\software\tomcat\webapps`).
+
+4. Go to `Devon-dist\software\tomcat\bin` directory and execute the `startup.bat` script to launch _Tomcat_.
+
+A new command window will be opened. Wait until the starting process is finished, you should see a message like
+
+----
+Server startup in 31547 ms
+----
+
+The app will be available in the url `http://localhost:8080/{war-file-name}`
+
+[NOTE]
+====
+The access to the server is done by default through port `8080`. If you want the app to be available through other port edit it in the `D:\Devon-dist\software\tomcat\conf\server.xml` file.
+====
+
+Now, if we try to access to the app with the simplest resource (GET)`http://localhost:8080/jumpthequeue/services/rest/visitormanagement/v1/visitor/1` we can verify that the app has been successfully deployed on _Tomcat_
+
+image::images/oasp4j/9.Deployment/jumpthequeue_simpleget2.png[, link="images/oasp4j/9.Deployment/jumpthequeue_simpleget2.png"]

@@ -1,0 +1,194 @@
+:toc: macro
+toc::[]
+
+= Testing OASP4Fn Applications
+In this chapter we are going to learn how to test applications in OASP4Fn using the http://mochajs.org/[mocha] framework and the http://chaijs.com/[chai] assertion library.
+
+== Install global dependencies
+As the title says in this section we're going to specify the global dependencies that we need to run our tests, that only are the test framework and the typescript interpreter:
+
+[source, bash]
+----
+npm install -g mocha ts-node
+----
+
+**Yarn** can be used instead.
+
+[source, bash]
+----
+yarn global add mocha ts-node
+----
+
+No more dependencies are needed, because any OASP4Fn project is started using the **oasp4fn application template** and the local part of the test dependencies are specified as dev-dependencies at the _package.json_ file.
+
+== Writing the tests
+First of all, all the handlers, typings and the everytime useful _lodash_ package must be imported in our test files, so the head of our test file will look like this:
+
+[source, typescript]
+----
+import { HttpEvent, Context, Code } from '../../handlers/types';
+import { register } from '../../handlers/Http/POST/register-handler';
+import { search } from '../../handlers/Http/POST/search-handler';
+import { expect } from 'chai';
+import * as _ from 'lodash';
+----
+
+The next step consists on defining the tests for handler we want to test. For example, for a handler called **register** the test specifies that **it should return an object, with the code and dateAndTime properties**:
+
+[source, typescript]
+----
+import { HttpEvent, Context, Code } from '../../handlers/types';
+import { register } from '../../handlers/Http/POST/register-handler';
+import { expect } from 'chai'; 
+import * as _ from 'lodash';
+
+describe('register', () => {
+    it('The register should return an object, with the code and dateAndTime properties');
+});
+----
+
+With `yarn test` the test is excuted with the following output:
+
+image::images/Testing/yarn_test1.PNG[, link="images/Testing/yarn_test1.PNG"]
+
+This means that there is only one test and it is in a pending state
+
+The next step is to call the function and check his behavior. In order to do that, execute `yarn test:auto` to watch for changes and execute the tests automatically:
+
+[IMPORTANT]
+====
+It is necessary to have the instance of the database running to pass the tests.
+====
+
+[source, typescript]
+----
+import { HttpEvent, Context, Code } from '../../handlers/types';
+import { register } from '../../handlers/Http/POST/register-handler';
+import { expect } from 'chai';
+import * as _ from 'lodash';
+
+const EVENT = {
+    method: 'POST',
+    path: {},
+    body: {},
+    query: {},
+    headers: {}
+}
+
+let context: Context;
+
+describe('register', () => {
+    it('The register should return an object, with the code and dateAndTime properties', (done: Function) => {
+        let event =  <HttpEvent>_.assign({ body: { "name": "John", "email": "somenthing@something.com", "phone": "555566666"}}, EVENT);
+        register(event, context, (err: Error, res: Code) => {
+            try {
+                expect(err).to.be.null;
+                expect(res).to.be.an('object').that.contains.all.keys('code', 'dateAndTime');
+                done();
+            }
+            catch(err){
+                done(err);
+            }
+        })
+    });
+});
+----
+
+Please notice that a HttpEvent is declared and instantiated and only the Context is declared. **Context variables are not used inside handlers but event variable are**.
+
+As test data is inserted into our database, it must be erased after executing the test. In order to do this, a hook can be added that will be executed at the end of our tests, erasing all the data. As it executes an OASP4Fn function, it has to be imported in our file, store the IDs of the inserted data and delete them. For example:
+
+[source, typescript]
+----
+after(async () => {
+    try {
+        if(code)
+            await oasp4fn.delete('Queue', code).promise();
+    } catch (error) {
+        return Promise.reject(error);
+    }
+});
+----
+
+[IMPORTANT]
+====
+The variable _code_ is the code property located in the returned object of the handler of the previous example _register_. The result of the callbak would be that code, so it can be used to remove the test data.
+====
+
+=== Complete example
+
+A **complete example** with the tests of two different handlers below:
+
+[source, typescript]
+----
+import { HttpEvent, Context, Code } from '../../handlers/types';
+import { register } from '../../handlers/Http/POST/register-handler';
+import { search } from '../../handlers/Http/POST/search-handler';
+import { expect } from 'chai';
+import * as _ from 'lodash';
+import oasp4fn from '@oasp/oasp4fn';
+
+const EVENT = {
+    method: 'POST',
+    path: {},
+    body: {},
+    query: {},
+    headers: {}
+}
+
+let context: Context;
+
+let code: string;
+
+describe('register', () => {
+    it('The register should return an object, with the code and dateAndTime properties', (done: Function) => {
+        let event =  <HttpEvent>_.assign({}, EVENT, { body: { "name": "David", "email": "somenthing@something.com", "phone": "658974145"}});
+        register(event, context, (err: Error, res: Code) => {
+            try {
+                expect(err).to.be.null;
+                expect(res).to.be.an('object').that.contains.all.keys('code', 'dateAndTime');
+                code = res.code;
+                done();
+            }
+            catch(err){
+                done(err);
+            }
+        })
+    });
+});
+
+describe('search', () => {
+    it('The search should return an array with the items of the table Queue', (done: Function) => {
+        search(EVENT, context, (err: Error, res: object[]) => {
+            try {
+                expect(err).to.be.null;
+                expect(res).to.be.an('Array');
+                res.forEach(obj => {
+                    expect(obj).to.be.an('object');
+                    expect(obj).to.contain.all.keys(
+                        ['name', 'email', 'phone', 'code', 'dateAndTime']
+                    );
+                })
+                done();
+            }
+            catch(err){
+                done(err);
+            }
+        })
+    });
+});
+
+after(async () => {
+    try {
+        if(code)
+            await oasp4fn.delete('Queue', code).promise();
+    } catch (error) {
+        return Promise.reject(error);
+    }
+});
+----
+
+And a successfull output would look like this:
+
+image::images/Testing/yarn_test2.PNG[, link="images/Testing/yarn_test2.PNG"]
+
