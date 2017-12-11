@@ -145,7 +145,7 @@ This service by default runs on port _8081_ but, as we already mentioned, it can
 
 ==== service-auth module
 
-This module runs an authentication and authorization microservice that allows to generate a security token to make calls to the rest of microservices. This module is only providing a basic structure, the security measures must be implemented fitting the requirements of each project.
+This module runs an authentication and authorization mock microservice that allows to generate a security token to make calls to the rest of microservices. This module is only providing a basic structure, the security measures must be implemented fitting the requirements of each project (authentication through DB, SSO, LDAP, OAuth,...)
 
 This service runs by default on port _9999_, although, as in previous services, it can be edited in the `application.properties` file.
 
@@ -341,17 +341,42 @@ Having an _Eureka_ client activated, the _Zuul_ service will refresh its content
 
 The most commonly used authentication in micro-service environments is authentication based on https://jwt.io/[json web tokens], since the server does not need to store any type of user information (stateless) and therefore favors the scalability of the microservices.
 
+
+[IMPORTANT]
+====
+The `service-auth` module is useful only if the authentication and authorization needs to be done by a remote service (_e.g._ to have a common auth. service to be used by several microservices).
+
+Otherwise, the autentication and authorization can happen in the main application, that will perform the authentication and will generate the JWT.
+====
+
+===== Security in the monolith application
+In this case, the main microservice or application will perform the authentication and generate the JWT, without using `service-auth`.
+
+It works as follows:
+
+- The user is authenticated in our application, either through a user / password access, or through a third provider.
+
+- This authentication request is launched against the Zuul server which will redirect it to an instance of the microservice.
+
+- The microservice will check the user, retrieve their roles and metadata and generate two tokens: one with user access information and another needed to refresh the access token. This information will be returned to the client.
+
+- The client is now able to call the microservice, adding the _authorization token_ to the header of the request.
+
+image::images/microservices/microservices_07.png[,width="450", link="images/microservices/microservices_07.png"]
+
+===== Security in external service (`service-auth`)
+
 It works as follows:
 
 - The user is authenticated in our application, either through a user / password access, or through a third provider.
 
 - This authentication request is launched against the Zuul server which will redirect it to an instance of the _Auth_ microservice.
 
-- The _Auth_ microservice will check the user, retrieve their roles and metadata and generate two tokens: one with user access information and another needed to refresh the access token. This information will be returned to the customer.
+- The _Auth_ microservice will check the user, retrieve their roles and metadata and generate two tokens: one with user access information and another needed to refresh the access token. This information will be returned to the client.
 
 image::images/microservices/microservices_03.png[,width="450", link="images/microservices/microservices_03.png"]
 
-the `service-auth` service is already prepared to listen to the `/login` path and generate the two mentioned tokens. To do so we can use the `JsonWebTokenUtility` class that is implemented in Devonfw
+The `service-auth` service is already prepared to listen to the `/login` path and generate the two mentioned tokens. To do so we can use the `JsonWebTokenUtility` class that is implemented in Devonfw
 
 [source,java]
 ----
@@ -389,6 +414,15 @@ This will generate a response like the following
 ----
 
 The client now should store, in the header defined in `accessHeaderName`, the token included as `accessToken`. By default, when using https://github.com/devonfw/devon4sencha[devon4sencha], this functionality is already implemented.
+
+[IMPORTANT]
+====
+When using `service-auth` (or any other external authorization service), we must secure not only
+the communication between the Client and Zuul, but also between Zuul and the `service-auth`. 
+
+There is very sensitive information being sent (_username_ and _password_) between the different services that
+anyone could read if the channel is not properly secured.
+====
 
 When configuring the `service-auth` module is very important to have into account the following aspects:
 
