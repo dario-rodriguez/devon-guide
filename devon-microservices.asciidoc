@@ -417,7 +417,7 @@ The client now should store, in the header defined in `accessHeaderName`, the to
 
 [IMPORTANT]
 ====
-When using `service-auth` (or any other external authorization service), we must secure not only
+When using `service-auth` (or any other external authorization service), we *must secure* not only
 the communication between the Client and Zuul, but also between Zuul and the `service-auth`. 
 
 There is very sensitive information being sent (_username_ and _password_) between the different services that
