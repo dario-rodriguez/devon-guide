@@ -265,29 +265,20 @@ More information is provided by the npm team at https://docs.npmjs.com/files/pac
 :numbered:
 === Yarn
 
-Yarn is an alternative to npm, if you wish to install
-yarn follow the guide https://yarnpkg.com/en/docs/install[getting started with yarn]
-and download the correct version for your operative system. nodejs is also needed you can
-fin it in https://nodejs.org/en/[nodejs] , version 8.9.1 to be precise.
+Yarn is an alternative to npm, if you wish to install yarn follow the guide https://yarnpkg.com/en/docs/install[getting started with yarn] and download the correct version for your operative system. Node.js is also needed you can find it https://nodejs.org/en/[here].
 
 ==== Working with yarn
 
-Yarn is used like npm, with small differences in syntax,
-for example _npm install module_ is changed to _yarn add module_.
+Yarn is used like npm, with small differences in syntax, for example _npm install module_ is changed to _yarn add module_.
 
 [source, bash]
 $ yarn add @covalent
 
-This command is going to download the required packages,
-modify package.json, put the package in the folder node_modules and 
-makes a new yarn.lock with the new dependency.
+This command is going to download the required packages, modify package.json, put the package in the folder node_modules and makes a new yarn.lock with the new dependency.
 
-However, unlike npm, yarn maintains a cache with packages you download inside. You don't 
-need to download every file every time you do a general installation. This means 
-installations faster than npm.
+However, unlike npm, yarn maintains a cache with packages you download inside. You don't need to download every file every time you do a general installation. This means installations faster than npm.
 
-Similarly to npm, yarn creates and maintains his own lock file, called yarn.lock. Yarn.lock gives
-enough information about the project for dependency tree to be reproduced.
+Similarly to npm, yarn creates and maintains his own lock file, called yarn.lock. Yarn.lock gives enough information about the project for dependency tree to be reproduced.
 
 ==== yarn commands
 
@@ -297,8 +288,7 @@ Here we have a brief description of yarn's most used commands:
 $ yarn add Package
 $ yarn add --dev Package
 
-Adds a package *locally* to use in your package. Adding the flags `--dev` or `-D` will add them to devDependencies instead
-of the default dependencies, if you need more information check the links at the end of the section.
+Adds a package *locally* to use in your package. Adding the flags `--dev` or `-D` will add them to devDependencies instead of the default dependencies, if you need more information check the links at the end of the section.
 
 [source, bash]
 $ yarn init
@@ -308,8 +298,7 @@ Initializes the development of a package.
 [source, bash]
 $ yarn install
 
-Installs all the dependencies defined in a package.json file, you can also write "yarn" to achieve
-the same effect.
+Installs all the dependencies defined in a package.json file, you can also write "yarn" to achieve the same effect.
 
 [source, bash]
 $ yarn remove Package 
