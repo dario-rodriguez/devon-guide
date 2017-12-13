@@ -17,13 +17,13 @@ The Reporting module provides you a report generator for your Devon applications
 
 === Step 1: Adding the dependency in your project
 
-Include the module dependency in your pom.xml, verify that the _version_ matches the last available version of the module.
+Include the starter in your pom.xml, verify that the _version_ matches the last available version of the module.
 [source,xml]
 ----
 <dependency>
-  <groupId>com.capgemini.devonfw.modules</groupId>
-  <artifactId>devonfw-reporting</artifactId>
-  <version>2.2.0</version>
+   <groupId>com.capgemini.devonfw.starter</groupId>
+   <artifactId>devonfw-reporting-starter</artifactId>
+   <version>${devonfw.version}</version>
 </dependency>
 ----
 
