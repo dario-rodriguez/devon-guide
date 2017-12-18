@@ -94,7 +94,6 @@ Version 2.3-SNAPSHOT
 - link:cookbook-cobigen-advanced-use-cases-soap-and-nested-data[Cobigen advanced use cases: SOAP and nested data]
 - link:Compatibility-guide-for-Java7-Java8-and-Tomcat7-Tomcat8[Compatibility guide for Java7, Java8, and Tomcat7, Tomcat8]
 - link:Dockerfile-for-the-maven-based-spring.io-projects[Dockerfile for the Maven based spring.io Projects]
-- link:Angular-a11y-accessibility.[Angular A11y Accessibility]
 - link:cookbook-devon-jhipster-module[Creating Entity with Devon JHipster Module]
 
 == Topical Guides for Service Layers
@@ -151,6 +150,7 @@ Version 2.3-SNAPSHOT
 ==== Cookbook
 
 - link:oasp4js-npm-yarn-workflow[NPM and Yarn workflow]
+- link:Client-GUI-Angular-a11y-accessibility.[Angular A11y Accessibility]
 
 === Devon4Sencha
 
