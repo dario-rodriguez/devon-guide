@@ -13,7 +13,7 @@ http://devonfw.github.io/index.html[Devon framework] is a development platform a
 
 image::images/introduction/devon_buildingblocks.png[,width="650",Devonfw Building blocks,link="images/introduction/devon_buildingblocks.png"]
 
-Devonfw uses a state-of-the-art open source core reference architecture for the server (today considered as commodity in the IT-industry) and on top of it an ever increasing number of high-value assets that are Capgemini.
+Devonfw uses a state-of-the-art open source core reference architecture for the server (today considered as commodity in the IT-industry) and on top of it an ever increasing number of high-value assets that are developed by Capgemini.
 
 == Devonfw Technology Stack
 
@@ -59,7 +59,7 @@ Check out the links for more details.
 
 For project management and other life-cycle related tasks, _Devonfw_ provides also https://github.com/devonfw/devcon[Devcon], a command line and graphic user interface cross platform tool.
 
-With _Devcon_ users can automate the creation of new projects (both server and client), build and run those and even, for server projects, deploy locally on Tomcat.
+With _Devcon_, users can automate the creation of new projects (both server and client), build and run those and even, for server projects, deploy locally on Tomcat.
 
 image::images/devcon/devcon.png[,width="550", link="images/devon/devcon.png"]
 
@@ -73,7 +73,7 @@ image::images/cobigen.png[,width="550", link="images/devon/cobigen.png"]
 
 === Devonfw Modules
 
-As part of the goal of productivity boosting, _Devonfw_ provides also to developers a set of _modules_, created from real projects requirements, that can be connected to projects saving all the work of a new implementation.
+As a part of the goal of productivity boosting, _Devonfw_ also provides a set of _modules_ to the developers, created from real projects requirements, that can be connected to projects for saving all the work of a new implementation.
 
 The current available modules are:
 
