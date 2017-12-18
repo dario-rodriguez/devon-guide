@@ -14,15 +14,15 @@ The idea behind the asynchronous processing model is to separate connection acce
 == The async IP module
 The above concept is implemented in Devonfw through the _async module_. Therefore, you can include it in your project and will be able to apply the async process of requests in the REST services of your apps in a few steps, avoiding the complex details of the implementation.
 
-=== Adding the async module dependency to your project
-To access the functionality of the _async module_, you will need to include its dependency in your project's pom.xml. Verify that the _version_ matches the last available version of the module.
+=== Adding the async starter to your project
+To access the functionality of the _async module_, you will need to include its starter in your project's pom.xml. Verify that the _version_ matches the last available version of the module.
 
 [source,xml]
 ----
- <dependency>
-    <groupId>com.capgemini.devonfw.modules</groupId>
-    <artifactId>devonfw-async</artifactId>
-    <version>2.2.0</version>
+<dependency>
+      <groupId>com.capgemini.devonfw.starter</groupId>
+      <artifactId>devonfw-async-starter</artifactId>
+      <version>${devonfw.version}</version>
 </dependency>
 ----
 

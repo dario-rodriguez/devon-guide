@@ -109,15 +109,15 @@ If you have changed the _Active MQ_ configuration remember to overwrite the affe
 
 == IP Integration module details
 
-=== Adding the module to a project
-To access the functionality of the _Integration module_, you will need to include its dependency in your project's pom.xml. Verify that the _version_ matches the last available version of the module.
+=== Adding the starter to a project
+To access the functionality of the _Integration module_, you will need to include its starter in your project's pom.xml. Verify that the _version_ matches the last available version of the module.
 
 [source,xml]
 ----
  <dependency>
-      <groupId>com.capgemini.devonfw.modules</groupId>
-      <artifactId>devonfw-integration</artifactId>
-      <version>2.2.0</version>
+      <groupId>com.capgemini.devonfw.starter</groupId>
+      <artifactId>devonfw-integration-starter</artifactId>
+      <version>${devonfw.version}</version>
 </dependency>
 ----
 

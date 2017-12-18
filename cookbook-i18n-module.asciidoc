@@ -116,14 +116,14 @@ To enable i18n functionality in oasp4j based application we need to follow below
 </dependency>
 ----
 
-- Add following dependency to your oasp4j application. Verify that the _version_ matches the last available version of the module:
+- Add following starter to your oasp4j application. Verify that the _version_ matches the last available version of the module:
 
 [source,xml]
 ----
 <dependency>
-  <groupId>com.capgemini.devonfw.modules</groupId>
-  <artifactId>devonfw-i18n</artifactId>
-  <version>2.2.0</version>
+      <groupId>com.capgemini.devonfw.starter</groupId>
+      <artifactId>devonfw-i18n-starter</artifactId>
+      <version>${devonfw.version}</version>
 </dependency>
 ----
 
