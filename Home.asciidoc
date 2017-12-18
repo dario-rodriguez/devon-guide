@@ -150,7 +150,7 @@ Version 2.3-SNAPSHOT
 ==== Cookbook
 
 - link:oasp4js-npm-yarn-workflow[NPM and Yarn workflow]
-- link:Client-GUI-Angular-a11y-accessibility.[Angular A11y Accessibility]
+- link:Client-GUI-Angular-a11y-accessibility[Angular A11y Accessibility]
 
 === Devon4Sencha
 
