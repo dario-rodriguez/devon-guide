@@ -12,15 +12,15 @@ https://redis.io/[Redis] is an open-source, blazingly fast, key/value low mainte
 The module provides you a connection to a compose for redis service, and a bunch of predefined operations for managing the objects inside the service, for your Devon applications.
 To implement the module in a Devon project, you must follow these steps:
 
-=== Step 1: Adding the dependency in your project
+=== Step 1: Adding the starter in your project
 
-Include the module dependency in your pom.xml, verifying that the _version_ matches the last available version of the module
+Include the starter in your pom.xml, verifying that the _version_ matches the last available version of the module
 [source,xml]
 ----
 <dependency>
-  <groupId>com.capgemini.devonfw.modules</groupId>
-  <artifactId>devonfw-compose-redis</artifactId>
-  <version>2.2.0</version>
+      <groupId>com.capgemini.devonfw.starter</groupId>
+      <artifactId>devonfw-compose-redis-starter</artifactId>
+      <version>${devonfw.version}</version>
 </dependency>
 ----
 

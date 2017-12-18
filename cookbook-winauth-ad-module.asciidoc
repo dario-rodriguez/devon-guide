@@ -15,16 +15,16 @@ For more information, visit https://en.wikipedia.org/wiki/Active_Directory[wikip
 
 Winauth-ad module provides a simple authentication for your Devon applications. To implement authentication in your Devon project, follow the next steps:
 
-==== Step 1: Add the module dependency
+==== Step 1: Add the starter
 
-Include the dependency of the module in pom.xml. Verify that the _version_ matches the last available version of the module.
+Include the starter in pom.xml. Verify that the _version_ matches the last available version of the module.
 
 [source,xml]
 ----
 <dependency>
-      <groupId>com.capgemini.devonfw.modules</groupId>
-      <artifactId>devonfw-winauth-ad</artifactId>
-      <version>2.2.0</version>
+      <groupId>com.capgemini.devonfw.starter</groupId>
+      <artifactId>devonfw-winauth-ad-starter</artifactId>
+      <version>${devonfw.version}</version>
 </dependency>
 ----
 
