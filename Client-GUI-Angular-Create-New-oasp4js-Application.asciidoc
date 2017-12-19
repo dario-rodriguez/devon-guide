@@ -198,7 +198,7 @@ The first thing to know is about https://teradata.github.io/covalent/#/layouts[C
 
 [NOTE]
 ====
-Learn more about layouts in OASP4Js link:Client-GUI-Angular-oasp4js-managing-angular-components#teradata-layouts[HERE]
+Learn more about layouts in OASP4Js link:Client-GUI-Angular-oasp4js-managing-angular-components#teradata-covalent-layouts[HERE]
 ====
 
 As we do not really need nothing more than a header we are going to use the simplest layout: *nav view*
