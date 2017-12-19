@@ -171,7 +171,7 @@ First, we are going to develop the views of the app, through its components, and
 
 [NOTE]
 ====
-Learn more about creating new components in OASP4Js link:AngularComponents#create-a-new-component[HERE]
+Learn more about creating new components in OASP4Js link:Client-GUI-Angular-oasp4js-managing-angular-components#create-a-new-component[HERE]
 ====
 
 The app consists of 3 main views:
