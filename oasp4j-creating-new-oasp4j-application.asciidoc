@@ -7,7 +7,7 @@ In this chapter we are going to show how to create a new _Oasp4j_ application fr
 
 == Getting Devonfw distribution
 
-The recommended way to start developing _Oasp4j_ applications is to get the last _Devonfw_ distribution to have a _ready-to-start_ development environment.
+The recommended way to start developing _Oasp4j_ applications is to get the latest _Devonfw_ distribution to have a _ready-to-start_ development environment.
 
 You can download _Devonfw_ distributions from https://coconet.capgemini.com/sf/frs/do/listReleases/projects.apps2_devon/frs.devon_distribution[TeamForge].
 
