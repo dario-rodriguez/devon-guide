@@ -148,8 +148,8 @@
 ==== Cookbook
 
 - link:oasp4js-npm-yarn-workflow[NPM and Yarn workflow]
-- link:oasp4js-angular-i18n[Angular i18n]
-- link:Client-GUI-Angular-a11y-accessibility[Angular A11y Accessibility]
+- link:oasp4js-angular-i18n[OASP4JS Angular i18n]
+- link:Client-GUI-Angular-a11y-accessibility[OASP4JS Angular A11y Accessibility]
 
 === Devon4Sencha
 
