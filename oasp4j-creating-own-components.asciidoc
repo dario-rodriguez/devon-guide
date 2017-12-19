@@ -30,9 +30,9 @@ Now is the moment to decide the components of our app. The complexity of the fun
 However if you feel more comfortable managing both entities in a single component you can also do it in that way. The results will be the same and the only difference will be related with the structure of the elements and the distribution of the code.
 ====
 
-=== The data base
+=== The database
 
-In the projects created with the _Oasp4j_ archetype, we already have a complete data base schema that we can use as a model to create our own. By default we are going to work over the http://www.h2database.com/html/main.html[H2] database engine provided in the _Oasp4j_ applications, although you can use other database alternatives for this exercise. 
+In the projects created with the _Oasp4j_ archetype, we already have a complete database schema that we can use as a model to create our own. By default we are going to work over the http://www.h2database.com/html/main.html[H2] database engine provided in the _Oasp4j_ applications, although you can use other database alternatives for this exercise. 
 
 Open the `/jumpthequeue-core/src/main/resources/db/migration/h2/V0001__R001_Create_schema.sql` and delete all the tables (except _BinaryObject_ and _RevInfo_, that are used internally by default).
 
@@ -114,13 +114,13 @@ You can delete the scripts `V0003__R001_Add_blob_table_and_data.sql` and `V0004_
 
 === The _core_ of the components
 
-Now that we have defined the data base for our entities is the moment to start creating the code of the related components.
+Now that we have defined the database for our entities is the moment to start creating the code of the related components.
 
 We are going to use _Cobigen_ to generate the component structure. That means that, as we already commented, we can generate all the structure and layers starting from a _core_ element: a simple _Plain Old Java Object_ that represents our _Entity_. So, in order to use _Cobigen_, we must create our entities in the expected location: `MyEntitymanagement.dataaccess.api`.
 
 ==== _Visitor_ component
 
-To implement the component we will need to define a _VisitorEntity_ to connect and manage the data of the _Visitor_ table in the data base.
+To implement the component we will need to define a _VisitorEntity_ to connect and manage the data of the _Visitor_ table in the database.
 
 The name for this component will be `visitormanagement` and for the entity `VisitorEntity`.
 
