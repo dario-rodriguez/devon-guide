@@ -67,7 +67,7 @@ All those tasks can be done manually using _Maven_, _Tomcat_, _Sencha Cmd_, _Bow
 
 ==== Cobigen
 
-_Cobigen_ is a code generator included in the context of _Devonfw_ that allows users to generate all the structure and code of the components, helping to save a lot of time waisted in repetitive tasks.
+_Cobigen_ is a code generator included in the context of _Devonfw_ that allows users to generate all the structure and code of the components, helping to save a lot of time wasted in repetitive tasks.
 
 image::images/cobigen.png[,width="550", link="images/devon/cobigen.png"]
 
