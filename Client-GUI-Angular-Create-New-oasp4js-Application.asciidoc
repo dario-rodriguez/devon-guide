@@ -577,7 +577,7 @@ import {
 
 [NOTE]
 ====
-Learn more about Teradata data tables in OASP4Js link:Client-GUI-Angular-oasp4js-managing-angular-components#teradata-data-table[HERE]
+Learn more about Teradata data tables in OASP4Js link:Client-GUI-Angular-oasp4js-managing-angular-components#teradata-covalent-data-table[HERE]
 ====
 
 What we did here is to create the component by its selector, and give the needed inputs to build the table: *columns* to display names and establish concordance with the data, and some *data* to show. Also, a button to return to the code view has been added following the same system as the navigation in code, but pointing to 'code':
@@ -617,14 +617,14 @@ image::images/oasp4js/3.BuildYourOwn/queue_viewer.JPG[,width="250", link="images
 
 [NOTE]
 ====
-Learn more about services in OASP4Js link:AngularServices[HERE]
+Learn more about services in OASP4Js link:Client-GUI-Angular-oasp4js-managing-angular-services[HERE]
 ====
 
 At the moment we had developed all the basic structure and workflow of our application templates, but there is still some more work to do regarding security, calls to services and logic functionalities, this will be the objective of this second part of the tutorial. We will use angular/cli to generate our services as we did to create our components.
 
 [NOTE]
 ====
-Learn more about creating new services in OASP4Js link:AngularServices#create-a-new-service[HERE]
+Learn more about creating new services in OASP4Js link:Client-GUI-Angular-oasp4js-managing-angular-services#create-a-new-service[HERE]
 ====
 
 ==== Auth service
@@ -677,7 +677,7 @@ This property will hide the log-off icon button when the user is not logged and 
 
 [NOTE]
 ====
-Learn more about authentication in OASP4Js link:AngularServices#authentication[HERE]
+Learn more about authentication in OASP4Js link:Client-GUI-Angular-oasp4js-managing-angular-services#authentication[HERE]
 ====
 
 ==== Guard service
@@ -688,7 +688,7 @@ This service will be a bit different, because we have to implement an interface 
 
 [NOTE]
 ====
-Learn more about guards in OASP4Js link:AngularServices#guards[HERE]
+Learn more about guards in OASP4Js link:Client-GUI-Angular-oasp4js-managing-angular-services#guards[HERE]
 ====
 
 The code should be as follows:
@@ -891,7 +891,7 @@ export class CodeViewerComponent implements OnInit {
 
 [NOTE]
 ====
-Learn more about Observables and RxJs in OASP4Js link:AngularServices#server-communication[HERE]
+Learn more about Observables and RxJs in OASP4Js link:Client-GUI-Angular-oasp4js-managing-angular-services#server-communication[HERE]
 ====
 
 Now if we log in the application, the name we introduce in the form will be the name displayed in the code-viewer view. And the queue code will be the one we set in the service.
