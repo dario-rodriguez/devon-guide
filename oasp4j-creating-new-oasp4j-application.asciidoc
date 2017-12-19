@@ -50,7 +50,7 @@ We are going to generate the new _Oasp4j_ project using _Devcon_. To launch the 
 devcon -g
 ----
 
-You should see the _Devcon_'s graphic interface. Select `oasp4j` and `create`
+You should see the _Devcon_'s GUI. Select `oasp4j` and `create`
 
 image::images/oasp4j/3.BuildYourOwn/newapp1.png[width="450", link="images/oasp4j/3.BuildYourOwn/newapp1.png"]
 
@@ -72,7 +72,7 @@ You can also create new projects:
 
 == Import and Run the Application
 
-As last step we can import the project we just created into the Eclipse IDE provided with _Devonfw_. Although our new _Oasp4j_ based app is still empty we are going to show how to run it with _Spring Boot_ simply to check that everything is ok.
+As last step we can import the project we just created into the Eclipse IDE provided with _Devonfw_ distribution. Although our new _Oasp4j_ based app is still empty we are going to show how to run it with _Spring Boot_ simply to check that everything is ok.
 
 We could use the _eclipse-main.bat_ or the _eclipse-examples.bat_ launchers (that you should see on your distribution's root directory) but we are going to create a new _Eclipse_ launcher related to our new project.
 
