@@ -89,14 +89,14 @@ In order to translate any label in any template you will need to use the `transl
 {{ 'HELLO' | translate }}
 ----
 
-If a parameter from the component TypeScript class has to be included you can do the following:
+If a parameter from the component TypeScript class has to be included as follows:
 
 [source,html]
 ----
 {{ 'HELLO' | translate:param }}
 ----
 
-So, `param` has to be defined in the class. The default language used is defined in the following way:
+So, `param` has to be defined in the class. The default language used is defined as follows:
 
 [source,typescript]
 ----
