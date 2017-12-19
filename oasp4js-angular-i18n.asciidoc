@@ -82,14 +82,14 @@ For now this loader only support the json format.
 If you're still on Angular < 4.3, please use `Http` from `@angular/http` with `http-loader@0.1.0`.
 
 === Usage
-In order to translate any label in any template you will need to use the `translate` pipe available:
+In order to translate any label in any HTML template you will need to use the `translate` pipe available:
 
 [source,html]
 ----
 {{ 'HELLO' | translate }}
 ----
 
-If a parameter from the component TypeScript class has to be included as follows:
+A parameter from the component TypeScript class could be included as follows:
 
 [source,html]
 ----
