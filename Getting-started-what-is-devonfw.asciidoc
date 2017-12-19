@@ -17,7 +17,7 @@ Devonfw uses a state-of-the-art open source core reference architecture for the 
 
 == Devonfw Technology Stack
 
-The Devonfw client and server implementation is called as  _The Open Application Standard Platform_ (OASP). It consist of
+Devonfw is composed of an Open Source part that can be freely used by other people and proprietary addons which are Capgemini IP and can be used only in Capgemini engagements.The Open Source part of Devonfw is called _The Open Application Standard Platform_ (OASP) . It consist of
 
 === Back-end solutions
 
