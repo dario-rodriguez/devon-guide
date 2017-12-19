@@ -3,7 +3,7 @@ toc::[]
 
 = Creating New OASP4J Application
 
-In this chapter we are going to show how to create a new _Oasp4j_ application from scratch. The app that we are going to create is _Jump the Queue_, a simple app to avoid the queue in an event registering a visitor and obtaining an _access code_. You can read all the details of the app in the link:Client-GUI-Angular-design-jump-the-queue[Jump the Queue Design] page.
+In this chapter we are going to show how to create a new _Oasp4j_ application from scratch. The app that we are going to create is _Jump the Queue_, a simple app to avoid the queue in an event by registering a visitor and obtaining an _access code_. You can read all the details of the app in the link:Client-GUI-Angular-design-jump-the-queue[Jump the Queue Design] page.
 
 == Getting Devonfw distribution
 
