@@ -171,7 +171,7 @@ First, we are going to develop the views of the app, through its components, and
 
 [NOTE]
 ====
-Learn more about creating new components in OASP4Js link:AngularComponents#create-a-new-component[HERE]
+Learn more about creating new components in OASP4Js link:Client-GUI-Angular-oasp4js-managing-angular-components#create-a-new-component[HERE]
 ====
 
 The app consists of 3 main views:
@@ -189,7 +189,7 @@ _app.component_ will be our Root component, so we do not have to create any comp
 
 [NOTE]
 ====
-Learn more about the root component in OASP4Js link:AngularComponents#root-component[HERE]
+Learn more about the root component in OASP4Js link:Client-GUI-Angular-oasp4js-managing-angular-components#root-component[HERE]
 ====
 
 This is the case of a header element, which will be on top of the window and on top of all the components, let's build it:
@@ -198,7 +198,7 @@ The first thing to know is about https://teradata.github.io/covalent/#/layouts[C
 
 [NOTE]
 ====
-Learn more about layouts in OASP4Js link:AngularComponents#teradata-layouts[HERE]
+Learn more about layouts in OASP4Js link:Client-GUI-Angular-oasp4js-managing-angular-components#teradata-covalent-layouts[HERE]
 ====
 
 As we do not really need nothing more than a header we are going to use the simplest layout: *nav view*
@@ -282,7 +282,7 @@ Now we can use layouts, so lets use it on _app.component.html_ to make it look l
 
 [NOTE]
 ====
-Learn more about toolbars in OASP4Js link:AngularComponents#toolbars[HERE]
+Learn more about toolbars in OASP4Js link:Client-GUI-Angular-oasp4js-managing-angular-components#toolbars[HERE]
 ====
 
 Once this done, our app should have a header and the "app works!" should remain in the body of the page:
@@ -334,7 +334,7 @@ Time to add this _AppRoutingModule_ routing module to the app module:
 
 [NOTE]
 ====
-Learn more about routing in OASP4Js link:AngularComponents#routing[HERE]
+Learn more about routing in OASP4Js link:Client-GUI-Angular-oasp4js-managing-angular-components#routing[HERE]
 ====
 
 Finally, we remove the "{{title}}" from _app.component.html_ and in its place we put a `<router-outlet></router-outlet>` tag. So the final result of our Root component will look like this:
@@ -410,7 +410,7 @@ Also, we need to add the button to send the information and redirect to code vie
 
 [NOTE]
 ====
-Learn more about forms in OASP4Js link:AngularComponents#forms[HERE]
+Learn more about forms in OASP4Js link:Client-GUI-Angular-oasp4js-managing-angular-components#forms[HERE]
 ====
 
 This code will give us as a result something similar to this:
@@ -577,7 +577,7 @@ import {
 
 [NOTE]
 ====
-Learn more about Teradata data tables in OASP4Js link:AngularComponents#teradata-data-table[HERE]
+Learn more about Teradata data tables in OASP4Js link:Client-GUI-Angular-oasp4js-managing-angular-components#teradata-covalent-data-table[HERE]
 ====
 
 What we did here is to create the component by its selector, and give the needed inputs to build the table: *columns* to display names and establish concordance with the data, and some *data* to show. Also, a button to return to the code view has been added following the same system as the navigation in code, but pointing to 'code':
@@ -617,14 +617,14 @@ image::images/oasp4js/3.BuildYourOwn/queue_viewer.JPG[,width="250", link="images
 
 [NOTE]
 ====
-Learn more about services in OASP4Js link:AngularServices[HERE]
+Learn more about services in OASP4Js link:Client-GUI-Angular-oasp4js-managing-angular-services[HERE]
 ====
 
 At the moment we had developed all the basic structure and workflow of our application templates, but there is still some more work to do regarding security, calls to services and logic functionalities, this will be the objective of this second part of the tutorial. We will use angular/cli to generate our services as we did to create our components.
 
 [NOTE]
 ====
-Learn more about creating new services in OASP4Js link:AngularServices#create-a-new-service[HERE]
+Learn more about creating new services in OASP4Js link:Client-GUI-Angular-oasp4js-managing-angular-services#create-a-new-service[HERE]
 ====
 
 ==== Auth service
@@ -677,7 +677,7 @@ This property will hide the log-off icon button when the user is not logged and 
 
 [NOTE]
 ====
-Learn more about authentication in OASP4Js link:AngularServices#authentication[HERE]
+Learn more about authentication in OASP4Js link:Client-GUI-Angular-oasp4js-managing-angular-services#authentication[HERE]
 ====
 
 ==== Guard service
@@ -688,7 +688,7 @@ This service will be a bit different, because we have to implement an interface 
 
 [NOTE]
 ====
-Learn more about guards in OASP4Js link:AngularServices#guards[HERE]
+Learn more about guards in OASP4Js link:Client-GUI-Angular-oasp4js-managing-angular-services#guards[HERE]
 ====
 
 The code should be as follows:
@@ -891,7 +891,7 @@ export class CodeViewerComponent implements OnInit {
 
 [NOTE]
 ====
-Learn more about Observables and RxJs in OASP4Js link:AngularServices#server-communication[HERE]
+Learn more about Observables and RxJs in OASP4Js link:Client-GUI-Angular-oasp4js-managing-angular-services#server-communication[HERE]
 ====
 
 Now if we log in the application, the name we introduce in the form will be the name displayed in the code-viewer view. And the queue code will be the one we set in the service.

@@ -2,7 +2,7 @@
 toc::[]
 
 = Application Program Interface
-OASP4Fn provides a friendly api, that along with link:Adapters[adapters] and a sugar kind syntax, allows the user make queries to make use of different kind of cloud services.
+OASP4Fn provides a friendly api, that along with link:++https://github.com/oasp/oasp4fn/wiki/Adapters++[adapters] and a sugar kind syntax, allows the user make queries to make use of different kind of cloud services.
 
 Our API it's principally divided in two parts, the first ones are called link:++https://htmlpreview.github.io/?https://raw.githubusercontent.com/oasp/oasp4fn/master/doc/interfaces/_index_d_.querystarters.html++[query starters], which are used to set the a adapters, specify the handlers configuration, and overall, the great part of them return an instance of the link:++https://htmlpreview.github.io/?https://raw.githubusercontent.com/oasp/oasp4fn/master/doc/classes/_index_d_.oasp4fn.html++[OASP4Fn class], which methods will permit the user make queries in the cloud in an isolated way. 
 

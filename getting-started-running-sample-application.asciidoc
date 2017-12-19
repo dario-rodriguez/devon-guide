@@ -68,21 +68,77 @@ Now, Server is running successfully!!!
 
 === Client
 
-==== Step 1: Install Dependencies
-
 *Make sure that the SERVER is Up and Running!*
+
+==== Step 1: Install Dependencies
 
 To run MyThaiStar front-end, you need to globally install the following dependencies:
 
-1. https://nodejs.org/en/[Node], 
+1. https://nodejs.org/en/[Node]
 1. https://github.com/angular/angular-cli[Angular CLI]
 1. https://yarnpkg.com/lang/en/docs/install/[Yarn]
 
-Once you have installed above dependencies, you can go to the project folder 
+===== Install or update the project
+
+If older versions already exist on your machine, then in order to update Angular CLI globally run following commands sequentially:
+
+[source,bash]
+----
+$ npm uninstall -g angular-cli @angular/cli 
+$ npm cache clean
+$ npm install -g @angular/cli 
+----
+
+If you have a previous version of this project, you must update the node modules as per your operating system. There are two different ways to do it, using npm or yarn.
+
+====== 1. Using NPM
+
+Go to the project folder 
+
+_"workspaces\examples\my-thai-star\angular"_ and run the following commands:
+
+For Windows:
+[source,bash]
+----
+bash
+$ rmdir /s node_modules
+$ rmdir /s dist
+$ npm install
+----
+
+For Linux or macOS:
+[source,bash]
+----
+bash
+$ rm -rf node_modules dist
+$ npm install
+----
+
+To test the application as a **PWA**, you will need a small http server:
+
+[source,bash]
+----
+bash
+$ npm i -g http-server
+----
+
+Or run yarn using below steps.
+
+====== 2. Using Yarn
+
+If you have a previous version of this project run the following command:
+
+[source,bash]
+----
+bash
+$ yarn upgrade
+----
+
+Otherwise, the project is also tested with the latest [Yarn](https://yarnpkg.com/lang/en/) version. After installing the above dependencies, you can go to the project folder 
 
 _"workspaces\examples\my-thai-star\angular"_
 
-and execute the following command:
+and execute the following command for yarn installation:
 
 [source,bash]
 ----
@@ -93,27 +149,61 @@ After finishing, you will see something like:
 
 image::images/running-sample-application/yarn_install.png[, link="images/running-sample-application/yarn_install.png"]
 
-OR, 
 
-execute the following command:
+Now, run the following commands:
 
 [source,bash]
 ----
-npm install
+bash
+$ rm -rf node_modules dist
+$ yarn
 ----
+
+If you face any problem with installing dependencies, kindly refer following links:
+
+1. link:oasp4js-npm-yarn-workflow[NPM and Yarn Workflow]
+1. link:https://github.com/oasp/my-thai-star/tree/develop/angular[My Thai Start - Angular]
 
 ==== Step 2: Run the application
 
-Now, you are ready to run the client using
+The simple way to run the My Thai Star Angular client i.e. to execute the followig command:
 
 [source,bash]
 ----
-ng serve
+$ npm run serve                     # OASP4J server
+----
+
+Also, there are following alternatives in order to run My Thai Star Angular client with the different server technologies and environments:
+
+[source,bash]
+----
+$ npm run serve:aot                 # AOT compilation with OASP4J server
+$ npm run serve:pwa                 # Build and run the app as PWA
+$ npm run serve:prod                # Production server
+$ npm run serve:prod:aot            # AOT compilation with production server
+$ npm run serve:prodcompose         # Production server with Docker compose
+$ npm run serve:prodcompose:aot     # AOT compilation with production server with Docker compose
+$ npm run serve:node                # Node.js or local Serverless server
+$ npm run serve:node:aot            # AOT compilation with Node.js or local Serverless server
 ----
 
 If everything goes well, the console output will be something like this:
 
 image::images/running-sample-application/webpack.JPG[, link="images/running-sample-application/webpack.JPG"]
+
+Alternatively, you can also run using yarn. Make use of one of the following commands:
+
+[source,bash]
+----
+$ yarn serve:aot                 # AOT compilation with OASP4J server
+$ yarn serve:pwa                 # Build and run the app as PWA
+$ yarn serve:prod                # Production server
+$ yarn serve:prod:aot            # AOT compilation with production server
+$ yarn serve:prodcompose         # Production server with Docker compose
+$ yarn serve:prodcompose:aot     # AOT compilation with production server with Docker compose
+$ yarn serve:node                # Node.js or local Serverless server
+$ yarn serve:node:aot            # AOT compilation with Node.js or local Serverless server
+----
 
 ==== Step 3: Test the application
 
@@ -124,7 +214,7 @@ Now, go to your browser and open
 localhost:4200
 ----
 
-and you can see MyThaiStar client running! You can login to the application using 
+and you can see MyThaiStar client running! You can login to the application using:
 
 *username*: waiter
 
