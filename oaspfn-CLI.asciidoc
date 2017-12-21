@@ -15,7 +15,7 @@ Otherwise you can use it with the _package.json_ script that comes with the temp
 
 The above commands will generate a _serverless.yml_ and a _webpack.config.json_ join with the following output:
 
-image::images/CLI/Fun.PNG[, link="images/CLI/Fun.PNG"]
+image::images/oasp4fn/CLI/Fun.PNG[, link="images/oasp4fn/CLI/Fun.PNG"]
 
 That command make use of the link:Configuration#default-configuration[default configuration], but the usage is the following:
 
@@ -37,4 +37,4 @@ And the supported options are:
 
 As you can see above, you can check the options by passing the `--help` flag:
 
-image::images/CLI/FunHelp.PNG[, link="images/CLI/FunHelp.PNG"]
+image::images/oasp4fn/CLI/FunHelp.PNG[, link="images/oasp4fn/CLI/FunHelp.PNG"]
