@@ -49,7 +49,7 @@ describe('register', () => {
 
 With `yarn test` the test is excuted with the following output:
 
-image::images/Testing/yarn_test1.PNG[, link="images/Testing/yarn_test1.PNG"]
+image::images/oasp4fn/3.BuildYourOwn/yarn_test1.PNG[, link="images/oasp4fn/3.BuildYourOwn/yarn_test1.PNG"]
 
 This means that there is only one test and it is in a pending state
 
@@ -190,5 +190,5 @@ after(async () => {
 
 And a successfull output would look like this:
 
-image::images/Testing/yarn_test2.PNG[, link="images/Testing/yarn_test2.PNG"]
+image::images/oasp4fn/3.BuildYourOwn/yarn_test2.PNG[, link="images/oasp4fn/3.BuildYourOwn/yarn_test2.PNG"]
 
