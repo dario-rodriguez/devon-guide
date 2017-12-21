@@ -14,11 +14,18 @@ sls deploy
 This command will fail if the AWS credentials are missing. For more information visit https://serverless.com/framework/docs/providers/aws/guide/credentials/[serverless credentials]
 ====
 
-When the deployment is finished with no errors, the user will receive the result via command line output with details as the endpoints and the functions deployed.
+When the deploy is finish with no errors, you will have a command line output with the endpoints and the functions deployed.
 
-image::images/Deployment/sls_deploy.PNG[, link="images/Deployment/sls_deploy.PNG"]
+image::images/oasp4fn/3.BuildYourOwn/sls_deploy.PNG[, link="images/oasp4fn/3.BuildYourOwn/sls_deploy.PNG"]
+
+Note that until now we have been working locally, so if we gonna deploy our handlers and make them work, we should change the endpoint of our services:
+
+[source, typescript]
+----
+oasp4fn.setDB(dynamo, {endpoint: 'https://dynamodb.us-west-2.amazonaws.com'});
+----
 
 [NOTE]
 ====
-For more information about the deployment process visit the https://serverless.com/framework/docs/providers/aws/cli-reference/deploy/[serverless documentation], but be aware that OASP4Fn doesn't support the deployment of a single function..
+You can get more information about the deployment in the https://serverless.com/framework/docs/providers/aws/cli-reference/deploy/[serverless documentation], but be aware that OASP4Fn doesn't support the deployment of a single function.
 ====
