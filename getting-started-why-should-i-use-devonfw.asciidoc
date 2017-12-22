@@ -15,7 +15,7 @@ devonfw needs to standardize & industrialize. But not just large volume, “trad
 
 ==== Deliver & Improve Business Value
 
-in terms of Efficiency, Quality and Agility. (need to write more with diagram)
+image::images/introduction/devon_quality_agility.png[,width="550", link="images/introduction/devon_quality_agility.png"]
 
 
 == Features
