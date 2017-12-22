@@ -43,7 +43,7 @@ image::images/running-sample-application/select_maven_project_2.png[, width="450
 
 ==== Step 2: Run the application
 
-Using _Spring Boot_ features,  run your _Java_ backend applications using the _Run as -> Java application_ over the _SpringBootApp.java_ main class as shown below:
+Using _Spring Boot_ features,  run your _Java_ back-end applications using the _Run as -> Java application_ over the _SpringBootApp.java_ main class as shown below:
 
 image::images/running-sample-application/run.png[,width="450", link="images/running-sample-application/run.png"]
 
@@ -54,11 +54,11 @@ Tomcat started on port(s): 8081 (http)
 Started SpringBootApp in 15.985 seconds (JVM running for 16.833)
 ----
 
-you can start consuming the _Java_ backend.
+you can start consuming the _Java_ back-end.
 
 ==== Step 3: Test the application
 
-To see the backend services results, you can use https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop[Postman] plugin for _Chrome_, although you can use any other similar application.
+To see the back-end services results, you can use https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop[Postman] plugin for _Chrome_, although you can use any other similar application.
 
 Now, with _Postman_, you can do a simple _GET_ request to obtain the information of a _dish_ with _id=1_ (`http://localhost:8081/mythaistar/services/rest/dishmanagement/v1/dish/1`). And you will get a result like this:
 
@@ -100,7 +100,6 @@ _"workspaces\examples\my-thai-star\angular"_ and run the following commands:
 For Windows:
 [source,bash]
 ----
-bash
 $ rmdir /s node_modules
 $ rmdir /s dist
 $ npm install
@@ -109,7 +108,6 @@ $ npm install
 For Linux or macOS:
 [source,bash]
 ----
-bash
 $ rm -rf node_modules dist
 $ npm install
 ----
@@ -118,7 +116,6 @@ To test the application as a **PWA**, you will need a small http server:
 
 [source,bash]
 ----
-bash
 $ npm i -g http-server
 ----
 
@@ -126,15 +123,7 @@ Or run yarn using below steps.
 
 ====== 2. Using Yarn
 
-If you have a previous version of this project run the following command:
-
-[source,bash]
-----
-bash
-$ yarn upgrade
-----
-
-Otherwise, the project is also tested with the latest [Yarn](https://yarnpkg.com/lang/en/) version. After installing the above dependencies, you can go to the project folder 
+The project is also tested with the latest https://yarnpkg.com/lang/en/[Yarn] version. After installing the above dependencies, you can go to the project folder 
 
 _"workspaces\examples\my-thai-star\angular"_
 
@@ -149,12 +138,9 @@ After finishing, you will see something like:
 
 image::images/running-sample-application/yarn_install.png[, link="images/running-sample-application/yarn_install.png"]
 
-
-Now, run the following commands:
-
+Otherwise, if you have a previous version of yarn, then run the following commands:
 [source,bash]
 ----
-bash
 $ rm -rf node_modules dist
 $ yarn
 ----
@@ -166,43 +152,22 @@ If you face any problem with installing dependencies, kindly refer following lin
 
 ==== Step 2: Run the application
 
-The simple way to run the My Thai Star Angular client i.e. to execute the followig command:
+The simple way to run the My Thai Star Angular client is using npm or yarn commands:
 
 [source,bash]
 ----
 $ npm run serve                     # OASP4J server
 ----
 
-Also, there are following alternatives in order to run My Thai Star Angular client with the different server technologies and environments:
-
-[source,bash]
-----
-$ npm run serve:aot                 # AOT compilation with OASP4J server
-$ npm run serve:pwa                 # Build and run the app as PWA
-$ npm run serve:prod                # Production server
-$ npm run serve:prod:aot            # AOT compilation with production server
-$ npm run serve:prodcompose         # Production server with Docker compose
-$ npm run serve:prodcompose:aot     # AOT compilation with production server with Docker compose
-$ npm run serve:node                # Node.js or local Serverless server
-$ npm run serve:node:aot            # AOT compilation with Node.js or local Serverless server
-----
-
 If everything goes well, the console output will be something like this:
 
 image::images/running-sample-application/webpack.JPG[, link="images/running-sample-application/webpack.JPG"]
 
-Alternatively, you can also run using yarn. Make use of one of the following commands:
+Alternatively, you can also run using yarn.
 
 [source,bash]
 ----
-$ yarn serve:aot                 # AOT compilation with OASP4J server
-$ yarn serve:pwa                 # Build and run the app as PWA
-$ yarn serve:prod                # Production server
-$ yarn serve:prod:aot            # AOT compilation with production server
-$ yarn serve:prodcompose         # Production server with Docker compose
-$ yarn serve:prodcompose:aot     # AOT compilation with production server with Docker compose
-$ yarn serve:node                # Node.js or local Serverless server
-$ yarn serve:node:aot            # AOT compilation with Node.js or local Serverless server
+$ yarn run serve                    # OASP4J server
 ----
 
 ==== Step 3: Test the application
@@ -220,6 +185,6 @@ and you can see MyThaiStar client running! You can login to the application usin
 
 *passowrd*: waiter
 
-as shown below:
+Also shown below:
 
 image::images/running-sample-application/my-thai-start-longin.png[, link="images/running-sample-application/my-thai-start-longin.png"]

@@ -5,7 +5,7 @@ toc::[]
 
 == Requirements
 
-In order to develop, build, test and deploy Serverless applications with OASP4Fn it is necessary to install globally the following packages:
+In order to develop, build, test and deploy the Serverless applications with OASP4Fn, it is necessary to install the following packages globally:
 
 * link:https://www.typescriptlang.org/[**typescript**] as it is the programming language supported.
 * link:https://github.com/TypeStrong/ts-node[**ts-node**] is a TypeScript execution environment to run TypeScript applications locally. 

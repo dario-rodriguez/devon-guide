@@ -9,7 +9,7 @@ Execute the command:
 
     $ npm run fun
 
-This command will generate the necessary files to deploy and build your handlers.
+This command will generate the necessary files to deploy and build the handlers.
 
 === Start
 
