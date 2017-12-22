@@ -15,7 +15,42 @@ devonfw needs to standardize & industrialize. But not just large volume, “trad
 
 ==== Deliver & Improve Business Value
 
-image::images/introduction/devon_quality_agility.png[,width="550", link="images/introduction/devon_quality_agility.png"]
+image::images/introduction/devon_quality_agility.png[,width="250", link="images/introduction/devon_quality_agility.png"]
+
+==== Efficiency
+
+ - Up to 20% reduction in time to market with faster delivery due to automation and reuse.
+
+ - Up to 25% less implementation efforts due to code generation and reuse.
+
+ - Flat pyramid and rightshore, ready for juniors.
+
+==== Quality
+
+ - State of the Art architecture and design. 
+
+ - Lower cost on maintenance and warranty.
+
+ - Technical debt reduction by reuse.
+
+ - Risk reduction due to assets continuous improvement.
+
+ - Standardized automated quality checks.
+
+
+==== Agility
+
+ - Focus on business functionality not on technical.
+
+ - Shorter release cycles.
+
+ - DevOps by design - Infrastructure as Code.
+
+ - Continuous Delivery Pipeline.
+
+ - On and Off-premise flexibility.
+
+ - PoCs and Prototypes in days not months.
 
 
 == Features
@@ -42,4 +77,6 @@ Devonfw package provides:
 
  - Support through large community + industrialization services (Standard Platform as a service) available in the iProd service catalog.
 
-==== (NEED TO ADD ALL FEATURES HERE)
+==== Devonfw Features
+
+To read in details about Devonfw features read link:getting-started-what-is-devonfw#devonfw-modules[_here_]
