@@ -167,7 +167,7 @@ Alternatively, you can also run using yarn.
 
 [source,bash]
 ----
-$ yarn run serve                    # OASP4J server
+$ yarn serve                    # OASP4J server
 ----
 
 ==== Step 3: Test the application

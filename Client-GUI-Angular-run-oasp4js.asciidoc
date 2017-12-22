@@ -125,15 +125,15 @@ Alternatively, you can also run using yarn. Make use of one of the following com
 
 [source,bash]
 ----
-$ yarn run serve                     # OASP4J server
-$ yarn run serve:aot                 # AOT compilation with OASP4J server
-$ yarn run serve:pwa                 # Build and run the app as PWA
-$ yarn run serve:prod                # Production server
-$ yarn run serve:prod:aot            # AOT compilation with production server
-$ yarn run serve:prodcompose         # Production server with Docker compose
-$ yarn run serve:prodcompose:aot     # AOT compilation with production server with Docker compose
-$ yarn run serve:node                # Node.js or local Serverless server
-$ yarn run serve:node:aot            # AOT compilation with Node.js or local Serverless server
+$ yarn serve                     # OASP4J server
+$ yarn serve:aot                 # AOT compilation with OASP4J server
+$ yarn serve:pwa                 # Build and run the app as PWA
+$ yarn serve:prod                # Production server
+$ yarn serve:prod:aot            # AOT compilation with production server
+$ yarn serve:prodcompose         # Production server with Docker compose
+$ yarn serve:prodcompose:aot     # AOT compilation with production server with Docker compose
+$ yarn serve:node                # Node.js or local Serverless server
+$ yarn serve:node:aot            # AOT compilation with Node.js or local Serverless server
 ----
 
 ==== Step 3: Test the application
