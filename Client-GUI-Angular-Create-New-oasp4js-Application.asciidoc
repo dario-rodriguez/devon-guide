@@ -1008,7 +1008,7 @@ To call the server, you can import _Angular HttpClient_ class from _@angular/com
 
 As we can see, and mentioned before, our preparations to this server call we have done previously let us avoid changing anything in access component or template, everything should be working only doing that changes.
 
-Our queue-viewer will need some modifications as well, in this case, both component and services will be slightly modified. _queue_viewer.service_ will make a call to the server services as we done in _access.service_ but in this case we are not going to implement a subscription, that will be components task. So `getQueuer()` should look like this:
+Our queue-viewer will need some modifications as well, in this case, both component and services will be slightly modified. _queue_viewer.service_ will make a call to the server services as we done in _access.service_ but in this case we are not going to implement a subscription, that will be components task. So `getQueuers()` should look like this:
 
 [source, typescript]
 ----
@@ -1028,8 +1028,8 @@ About the columns, the server sends us the data array composed of two objects: _
   columns: ITdDataTableColumn[] = [
     { name: 'visitor.name', label: 'Name'},
     { name: 'code.dateAndTime', label: 'Hour', format: ( (v: string) => moment(v).format('LLL') ) },
-    { name: 'code.code',  label: 'Code'}];
-  }
+    { name: 'code.code',  label: 'Code'},
+  ];
 ----
 
 Additionally, server sends us the date and time as timestamp, so we need to use *moment.js* to format that data to something readable, to make that, just use the format property from Teradata Covalent columns.
