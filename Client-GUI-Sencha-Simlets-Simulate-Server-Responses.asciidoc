@@ -1,7 +1,13 @@
 :toc: macro
 toc::[]
 
-# Mocks with Simlets: simulating server responses
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Mocks with Simlets: simulating server responses
+
 Sencha Ext JS provides a utility to simulate server responses to any request, right in the browser.
 
 Generally, these utilities are called `simlets`. Mocking something is not unknown to developers who write unit tests, however mocking an entire server or even a part of it isn't widely known and used during the client application development.
@@ -10,10 +16,12 @@ When developing client-server applications, the client, especially a single page
 
 Sencha out-of-box provides XML and JSON type of AJAX simlets, base classes are available to extend and create new ones that support other type of requests or envelopes, such as multipart/form-data or remote procedure calls.
 
-## Simlet Service
+=== Simlet Service
+
 A singleton manager class provides transparent service to catch all the requests being sent to a specific endpoint without having the developer to change the application code. Endpoint doesn't even have to be existing, again, no running server required. See `Ext.ux.ajax.SimManager` for further details.
 
-## JSON Simlet
+=== JSON Simlet
+
 First, the simlet is registered. The following one define an endpoint, that will catch all requests sent to /users then returns an array of objects in JSON format.
 
 [source,javascript]
@@ -84,9 +92,10 @@ Ext.ux.ajax.SimManager.register({
 
 Inside the method, every detail of the request is available for further processing, response has to be returned here as well.
 
-# Simlets in Devon4Sencha
+== Simlets in Devon4Sencha
+
 The Sample Application `ExtSample` comes with the Simlets configuration ready to be used.
-Inside the `app` folder of the sample application, there is a file called `Simlets.js`that contains the server responses simulated for the AJAX requests:
+Inside the `app` folder of the sample application, there is a file called `Simlets.js` that contains the server responses simulated for the AJAX requests:
 
 [source,javascript]
 ----
@@ -141,7 +150,7 @@ Ext.define('Sample.Simlets', {
 });
 ----
 
-In the file ``Application.js`,` the Simlets file has been added as a required source and in the launch section the simlets have been initialized:
+In the file `Application.js`, the Simlets file has been added as a required source and in the launch section the simlets have been initialized:
 
 [source,javascript]
 ----
@@ -191,7 +200,8 @@ Therefore, for launching the ExtSample application, you just have to type the fo
 http://localhost:1841/ExtSample/?useSimlets=true
 ----
 
-## Use Simlets in your client application
+=== Use Simlets in your client application
+
 Basically, you need to follow the same steps as for the sample application:
 
 1. Create the file `Simlets.js` for specifiying the AJAX requests you want to simulate.
@@ -199,7 +209,7 @@ Basically, you need to follow the same steps as for the sample application:
 3. In `app.json`, include the ux package in the requires, for loading Ext.ux Simlets classes.
 4. Launch your application, by adding ?useSimlets=true to the url: http://localhost:1841/MyApp/?useSimlets=true
 
-# Simlets Benefits
+=== Simlets Benefits
 Using Simlets, you can develop your client app without depending on the development speed on the server side. Sometimes, you can observe, how projects get delayed because some developers are waiting for some data from the server to test their code.
 
 Here is a not so imaginary conversation between two developers:

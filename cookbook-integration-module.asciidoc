@@ -1,13 +1,18 @@
 :toc: macro
 toc::[]
 
-= The Integration Module
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
 
-== Introduction
+== The Integration Module
+
+=== Introduction
 
 Within the _Enterprise architecture_ the *integration* (or https://en.wikipedia.org/wiki/Enterprise_integration[Enterprise Integration]) is the field focused on communication between systems: system interconnection, electronic data interchange, product data exchange, distributed computing environments, etc. So the _integration_ defines and provides an infrastructure to allow the communication between different applications or systems in a reliable way. The scope of _Integration_ groups a wide range of communication methods, the systems can communicate by file transfer, sharing a data base, by remote procedure invocation or by messaging. The approach of the _Integration Module_ implementation is based on the latter, using a solution based on _channels_ and message _queues_ to allow the exchange of information between applications.
 
-== Stack of technologies
+=== Stack of technologies
 
 The _Integration IP Module_ is a Java module based on https://projects.spring.io/spring-integration/[Spring Integration] solution and internally is implemented using the https://github.com/spring-projects/spring-integration-java-dsl/wiki/spring-integration-java-dsl-reference[Spring integration Java dsl reference]. In the core of all those technologies the implementation relies on the https://en.wikipedia.org/wiki/Java_Message_Service[Java Message Service (JMS)] as the messaging standard to create, send, receive and read messages.
 
@@ -19,9 +24,9 @@ The _Integration IP Module_ is a Java module based on https://projects.spring.io
 
 - The *Java DSL extension for Spring Integration* provides a set of convenient Builders and a fluent API to configure Spring Integration message flows from Spring configuration classes. It allows the creation of channel/queues and the message flow in applications start up time, so users can avoid the standard Spring Integration XML configuration (although it can also be used along side the DSL definitions).
 
-== Installing Apache Active MQ
+=== Installing Apache Active MQ
 
-=== How to get and install the message broker
+==== How to get and install the message broker
 
 If you want to be ready to a quick test of the module you will need an _Active MQ_ broker. To do so you can download the _Active MQ_ message broker from the http://activemq.apache.org/download.html[official site]. After the download is over, extract the zip folder, open a command line window and go to the _bin_ folder inside the just created _apache-activemq-{version}_ folder.
 
@@ -50,7 +55,7 @@ image::images/integration/activemq_client.png[,width="450", link="images/integra
 We are installing the Active MQ server in our local machine only for test or example purposes. If you want further configuration details please visit the http://activemq.apache.org/configuration.html[official documentation] or ask your IT department.
 ====
 
-== Using Apache Active MQ with Docker
+=== Using Apache Active MQ with Docker
 
 Active MQ can also be run with Docker, you will need to:
 
@@ -94,7 +99,7 @@ For the `activemq.xml` file, you can use the following content (extracted from s
 ----
 
 
-=== Module connection configuration
+==== Module connection configuration
 
 The _Integration module_ provides a default connection configuration for Active MQ broker through the following properties
 
@@ -107,9 +112,9 @@ spring.activemq.password=admin
 
 If you have changed the _Active MQ_ configuration remember to overwrite the affected properties in the `application.properties` of your project.
 
-== IP Integration module details
+=== IP Integration module details
 
-=== Adding the starter to a project
+==== Adding the starter to a project
 To access the functionality of the _Integration module_, you will need to include its starter in your project's pom.xml. Verify that the _version_ matches the last available version of the module.
 
 [source,xml]
@@ -127,7 +132,7 @@ The IP modules of Devonfw are stored in https://www.jfrog.com/artifactory/[Artif
 If the project is already imported in Eclipse then update project: Right click on _project_ > _Maven_ > _Update Project_ > check the _Force update of Snapshot/Releases_ checkbox > _Ok_
 ====
 
-=== Injecting the module
+==== Injecting the module
 
 After adding the dependency, in order to start using the module inject it using the `@Inject` annotation
 
@@ -143,11 +148,11 @@ import com.capgemini.devonfw.module.integration.common.api.Integration;
 
 We will see the detailed usage of the module in the upcoming sections.
 
-=== Default channels
+==== Default channels
 
 Based on the mentioned stack of technologies, the Devonfw _Integration module_ provides three communication channels pre-configured and ready to be used out-of-the-box. The user will only need to _enable_ it through the module configuration.
 
-==== Simple message channel
+===== Simple message channel
 
 This is the most basic communication channel. In this case in one side is an application (_emitter_) that sends messages to a specific queue in the message broker. In the other side a second application (_listener_) is _subscribed_ to that channel, which means that polls the message broker in a defined interval of time to ask for new messages in that particular queue.
 
@@ -175,7 +180,7 @@ Doing this, when running your app the related _Beans_ will be loaded automatical
 
 We will see more details of the simple message channel configuration further.
 
-==== Request-Reply channel 
+===== Request-Reply channel 
 
 In this second approach the message flow is completed in two directions. In this case, instead of talking about an _emitter_ and _listener_ systems, we should rather talk about a _request/replay_ channel. There will exist a communication between two clients, in which the first one will send a message and wait for a response from the second one. So both sides are _emitters_ and _listeners_.
 
@@ -201,7 +206,7 @@ Doing this, same as in the previous case, when running your app the related _Bea
 
 We also will see more details of the simple message channel configuration further.
 
-==== Request-Reply asynchronous channel
+===== Request-Reply asynchronous channel
 
 For the cases where the previous _request/reply_ communication has to be _asynchronous_ the module provides a default _async_ communication channel.
 
@@ -224,15 +229,15 @@ devonfw.integration.request-reply-async.listener=true
 We will show the complete configuration of this default channel in upcoming sections.
 
 
-=== Usage of the default channels
+==== Usage of the default channels
 
-==== How to use the default simple channel
+===== How to use the default simple channel
 
 As we previously mentioned the _Integration module_ provides a simple communication channel where in one side one _emitter_ application will send a message and in the other side other _listener_ application will receive and read it.
 
 To achieve that in our applications we only need to configure the corresponding properties to create the channel and its related queue.
 
-===== Default configuration
+*Default configuration*
 
 The default configuration properties for this channel, provided by default with the _Integration module_, are:
 
@@ -253,7 +258,7 @@ devonfw.integration.one-direction.poller.rate=5000
 
 If you want to customize these properties you can overwrite them in the `application.properties` of your project.
 
-===== Emitter application configuration
+*Emitter application configuration*
 
 As we already mentioned the _Emitter_ applications must enable the _emitter_ property so you must add to the `application.properties` file of your project the property
 
@@ -264,7 +269,7 @@ devonfw.integration.one-direction.emitter=true
 
 Optionally, you can edit the name for the channel and for the queue using the `devonfw.integration.one-direction.channelname` and `devonfw.integration.one-direction.queuename` properties.
 
-===== Emitter application example
+*Emitter application example*
 
 After you have added the link:cookbook-integration-module#adding-the-module-to-a-project[module dependency] you can start using the module link:cookbook-integration-module#injecting-the-module[injecting it] in your app. Lets see how to send a simple message through that default _simple channel_.
 
@@ -306,7 +311,7 @@ image::images/integration/activemq_simplechannel_message2.png[,width="450", link
 
 With this we have finished the _out flow_ for the _Integration module_ default _simple channel_. Lets see now how to read that message we have sent using a different application.
 
-===== Listener application configuration
+*Listener application configuration*
 
 For _Listener_ applications you must enable the channel through the corresponding property in the `application.properties` file of your project. 
 
@@ -319,7 +324,7 @@ In case of _listener_ applications you can also configure the interval of time t
 
 As in the _emitter_ case, you can edit the name for both the _channel_ and the _queue_ (`devonfw.integration.one-direction.channelname` and `devonfw.integration.one-direction.queuename` properties) but have into account that *these names must match* between the _emitter_ and the _listener_ applications in order to perform the communication.
 
-===== Listener application example
+*Listener application example*
 
 As in the case of _emitter_ application you have to add the link:cookbook-integration-module#adding-the-module-to-a-project[module dependency] and link:cookbook-integration-module#injecting-the-module[inject] the module. Once that is done we can subscribe our application to the _channel/queue_ to start receiving messages from the _Integration module_ default simple channel.
 
@@ -377,13 +382,13 @@ The first you should note is that now the _Number of Consumers_ is _1_ as we hav
 
 At this point we have finished the example for the _in flow_ of the _Integration module_ default _simple channel_. Now you have the whole picture of how a simple integration channel works with Devonfw _Integration module_ and _Active MQ_ server.
 
-==== How to use the default request-reply channel
+===== How to use the default request-reply channel
 
 With the _Integration module_ a ready to be used _request-reply_ channel is provided by default. This channel will allow us to communicate systems sending and receiving messages in both sides. A first application will send a message and wait for a response, while a second application will receive the message sent by the first one and send back the response that the other app is waiting for.
 
 To achieve that in our applications we only need to configure the corresponding properties to create the channel and its related queue.
 
-===== Default configuration for request-reply channel
+*Default configuration for request-reply channel*
 
 The default configuration properties for this channel, provided by default with the _Integration module_, are:
 
@@ -404,7 +409,7 @@ devonfw.integration.request-reply.receivetimeout=5000
 
 If you want to customize these properties you can overwrite them in the `application.properties` of your project, as we are going to see below.
 
-===== Sender-Receiver application configuration
+*Sender-Receiver application configuration*
 
 To enable the sending of messages through this channel you must set the `request-reply.emitter` property to _true_ in the `application.properties` of our project.
 
@@ -416,7 +421,7 @@ devonfw.integration.request-reply.emitter=true
 Optionally, you can edit the name for the channel and for the queue using the `devonfw.integration.request-reply.channelname` and `devonfw.integration.request-reply.queuename` properties. As we just mentioned, the timeout for the response can be edited adding the `devonfw.integration.request-reply.receivetimeout` property to our properties file and providing a milliseconds value. By default the timeout is _5000_ (5 seconds). 
 
 
-=====  Sender-Receiver application example
+*Sender-Receiver application example*
 
 After you have added the link:cookbook-integration-module#adding-the-module-to-a-project[module dependency] you need to link:cookbook-integration-module#injecting-the-module[inject it]. Lets see how to send and receive a simple message through that default _request-reply_ channel.
 
@@ -447,7 +452,7 @@ public class MyFirstApp{
 
 If now we run the application we would get a _timeout exception_ as there is no one ready to provide a response within the defined timeout limit (5 seconds). So first, lets prepare our _other-side_ application.
 
-===== Receiver-Sender application configuration
+*Receiver-Sender application configuration*
 
 In this application we need to enable the `request-reply.listener` property so, in the `applications.property` file of our project, we must set to _true_ that property.
 
@@ -458,7 +463,7 @@ devonfw.integration.request-reply.listener=true
 
 You can also edit the name for both the _channel_ and the _queue_ (`devonfw.integration.request-reply.channelname` and `devonfw.integration.request-reply.queuename` properties). But, as mentioned in previous section, have into account that *these names must match* between the _sernder-receiver_ and the _receiver-sender_ applications, in order to perform the communication.
 
-===== Receiver-Sender application example
+*Receiver-Sender application example*
 
 As in the case of _sender-receiver_ application, you have to add the link:cookbook-integration-module#adding-the-module-to-a-project[module dependency] and link:cookbook-integration-module#injecting-the-module[inject] the module. Once that is done we can subscribe our application to the _channel/queue_ to start receiving messages and sending responses from/to the _Integration module_ default request-reply channel.
 
@@ -533,11 +538,11 @@ image::images/integration/activemq_rrchannel_message.png[,width="450", link="ima
 
 We have finished the demonstration for the default Request-Reply channel provided by the _Integration module_. Now we are going to see how to achieve the same but in an asynchronous way using the third default channel provided by the module: the _request-reply-async_ channel.
 
-==== How to use the default asynchronous request-reply channel
+===== How to use the default asynchronous request-reply channel
 
 The usage of this default channel, provided also by default within the _Integration module_, is the same than for previous channels, and specially regarding the default _request-reply_ channel explained in the previous section. Anyway let´s briefly show the basics about how to configure and use the asynchronous channel.
 
-===== Default properties for asynchronous channel
+*Default properties for asynchronous channel*
 
 [source]
 ----
@@ -567,7 +572,7 @@ devonfw.integration.request-reply-async.listener=true
 ----
 
 
-===== Sender-Receiver async example
+*Sender-Receiver async example*
 
 After you have added the link:cookbook-integration-module#adding-the-module-to-a-project[module dependency] you need to link:cookbook-integration-module#injecting-the-module[inject it]. Lets see how to send and receive asynchronously a message through that default _request-reply-async_ channel.
 
@@ -605,7 +610,7 @@ public class MyFirstApp{
 
 If now we run the application we would get a _timeout exception_ as there is no one ready to provide a response within the defined timeout limit (5 seconds). So first, lets prepare our _other-side_ application.
 
-===== Receiver-Sender async example
+*Receiver-Sender async example*
 
 As in the previous application, you have to add the link:cookbook-integration-module#adding-the-module-to-a-project[module dependency] and link:cookbook-integration-module#injecting-the-module[inject] the module. Once that is done we can subscribe our application to the _channel/queue_ (with the _subscribeAsync_ method) to start receiving asynchronously messages and sending responses from/to the _Integration module_ default request-reply-async channel.
 
@@ -674,11 +679,11 @@ With this we have completed the example about the default asynchronous channel f
  
 Also here ends the content about the pre-configured part of the module. Next we will see how to create, programmatically, new channels and queues.
 
-=== Creating new channels
+==== Creating new channels
 
 The Devonfw _Integration module_ provides the option of creating new channels programmatically. The user can generate new channels and send and receive messages defining every step in Java code, without the necessity of configure anything.
 
-==== Types of channels that can be created
+===== Types of channels that can be created
 
 The types are the same than the default channels. The user will be able to create
 
@@ -688,7 +693,7 @@ The types are the same than the default channels. The user will be able to creat
 
 - asynchronous request-reply channels: Same as the previous channel but with asynchronous behaviour.
 
-==== Creating and using a new simple channel
+===== Creating and using a new simple channel
 
 After you have added the link:cookbook-integration-module#adding-the-module-to-a-project[module dependency] and link:cookbook-integration-module#injecting-the-module[injected it] you only need to call the _createChannel_ method and provide a _name_ for the channel and a _name_ for the related queue.
 
@@ -738,7 +743,7 @@ By default, the interval for polling the channel is _5000_ (5 seconds) and can b
 this.integration.subscribeTo("my-channel", "my-queue", this.messageHandler, 10000);
 ----
 
-==== Creating and using a new request-reply channel
+===== Creating and using a new request-reply channel
 
 In the app that is going to start the flow, after adding the link:cookbook-integration-module#adding-the-module-to-a-project[module dependency] and link:cookbook-integration-module#injecting-the-module[injected it], you only need to call the _createRequestReplyChannel_ method and provide a _name_ for the channel, a _name_ for the related queue and, this part is slightly different from the rest of module implementation, you need to provide a _Message Handler_ that will manage the received response, as we do with listener applications.
 
@@ -802,7 +807,7 @@ public class MySecondApp{
 Remember that if you run the first app before the listener app is running you will probably get a _timeout exception_.
 ====
 
-==== Creating and using a new asynchronous request-reply channel
+===== Creating and using a new asynchronous request-reply channel
 
 To create that type of channels the implementation is exactly the same than in the link:cookbook-integration-module#creating-and-using-a-new-request-reply-channel[previous section]. So in this section we are going to show only the code differences.
 
@@ -833,11 +838,11 @@ this.integration.subscribeAndReplyAsyncTo("my-async-channel", "my-async-queue", 
 
 The implementation for the _Integration Handler_ is explained link:cookbook-integration-module#receiver-sender-application-example[here].
 
-=== Sending headers with the message
+==== Sending headers with the message
 
 The _Integration module_ also allows to send headers alongside the message content. To do so you can use the methods provided by the module that accept a _Map_ as parameter for headers.
 
-==== Creating the headers
+===== Creating the headers
 
 You can create the message headers using a Java _Map_ object
 
@@ -848,7 +853,7 @@ headers.put("header1", "value1");
 headers.put("header2", "value2");
 ----
 
-==== Sending the headers
+===== Sending the headers
 
 Each _send_ method provided with the module accepts a _Map_ object as parameter for the headers, so you can send it alongside the message content
 

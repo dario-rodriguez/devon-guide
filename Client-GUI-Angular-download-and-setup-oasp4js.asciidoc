@@ -1,6 +1,14 @@
-= Download and Setup 
+:toc: macro
+toc::[]
 
-== Download My Thai Star
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Download and Setup 
+
+=== Download My Thai Star
 
 You can download or clone the latest version of My Thai Star application from the https://github.com/oasp/my-thai-star[GitHub repository]. It is recommended to use the Git Bash to work with the repository of GitHub. You can download Git and Git Bash for Windows system https://git-for-windows.github.io/[here]. Also, you can learn more about the Devonfw best practices to work with Git and GitHub  link:devon-guide-working-with-git-and-github[here].
 
@@ -11,7 +19,7 @@ To clone the repository, open the Git Bash console and run the following command
 git clone https://github.com/oasp/my-thai-star.git
 ----
 
-== Setup
+=== Setup
 
 ==== Install Dependencies
 

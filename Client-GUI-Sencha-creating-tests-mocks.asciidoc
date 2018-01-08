@@ -1,17 +1,20 @@
 :toc: macro
-
 toc::[]
 
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
 
-= Components
+== Components
 
 An Ext JS application’s UI is made up of one or many widgets called Components. All Components are subclasses of the Ext.Component class which allows them to participate in automated lifecycle management including instantiation, rendering, sizing and positioning, and destruction. Ext JS provides a wide range of useful Components out of the box, and any Component can easily be extended to create a customized Component.
 
 To know more about Components visit http://docs.sencha.com/extjs/6.5.0/guides/core_concepts/components.html[Sencha] wesite.
 
-= Creating Custom Components
+=== Creating Custom Components
 
-== Composition or Extension
+==== Composition or Extension
 
 When creating a new UI class, the decision must be made whether that class should own an instance of a Component, or to extend that Component.
 
@@ -19,7 +22,7 @@ It is recommended to extend the nearest base class to the functionality required
 
 It is easier to write a new class which is a Component and can take its place in the Component hierarchy rather than a new class which has an Ext JS Component, and then has to render and manage it from outside.
 
-== Subclassing
+==== Subclassing
 
 The Class System makes it easy to extend any part of the Ext JS framework.
 
@@ -97,7 +100,8 @@ Below are the template methods that can be implemented by subclasses of Componen
 - afterComponentLayout This method is invoked after the Component is laid out.
 - beforeComponentLayout This method is invoked before the Component is laid out.
 
-== Which Class To Extend
+==== Which Class To Extend
+
 Choosing the best class to extend is mainly a matter of efficiency, and which capabilities the base class must provide. There has been a tendency to always extend Ext.panel.Panel whenever any set of UI Components needs to be rendered and managed.
 
 The Panel class has many capabilities:
@@ -113,7 +117,7 @@ The Panel class has many capabilities:
 
 If these are not needed, then using a Panel is a waste of resources.
 
-== Component
+==== Component
 
 If the required UI Component does not need to contain any other Components, that is, if it just to encapsulate some form of HTML which performs the requirements, then extending Ext.Component is appropriate. For example, the following class is a Component that wraps an HTML image element, and allows setting and getting of the image’s src attribute. It also fires a load event when the image is loaded:
 
@@ -176,7 +180,7 @@ image.setSrc('http://www.sencha.com/img/sencha-large.png');
 
 This example is for demonstration purposes only - the Ext.Img class should be used for managing images in a real world application.
 
-== Container
+==== Container
 
 If the required UI Component is to contain other Components, but does not need any of the previously mentioned additional capabilities of a Panel, then Ext.container.Container is the appropriate class to extend. At the Container level, it is important to remember which Ext.layout.container.Container is to be used to render and manage child Components.
 
@@ -188,7 +192,7 @@ Containers have the following additional template methods:
 - beforeLayout This method is invoked before the Container has laid out (and rendered if necessary) its child Components.
 - afterLayout This method is invoked after the Container has laid out (and rendered if necessary) its child Components.
 
-== Panel
+==== Panel
 
 If the required UI Component must have a header, footer, or toolbars, then Ext.panel.Panel is the appropriate class to extend.
 

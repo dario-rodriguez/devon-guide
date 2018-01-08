@@ -1,7 +1,12 @@
 :toc: macro
 toc::[]
 
-# Theming
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Theming
 
 We are going to create a custom theme for our application. In the application path (devon4sencha/demo) we have to execute the following command in **Sencha Cmd** console:
 
@@ -25,7 +30,7 @@ This command should have created a new `demo-theme` folder, with the theme files
 
 * **overrides/** - contains any JavaScript overrides to Ext JS component classes that are required for theming those components
 
-## Configuring Theme Inheritance
+=== Configuring Theme Inheritance
 
 All Sencha theme packages are part of a larger hierarchy of themes and each theme package must extend a parent theme. The next step in creating our custom theme is to select which theme to extend. The following image is an overview of Sencha theme hierarchy.
 
@@ -38,7 +43,7 @@ In this tutorial we will create a custom theme that extends the Triton theme. Th
 "extend": "theme-triton"
 ----
 
-## Using a Theme in an Application
+=== Using a Theme in an Application
 
 To configure your test application to use your custom theme, change the theme selection line in the application `app.json` file in the path `demo/app.json`.
 
@@ -51,11 +56,15 @@ Run the application and check it the new style. Now the application theme should
 
 image::images/client-gui-sencha/theming1.PNG[Theming 1,width="450", link="images/client-gui-sencha/theming1.PNG"]
 
-## Making changes in the Theme
+=== Making changes in the Theme
 
-There are a set of variables used across all components. These variables are defined in a global scss class called Component.scss. Here is the full documentation for global variables: https://docs.sencha.com/extjs/6.0/6.0.1-classic/#!/api/Global_CSS-css_var-S-base-color 
+There are a set of variables used across all components. These variables are defined in a global scss class called Component.scss. 
+Here is the full documentation for global variables: _https://docs.sencha.com/extjs/6.0/6.0.1-classic/#!/api/Global_CSS-css_var-S-base-color_
 
-Let’s start by modifying the base color from which many Ext JS components’ colors are derived. Due to the use of `$base-color` through the default themes making a global change to `$base-color` will have an effect on most all components in the Ext JS library. Create a new folder / file: `packages/local/demo-theme/sass/var/Component.scss`. Add the following code to the `Component.scss` file:
+Let’s start by modifying the base color from which many Ext JS components’ colors are derived. Due to the use of _$base-color_ 
+through the default themes making a global change to `$base-color` will have an effect on most all components in the Ext 
+JS library. Create a new folder / file: `packages/local/demo-theme/sass/var/Component.scss`. 
+Add the following code to the _Component.scss_ file:
 
 [source,javascript]
 ----
@@ -85,7 +94,7 @@ Go to the application and check the grey background-color and the white color of
 
 image::images/client-gui-sencha/theming2.PNG[Theming 2,width="450", link="images/client-gui-sencha/theming2.PNG"]
 
-## Adding customs UI’s
+=== Adding customs UI’s
 
 Every component in the Ext JS framework has a user interface (ui) configuration, which defaults to default. This property can be configured on individual component instances to give them a different appearance from other instances of the same type. For example, in the Neptune theme, panels with the ‘default’ UI have dark blue headers and panels with the ‘light’ UI have light blue headers.
 

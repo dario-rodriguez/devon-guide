@@ -1,6 +1,11 @@
 :toc: macro
 toc::[]
 
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
 == Running OASP4Fn
 
 === Run

@@ -1,14 +1,19 @@
 :toc: macro
 toc::[]
 
-= Logging and Auditing
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
 
-== Logging
+== Logging and Auditing
+
+=== Logging
 We use http://www.slf4j.org/[SLF4J] as API for logging. The recommended implementation is http://logback.qos.ch/[Logback] for which we provide additional value such as configuration templates and an appender that prevents log-forging and reformatting of stack-traces for operational optimizations.
 
-=== Usage
+==== Usage
 
-==== Maven Integration
+===== Maven Integration
 In the _pom.xml_ of your application add this dependency (that also adds transitive dependencies to SLF4J and logback):
 [source,xml]
 ----
@@ -19,7 +24,7 @@ In the _pom.xml_ of your application add this dependency (that also adds transit
 </dependency>
 ----
 
-==== Configuration
+===== Configuration
 The configuration file is _logback.xml_ and is to put in the directory `src/main/resources` of your main application. For details consult the http://logback.qos.ch/manual/configuration.html[logback configuration manual]. OASP4J provides a production ready configuration https://raw.githubusercontent.com/oasp/oasp4j/develop/samples/server/src/main/resources/logback.xml[here]. Simply copy this configuration into your application in order to benefit from the provided xref:operations[operational] and xref:security[] aspects. We do not include the configuration into the _oasp4j-logging_ module to give you the freedom of customizations (e.g. tune log levels for components and integrated products and libraries of your application).
 
 The provided _logback.xml_ is configured to use variables defined on the _config/application.properties_ file. On our example, the log files path point to _../logs/_ in order to log to tomcat log directory when starting tomcat on the bin folder. Change it according to your custom needs.
@@ -30,7 +35,7 @@ The provided _logback.xml_ is configured to use variables defined on the _config
 log.dir=../logs/
 ----
 
-==== Logger Access
+===== Logger Access
 The general pattern for accessing loggers from your code is a static logger instance per class. We pre-configured the development environment so you can just type _LOG_ and hit _[ctrl][space]_ (and then _[arrow up]_) to insert the code pattern line into your class:
 
 [source,java]
@@ -43,7 +48,7 @@ public class MyClass {
 
 Please note that in this case we are not using injection pattern but use the convenient static alternative. This is already a common solution and also has performance benefits.
 
-==== How to log
+===== How to log
 We use a common understanding of the log-levels as illustrated by the following table. This helps for better maintenance and operation of the systems by combining both views.
 
 .Loglevels
@@ -59,9 +64,9 @@ We use a common understanding of the log-levels as illustrated by the following 
 |=======================
 Exceptions (with their stacktrace) should only be logged on _FATAL_ or _ERROR_ level. For business exceptions typically a _WARNING_ including the message of the exception is sufficient.
 
-=== Operations
+==== Operations
 
-==== Log Files
+===== Log Files
 
 We always use the following log files:
 
@@ -87,7 +92,7 @@ _error_log_mywebserver01_myapp_2013-09-16_0900.log_
 
 Error log from _mywebserver01_ at application _myapp_ at 16th September 2013 9pm.
 
-==== Output format
+===== Output format
 
 We use the following output format for all log entries to ensure that searching and filtering of log entries work consistent for all logfiles:
 
@@ -109,13 +114,13 @@ Example:
  [D: 2013-09-05 16:40:36,464] [P: DEBUG] [C: 12345] [T: main] [L: my.package.MyClass]-[M: My message...]
 ----
 
-=== Security
+==== Security
 In order to prevent https://www.owasp.org/index.php/Log_Forging[log forging] attacks we provide a special appender for logback in https://github.com/oasp/oasp4j/tree/oasp4j-logging[oasp4j-logging]. If you use it (see xref:configuration[]) you are safe from such attacks.
 
-=== Correlating separate requests
+==== Correlating separate requests
 In order to correlate separate HTTP requests to services belonging to the same user / session, we provide a servlet filter called "DiagnosticContextFilter". This filter first searches for a configurable HTTP header containing a correlation id. If none was found, it will generate a new correlation id. By default the HTTP header used is called "CorrelationId".
 
-== Auditing with Hibernate Envers
+=== Auditing with Hibernate Envers
 
 For database auditing we use http://envers.jboss.org/[hibernate envers]. If you want to use auditing ensure you have the following dependency in your _pom.xml_ file:
 [source,xml]

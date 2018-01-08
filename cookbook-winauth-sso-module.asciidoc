@@ -1,21 +1,26 @@
 :toc: macro
 toc::[]
 
-= The Winauth-SSO module
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== The Winauth-SSO module
 
 This Devonfw IP module allows the applications to authenticate the users using the Windows credentials. The basic result is that the login is made automatically through the browser avoiding the login form (in some browsers like _Firefox_, you may need to authenticate once).
 
-== Single Sign On
+=== Single Sign On
 
 Single sign-on (SSO) is a property of access control of multiple related, but independent software systems. With this property, a user logs in with a single ID and password to gain access to a connected system or systems without using different usernames or passwords, or in some configurations seamlessly sign on at each system.
 
 For more information, visit https://en.wikipedia.org/wiki/Single_sign-on[wikipedia].
 
-=== Include Winauth SSO in a Devon project
+==== Include Winauth SSO in a Devon project
 
 _Winauth SSO_ module provides a simple _Single sign-on_ authentication for your Devon applications. If you want to implement this kind of authentication in a Devon project, follow the next steps:
 
-==== Step 1: Add the starter
+===== Step 1: Add the starter
 
 Include the starter in pom.xml. Verify that the _version_ matches the last available version of the module:
 
@@ -34,7 +39,7 @@ The IP modules of Devonfw are stored in https://www.jfrog.com/artifactory/[Artif
 If the project is already imported in Eclipse then update project: Right click on _project_ > _Maven_ > _Update Project_ > check the _Force update of Snapshot/Releases_ checkbox > _Ok_
 ====
 
-==== Step 2: Inject the module
+===== Step 2: Inject the module
 
 The class `general/service/impl/config/BaseWebSecurityConfig.java` uses the `@Inject` annotation to get access to the module through a private field.
 
@@ -60,7 +65,7 @@ public abstract class BaseWebSecurityConfig extends WebSecurityConfigurerAdapter
 For previous versions of the _oasp4j_ based apps, you may find `BaseWebSecurityConfig` in a different location: `general/configuration/BaseWebSecurityConfig.java`. 
 ====
 
-==== Step 3: Define the security entry point and filter
+===== Step 3: Define the security entry point and filter
 
 Also, add the winauth SSO configuration down in the void _configure(HttpSecurity)_ method in the BaseWebSecurityConfig.java` class
 
@@ -93,11 +98,11 @@ waffle.spring.NegotiateSecurityFilter    : successfully logged in user: {Your-Do
 You need to be careful with the service's current user because SSO by default is not compatible with the information of the `UserDetailsClientTo` class. You need to adapt this class or use a customized SSO User Details (next chapter in the wiki). 
 ====
 
-=== Customized Winauth SSO User Details
+==== Customized Winauth SSO User Details
 
 According to the recent steps, you have a very simple authentication and authorization functionality with the Windows credentials. In the standard scenario, you may want to implement your own _User Details_. Therefore, let's discuss how to implement it for SSO authentication.
 
-==== Step 1: Create customized filter
+===== Step 1: Create customized filter
 
 The idea is to rebuild the default filter `NegotiateSecurityFilter`, you can create a complete new filter or, like this example, just modify some methods. In this case, you need to modify `boolean setAuthentication(...)`, this method is called by the method `void doFilter(...)` (you can modify this method too) when the authentication is successful, so let's discuss how to build a custom _UserDetails_.
 
@@ -186,7 +191,7 @@ public class NegotiateSecurityFilterCustomized extends NegotiateSecurityFilter {
 
 The above example uses the `UsermanagementDummyImpl`, which is generated during the creation of the new Devon application. Feel free to customize your own filter, just use the above class with a customized Usermanagement.
 
-==== Step 2: Inject and configure Winauth SSO
+===== Step 2: Inject and configure Winauth SSO
 
 Now, let's discuss how to create a Winauth SSO variable and to configure the filter.
 
@@ -215,7 +220,7 @@ public abstract class BaseWebSecurityConfig extends WebSecurityConfigurerAdapter
 
 As shown above, the Filter needs a AccessControlProvider, there is a one which is configured in the WebSecurityConfig, so you just need to pass it to the filter by param.
 
-==== Step 3: Configure the Custom Filter and the security entry point
+===== Step 3: Configure the Custom Filter and the security entry point
 
 Add the _winauth SSO_ configuration down in the void _configure(HttpSecurity)_ method
 

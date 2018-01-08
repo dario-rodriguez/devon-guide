@@ -1,9 +1,14 @@
 :toc: macro
 toc::[]
 
-= Create your own Components
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
 
-== Basics
+== Create your own Components
+
+=== Basics
 
 After you have completed link:oasp4j-creating-new-oasp4j-application[your own OASP4J app] creation, we are going to create our first app component.
 
@@ -30,13 +35,13 @@ Now is the moment to decide the components of our app. The complexity of the fun
 However if you feel more comfortable managing both entities in a single component you can also do it in that way. The results will be the same and the only difference will be related with the structure of the elements and the distribution of the code.
 ====
 
-=== The database
+==== The database
 
 In the projects created with the _Oasp4j_ archetype, we already have a complete database schema that we can use as a model to create our own. By default we are going to work over the http://www.h2database.com/html/main.html[H2] database engine provided in the _Oasp4j_ applications, although you can use other database alternatives for this exercise. 
 
-Open the `/jumpthequeue-core/src/main/resources/db/migration/h2/V0001__R001_Create_schema.sql` and delete all the tables (except _BinaryObject_ and _RevInfo_, that are used internally by default).
+Open the _/jumpthequeue-core/src/main/resources/db/migration/h2/V0001__R001_Create_schema.sql_ and delete all the tables (except _BinaryObject_ and _RevInfo_, that are used internally by default).
 
-==== _Visitor_ table
+===== _Visitor_ table
 
 Now we can add our first table _Visitor_. In the case of _Jump the Queue_, the visitors will provide: _name_, _email_ and _phone_ to obtain an _access code_. So we need to represent that data in our table 
 
@@ -65,7 +70,7 @@ CREATE TABLE Visitor(
 
 - _idCode_: the relation with the _Access Control_ entity represented with an id.
 
-==== _Access Code_ table
+===== _Access Code_ table
 
 As second table we will represent the _Access Code_ that will be formed by the _code_ itself and the related date. 
 
@@ -93,9 +98,9 @@ CREATE TABLE AccessCode(
 - _idVisitor_: the relation with the _Visitor_ entity.
 
 
-==== Mock data
+===== Mock data
 
-Finally we can provide a certain amount of mock data to start our app. In the `/jumpthequeue-core/src/main/resources/db/migration/V0002__R001_Master_data.sql` script replace the current _inserts_ with ours
+Finally we can provide a certain amount of mock data to start our app. In the _/jumpthequeue-core/src/main/resources/db/migration/V0002__R001_Master_data.sql_ script replace the current _inserts_ with ours
 
 [source,sql]
 ----
@@ -109,16 +114,16 @@ INSERT INTO AccessCode (id, modificationCounter, code, dateAndTime, idVisitor) V
 
 [NOTE]
 ====
-You can delete the scripts `V0003__R001_Add_blob_table_and_data.sql` and `V0004__R001_Add_batch_tables.sql` as we are not going to use them.
+You can delete the scripts _V0003__R001_Add_blob_table_and_data.sql_ and _V0004__R001_Add_batch_tables.sql_ as we are not going to use them.
 ====
 
-=== The _core_ of the components
+==== The _core_ of the components
 
 Now that we have defined the database for our entities is the moment to start creating the code of the related components.
 
 We are going to use _Cobigen_ to generate the component structure. That means that, as we already commented, we can generate all the structure and layers starting from a _core_ element: a simple _Plain Old Java Object_ that represents our _Entity_. So, in order to use _Cobigen_, we must create our entities in the expected location: `MyEntitymanagement.dataaccess.api`.
 
-==== _Visitor_ component
+===== _Visitor_ component
 
 To implement the component we will need to define a _VisitorEntity_ to connect and manage the data of the _Visitor_ table in the database.
 
@@ -290,7 +295,7 @@ public class VisitorEntity {
 The compilation errors related to _AccessCodeEntity_ will be solved when we create the related entity in next step.
 ====
 
-==== _AccessCode_ component
+===== _AccessCode_ component
 
 We are going to repeat the same process for the _AccessCode_ component. So we will end up with the following structure
 

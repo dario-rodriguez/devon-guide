@@ -1,7 +1,12 @@
 :toc: macro
 toc::[]
 
-= OASP4J Architecture
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== OASP4J Architecture
 
 OASP4J provides a solution for industrialized web apps based on _components_ and a three-layers architecture.
 

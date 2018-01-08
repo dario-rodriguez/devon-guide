@@ -1,9 +1,14 @@
 :toc: macro
 toc::[]
 
-# Extending the CRUD: Editing menu order
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
 
-## Create Edit Order View
+== Extending the CRUD: Editing menu order
+
+=== Create Edit Order View
 
 In this section we are going to order some dishes from a menu for the tables that we have in our system.   For this purpose we add a new button in the grid named `Edit Order`.   When we click this button it opens a new tab panel showing two grids, one with the menu information and the other one with the dishes ordered for the table.
 
@@ -319,7 +324,7 @@ image::images/client-gui-sencha/editOrder.PNG[Edit order,width="450", link="imag
 
 image::images/client-gui-sencha/editOrderView.PNG[Edit order View,width="450", link="images/client-gui-sencha/editOrderView.PNG"]
 
-## Drag and drop
+=== Drag and drop
 
 We are going to change our sample a bit.   Instead of using the button `Add` to add some dish or drink to our order, we are going to do it using the `Drag and drop` functionality that ExtJS provides.
 

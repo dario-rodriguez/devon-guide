@@ -1,9 +1,14 @@
-:toc: macro 
+:toc: macro
 toc::[]
+
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
  
-= Devon4Sencha best practices
+== Devon4Sencha Best Practices
  
-== Bad formed code
+=== Bad formed code
 
 - *Trailing coma*
 
@@ -46,7 +51,7 @@ accidentalGlobal = true;
 
 - Sections of code should not be "commented out".
  
-== Excessive or unnecessary nesting of component structures
+=== Excessive or unnecessary nesting of component structures
   
 * One of the most common mistakes developers make is nesting components for no reason.
  
@@ -103,7 +108,7 @@ layout: 'fit',
     Example 1B Good: The grid is already a panel, so just use any panel properties directly on the grid.
 
    
-== Memory leaks caused by failure to cleanup unused components 
+=== Memory leaks caused by failure to cleanup unused components 
 
 * *Why my app is getting slower and slower?*
 
@@ -248,7 +253,7 @@ Ext.define('MyApp.view.MyGrid', {
 });
 ----
 
-== Poor folder structure for source code
+=== Poor folder structure for source code
 
 * Doesn't affect performance or operation, but it makes it difficult to follow the structure of the app
 
@@ -261,7 +266,7 @@ image::images/devon4sencha-badPractices/bad-practices/poor-folder-stucture.png[B
 
 image::images/devon4sencha-badPractices/bad-practices/good-folder-stucture.png[Good folder estructure,align="center",width="175",link="images/devon4sencha-badPractices/bad-practices/good-folder-stucture.png"]
 
-== Use of global variables
+=== Use of global variables
 
 * Name collisions and hard to debug.
 
@@ -299,9 +304,7 @@ MyApp.config.setMyLastCustomer(12345);
 MyApp.config.getMyLastCustomer();
 ----
 
-
-
-== Use of _id_
+=== Use of _id_
 
 * Use of id's on components is not recommended.
 
@@ -361,7 +364,7 @@ picToolbar.down('#savebutton');
 ----
 
 
-== Unreliable referencing of components
+=== Unreliable referencing of components
 
 * Code that relies on component positioning in order to get a reference.
 
@@ -380,7 +383,7 @@ var myWindow = myToolbar.up('window');
 ----
 
 
-== Failing to follow upper or lowercase naming conventions
+=== Failing to follow upper or lowercase naming conventions
 
 * Avoid confusion and keep your code clean.
 
@@ -432,7 +435,7 @@ Ext.define('MyApp.view.CustomerList', {
 ----
 
 
-== Making your code more complicated than necessary.
+=== Making your code more complicated than necessary.
 
 * Each value is loaded individually
 
@@ -482,7 +485,7 @@ myForm.loadRecord(record);
 ----
 
 
-== Nesting callbacks are a nightmare
+=== Nesting callbacks are a nightmare
 
 * Pyramidal code
 
@@ -567,7 +570,7 @@ onAfterGetDepartments: function(response) {
 ----
 
 
-== Caching and references
+=== Caching and references
 
 * Wrong use of object references.
 
@@ -620,7 +623,7 @@ for (var i = 0; i < 1000; i++) {
 ----
 
 
-== Identation
+=== Identation
 
 * Code impossible to follow
 
@@ -647,7 +650,7 @@ if (!this.isReadable()) {
     }
 ----
 
-== One class per file
+=== One class per file
 
 * Avoid files with more than 1000 lines of code.
 
@@ -681,7 +684,7 @@ function($, jQuery, dmJQuery, callback) {
 
 - Development loader / Production builder.
 
-== Too much work to return
+=== Too much work to return
 
 * Make it easy!
 
@@ -724,9 +727,9 @@ testSomeVal: function(someVal) {
 
 
 
-== Comments or Documentation
+=== Comments or Documentation
 
-* Bad practice
+*Bad practice*
 
 - No comments
 
@@ -761,7 +764,7 @@ for (var j=0; j<6; j++)
 }
 ----
 
-* Best practice
+*Best practice*
 
 - Comment top-level structures.
 
@@ -777,7 +780,7 @@ for (var j=0; j<6; j++)
 
 image::images/devon4sencha-badPractices/bad-practices/js-duck.png[Documentation 2,align="center",width="250",link="images/devon4sencha-badPractices/bad-practices/js-duck.png"]
 
-== Operators
+=== Operators
 
 Use "===" "!==" instead of "==" "!="
 
@@ -787,7 +790,7 @@ Use "===" "!==" instead of "==" "!="
 
 image::images/devon4sencha-badPractices/bad-practices/comparator-operation.png[Operators,width="450",link="images/devon4sencha-badPractices/bad-practices/comparator-operation.png"]
 
-== Be lazy
+=== Be lazy
 
 * Bad practice: Initialization of all three panels
 
@@ -820,7 +823,7 @@ image::images/devon4sencha-badPractices/bad-practices/comparator-operation.png[O
 
 image::images/devon4sencha-badPractices/bad-practices/bill-gate-says.png[Be lazy 2,align="center",width="250",link="images/devon4sencha-badPractices/bad-practices/bill-gate-says.png"]
 
-== Knowing this
+=== Knowing this
 
 * This
 
@@ -854,7 +857,7 @@ var person = {
 person.getName();
 ----
 
-== Additional resources
+=== Additional resources
 
 * "Maintainable JavaScript" by Nicholas Zacha
 

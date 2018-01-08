@@ -1,15 +1,20 @@
 :toc: macro
 toc::[]
 
-= OASP4JS Architecture Overview
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
 
-== Basic
+== OASP4JS Architecture Overview
+
+=== Basic
 
 As *Angular* is the main framework for Oasp4JS, the architecture of the applications that is going to be used is the same as https://angular.io/docs/ts/latest/guide/architecture.html[Angular]:
 
 image::images/oasp4js/1.Intro/architecture_overview.png[, link="images/oasp4js/1.Intro/architecture_overview.png"]
 
-== Additional Functionalities
+=== Additional Functionalities
 
 This architecture will be enhanced with some functionalities from Covalent, Teradata and Angular Material:
 

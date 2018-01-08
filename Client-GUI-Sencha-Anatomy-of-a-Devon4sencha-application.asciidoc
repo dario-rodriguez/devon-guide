@@ -1,11 +1,16 @@
 :toc: macro
 toc::[]
 
-# Application architecture
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Application architecture
 
 Sencha provides support for both MVC and MVVM application architectures. Please note that this is properly documented on the Sencha docs site. Take this document as an extension of the official documentation to make things more clear.
 
-## MVC (Model, View, Controller):
+=== MVC (Model, View, Controller):
 
 * User interacts with **Views**, which display data held in **Models**
 * Those interactions are monitored by a **Controller**, which then responds to the interactions by updating the **View** and **Model**, as necesary
@@ -15,30 +20,30 @@ Sencha provides support for both MVC and MVVM application architectures. Please 
 
 image::images/client-gui-sencha/mvcArchitecture.png[MVC,width="450", link="images/client-gui-sencha/mvcArchitecture.png"]
 
-## MVVM (Model, View, Controller, ViewModel, ViewController):
+=== MVVM (Model, View, Controller, ViewModel, ViewController):
 
 * Features an abstraction of a **View** called the **ViewModel**. The ViewModel coordinates the changes between a Model's data and the View's presentation of that data using a technique called **"data binding"**
 * The result is that the **Model** and framework perform as much work as possible, minimizing or eliminating application logic that directly manipulates the **View**
 
 image::images/client-gui-sencha/mvvmArchitecture.png[MVVM,width="450", link="images/client-gui-sencha/mvvmArchitecture.png"]
 
-# Structure of a Devon4sencha application
+=== Structure of a Devon4sencha application
 
 With these objects in place, Sencha also defines a clean way to structure the application by having each kind of object in separate folders. 
 
 Devon4sencha follows the MVVM architecture.
 
-## Model
+==== Model
 
 The *models* contain the data for the application with some powerful abstractions to retrieve information from the back-end. *Models* have fields defined and associations to other *models* or *stores* which are collections of *models*.
 
 *Models* and *stores* are used by the framework for some controls such as *combo*, *list* and *grid*.
 
-## Store
+==== Store
 
 A Store is a client side cache of records (instances of a Model class). Stores provide functions for sorting, filtering and querying the records contained within. 
 
-## View
+==== View
 
 Views are the objects responsible for displaying the data to the user. They contain no logic and have to deal with formatting and internationalization of messages within the components.
 
@@ -69,7 +74,7 @@ For example:
 In this example a component of type `panel` is defined with a `textfield` and a `button` in it. Please note that the behaviour of the button is not specified here.
 
 
-## Controller
+==== Controller
 
 The controllers are typically the objects responsible for driving the logic of the application, listening to events of the view controls and modifying the underlying model. They are also in charge of rendering new views in response to application state changes.
 
@@ -136,7 +141,7 @@ onTableEditOrder: function(tableSelected) {
 });
 ----
 
-## ViewController
+==== ViewController
 
 This kind of object is associated to a component view and listens to events of its controls. There is an instance of a *viewController* for each instance of a view so they are created/destroyed as required.
 
@@ -152,7 +157,7 @@ image::images/client-gui-sencha/mvcArchitectureDevon.png[Devon4Sencha MVVM,width
 
 A Devon4sencha application will have different Controllers.  Each of them will control several views related to the same business logic.   Each of these Views will have its own ViewController and ViewModel.   That ViewController will be in charge of managing specific events for that particular View.
 
-## ViewModel
+==== ViewModel
 
 The place to store information for a view is the ViewModel. This object contains not only instance data but also *calculated* fields based on other *viewModel*. All this information can be referenced on the view object by means of the *binding* capabilities of the Sencha Framework. One ViewModel object instance is associated to each View instance and they share lifespan.
 
@@ -181,7 +186,7 @@ Ext.define("Sample.view.table.TableEdit", {
 In this sample the loading mask and text will be displayed/hidden according to the value of the viewModel `orderInfo` data property. This is something that usually requires calling the show/hide methods of the mask object programmatically and by using the MVVM model, this greatly simplified.
 
 
-# Universal applications
+=== Universal Applications
 
 When you have to provide a front-end for both desktop and tablet/mobile you can leverage Sencha "universal" application feature. This means that you will have two different outputs from your source code (or more if you have more different profiles to support i.e. TV, POS, smartwatch?)
 

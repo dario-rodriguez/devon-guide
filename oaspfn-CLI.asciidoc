@@ -1,10 +1,15 @@
 :toc: macro
 toc::[]
 
-= Command Line Interface
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Command Line Interface
 OASP4Fn comes with a command line interface that makes use of the infrastructure as code and the configuration to generate the proper files which are going to help the user, testing the application an deploying it.
 
-== Usage
+=== Usage
 The command line interface must be used inside a OASP4Fn project, to use it you only has to type the command with its options (in case you installed it globally):
 
 `oasp4fn # fun`

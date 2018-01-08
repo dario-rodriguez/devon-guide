@@ -1,9 +1,15 @@
 :toc: macro
 toc::[]
 
-= Microservices in Devonfw
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
 
-== Introduction
+== Microservices in Devonfw
+
+=== Introduction
+
 The Microservices architecture is an approach for application development based on a series of _small_ services grouped under a business domain. Each individual service runs autonomously and communicating with each other through their APIs. That independence between the different services allows to manage (upgrade, fix, deploy, etc.) each one without affecting the rest of the system's services. In addition to that the microservices architecture allows to scale specific services when facing an increment of the requests, so the applications based on microservices are more flexible and stable, and can be adapted quickly to demand changes.
 
 However, this new approach, developing apps based on microservices, presents some downsides. To address those, Devonfw microservices approach is based on http://cloud.spring.io/spring-cloud-netflix/[Spring Cloud Netflix], that provides all the main components for microservices integrated within Spring Boot context.   
@@ -30,7 +36,7 @@ In addition to all of this we will find other issues related to this particular 
 
 - Automatized deployments: as we are managing several components (microservices, catalogs, balancers, etc.) the deployment should be automatized to avoid errors and ease this process.
 
-== Microservices schema
+=== Microservices schema
 
 In the following schema we can see an overview of the structure of components in a Devon application based on the _Spring Cloud Netflix_ solution for microservices.
 
@@ -38,7 +44,7 @@ image::images/microservices/microservices_01.png[,width="450", link="images/micr
 
 Let's explain each component
 
-=== Service Discovery - Eureka
+==== Service Discovery - Eureka
 
 link:http://cloud.spring.io/spring-cloud-static/spring-cloud-netflix/1.3.0.M1/#service_discovery_eureka_clients[Eureka] is a server to register and locate the microservices. The main function for _Eureka_ is to register the different instances of the microservices, its location, its state and other metadata.
 
@@ -48,26 +54,26 @@ If after 3 periods, Eureka does not receive notification of any of the microserv
 
 In addition, it serves as a catalog to locate a specific microservice when routing a request to it.
 
-=== Circuit Breaker - Hystrix
+==== Circuit Breaker - Hystrix
 
 http://cloud.spring.io/spring-cloud-static/spring-cloud-netflix/1.3.0.M1/#circuit_breaker_hystrix_clients[Hystrix] is a library that implements the https://martinfowler.com/bliki/CircuitBreaker.html[Circuit Breaker] pattern. Its main functionality is to improve the reliability of the system, isolating the entry points of the microservices, preventing the cascading failure from the lower levels of the application all the way up to the user.
 
 In addition to that, it allows developers to provide a fallback in case of error. _Hystrix_ manages the requests to a service, and in case that the microservice doesn't response, allows to implement an alternative to the request.
 
-=== Client Side Load Balancer - Ribbon
+==== Client Side Load Balancer - Ribbon
 
 http://cloud.spring.io/spring-cloud-static/spring-cloud-netflix/1.3.0.M1/#spring-cloud-ribbon[Ribbon] is a library designed as client side load balancer. Its main feature is to integrate with _Eureka_ to discover the instances of the microservices and their metadata. In that way the _Ribbon_ is able to calculate which of the available instances of a microservice is the most appropriate for the client, when facing a request.
 
-=== REST Client - Feign
+==== REST Client - Feign
 http://cloud.spring.io/spring-cloud-static/spring-cloud-netflix/1.3.0.M1/#spring-cloud-feign[Feign] is a REST client to make calls to other microservices. The strength of Feign is that it integrates seamlessly with _Ribbon_ and _Hystrix_, and its implementation is through annotations, which greatly facilitates this task to the developer.
 
 Using annotations, Spring-cloud generates, automatically, a fully configured REST client.
 
-=== Router and Filter - Zuul
+==== Router and Filter - Zuul
 
 link:http://cloud.spring.io/spring-cloud-static/spring-cloud-netflix/1.3.0.M1/#router_and_filter_zuul[Zuul] is the entry point of the apps based on Spring-cloud microservices. It allows dynamic routing, load balancing, monitoring and securing of requests. By default _Zuul_ uses _Ribbon_ to locate, through Eureka, the instances of the microservice that it wants to invoke and sends the requests within a _Hystrix Command_, taking advantage of its functionality.
 
-== How to create microservices in Devonfw
+=== How to create microservices in Devonfw?
 
 Follow the instructions in the link below to set up Devonfw distribution
 
@@ -162,11 +168,11 @@ That command generates a simple application containing the source code for the m
 
 The created microservice runs by default on port _9001_ and has the `context-path` with the same name than the project. This parameters can be changed through the 'application.properties' file of the project.
 
-== How to use microservices in Devonfw
+=== How to use microservices in Devonfw
 
 In the following sections we are going to provide some patterns to manage microservices in Devonfw using the archetype, alongside the options that each of the available modules offer.
 
-=== Eureka service
+==== Eureka service
 
 We are going to review the general options for the _Eureka_ service. If you are interested in getting more details you can visit the official site for http://cloud.spring.io/spring-cloud-static/spring-cloud-netflix/1.3.0.M1/#service_discovery_eureka_clients[Spring Cloud Eureka clients].
 
@@ -236,7 +242,7 @@ eureka.client.serviceUrl.defaultZone=http://${eureka.instance.hostname}:${eureka
 
 With this the application will register automatically in _Eureka_ and will be validated each 30 seconds. This value can be changed editing the property `eureka.instance.leaseRenewalIntervalInSeconds` in `application.properties` file. It must be taken into account that each _Eureka_ client will maintain a cache of _Eureka_ records to avoid calling the service every time it is necessary to access another microservice. This cache is reloaded every 30 seconds, this value can also be edited through property `eureka.client.registryFetchIntervalSeconds` in `application.properties` file.
 
-=== Zuul service
+==== Zuul service
 
 We are going to show an overview to the options of the _Zuul_ service, if you want to know more details about this particular service visit the official site of http://cloud.spring.io/spring-cloud-static/spring-cloud-netflix/1.3.0.M1/#router_and_filter_zuul[Spring Cloud].
 
@@ -337,7 +343,7 @@ hystrix.command.default.execution.timeout.enabled=false
 
 Having an _Eureka_ client activated, the _Zuul_ service will refresh its content every 30 seconds, so a just registered service may still have not been cached in _Zuul_. On the contrary, if a service is unavailable, 3 cycles of 30 seconds must pass before _Eureka_ sets its register as _dead_, and other 30 seconds for _Zuul_ to refresh its cache.
 
-=== Security, Authentication and authorization
+==== Security, Authentication and authorization
 
 The most commonly used authentication in micro-service environments is authentication based on https://jwt.io/[json web tokens], since the server does not need to store any type of user information (stateless) and therefore favors the scalability of the microservices.
 
@@ -475,11 +481,11 @@ If for any reason an attempt is made to access a business operation without havi
 
 image::images/microservices/microservices_06.png[,width="450", link="images/microservices/microservices_06.png"]
 
-==== How to modify the UserDetails information
+=== How to modify the UserDetails information
 
 In order to modify the _UserDetails_ information we will need to accomplish two steps: modify the authentication service to generate the authentication token with the custom attributes embedded, and modify the pre-authentication filter of the microservices to convert the token into an _Object_ with the custom attributes available.
 
-===== Modify the authentication service to generate a new token
+==== Modify the authentication service to generate a new token
 
 We must modify the `service-auth` that is in charge of logging the user and generate the security token.
 
@@ -579,7 +585,7 @@ Finally, in the login process the new attributes should be filled in when creati
           this.expirationTime * 60 * 1000L), HttpStatus.OK);
 ----
 
-===== Modify the pre-authentication filter to read the new token
+==== Modify the pre-authentication filter to read the new token
 
 Once a token with custom attributes has been obtained, the steps to read it and put it in the security context are very simple. The changes shown in this point should be reproduced in those microservices where you want to use the new custom attributes. The steps to follow are those:
 

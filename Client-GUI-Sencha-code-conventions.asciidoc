@@ -1,11 +1,16 @@
 :toc: macro
 toc::[]
 
-# Code conventions
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Code conventions
 
 We suggest the following conventions to work with devon4sencha:
 
-## Controllers, ViewModels and ViewControllers
+=== Controllers, ViewModels and ViewControllers
 The filename of these classes must be the same as the principal view and must end with `VM` for ViewModels and `VC` for ViewControllers:
 
 [source]
@@ -19,7 +24,7 @@ The files will reside on the same folder as the view.
 
 For controllers, the convention is to end the file name with "Controller" and the files should reside on a parallel folder structure similar to the view but on the `controller` app sub-folder.
 
-## Internationalization
+=== Internationalization
 Internationalization files must reside in a `i18n` folder besides the associated view. The filenames must start with the associated view name end with the corresponding locale:
 
 [source]
@@ -31,7 +36,7 @@ i18n/MyView_en_EN.js
 i18n/MyView_es_ES.js
 ----
 
-## Event Names and listeners
+=== Event Names and listeners
 For events and listeners definitions, we suggest that event names start with `event` and listener function names start width `on`. The rest of both names will use link:https://en.wikipedia.org/wiki/CamelCase[camelcase format]:
 
 [source,javascript]
@@ -49,7 +54,7 @@ onMenuOpenTables : function(){
 }
 ----
 
-## Code style
+=== Code style
 
 In general we follow the code style used by Sencha in their frameworks, for example:
 

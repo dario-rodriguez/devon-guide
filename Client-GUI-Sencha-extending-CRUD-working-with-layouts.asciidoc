@@ -1,7 +1,12 @@
 :toc: macro
 toc::[]
 
-# Extending the CRUD: Working with layouts
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Extending the CRUD: Working with layouts
 
 We are going to do a simple exercise to practice with **layouts**.  Previosly we have created a new view to order some products from a menu.   We have two grids but they are showed one below the other.   We are going to change the way they are displayed on the screen.
 
@@ -9,9 +14,9 @@ Therefore, our goal here is to show the grids as you can see below:
 
 image::images/client-gui-sencha/layout.PNG[Layout,width="450", link="images/client-gui-sencha/layout.PNG"]
 
-In order to get that output we should make some changes in our code.
+In order to get that output, we should make some changes in our code.
 
-* Edit the **view** `TableOrderV.js`adding the layout 'vbox'
+* Edit the **view** `TableOrderV.js` adding the layout 'vbox'
 
 [source,javascript]
 ----

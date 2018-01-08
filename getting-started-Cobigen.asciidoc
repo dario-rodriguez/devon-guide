@@ -1,13 +1,18 @@
 :toc: macro
 toc::[]
 
-= Getting Started Cobigen
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Getting Started Cobigen
 
 In Devonfw we have a server-side code generator called Cobigen. Cobigen is capable to create CRUD code from an entity or generate the content of the class that defines the user permissions. Cobigen is distributed in the Devonfw distribution as an Eclipse plugin, and is available to all Devonfw developers.
 
 If you want to go deeper in Cobigen you can visit the documentation of the https://github.com/devonfw/tools-cobigen/wiki/CobiGen[Cobigen core].
 
-== Preparing Cobigen for first use
+=== Preparing Cobigen for first use
 
 Before you can use Cobigen, you have to install the templates to be used by Cobigen. The Devonfw distribution comes with a set of default templates in the directory `workspaces\main\CobiGen_Templates`.
 
@@ -26,7 +31,7 @@ Before you can use Cobigen, you have to install the templates to be used by Cobi
 In your own projects, you can create additional templates. Please refer to the document https://coconet.capgemini.com/sf/frs/do/downloadFile/projects.apps2_devon/frs.devon_distribution.devonfw_2_0/frs50089?dl=1[CobiGen.pdf] for further information.
 ====
 
-== Creating a CRUD with Cobigen
+=== Creating a CRUD with Cobigen
 
 In an earlier chapter about link:getting-started-Crud-Operations[CRUD functionality] you saw the individual steps necessary to implement a basic CRUD functionality.
 
@@ -34,11 +39,11 @@ Using Cobigen, you can save most of these steps, and get a working result in far
 
 Cobigen needs a starting point to generate the code of a CRUD case. In this example the starting point is the `StaffMemberEntity` class, modelling a member of the staff of our restaurant. So we are going to create a CRUD for the new `StaffMemberEntity` class.
 
-===== Step 1: Entity creation
+====== Step 1: Entity creation
 
 We are going to create a `StaffMember` entity. First, we are going to add the database schema to our database.
 
-In the script `resources/db/migration/V0001__Create_schema.sql` we add:
+In the script _resources/db/migration/V0001__Create_schema.sql_ we add:
 
 [source,sql]
 ----
@@ -53,7 +58,7 @@ CREATE TABLE STAFFMEMBER(
 
 ----
 
-And in the same path, we are going to create a new file (if it do not exist) to add the default data to the `StaffMember` created. We create `V0002__Master_data.sql` file.
+And in the same path, we are going to create a new file (if it do not exist) to add the default data to the `StaffMember` created. We create _V0002__Master_data.sql_ file.
 
 [source,sql]
 ----

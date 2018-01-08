@@ -1,13 +1,18 @@
 :toc: macro
 toc::[]
 
-= Database Configuration
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Database Configuration
 
 In this tutorial, you will see how to configure your application to connect with a real database of your choice. Devonfw gives you a simple configuration, so that you just need to add the dependency of the database libraries, create a profile, set the information about your database in the profile and activate it, update the script files, if any, as per DB syntax.
 All these steps need to be done in the generated (through oasp4j-template server archetype), xxx-core project.
 By default, it comes with configured http://www.h2database.com/html/quickstart.html[h2] database. If you want to configure another database such as MySQL, MS SQL or PostGre SQL, refer below sections.
 
-== Add dependencies
+=== Add dependencies
 Add Dependency for database in _pom.xml_ file. For example, to configure _mysql_ database, add the following dependency:
 
 MySQL:
@@ -24,13 +29,13 @@ image::images/database-configuration/db-config1.png[,width="450",link="images/da
 
 *Note*: This driver should NOT be used in a production environment because of the license issues. See below for an alternative.
 
-== Create a Spring Profile
+=== Create a Spring Profile
 
 Spring Profile provides a way to segregate parts of your application configuration and make it only available in certain environments. In the above case, create a profile to your database configuration.
 
 Create a file in `src/main/resources/config` named _application-{PROFILE_NAME}.properties_. The name of the profile isn't important. For this example, you can name it _application-mysql.properties_.
 
-== Set the database configuration
+=== Set the database configuration
 
 Add database configuration in _application-{PROFILE_NAME}.properties_ file. For example,
 
@@ -48,7 +53,7 @@ flyway.locations=classpath:db/migration,classpath:db/migration/MySQL
 
 image::images/database-configuration/db-config2.png[,width="450",link="images/database-configuration/db-config2.png"]
 
-== Activate the new profile
+=== Activate the new profile
 
 To activate the new profile, update `src/main/resources/application.properties` file. Set _spring.profiles.active= profile-name_. In the above example, the profile-name is _mysql_. 
  
@@ -61,8 +66,9 @@ spring.profiles.active=mysql
 image::images/database-configuration/db-config3.png[,width="450",link="images/database-configuration/db-config3.png"]
 
 
-== Further Details on Database Configurations
-=== MySQL
+=== Further Details on Database Configurations
+
+==== MySQL
 
 The use of the MySQL has already been illustrated in the above example. However, as mentioned, the GPL licensed (native) MySQL driver should *not* be used in a production environment. As an alternative, the free and liberally licensed "mariaDB" (a MySQL clone) library could be used. 
 
@@ -84,7 +90,7 @@ And the library can be used such as MySQL but with a slight change in the config
 spring.datasource.driver-class-name=org.mariadb.jdbc.Driver
 ----
 
-=== PostgreSQL 
+==== PostgreSQL 
 
 The dependency declaration consists of:
 
@@ -107,7 +113,7 @@ spring.datasource.driver-class-name=org.postgresql.Driver
 flyway.locations=classpath:db/migration,classpath:db/migration/postgres
 ----
 
-=== Microsoft MSSQL Server
+==== Microsoft MSSQL Server
 
 The Microsoft JDBC drivers are *not* available on Maven Central; http://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=11774[ they need to be downloaded from the Microsoft site.]
  
@@ -144,7 +150,7 @@ spring.datasource.driver-class-name=com.microsoft.sqlserver.jdbc.SQLServerDriver
 
 For further information see: https://wiki.jasig.org/pages/viewpage.action?pageId=57578731[MS SQL Server and MS JDBC Driver ]
 
-=== DB2
+==== DB2
 
 The dependency with DB2 is explained below:
 

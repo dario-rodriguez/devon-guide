@@ -1,7 +1,12 @@
 :toc: macro
 toc::[]
 
-= CORS support
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== CORS support
 
 When you are developing the Javascript client separately from the server application, you usually have to deal with cross domain issues. Ajax requests for data are made to a target domain distinct to the original domain where the application code was loaded, and the browser does not allow this.
 
@@ -11,7 +16,7 @@ In the Devon4Sencha there is a solution to resolve this issues:
 
 * Security cookies. In the request we need to send the flag `withCredentials` to `true` to say to the browser "We also want send the security cookie in our request". In IE there are some issues about this property that Sencha helps us to manage.
 
-== Configure CORS support
+=== Configure CORS support
 
 In the `Config.js` file, you have to define a `CORSEnabled` propertie to a `true` value and add the full path to the server in the `server` property. These are the only things you need to configure to have CORS support. For example:
 
@@ -26,7 +31,7 @@ var Config={
 
 ----
 
-== Bypass CORS security check during development
+=== Bypass CORS security check during development
 
 Sometimes our back-end server is not CORS enabled so we have to deal with it in an alternative way. There are several ways to do it:
 
@@ -38,7 +43,7 @@ Sometimes our back-end server is not CORS enabled so we have to deal with it in 
 ** It is usually easier than the proxy approach although less flexible in what can be accomplished
 ** There are several tools available for different browsers 
 
-=== Using a browser extension to bypass the CORS policy
+==== Using a browser extension to bypass the CORS policy
 
 Here we present an example for Google Chrome browser called *ForceCORS*.
 
@@ -75,7 +80,7 @@ image::images/devon4sencha/cors/devon_guide_CORS_example_configuration.png[Disab
 
 This way we "simulate" that the server side is adding the needed CORS headers to the Ajax response.
 
-=== Add more allowed headers
+==== Add more allowed headers
 
 If your client code adds custom headers to the Ajax request (CorrelationId for example in case of an devon4sencha application) then you should add this headers to the *`Access-Control-Allow-Headers`* configuration setting. For example:
 

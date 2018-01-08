@@ -1,7 +1,12 @@
 :toc: macro
 toc::[]
 
-= Introduction
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Introduction
 
 image::images/devonfw-small.png[,align="center",width="200",Devonfw, link="images/devonfw-small.png"]
 
@@ -15,11 +20,11 @@ image::images/introduction/devon_buildingblocks.png[,width="650",Devonfw Buildin
 
 Devonfw uses a state-of-the-art open source core reference architecture for the server (today considered as commodity in the IT-industry) and on top of it an ever increasing number of high-value assets that are developed by Capgemini.
 
-== Devonfw Technology Stack
+=== Devonfw Technology Stack
 
 Devonfw is composed of an Open Source part that can be freely used by other people and proprietary addons which are Capgemini IP and can be used only in Capgemini engagements.The Open Source part of Devonfw is called _The Open Application Standard Platform_ (OASP) . It consist of
 
-=== Back-end solutions
+==== Back-end solutions
 
 - https://github.com/oasp/oasp4j[_OASP4J_]: server implemented with Java. The OASP platform provides an implementation for Java based on https://spring.io/[Spring] and https://projects.spring.io/spring-boot/[Spring Boot].
 
@@ -27,7 +32,7 @@ Devonfw is composed of an Open Source part that can be freely used by other peop
 
 - _Dot Net_ implementation. (Upcoming)
 
-=== Front-end solutions
+==== Front-end solutions
 
 For client applications, _Devonfw_ includes two possible solutions based on _JavaScript_:
 

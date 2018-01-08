@@ -1,13 +1,16 @@
-:toc: macro
-toc::[]
 
-= Devonfw Outline
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
 
-== Why do we use an open source core
+== Devonfw Outline
+
+=== Why do we use an open source core
 
 In some countries of the SBU clients only accept open source stacks (most to mention customers who want to stay vendor-independent by principle), so being open is a market need. This also is the rationale for providing a open source reference architecture for the client built with AngularJs (open source itself).
 
-== Devonfw and Open Source
+=== Devonfw and Open Source
 
 The Devonfw consist of OASP (Open Application Standard Platform) which started as an initiative of the German BU (Apps evolve). This project offers both a server side solution (based on Spring) and an AngularJS solution for client side.
 
@@ -15,7 +18,7 @@ Having an Open Source foundation is an advantage on clients that don’t want to
 
 OASP itself is based on other established Open Source framework such as Spring, CXF or Hibernate. Adopting best practices and being enriched by the experience of our community of experts.
 
-== Contributing to Devonfw
+=== Contributing to Devonfw
 
 Devonfw Platform is organized in a way that it is easy for you to contribute. Therefore, we have chosen to use _github_ (the number one platform for social coding) which provides lean processes and great tooling. Currently, most repositories are marked as private, hence invisible to you. You can send an email from your Capgemini account with your _github_ login to the devonfw team if you want to get access. Please ensure your real name is set in your _github_ account or your login is matching your Capgemini CORP login. You will be also added to our Capgemini OASP mailing list (see contact).
 

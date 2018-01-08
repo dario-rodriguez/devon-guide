@@ -1,11 +1,16 @@
 :toc: macro
 toc::[]
 
-# Create a CRUD page
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Create a CRUD page
 
 In this section a complete CRUD (Create, Retrieve, Update, Delete) entity example is developed with Devon4sencha step by step. We are going to do a CRUD for a `table` entity.
 
-## CRUD Packaging
+=== CRUD Packaging
 
 As an overview, these are the folders and files structure we need for the example.
 
@@ -33,7 +38,7 @@ app/
 |          +- Table_en_EN.js
 ----
 
-## Step 1: Add a CRUD page to the application menu
+=== Step 1: Add a CRUD page to the application menu
 
 The first step is to add a new item to our application menu. 
 
@@ -77,7 +82,7 @@ Ext.define('demo.view.main.Menu', {
 
 We are adding a new item in the menu, with an internationalized text (later we will talk about internationalization). When this menu option will be pressed, an event `eventOpenTableList` will be fired so we need an object to listen for this event: The controller.
 
-## Step 2: Controller, a view factory and REST endpoints definition 
+=== Step 2: Controller, a view factory and REST endpoints definition 
 
 Now, we are going to create a global controller to manage all global logic about the different table´s views. Basically, this controller will be a factory to create instances of table´s views and it will have the REST endpoints definition.
 
@@ -148,7 +153,7 @@ Ext.define('demo.Application', {
 });
 ----
 
-## Step 3: Create a model
+=== Step 3: Create a model
 
 Before we create the views, we are going to define the table model. This model contains the definition of every field in a table object.
 We create the file `TableM.js` in the path `app/model/table/` .
@@ -175,10 +180,9 @@ Sometimes you may have a type int property in your model and it could be `null` 
 { name: 'number', type: 'int', allowNull: true }
 
 ----
-
-
 ====
-## Step 4: Create the Store
+
+=== Step 4: Create the Store
 
 Ext.data.Store can be thought of as a collection of records, or Ext.data.Model instances.
 
@@ -226,7 +230,7 @@ Ext.define('demo.Application', {
 });
 ----
 
-## Step 5: Create the view and viewController
+=== Step 5: Create the view and viewController
 
 We are going to start by creating the view that lists the tables.
 
@@ -289,11 +293,11 @@ Ext.define('demo.view.table.TableListVC', {
 });
 ----
 
-## Step 6: Create i18n literals
+=== Step 6: Create i18n literals
 
 In order to properly have the application internationalized, it is mandatory to define the bundle of messages for each language to support.
 
-In the different views, we have defined the texts, in function of the value of some properties defined in a special i18n object. For every group of views (in this case, tables views), we need to create another file called `Table_<language code>_<country code>.js`. So we are going to create a file `Table_en_EN.js` in the `path app/view/table/i18n/`.
+In the different views, we have defined the texts, in function of the value of some properties defined in a special i18n object. For every group of views (in this case, tables views), we need to create another file called _Table_<language code>_<country code>.js_. So we are going to create a file `Table_en_EN.js` in the `path app/view/table/i18n/`.
 
 [source,javascript]
 ----

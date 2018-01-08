@@ -1,13 +1,21 @@
 :toc: macro
 toc::[]
 
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
 == Creating new OASP4Fn Application 
+
 In this chapter we are going to build a serverless backend with OASP4Fn. The main objective of this tutorial is to take an initial contact with OASP4Fn and the necessary tools we are going to use in the development, so at the end of it, the user will be enough confident to start developing a new project with OASP4Fn without problems.
 
-== Install tools
+=== Install tools
+
 In this section we’re going to introduce all the necessary tools we’re going to need to start programming and a initial configuration if necessary.
 
-=== Visual Studio Code
+==== Visual Studio Code
+
 Download the installer from the https://code.visualstudio.com/Download[official page] and install it.
 Once installed, the first thing you should do is install the extensions that will help you during the development, to do that follow this steps:
 
@@ -17,30 +25,36 @@ Once installed, the first thing you should do is install the extensions that wil
 
 In the case that you are unable to set up the extensions using the method mentioned, you can also use the scripts provided in https://github.com/oasp/oasp-vscode-ide[this] repository.
 
-=== Node.js
+==== Node.js
+
 Go to the https://nodejs.org/en/[node.js] official page and download the version you like the most, the LTS or the Current as you wish.
 
-=== Typescript
+==== Typescript
+
 Let’s install what is going to be the main language during development: TypeScript. This is a ES6 superset that will help us to get a final clean and distributable JavaScript code. This is installed globally with https://www.npmjs.com/[npm], the package manager used to install and create javascript modules in Node.js, that is installed along with Node, so for install typescript you don’t have to install npm explicitly, only run this command:
 
 `npm install –g typescript`
 
-=== Yarn
+==== Yarn
+
 As npm, https://yarnpkg.com/en/[Yarn] is a package manager, the differences are that Yarn is quite more faster and usable, so we decided to use it to manage the dependencies of OASP4Fn projects.
 
 To install it you only have to go to https://yarnpkg.com/en/docs/install[the official installation page] and follow the instructions.
 
 Even though, if you feel more confortable with npm, you can remain using npm, there is no problem regarding this point.
 
-=== Serverless
+==== Serverless
+
 Lastly, we are going to install the serverless framework, that are going to help us deploying our handlers in our provider we have chosen.
 
 `npm install –g serverless`
 
-== Postman 
+=== Postman 
+
 https://www.getpostman.com/[Postman] is an app that helps you build HTTP requests and send them to a server through any of the HTTP methods. This tool will be useful at the end of the tutorial when we are going to run our handlers locally and send POST http requests to them.
 
-== Starting our project through a template
+=== Starting our project through a template
+
 To start with the tutorial we are going to use the https://github.com/oasp/oasp4fn-application-template[oasp4fn application template], so use the following command to clone it in your local machine:
 
 `git clone https://github.com/oasp/oasp4fn-application-template.git jumpTheQueue`
@@ -64,7 +78,8 @@ Only remains to install the base dependencies of our code using yarn, so we only
 
 `yarn`
 
-== Local database set up 
+=== Local database set up 
+
 The database we are going to use during this tutorial is https://aws.amazon.com/dynamodb/[dynamodb], the noSQL database provided by AWS, which is supported by OASP4Fn.
 First you have to download and start it following the amazon http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.html#DynamoDBLocal.DownloadingAndRunning[official documentation], once you have downloaded and started, open the dynamodb shell in this local endpoint:
 
@@ -109,7 +124,8 @@ Finally press Ctrl + Enter, and if we have specified the properties properly an 
 
 image::images/oasp4fn/3.BuildYourOwn/table_description.PNG[, link="images/oasp4fn/3.BuildYourOwn/table_description.PNG"]
 
-== AWS credentials
+=== AWS credentials
+
 Although we are going to use a local instance, the aws-sdk are going to look for credentials for add to the configuration and an error will raise if the credentials are missing, so for that reason we are going to add a credentials file in an _.aws_ folder in our home directory. Said that, first of all create the folder with the following commands:
 
 ```
@@ -130,7 +146,8 @@ There is not necessary to put real credentials in the file as we are going to wo
 Finally, it's worth saying that there are more ways to pass the credentials to the sdk, but this is the best in our case, for more information about credentials take a look on to the   
 http://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/setting-credentials-node.html[official documentation].
 
-== Adding Typings
+=== Adding Typings
+
 The template we have cloned comes with a declaration types at the root of the handlers folder with typings for AWS lambda service and events, but must add more types for the data we are going to manage, so we are going to export a interface Visitor and a interface Code in our declaration file, that will look like this:
 
 [source, typescript]
@@ -147,7 +164,8 @@ export interface Code {
 } 
 ----
 
-== Start the development
+=== Start the development
+
 Now that we already have finish the set up of our project, we are going to add our handlers based on our design: 
 
 * One that will add the visitor to the queue
@@ -276,7 +294,8 @@ export async function search (event: HttpEvent, context: Context, callback: Func
 }
 ----
 
-== Generating the configuration files
+=== Generating the configuration files
+
 In this part we are going to learn how to generate the configuration files that we are going to use to build and deploy our handlers. The first step, is to add the configuration in the _oasp4fn.config.js_ file, but how isn't necessary more configuration than the default one in this tutorial, we are going to remove that file:
 
 `rm oasp4fn.config.js`
@@ -289,7 +308,8 @@ And is all goes well, two files, _serverless.yml_ and webpack.config.json will b
 
 image::images/oasp4fn/3.BuildYourOwn/fun_output.PNG[, link="images/oasp4fn/3.BuildYourOwn/fun_output.PNG"]
 
-== Build and run your handlers locally
+=== Build and run your handlers locally
+
 To execute our handlers locally we will make use of the https://github.com/dherault/serverless-offline[serverless-offline] plugin, that emulates a local API-gateway that let you build your handlers through webpack and send http requests to them, so run:
 
 `yarn offline`

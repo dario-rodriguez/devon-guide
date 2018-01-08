@@ -1,19 +1,24 @@
 :toc: macro
 toc::[]
 
-= Adding Content to the Index
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Adding Content to the Index
 
 On this page we'll give a tutorial on how the index works and how to contribute to our index at http://devonfw.github.io/devon-ide/oomph/index/org.eclipse.setup
 
-== Structure of the Index
+=== Structure of the Index
 
 image::images/oomph/adding-content/01_index-structure.png[width=450, align="center", title="Structure of the Index", link="images/oomph/adding-content/01_index-structure.png"]
 
-=== The Index
+==== The Index
 
 The Index file (mostly named `org.eclipse.setup`) defines all available Product and Project Catalogs. For devon the index file can be found http://devonfw.github.io/devon-ide/oomph/index/org.eclipse.setup[here].
 
-=== The Catalogs
+==== The Catalogs
 
 There are two different kinds of Catalogs: the Product and the Project Catalogs. In this section we'll talk about the Product Catalog since the Project Catalog works in the exact same way.
 
@@ -23,11 +28,11 @@ The devon Product Catalog can be found http://devonfw.github.io/devon-ide/oomph/
 
 The devon Project Catalog can be found http://devonfw.github.io/devon-ide/oomph/projects/catalog_devonfw.setup[here].
 
-=== The Content
+==== The Content
 
 Product and Project setup files are described in link:Oomph_ide-setup-oomph[Setup of the devon-ide with oomph]
 
-== Adding a Catalog to the Index
+=== Adding a Catalog to the Index
 
 To add a Catalog located at `http://your/catalog.setup` to the devon Index you add
 
@@ -43,7 +48,7 @@ or
 ----
 to the https://github.com/devonfw/devon-ide/blob/master/docs/oomph/index/org.eclipse.setup[devon Index file]. This file
 
-== Adding a Product or a Project to a Catalog
+=== Adding a Product or a Project to a Catalog
 
 Similar to adding a Catalog to the index you can add an Product or Project to a Catalog. You can only add Projects to a Project Catalog and Products to a Product Catalog.
 

@@ -1,16 +1,19 @@
+:toc: macro
+toc::[]
+
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== OASP4JS NPM-Yarn Workflow
+
+=== Introduction
+
 // Font Sapiña, Carlos <carlos.font-sapina@capgemini.com>
 // v1.0, 2017-11,
-:toc:
-:hardbreak:
-:sectnums:
-:icons: font
 
- This document aims to provide you the necessary documentation and sources in order to 
- help you understand the importance of dependencies between packages.
-
-:numbered:
-== Introduction
-indexterm:[Introduction]
+This document aims to provide you the necessary documentation and sources in order to help you understand the importance of dependencies between packages.
 
 Projects in node.js make use of modules, chunks of reusable code made by other people or teams. These small chunks of reusable code are called packages footnote:[A package is a file or directory that is described by a package.json. .]. Packages are used to solve specific problems or tasks. These relations between your project and the external packages are called dependencies.
 
@@ -26,7 +29,7 @@ indexterm:[Example index entry]
 
 :numbered:
 
-== Package.json
+==== Package.json
 
 Dependencies in your project are stored in a file called package.json. Every package.json must contain, at least, the name and version of your project.
 
@@ -41,7 +44,7 @@ If you wish to learn more information about package.json, click on the following
 * https://docs.npmjs.com/getting-started/using-a-package.json[npm Package.json]
 
 :numbered:
-=== Content of package.json
+===== Content of package.json
 
 As you noticed, package.json is a really important file in your project. It contains essential information about our project, therefore you need to understand what's inside.
 
@@ -111,7 +114,7 @@ Finally you can have bundled dependencies which are packages bundled together wh
 Here is the link to an in-depth explanation of https://yarnpkg.com/en/docs/dependency-types[dependency types]{zwsp}.
 
 :numbered:
-=== Scripts
+===== Scripts
 
 Scripts are a great way of automating tasks related to your package, such as simple build processes or development tools.
 
@@ -147,7 +150,7 @@ Or you can go back to
 <<Content of package.json>>{zwsp}. +
 
 :numbered:
-== Managing dependencies
+==== Managing dependencies
 
 In order to manage dependencies we recommend using package managers in your projects.
 
@@ -158,13 +161,13 @@ Another reason, closely related to the first one, is reducing human error by aut
 Two of the package managers you can use in node.js projects are "yarn" and "npm". While you can use both, we encourage you to use only one of them while working on projects. Using both may lead to different dependencies between members of the team.
 
 :numbered:
-=== npm
+===== npm
 
 We'll start by installing npm following this small guide https://docs.npmjs.com/getting-started/installing-node[here].
 
 As stated on the web, npm comes inside of node.js, and must be updated after installing node.js, in the same guide you used earlier are written the instructions to update npm.
 
-==== How npm works
+*How npm works*
 
 In order to explain how npms works, let's take a command as an example:
 
@@ -179,7 +182,7 @@ After initializating and installing the first package there will be a new folder
 
 Take in consideration both npm and yarn need a package.json in the root of your project in order to work properly. If after creating your project don't have it, download again the package.json from the repository or you'll have to start again.
 
-==== Brief overview of commands
+*Brief overview of commands*
 
 If we need to create a package.json from scratch, we can use the comand *init*. This command asks the user for basic information about the project and creates a brand new package.json.
 
@@ -238,7 +241,7 @@ npm@@VERSION@ /path/to/npm
 
 We recommend you to learn more about npm commands in the following https://docs.npmjs.com/[link], navigating to the section cli commands.
 
-==== About Package-lock.json
+*About Package-lock.json*
 
 Package-lock.json describes the dependency tree resulting of using package.json and npm. 
 Whenever you update, add or remove a package, package-lock.json is deleted and redone with
@@ -263,11 +266,11 @@ It is *not* recommended to modify this file yourself. It's better to leave its m
 More information is provided by the npm team at https://docs.npmjs.com/files/package-lock.json[package-lock.json]
 
 :numbered:
-=== Yarn
+===== Yarn
 
 Yarn is an alternative to npm, if you wish to install yarn follow the guide https://yarnpkg.com/en/docs/install[getting started with yarn] and download the correct version for your operative system. Node.js is also needed you can find it https://nodejs.org/en/[here].
 
-==== Working with yarn
+*Working with yarn*
 
 Yarn is used like npm, with small differences in syntax, for example _npm install module_ is changed to _yarn add module_.
 
@@ -280,7 +283,7 @@ However, unlike npm, yarn maintains a cache with packages you download inside. Y
 
 Similarly to npm, yarn creates and maintains his own lock file, called yarn.lock. Yarn.lock gives enough information about the project for dependency tree to be reproduced.
 
-==== yarn commands
+*yarn commands*
 
 Here we have a brief description of yarn's most used commands:
 
@@ -312,7 +315,7 @@ Installs the <<Global package>>.
 
 Please, refer to the documentation to learn more about yarn commands and their attributes: https://yarnpkg.com/en/docs/cli/[yarn commands]
 
-==== yarn.lock
+*yarn.lock*
 
 This file has the same purpose as Package-lock.json, to guide the packet manager, in this case yarn,
 to install the dependency tree specified in yarn.lock.
@@ -336,8 +339,7 @@ As with package-lock.json, it's strongly *not* adviced to modify this file. Leav
 
 You can learn more about yarn.lock here: https://yarnpkg.com/en/docs/yarn-lock[yarn.lock]
 
-:numbered:
-=== Global package
+===== Global package
 
 Global packages are packages installed in your operative system instead of your local project, 
 global packages useful for developer tooling that is not part of any individual project but instead is used for local commands.
@@ -353,9 +355,8 @@ npm install –g @angular/cli
 https://docs.npmjs.com/getting-started/installing-npm-packages-globally[Global npm] +
 https://yarnpkg.com/lang/en/docs/cli/global/[Global yarn]
 
-
 :numbered:
-=== Package version
+===== Package version
 
 Dependencies are critical to the success of a package. You must be extra careful about
 which version packages are using, one package in a different version may break your code.
@@ -363,7 +364,7 @@ which version packages are using, one package in a different version may break y
 Versioning in npm and yarn, follows a semantic called semver, following the logic 
 MAJOR.MINOR.PATCH, like for example, @angular/animations: 4.4.6.
 
-==== Different versions
+*Different versions*
 
 Sometimes, packages are installed with a different version from the one initially installed.
 This happens because package.json also contains the range of versions we allow yarn or npm to
@@ -415,8 +416,8 @@ it cannot surpass 5.0.0 or be lower than 4.2.4 .
 
 You can learn more about this in https://yarnpkg.com/en/docs/dependency-versions[Versions]
 
-:numbereded:
-== Problems you may encounter
+:numbered:
+==== Problems you may encounter
 
 If you can't find package.json, you may have deleted the one you had previously, 
 which means you have to download the package.json from the repository. 
@@ -447,7 +448,7 @@ there is a solution to a problematic update to one package.
 
 A list of common errors of npm can be found in: https://docs.npmjs.com/troubleshooting/common-errors[npm errors]
 
-=== Recomendations
+===== Recomendations
 
 Use yarn *or* npm in your project, reach an agreement with your team in order to choose one, this will avoid
 undesired situations like forgetting to upload an updated yarn.lock or package-lock.json.
@@ -458,21 +459,3 @@ Pull your project every time it's updated. Erase your node_modules folder and re
 dependencies. This assures you to be working with the same dependencies your team has.
 
 AD Center recommends the use of yarn.
-
-[bibliography]
-Documentation Sources
----------------------
-- https://docs.npmjs.com/[NPM]
-- https://yarnpkg.com/en/docs[YARN]
-
-
-
-ifdef::backend-docbook[]
-[index]
-Example Index
--------------
-////////////////////////////////////////////////////////////////
-The index is normally left completely empty, it's contents being
-generated automatically by the DocBook toolchain.
-////////////////////////////////////////////////////////////////
-endif::backend-docbook[]

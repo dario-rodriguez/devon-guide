@@ -1,11 +1,16 @@
 :toc: macro
 toc::[]
 
-= File Upload and Download
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== File Upload and Download
 
 Apache CXF is an open source services framework. CXF helps you to build and develop services using front-end programming APIs, like JAX-WS and JAX-RS.
 
-== File download from CXF
+=== File download from CXF
 
 *org.apache.cxf* provides the option to download files of different MIME (Multipurpose Internet Mail Extensions) types.
 
@@ -53,7 +58,7 @@ Following table explains the annotations used for the download functionality:
 |===
 
 
-=== Produces Annotation
+==== Produces Annotation
 
 @Produces annotation is used to specify the MIME media type that can be produced and sent back to the client. If @Produces is applied at the class level, all the methods in a resource produce the specified MIME type by default. If applied at the method level, the annotation overrides any @Produces annotation applied at the class level.
 
@@ -82,7 +87,7 @@ public class SomeResource {
 
 --------
 
-== File upload from CXF
+=== File upload from CXF
 
 *org.apache.cxf* provides option to upload files of different MIME (Multipurpose Internet Mail Extensions) type.
 
@@ -173,7 +178,7 @@ Following table explains the annotations used for upload functionality:
 |@PATH|This identifies the URI path template to which the resource responds, and is specified at the class level of a resource.
 |===
 
-=== Consumes Annotation
+==== Consumes Annotation
 
 The @Consumes annotation is used to specify MIME media types that can be accepted, or consumed, from the client. If @Consumes is applied at the class level, all the response methods accept the specified MIME type by default. If applied at the method level, @Consumes overrides any @Consumes annotation applied at the class level.
 
@@ -201,7 +206,7 @@ public class SomeResource {
 }
 --------
 
-== MIME Types
+=== MIME Types
 
 MIME stands for "Multipurpose Internet Mail Extensions". It is a way of identifying files on the Internet, according to their nature and format. For example, using the "Content-type" header value defined in an HTTP response, the browser can open the file with the proper extension/plugin.
 

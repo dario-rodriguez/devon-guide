@@ -1,7 +1,12 @@
 :toc: macro
 toc::[]
 
-= Ext.window.Window
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Ext.window.Window
 
 Windows are a Panel subclass designed to float above all other components in an application. Windows are a great way to present a popup-style context view to the end user. Used judiciously, windows can be a great way to present a lot of information without intruding on the other views occupying the screen real estate.
 
@@ -9,7 +14,7 @@ By default, windows will be rendered to the document body (document.body), thoug
 
 Note: For more information on view controller event handling and data binding via the view model see the view controller and view model guides.
 
-== Basic Window
+=== Basic Window
 
 Windows, like other floating components, are initially rendered as hidden and must be shown programmatically using the show method.
 
@@ -387,6 +392,6 @@ var win = Ext.create({
 }); 
 ----
 
-== Conclusion
+=== Conclusion
 
 Windows are a handy way to present your end user with additional information without needing to wrestle with the real estate used by the rest of the application. Since windows are a container you can give them any layout fitting your use case. That combined with their floating nature and the ability to maximize and minize makes windows an extremely versatile component in the Ext JS framework. For light informational popups and confirmation windows check out the Ext.window.MessageBox class.

@@ -1,15 +1,20 @@
 :toc: macro
 toc::[]
 
-= Docker
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
 
-== Introduction
+== Docker
+
+=== Introduction
 
 Docker is an open source project to wrap, ship and run software using containers.
 
 The docker containers run independently of the hardware or platform you are using, and the application wrapped doesn't require to be built on a specific language or framework. That makes them great building blocks for deploying and scaling network applications like web servers, databases, mail servers with a small amount of effort.
 
-== Install Docker on Windows
+=== Install Docker on Windows
 
 If you do not use Windows 10, you can not run Docker directly on your machine. Rather, you need a virtual machine, with a specific Linux distribution on it. Docker offers a ready to use https://www.docker.com/products/docker-toolbox[toolbox] that automates this process. In order to run a virtual machine, your machine needs virtualization enabled. This can be done in your BIOS settings. For a Lenovo T450, this works as shown below. This will work similar for other models:
 
@@ -22,7 +27,7 @@ If you do not use Windows 10, you can not run Docker directly on your machine. R
 
 Now, install Docker Toolbox (full installation is recommended). When the installation is done, start Docker Quickstart Terminal to see if everything works. As soon as you see some whale and a command prompt, you can try the following command: `docker run hello-world`. This will download and run a container from docker hub and print some message, if this was successful.
 
-== Use Docker manually
+=== Use Docker manually
 
 As docker (boot2docker) runs on virtualized machine, you may need to share folders with this virtual machine (VM). Start Oracle VM VirtualBox. You should see a machine called default. If you have started the Docker Quickstart Terminal prior to this, then the _default_ should be running. 
 In order to add a shared folder, you have to shut down the machine. You can do this by right clicking on _default_, _close_, _power off_. Then, click on _default_ and go to _Settings_, _Shared Folders_. On the right side, you can click on _Adds new shared folder_. In the folder path, go to _Other_ and navigate to the folder on your machine that you wish to share with the VM (e.g. c:\dockershare) and type a name (e.g. dockershare). Toggle _Auto-mount_ and _Make Permanent_ and save the changes.
@@ -47,7 +52,7 @@ This will use a java 7 image as a base, which gets downloaded from the public Do
 
 In the above case, IP is 192.168.99.100, so the sample app can be accessed in a browser of the Windows host with 192.168.99.100:8080. To list all running containers types, use `docker ps` command. In order to stop a running container, one can use `docker stop nameOfContainer`.
 
-== Fabric8io plugin
+=== Fabric8io plugin
 
 Various maven plugins enable the dockerziation within the process of building the application. In the devon sample server, this is shown using the https://github.com/fabric8io/docker-maven-plugin[fabric8io/docker-maven-plugin], integrated as an extra profile called _docker_. Executing `mvn -Pdocker install`
 
@@ -61,9 +66,9 @@ Various maven plugins enable the dockerziation within the process of building th
 In detail, if you want to test this on your local machine, you need to have docker installed as mentioned above. In the console, type `docker-machine env` to see the IP and other properties of your VM. To set the environment variables, so that the plugin deploys the application into your local docker instance, type the last line of that output (something like `eval $("C:\Program Files\Docker Toolbox\docker-machine.exe" env)`). Now, navigate to your workspace, where the project is located. In the `devon/sample` folder, you can now execute `mvn -Pdocker install` and see how the process starts. If you only want to build the container, you can navigate into `/devon/sample/server` and execute `mvn -Pdocker package docker:build` or start the container with `mvn -Pdocker docker:start`.
 
 
-== Docker tips
+=== Docker tips
 
-=== Run WAR file on Tomcat
+==== Run WAR file on Tomcat
 
 If you have a WAR file and want to run on Tomcat without installing you can use docker and mount the WAR file under the `/usr/local/tomcat/webapps/yourapp.war`.
 

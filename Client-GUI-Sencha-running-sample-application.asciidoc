@@ -1,11 +1,16 @@
 :toc: macro
 toc::[]
 
-# Devon4sencha Sample application
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Devon4sencha Sample application
 
 Devon comes with a sample java application simulating the backend for a restaurant application. Devon4sencha's sample application completes the restaurant application with a user-friendly UI.
 
-## Running the sample restaurant application
+=== Running the sample restaurant application
 
 image::images/devconlogo_imgonly.png[,width="50"]
 .*Using devcon*

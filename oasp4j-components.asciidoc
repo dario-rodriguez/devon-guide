@@ -1,15 +1,20 @@
 :toc: macro
 toc::[]
 
-= OASP4J Components
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
 
-== Overview
+== OASP4J Components
+
+=== Overview
 
 When working with _Oasp4j_ the recommended approach for the design of the applications is the _Component Oriented Design_. Each component will represent a significant part (or feature) of our application related to _CRUD_ operations. Internally, the components will be divided in three layers (_service_, _logic_, and _dataaccess_) and will communicate in two directions: service with database or, in the _logic_ layer, a component with other component.
 
 image::images/oasp4j/4.Components/oasp4j_architecture.png[width="450", link="images/oasp4j/4.Components/oasp4j_architecture.png"]
 
-=== Principles
+==== Principles
 
 The benefits of dividing our application in components are:
 
@@ -25,14 +30,14 @@ The benefits of dividing our application in components are:
 
 - Data consistency, a component is responsible for its data and changes to this data shall only happen via the component.
 
-=== Naming
+==== Naming
 
 In _Oasp4j_, as a convention, we will name our components with the name of the target entity followed by `management` term.
 ----
 Foomanagement
 ----
 
-== OASP4J Component example
+=== OASP4J Component example
 
 _My Thai Star_ is an application of a restaurant that allows *booking* tables, and *order* different *dishes* so the main _Oasp4j_ components are:
 
@@ -54,7 +59,7 @@ Apart from that components we will have other _packages_ for the cross-cutting c
 
 - mailservice: with this service we will provide the functionality for sending email notifications. This is a shared service between different app components such as _bookingmanagement_ or _ordercomponent_.
 
-=== OASP4j Component Structure
+==== OASP4j Component Structure
 
 The component will be formed by one package for each one of the three layers that are defined by the _Oasp4j_ architecture: _service_, _logic_ and _dataaccess_.
 
@@ -68,7 +73,7 @@ image::images/oasp4j/4.Components/mythaistar_component_structure.png[width="250"
 
 Apart from that the components will have a fourth package _common.api_ to store the common elements that will be used by the different layers of the component. This is the place will contain common _interfaces_, constants, exceptions or _enums_.
 
-=== OASP4j Component Core
+==== OASP4j Component Core
 
 As we mentioned earlier, each component will be related to a functionality and this functionality will be represented in code by an _Entity_ that will define all the properties needed to wrap the logic of that feature.
 

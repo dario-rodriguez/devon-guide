@@ -1,8 +1,16 @@
-= Why should I use Devonfw?
+:toc: macro
+toc::[]
+
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Why should I use Devonfw?
 
 Devonnfw aims at providing a framework which is oriented at development of web applications based on the Java EE programming model using the Spring framework project as the default implementation.
 
-== Objectives
+=== Objectives
 
 ==== Standardization 
 
@@ -53,7 +61,7 @@ image::images/introduction/devon_quality_agility.png[,width="250", link="images/
  - PoCs and Prototypes in days not months.
 
 
-== Features
+=== Features
 
 ==== Everything in a single zip
 

@@ -1,7 +1,12 @@
 :toc: macro
 toc::[]
 
-= Using Oomph in the IDE
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Using Oomph in the IDE
 
 In this section we'll give a guide on how to use Oomph in your workflow. This tutorial assumes that you use a devon-ide based Oomph Product.
 
@@ -11,7 +16,7 @@ The _Oomph Tool Bar_ looks like this
 
 image::images/oomph/working/01_oomph-bar.png[width=450, align="center", title="Oomph Tool Bar", link="images/oomph/working/01_oomph-bar.png"]
 
-== Checking out a Project
+=== Checking out a Project
 
 . Create a new _Workspace_ (Create an folder inside of `./workspaces` and call `update-all-workspaces`). This step is optional. You can also import the project in any pre existing workspace.
 . Start Eclipse with the target Workspace (the `eclipse-....bat` script).
@@ -20,7 +25,7 @@ image::images/oomph/working/01_oomph-bar.png[width=450, align="center", title="O
 . Fill out the variables and proceed. Make sure that the _Show all variables_ check box is activated and that the _Workspace for ... _ variable is set to the current Workspace.
 . Oomph will now set up the Project according to it's definition. The Wizard will close automatically but can be brought back with the _Setup Task Progess Indicator_.
 
-== Updating a Oomph based Product and Project
+=== Updating a Oomph based Product and Project
 
 By default every devon-ide based Oomph Product has the Setup Task check at each start enabled. If not you can enable (or disable if you don't want it at every start of Eclipse) with the _Skip automatic task execution at startup time_ check box in the Eclipse Preferences -> Oomph -> Setup Tasks.
 

@@ -1,7 +1,12 @@
 :toc: macro
 toc::[]
 
-= OASP4J Deployment
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== OASP4J Deployment
 
 As we already mentioned when link:oasp4j-application-structure[introducing the oasp4j projects], the apps created with the _Oasp4j_ archetype are going to provide, apart from the _core_ project, a _server_ project that will configure the packaging of the app. 
 
@@ -11,7 +16,7 @@ image::images/oasp4j/9.Deployment/jumpthequeue_server_structure.png[width="250",
 
 So, using _Maven_, we are going to be able to easily package our app in a _.war_ file to be deployed in an application server like _Tomcat_ (the default server provided in Devonfw).
 
-== The _server_ Project
+=== The _server_ Project
 
 The _server_ project provided in _Oasp4j_ applications is an almost empty _Maven_ project. It only has a _pom.xml_ file that is used to configure the packaging of the _core_ project. Taking a closer look to this _pom.xml_ file we can realize that it only presents a single dependency to the core project. 
 
@@ -44,7 +49,7 @@ And then it includes the https://docs.spring.io/spring-boot/docs/current/referen
 
 ----
 
-== Running the app with Maven
+=== Running the app with Maven
 
 So thanks to _Spring Boot_ and the `spring-boot-maven-plugin` we can run our app using Maven. To do so just open a command line with access to _Maven_ (in Devonfw we can do it using the _console.bat_). And:
 
@@ -78,7 +83,7 @@ Now we can try to access to the app resource (GET)`http://localhost:8081/jumpthe
 
 image::images/oasp4j/9.Deployment/jumpthequeue_simpleget1.png[, link="images/oasp4j/9.Deployment/jumpthequeue_simpleget1.png"]
 
-== Packaging the app with Maven
+=== Packaging the app with Maven
 
 In the same way, using _Maven_ we can package our project in a _.war_ file. As in the previous section, open a command line with access to _Maven_ (in Devonfw _console.bat_ script) and execute the command `mvn clean package` in the project root directory
 
@@ -114,7 +119,7 @@ jumpthequeue-server-bootified.war, with classifier: bootified
 
 The packaging process has created a _.war_ file that has been stored in the `jumpthequeue\server\target` directory.
 
-== Deploying the war file on Tomcat
+=== Deploying the war file on Tomcat
 
 After packaging the app with _Maven_, we have the _.war_ file containing our app. In addition, Devonfw provides us with a _Tomcat_ server ready to be used, so let's deploy the application in that _Tomcat_ server.
 

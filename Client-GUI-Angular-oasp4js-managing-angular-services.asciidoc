@@ -1,10 +1,15 @@
 :toc: macro
 toc::[]
 
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
 == Angular Services
 In this chapter, we are going to see how services work and how we can work with them.
 
-== What are Angular Services?
+=== What are Angular Services?
 From https://angular.io/[Angular's main page]:
 
 _"Service is a broad category encompassing any value, function, or feature that your application needs._
@@ -19,7 +24,7 @@ Services are often created in a shared folder, with the purpose of containing al
 
 Like components, services have to be declared in a NgModule too, in this case, in the _providers_ array.
 
-== Dependency Injection
+=== Dependency Injection
 
 From https://angular.io/guide/architecture#dependency-injection[ Angular architecture docs]:
 
@@ -33,19 +38,19 @@ _An injector maintains a container of service instances that it has previously c
 
 For more information: https://angular.io/guide/dependency-injection[Angular DI]
 
-== Create a new service
+=== Create a new service
 
 Security or other global services will be stored in a shared folder at the same level of the rest of the components, but the services that are specific to a certain component will be in a shared folder too, but inside of that certain component. We can indicate the path to create our services when creating them using angular/cli
 
 `ng generate service <path>/<service-name>`
 
-== Authentication
+=== Authentication
 
 Authentication is a special service created to maintain user session in the application, in the tutorial case is serves just as an indicator of the logged state and the name of the user, but it can be extended to store tokens, validate permission of roles and so on.
 
 Basically is a service created with the objective of manage what the user can or can not see depending on their actions in the application.
 
-== Guards
+=== Guards
 
 https://angular.io/guide/router#milestone-5-route-guards[Guards] are services that implement an interface called *CanActivate*, this interface forces to implement a canActivate method which returns a boolean. Is up to you decide what conditions are you going to implement to forbid the navigation to a certain component, but the fact is you can implement it there and then return if the navigation can be done returning true or can not be done returning false.
 
@@ -53,7 +58,7 @@ Guards are strongly related to Router, because are the routes who will consume t
 
 If your application will have a login process, or special areas not accessible to everyone. We encourage to use Guards, because even if you hide the button to navigate, the user can modify the URL in the browser and have access to the component, with guards implemented, this navigation will be forbidden and you app not compromised.
 
-== Server communication
+=== Server communication
 
 Angular uses https://angular.io/guide/http#http[HTTP] to communicate with the server, but what the call return is an object from the library http://reactivex.io/rxjs/[RxJS], which is a third party library endorsed by Angular to manage asynchronous calls based on the Observable pattern.
 

@@ -1,7 +1,12 @@
 :toc: macro
 toc::[]
 
-# Creating a new application
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Creating a new application
 
 For creating a new application, we start by creating a Sencha CMD workspace to host our project files. 
 

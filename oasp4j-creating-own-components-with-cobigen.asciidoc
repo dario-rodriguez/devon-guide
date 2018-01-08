@@ -1,7 +1,12 @@
 :toc: macro
 toc::[]
 
-= Creating Component's Structure with _Cobigen_
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Creating Component's Structure with _Cobigen_
 
 Once we have finished creating the _core_ of our components we could continue creating all the structure and elements manually, but we are going to show how using _Cobigen_ for those tasks we can save a significant amount of time and effort.
 

@@ -1,7 +1,12 @@
 :toc: macro
 toc::[]
 
-= Error processing
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Error processing
 
 Devon's Sencha layer has it's own mechanism to manage received errors from the server when performing Ajax requests. Devon has two features for related to error management:
 

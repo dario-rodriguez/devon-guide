@@ -1,14 +1,19 @@
 :toc: macro
 toc::[]
 
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
 
-= Adapting devon4sencha apps to microservices
 
-== Introduction
+== Adapting devon4sencha apps to microservices
+
+=== Introduction
 
 In order to use _devon4sencha_ applications with the link:devon-microservices[Devonfw implementation for microservices], we will need to adapt the Security configuration of the framework to authenticate our client app against the _auth_ service of the microservices solution.
 
-== Security changes
+=== Security changes
 
 To do so we will need to add some changes in the way _Sencha_ authenticates. The changes only affect to the `devon4sencha\packages\local\devon-extjs\src\Security.js` file so we can open it with an editor and add bellow code:
 

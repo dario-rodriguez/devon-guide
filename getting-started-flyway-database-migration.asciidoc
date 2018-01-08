@@ -1,11 +1,16 @@
 :toc: macro
 toc::[]
 
-=  Set up and maintain database schemas with Flyway
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Set up and maintain database schemas with Flyway
  
 https://flywaydb.org/documentation/[Flyway]  is an open-source database migration tool. It strongly favors simplicity and convention over configuration.
 
-== Why use flyway
+=== Why use flyway
 
 Consider, you have an application (a piece of software) and a database. Great! And this could be all you need. 
 
@@ -34,7 +39,7 @@ They allow you to:
 * Migrate in a deterministic way from your current version of the database to a newer one.
 
 
-== How it works for setting up the database and maintaining it
+=== How it works for setting up the database and maintaining it
 
 To know which state your database is in, Flyway relies on a special metadata table for all its internal bookkeeping. 
 
@@ -72,7 +77,7 @@ image::images/setup-and-maintain-db-schemas-with-flyway/schema-version-metadata-
 
 
 
-== How to set up a database 
+=== How to set up a database 
 
 Flyway can be used as a standalone or integrated tool via its API to make sure the database migration takes place on startup.
 To enable auto migration on startup (not recommended for production environment), set the following property in the _application.properties_ file.

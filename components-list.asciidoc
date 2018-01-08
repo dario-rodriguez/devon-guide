@@ -1,7 +1,14 @@
+:toc: macro
+toc::[]
 
-= List of Components
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
 
-== Devonfw Release 2.2.0
+== List of Components
+
+=== Devonfw Release 2.2.0
 
 .Environment Elements
 [options="header"]

@@ -1,9 +1,14 @@
 :toc: macro
 toc::[]
 
-= An OASP4JS Application Structure
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
 
-== Overview
+== An OASP4JS Application Structure
+
+=== Overview
 
 What we have shown in the previous section is the aspect of a My Thai Star client app that consumes the services created with the _Oasp4j_ server solution.
 
@@ -11,7 +16,7 @@ From now on we are going to focus on the implementation of the components, servi
 
 My Thai Star project is hosted https://github.com/oasp/my-thai-star[on github] and includes different technologies such as _Java_, _.Net_ and _Node_ for backend solutions and _Angular_ and _Xamarin_ as default clients.
 
-=== The OASP4JS Project
+==== The OASP4JS Project
 
 Using the _Oasp4js_ approach for the client project we will have a structure of a main _Angular_ project formed as follows:
 
@@ -25,7 +30,7 @@ The _src_ folder contains all the application code.
 
 Finally, the rest of the files are config files for the different technologies involved in the project.
 
-=== Angular folder structure
+==== Angular folder structure
 
 Following https://angular.io/docs/ts/latest/guide/style-guide.html[Angular style guide] rules, the structure of the application has been built this way:
 
@@ -44,7 +49,7 @@ As can be seen in this image:
 
 image::images/oasp4js/2.Example_app/app_structure.JPG[, link="images/oasp4js/2.Example_app/app_structure.JPG"]
 
-=== Components
+==== Components
 As we already saw in the previous chapter, Angular architecture is based on three types of elements: Components, Services, Modules and Directives.
 
 In this section we are going to focus on the _components_. We can distinguish them because they all are named with the extension *.component.ts*.
@@ -83,7 +88,7 @@ image::images/oasp4js/2.Example_app/book_table.JPG[, link="images/oasp4js/2.Exam
 
 This component view shows a card that can show an instant reservation or the creation of an event.
 
-=== Services
+==== Services
 Ideally, all the logic should be taken out of the component, and let there only the calls to the services and minimal script interaction. Services is where all the logic should be, including calling the server.
 
 MyThaiStar components consume this services, as could be the price-calculator when a costumer makes an order:
@@ -106,5 +111,5 @@ When all of this correctly setup, we can do a log-in to the waiter cockpit, and 
 
 image::images/oasp4js/2.Example_app/waiter_cockpit.JPG[, link="images/oasp4js/2.Example_app/waiter_cockpit.JPG"]
 
-=== Modules
+==== Modules
 Through modules you can encapsulate whole functionalities or part of the application. All Angular apps have, at least, one module: _app.module_. But Angular encourages the use of more modules to organize all the components and services. In MyThaiStar every component and service is inside a module, making the _app.module_ composed only by other smaller modules.

@@ -1,7 +1,12 @@
 :toc: macro
 toc::[]
 
-= OASP4J Component Layers
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== OASP4J Component Layers
 
 As we already mentioned in the link:oasp4j-architecture[introduction to Oasp4j] the components of our _Java_ backend apps will be divided in three layers: _service_, _logic_ and _dataaccess_.
 
@@ -12,7 +17,7 @@ As we already mentioned in the link:oasp4j-architecture[introduction to Oasp4j] 
 * _Data Access_ Layer: the layer to communicate with the data base.
 
 
-== Layers implementation
+=== Layers implementation
 
 image::images/oasp4j/5.Layers/dependency_injection.png[,width="250", link="images/oasp4j/5.Layers/dependency_injection.png"]
 
@@ -43,13 +48,13 @@ public class MyBeanImpl implements MyBean {
 }
 ----
 
-=== Communication between layers
+==== Communication between layers
 
 The communication between layers is solved using the described _Dependency Injection_ pattern, based on _Spring_ and the _Java_ standards: _java.inject_ (JSR330) combined with JSR250.
 
 image::images/oasp4j/5.Layers/layers_impl.png[, link="images/oasp4j/5.Layers/layers_impl.png"]
 
-==== Service layer - Logic layer
+===== Service layer - Logic layer
 [source,java]
 ----
 import javax.inject.Inject;
@@ -73,7 +78,7 @@ public class BookingmanagementRestServiceImpl implements BookingmanagementRestSe
 }
 ----
 
-==== Logic layer - Data Access layer
+===== Logic layer - Data Access layer
 
 [source,java]
 ----
@@ -102,7 +107,7 @@ public class BookingmanagementImpl extends AbstractComponentFacade implements Bo
 ----
 
 
-=== Service layer
+==== Service layer
 
 As we mentioned at the beginning, the _Service_ layer is where the services of our application (REST or SOAP) will be located.
 
@@ -110,7 +115,7 @@ In _Oasp4j_ applications the default implementation for web services is based on
 
 In this tutorial we are going to focus only in the _REST_ implementation of the services.
 
-==== Service definition
+===== Service definition
 
 The services definition is done by the service _interface_ located in the `service.api.rest` package. In the _boooking_ component of _My Thai Star_ application we can see a service definition statement like the following
 
@@ -146,7 +151,7 @@ public interface BookingmanagementRestService {
 
 
 
-==== Service implementation
+===== Service implementation
 
 The service implementation is a class located in the `service.impl.rest` package that implements the previous defined interface.
 
@@ -170,7 +175,7 @@ public class BookingmanagementRestServiceImpl implements BookingmanagementRestSe
 
 As you can see this layer simply delegates in the _logic_ layer to resolve the app requirements regarding business logic.
 
-=== Logic layer
+==== Logic layer
 
 In this layer we will store all the custom implementations to resolve the requirements of our applications. Including:
 
@@ -187,7 +192,7 @@ In this layer we will store all the custom implementations to resolve the requir
 Within the _logic_ layer we must avoid including code related to services or data access, we must delegate those tasks in the suitable layer.
 
 
-==== Logic layer definition
+===== Logic layer definition
 
 As in the _service_ layer, the logic implementation will be defined by an interface located in a `logic.api` package.
 
@@ -201,7 +206,7 @@ public interface Bookingmanagement {
 }
 ----
 
-==== Logic layer implementation
+===== Logic layer implementation
 
 In a `logic.impl` package a _Impl_ class will implement the interface of the previous section.
 
@@ -257,7 +262,7 @@ In the above _My Thai Star_ logic layer example we can see:
 
 - Delegation of the transaction management through the Spring's `@Transactional` annotation.
 
-=== Transfer objects
+==== Transfer objects
 
 In the code examples of the _logic_ layer section you may have seen a _BookingCto_ object. This is one of the https://github.com/oasp/oasp4j/wiki/guide-transferobject[Transfer Objects] defined in _Oasp4j_ to be used as transfer data element between layers.
 
@@ -302,7 +307,7 @@ However, in this layer the implementation is slightly different, the `[Target]Da
 
 Because of that, in the `[Target]DaoImpl` implementation of the layer we only need to add the _custom_ methods that are not implemented yet. Following the _My Thai Star_ component example (_bookingmanagement_) we will find only the paginated _findBookings_ implementation.
 
-==== Data Access layer definition
+===== Data Access layer definition
 
 [source,java]
 ----
@@ -311,7 +316,7 @@ public interface BookingDao extends ApplicationDao<BookingEntity> {
 }
 ----
 
-==== Data Access layer implementation
+===== Data Access layer implementation
 
 [source,java]
 ----
@@ -334,9 +339,9 @@ public class BookingDaoImpl extends ApplicationDaoImpl<BookingEntity> implements
 The implementation of the _findBookings_ uses http://www.querydsl.com/[queryDSL] to manage the dynamic queries.
 
 
-=== Layers of the Jump the Queue application
+==== Layers of the Jump the Queue application
 
-All the above sections describe the main elements of the layers of the _Oasp4j_ components. If you have completed the link:oasp4j-components[exercise of the previous chapter] you may have noticed that all those components are already created for us by _Cobigen_.
+All the above sections describe the main elements of the layers of the _Oasp4j_ components. If you have completed the link:OASP4jComponents[exercise of the previous chapter] you may have noticed that all those components are already created for us by _Cobigen_.
 
 Take a look to our application structure
 
@@ -368,15 +373,15 @@ Using _Cobigen_ we have created a complete and functional _Oasp4j_ application w
 
 Let's see the application running and let's try to use the REST service to save a new visitor.
 
-=== Jump the Queue running
+==== Jump the Queue running
 
 As we already mentioned, for this tutorial we are using https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop[Postman] for Chrome, but you can use any other similar tool to test your API.
 
-First, open your _Jump the Queue_ project in Eclipse and run the app (right click over the _SpringBootApp.java class > Run as > Java application)
+First, open your _Jump the Queue_ project in Eclipse and run the app (right click over the _SpringBootApp.java_ class > Run as > Java application)
 
-==== Simple call
+===== Simple call
 
-If you remember link:oasp4j-components#mock-data[we added some mock data] to have some visitors info available, let's try to retrieve a visitor's information using our _visitormanagement service_.
+If you remember link:OASP4jComponents#mock-data[we added some mock data] to have some visitors info available, let's try to retrieve a visitor's information using our _visitormanagement service_.
 
 Call the service (GET) `http://localhost:8081/jumpthequeue/services/rest/visitormanagement/v1/visitor/1` to obtain the data of the visitor with _id_ 1.
 
@@ -421,7 +426,7 @@ Now run again the app and try again the same call. We should obtain the data of 
 image::images/oasp4j/5.Layers/jumpthequeue_simpeGet2.png[, link="images/oasp4j/5.Layers/jumpthequeue_simpeGet2.png"]
 
 
-==== Paginated response
+===== Paginated response
 
 _Cobigen_ has created for us a complete services related to our entities so we can access to a paginated list of the visitors without any extra implementation.
 
@@ -470,7 +475,7 @@ image::images/oasp4j/5.Layers/jumpthequeue_paginated2.png[, link="images/oasp4j/
 
 We could customize the filter editing the `visitormanagement/dataaccess/impl/dao/VisitorDaoImpl.java` class.
 
-==== Saving a visitor
+===== Saving a visitor
 
 To fit the requirements of the related https://github.com/oasp/oasp-tutorial-sources/wiki/JumpTheQueueDesign#user-story-register[user story] we need to register a _visitor_ and return an _access code_.
 

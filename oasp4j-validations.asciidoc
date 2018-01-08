@@ -1,7 +1,12 @@
 :toc: macro
 toc::[]
 
-= OASP4J Validations
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== OASP4J Validations
 
 For validations, _OASP4J_ includes the http://hibernate.org/validator/[Hibernate Validator] as one of the available libraries in the _pom.xml_ file
 
@@ -15,7 +20,7 @@ For validations, _OASP4J_ includes the http://hibernate.org/validator/[Hibernate
 
 Hibernate Validator allow us to check the values by adding annotations in our _Java_ classes.
 
-== My Thai Star Validations
+=== My Thai Star Validations
 
 In _My Thai Star_ app, you can find validations for some fields that we receive from the client.
 
@@ -57,7 +62,7 @@ private Integer assistants;
 
 - `@Email` is the standard validator for email accounts. In this case the standard validator is not checking the domain of the email, so for _My Thai Star_ we added a custom validator called '@EmailExtended' that is defined in a new 'general/common/api/validation/EmailExtended.java` class. In the next section we will see it in more detail.
 
-== Add your own Validations
+=== Add your own Validations
 
 In _Jump the Queue_ app, we have some inputs from the client so let's add some validations for that data to avoid errors and ensure the consistency of the information before trying to save to data base.
 
@@ -69,7 +74,7 @@ When registering a visitor the client provides:
 
 - _phone_: must be not null and must match a sequence of numbers and spaces.
 
-=== Name Validation
+==== Name Validation
 
 As we have just mentioned the name of the visitor must be not null, to do so Hibernate Validator provides us with the already mentioned `@NotNull` annotation (_javax.validation.constraints.NotNull_).
 
@@ -96,7 +101,7 @@ You will get a _ValidationError_ message regarding the _name_ field
 image::images/oasp4j/7.Validations/jumpthequeue_validation_name.png[, link="images/oasp4j/7.Validations/jumpthequeue_validation_name.png"]
 
 
-=== Email Validation
+==== Email Validation
 
 In the case of the email, as we have already commented for _My Thai Star_, using the `@Email` annotation for validations will allow to enter emails like `something@something`. This does not fit the app requirements, so we need to add a custom email validator.
 
@@ -154,7 +159,7 @@ image::images/oasp4j/7.Validations/jumpthequeue_validation_wrongemail.png[, link
 Finally if we provide a valid email the registration process ends successfully.
 
 
-=== Phone Validation
+==== Phone Validation
 
 For validating the _phone_, apart from the `@NotNull` annotation, we need to use again a custom validation based on the `@Pattern` annotation and a _regular expression_.
 

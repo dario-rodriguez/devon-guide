@@ -1,9 +1,14 @@
 :toc: macro
 toc::[]
 
-= How to do effective Devon4Sencha code reviews
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
 
-== Benefits
+== How to do effective Devon4Sencha code reviews
+
+=== Benefits
 
 * Gain validation of your approach
 * Increase Team Skills
@@ -12,7 +17,7 @@ toc::[]
 * Improve code testability
 * Find bugs
 
-== Best practices
+=== Best practices
 1. [underline]#*Architecture / Design*#
 
 * Single responsibility principle : A class should have
@@ -50,7 +55,7 @@ as we need to be to check the expected functionality?
 * Does that variable name make sense?
 * … and anything else that we have seen above.
  
-== How to handle code reviews
+=== How to handle code reviews
 
 - Ask questions
 * How does this method work?
@@ -69,13 +74,13 @@ as we need to be to check the expected functionality?
 - Suggest importance of fixes
 * It makes the results of a review clear and actionable.
 
-== On mindset
+=== On mindset
 - As developers, we are responsible for making both working and maintainable code.
 - Improving the maintainability of the code can be just as important as fixing the line of code that caused the bug.
 
 - Keep an open mind during code reviews.
 
-== Code review tools
+=== Code review tools
 
 - *Codestriker*
 

@@ -1,13 +1,18 @@
 :toc: macro
 toc::[]
 
-= OASP4J Adding Custom Functionality
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== OASP4J Adding Custom Functionality
 
 In the link:oasp4j-layers[previous chapter] we have seen that using _Cobigen_ we can generate in a few _clicks_ all the structure and functionality of an _Oasp4j_ component.
 
 In this chapter we are going to show how to add custom functionalities in our projects that are out of the scope of the code that _Cobigen_ is able to cover.
 
-== Returning the Access Code
+=== Returning the Access Code
 
 The _Jump the Queue_ design defines a link:Client-GUI-Angular-design-jump-the-queue#user-story-register[User Story] in which a visitor can register into an event and obtain an access code to avoid a queue.
 
@@ -17,7 +22,7 @@ We are going to create a new service `/register`, to register a visitor and retu
 
 We also are going to create the logic to generate the access code.
 
-=== Creating the service
+==== Creating the service
 
 To add the new service we need to add the definition to the `visitormanagement/service/api/rest/VisitormanagementRestService.java`. We are going to create a new `/register` _REST_ resource bound to a method that we will call _registerVisitor_.
 
@@ -48,7 +53,7 @@ Then we need to implement the new _registerVisitor_ method in `visitormanagement
 The compilation error that we get in _this.visitormanagement.registerVisitor_ is because the logic for the new functionality is not added yet. We are going to fix it in the next step.
 ====
 
-=== Adding the logic
+==== Adding the logic
 
 Now we need to create the logic for the new _registerVisitor_ method. To do so, as always, we must add the definition to `visitormanagement/logic/api/Visitormanagement.java` class
 
@@ -156,7 +161,7 @@ As last implementation steps we are saving the _visitor entity_ in the database 
 
 We are using the default `save` method, so we don't need to add any extra implementation to the _dataaccess_ layer.
 
-=== Testing the new functionality
+==== Testing the new functionality
 
 Run the app using Eclipse (_SpringBootApp.java > Right click > Java Application_).
 
@@ -177,7 +182,7 @@ image::images/oasp4j/6.Customizations/jumpthequeue_accesscode.png[, link="images
 
 
 
-== List visitors with their access code
+=== List visitors with their access code
 
 For the second link:Client-GUI-Angular-design-jump-the-queue#us-list-queued-visitors[user story] we need to provide a list with the visitors and their access codes. Right now our app list the visitors but only with the _id_ of the access code.
 
@@ -195,7 +200,7 @@ public PaginatedListTo<VisitorEto> findVisitorsByPost(VisitorSearchCriteriaTo se
 
 In the previous section we have talked about the limitation of using the _VisitorEto_, we have the reference to the _access code_ but not the entire object. So to solve it we can also use the _VisitorCto_ as the object to be listed in the response.
 
-=== Edit the service
+==== Edit the service
 
 We are going to replace the _VisitorEto_ to a _VisitorCto_ in the service response:
 
@@ -220,7 +225,7 @@ public PaginatedListTo<VisitorCto> findVisitorsByPost(VisitorSearchCriteriaTo se
 }
 ----
 
-=== Edit the logic
+==== Edit the logic
 
 We are going to replace the _VisitorEto_ reference with a _VisitorCto_
 
@@ -255,7 +260,7 @@ public PaginatedListTo<VisitorCto> findVisitorCtos(VisitorSearchCriteriaTo crite
 
 The method _findAccessCode_ method already returns a _AccessCodeEto_ object, so we don't need to use the mapper in this case.
 
-==== Testing the changes
+===== Testing the changes
 
 Now run again the app with Eclipse and try to get the list of visitors, the response should include the _access code_ data
 

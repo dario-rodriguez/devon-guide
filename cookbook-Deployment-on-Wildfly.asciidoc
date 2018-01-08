@@ -1,7 +1,12 @@
-:toc: macro 
+:toc: macro
 toc::[]
 
-= Deployment on Wildfly
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Deployment on Wildfly
 
 Following describes the steps to install and configure Wilfly 10.x
 

@@ -1,17 +1,22 @@
 :toc: macro
 toc::[]
 
-= Sencha Client and Sencha Architect project generation
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Sencha Client and Sencha Architect project generation
 
 The generation can create a full EXT JS 6 client using the StarterTemplates of the Devon4Sencha package and a Sencha Architect project as well. For more details about the project layout and the template used, please refer to Devon4Sencha documentation link:https://github.com/devonfw/devon/wiki/Client-GUI-Sencha-devon4sencha-application-structure[here].
 
-== Getting ready
+=== Getting ready
 
-=== Sencha Workspace and App
+==== Sencha Workspace and App
 
 For a new EXT JS 6 project:
 
-==== Step 1: Devon4Sencha workspace
+===== Step 1: Devon4Sencha workspace
 
 Copy from workspaces\examples of your DevonFW distribution the devon4sencha folder into the core folder of your OASP4J project.
 
@@ -33,7 +38,7 @@ oasp4j/
 
 [IMG workspace1]
 
-==== Step 2: Create the app
+===== Step 2: Create the app
 
 Open a console and navigate to the decon4sencha directory from the core folder and write the following command, being APP_NAME the same name as the last part of the basePackage, the name of the package where the SpringBootApp class is:
 
@@ -54,7 +59,7 @@ image::images/devonfw-cobigen/devon_guide_cobigen9_sencha_app_gen.png[link="imag
 
 Refresh your OASP4J project (F5).
 
-==== Step 3: Config.js and ConfigDevelopment.js
+===== Step 3: Config.js and ConfigDevelopment.js
 
 Edit this two files to configure the endpoint where the ajax calls have to be made. ConfigDevelopment overrides the values in Config.js but it is skipped when doing production builds.
 
@@ -62,21 +67,21 @@ During development you will be deploying client and server code independently, t
 
 To enable this and avoid getting cross domain browser errors you have to enable CORS on the server side.
 
-=== CobiGen Templates
+==== CobiGen Templates
 
 Before begin the generation, import the CobiGen_templates project included at yor DevonFW distribution into your Eclipse work space
 
 The project has the templates for the Sencha Client and Sencha Architect project generation.
 
-== Generating
+=== Generating
 
-=== Input
+==== Input
 
 The input file for the generation must be the *Eto* file because is the object transferred between the server and the client.
 
 image:images/devonfw-cobigen/devon_guide_cobigen9c_sencha_app_gen.png[CobiGen Menu,width="450",link="images/devonfw-cobigen/devon_guide_cobigen9c_sencha_app_gen.png"]
 
-=== Wizard
+==== Wizard
 
 If the templates are imported at the Eclipse workspace, and the input file is an *Eto*, the wizard will open, this increments can be chosen:
 
@@ -86,7 +91,7 @@ If the templates are imported at the Eclipse workspace, and the input file is an
 For the first time generation, the APPNAME_architect_project folder will be created at the root of the origin project with all the folders and files generated. After that, all the next generations will be merged at thus folders.
 
 
-== Deploying
+=== Deploying
 
 * To deploy the Sencha Client App:
 

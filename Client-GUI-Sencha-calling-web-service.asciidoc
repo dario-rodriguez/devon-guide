@@ -1,7 +1,12 @@
 :toc: macro
 toc::[]
 
-= Rest endpoints
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Rest endpoints
 
 Devon architecture for web applications is based on the standard JAX-RS for communication between client and server. The recommended use of REST is of a more "practical" approach and it is not oriented to *pure*  RESTful (also known as hypermedia or http://en.wikipedia.org/wiki/HATEOAS[HATEOAS]) thus simplifying the programming both on the client and server side. (Please consult the platform guide for more information).
 
@@ -60,7 +65,7 @@ The `Devon.Ajax.define` objects wrap `Ext.Ajax.request` methods with some added 
 * Automatic JSON response decode
 * Default failure function
 
-== URL template resolution
+=== URL template resolution
 
 The `url` parameter used to define a route is treated as an `Ext.XTemplate` that is resolved with the `uriParams` property when the method is called.
 
@@ -91,7 +96,7 @@ Content-Type: application/json
 { "id" : 123, "name": "john", "rol": "admin" }
 ----
 
-== Query string
+=== Query string
 
 Any part of the url is subject to url substitution. It is therefore possible to add a so-called query string just by adding this, in parametrized format, to the url template. This way an URL template like 
 
@@ -112,7 +117,7 @@ when called with uriParams
 ----
 
 
-== Alternative PUT format
+=== Alternative PUT format
 
 An usual case for PUT operations if to address an individual resource on the URL by using its ID and sending the data on the body payload.
 
@@ -140,7 +145,7 @@ Devon.rest.tablemanagement.table.put({
 });
 ----
 
-== Automatic JSON response decode
+=== Automatic JSON response decode
 
 On the original `Ext.Ajax.request` function, the `success` callback property function takes 2 parameters ( response and opts). The first thing to do during this callback is usually decoding the `response.responseText` property of the response object from JSON to a Javascript object.
 
@@ -168,7 +173,7 @@ loadOrder: function(table, response, opts) {            //<3>
 <2> delegate to loadOrder function on the same class
 <3> You usually doesn't need to declare and use response and opts in the callback
 
-== Base Url configuration
+=== Base Url configuration
 
 All the rest endpoints of the application are configured to use the same base url configured in the link:Client-GUI-Sencha-devon4sencha-application-structure#project-layout[Config.js] settings file with the *server* property:
 [source,javascript]

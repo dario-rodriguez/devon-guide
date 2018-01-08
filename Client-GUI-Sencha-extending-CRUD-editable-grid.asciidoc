@@ -1,11 +1,16 @@
 :toc: macro
 toc::[]
 
-# Extending the CRUD: Grid editable
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Extending the CRUD: Grid editable
 
 In this section, we are going to develop a grid that allows the modification of its fields without having to open a new window.
 
-## Creating the grid
+=== Creating the grid
 
 We are going to create a list of employees and edit the cells of the grid.
 
@@ -178,7 +183,7 @@ Now, check the output and see that we have created a list of employees:
 
 image::images/client-gui-sencha/employees.PNG[Employees,width="450", link="images/client-gui-sencha/employees.PNG"]
 
-## Cellediting plugin
+=== Cellediting plugin
 
 Once the base of our view is defined with a list of employees, we are going to add some functionality to have an editable grid.
 First of all, we are going to add a plugin to our grid in order to edit cells.
@@ -228,7 +233,7 @@ Check that we can edit the column `Name`:
 
 image::images/client-gui-sencha/editEmployeeCell.PNG[Cellediting,width="450", link="images/client-gui-sencha/editEmployeeCell.PNG"]
 
-### Combobox as an editing cell
+==== Combobox as an editing cell
 
 Modify the column `Rol` to be editable as a `combobox` component.
 
@@ -294,7 +299,7 @@ Check the output in the screen with the changes we have made:
 
 image::images/client-gui-sencha/editingCombo.PNG[Cellediting Combobox,width="450", link="images/client-gui-sencha/editingCombo.PNG"]
 
-### Dirty
+==== Dirty
 
 Note that, after editing a cell, it shows a red mark.  It indicates that the cell is `dirty`, it means that the changes have not been confirmed.  For that purpose, after editing the grid we should send the data to the server to confirm it or just commit the change in the view.
 
@@ -326,7 +331,7 @@ We could have created a **ViewController** to manage the listener but we have de
 
 Navigate to the application and check that there is not red mark anymore after editing a cell.
 
-## Rowediting plugin
+=== Rowediting plugin
 
 In this example we allow to edit the grid cell by cell, but if we want to edit the whole row at a time, we just have to change the type of plugin used.
 
@@ -344,7 +349,7 @@ Navigate to the application and check the new behaviour when editing the grid:
 
 image::images/client-gui-sencha/rowediting.PNG[Rowediting,width="450", link="images/client-gui-sencha/rowediting.PNG"]
 
-## Add empty records
+=== Add empty records
 
 Now, we want to add new records to the store.
 

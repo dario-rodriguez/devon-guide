@@ -1,23 +1,28 @@
 :toc: macro
 toc::[]
 
-= Devon IDE Oomph Setup Definition
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Devon IDE Oomph Setup Definition
 
 In this section we'll explain the devon-ide Oomph Product definition.
 
-== P2 Director (Devon 2.1.1)
+=== P2 Director (Devon 2.1.1)
 This _P2 Director_ is the main container for all features and plugins of the Product as well as it's update sites. The version numbers on all features / plugins are set to match the _Devon 2.1.1 Balu_ release. We recommend to be only as specific with the feature / plugin version numbers as neccessary.
 
 The features and plugins concerning Oomph are located in the devon Product Catalog.
 
-== Compounds
+=== Compounds
 
 
-=== version config of non-eclipse resources
+==== version config of non-eclipse resources
 
 This Compound contains only variables. Each variable sets the version for one of the external software packages (located at http://de-mucevolve02/files/oomph/resources). Changing a version number without providing a corresponding software package will cause the installation to fail.
 
-=== config of commonly used paths
+==== config of commonly used paths
 
 This Compound contains commonly used paths in the setup of any devon / oasp product and project.
 
@@ -45,19 +50,19 @@ This Compound contains commonly used paths in the setup of any devon / oasp prod
 |Storage|`scope://Installation`
 |====
 
-=== config of paths overriding reserved oomph variables
+==== config of paths overriding reserved oomph variables
 
 This Compound sets the target folder for the Eclipse installation to `${software.location}`. Eclipse will then install itself into an `eclipse` subfolder.
 
-=== download tasks of external resources
+==== download tasks of external resources
 
 This Compound contains _Resource Copy_ tasks to load the OASP4J-IDE scripts. In case of a Windows os a helper script is also loaded for the inital `update-all-workspaces.bat` call at the end of the installation process. All tasks react only to the `BOOTSTRAP` trigger. Nested in the Compound are Compounds for Windows or Linux specific tasks, e.g. resources than work only with either Windows or Linux os.
 
-=== unzip tasks of external resources
+==== unzip tasks of external resources
 
 This Compound contains _unzip_ tasks to unarchive the OASP4J script archives. All tasks react only to the `BOOTSTRAP` trigger.
 
-=== UI Setup
+==== UI Setup
 
 This Compound contains preset UI preferences.
 
@@ -65,19 +70,19 @@ This Compound contains preset UI preferences.
 
 and a _P2 Director_ to install the _Webclipse Darkest Dark Theme_ at users choice (choice is made for the intire installation).
 
-=== Eclipse Index Redirect
+==== Eclipse Index Redirect
 
 This Compound contains the _Eclipse Ini_ task to set the redirection from the offical Oomph index to the devon index.
 
-=== download additional resources
+==== download additional resources
 
 This Compound contains _Resource Copy_ tasks to load additional resources for the devon-ide like scripts and the `main` workspace. All tasks react only to the `BOOTSTRAP` trigger.
 
-=== unarchive additional resources
+==== unarchive additional resources
 
 This Compound contains _unzip_ tasks to unarchive the additional devon-ide resources. All tasks react only to the `BOOTSTRAP` trigger.
 
-==== Notes on the resources
+===== Notes on the resources
 
 All of the packages are stored in `${server}/files/oomph/resources/devon` and follow the naming convention `${packageName}${version}{.zip|\_win.zip|\_linux.tar.gz}`
 
@@ -86,15 +91,15 @@ All of the packages are stored in `${server}/files/oomph/resources/devon` and fo
 * `settings`: the content of the `settings` folder of the release.
 * `workspacemain`: the main workspace simply zipped. Top folder is `main`.
 
-=== download software packages
+==== download software packages
 
 This Compound contains _Resource Copy_ tasks to load the software packages for the devon-ide like ant, maven or Sencha. All tasks react only to the `BOOTSTRAP` trigger.
 
-=== unarchive software packages
+==== unarchive software packages
 
 This Compound contains _unzip_ tasks to unarchive the software archives for the devon-ide. All tasks react only to the `BOOTSTRAP` trigger.
 
-==== Notes on the software packages
+===== Notes on the software packages
 
 Most of the software packages are simply downloaded from their respective websites and renamed (if necessary). They're stored in `${server}/files/oomph/resources/${softwareName}`. Make sure to always provide a package for windows and unix as well as one for both bitnesses, if necessary. Currently we use the following names for the packages.
 
@@ -116,15 +121,15 @@ The naming for the windows package is `SenchaCmd-${version}-windows-no_jre-repac
 * subversion: Upload the rpm packages for linux. For windows install the subversion client to your machine and package the `Subversion Client` folder (the folder `Sencha Client` has to be included into the archive).
 
 
-=== install msi packages
+==== install msi packages
 
 This Compound contains _cli_ tasks to install the software packages that are bundles as `.msi` files. The tasks react only to the `BOOTSTRAP` trigger and are only executed on a Windows machine. All _cli_ tasks here use the `msiinstall.bat` script, loaded in the _download additional resources_ Compound. This script bypasses problems that may occur on paths with white spaces during Windows `msiexec` execution.
 
-=== JDK config
+==== JDK config
 
 This Compounds contains tasks for the JDK configuration. Since the oasp scripts handle the JDK for eclipse the contained tasks only load and unarchive a JDK into `${software.location/java}`.
 
-==== Notes on the software packages
+===== Notes on the software packages
 
 Since Oracle provides only installers you need to install the java package to your machine and package it. Use `.tar.gz` for the linux systems to preserve the executable flags on the files. Package the java folder _without_ it's root folder. The Archive should look like
 
@@ -132,18 +137,18 @@ image::images/oomph/product/02_headlessjdk.png[width=450, align="center", title=
 
 The naming for the devon jdks is `jdk-${version}{|\_linux}{|\_x64}.{zip|tar.gz}`
 
-=== Renaming
+==== Renaming
 
 Since we don't want to see version numbers in the software folder names we need to rename them. The _FS Rename_ tasks for that are bundles in this Compound.
 
-=== finalize external resources
+==== finalize external resources
 
 This Compound contains the tasks for completing the installation. Besides other tasks the `update-all-workspaces.bat` script is called for the first time and the temp folder is removed.
 
-== Projects Import _import.cobigen_
+=== Projects Import _import.cobigen_
 
 This default Project Import imports the _CobiGen\_Templates_ from the _main_ workspace into every other workspace on it's first start.
 
-== Products
+=== Products
 
 Currently only _Neon_ is provided as Product. It contains Eclipse Version dependent p2 artifacts and update sites.

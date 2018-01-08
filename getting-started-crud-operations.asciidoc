@@ -1,9 +1,14 @@
 :toc: macro
 toc::[]
 
-= CRUD operations and DAO implementation
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
 
-== Create CRUD functionality for an entity
+== CRUD operations and DAO implementation
+
+=== Create CRUD functionality for an entity
 
 In this tutorial, we are going to create an entity for the application and provide services for the typical Create, Read, Update and Delete operations for that entity.
 
@@ -12,6 +17,7 @@ If you want to create the application from scratch:
 - Launch the _console.bat_ script.
 
 - Go to a desired directory and use the Maven command
+
 [source,batch]
 ----
 mvn -DarchetypeVersion=2.3.0 -DarchetypeGroupId=io.oasp.java.templates -DarchetypeArtifactId=oasp4j-template-server archetype:generate -DgroupId=com.capgemini.devonfw.application -DartifactId=tutorial -Dversion=0.1-SNAPSHOT -Dpackage=devonfw.tutorial

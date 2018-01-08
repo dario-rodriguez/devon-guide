@@ -1,7 +1,12 @@
 :toc: macro
 toc::[]
 
-= Oomph Tasks Basics
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Oomph Tasks Basics
 
 Oomph authors Eclipse using tasks. The tasks are defined in the different files of the Index and handle everything from downloading resources, defining which plugins to install or cloning git repositories.
 

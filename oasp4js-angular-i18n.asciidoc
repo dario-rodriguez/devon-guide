@@ -1,15 +1,23 @@
 :toc: macro
 toc::[]
 
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
 == OASP4JS i18n internationalization
+
 Nowadays, a common scenario in front-end applications is to have the ability to translate labels and locate numbers, dates, currency and so on when the user clicks over a language selector or similar. OASP4JS and specifically Angular has a default mechanism in order to fill the gap of such features, and besides there are some wide used libraries that make even easier to translate applications.
 
 More info at link:https://angular.io/guide/i18n[Angular i18n official documentation]
 
 == OASP4JS i18n approach
+
 The official approach could be a bit complicated, therefore the recommended one is to use the recommended library **NGX Translate** from http://www.ngx-translate.com/.
 
 === Install NGX Translate
+
 In order to include this library in your OASP4JS **Angular >= 4.3** project you will need to execute in a terminal:
 
 [source,bash]
@@ -23,6 +31,7 @@ $ yarn add @ngx-translate/core @ngx-translate/http-loader
 - **@ngx-translate/http-loader** is a loader for ngx-translate that loads translations using http.
 
 === Configure NGX Translate
+
 Depending on the volume of the OASP4JS application we will include the NGX Translate library in the `app.module.ts` or in the `core.module.ts` transversal to the application.
 
 [source,typescript]
@@ -164,6 +173,7 @@ The `TranslateParser` understands nested JSON objects. This means that you can h
 In order to access access the value, use the dot notation, in this case `HOME.HELLO`.
 
 === Service translation 
+
 If you need to access translations in any component or service you can do it injecting the `Translateservice` into them:
 
 [source,typescript]

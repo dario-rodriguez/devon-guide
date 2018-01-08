@@ -1,20 +1,25 @@
 :toc: macro
 toc::[]
 
-= Compatibility guide for JAVA and TOMCAT
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
 
-== What this guide contains
+== Compatibility guide for JAVA and TOMCAT
+
+=== What this guide contains
 
 As, we have migrated to eclipse neon, which mandatorily uses _Java8_, if any project or user wants to use _JAVA7_, this guide will assist to do so.
 We also have integrated _TOMCAT8_ with the Devon distribution and oasp4j IDE. Therefore, it also describes the steps required to use _Tomcat7_ with the distributions.
 
-== Using JAVA7
+=== Using JAVA7
 
-=== Download JAVA7
+==== Download JAVA7
 One can download java7 from http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html[here].
 Once java7 is downloaded, run .exe and follow instructions.
 
-=== Change installed jre in eclipse
+==== Change installed jre in eclipse
 
 When you open the eclipse, follow the below steps to change installed jre preferences:
 
@@ -23,34 +28,34 @@ When you open the eclipse, follow the below steps to change installed jre prefer
 image::images/compatibility-guide-for-java7/compatibility-guide-for-java7-01.png["Go to Preferences",width="450",link="images/compatibility-guide-for-java7/compatibility-guide-for-java7-01.png"]
 
 
-==== 2. Go to Installed Jres
+===== 2. Go to Installed Jres
 
 image::images/compatibility-guide-for-java7/compatibility-guide-for-java7-02.png["Go to Installed Jres",width="450",link="images/compatibility-guide-for-java7/compatibility-guide-for-java7-02.png"]
 
 
-==== 3. Browse for java7
+===== 3. Browse for java7
 image::images/compatibility-guide-for-java7/compatibility-guide-for-java7-03.png["Browse for java7",width="450",link="images/compatibility-guide-for-java7/compatibility-guide-for-java7-03.png"]
 
 
-==== 4. Apply changes
+===== 4. Apply changes
 image::images/compatibility-guide-for-java7/compatibility-guide-for-java7-04.png["Apply changes",width="450",link="images/compatibility-guide-for-java7/compatibility-guide-for-java7-04.png"]
 
 
 After following the above instructions, you can import projects or create new ones, and build using java7.
 
-== Using java8
+=== Using java8
 One can use distribution as is, and there is no extra configuration needed for java8.
 
-== Using Tomcat8
+=== Using Tomcat8
 
 As mentioned earlier in the guide, distribution comes with _Tomcat8_ by default, so no changes are required to run the applications with _tomcat8_.
 
-== Using Tomcat7 for deploying
+=== Using Tomcat7 for deploying
 
 You can download tomcat externally and deploy war in it.
 For more information, please visit this link:getting-started-deployment-on-tomcat#deploy-on-tomcat-7[link].
 
-== Linux and Windows Compatibility
+=== Linux and Windows Compatibility
 
 So, the above mentioned steps on _java7 and tomcat7_ compatibility, apply to devonfw distributions of Windows OS as well as  Linux.
 

@@ -1,7 +1,12 @@
 :toc: macro
 toc::[]
 
-= OASP4Fn Application Deplyment
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== OASP4Fn Application Deplyment
 The deployment is performed by the serverless framework and it is quite simple, since the only command needed to deploy the full service is the following one:
 
 [source, bash]

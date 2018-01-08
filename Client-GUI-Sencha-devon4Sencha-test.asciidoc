@@ -1,9 +1,14 @@
 :toc: macro
 toc::[]
 
-= Devon4Sencha testing tools
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
 
-== Tools for testing your Sencha code
+== Devon4Sencha testing tools
+
+=== Tools for testing your Sencha code
 
 - *Jasmine* – http://jasmine.github.io/[http://jasmine.github.io/]
 
@@ -53,7 +58,8 @@ toc::[]
 
 - *HP UFT*
 
-== Sencha Test
+=== Sencha Test
+
 * *Sencha Test* https://www.sencha.com/blog/sencha-test-is-now-generally-available
 
 * Helps existing and new Ext JS developers to release quality applications.

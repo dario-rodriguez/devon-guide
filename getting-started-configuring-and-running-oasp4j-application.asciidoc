@@ -1,14 +1,19 @@
 :toc: macro
 toc::[]
 
-= Configuring and Running OASP4J Application
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Configuring and Running OASP4J Application
 
 Devonfw distribution comes with a latest Master version of My Thai Star application. 
 
-== Configuring the Application
+=== Configuring the Application
 
 ==== Step 1: Setup the Devonfw Environment
-Configure the Devonfw environment using following steps given link:getting-started-download-and-setup[here].
+Configure the Devonfw environment using following steps given link:getting-started-download-and-setupp[here].
 
 ==== Step 2: Import the project
 
@@ -34,7 +39,7 @@ image::images/running-sample-application/select_maven_project_2.png[, width="450
 1. Wait for Eclipse to finish importing the sample projects. This process might take several minutes, depending on the speed of your internet connection.
 
 
-== Running the Application
+=== Running the Application
 
 ==== Step 1: Run the application
 

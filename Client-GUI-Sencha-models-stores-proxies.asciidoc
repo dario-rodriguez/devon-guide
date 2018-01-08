@@ -1,7 +1,12 @@
 :toc: macro
 toc::[]
 
-= Sencha data package
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Sencha data package
 
 Sencha provides a powerful data package with *models*, *stores* and *associations*. But this power comes with added complexity added that usually doesn't justify the price.
 
@@ -37,7 +42,7 @@ Devon.rest.tablemanagement.table.get({
 
 Things get a bit complicated when dealing with `associations` between nested models. Reading a nested structure into a model is an easy task but "writing" back this nested structure is not. Usually it is better to work with good plain old Javascript objects and use a "rest endpoint" to do the communication with the server.
 
-== Devon.restproxy
+=== Devon.restproxy
 
 When defining rest endpoints through the `Devon.Ajax.define` method, it also defines a Rest proxy with the same type as the key of the endpoint. For example for this endpoint:
 
@@ -71,7 +76,7 @@ Ext.define('Sample.view.table.TableEditVM', {
 
 This proxy follows the convention in Devon to use POST for performing read requests that contain additional filters or pagination and sorting information.
 
-== Pagination
+=== Pagination
 When we have a lot of results for a ´READ´ operation, we can not show all the results at the same time due to performance issues. The solution is to paginate the results.
 In Sencha, we can define a http://docs.sencha.com/extjs/5.1/5.1.1-apidocs/\#!/api/Ext.data.Store[paginated data store] setting `pageSize` with a number greater than 0. 
 The user can navigate between data pages with the pagination toolbar of a http://docs.sencha.com/extjs/5.1/5.1.1-apidocs/\#!/api/Ext.grid.Panel[Sencha grid component].
@@ -123,7 +128,7 @@ stores: {
 }
 ----
 
-== Sorting
+=== Sorting
 
 By default, http://docs.sencha.com/extjs/5.1/5.1.1-apidocs/\#!/api/Ext.grid.Panel[Sencha grid component] allows the user to sort the visible data from the grid by clicking on the header columns.
 We can activate the store property `remoteSort` if we want to implement sorting in the back-end:

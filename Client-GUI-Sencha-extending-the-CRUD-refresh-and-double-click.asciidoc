@@ -1,9 +1,14 @@
 :toc: macro
 toc::[]
 
-# Extending the CRUD
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
 
-##  Refreshing the grid after changing some tables
+== Extending the CRUD
+
+=== Refreshing the grid after changing some tables
 
 When we add or edit a table, we should refresh the grid so that we can see the changes without closing the tab panel and open the grid again.   For that reason, we have to create an event `eventTablesChanged` in `TableEditVC.js`.   Every time we click the submit button, window will close and we will see the grid data updated:
 
@@ -55,7 +60,7 @@ onTablesChanged: function() {
 
 Navigate to our application and check how the grid is refreshed after add or edit a table.
 
-## Double-click functionality
+=== Double-click functionality
 
 If we want to edit a table we have to select the table in the grid and then click on `Edit` button.   We are going to do the same just with a `double-click` on the table.
 

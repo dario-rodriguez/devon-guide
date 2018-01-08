@@ -1,11 +1,16 @@
 :toc: macro
 toc::[]
 
-= Creating New OASP4J Application
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Creating New OASP4J Application
 
 In this chapter we are going to show how to create a new _Oasp4j_ application from scratch. The app that we are going to create is _Jump the Queue_, a simple app to avoid the queue in an event by registering a visitor and obtaining an _access code_. You can read all the details of the app in the link:Client-GUI-Angular-design-jump-the-queue[Jump the Queue Design] page.
 
-== Getting Devonfw distribution
+=== Getting Devonfw distribution
 
 The recommended way to start developing _Oasp4j_ applications is to get the latest _Devonfw_ distribution to have a _ready-to-start_ development environment.
 
@@ -15,7 +20,7 @@ Once the download is done extract the _zip_ file and you will get the distributi
 
 image::images/devonfw-dist-structure/devonfw-dist-structure-02.png[width="450", link="images/devonfw-dist-structure/devonfw-dist-structure-02.png"]
 
-== Initialize the distribution
+=== Initialize the distribution
 
 Before creating our first project you must initialize the distribution. To do so execute the scripts
 ----
@@ -35,7 +40,7 @@ Now you should see the _conf_ directory and the Eclipse launchers.
 Learn more about _Devonfw_ initialization https://github.com/devonfw/devon/wiki/getting-started-download-and-install#prepare-the-workspace[here]
 ====
 
-== Create the Server Project
+=== Create the Server Project
 
 First, in the _workspaces_ directory of the distribution create a new folder _jumpthequeue_ and go into it
 
@@ -70,7 +75,7 @@ You can also create new projects:
 
 ====
 
-== Import and Run the Application
+=== Import and Run the Application
 
 As last step we can import the project we just created into the Eclipse IDE provided with _Devonfw_ distribution. Although our new _Oasp4j_ based app is still empty we are going to show how to run it with _Spring Boot_ simply to check that everything is ok.
 
@@ -127,7 +132,7 @@ image::images/oasp4j/3.BuildYourOwn/login.png[, link="images/oasp4j/3.BuildYourO
 You are redirected to the login screen because, by default, the new _Oasp4j_ applications provide a basic security set up.
 ====
 
-== What is generated?
+=== What is generated?
 
 Creating _Oasp4j_ based apps, we get the following main features _out-of-the-box_:
 

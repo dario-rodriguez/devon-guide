@@ -1,7 +1,12 @@
 :toc: macro
 toc::[]
 
-= Devcon User Guide
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Devcon User Guide
 
 image::images/devconlogo_full.png[,align="center",width="200",Devcon, link="images/devconlogo_full.png"]
 
@@ -9,11 +14,11 @@ The Devon Console, *Devcon*, is a cross-platform command line tool running on th
 
 Devcon is the easiest way to use Devonfw. By accompanying on project automation, easy command execution and declarative configuration, it gets out of your way and let you focus on your code.
 
-== Requirements
+=== Requirements
 
 You will need to have a Java JDK 1.7 or 1.8 installed on your system (devcon GUI requires JDK 1.8). It is *not* necessary to use the Devonfw Distribution as Devcon can be used independently from that environment. You might even want to use Devcon itself to download & extract the Devon Distribution zip file to and on your system! (see down...) 
 
-== Download Devcon
+=== Download Devcon
 
 From the Devonfw version 2.1.1 onwards Devcon is included by default within the Devonfw distributions.
 
@@ -42,7 +47,7 @@ devcon doc userguide
 
 to open up the Devcon user guide in your default system web browser. The commands 'devon' and 'devcon' can be used interchangeably. 
 
-== Devcon structure
+=== Devcon structure
 
 Devcon is based on three basic elements:
 
@@ -55,7 +60,7 @@ Devcon is based on three basic elements:
 So Devcon is a tool based on modules where each module groups several commands related to the module functionality and each command may need parameters to work in one way or another. 
 Each command is used to accomplish one task and may need some parameters in order to achieve its goal. These parameters can be mandatory or optional. The mandatory parameters must be provided by the user when launching the command and the optional parameters can be provided by the user in the same way but if not, they can be read from a configuration file. Apart from this, we can use global parameters that are independent from the modules and commands and that will be helpful in order to obtain Devcon information (like help) or other basic configuration features, these parameters will be explained later.
 
-== Devcon basic usage
+=== Devcon basic usage
 
 There are two ways to run Devcon:
 
@@ -64,7 +69,7 @@ There are two ways to run Devcon:
 - Using command prompt
 
 
-=== Using Devcon GUI
+==== Using Devcon GUI
 
 To run Devcon using the Devcon GUI, open command prompt and run below command (remember that *you will need JDK 1.8* to use Devcon's GUI):
 
@@ -81,7 +86,7 @@ If you navigate to a particular module, it will show all the available commands 
 
 image::images/Devcon_Form.JPG[,align="center",width="250",Devcon, link="images/Devcon_Form.JPG"]
  
-=== Using command prompt
+==== Using command prompt
 
 Accordingly with the defined structure, the devcon usage is based on the definition of each of its element named : module, command and parameters. Therefore, in the command prompt, one must specify each of these elements in the correct order:
 
@@ -96,15 +101,15 @@ devon [module] [command] [parameters ...]
 
 - the parameters are the rest of the elements defined after the command.
 
-==== Defining the module and the command
+===== Defining the module and the command
 
 Both, module and command are defined by an identifier i.e. 'name' that the module or command have assigned in devcon.
 
-==== Defining the parameters
+===== Defining the parameters
 
 The parameter definition is divided in two parts. The first one is the parameters identifier i.e. the _name_ that the parameter has assigned within the devcon app *preceded by a single dash*. The second part of the parameter definition is the parameter value.
 
-==== Basic example
+===== Basic example
 
 Following is a basic example of a devcon using command prompt:
 
@@ -123,13 +128,13 @@ where:
 
 - *hello* is the value for the _message_ parameter.
 
-==== Parameters
+===== Parameters
 
 As its mentioned before from the point of view of the commands, we have two types of parameters: the mandatory parameters and the optional parameters. 
 The mandatory parameters must be provided by the user specifying the parameter identifier and the value in the command line. The optional parameters must be also provided to the app but, if the user do not specify it, devcon will use a default value for them.
 
 
-==== Global parameters
+===== Global parameters
 
 Devcon handles a third type of parameter that has nothing to do with command parameters. We are referring it as _global parameters_.
 
@@ -145,7 +150,7 @@ In the current version of Devcon we have the following global parameters :
 - global parameter _stacktrace_: defined with *-s* or *--stacktrace*.
 - global parameter _version_: defined with *-v* or *--version*.
 
-===== _gui_ parameter
+====== _gui_ parameter
 
 As we saw earlier the global parameter _gui_ (*-g*) is the way we will launch the Devcon's graphical user interface. So to complete that operation we only need to execute
 
@@ -154,7 +159,7 @@ As we saw earlier the global parameter _gui_ (*-g*) is the way we will launch th
 devon -g
 ----
 
-===== _help_ parameter
+====== _help_ parameter
 
 The global parameter _help_ is very useful to show overall help info of Devcon or also for showing more detailed info of each module and command supported.
 For example, if you don't know anything about how to start with Devcon, the option *-h* (or *--help*) will show a summary of the devcon usage, listing the global parameters and the available modules alongside a brief description of each one.  
@@ -218,7 +223,7 @@ This command is to say something
  -signature   the signature
 ----
 
-===== _prompt_ parameter
+====== _prompt_ parameter
 
 With this global parameter, you can ask devcon to prompt for all parameters (both optional and mandatory) when launching a command.
 
@@ -255,7 +260,7 @@ Parameter: packagename - package name in server project
 As you can see with the *-p* parameter Devcon asks for each parameter related to a command (the optional ones can be left blank as the _serverpath_ in the example) and the user can provide them one on one, getting rid of the concern of knowing what parameters needs a command.
 
 
-===== _version_ parameter
+====== _version_ parameter
 
 This is a simple option that returns the devcon running version and is defined with *-v* (or *--version*). As the _help_ option this will show the devcon version even though we have defined a command with all required parameters.
 
@@ -277,7 +282,7 @@ devcon v.1.0.0
 ----
 
 
-== First steps with Devcon
+=== First steps with Devcon
 This section describes how to start using devcon from scratch. For this, you can use the global option _-h_ (help) in order to figure out which commands and parameters you need to define. But in a very first approach, only the command _devon_ will be enough.
 Therefore, the first step is to look for a module that fits your requirements. As mentioned above, you can do this with the _help_ option (defined as _-h_ or _--help_) or with a simple command _devon_. If you do not specify any information, you will see a summary of the general help information with an example of usage, a list with global parameters and the available modules.
 
@@ -352,6 +357,6 @@ D:\>devon dist install -user john -password 1234 -path D:\Temp\MyDistribution -t
 
 Regarding the order of the command parameters, devcon will order them internally so that you don't have to concern about that point and you can specify them in the order you want. The only requirement is that all mandatory parameters should be provided.
 
-==  Devcon command reference
+=== Devcon command reference
 
 For a full reference of all the available commands in Devcon, see the link:devcon-command-reference[Devcon Command Reference]

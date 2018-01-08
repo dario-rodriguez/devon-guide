@@ -1,13 +1,18 @@
 :toc: macro
 toc::[]
 
-= OASP4J
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== OASP4J
 
 For _Java_ based back-end solutions, _OASP_ includes http://oasp.github.io/oasp4j_content/oasp4j_overview.html[_OASP4 Java_](OASP4J) that provides a standardized architecture blueprint, an open best-of-breed technology stack as well as industry proven best practices and code conventions for a cloud ready _Spring_ based server.
 
 Included in the _Devon_ framework as a default server solution, https://github.com/oasp/oasp4j[_OASP4J_] is the result of applying OASP principles in a Java based technology stack. With _OASP4J_, developers are able to create web application back-end in a fast and reliable way. Even it simplifies the tasks for generating web services (REST, SOAP) that can be consumed by web clients.
 
-== OASP4J Technology stack
+=== OASP4J Technology stack
 
 As mentioned earlier, OASP4J is not only a framework but alos a set of tools and conventions. OASP4J provides a Java back-end solution based on the following technologies:
 
@@ -44,12 +49,12 @@ For *_persistence_* and *_data access_*, OASP4J implements:
 
 - http://cxf.apache.org/[Apache CXF] service framework. It provides the support for ** REST services through https://en.wikipedia.org/wiki/Java_API_for_RESTful_Web_Services[JAX-RS] and SOAP services through https://en.wikipedia.org/wiki/Java_API_for_XML_Web_Services[JAX-WS] **
 
-== OASP4J Tools
+=== OASP4J Tools
 
-=== IDE
+==== IDE
 As part of the _Devon_ framework, OASP4J projects are integrated in a customized Eclipse instance that provides several pre-configurations and pre-installed plugins focusing on the code quality and productivity boosting.
 
-=== Devon Tools
+==== Devon Tools
 Besides all the methodologies regarding the mentioned frameworks, the Devon/Oasp ecosystem also has other tools that are crucial for boosting the productivity and enhancing the organization of the Java projects.
 
 - *Cobigen* : a generic incremental generator for end to end code generation that will allow us to automate the generation of the main parts of the components of our apps. Starting from an Entity, Cobigen can generate all its CRUD functionality for us, starting from the service and ending up in the persistance data layer.

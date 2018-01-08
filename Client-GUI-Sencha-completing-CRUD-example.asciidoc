@@ -1,7 +1,12 @@
 :toc: macro
 toc::[]
 
-# Complete CRUD example (Create, Read, Update and Delete)
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Complete CRUD example (Create, Read, Update and Delete)
 
 In order to complete our example, we are going to add to our page several operations we can do with a Table (Create table, Update table, Read tables and Delete tables).
 
@@ -389,44 +394,44 @@ Use the `chief` user and try to delete a record from the tables grid
 
 Later we will see how to disable some buttons depending on the user that is connected in that moment.   With this we will be providing security to the application.
 
-# Extending the CRUD
+=== Extending the CRUD
 
 In the following chapters we are going to extend the CRUD adding some functionalities.
 
-include::Client-GUI-Sencha-extending-the-CRUD-refresh-and-double-click[]
+include::Client-GUI-Sencha-extending-the-CRUD-refresh-and-double-click.asciidoc[]
 
 <<<<
 
-include::Client-GUI-Sencha-extending-the-CRUD-viewModels[]
+include::Client-GUI-Sencha-extending-the-CRUD-viewModels.asciidoc[]
 
 <<<<
 
-include::Client-GUI-Sencha-extending-CRUD-pagination[]
+include::Client-GUI-Sencha-extending-CRUD-pagination.asciidoc[]
 
 <<<<
 
-include::Client-GUI-Sencha-extending-CRUD-search-and-filter[]
+include::Client-GUI-Sencha-extending-CRUD-search-and-filter.asciidoc[]
 
 <<<<
 
-include::Client-GUI-Sencha-extending-CRUD-add-an-inbox[]
+include::Client-GUI-Sencha-extending-CRUD-add-an-inbox.asciidoc[]
 
 <<<<
 
-include::Client-GUI-Sencha-extending-CRUD-change-state-table[]
+include::Client-GUI-Sencha-extending-CRUD-change-state-table.asciidoc[]
 
 <<<<
 
-include::Client-GUI-Sencha-extending-CRUD-edit-menu-order[]
+include::Client-GUI-Sencha-extending-CRUD-edit-menu-order.asciidoc[]
 
 <<<<
 
-include::Client-GUI-Sencha-extending-CRUD-working-with-layouts[]
+include::Client-GUI-Sencha-extending-CRUD-working-with-layouts.asciidoc[]
 
 <<<<
 
-include::Client-GUI-Sencha-extending-CRUD-editable-grid[]
+include::Client-GUI-Sencha-extending-CRUD-editable-grid.asciidoc[]
 
 <<<<
 
-include::Client-GUI-Sencha-extending-CRUD-custom-plugin[]
+include::Client-GUI-Sencha-extending-CRUD-custom-plugin.asciidoc[]

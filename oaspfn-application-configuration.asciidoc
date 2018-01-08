@@ -1,11 +1,17 @@
 :toc: macro
 toc::[]
 
-= Application Configuration
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Application Configuration
 
 Furthermore of the specified before, in the file **oasp4fn.config.js**, it is specified the configuration of the events, deployment information and the runtime environment in which the handlers will run.
 
-== File structure
+=== File structure
+
 The file will contain an javascript exported object, which will contain specific properties of the future generated _serverless.yml_:
 
 [source, javascript]
@@ -46,7 +52,8 @@ module.exports = {
 Keep in mind that all the properties specified in the configuration file will overwrite the default configuration property (if any), and not merge it, so if you want to add an property to the default package you have to add it rewriting the defaults ones (as can be appreciated in the http event above).
 ====
 
-== Handler configuration
+=== Handler configuration
+
 In the last section we learned how to add the general configuration of our service, but what we do, in the case that we want to add or modify a single property in a handler? (the path of an http endpoint, for example), then we want to add it accros the _config_ property of OASP4Fn:
 
 [source, typescript]
@@ -61,10 +68,11 @@ That method acts as a dummy function, and should be situated just above the hand
 oasp4fn.config({ path: 'login', authorizer: undefined });
 ----
 
-== Default configuration
+=== Default configuration
+
 In this section we're going to specify the default configuration that OASP4Fn for the different supported providers, which no one is specified, the default used will be the AWS provider.
 
-=== AWS
+==== AWS
  * provider:
     - name: 'aws'
     - runtime: 'node6.10'

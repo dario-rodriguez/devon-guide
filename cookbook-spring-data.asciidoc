@@ -1,11 +1,14 @@
 :toc: macro
 toc::[]
 
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
 
-= Integrating Spring Data in OASP4J
+== Integrating Spring Data in OASP4J
 
-
-== Introduction
+=== Introduction
 
 This chapter specifies a possible solution for integrating the Spring Data module in devonfw. It is possible to have some services using the Spring Data module while some services use JPA/Hibernate.
 
@@ -21,7 +24,7 @@ The more feasible approach will be option 2  i.e to integrate it into an existin
 * It does not follow KISS (Keep it simple, stupid) principle. In the existing structure of sample application, Entity classes along with some abstract implementation classes are included in oasp4j-samples-core project. You need to refer these classes while implementing spring-data. If you try to refer it in different module, it will become complex to compare it to the first approach. 
 * If you integrate Spring Data in oasp4j, you need to annotate SpringBootApp.java class with @Enablejparepositories. If you create a different module, it will not be possible, as SpringBootApp class is in the core module.
 
-== Existing Structure of Data Access Layer
+=== Existing Structure of Data Access Layer
 
 Consider TableEntity as an example.
 
@@ -30,7 +33,7 @@ image::images/Integrating-Spring-Data/Existing_Dataaccess_Structure.JPG[, width=
 image::images/Integrating-Spring-Data/TableDaoImpl_Structure.JPG[, width="450", link="images/Integrating-Spring-Data/TableDaoImpl_Structure.JPG"]
 
 
-== Structure of Data Access Layer with Spring Data
+=== Structure of Data Access Layer with Spring Data
 
 image::images/Integrating-Spring-Data/Structure_With_Spring_Data.JPG[, width="450", link="images/Integrating-Spring-Data/Structure_With_Spring_Data.JPG"]
 
@@ -263,7 +266,7 @@ public class TestClass extends ComponentTest {
 With custom repository, you can implement functionality such as getrevisionHistory(). Additionally, spring data support @Query annotatio and derived query. Here, samples are attached for 2 entities (DrinkEntity, TableEntity) which are later implemented with spring data.
 
 
-== Query Creation in Spring Data JPA
+=== Query Creation in Spring Data JPA
 
 Below are the ways to create a query in Spring Data JPA:
 
@@ -293,7 +296,7 @@ Include above method in repository i.e TableRepo.
 
 * Similar to the criteria, you have Predicate from QueryDsl. This is explained in below section.
 
-== Query creation by method names
+=== Query creation by method names
 
 Consider tablemanagement as an example. First, you will create a TableEntity class with attribute number, waiterId and state. To test query creation by method names, you will create new method findByState(TableState state) in TableRepo. This method will find table based on TableState provided. Follow below steps:
 
@@ -362,7 +365,7 @@ public interface TableRepo extends JpaRepository<TableEntity, Long>, TableRepoCu
   }
 --------
 
-== Implementing Query with QueryDsl
+=== Implementing Query with QueryDsl
 
 Like the JPA Criteria API, it uses a Java 6 annotation processor to generate meta-model objects and produces a much more approachable API. Another good thing about the project is that, it not only has the support for JPA but also allows querying Hibernate, JDO, Lucene, JDBC and even plain collections.
 
@@ -430,7 +433,7 @@ public interface DrinkRepo
 
 This will return list of drink entities which are nonalcoholic.
 
-== Paging and Sorting Support
+=== Paging and Sorting Support
 
 * For Paging and Sorting support in Spring Data JPA, you should implement PagingAndSortingRepository. Create an interface as shown below:
 
@@ -495,7 +498,7 @@ PageRequest(int page,int size,Direction direction)
 PageRequest(int page, int size, Direction direction, String... properties)
 --------
 
-== References
+=== References
 
 https://spring.io/blog/2011/04/26/advanced-spring-data-jpa-specifications-and-querydsl/
 http://docs.spring.io/spring-data/jpa/docs/1.4.1.RELEASE/reference/html/jpa.repositories.html

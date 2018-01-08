@@ -1,7 +1,12 @@
 :toc: macro
 toc::[]
 
-= Migrating from DevonFW 2.0.1 to DevonFW 2.1.0
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Migrating from DevonFW 2.0.1 to DevonFW 2.1.0
 
 == Devon4Sencha
 

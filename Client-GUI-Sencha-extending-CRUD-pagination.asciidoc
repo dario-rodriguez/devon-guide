@@ -1,7 +1,12 @@
 :toc: macro
 toc::[]
 
-# Pagination
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Pagination
 
 We have completed the CRUD example, but as we can see, our grid can contain a lot of records and we want to manage this amount of data in a better way.   For that purpose we should pagine our grid in oder to organize the information properly.    Devon4sencha provides a plugin for the pagination of the grids.
 

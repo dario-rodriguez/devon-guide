@@ -1,13 +1,20 @@
 :toc: macro
 toc::[]
 
-= OASP4Fn Introduction
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== OASP4Fn 
+
+=== Introduction
 
 **Serverless** is a framework that allows developers to build auto-scalable applications, pay-per-execution, event-driven apps on AWS Lambda, Microsoft Azure, IBM OpenWhisk and Google Cloud Platform.
  
 **OASP4Fn** is a npm package full of functionality independent of the goal of the developments made over this framework. It provides many different features following this approach in order to allow the developers to use the features that fit in their needs. Also, to build, test and deploy applications in an easy, fast and clean way using the Serverless framework.
 
-== What is Serverless Computing?
+=== What is Serverless Computing?
 
 Serverless computing consists of the following concepts and benefits:
 
@@ -31,7 +38,7 @@ image::images/oasp4fn/1.Introduction/inconsistent-traffic-pattern.png[, link="im
 
 In a traditional environment, you may need to increase your total hardware capability by a factor of 10 to handle the spikes, even though they only account for less than 4% of total machine uptime.
 
-== What does OASP4Fn provide on Serverless?
+=== What does OASP4Fn provide on Serverless?
 
 The following picture shows what OASP4Fn offers in order to facilitate Serverless development.
 
@@ -41,11 +48,11 @@ Currently, the **OASP4Fn architecture** defines a series of adapters to help dev
 
 image::images/oasp4fn/1.Introduction/oasp4fn_available.PNG[, width="750", link="images/oasp4fn/1.Introduction/oasp4fn_available.PNG"]
 
-=== TypeScript
+==== TypeScript
 
 The Serverless framework is not prepared by default to use TypeScript. OASP4Fn allows the developer to use **TypeScript** as the programming language in any development, as it provides the **types definitions** and a **pre-configured web-pack building system** that automates the transpilation of the different handlers. 
 
-=== Infrastructure as Code 
+==== Infrastructure as Code 
 
 The service made with OASP4Fn must follow a **specified structure**, that along with a configuration file will allow the user to avoid having to configure his service manually. 
 
@@ -73,7 +80,7 @@ The logic of our application must be stored in a folder, called **handlers**, in
 
 Furthermore of the specified before, in the file **oasp4fn.config.js**, it is specified the configuration of the events, deployment information and the runtime environment in which the handlers will run.
 
-=== Annotations
+==== Annotations
 
 In addition to the configuration file, we can specify to each handler a **concrete configuration**, related to the event that triggers the handler, using a **dummy function** that adds or modifies the configuration specified in OASP4Fn configuration file.
 
@@ -88,7 +95,7 @@ export async function getAttachment (event: HttpEvent, context: Context, callbac
 
 These annotations will be only interpreted by the framework, so they do not inject or add any kind of functionality to the actual handler.
 
-=== Cloud adapters
+==== Cloud adapters
 
 OASP4Fn also comes with a simple interface that allows the user to have access to different services of cloud providers using adapters.
 
@@ -101,7 +108,7 @@ Currently available adapters:
 ** AWS S3
 ** AWS Cognito
 
-=== Command Line Interface 
+==== Command Line Interface 
 
 OASP4Fn provides a simple command line interface, that using the resources and the information provided by Infrastructure as Code, will help the user generate the proper files to build, deploy and test our application.
 

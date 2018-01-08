@@ -1,10 +1,15 @@
 :toc: macro
 toc::[]
 
-= Testing OASP4Fn Applications
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Testing OASP4Fn Applications
 In this chapter we are going to learn how to test applications in OASP4Fn using the http://mochajs.org/[mocha] framework and the http://chaijs.com/[chai] assertion library.
 
-== Install global dependencies
+=== Install global dependencies
 As the title says in this section we're going to specify the global dependencies that we need to run our tests, that only are the test framework and the typescript interpreter:
 
 [source, bash]
@@ -21,7 +26,7 @@ yarn global add mocha ts-node
 
 No more dependencies are needed, because any OASP4Fn project is started using the **oasp4fn application template** and the local part of the test dependencies are specified as dev-dependencies at the _package.json_ file.
 
-== Writing the tests
+=== Writing the tests
 First of all, all the handlers, typings and the everytime useful _lodash_ package must be imported in our test files, so the head of our test file will look like this:
 
 [source, typescript]
@@ -115,7 +120,7 @@ after(async () => {
 The variable _code_ is the code property located in the returned object of the handler of the previous example _register_. The result of the callbak would be that code, so it can be used to remove the test data.
 ====
 
-=== Complete example
+==== Complete example
 
 A **complete example** with the tests of two different handlers below:
 

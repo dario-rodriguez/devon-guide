@@ -1,4 +1,12 @@
-= Running OASP4JS Application
+:toc: macro
+toc::[]
+
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Running OASP4JS Application
 
 === Run the Server
 
@@ -29,7 +37,7 @@ $ npm install -g @angular/cli
 
 If you have a previous version of this project, you must update the node modules as per your operating system. There are two different ways to do it, using npm or yarn.
 
-====== 1. Using NPM
+*1. Using NPM*
 
 Go to the project folder 
 
@@ -59,7 +67,7 @@ $ npm i -g http-server
 
 Or run yarn using below steps.
 
-====== 2. Using Yarn
+*2. Using Yarn*
 
 The project is also tested with the latest https://yarnpkg.com/lang/en/[Yarn] version. After installing the above dependencies, you can go to the project folder 
 
@@ -92,7 +100,7 @@ If you face any problem with installing dependencies, kindly refer following lin
 
 The simple way to run the My Thai Star Angular client is using npm or yarn commands:
 
-====== 1. Using NPM
+===== 1. Using NPM
 
 Run the following command:
 
@@ -136,7 +144,7 @@ $ yarn serve:node                # Node.js or local Serverless server
 $ yarn serve:node:aot            # AOT compilation with Node.js or local Serverless server
 ----
 
-==== Step 3: Test the application
+===== Step 3: Test the application
 
 Now, go to the browser and open 
 

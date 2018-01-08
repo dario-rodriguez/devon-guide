@@ -1,11 +1,16 @@
-:toc: macro 
+:toc: macro
 toc::[]
 
-= Deploy oasp4j application to WebSphere Liberty
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Deploy oasp4j application to WebSphere Liberty
 
 Following describes the steps to install and configure WebSphere Liberty in Eclipse Neon that is provided as part of the Devonfw distribution and also details the steps to deploy oasp4j sample application created from oasp4j maven archetype template onto WebSphere Liberty.  
 
-== Setup and Configure WebSphere Liberty
+=== Setup and Configure WebSphere Liberty
 
 Launch Eclipse Neon from devonfw distribution and 
 

@@ -1,11 +1,17 @@
 :toc: macro
 toc::[]
 
-= Security
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Security
 
 Security is todays most important cross-cutting concern of an application and an enterprise IT-landscape. We seriously care about security and give you detailed guides to prevent pitfalls, vulnerabilities, and other disasters. While many mistakes can be avoided by following our guidelines you still have to consider security and think about it in your design and implementation. The security guides provided by this document will not automatically prevent you from any harm, but they may give you hints and best practices already used in different software products.
 
-== Authentication
+=== Authentication
+
 Definition:
 
 > Authentication is the verification that somebody interacting with the system is the actual subject for whom he claims to be.
@@ -28,12 +34,14 @@ oasp4j uses Spring Security as a framework for authentication purposes. In-memor
   }
 ----
 
-=== Mechanisms
+==== Mechanisms
 
-==== Basic
+===== Basic
+
 Http-Basic authentication can be easily implemented using BasicAuthenticationFilter:
 
-==== Form Login
+===== Form Login
+
 For a form login the spring security implementation might look like this:
 
 [source,java]
@@ -47,7 +55,7 @@ For a form login the spring security implementation might look like this:
 The interesting part is, that there is a login-processing-url, which should be adressed to handle the internal spring security authentication and similarly there is a logout-url, which has to be called to logout a user.
 
 
-=== Preserve original request anchors after form login redirect
+==== Preserve original request anchors after form login redirect
 
 Spring Security will automatically redirect any unauthorized access to the defined login-page. After sucuessful login, the user will be redirected to the original requested URL. The only pitfall is, that anchors in the request URL will not be transmitted to server and thus cannot be restored after successful login. Therefore the oasp4j-security module provides the RetainAnchorFilter, which is able to inject javascript code to the source page and to the target page of any redirection. Using javascript this filter is able to retrieve the requested anchors and store them into a cookie. Heading the target URL this cookie will be used to restore the original anchors again.
 
@@ -88,9 +96,12 @@ This documentation depends on Spring Security v4.2.3.RELEASE:
 
 * http://docs.spring.io/spring-security/site/docs/4.2.3.BUILD-SNAPSHOT/reference/htmlsingle/#ns-custom-filters
 
-These lists will be maintained each release, which will include a Spring Security upgrade. Thus first, we will not loose any changes from the possibly updated default filter chain of Spring Security. Second, due to the absolute declaration of the filter order, you might not get any strange behavior in your system after upgrading to a new version of Spring Security.
+These lists will be maintained each release, which will include a Spring Security upgrade. 
+Thus first, we will not loose any changes from the possibly updated default filter chain of Spring Security. 
+Second, due to the absolute declaration of the filter order, you might not get any strange behavior in your system after 
+upgrading to a new version of Spring Security.
 
-=== Users vs. Systems
+==== Users vs. Systems
 If we are talking about authentication we have to distinguish two forms of principals:
 
 * human users
@@ -98,13 +109,13 @@ If we are talking about authentication we have to distinguish two forms of princ
 
 While e.g. a Kerberos/SPNEGO Single-Sign-On makes sense for human users it is pointless for authenticating autonomous systems. So always keep this in mind when you design your authentication mechanisms and separate access for human users from access for systems.
 
-== Authorization
+=== Authorization
 
 **Definition:**
 
 > Authorization is the verification that an authenticated user is allowed to perform the operation he intends to invoke.
 
-=== Clarification of terms
+==== Clarification of terms
 
 For clarification we also want to give a common understanding of related terms that have no unique definition and consistent usage in the wild.
 
@@ -132,7 +143,7 @@ The access model provided by oasp4j-security follows this suggestions:
 * We try to avoid negative permissions, that is a user has no permission by default but only those granted to him additively permit him for executing use cases.
 * Technically we consider permissions as a secret of the application. Administrators shall not fiddle with individual permissions but grant them via groups. So the access management provides a list of strings identifying the Access Controls of a user. The individual application itself contains these Access Controls in a structured way, whereas each group forms a permission tree.
 
-=== oasp4j-security
+==== oasp4j-security
 
 The OASP4J applications provide a ready to use module _oasp4j-security_ that is based on http://projects.spring.io/spring-security/[spring-security] and makes your life a lot easier.
 
@@ -144,7 +155,7 @@ The diagram shows the model of _oasp4j-security_ that separates two different as
 * The _Indentity- and Access-Management_ is provided by according products and typically already available in the enterprise landscape (e.g. an active directory). It provides a hierarchy of _primary access control objects_ (roles and groups) of a user. An administrator can grant and revoke permissions (indirectly) via this way.
 * The application security is using _oasp4j-security_ and defines a hierarchy of _secondary access control objects_ (groups and permissions) in the file _access-control-schema.xml_ (see https://github.com/oasp/oasp4j/blob/develop/samples/core/src/main/resources/config/app/security/access-control-schema.xml[example from sample app]). This hierarchy defines the application internal access control schema that should be an implementation secret of the application. Only the top-level access control objects are public and define the interface to map from the primary to secondary access control objects. This mapping is simply done by using the same names for access control objects to match.
 
-==== Access Control Schema
+===== Access Control Schema
 
 The `oasp4j-security` module provides a simple and efficient way to define permissions and roles. The file `access-control-schema.xml` is used to define the mapping from groups to permissions. The general terms discussed above can be mapped to the implementation as follows:
 
@@ -220,7 +231,7 @@ Group permissions are collected that principal is part of and is used to decide 
     }
 ----
 
-==== Configuration on URL level
+===== Configuration on URL level
 
 The authorization (in terms of Spring security "access management") can be enabled seperately for different url patterns, the request will be matched against. The order of these url patterns is essential as the first matching pattern will declare the access restriction for the incoming request (see access attribute). Here an example:
 
@@ -233,7 +244,7 @@ The authorization (in terms of Spring security "access management") can be enabl
           .anyRequest().authenticated()
 ----
 
-==== Configuration on Java Method level
+===== Configuration on Java Method level
 As state of the art oasp4j will focus on role-based authorization to cope with authorization for executing use case of an application. 
 We will use the _JSR250_ annotations, mainly `@RolesAllowed`, for authorizing method calls against the permissions defined in the annotation body. This has to be done for each use-case method in logic layer. Here is an example:
 
@@ -320,21 +331,21 @@ public class ProductmanagementImpl extends AbstractComponentFacade implements Pr
 
 At this point, with these three simple steps, the regular customers can see the products but not create new ones, while _admins_ can do both operations. 
 
-==== Check Data-based Permissions
+===== Check Data-based Permissions
 Currently, we have no best practices and reference implementations to apply permission based access on an application's data.
 Nevertheless, this is a very important topic due to the high standards of data privacy & protection especially in germany. We will further investigate this topic and we will adress it in one of the next releases. For further tracking have a look at https://github.com/oasp/oasp4j/issues/125[issue #125].
 
-=== Spring Security APIs and their usage in OASP4j
-==== UsersDetailsService
+==== Spring Security APIs and their usage in OASP4j
+===== UsersDetailsService
 _UserDetailsService_ is a core interface used to load user-specific data. It has loadUserByUsername() method to find a user entity and can be overridden to provide custom implementation. For further reading follow the Spring Security documentation https://docs.spring.io/spring-security/site/docs/current/reference/htmlsingle/#jc-authentication-userdetailsservice[here]
 
-==== BaseUserDetailsService
+===== BaseUserDetailsService
 This is a custom implementation of Spring's _UserDetailsService_. It overrides loadUserByUsername() method and returns _UserDetails_ with user data and authorities. This implementation of _UserDetailsService_ is further used in _AbstractWebSecurityConfig_.
 
-==== AbstractWebSecurityConfig
+===== AbstractWebSecurityConfig
 This class extends Spring Security's class _WebSecurityConfigurerAdapter_ and overrides configure() method. Here _BaseUserDetailsService_ is set in Spring HttpSecurity that configures web based security for http requests.
 
-== Vulnerabilities and Protection
+=== Vulnerabilities and Protection
 Independent from classical authentication and authorization mechanisms there are many common pitfalls that can lead to vulnerabilities and security issues in your application such as XSS, CSRF, SQL-injection, log-forging, etc. A good source of information about this is the https://www.owasp.org[OWASP].
 We address these common threats individually in _security_ sections of our technological guides as a concrete solution to prevent an attack typically depends on the according technology. The following table illustrates common threats and contains links to the solutions and protection-mechanisms provided by the OASP:
 

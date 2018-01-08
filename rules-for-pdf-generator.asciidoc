@@ -1,3 +1,10 @@
+:toc: macro
+toc::[]
+
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
 
 == Structure
 

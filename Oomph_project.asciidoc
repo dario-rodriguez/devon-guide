@@ -1,13 +1,18 @@
 :toc: macro
 toc::[]
 
-= Creation of Projects in the devon Project Catalog
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Creation of Projects in the devon Project Catalog
 
 In this chapter we'll provide a tutorial on how to contribute to the devon Project Catalog.
 
 To create Project files you need to install the Plugin _Oomph Setup_ from http://download.eclipse.org/oomph/updates/milestone/latest
 
-== Tasks already provided by the Project Catalog
+=== Tasks already provided by the Project Catalog
 
 The following tasks are already included in the devon Project Catalog. If you want to create a Project outside of it then make sure to at least include the _Workspace_ task in your setup file.
 
@@ -19,7 +24,7 @@ The following tasks are already included in the devon Project Catalog. If you wa
 
 * _Target Platform Definition_ that will install the target platform for Eclipse plugin projects.
 
-== Example Github Project
+=== Example Github Project
 
 In this section we'll describe the starting point for a Project that clones a Github repository and sets up the workspace.
 
@@ -35,7 +40,7 @@ You'll end up with the following content : image:images/oomph/project/03_emptyfi
 
 The file contains now only the meta data for the Project (name, description, and so on) and a default Stream called master. In this tutorial a Stream will be equivalent to a git branch, although a Stream allows more specification than just switching on another git branch.
 
-=== Cloning from git
+==== Cloning from git
 
 Cloning from a Github repository can be done with the _Git Clone_ task. To configure it open the _Properties View_:
 
@@ -66,7 +71,7 @@ For better readability of the file the git related task can be boundled in a _Co
 
 To enable all branches of your project add now a _Stream_ for each branch. The _name_ property of the Stream should be exactly the same as the branch represented by the Stream. The _label_ is up to you.
 
-=== Importing your Project into the workspace
+==== Importing your Project into the workspace
 
 The _Git Clone_ task only clones the git repository of your choice into the file system. To import it into Eclipse a special _Maven Import_ or _Projects Import_ is needed. Both tasks import projects based on either a `pom.xml` or Eclipses `.project` file.
 
@@ -86,15 +91,15 @@ You can add multiple _Source Locators_ to the _Maven Import_.
 
 image::images/oomph/project/05_basicproject.png[width=300, align="center", title="Basic Project Build", link="images/oomph/project/05_basicproject.png"]
 
-== Additional Project Configurations
+=== Additional Project Configurations
 
-=== Working sets
+==== Working sets
 
 Working sets are a good way to organize Workspaces with many projects. Oomph allows to define working sets based on predicates.
 
 _Working Set_ task are bundeld in the _Working Sets_ task. The predicate definition is the same as with the _Maven Import_.
 
-=== Targlets
+==== Targlets
 
 If the project contains code to directly work with Eclipse you may want to test against different Eclipse versions than just the one you're working on.
 

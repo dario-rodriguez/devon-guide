@@ -1,7 +1,12 @@
 :toc: macro
 toc::[]
 
-# Sencha Cmd
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Sencha Cmd
 
 To make your Devon4sencha application development easy, you will find, included in the Devon distribution, a tool called Sencha Cmd. It's available for Windows, Mac, and Linux.
 
@@ -15,7 +20,7 @@ The most usual way to use Cmd during application development, is just running `s
 
 Sencha Cmd is not a must for Devon4sencha development application, but using it makes your life easier. So, it's highly recommended to use it.
   
-# Workspaces
+=== Workspaces
 
 With http://docs.sencha.com/cmd/5.x/workspaces.html[Sencha Cmd Workspaces] we can share code and packages between Sencha applications. This is useful because Sencha distribution files occupy quite a bit of disk space.
 
@@ -44,14 +49,13 @@ sencha generate app -ext --starter StarterTemplate MyApp1 /path/to/workspace/MyA
 sencha generate app -ext --starter StarterTemplate MyApp2 /path/to/workspace/MyApp2
 ----
 
-## Sencha packages
+==== Sencha packages
 
 With http://docs.sencha.com/cmd/5.x/cmd_packages/cmd_packages.html[Sencha Cmd packages] we can share and distribute code between Sencha applications. For example, *devon4sencha* is distributed as a Sencha Cmd package that can be shared between applications.
 
 This code will be automatically added to the final application when building the application with Sencha Cmd.
 
-
-## Sencha reloading
+==== Sencha reloading
 
 During application development, we can use the http://www.sencha.com/products/sencha-cmd/#overview[Sencha Cmd] *app watch* feature to compile and test the application in a browser. This command must be launched from the application root folder.
 

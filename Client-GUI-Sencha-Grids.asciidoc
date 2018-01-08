@@ -1,17 +1,22 @@
 :toc: macro
 toc::[]
 
-= Grids
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Grids
 
 Ext.grid.Panel is one of the centerpieces of Ext JS. It's an incredibly versatile component that provides an easy way to display, sort, group, and edit data.
 
-== Basic Grid Panel
+=== Basic Grid Panel
 
 image::images/devon4sencha/grids/devon_guide_sencha_grids_simple_grid.png[Disable Buttons,width="450",link="images/devon4sencha/grids/devon_guide_sencha_grids_simple_grid.png"]
 
 Let's get started by creating a basic Ext.grid.Panel. Here's all you need to know to get a simple grid up and running:
 
-=== Model and Store
+==== Model and Store
 
 Ext.grid.Panel is simply a component that displays data contained in a Ext.data.Store. Ext.data.Store can be thought of as a collection of records, or Ext.data.Model instances.
 
@@ -44,7 +49,7 @@ var userStore = Ext.create('Ext.data.Store', {
 
 For sake of ease, we configured Ext.data.Store to load its data inline. In a real world application, you would most likely configure the Ext.data.Store to use an Ext.data.proxy.Proxy to load data from the server.
 
-=== Grid Panel
+==== Grid Panel
 
 Now, we have a model, which defines our data structure. We have also loaded several model instances into an Ext.data.Store. Now we're ready to display the data using Ext.grid.Panel.
 

@@ -1,7 +1,12 @@
 :toc: macro
 toc::[]
 
-= Porting of Eclipse to Eclipse Neon Version.
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Porting of Eclipse to Eclipse Neon Version.
 
 * Download the last stable version of IDE from https://coconet.capgemini.com/sf/go/projects.apps2_devon/frs.oasp4j_ide[here].
 
@@ -23,7 +28,7 @@ image::images/porting-to-eclipse-neon/eclipseinstaller1.png[,width="450",link="i
 
 For installing , eclipse neon, we need to hook off bundle pool option, so that no absolute path of the machine is introduced in config files of eclipse.
 
-= Bundle pools
+== Bundle pools
  
 Eclipse's p2 technology supports the concept of a bundle pool. Bundle pools help to dramatically reduce disk footprint and to eliminate repeated downloads of the same bundles and features, thereby dramatically improving the performance of software updates and target platform provisioning. Oomph makes heavy use of this technology for both its p2 tasks and it targlet tasks. Further, Oomph provides a technology layer on top of p2 to improve the behavior and performance of caching allowing Oomph to provide offline support for installing and updating installations and target platforms. 
 For more info , refer https://wiki.eclipse.org/Equinox/p2/Getting_Started#Bundle_pooling[here]

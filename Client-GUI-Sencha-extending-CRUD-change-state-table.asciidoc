@@ -1,7 +1,12 @@
 :toc: macro
 toc::[]
 
-# Extending the CRUD: Change the state of a table
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Extending the CRUD: Change the state of a table
 
 We are going to extend our sample application changing the state of the tables.  For that purpose we have to add some buttons to be able to do the actions of changing between states.
 

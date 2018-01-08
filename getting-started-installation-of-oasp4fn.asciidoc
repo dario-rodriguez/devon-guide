@@ -1,9 +1,14 @@
 :toc: macro
 toc::[]
 
-= Installation
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
 
-== Requirements
+== OASP4Fn Installation
+
+=== Requirements
 
 In order to develop, build, test and deploy the Serverless applications with OASP4Fn, it is necessary to install the following packages globally:
 
@@ -21,17 +26,17 @@ To install them, run the following command in a terminal:
 $ npm install -g typescript ts-node mocha nodemon serverless @oasp/oasp4fn
 ----
 
-=== Database dependencies
+==== Database Dependencies
 
 First of all, download DynamoDB in order to work with it locally using this link  http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.html[here].
 
-==== Running DynamoDB Local
+===== Running DynamoDB Local
 
 Go to the folder where you unzip the DynamoDB, and run the command:
 
     $ java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar
     
-==== Create tables
+===== Create tables
 
 Go back to the project folder and run the command:
 
@@ -41,7 +46,7 @@ or
 
     $ yarn database
 
-== Import and Use the Library in Source Code
+=== Import and Use the Library in Source Code
 
 After installing OASP4Fn, you can import the package in your source code using the _import_ line. It must be added in the **imports section**:
 

@@ -1,10 +1,16 @@
 :toc: macro
 toc::[]
 
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
 == Creating new OASP4JS Application
+
 In this chapter, you are going to see how to build a new OASP4JS from scratch. The proposal of this tutorial is to end having enough knowledge of Angular and the rest of technologies regarding OASP4JS to know how to start developing on it and if you want more advanced and specific functionalities see them on the cookbook.
 
-== End Result is Jump The Queue
+=== End Result is Jump The Queue
 This mock-up images shows what you are going to have as a result when the tutorial is finished. An app to manage codes assigned to queuers in order to easy the management of the queue, with a code, you can jump positions in queue and know everywhere which is your position.
 
 image::images/oasp4js/3.BuildYourOwn/JTQ_register.png[,width="250", link="images/oasp4js/3.BuildYourOwn/JTQ_register.png"]
@@ -13,9 +19,9 @@ image::images/oasp4js/3.BuildYourOwn/JTQ_queue.png[,width="250", link="images/oa
 
 So, hands on it, let's configure the environment and build this app!
 
-== Installing Global Tools
+=== Installing Global Tools
 
-=== Visual Code: 
+==== Visual Code: 
 To install the editor download the installer from https://code.visualstudio.com/Download[the official page] and install it.
 
 Once installed, the first thing you should do is install the extensions that will help you during the development, to do that follow this steps:
@@ -28,19 +34,19 @@ Provide GIST ID: *d976bc200f0403d8045b7e4ee39d4361*.
 
 In the case that you are unable to set up the extensions using the method mentioned, you can also use the scripts provided in https://github.com/oasp/oasp-vscode-ide[this repository].
 
-=== Node.js
+==== Node.js
 
 Go to the https://nodejs.org/en/[node.js official page] and download the version you like the most, the LTS or the Current, as you wish.
 
 The recommendation is to install the latest version of your election, but keep in mind that to use Angular CLI your version must be at least 6.9, so if you have a node.js already installed in your computer this is a good moment to check your version and upgrade it if it's necessary.
 
-=== TypeScript
+==== TypeScript
 
 Let’s install what is going to be the main language during development: TypeScript. This ES6 superset is tightly coupled to the Angular framework and will help us to get a final clean and distributable JavaScript code. This is installed globally with npm, the package manager used to install and create javascript modules in Node.js, that is installed along with Node, so for install typescript you don’t have to install npm explicitly, only run this command:
 
 `npm install –g typescript`
 
-=== Yarn
+==== Yarn
 
 As npm, https://yarnpkg.com/en/[Yarn] is a package manager, the differences are that Yarn is quite more faster and usable, so we decided to use it to manage the dependencies of Oasp4Js projects.
 
@@ -48,7 +54,7 @@ To install it you only have to go to https://yarnpkg.com/en/docs/install[the off
 
 Even though, if you feel more comfortable with npm, you can remain using npm, there is no problem regarding this point.
 
-=== Angular/CLI
+==== Angular/CLI
 CLI specially built for make Angular projects easier to develop, maintain and deploy, so we are going to make use of it.
 
 To install it you have to run this command in your console prompt: `npm install –g @angular/cli`
@@ -63,7 +69,7 @@ In addition, you can set Yarn as the default package manager to use with Angular
 
 Finally, once all these tools have been installed successfully, you are ready to create a new project.
 
-== Creating Basic Project
+=== Creating Basic Project
 
 One of the best reasons to install Angular/CLI is because it has a feature that creates a whole new basic project where you want just running:
 
@@ -85,9 +91,9 @@ And... it worked:
 
 image::images/oasp4js/3.BuildYourOwn/appnew.JPG[, link="images/oasp4js/3.BuildYourOwn/appnew.JPG"]
 
-== Working with Google Material and Covalent Teradata
+=== Working with Google Material and Covalent Teradata
 
-=== Installing Dependencies
+==== Installing Dependencies
 
 First, we are going to add *Google Material* to project dependencies running the following commands:
 
@@ -111,7 +117,7 @@ Now that we have all dependencies we can check in the project's package.json fil
 
 image::images/oasp4js/3.BuildYourOwn/installedpackages.JPG[, link="images/oasp4js/3.BuildYourOwn/installedpackages.JPG"]
 
-=== Importing Styles and Modules
+==== Importing Styles and Modules
 
 Now let's continue to make some config modifications to have all the styles and modules imported to use Material and Teradata:
 
@@ -153,7 +159,7 @@ $background: map-get($theme, background);
 
 With all of this finally done, we are ready to start the development.
 
-== Alternative : ng-seed
+=== Alternative : ng-seed
 
 Another option is to get this basic project structure with all its dependencies and styles already set is to clone the develop-covalent branch of https://github.com/oasp/oasp4js-ng-project-seed/tree/develop-covalent[ng-project-seed].
 
@@ -161,13 +167,13 @@ Once you have cloned it, move to the project root folder and run a `yarn` to ins
 
 In order to make the task easier, we are going to avoid the removal of unused components, so we will use the project created on the previous point to build the app.
 
-== Start the development
+=== Start the development
 
 Now we have a fully functional blank project, all we have to do now is just create the components and services which will compose the application.
 
 First, we are going to develop the views of the app, through its components, and then we will create the services with the logic, security and back-end connection.
 
-=== Creating components
+==== Creating components
 
 [NOTE]
 ====
@@ -184,7 +190,7 @@ To navigate between them we are going to implement routes to the components in o
 
 To see our progress, move to the root folder of the project and run `ng serve` this will serve our client app in _localhost:4200_ and keeps watching for changing, so whenever we modify the code, the app will automatically reload.
 
-==== Root component
+===== Root component
 _app.component_ will be our Root component, so we do not have to create any component yet, we are going to use it to add to the app the elements that will be common no matter in what view we are.
 
 [NOTE]
@@ -345,7 +351,7 @@ As you can see, now the body content is the html of *AccessComponent*, this is b
 
 We will definitely going to modify the header in the future to add some options like log-out but, for the moment, this is all regarding Root Component.
 
-==== AccessComponent
+===== AccessComponent
 
 As we have already created this component from the section before, let's move on to building the template of the access view.
 
@@ -419,7 +425,7 @@ image::images/oasp4js/3.BuildYourOwn/access_form.JPG[,width="250", link="images/
 
 Now lets continue with the second component: Code viewer.
 
-==== Code viewer component
+===== Code viewer component
 Our first step will be create the component in the exact same way we did with the access component: `ng generate component code-viewer` and we add the route in the app-routing.module.ts:
 
 [source, typescript]
@@ -515,7 +521,7 @@ Finally, we are going to add an icon button to the header to log out, we are not
 
 If everything goes correctly, you should now have an icon at the right of the header no matter which view you are at.
 
-==== Queue component
+===== Queue component
 
 For our last view component we are going to use a component from Covalent Teradata: the *data table*. Let's begin.
 
@@ -613,7 +619,7 @@ This will be the result:
 
 image::images/oasp4js/3.BuildYourOwn/queue_viewer.JPG[,width="250", link="images/oasp4js/3.BuildYourOwn/queue_viewer.JPG"]
 
-=== Creating services
+==== Creating services
 
 [NOTE]
 ====
@@ -627,7 +633,7 @@ At the moment we had developed all the basic structure and workflow of our appli
 Learn more about creating new services in OASP4Js link:Client-GUI-Angular-oasp4js-managing-angular-services#create-a-new-service[HERE]
 ====
 
-==== Auth service
+===== Auth service
 
 We will start with the *security*, implementing the service that will store our state and username in the application, this services will have setters and getters of these two properties. This service will be useful to check when the user is logged or not, to show or hide certain elements of the headers and to tell the guard (service that we will do next) if the navigation is permitted or not.
 
@@ -680,7 +686,7 @@ This property will hide the log-off icon button when the user is not logged and 
 Learn more about authentication in OASP4Js link:Client-GUI-Angular-oasp4js-managing-angular-services#authentication[HERE]
 ====
 
-==== Guard service
+===== Guard service
 
 With AuthService we have a service providing information about the state of the session, so we can now establish a guard checking if the user can pass or not trough the login page. We create it exactly the same way than the AuthService: `ng generate service shared\authentication\auth-guard`.
 
@@ -745,7 +751,7 @@ const appRoutes: Routes = [
 
 If you save all the changes, you will realize you can not go trough access anymore, that is because we need to implement first our login function in the access service, which will change the value in AuthService and will let us navigate freely.
 
-==== Access service
+===== Access service
 
 As we need to have this service in order to access again to our application, this will be the first service to be created. As always, `ng generate service access/shared/access` will do the job. Also remember to *add the service to providers in app module*.
 
@@ -837,7 +843,7 @@ export class AppComponent {
 
 Once all of this is finished and saved, we should have all the workflow and navigation of the app working fine. Now it is time to receive the data of the application from a service in order to, in the future, call a server for this information.
 
-==== Code Service
+===== Code Service
 
 First step, as always, create the service in a shared folder inside the component: `ng generate service code-viewer/shared/code-viewer`.
 
@@ -896,7 +902,7 @@ Learn more about Observables and RxJs in OASP4Js link:Client-GUI-Angular-oasp4js
 
 Now if we log in the application, the name we introduce in the form will be the name displayed in the code-viewer view. And the queue code will be the one we set in the service.
 
-==== Queue service
+===== Queue service
 
 The last element to create in our application, as always: `ng generate service queue-viewer/shared/queue-viewer` and then add the service in providers at _app.module.ts_.
 
@@ -952,13 +958,13 @@ export class QueueViewerComponent implements OnInit {
 
 At the moment, we have a functional application working exclusively with mock data, but we want to connect to a real back-end server to make calls and consume its services to have more realistic data, the way we implemented our components are completely adapted to read mock data or real server data, that is why we use services, to isolate the origin of the logic and the data from the component. Is the code of our services what is going to change, and we will go to see it now.
 
-== Making Calls to Server
+=== Making Calls to Server
 
 At this point we are going to assume you have finished the OASP4J configuration and deployment or, at least, you have downloaded the project and *have it running locally on localhost:8081*.
 
 With a real server running and prepared to receive calls from our services, we are going to modify a bit more our application in order to adjust to this new status.
 
-=== Preparations
+==== Preparations
 
 First, some configurations and modifications must be done to synchronize with how the server works:
 
@@ -975,7 +981,7 @@ export const config: any = {
 };
 ----
 
-=== Access Services
+==== Access Services
 
 Once done all the preparations, let's move to _acces.service.ts_, here we had a simple `if` to check if the user inputs are what we expected, now we are going to call the server and it will manage all this logic to finally return us the information we need.
 
@@ -1002,7 +1008,7 @@ To call the server, you can import _Angular HttpClient_ class from _@angular/com
 
 As we can see, and mentioned before, our preparations to this server call we have done previously let us avoid changing anything in access component or template, everything should be working only doing that changes.
 
-Our queue-viewer will need some modifications as well, in this case, both component and services will be slightly modified. _queue_viewer.service_ will make a call to the server services as we done in _access.service_ but in this case we are not going to implement a subscription, that will be components task. So `getQueuers()` should look like this:
+Our queue-viewer will need some modifications as well, in this case, both component and services will be slightly modified. _queue_viewer.service_ will make a call to the server services as we done in _access.service_ but in this case we are not going to implement a subscription, that will be components task. So `getQueuer()` should look like this:
 
 [source, typescript]
 ----
@@ -1022,8 +1028,8 @@ About the columns, the server sends us the data array composed of two objects: _
   columns: ITdDataTableColumn[] = [
     { name: 'visitor.name', label: 'Name'},
     { name: 'code.dateAndTime', label: 'Hour', format: ( (v: string) => moment(v).format('LLL') ) },
-    { name: 'code.code',  label: 'Code'},
-  ];
+    { name: 'code.code',  label: 'Code'}];
+  }
 ----
 
 Additionally, server sends us the date and time as timestamp, so we need to use *moment.js* to format that data to something readable, to make that, just use the format property from Teradata Covalent columns.

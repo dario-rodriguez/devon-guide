@@ -1,14 +1,19 @@
 :toc: macro
 toc::[]
 
-= Forms
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Forms
 A Form Panel is nothing more than a basic Panel with form handling abilities added. Form Panels can be used throughout an Ext application wherever there is a need to collect data from the user.
 
 In addition, Form Panels can use any Container Layout, providing a convenient and flexible way to handle the positioning of their fields. Form Panels can also be bound to a Model, making it easy to load data from and submit data back to the server.
 
 Under the hood a Form Panel wraps a Basic Form which handles all of its input field management, validation, submission, and form loading services. This means that many of the config options of a Basic Form can be used directly on a Form Panel.
 
-== Basic Form Panel
+=== Basic Form Panel
 
 To start off, here's how to create a simple Form that collects user data:
 

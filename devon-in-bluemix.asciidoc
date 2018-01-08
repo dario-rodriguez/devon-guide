@@ -1,28 +1,34 @@
 :toc: macro
 toc::[]
 
-= Devon in Bluemix
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
 
-== Introduction
-=== Platform as a service
+== Devon in Bluemix
+
+=== Introduction
+
+==== Platform as a service
 
 https://www.ibm.com/blogs/cloud-computing/2014/02/what-is-platform-as-a-service-paas/[Platform as a service (PaaS)] is a category of cloud computing services that provides a platform allowing customers to develop, run, and manage applications without the complexity of building and maintaining the infrastructure typically associated with developing and launching an app.
 
-=== Cloud Foundry
+==== Cloud Foundry
 
 Cloud Foundry is an open source, multi cloud application platform as a service (PaaS) governed by the Cloud Foundry Foundation, a https://en.wikipedia.org/wiki/501(c)_organization#501.28c.29.286.29[501(c)(6) organization]. 
 
 https://en.wikipedia.org/wiki/Cloud_Foundry[Cloud Foundry] supports the full lifecycle, from initial development, through all testing stages, to deployment. It is therefore well-suited to the continuous delivery strategy. Users have access to one or more spaces, which typically correspond to a lifecycle stage. For example, an application ready for QA testing might be pushed (deployed) to its project's QA space. Different users can be restricted to different spaces with different access permissions in each.
 
-=== Bluemix
+==== Bluemix
 
 https://console.ng.bluemix.net/docs/overview/whatisbluemix.html#bluemixoverview[IBM Bluemix] is a cloud PaaS developed by IBM. It supports several programming languages and services as well as integrated DevOps to build, run, deploy and manage applications on the cloud. Bluemix is based on Cloud Foundry open technology and runs on SoftLayer infrastructure. Bluemix supports several programming languages, including Java, Node.js, Go, PHP, Swift, Python, Ruby Sinatra, Ruby on Rails and can be extended to support other languages such as Scala through the use of buildpacks.
 
-== Bluemix Services
+=== Bluemix Services
 
 The Services dashboard provides access to the Bluemix services available from IBM® and third-party providers. These include Watson, Internet of Things, Analytics, Mobile, and DevOps services. See more about Bluemix Services https://console.ng.bluemix.net/docs/services/index.html#services[here].
 
-=== VCAP services
+==== VCAP services
 
 The VCAP_SERVICES environment variable is a JSON object that contains information that you can use to interact with a service instance in Bluemix. The information includes service instance name, credential, and connection URL to the service instance. These values are populated into the VCAP_SERVICES environment variable when your application is bound to a service instance in Bluemix.
 
@@ -33,7 +39,7 @@ The value of the VCAP_SERVICES environment variable is available only when you b
 cf env APP_NAME
 ----
 
-=== VCAP services on Devon
+==== VCAP services on Devon
 
 A simple example below demonstrates how to work with VCAP services in Devon. In this scenario, a dashDB database service is configured in the Devon application. So, you can obtain the database credentials from VCAP service.
 
@@ -132,9 +138,9 @@ This is a simple way to use Bluemix services, you can see https://cloud.spring.i
 In the example, you are learning how to obtain the credentials of the database. If you want to know how to configure a DB2/dashDB database, you can see more details link:getting-started-database-configuration#bd2[here].
 ====
 
-== Logs in Bluemix
+=== Logs in Bluemix
 
-=== Devon logging
+==== Devon logging
 
 Devon uses https://github.com/oasp/oasp4j/tree/develop/modules/logging[OASP logging module] as a logging system. The module uses http://www.slf4j.org/[SLF4J] API and the http://logback.qos.ch/[Logback] implementation and the OASP wiki contains an https://github.com/oasp/oasp4j/wiki/guide-logging[excellent entry] explaining its configuration.
 
@@ -173,7 +179,7 @@ In the above configuration, each log level is written in its own file.
 Each appender has its own XML configuration file that can be found on: https://github.com/oasp/oasp4j/tree/develop/modules/logging/src/main/resources/io/oasp/logging/logback[https://github.com/oasp/oasp4j/tree/develop/modules/logging/src/main/resources/io/oasp/logging/logback].
 ====
 
-=== Bluemix logging
+==== Bluemix logging
 
 Bluemix does not allow users to navigate through any log files and it uses its own tool to look into the logs. The Bluemix environment has a console to show the logs. Due to this fact, the default configuration for the Devon logging system is not appropriate for the environments like Bluemix.
 

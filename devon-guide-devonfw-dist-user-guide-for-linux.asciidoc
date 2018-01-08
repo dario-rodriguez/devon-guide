@@ -1,7 +1,12 @@
 :toc: macro
 toc::[]
 
-= Steps to use Devon distribution in Linux OS
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Steps to use Devon distribution in Linux OS
 
 *  Navigate to devon dist folder and open a terminal.
 * On the terminal, execute env.sh script, using [.].

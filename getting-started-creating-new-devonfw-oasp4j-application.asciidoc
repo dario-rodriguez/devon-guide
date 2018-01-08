@@ -1,7 +1,12 @@
 :toc: macro
 toc::[]
 
-= Creating your First Application
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Creating your First Application
 
 In devonfw, you can create new project using two different ways:
 
@@ -9,23 +14,23 @@ In devonfw, you can create new project using two different ways:
 
 - Using Archetype
 
-== Using Devcon
+=== Using Devcon
 
 You can refer the following link:oasp4j-creating-new-oasp4j-application[Creating New Application] page for more details.
 
-== Using the Archetype
+=== Using the Archetype
 
 In order to create a new application, you must use the archetype provided by devon which uses the maven archetype functionality.
 
 There are two alternatives for using the archetype to create a new application. One is to create using command line. Another way is within eclipse, which is a more visual manner.
 
-=== Using the Command Line
+==== Using the Command Line
 
-==== Step 1: Open the console
+===== Step 1: Open the console
 
 Open the Devonfw console by executing the batch file _console.bat_ from the Devonfw distribution. It is a pre-configured console which automatically uses the software and configuration provided by the Devonfw distribution.
 
-==== Step 2: Change the directory
+===== Step 2: Change the directory
 
 You can create the project anywhere you want, but it is a good practice to create the projects in your `workspace` directory. Therefore, run the following command in the console to change to the directory to `workspaces\main`.
 
@@ -36,7 +41,7 @@ cd workspaces\main
 
 This is the default location on Devonfw to create new applications. It is also possible to have your own workspace.
 
-==== Step 3: Create the new application
+===== Step 3: Create the new application
 
 To create a new application, you need to execute one of the following commands:
 
@@ -64,7 +69,7 @@ mvn -DarchetypeVersion=2.1.0 -DarchetypeGroupId=io.oasp.java.templates -Darchety
 //////////////////////////////////////////
 This will create a new directory inside `workspaces\main` with the name of your application with the created application inside.
 
-=== Using the Eclipse
+==== Using the Eclipse
 
 [NOTE]
 ====
@@ -73,11 +78,11 @@ If you use a proxy to connect to the Internet, then the above steps will not wor
 
 To create a new application using Eclipse, you should have installed https://coconet.capgemini.com/sf/frs/do/listReleases/projects.apps2_devon/frs.devon_distribution[Devonfw distribution]. Then, follow below steps to create a new application:
 
-==== Step 1 - Create a new Maven Project
+===== Step 1 - Create a new Maven Project
 
 Open Eclipse from a Devonfw distribution, by executing the batch file _eclipse-main.bat_, then go to _File > New > Maven Project_. If you don't see the option, click _File > New > Other_ and use the filter to search the option _Maven Project_
 
-==== Step 2 -  Choose the archetype
+===== Step 2 -  Choose the archetype
 
 In the New Maven Project wizard, you need to choose the _oas4j-template-server archetype_, as shown in below image.
 
@@ -95,7 +100,7 @@ Use the _Verify_ button to check the connection. Subsequently, you will see a me
 
 [Archetype]
 
-==== Step 3 - Configure the application properties
+===== Step 3 - Configure the application properties
 
 Fill the _Group Id_, _Artifact Id_, _Version_ and _Package_ for your project. 
 //////////////////////////////////////////
@@ -108,6 +113,6 @@ image::images/create-new-app/devon-guide-newapp-archetype-parameters.PNG[,width=
 
 * Click on the Finish button and the project will be ready for execution.
 
-=== What is generated
+==== What is generated
 
 To read more about the OASP4J application structure, click link:oasp4j-application-structure[here].

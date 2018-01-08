@@ -1,7 +1,12 @@
 :toc: macro
 toc::[]
 
-= Application structure
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Application structure
 
 OASP4Fn provides **Infraestructure as Code**. For that reason, the service made with OASP4Fn must follow a **specified folder structure**, that along with a configuration file will allow the user to avoid having to configure the service manually. 
 

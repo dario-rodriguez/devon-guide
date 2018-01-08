@@ -1,7 +1,12 @@
 :toc: macro
 toc::[]
 
-# 	Extending the CRUD: searching and filtering tables
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Extending the CRUD: searching and filtering tables
 
 Now we are going to add some filters to our view so that we can search and filter the records of the grid.   First of all, we have to define the search panel in our `TableListV.js`:
 

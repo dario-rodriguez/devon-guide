@@ -1,7 +1,12 @@
 :toc: macro
 toc::[]
 
-= OASP4J Application Structure
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== OASP4J Application Structure
 
 === The OASP4J project
 

@@ -1,6 +1,14 @@
-# Pending tasks for Devon guide
+:toc: macro
+toc::[]
 
-## Client GUI Angular
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Pending tasks for Devon guide
+
+=== Client GUI Angular
 
 - [Introduction](https://github.com/devonfw/devon/wiki/devon-guide-angular-introduction) 
 
@@ -26,7 +34,7 @@
  
 - [Internationalization](https://github.com/devonfw/devon/wiki/devon-guide-angular-i18n) (TODO)
 
-# MAYBE to include
+=== MAYBE to include
 
 - [Internationalization](https://github.com/devonfw/devon/wiki/devon-guide-i18n) [OASP = [1](https://github.com/oasp/oasp4j/wiki/guide-i18n)]
 

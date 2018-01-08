@@ -1,7 +1,12 @@
 :toc: macro
 toc::[]
 
-# Extending the CRUD: Custom plugin
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Extending the CRUD: Custom plugin
 
 We have seen how to use the plugins that are provided by default by Sencha as the cellediting or rowediting plugins.
 

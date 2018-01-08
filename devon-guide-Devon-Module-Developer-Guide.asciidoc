@@ -1,12 +1,17 @@
 :toc: macro
 toc::[]
 
-# Devon module Developer's Guide
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Devon module Developer's Guide
 
 Here, we intend to explain, creation of a maven module (devonfw module), which will serve as template for creating the other modules.
 This is done with the usage of maven archetype plugin. Please, follow the subsequent sections, for creation of the same.
 
-== Creation of module template
+=== Creation of module template
 
 The maven Archetype Plugin allows the user to create a Maven project from an existing template called an archetype.
 It also allows the user to create an archetype from an existing project.
@@ -39,14 +44,14 @@ mvn install
 
 So, this step installs the created archetype in users local maven repository.
 
-== Usage
+=== Usage
 
 One can use this archetype to create maven modules/projects with:
 
 * Eclipse
 * From command line
 
-=== Creation of module/project using Eclipse
+==== Creation of module/project using Eclipse
 
 If one wants to create project using archetype in Eclipse, follow below steps:
 
@@ -67,7 +72,7 @@ For the very first time, when we use archetype in Eclipse, it sometimes does not
 Once you select archetype, and press "_Next_" button, a dialog appears, where you need to put desired _artifactid_ and _group id_ and click finish button.
 A new project is created on the basis of chosen archetype.
 
-=== Creation of module through command line
+==== Creation of module through command line
 
 To use command line, go to your devon distribution and run _console.bat_
 Once the console is opened, execute the command:
@@ -106,7 +111,8 @@ Please, change it to
 Once, these 2 steps are done, then you can proceed with newly created project/module.
 
 
-== Structure of created module
+=== Structure of created module
+
 Once, above steps are followed, created module structure would look like below:
 
 image::images/devon-module-dev-guide/new-maven-module5.png["new-maven-module5",width="450", link="images/devon-module-dev-guide/new-maven-module5.png"]

@@ -1,24 +1,29 @@
 :toc: macro
 toc::[]
 
-= Creating an Oomph Product based on devon-ide
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Creating an Oomph Product based on devon-ide
 
 In this chapter we'll provide a tutorial on how to create your own Oomph Product based in the devon-ide and to contribute to the devon Product Catalog. It is recommended to read link:Oomph_devon-ide-oomph[Devon Ide Oomph Setup Definition] before continuing.
 
 To work with Product files you need to install the Plugin _Oomph Setup_ from http://download.eclipse.org/oomph/updates/milestone/latest
 
-== Tasks already provided by the Product Catalog
+=== Tasks already provided by the Product Catalog
 
 The following tasks are already included in the devon Product Catalog. If you want to create a Product outside of this Catalog make sure to incluce at least the _Installatoin_ task. otherwise your installation won't start at all.
 
 * _Installation_ triggers the installation process.
 * _P2 Director (Oomph)_ contains the p2 artifacts of most of the Oomph tasks.
 
-== Customizing the devon-ide Product
+=== Customizing the devon-ide Product
 
 Base line for this is of course the devon-ide setup file (https://github.com/devonfw/devon-ide/blob/master/docs/oomph/products/DevonIde.setup).
 
-=== Adding / Removing Eclipse p2 Features
+==== Adding / Removing Eclipse p2 Features
 
 Devon-ide comes with a lot of features and plugins. Most of them are contained in the _P2 Director (Devon 2.1.1)_. Removal and changing the version number of a feature or plugin is straight foward. For adding a feature or plugin you have to distinguish between three cases, depending on the Eclipse Version dependency:
 
@@ -26,7 +31,7 @@ Devon-ide comes with a lot of features and plugins. Most of them are contained i
 . *The feature / plugin uses the same version number for different Eclipse Versions*: In this case the feature / plugin usually has multiple update sites, one for each Eclipse Version. Add the feature / plugin to the _P2 Director (Devon 2.1.1)_ and the correct update site to the _P2 Director_ task inside the corresponding Product Version.
 . *The feature's / plugin's version depends on the Eclipse Version*: In this case add both feature / plugin with version number *and* it's update site to the Product Version _P2 Director_
 
-=== Adding / Updating / Removing External Software
+==== Adding / Updating / Removing External Software
 
 In the devon-ide Product the external software packages are downloaded into the _download software packages_ Compound and installed in either the _unarchive software packages_ or the _install msi packages_ Compounds.
 
@@ -60,7 +65,7 @@ image:images/oomph/product/03_senchazip.png[width=450, align="center", title="Se
 .. Sencha: `SenchaCmd-${sencha.version}-windows-no_jre-repacked.zip`
 .. Subversion: `Subversion-client-${subversion.version}-1-Win64-repacked.zip` and `Subversion-client-${subversion.version}-1-Win32-repacked.zip`
 
-==== Software Packages
+===== Software Packages
 
 Many software packages come as archives, mostly `.zip` and `.tar.gz`. To unarchive them use the _unzip_ Task. This isn't part of the native Oomph tasks and need to be installed separately from http://maybeec.github.io/oomph-task-unzip/update .
 
@@ -70,7 +75,7 @@ The unzip task can then be placed in the _unarchive software packages_ or in any
 * `Destination Dir`: the target directory of the archives content.
 * `Priority`: a value when this task has to be executed. `500` denotes normal execution time. Smaller numbers mean earlier. This is usefull if you need to have the archive beeing unarchived before certain events during installation. But more important is that you set the corresponding _Resource Copy_ task as this tasks predecessor (an advanced property) to guarantee that the archive is actually present.
 
-==== MSI Installers
+===== MSI Installers
 
 Some software for Windows based systems isn't available as a zipped archive but as a MSI installation package. Using the _Command Line Interface_ task (installable from http://maybeec.github.io/oomph-task-cli/update) you can evoke `msiexec` to install the MSI packages content to the place of destination. Those tasks are located in the _install msi packages_ Compound.
 
@@ -99,7 +104,7 @@ To install the MSI package `a.msi` from the temp folder to `software/a-package/`
 It is assumed that `msiinstall.bat` is located in the `${installation.root}`
 ====
 
-=== Adding / Changing the JDK
+==== Adding / Changing the JDK
 
 Currently the devon-ide comes with a prebundled Java 1.8.101 for both 32-bit and 64-bit systems. To change the used JDK you need to adapt up to three tasks in the _JDK Config_ Compound:
 
@@ -114,7 +119,7 @@ Currently the devon-ide comes with a prebundled Java 1.8.101 for both 32-bit and
 .. Add a _JRE Task_ with the correct version and the JDK target folder as location.
 .. Add now analogous to the default JDK the tasks for downloading and unarchiving the JDK. Make sure that the tasks only respond to the `BOOTSTRAP` trigger, else it would be downloaded and unarchived with each eclipse start.
 
-=== Adding Eclipse Versions
+==== Adding Eclipse Versions
 
 You can add new Eclipse Versions with the _Product Version_ task. This task cannot be placed in a Compound. `Name` and `Label` can be chosen at will. Again `Name` is for internal processes only and `Label` is displayed to the user. `Required Java Version` sets the minimum Java Version this Product Version needs to run.
 

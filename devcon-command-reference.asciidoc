@@ -1,7 +1,12 @@
 :toc: macro
 toc::[]
 
-= Devcon Command Reference
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Devcon Command Reference
 
 image::images/devconlogo_full.png[,align="center",width="200",Devcon, link="images/devconlogo_full.png"]
 
@@ -866,7 +871,7 @@ In the example above that `devon.json` file defines a server app (_myServerApp_)
 A simple example of usage for this command would be the following
 
 [source,batch]
-====
+----
 D:\devon-dist\workspaces\MyCombinedProject>devon project deploy
 Hello, this is Devcon!
 Copyright (c) 2016 Capgemini
@@ -875,21 +880,21 @@ Copyright (c) 2016 Capgemini
 After Tomcat finishes the loading process the app should be available in:
 localhost:8080/myServerApp-server-1.0
 ##########################################################################
-====
+----
 
 The process will open a new command window for the Tomcat's launching process and finally will shows us the url where the combined app should be accesible.
 
 [NOTE]
-====
+----
 The url is formed with the name of the .war file generated when packaging the app
-====
+----
 
 If we use the optional parameter _path_
 
 [source,batch]
-====
+----
 D:\devon-dist>devon project deploy -path D:\devon-dist\workspaces\MyCombinedProject
-====
+----
 
 ==== project run
 

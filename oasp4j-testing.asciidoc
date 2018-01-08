@@ -1,13 +1,18 @@
 :toc: macro
 toc::[]
 
-= Testing with OASP4J
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Testing with OASP4J
 
 Testing our applications is one of the most important parts of the development. The _Oasp4j_ documentation provides a detailed information about the https://github.com/oasp/oasp4j/wiki/guide-testing[testing principles]. In addition to that, in both the DevonfwGuide.pdf (_Write Unit Test Cases_) and in the https://github.com/devonfw/devon/wiki/getting-started-writing-unittest-cases[Devon documentation] you can find information about testing explained, on a more practical way.
 
 In this chapter we are going to focus on showing some test examples, and explain briefly how to start testing our _Oasp4j_ apps.
 
-== Testing: My Thai Star
+=== Testing: My Thai Star
 
 In all the _Oasp4j_ projects (based on _Maven_ and _Spring_) we are going to find a dedicated package for testing.
 
@@ -64,7 +69,7 @@ public class DishmanagementTest extends ComponentTest {
 - Finally with the `@Test` annotation we can declare a test to be executed during testing process.
 
 
-== Testing: Jump the Queue
+=== Testing: Jump the Queue
 
 Now that we have briefly overview we are going to add some tests to our _Jump the Queue_ application.
 
@@ -170,7 +175,7 @@ To run both tests (all the tests included in the class) we only need to do right
 
 image::images/oasp4j/8.Testing/jumpthequeue_testing_result3.png[ link="images/oasp4j/8.Testing/jumpthequeue_testing_result3.png"]
 
-== Additional Test functionalities
+=== Additional Test functionalities
 
 The _Oasp4j_ test module provide us with some extra functionalities that we can use to create tests in an easier way.
 
@@ -214,7 +219,7 @@ public class VisitormanagementTest extends ComponentTest {
 }
 ----
 
-== Running the Tests with Maven
+=== Running the Tests with Maven
 
 We can use _Maven_ to automate the testing of our project. To do it we simply need to open the _Devonfw_ console (_console.bat_ script) or a command line with access to _Maven_ and, in the project, execute the command `mvn clean test`. With this command _Maven_ will scan for classes named with the _Test_ word and will execute all the tests included in these classes.
 

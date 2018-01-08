@@ -1,26 +1,25 @@
 :toc: macro
 toc::[]
 
-=  Set up and maintain database schemas with Flyway
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Set up and maintain database schemas with Flyway
  
 https://flywaydb.org/documentation/[Flyway]  is an open-source database migration tool. It strongly favors simplicity and convention over configuration.
 
-== Why we use flyway
+=== Why we use flyway
 Lets say we have our application(a piece of software) and our database. Great. And this could very well all you need. 
 
 But on most projects, this simple view of the world very quickly translates into this
 
-
 image::images/setup-and-maintain-db-schemas-with-flyway/environments.png[,width="450",link="images/setup-and-maintain-db-schemas-with-flyway/environments.png"]
-
-
 
 We not only have to deal with one copy of environment, but with several. This presents a number of challenges to maintain the databases across various environments. 
 
 Many projects still rely on manually applied sql scripts and sometimes not even that (a quick sql statement here or there to fix a problem). And soon many questions arise:
-
-
-
 
 *   What state is the database in on this machine?
 *   Has this script already been applied or not?
@@ -28,24 +27,17 @@ Many projects still rely on manually applied sql scripts and sometimes not even 
 *   How do you set up a new database instance?
 
 
- 
-
 More often  the answer to these questions is: We don't know. 
-
 
 Database migrations(where flyway comes into picture) are a great way to regain control of this mess.
 
 They allow you to:
 
-
-
 * Recreate a database from scratch
 * Make it clear at all times what state a database is in
 * Migrate in a deterministic way from your current version of the database to a newer one.
 
-
-
-== How it works?
+=== How it works?
 
 To know which state database is in, Flyway relies on a special metadata table for all its internal bookkeeping.
 
@@ -78,7 +70,7 @@ image::images/setup-and-maintain-db-schemas-with-flyway/schema-version-metadata-
 
 
 
-== How to set up db using flyway in the project?
+=== How to set up db using flyway in the project?
 
 
 Flyway can be used standalone or can be integrated via its api to make sure the database migration takes place on startup.
@@ -142,7 +134,7 @@ It is also possible to use Flyway for test data. To do so, place your test data 
 Than Flyway scans the additional location for migrations and applies all in the order specified by their version. If migrations +V_01__...+ and +V_02__...+ exist and a test data migration should be applied, in between you can name it +V_01_1__...+.
 
 
-== Update database script files
+=== Update database script files
 
 Devon have https://flywaydb.org/getstarted/[flyway] configured. Flyway will search for script files for corresponding database. It will parse the script files and create or update corresponding tables in a database.
 

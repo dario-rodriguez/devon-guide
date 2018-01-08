@@ -1,9 +1,14 @@
 :toc: macro
 toc::[]
 
-= Bean-Mapping using Dozer
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
 
-== Why use Bean-Mapping
+== Bean-Mapping using Dozer
+
+=== Why use Bean-Mapping
 A mapping framework is useful in a layered architecture, where you can create layers of abstraction by encapsulating changes to particular data objects vs. propagating these objects to other layers (i.e. External service data objects, domain objects, data transfer objects, internal service data objects). A mapping framework is an ideal and can be used within Mapper type classes that are responsible for mapping data from one data object to another. 
 
 The challenge in distributed systems is passing the domain objects between different systems. Typically, you don't want internal domain objects to be exposed to the outside world and not allow external domain objects to bleed into your system. 
@@ -34,7 +39,7 @@ public PersonTo mapPerson(PersonEntity source) {
 
 Therefore, _BeanMapper_ is used for this purpose, which indirectly makes this task a lot easier.
 
-== Bean-Mapper Dependency
+=== Bean-Mapper Dependency
 To get access to the _BeanMapper_, you can use this dependency in your _pom.xml_ file:
  
 [source,xml]
@@ -50,7 +55,7 @@ So, (oasp4j-beanmapping) uses Dozer as dependency in its _pom.xml_ file as shown
 
 image::images/bean-mapping-using-dozer/dozer1.png[,width="450",link="images/bean-mapping-using-dozer/dozer1.png"]
 
-== Bean-Mapper Usage
+=== Bean-Mapper Usage
 Then, you can get the _BeanMapper_ via link:https://github.com/oasp/oasp4j/wiki/guide-dependency-injection[dependency-injection] which is typically provided by an abstract base class (e.g. _AbstractUc_). Now, your problem can be solved easily:
 
 [source,java]
