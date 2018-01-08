@@ -336,7 +336,7 @@ The implementation of the _findBookings_ uses http://www.querydsl.com/[queryDSL]
 
 === Layers of the Jump the Queue application
 
-All the above sections describe the main elements of the layers of the _Oasp4j_ components. If you have completed the link:OASP4jComponents[exercise of the previous chapter] you may have noticed that all those components are already created for us by _Cobigen_.
+All the above sections describe the main elements of the layers of the _Oasp4j_ components. If you have completed the link:oasp4j-components[exercise of the previous chapter] you may have noticed that all those components are already created for us by _Cobigen_.
 
 Take a look to our application structure
 
@@ -376,7 +376,7 @@ First, open your _Jump the Queue_ project in Eclipse and run the app (right clic
 
 ==== Simple call
 
-If you remember link:OASP4jComponents#mock-data[we added some mock data] to have some visitors info available, let's try to retrieve a visitor's information using our _visitormanagement service_.
+If you remember link:oasp4j-components#mock-data[we added some mock data] to have some visitors info available, let's try to retrieve a visitor's information using our _visitormanagement service_.
 
 Call the service (GET) `http://localhost:8081/jumpthequeue/services/rest/visitormanagement/v1/visitor/1` to obtain the data of the visitor with _id_ 1.
 

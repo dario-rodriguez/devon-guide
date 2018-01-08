@@ -18,7 +18,7 @@ For example, imagine we are doing a small program that takes your birthday as an
 
 As you can see, packages are convenient. In some cases, they may be even needed, as they can manage aspects of your program you may not be proficient in, or provide an easier use of them.
 
-For more comprehensive information visit https://docs.npmjs.com/how-npm-works/packages[npm definition]
+For more comprehensive information visit https://docs.npmjs.com/getting-started/what-is-npm[npm definition]
 
 :numbered:
 
