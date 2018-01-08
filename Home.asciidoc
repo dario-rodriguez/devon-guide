@@ -1,4 +1,4 @@
- = Devonfw Guide
+= Devonfw Guide
  
 Version 2.3-SNAPSHOT
 
