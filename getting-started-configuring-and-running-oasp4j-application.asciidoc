@@ -13,7 +13,7 @@ Devonfw distribution comes with a latest Master version of My Thai Star applicat
 === Configuring the Application
 
 ==== Step 1: Setup the Devonfw Environment
-Configure the Devonfw environment using following steps given link:getting-started-download-and-setupp[here].
+Configure the Devonfw environment using following steps given link:getting-started-download-and-setup[here].
 
 ==== Step 2: Import the project
 
