@@ -38,7 +38,7 @@ toc::[]
 
 ==== Minimum requirements:
 
-* Downloaded and deployed link:getting-started-download-and-install[devonfw]
+* Downloaded and deployed <<Download and Setup,devonfw>>
 * NodeJs installed (using the one included in devonfw or another one)
 * Java JDK 7 or superior (required by Cordova)
 

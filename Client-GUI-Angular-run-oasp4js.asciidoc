@@ -12,7 +12,7 @@ toc::[]
 
 *Make sure that the SERVER (OASP4J) is Up and Running! Otherwise, you wont be able to access any back-end functionalities.*
 
-You can setup the server part using steps mentioned link:getting-started-configuring-and-running-oasp4j-application[here].
+You can setup the server part using steps mentioned <<Configuring and Running OASP4J Application,here>>.
 
 === Run the MyThaiStar
 

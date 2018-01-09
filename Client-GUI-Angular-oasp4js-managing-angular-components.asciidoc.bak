@@ -63,7 +63,7 @@ You can also configure the routes to redirect to a certain component when URL in
 
 There are some cases when a component also has it own navigation inside of it, to make sub-navigation Router are prepared to use children-routes, this is a special property of a route, when you declare some routes inside of a children array, with this children array correctly set up, you can navigate to a component, and it sub-navigate some other components inside of it.
 
-One last remark, this routes can be secured using a special service called Guards, that forbid or permit the navigation depending on the implementation of a boolean method. This will be shown in its section in link:AngularServices[Angular Services].
+One last remark, this routes can be secured using a special service called Guards, that forbid or permit the navigation depending on the implementation of a boolean method. This will be shown in its section in <<Angular Services,Angular Services>>.
 
 === Forms
 
