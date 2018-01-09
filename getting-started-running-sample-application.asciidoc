@@ -153,7 +153,7 @@ $ yarn
 
 If you face any problem with installing dependencies, kindly refer following links:
 
-1. link:oasp4js-npm-yarn-workflow[NPM and Yarn Workflow]
+1. <<OASP4JS NPM-Yarn Workflow,NPM and Yarn Workflow>>
 1. link:https://github.com/oasp/my-thai-star/tree/develop/angular[My Thai Start - Angular]
 
 ===== Step 2: Run the application
