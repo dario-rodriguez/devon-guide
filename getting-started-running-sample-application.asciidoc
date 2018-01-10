@@ -189,7 +189,7 @@ and you can see MyThaiStar client running! You can login to the application usin
 
 *username*: waiter
 
-*passowrd*: waiter
+*password*: waiter
 
 Also shown below:
 
