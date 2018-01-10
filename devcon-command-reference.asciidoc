@@ -66,7 +66,7 @@ The _install_ parameter needs four parameters to work properly:
 A simple example of usage for this command would be the following
 
 [source,batch]
----
+----
 D:\>devon dist install -user john -password 1234 -path D:\Temp\MyDistribution -type devondist
 Hello, this is Devcon!
 Copyright (c) 2016 Capgemini
@@ -885,9 +885,7 @@ localhost:8080/myServerApp-server-1.0
 The process will open a new command window for the Tomcat's launching process and finally will shows us the url where the combined app should be accesible.
 
 [NOTE]
-----
-The url is formed with the name of the .war file generated when packaging the app
-----
+The url is formed with the name of the .war file generated when packaging the app.
 
 If we use the optional parameter _path_
 
@@ -1124,7 +1122,7 @@ This module handles all tasks related to distribution workspaces.
 
 This command automates the creation of new workspaces within the distribution with the default configuration including a new Eclipse _.bat_ starter related to the new project.
 
-===== _workspace create_ parameters
+===== workspace create parameters
 
 The create command needs two parameters:
 
