@@ -16,7 +16,7 @@ In devonfw, you can create new project using two different ways:
 
 === Using Devcon
 
-You can refer the following <<Creating your First Application,Creating New Application>> page for more details.
+You can refer the following <<Creating New OASP4J Application,Creating New OASP4J Application>> page for more details.
 
 === Using the Archetype
 
