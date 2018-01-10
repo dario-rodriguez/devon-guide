@@ -62,7 +62,7 @@ If more customization is needed then it is better to not start with `Devon.view.
 
 Another concern for the *viewport* is to contain references to *global* data that can be addressed by visual components of the application, such as information about the logged user. This is achieved by storing this data into the *ViewModel* of the *viewport*. As the *ViewModel* is inherited by contained components, storing information at the root of the view hierarchy makes this available everywhere.
 
-This can be useful for example for link:Client-GUI-Sencha-security[controlling visibility of controls based on user roles]
+This can be useful for example for <<Security,controlling visibility of controls based on user roles>>
 
 ==== Displaying pages
 

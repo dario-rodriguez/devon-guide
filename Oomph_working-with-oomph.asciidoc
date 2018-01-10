@@ -20,7 +20,7 @@ image::images/oomph/working/01_oomph-bar.png[width=450, align="center", title="O
 
 . Create a new _Workspace_ (Create an folder inside of `./workspaces` and call `update-all-workspaces`). This step is optional. You can also import the project in any pre existing workspace.
 . Start Eclipse with the target Workspace (the `eclipse-....bat` script).
-. Select _Import Projects..._ from the _Oomph Tool Bar_. This will open the _Project Page_ (see link:Oomph_ide-setup-oomph[IDE-Setup with Oomph] for a pictured Walkthrough).
+. Select _Import Projects..._ from the _Oomph Tool Bar_. This will open the _Project Page_ (see <<IDE Setup with the Oomph Installer,IDE-Setup with Oomph>> for a pictured Walkthrough).
 . Select the Project(s) to import and their Streams and proceed.
 . Fill out the variables and proceed. Make sure that the _Show all variables_ check box is activated and that the _Workspace for ... _ variable is set to the current Workspace.
 . Oomph will now set up the Project according to it's definition. The Wizard will close automatically but can be brought back with the _Setup Task Progess Indicator_.

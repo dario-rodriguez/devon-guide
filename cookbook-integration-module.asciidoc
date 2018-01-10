@@ -271,11 +271,11 @@ Optionally, you can edit the name for the channel and for the queue using the `d
 
 *Emitter application example*
 
-After you have added the link:cookbook-integration-module#adding-the-module-to-a-project[module dependency] you can start using the module link:cookbook-integration-module#injecting-the-module[injecting it] in your app. Lets see how to send a simple message through that default _simple channel_.
+After you have added the <<Adding the starter to a project,module dependency>> you can start using the module <<Injecting the module,injecting it>> in your app. Lets see how to send a simple message through that default _simple channel_.
 
 [NOTE]
 ====
-In order to make the example run properly remember that we will need an link:cookbook-integration-module#installing-apache-active-mq[Active MQ] instance running to provide support to the _channels_ and _queues_.
+In order to make the example run properly remember that we will need an <<Installing Apache Active MQ,Active MQ>> instance running to provide support to the _channels_ and _queues_.
 ====
 
 In our _sender_ application we only need to call the _send_ method of the _integration_ object and provide a message content
@@ -326,7 +326,7 @@ As in the _emitter_ case, you can edit the name for both the _channel_ and the _
 
 *Listener application example*
 
-As in the case of _emitter_ application you have to add the link:cookbook-integration-module#adding-the-module-to-a-project[module dependency] and link:cookbook-integration-module#injecting-the-module[inject] the module. Once that is done we can subscribe our application to the _channel/queue_ to start receiving messages from the _Integration module_ default simple channel.
+As in the case of _emitter_ application you have to add the <<Adding the starter to a project,module dependency>> and <<Injecting the module,inject>> the module. Once that is done we can subscribe our application to the _channel/queue_ to start receiving messages from the _Integration module_ default simple channel.
 
 [source,java]
 ----
@@ -423,11 +423,11 @@ Optionally, you can edit the name for the channel and for the queue using the `d
 
 *Sender-Receiver application example*
 
-After you have added the link:cookbook-integration-module#adding-the-module-to-a-project[module dependency] you need to link:cookbook-integration-module#injecting-the-module[inject it]. Lets see how to send and receive a simple message through that default _request-reply_ channel.
+After you have added the <<Adding the starter to a project,module dependency>> you need to <<Injecting the module,inject it>>. Lets see how to send and receive a simple message through that default _request-reply_ channel.
 
 [NOTE]
 ====
-In order to make the example run properly remember that we will need an link:cookbook-integration-module#installing-apache-active-mq[Active MQ] instance running to provide support to the _channels_ and _queues_.
+In order to make the example run properly remember that we will need an <<Installing Apache Active MQ,Active MQ>> instance running to provide support to the _channels_ and _queues_.
 ====
 
 In our _sender-receiver_ application we only need to call the _sendAndReceive_ method of the _integration_ object and provide a message content
@@ -465,7 +465,7 @@ You can also edit the name for both the _channel_ and the _queue_ (`devonfw.inte
 
 *Receiver-Sender application example*
 
-As in the case of _sender-receiver_ application, you have to add the link:cookbook-integration-module#adding-the-module-to-a-project[module dependency] and link:cookbook-integration-module#injecting-the-module[inject] the module. Once that is done we can subscribe our application to the _channel/queue_ to start receiving messages and sending responses from/to the _Integration module_ default request-reply channel.
+As in the case of _sender-receiver_ application, you have to add the <<Adding the starter to a project,module dependency>> and <<Injecting the module,inject>> the module. Once that is done we can subscribe our application to the _channel/queue_ to start receiving messages and sending responses from/to the _Integration module_ default request-reply channel.
 
 [source,java]
 ----
@@ -574,11 +574,11 @@ devonfw.integration.request-reply-async.listener=true
 
 *Sender-Receiver async example*
 
-After you have added the link:cookbook-integration-module#adding-the-module-to-a-project[module dependency] you need to link:cookbook-integration-module#injecting-the-module[inject it]. Lets see how to send and receive asynchronously a message through that default _request-reply-async_ channel.
+After you have added the <<Adding the starter to a project,module dependency>> you need to <<Injecting the module,inject it>>. Lets see how to send and receive asynchronously a message through that default _request-reply-async_ channel.
 
 [NOTE]
 ====
-In order to make the example run properly remember that we will need an link:cookbook-integration-module#installing-apache-active-mq[Active MQ] instance running to provide support to the _channels_ and _queues_.
+In order to make the example run properly remember that we will need an <<Installing Apache Active MQ,Active MQ>> instance running to provide support to the _channels_ and _queues_.
 ====
 
 In our _sender-receiver_ application we only need to call the _sendAndReceiveAsync_ method of the _integration_ object and provide a message content. As we are creating an asynchronous process we will use the Java http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/Future.html[Future] to handle the response. We will not complicate the example with too many details of Future's use so the code will look like the following
@@ -612,7 +612,7 @@ If now we run the application we would get a _timeout exception_ as there is no 
 
 *Receiver-Sender async example*
 
-As in the previous application, you have to add the link:cookbook-integration-module#adding-the-module-to-a-project[module dependency] and link:cookbook-integration-module#injecting-the-module[inject] the module. Once that is done we can subscribe our application to the _channel/queue_ (with the _subscribeAsync_ method) to start receiving asynchronously messages and sending responses from/to the _Integration module_ default request-reply-async channel.
+As in the previous application, you have to add the <<Adding the starter to a project,module dependency>> and <<Injecting the module,inject>> the module. Once that is done we can subscribe our application to the _channel/queue_ (with the _subscribeAsync_ method) to start receiving asynchronously messages and sending responses from/to the _Integration module_ default request-reply-async channel.
 
 [source,java]
 ----
@@ -695,7 +695,7 @@ The types are the same than the default channels. The user will be able to creat
 
 ===== Creating and using a new simple channel
 
-After you have added the link:cookbook-integration-module#adding-the-module-to-a-project[module dependency] and link:cookbook-integration-module#injecting-the-module[injected it] you only need to call the _createChannel_ method and provide a _name_ for the channel and a _name_ for the related queue.
+After you have added the <<Adding the starter to a project,module dependency>> and <<Injecting the module,injected it>>you only need to call the _createChannel_ method and provide a _name_ for the channel and a _name_ for the related queue.
 
 [source,java]
 ----
@@ -715,7 +715,7 @@ public class MySenderApp{
 }
 ----
 
-Then, in the _listener_ application, after adding the link:cookbook-integration-module#adding-the-module-to-a-project[module dependency] and the link:cookbook-integration-module#injecting-the-module[injection] of it, we only need to use the _subscribeTo_ method and provide the name for the channel and the queue (that *must match* the provided names in the first application) and the _Message Handler_ to manage the received messages. For more details about the _Message Handler_ check out the link:cookbook-integration-module#listener-application-example[listener application example] section.
+Then, in the _listener_ application, after adding the <<Adding the starter to a project,module dependency>> and the <<Injecting the module,injection>> of it, we only need to use the _subscribeTo_ method and provide the name for the channel and the queue (that *must match* the provided names in the first application) and the _Message Handler_ to manage the received messages. For more details about the _Message Handler_ check out the <<Listener application example,listener application example>> section.
 
 [source,java]
 ----
@@ -745,7 +745,7 @@ this.integration.subscribeTo("my-channel", "my-queue", this.messageHandler, 1000
 
 ===== Creating and using a new request-reply channel
 
-In the app that is going to start the flow, after adding the link:cookbook-integration-module#adding-the-module-to-a-project[module dependency] and link:cookbook-integration-module#injecting-the-module[injected it], you only need to call the _createRequestReplyChannel_ method and provide a _name_ for the channel, a _name_ for the related queue and, this part is slightly different from the rest of module implementation, you need to provide a _Message Handler_ that will manage the received response, as we do with listener applications.
+In the app that is going to start the flow, after adding the <<Adding the starter to a project,module dependency>> and <<Injecting the module,injected it>>, you only need to call the _createRequestReplyChannel_ method and provide a _name_ for the channel, a _name_ for the related queue and, this part is slightly different from the rest of module implementation, you need to provide a _Message Handler_ that will manage the received response, as we do with listener applications.
 
 [source,java]
 ----
@@ -768,7 +768,7 @@ public class MyFirstApp{
 }
 ----
 
-The _MessageHandler_ provided in the example above is exactly the same than explained previously in this _Integration module_ chapter (link:cookbook-integration-module#listener-application-example[see here]), except that, as this is a custom implementation, we don`t need to annotate the class with `@Handler`.
+The _MessageHandler_ provided in the example above is exactly the same than explained previously in this _Integration module_ chapter (<<Listener application example,listener application example>>), except that, as this is a custom implementation, we don`t need to annotate the class with `@Handler`.
 
 With this code we will create the _channel/queue_ infrastructure, send the message and provide a handler for the response. Now we need to define the second side of the flow to receive the message and provide a reply.
 
@@ -781,7 +781,7 @@ You can also configure it when creating the channel passing the _timeout_ as a p
 IntegrationChannel myChannel = this.integration.createRequestReplyChannel("my-channel", "my-queue", this.messageHandler, 10000);
 ----
 
-In a second application, after adding the link:cookbook-integration-module#adding-the-module-to-a-project[module dependency] and the link:cookbook-integration-module#injecting-the-module[injection] of it, we only need to use the _subscribeAndReplyTo_ method and provide the name for the channel and the queue (that *must match* the names provided in the first app) and the _Integration Handler_ to manage the received messages. The implementation is the same as the one described in the link:cookbook-integration-module#receiver-sender-application-example[receiver application example] section. So our sample code will look like
+In a second application, after adding the <<Adding the starter to a project,module dependency>> and the <<Injecting the module,injection>> of it, we only need to use the _subscribeAndReplyTo_ method and provide the name for the channel and the queue (that *must match* the names provided in the first app) and the _Integration Handler_ to manage the received messages. The implementation is the same as the one described in the <<Sender-Receiver application example,receiver application example>> section. So our sample code will look like
 
 [source,java]
 ----
@@ -809,7 +809,7 @@ Remember that if you run the first app before the listener app is running you wi
 
 ===== Creating and using a new asynchronous request-reply channel
 
-To create that type of channels the implementation is exactly the same than in the link:cookbook-integration-module#creating-and-using-a-new-request-reply-channel[previous section]. So in this section we are going to show only the code differences.
+To create that type of channels the implementation is exactly the same than in the <<How to use the default request-reply channel,previous section>>. So in this section we are going to show only the code differences.
 
 The first app will use the method _createAsyncRequestReplyChannel_ to create the channel, the rest is the same
 
@@ -836,7 +836,7 @@ In the second app you can subscribe to the channel with the method _subscribeAnd
 this.integration.subscribeAndReplyAsyncTo("my-async-channel", "my-async-queue", this.myIntegrationHandler);
 ----
 
-The implementation for the _Integration Handler_ is explained link:cookbook-integration-module#receiver-sender-application-example[here].
+The implementation for the _Integration Handler_ is explained <<Sender-Receiver application example,here>>.
 
 ==== Sending headers with the message
 

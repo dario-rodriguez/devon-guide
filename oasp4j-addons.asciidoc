@@ -8,13 +8,13 @@ toc::[]
 
 == OASP4J Adding Custom Functionality
 
-In the link:oasp4j-layers[previous chapter] we have seen that using _Cobigen_ we can generate in a few _clicks_ all the structure and functionality of an _Oasp4j_ component.
+In the <<OASP4J Component Layers,previous chapter>> we have seen that using _Cobigen_ we can generate in a few _clicks_ all the structure and functionality of an _Oasp4j_ component.
 
 In this chapter we are going to show how to add custom functionalities in our projects that are out of the scope of the code that _Cobigen_ is able to cover.
 
 === Returning the Access Code
 
-The _Jump the Queue_ design defines a link:Client-GUI-Angular-design-jump-the-queue#user-story-register[User Story] in which a visitor can register into an event and obtain an access code to avoid a queue.
+The _Jump the Queue_ design defines a <<User Story: register,User Story>> in which a visitor can register into an event and obtain an access code to avoid a queue.
 
 In our _standard_ implementation of the _Jump the queue_ app we have used _Cobigen_ to generate the components, so we have a default implementation of the services where saving a visitor returns the visitor data as confirmation that the process ended successfully.
 
@@ -127,7 +127,7 @@ and finally we need to inject the _accesscode_ component in the `Visitormanageme
 
 As _date and Time_ we are setting the current date plus one day. Again, *that details are not important* for the goal of the exercise, do it in other way if you feel more comfortable.
 
-In addition to that we are defining a _VisitorCto_ to handle the response. We need to provide the _access code_ in the response. In the previous chapter we talked about the link:oasp4j-layers#transfer-objects[Transfer Objects]. In this case the _VisitorEto_ has this defintion:
+In addition to that we are defining a _VisitorCto_ to handle the response. We need to provide the _access code_ in the response. In the previous chapter we talked about the <<Transfer-Objects,Transfer Objects>>. In this case the _VisitorEto_ has this defintion:
 
 [source,java]
 ----
@@ -184,7 +184,7 @@ image::images/oasp4j/6.Customizations/jumpthequeue_accesscode.png[, link="images
 
 === List visitors with their access code
 
-For the second link:Client-GUI-Angular-design-jump-the-queue#us-list-queued-visitors[user story] we need to provide a list with the visitors and their access codes. Right now our app list the visitors but only with the _id_ of the access code.
+For the second <<US: List queued visitors,user story>> we need to provide a list with the visitors and their access codes. Right now our app list the visitors but only with the _id_ of the access code.
 
 image::images/oasp4j/6.Customizations/jumpthequeue_listwithoutcode.png[, link="images/oasp4j/6.Customizations/jumpthequeue_listwithoutcode.png"]
 

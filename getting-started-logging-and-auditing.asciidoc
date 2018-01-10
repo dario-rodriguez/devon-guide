@@ -114,7 +114,7 @@ Example:
  [D: 2013-09-05 16:40:36,464] [P: DEBUG] [C: 12345] [T: main] [L: my.package.MyClass]-[M: My message...]
 ----
 
-==== Security
+==== Logging and Auditing Security
 In order to prevent https://www.owasp.org/index.php/Log_Forging[log forging] attacks we provide a special appender for logback in https://github.com/oasp/oasp4j/tree/oasp4j-logging[oasp4j-logging]. If you use it (see xref:configuration[]) you are safe from such attacks.
 
 ==== Correlating separate requests
@@ -161,7 +161,7 @@ When auditing is enabled for an entity an additional database table is used to s
   database.hibernate.hbm2ddl.auto=create
 ----
 
-Another possibility is to put them in your link:getting-started-flyway-database-migration[database migration] scripts like so.
+Another possibility is to put them in your <<Set up and maintain database schemas with Flyway,database migration>> scripts like so.
 [source, sql]
 ----
 CREATE CACHED TABLE PUBLIC.REVINFO(

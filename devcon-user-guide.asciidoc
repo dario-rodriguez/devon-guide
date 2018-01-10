@@ -359,4 +359,4 @@ Regarding the order of the command parameters, devcon will order them internally
 
 === Devcon command reference
 
-For a full reference of all the available commands in Devcon, see the link:devcon-command-reference[Devcon Command Reference]
+For a full reference of all the available commands in Devcon, see the <<Devcon Command Reference,Devcon Command Reference>>

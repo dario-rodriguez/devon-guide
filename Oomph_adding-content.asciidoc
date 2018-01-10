@@ -30,7 +30,7 @@ The devon Project Catalog can be found http://devonfw.github.io/devon-ide/oomph/
 
 ==== The Content
 
-Product and Project setup files are described in link:Oomph_ide-setup-oomph[Setup of the devon-ide with oomph]
+Product and Project setup files are described in <<IDE Setup with the Oomph Installer,Setup of the devon-ide with oomph>>
 
 === Adding a Catalog to the Index
 

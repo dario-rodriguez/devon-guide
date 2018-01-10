@@ -822,7 +822,7 @@ Completed
 
 ==== project deploy
 
-This command automates all the process described in the link:getting-started-deployment-on-tomcat[deployment on tomcat] section. It creates a new tomcat server associated to the combined server + client project in the _software_ directory of the distribution and launches it to make the project available in a browser.
+This command automates all the process described in the <<Deployment on Tomcat (Client/Server),deployment on tomcat>> section. It creates a new tomcat server associated to the combined server + client project in the _software_ directory of the distribution and launches it to make the project available in a browser.
 
 ===== _project deploy_ requirements
 
@@ -1155,7 +1155,7 @@ This module contains system wide commands related to devcon.
 
 This command installs devcon on user's HOME directory or at an alternative path provided by user.
 
-It should be used as a very first step to install Devcon, link:devcon-user-guide#getting-started-download-devcon[see more here]
+It should be used as a very first step to install Devcon, <<Download Devcon,see more here>>
 
 [source,batch]
 ----

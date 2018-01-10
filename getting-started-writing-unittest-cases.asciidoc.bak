@@ -18,7 +18,7 @@ In order to understand how the Unit Tests works in Eclipse, lets discuss how to 
 
 ===== Step 1: Create a new class
 
-Create a class with the name _MyClass.java_ (you can link:getting-started-creating-new-devonfw-application[create a new application] as per need). In Eclipse, right click on the package in the application and then select _New > Class_. Name it _MyClass_ and press _Finish_.
+Create a class with the name _MyClass.java_ (you can <<Creating your First Application,create a new application>> as per need). In Eclipse, right click on the package in the application and then select _New > Class_. Name it _MyClass_ and press _Finish_.
 
 ===== Step 2: Create a JUnit test
 

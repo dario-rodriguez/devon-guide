@@ -44,4 +44,4 @@ A zipped or gzipped IDE doesn't trigger the `STARTUP` tasks. The same holds true
 
 ==== Tasks not triggered Potential Causes
 
-. The `prepare-packaging.sh` script wasn't executed before packaging of the IDE (see link:Oomph_ide-setup-oomph[IDE Setup with Oomph: Packaging the Installation])
+. The `prepare-packaging.sh` script wasn't executed before packaging of the IDE (see <<IDE Setup with the Oomph Installer,IDE Setup with Oomph: Packaging the Installation>>)

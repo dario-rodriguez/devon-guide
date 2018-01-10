@@ -352,7 +352,7 @@ Before you start working on an issue, check out the following points:
 * Check the code-style with sonar-Qube in Eclipse. If there are any anomalies in the new or modified code, please rework.
 * Check out the latest code from the branch you are working on (+svn update+, +git pull+ after +git commit+).
 * Make sure that, all the builds and tests are working correctly (+mvn clean install+).
-* Commit your code (+svn commit+, +git push+) - for all your commits, ensure that you should stick to the conventions for code contributions (see link:oasp-code-contributions[code contribution]) and provide proper comments (see link:coding-conventions[coding conventions]).
+* Commit your code (+svn commit+, +git push+) - for all your commits, ensure that you should stick to the conventions for code contributions (see <<Code Contributions,[code contribution>>) and provide proper comments (see <<Code conventions,coding conventions>>).
 * If no milestone was assigned, please assign suitable milestone.
 * Set the issue as done.
 
@@ -367,7 +367,7 @@ For contributions to the code, please consider:
 * Before you get started, ensure that you comment the issue accordingly and you are the person assigned to the issue. If there is already someone else assigned, get in contact with him, if you still want to contribute to the same issue. It is better, not to invest into something that is already done by someone else.
 * Create a https://help.github.com/articles/fork-a-repo/[fork] of the repository on github to your private github space.
 * Checkout this fork and do modifications.
-* Ensure that, you stick to the link:coding-conventions[].
+* Ensure that, you stick to the <<Code conventions,Code conventions>>.
 * Check in features or fixes as individual commits associated with an link:../issues[issue] using the commit message format:
 +
 [source]
@@ -381,4 +381,4 @@ As an example:
 [source]
 oasp/oasp4j#1: added REST service for tablemanagement
 * If you completed your feature (bugfix, improvement, etc.), use a https://help.github.com/articles/using-pull-requests/[pull request] to give it back to the community.
-* Also, see the link:oasp-documentation[documentation] guidelines.
+* Also, see the link:https://oasp.github.io/assets/PDF/OASP4J.pdf[documentation] guidelines.

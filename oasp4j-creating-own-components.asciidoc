@@ -10,9 +10,9 @@ toc::[]
 
 === Basics
 
-After you have completed link:oasp4j-creating-new-oasp4j-application[your own OASP4J app] creation, we are going to create our first app component.
+After you have completed <<Creating your First Application,your own OASP4J app>> creation, we are going to create our first app component.
 
-Going back to our example application, link:Client-GUI-Angular-design-jump-the-queue[Jump the Queue], we need to provide two basic functionalities:
+Going back to our example application, <<Design Philosophy : Jump the Queue,Jump the Queue>>, we need to provide two basic functionalities:
 
 - register a user (returning an access code).
 

@@ -16,7 +16,7 @@ In devonfw, you can create new project using two different ways:
 
 === Using Devcon
 
-You can refer the following link:oasp4j-creating-new-oasp4j-application[Creating New Application] page for more details.
+You can refer the following <<Creating your First Application,Creating New Application>> page for more details.
 
 === Using the Archetype
 
@@ -115,4 +115,4 @@ image::images/create-new-app/devon-guide-newapp-archetype-parameters.PNG[,width=
 
 ==== What is generated
 
-To read more about the OASP4J application structure, click link:oasp4j-application-structure[here].
+To read more about the OASP4J application structure, click <<OASP4J Application Structure,here>>.

@@ -26,8 +26,8 @@ The Devonfw distributions can be obtained from the https://coconet.capgemini.com
 image::images/devconlogo_imgonly.png[,width="50"]
 .*Using devcon*
 [NOTE]
-You can do it using devcon with the command `devon dist install`, learn more  link:devcon-command-reference#dist-install[here].
-After a successful installation, you can initialize it with the command `devon dist init`, learn more link:devcon-user-guide#dist-init[here].
+You can do it using devcon with the command `devon dist install`, learn more  <<dist install,here>>.
+After a successful installation, you can initialize it with the command `devon dist init`, learn more <<dist init,here>>.
 
 === Setup the workspace
 

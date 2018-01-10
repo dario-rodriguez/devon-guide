@@ -14,9 +14,9 @@ image::images/devconlogo_imgonly.png[,width="50"]
 .*Using devcon*
 [NOTE]
 ====
-You can automate these processes using devcon. With the `devon sencha workspace` command you can generate new Sencha workspaces link:devcon-user-guide#sencha-workspace[learn more here].
+You can automate these processes using devcon. With the `devon sencha workspace` command you can generate new Sencha workspaces <<Using command prompt,learn more here>>.
 
-With the `devon sencha create` command you can create new Sencha applications link:devcon-command-reference#sencha-create[learn more here].
+With the `devon sencha create` command you can create new Sencha applications <<sencha create,learn more here>>.
 ====
 
 
@@ -56,7 +56,7 @@ We should be seeing a file structure like this one:
 
 image::images/client-gui-sencha/VSCodeAppStructure.png[VSCode App Structure,width="450", link="images/client-gui-sencha/VSCodeAppStructure.png"]
 
-You can learn more about the Devon4sencha app structure link:Client-GUI-Sencha-devon4sencha-application-structure[here].
+You can learn more about the Devon4sencha app structure <<Project Layout,here>>.
 
 For this guide, we are going to use the same backend as in the sample application so we have to change the path of the server in the ConfigDevelopment.js file:
 
@@ -83,7 +83,7 @@ sencha app watch
 
 .*Using devcon*
 [NOTE]
-Remember that you can automate this process using devcon with the `devon sencha run` command link:devcon-command-reference#sencha-run[learn more here]
+Remember that you can automate this process using devcon with the `devon sencha run` command <<sencha run,learn more here>>
 
 The result should be the same login page as in the sample application:
 

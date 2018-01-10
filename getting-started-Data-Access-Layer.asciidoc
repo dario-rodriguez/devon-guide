@@ -694,7 +694,7 @@ The concurrency control defines the way concurrent access to the same data of a 
 
 A remaining anomaly is when two stakeholders concurrently access a record, do some changes and write them back to the database. The JPA addresses this with different locking strategies (see http://www.objectdb.com/java/jpa/persistence/lock[here] or https://weblogs.java.net/blog/2009/07/30/jpa-20-concurrency-and-locking[here]).
 
-As a best practice we are using optimistic locking for regular end-user link:getting-started-Creating-Rest-Service[services] (OLTP) and pessimistic locking for link:cookbook-batch-layer[batches].
+As a best practice we are using optimistic locking for regular end-user <<Service Layer,services>> (OLTP) and pessimistic locking for <<Batch Layer,batches>>.
 
 ===== Optimistic Locking
 
@@ -708,7 +708,7 @@ According to KISS our recommendation is that the user gets an error displayed th
 
 ===== Pessimistic Locking
 
-For back-end link:getting-started-Creating-Rest-Service[services] and especially for link:cookbook-batch-layer[batches] optimistic locking is not suitable. A human user shall not cause a large batch process to fail because he was editing the same entity. Therefore such use-cases use pessimistic locking what gives them a kind of priority over the human users.
+For back-end <<Service Layer,services>> and especially for <<Batch Layer,batches>> optimistic locking is not suitable. A human user shall not cause a large batch process to fail because he was editing the same entity. Therefore such use-cases use pessimistic locking what gives them a kind of priority over the human users.
 In your xref:data-access-object[DAO] implementation you can provide methods that do pessimistic locking via http://docs.oracle.com/javaee/6/api/javax/persistence/EntityManager.html[_EntityManager_] operations that take a http://docs.oracle.com/javaee/6/api/javax/persistence/LockModeType.html[_LockModeType_]. Here is a simple example:
 [source,java]
 ----
@@ -721,7 +721,7 @@ As you might have noticed, the behavior of Hibernate deviates from what one woul
 
 ==== Database Auditing
 
-See link:getting-started-logging-and-auditing#auditing-with-hibernate-envers[auditing guide].
+See <<Auditing with Hibernate Envers,auditing guide>>.
 
 ==== Testing Entities and DAOs
 
@@ -737,7 +737,7 @@ We strongly recommend these principles:
 
 === Database Configuration
 
-The link:getting-started-understanding-oasp4j-spring-boot-config[configuration] for Spring and Hibernate is already provided by OASP4J in our sample application and the application template. So you only need to worry about a few things to customize.
+The <<OASP4J and Spring Boot Configuration,configuration>> for Spring and Hibernate is already provided by OASP4J in our sample application and the application template. So you only need to worry about a few things to customize.
 
 ==== Database System and Access
 
@@ -805,17 +805,17 @@ flyway.locations=classpath:db/migration,classpath:db/migration/mysql
 
 Here we can mention classpath or filesystems path.
 
-You can see more examples of database configurations link:getting-started-database-configuration[here]
+You can see more examples of database configurations <<Database Configuration,here>>
 
 ==== Database Migration
 
 See https://github.com/oasp/oasp4j/wiki/guide-database-migration[database migration guide].
 
-=== Security
+=== Data-Access Layer Security
 
 ==== SQL injection
 
-A common link:cookbook-security-layer[security] threat is http://en.wikipedia.org/wiki/SQL_injection[SQL-injection]. Never build queries with string concatenation or your code might be vulnerable as in the following example:
+A common <<Devon Security Layer,security>> threat is http://en.wikipedia.org/wiki/SQL_injection[SQL-injection]. Never build queries with string concatenation or your code might be vulnerable as in the following example:
 
 [source, java]
 ----

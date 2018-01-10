@@ -53,7 +53,7 @@ As mentioned earlier in the guide, distribution comes with _Tomcat8_ by default,
 === Using Tomcat7 for deploying
 
 You can download tomcat externally and deploy war in it.
-For more information, please visit this link:getting-started-deployment-on-tomcat#deploy-on-tomcat-7[link].
+For more information, please visit this <<Deploy on Tomcat,link>>.
 
 === Linux and Windows Compatibility
 

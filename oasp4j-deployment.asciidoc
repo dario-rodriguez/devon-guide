@@ -8,7 +8,7 @@ toc::[]
 
 == OASP4J Deployment
 
-As we already mentioned when link:oasp4j-application-structure[introducing the oasp4j projects], the apps created with the _Oasp4j_ archetype are going to provide, apart from the _core_ project, a _server_ project that will configure the packaging of the app. 
+As we already mentioned when <<OASP4J Application Structure,introducing the oasp4j projects>>, the apps created with the _Oasp4j_ archetype are going to provide, apart from the _core_ project, a _server_ project that will configure the packaging of the app. 
 
 In our _Jump the Queue_ app we can verify that we have this _server_ project available
 

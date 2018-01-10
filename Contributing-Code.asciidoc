@@ -14,7 +14,7 @@ Both projects, devon and OASP, are intended to be easy to contribute to. One ser
 
 In order to contribute code, git and GitHub specific pull-requests are being used.
 
-It is mandatory to follow the link:Contributing-Code-of-Conduct[code of conduct] that must be present in the root of every OSS or private project as `CODE_OF_CONDUCT.asciidoc` or `CODE_OF_CONDUCT.md`. 
+It is mandatory to follow the <<Contributor Covenant Code of Conduct,code of conduct>> that must be present in the root of every OSS or private project as `CODE_OF_CONDUCT.asciidoc` or `CODE_OF_CONDUCT.md`. 
 
 === Introduction to Git and GitHub
 
@@ -59,7 +59,7 @@ This is a private repository. You have to be logged in and have permissions to a
 
 === Contributing to our projects
 
-In order to contribute to our projects, developers must follow the following link:Contributing-Development-Guidelines[development guidelines]. Other sources about contributing to devon/OASP:
+In order to contribute to our projects, developers must follow the following <<Development Guidelines,development guidelines>>. Other sources about contributing to devon/OASP:
 
 * https://github.com/oasp/oasp4j/wiki/oasp-code-contributions[OASP code contributions]
 * https://github.com/oasp/oasp4j/wiki/oasp-documentation[OASP documentation]
@@ -85,7 +85,7 @@ image::images/contributing/issue_list.PNG[Issue list, width="450", link="images/
 * Assign yourself to the issue you would like to work on. If a member was already assigned to your preferred issue, get in contact to contribute to the same issue.
 * Fork the desired repository to your corporate GitHub account. Afterwards you'll have your own copy of the repository you'd like to work on.  
 * Create a new branch for your feature/bugfix. Check out the develop branch for the upcoming release. The following changes will afterwards be merged when the new version is released.
-* Please read the link:Contributing-Git-Fork-guide[Working with forked repositories] document to learn all about this topic.
+* Please read the <<Working with forked repositories,Working with forked repositories>> document to learn all about this topic.
 ** Check out the develop branch
 +
 [source, bash]

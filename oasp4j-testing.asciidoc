@@ -100,7 +100,7 @@ public class VisitormanagementTest extends ComponentTest {
   private Visitormanagement visitormanagement;
 ----
 
-Now we can start adding our first test. In link:Client-GUI-Angular-design-jump-the-queue[Jump the Queue] we have two main functionalities:
+Now we can start adding our first test. In <<Design Philosophy : Jump the Queue,Jump the Queue>> we have two main functionalities:
 
 - register a visitor returning an _access code_.
 

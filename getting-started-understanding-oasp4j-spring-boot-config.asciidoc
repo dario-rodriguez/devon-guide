@@ -90,7 +90,7 @@ First, you need to define the properties in the _application.properties_ file. Y
 
 image::images/devonfw-getting-started-conf/devon_guide_configuration_getting_started_application.properties_files.PNG[,width="450", link="images/devonfw-getting-started-conf/devon_guide_configuration_getting_started_application.properties_files.PNG"]
 
-Learn more about how to run the application link:getting-started-running-sample-application#step-2-run-the-application[here].
+Learn more about how to run the application <<Running My Thai Star,here>>.
 
 [source,java]
 ----
@@ -172,9 +172,9 @@ The environment configuration contains the configuration parameters (typically p
 The environment configuration is maintained in the `application.properties` files, defining various properties. 
 These properties are explained in the corresponding configuration sections of the guides for each topic:
 
-* link:getting-started-Data-Access-Layer#database-system-and-access[persistence configuration]
-* link:getting-started-Creating-Rest-Service#jax-rs-configuration[service configuration]
-* link:getting-started-logging-and-auditing#configuration[logging guide]
+* <<Database System and Access,persistence configuration>>
+* <<JAX-RS Configuration,service configuration>>
+* <<Configuration,logging guide>>
 
 There are two properties files exist within the example server:
 

@@ -24,7 +24,7 @@ mvn -DarchetypeVersion=2.3.0 -DarchetypeGroupId=io.oasp.java.templates -Darchety
 ----
 - Open Eclipse and Import the new _tutorial_ project as _Existing Maven Project_
 
-If you want to know more about how to create a new application you can visit the link:getting-started-creating-new-devonfw-application[Create New Application] section.
+If you want to know more about how to create a new application you can visit the <<Creating your First Application,Create New Application>> section.
 
 Before continue it is important to keep in mind the packaging convention that Devonfw proposes. Devonfw uses a strict packaging convention to map technical layers and business components to the code. Devonfw uses the following Java-Package schema:
 
@@ -779,7 +779,7 @@ Web applications need to get data from the server, so we have to expose the meth
 
 This is an example of a REST API for our _Table_ use case using JAX-RS.
 
-Also note that the implementation does not follow the dogmatic _RESTFUL_ approach as Devonfw proposes a more pragmatic way to use REST. Please refer to the guide link:getting-started-Creating-Rest-Service[Creating Rest Service] for more information on the subject.
+Also note that the implementation does not follow the dogmatic _RESTFUL_ approach as Devonfw proposes a more pragmatic way to use REST. Please refer to the guide <<Service Layer,Creating Rest Service>> for more information on the subject.
  
 .TablemanagementRestServiceImpl.java
 [source,java]

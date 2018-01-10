@@ -6,7 +6,7 @@ toc::[]
 :source-highlighter: rouge
 :listing-caption: Listing
 
-== Introduction
+== Devonfw Introduction
 
 image::images/devonfw-small.png[,align="center",width="200",Devonfw, link="images/devonfw-small.png"]
 
@@ -96,4 +96,4 @@ The current available modules are:
 
 - _winauth single sign on_: module that allows applications to authenticate the users by the Windows credentials.
 
-Find more about devonfw link:getting-started-knowing-more-about-Devonfw[_here_].
+Find more about devonfw <<Devonfw Outline,_here_>>.

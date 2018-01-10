@@ -175,7 +175,7 @@ loadOrder: function(table, response, opts) {            //<3>
 
 === Base Url configuration
 
-All the rest endpoints of the application are configured to use the same base url configured in the link:Client-GUI-Sencha-devon4sencha-application-structure#project-layout[Config.js] settings file with the *server* property:
+All the rest endpoints of the application are configured to use the same base url configured in the <<Project Layout,Config.js>> settings file with the *server* property:
 [source,javascript]
 ----
 window.Config={

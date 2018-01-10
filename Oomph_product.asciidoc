@@ -8,7 +8,7 @@ toc::[]
 
 == Creating an Oomph Product based on devon-ide
 
-In this chapter we'll provide a tutorial on how to create your own Oomph Product based in the devon-ide and to contribute to the devon Product Catalog. It is recommended to read link:Oomph_devon-ide-oomph[Devon Ide Oomph Setup Definition] before continuing.
+In this chapter we'll provide a tutorial on how to create your own Oomph Product based in the devon-ide and to contribute to the devon Product Catalog. It is recommended to read <<IDE Setup with the Oomph Installer,Devon Ide Oomph Setup Definition>> before continuing.
 
 To work with Product files you need to install the Plugin _Oomph Setup_ from http://download.eclipse.org/oomph/updates/milestone/latest
 

@@ -10,7 +10,7 @@ toc::[]
 
 === Introduction
 
-link:devcon-user-guide[Devcon] is a cross-platform command line and GUI tool written in Java that provides many automated tasks around the full life-cycle of Devonfw applications.
+<<Devcon User Guide,Devcon>> is a cross-platform command line and GUI tool written in Java that provides many automated tasks around the full life-cycle of Devonfw applications.
 
 The structure of Devcon is formed by two main elements: _modules_ and _commands_.
 
@@ -20,7 +20,7 @@ where each module represents an area of Devon and groups commands that are relat
 
 There is also a third element with a main spot in Devcon, the _parameters_, we will see them later.
 
-After link:devcon-user-guide#getting-started-download-devcon[installing Devcon] you can see the modules and commands available out of the box opening a command line and using the command `devon -g` to launch the Devcon's graphic user interface.
+After <<Download Devcon,installing Devcon>> you can see the modules and commands available out of the box opening a command line and using the command `devon -g` to launch the Devcon's graphic user interface.
 
 [NOTE]
 ====
@@ -62,7 +62,7 @@ In most cases the commands will need parameters to work with. The _@Parameters_ 
 
 ==== Creating a java module
 
-If you are not interested in create _core_ modules and want to focus on external Javascript modules skip this section and go direcly to link:devcon-command-developers-guide#javascript-modules[Javascript modules] part.
+If you are not interested in create _core_ modules and want to focus on external Javascript modules skip this section and go direcly to <<Javascript modules,Javascript modules>> part.
 
 So once we have the basic definition of the Devcon's elements and we know how to register them, let's see how to add a new module in Devcon's _core_ using Java.
 
@@ -173,7 +173,7 @@ Once we have the devcon.jar file we have two options depending if we are customi
 
 [NOTE]
 ====
-If you don't have Devcon installed you can see how to install it link:devcon-user-guide#getting-started-download-devcon[here]
+If you don't have Devcon installed you can see how to install it <<Download Devcon,here>>
 ====
 
 - OPTION 2: In case you are working over the copy of Devcon enabled by default in Devon distributions you only need to copy the _devcon.jar_ you just created, to `Devon-distribution\software\devcon` replacing the devcon.jar that is inside of that directory with your new _devcon.jar_  
@@ -255,7 +255,7 @@ To register a Javascript module we only need to create a directory with that two
 
 The _commands.json_ file located in the Javascript module folder defines the elements included in it, from the module details, as name or description, to the commands and its parameters.
 
-If you have followed the link:devcon-command-developers-guide#creating-a-java-module[Creating a Java module] section you have seen that for the Java modules we use the _@CmdModuleRegistry_ annotation to register a module. In the case of the Javascript modules this is replaced by the _commands.json_ file itself so we won't have an equivalent _module registry_ keyword.
+If you have followed the <<Creating a java module,Creating a Java module>> section you have seen that for the Java modules we use the _@CmdModuleRegistry_ annotation to register a module. In the case of the Javascript modules this is replaced by the _commands.json_ file itself so we won't have an equivalent _module registry_ keyword.
 
 To define the module in the _commands.json_ file we can use the following attributes:
 
@@ -398,7 +398,7 @@ In this case we are going to create (again) a command to extract a zip file, so 
 
 [NOTE]
 ====
-If you want to customize a copy of Devcon in a local context and you still don't have Devcon installed you can see how to download and install it link:devcon-user-guide#getting-started-download-devcon[here].
+If you want to customize a copy of Devcon in a local context and you still don't have Devcon installed you can see how to download and install it <<Download Devcon,here>>.
 ====
 
 - 2. We will need to create the _scripts_ folder within the _Devcon Directory_. 

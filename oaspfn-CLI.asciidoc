@@ -22,7 +22,7 @@ The above commands will generate a _serverless.yml_ and a _webpack.config.json_ 
 
 image::images/oasp4fn/CLI/Fun.PNG[, link="images/oasp4fn/CLI/Fun.PNG"]
 
-That command make use of the link:oaspfn-application-configuration#default-configuration[default configuration], but the usage is the following:
+That command make use of the <<Application Configuration,default configuration>>, but the usage is the following:
 
 ```
 oasp4fn [provider] [options]

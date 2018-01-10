@@ -135,7 +135,7 @@ This is a simple way to use Bluemix services, you can see https://cloud.spring.i
 
 [NOTE]
 ====
-In the example, you are learning how to obtain the credentials of the database. If you want to know how to configure a DB2/dashDB database, you can see more details link:getting-started-database-configuration#bd2[here].
+In the example, you are learning how to obtain the credentials of the database. If you want to know how to configure a DB2/dashDB database, you can see more details <<Database Configuration,here>>.
 ====
 
 === Logs in Bluemix

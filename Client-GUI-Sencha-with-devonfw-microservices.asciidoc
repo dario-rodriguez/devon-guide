@@ -11,7 +11,7 @@ toc::[]
 
 === Introduction
 
-In order to use _devon4sencha_ applications with the link:devon-microservices[Devonfw implementation for microservices], we will need to adapt the Security configuration of the framework to authenticate our client app against the _auth_ service of the microservices solution.
+In order to use _devon4sencha_ applications with the <<Microservices in Devonfw,Devonfw implementation for microservices>>, we will need to adapt the Security configuration of the framework to authenticate our client app against the _auth_ service of the microservices solution.
 
 === Security changes
 
