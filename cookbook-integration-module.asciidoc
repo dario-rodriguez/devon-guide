@@ -715,7 +715,7 @@ public class MySenderApp{
 }
 ----
 
-Then, in the _listener_ application, after adding the <<Adding the starter to a project,module dependency>> and the <<Injecting the module,injection>> of it, we only need to use the _subscribeTo_ method and provide the name for the channel and the queue (that *must match* the provided names in the first application) and the _Message Handler_ to manage the received messages. For more details about the _Message Handler_ check out the <<Listener application example,listener application example>> section.
+Then, in the _listener_ application, after adding the <<Adding the starter to a project,module dependency>> and the <<Injecting the module,injection>> of it, we only need to use the _subscribeTo_ method and provide the name for the channel and the queue (that *must match* the provided names in the first application) and the _Message Handler_ to manage the received messages. For more details about the _Message Handler_ check out the <<Listener application example ,listener application example>> section.
 
 [source,java]
 ----
@@ -768,7 +768,7 @@ public class MyFirstApp{
 }
 ----
 
-The _MessageHandler_ provided in the example above is exactly the same than explained previously in this _Integration module_ chapter (<<Listener application example,listener application example>>), except that, as this is a custom implementation, we don`t need to annotate the class with `@Handler`.
+The _MessageHandler_ provided in the example above is exactly the same than explained previously in this _Integration module_ chapter (<<Listener application example ,listener application example>>), except that, as this is a custom implementation, we don`t need to annotate the class with `@Handler`.
 
 With this code we will create the _channel/queue_ infrastructure, send the message and provide a handler for the response. Now we need to define the second side of the flow to receive the message and provide a reply.
 

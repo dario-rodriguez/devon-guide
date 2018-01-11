@@ -359,7 +359,7 @@ We address these common threats individually in _security_ sections of our techn
 
 |https://www.owasp.org/index.php/Top_10_2013-A2-Broken_Authentication_and_Session_Management[A2 Broken Authentication and Session Management]
 |encrypt all channels, use a central identity management with strong password-policy
-|xref:authentication[Authentication]
+|<<Authentication,Authentication>>
 
 |https://www.owasp.org/index.php/Top_10_2013-A3-Cross-Site_Scripting_(XSS)[A3 XSS]
 |prevent injection (see A1) for HTML, JavaScript and CSS and understand same-origin-policy
@@ -379,7 +379,7 @@ We address these common threats individually in _security_ sections of our techn
 
 |https://www.owasp.org/index.php/Top_10_2013-A7-Missing_Function_Level_Access_Control[A7 Missing Function Level Access Control]
 |Ensure proper authorization for all use-cases, use `@DenyAll` als default to enforce
-|xref:authorization[Method authorization]
+|<<Authorization,Method authorization>>
 
 |https://www.owasp.org/index.php/Top_10_2013-A8-Cross-Site_Request_Forgery_(CSRF)[A8 CSRF]
 |secure mutable service operations with an explicit CSRF security token sent in HTTP header and verified on the server

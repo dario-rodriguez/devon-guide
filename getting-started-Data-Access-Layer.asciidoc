@@ -709,7 +709,7 @@ According to KISS our recommendation is that the user gets an error displayed th
 ===== Pessimistic Locking
 
 For back-end <<Service Layer,services>> and especially for <<Batch Layer,batches>> optimistic locking is not suitable. A human user shall not cause a large batch process to fail because he was editing the same entity. Therefore such use-cases use pessimistic locking what gives them a kind of priority over the human users.
-In your xref:data-access-object[DAO] implementation you can provide methods that do pessimistic locking via http://docs.oracle.com/javaee/6/api/javax/persistence/EntityManager.html[_EntityManager_] operations that take a http://docs.oracle.com/javaee/6/api/javax/persistence/LockModeType.html[_LockModeType_]. Here is a simple example:
+In your <<Data Access Object,DAO>> implementation you can provide methods that do pessimistic locking via http://docs.oracle.com/javaee/6/api/javax/persistence/EntityManager.html[_EntityManager_] operations that take a http://docs.oracle.com/javaee/6/api/javax/persistence/LockModeType.html[_LockModeType_]. Here is a simple example:
 [source,java]
 ----
   getEntityManager().lock(entity, LockModeType.READ);
