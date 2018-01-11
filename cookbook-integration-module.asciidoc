@@ -388,7 +388,7 @@ With the _Integration module_ a ready to be used _request-reply_ channel is prov
 
 To achieve that in our applications we only need to configure the corresponding properties to create the channel and its related queue.
 
-*Default configuration for request-reply channel*
+===== Default configuration for request-reply channel
 
 The default configuration properties for this channel, provided by default with the _Integration module_, are:
 
@@ -409,7 +409,7 @@ devonfw.integration.request-reply.receivetimeout=5000
 
 If you want to customize these properties you can overwrite them in the `application.properties` of your project, as we are going to see below.
 
-*Sender-Receiver application configuration*
+===== Sender-Receiver application configuration
 
 To enable the sending of messages through this channel you must set the `request-reply.emitter` property to _true_ in the `application.properties` of our project.
 
@@ -421,7 +421,7 @@ devonfw.integration.request-reply.emitter=true
 Optionally, you can edit the name for the channel and for the queue using the `devonfw.integration.request-reply.channelname` and `devonfw.integration.request-reply.queuename` properties. As we just mentioned, the timeout for the response can be edited adding the `devonfw.integration.request-reply.receivetimeout` property to our properties file and providing a milliseconds value. By default the timeout is _5000_ (5 seconds). 
 
 
-*Sender-Receiver application example*
+===== Sender-Receiver application example
 
 After you have added the <<Adding the starter to a project,module dependency>> you need to <<Injecting the module,inject it>>. Lets see how to send and receive a simple message through that default _request-reply_ channel.
 
@@ -452,7 +452,7 @@ public class MyFirstApp{
 
 If now we run the application we would get a _timeout exception_ as there is no one ready to provide a response within the defined timeout limit (5 seconds). So first, lets prepare our _other-side_ application.
 
-*Receiver-Sender application configuration*
+===== Receiver-Sender application configuration
 
 In this application we need to enable the `request-reply.listener` property so, in the `applications.property` file of our project, we must set to _true_ that property.
 
@@ -463,7 +463,7 @@ devonfw.integration.request-reply.listener=true
 
 You can also edit the name for both the _channel_ and the _queue_ (`devonfw.integration.request-reply.channelname` and `devonfw.integration.request-reply.queuename` properties). But, as mentioned in previous section, have into account that *these names must match* between the _sernder-receiver_ and the _receiver-sender_ applications, in order to perform the communication.
 
-*Receiver-Sender application example*
+===== Receiver-Sender application example
 
 As in the case of _sender-receiver_ application, you have to add the <<Adding the starter to a project,module dependency>> and <<Injecting the module,inject>> the module. Once that is done we can subscribe our application to the _channel/queue_ to start receiving messages and sending responses from/to the _Integration module_ default request-reply channel.
 
