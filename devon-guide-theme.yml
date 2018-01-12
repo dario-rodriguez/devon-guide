@@ -119,7 +119,7 @@ title_page:
   align: center
   logo:
       #image: image:C:/Capgemini/Devon-Guide/asciidoctor-devon-guide/images/devonfw.jpg[pdfwidth=50%]
-      image: image:C:/D/Devon-dist_2.3.0/workspaces/asciidoctor-devon-guide/images/devonfw.jpg[pdfwidth=50%]
+      image: image:C:/Devon/Devon-dist_2.3.0/workspaces_vs/devon-guide.wiki/images/devonfw.jpg[pdfwidth=50%]
       top: 30%
   title:
    # top: 55%
@@ -318,7 +318,7 @@ footer:
     left:
       content: image:images/Capgemini_Logo_2COL_RGB.png[width=80]
     center:
-      content: Copyright © 2015-2018 the Devonfw Team, Capgemini
+      content: Written by the Devonfw community - Copyright © 2015-2018 Capgemini
 
   verso:
     right:
@@ -327,7 +327,7 @@ footer:
       content: image:images/Capgemini_Logo_2COL_RGB.png[width=80]
       #content: '{page-number} | {chapter-title}'
     center:
-      content: Copyright © 2015-2018 the Devonfw Team, Capgemini
+      content: Written by the Devonfw community - Copyright © 2015-2018 Capgemini
 
 # header 
 header:

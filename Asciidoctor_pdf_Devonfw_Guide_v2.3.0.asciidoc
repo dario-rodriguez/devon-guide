@@ -7,7 +7,7 @@
 
 = Devonfw Guide
 v2.3.0
-Copyright © 2015-2018 the Devonfw Team Capgemini
+Written by the Devonfw community - Copyright © 2015-2018 Capgemini
 
 toc::[]
 
