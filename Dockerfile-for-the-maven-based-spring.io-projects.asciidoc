@@ -32,58 +32,72 @@ Dockerfile consists of two kind of main line blocks: comments and commands + arg
 ==== FROM 
 The FROM command initializes a new build stage and sets the Base Image for subsequent commands. 
 Dockerfile must start with a FROM command.
-````DockerFile
+
+[source,dockerfile]
+----
 # Usage: FROM [image name]
 FROM ubuntu
-````
+----
 
 ==== ADD 
 ADD Commands Copy a file from the host into the container. 
-````DockerFile
+
+[source,dockerfile]
+----
 # Usage: ADD [source directory or URL] [destination directory]
 ADD /my_app_folder /my_app_folder
-````
+----
 
 ==== CMD 
-This command set default commands to be executed, or passed to the ENTRYPOINT 
-````DockerFile
+This command set default commands to be executed, or passed to the ENTRYPOINT.
+
+[source,dockerfile]
+----
 # Usage 1: CMD application "argument", "argument", ..
 CMD "echo" "Hello docker!"
-````
+----
 
 ==== RUN
 The RUN command will execute any commands in a new layer on top of the current image and commit the results. The resulting committed image will be used for the next step in the Dockerfile.
-````DockerFile
+
+[source,dockerfile]
+----
 # Usage: RUN [command]
 RUN mvn install
-````
+----
 ==== WORKDIR
 The WORKDIR directive is used to set where the command defined with CMD is to be executed.
-````DockerFile
+
+[source,dockerfile]
+----
 # Usage: WORKDIR /path
 WORKDIR ~/
-````
+----
 
 MAINTAINER
 The MAINTAINER set the author / owner data of the Dockerfile.
-````DockerFile
+
+[source,dockerfile]
+----
 # Usage: MAINTAINER [name]
 MAINTAINER authors_name(admin@email.com)
-````
+----
 ==== EXPOSE
 Expose a port to outside.
-````DockerFile
+[source,dockerfile]
+----
 # Usage: EXPOSE [port]
 EXPOSE 8080
-````
+----
 
 ==== VOLUME
 The VOLUME command is used to enable access from your container to a directory on the host machine (i.e. mounting it).
 Example:
-````DockerFile
+[source,dockerfile]
+----
 # Usage: VOLUME ["/dir_1", "/dir_2" ..]
 VOLUME ["/my_files"]
-````
+----
 
 === Multi-stage builds
 In Docker, one of the main issues is the size of the final image. It’s not uncommon to end up with images over 1 GB even for simple Java applications. Since version 17.05 of Docker, it’s possible to have multiple builds in a single Dockerfile, and to access the output of the previous build into the current one. Those are called 
@@ -105,7 +119,8 @@ features:
 *   The resulting output is an executable JAR/WAR file.
 
 File: Dockerfile
-```Dockerfile
+[source,dockerfile]
+----
 # Stage 1. Git clone
 FROM alpine/git AS clone
 ARG url
@@ -131,7 +146,8 @@ EXPOSE 8080
 
 ENTRYPOINT ["sh", "-c"]
 CMD ["java -jar ${artifact}"]
-```
+----
+
 Note that `url`, `project`, `artifactId` and `version` are arguments that must be 
 passed on the command line. 
 `artifact` must be set as an environment variable with `ENV`, so it is persisted in the final
@@ -141,16 +157,19 @@ app image and can be used at runtime by `java`.
 The Spring Boot app image can now be built using the following command-line. 
 Please change the parameters as per your project, e.g.:
 
-```
-docker build --build-arg url=https://github.com/username/java-getting-started.git --build-arg project=java-getting-started --build-arg artifactId=java-getting-started --build-arg version=1.0 -t java-getting-started .
-```
-### 3. Run a new container
-Run the image built with the previous command:
-```
-docker run -d -p 8090:8080 java-getting-started
-```
+[source,bash]
+----
+$ docker build --build-arg url=https://github.com/username/java-getting-started.git --build-arg project=java-getting-started --build-arg artifactId=java-getting-started --build-arg version=1.0 -t java-getting-started .
+----
 
-=== Example
+==== 3. Run a new container
+Run the image built with the previous command:
+[source,bash]
+----
+$ docker run -d -p 8090:8080 java-getting-started
+----
+
+==== Example
 
 The next example shows how to create a Dockerfile to build and run a container 
 running the server from [My Thai Star](https://github.com/oasp/my-thai-star) application.
@@ -161,7 +180,8 @@ Rather than using arguments like in the previous example, the data
 ==== Sample Dockerfile
 
 File Name: Dockerfile 
-```Dockerfile
+[source,dockerfile]
+----
 # 1. Clone the project code
 FROM alpine/git AS clone
 WORKDIR /app
@@ -182,33 +202,38 @@ EXPOSE 8080
 
 ENTRYPOINT ["sh", "-c"]  
 CMD ["java -jar mtsj-server-bootified.war"]
-```
+----
 
 ==== Build the Docker image
 
 Build the Docker image from the same folder as Dockerfile using this command (including the dot `.`)
 
-```
-docker build -t mtsj .
-```
+[source,bash]
+----
+$ docker build -t mtsj .
+----
 
 Where the option `-t mtsj` is used to tag the image name.
 
 ==== Run the container
 
 Use this command to run the Spring Boot application.
-```
-docker run --name mtsj0 -p 8090:8080 mtsj
-```
+[source,bash]
+----
+$ docker run --name mtsj0 -p 8090:8080 mtsj
+----
+
 Where the options:
-* `--name mtsj0` specifies the container name
-* `-p 8090:8080` maps the port 8080 of the container to 8090
+
+- `--name mtsj0` specifies the container name
+- `-p 8090:8080` maps the port 8080 of the container to 8090
 
 The command `docker ps` lists all the running containers:
-```
+[source,bash]
+----
 λ docker ps
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
 fb0c6836838b        mtsj                "sh -c 'java -jar ..."   44 seconds ago      Up 43 seconds       0.0.0.0:8090->8080/tcp   mtsj0
-```
+----
 
 The application is now running on http://localhost:8090/mythaistar/.
