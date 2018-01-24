@@ -99,9 +99,9 @@ Add the below configuration.
     }
   }
 ----
- Below is the screenshot of the Admin Server UI.
+Below is the screenshot of the Admin Server UI.
 
-[[images/springbootadmin/springbootadminserver.PNG]]
+image::images/springbootadmin/springbootadminserver.PNG[,link="images/springbootadmin/springbootadminserver.PNG"]
 
 === Register the client app.
 
@@ -188,7 +188,7 @@ health.config.enabled=true
 
 Detailed view of an application is given below. In this view we can see the tail of the log file, metrics, environment variables, log configuration where we can dynamically switch the log levels at the component level, root level or package level and other information.
 
-[[images/springbootadmin/Springbootclient.PNG]]
+image::images/springbootadmin/Springbootclient.PNG[link="images/springbootadmin/Springbootclient.PNG"]
 
 === Loglevel management
 
@@ -215,7 +215,7 @@ For applications using Spring Boot 1.5.x (or later) you can manage loglevels out
 </configuration>
 ----
 
-[[images/springbootadmin/Logging.PNG]]
+image::images/springbootadmin/Logging.PNG[link="images/springbootadmin/Logging.PNG"]
 
 === Notification
 
