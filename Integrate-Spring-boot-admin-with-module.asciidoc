@@ -8,7 +8,7 @@ toc::[]
 
 == Integrate Spring boot admin with module
 
-Spring boot admin is an application to monitor and manage the different [[ Spring.io |http://projects.spring.io/spring-boot/]] applications.There are the different way to configure spring boot admin with spring.io apps. As many features available in it, you can configure as per the project requirement. For further details, please refer the wiki  [[ Spring boot admin Integration with OASP4J|https://github.com/devonfw/devon-guide/wiki/Spring-boot-admin-Integration-with-OASP4J]] , [[ Spring Boot Admin Reference Guide|http://codecentric.github.io/spring-boot-admin/1.5.3/#getting-started]]. 
+Spring boot admin is an application to monitor and manage the different link:http://projects.spring.io/spring-boot/[Spring.io] applications.There are the different way to configure spring boot admin with spring.io apps. As many features available in it, you can configure as per the project requirement. For further details, please refer the wiki  link:https://github.com/devonfw/devon-guide/wiki/Spring-boot-admin-Integration-with-OASP4J[Spring boot admin Integration with OASP4J] , link:http://codecentric.github.io/spring-boot-admin/1.5.3/#getting-started[Spring Boot Admin Reference Guide]. 
 
 === Integrate spring boot admin to OASP4J sample app.  
  Please follow the below steps to configure the spring boot admin module to OASP4J app.     
