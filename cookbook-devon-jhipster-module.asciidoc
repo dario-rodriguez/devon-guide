@@ -8,8 +8,8 @@ toc::[]
 
 == Introduction to generator-jhipster-DevonModule
 
-JHipster (2) is a code generator based on Yeoman generators (1). Its default generator generator-jhipster generates a specific JHipster structure. 
-The purpose of generator-jhipster-DevonModule is to generate the structure and files in devon-style.
+JHipster (2) is a code generator based on Yeoman generators (1). Its default generator generator-jhipster generates a specific JHipster structure. The purpose of generator-jhipster-DevonModule is to generate the structure and files of a typical OASP4j project. It is therefore equivalent to the standard OASP4j application template based Cobige code generation. This module was made in order to comply with strong requirements (especially from the French BU) to use jHipster for code generation. 
+
 Note: the term module refers to the generator-jhipster-DevonModule, our generator. 
 The term project refers to our project where we want to generate files, i.e. a Devon project.
 
