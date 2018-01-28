@@ -1,1 +1,16 @@
-= Release notes version 2.4
+:toc: macro
+toc::[]
+
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Devonfw Release notes 2.3 "Dash"
+
+=== Feature 1
+Devonfw is now fully supported feature 1.
+
+=== OASP4js 2.5 - Feeature 21
+
+Feature 21
