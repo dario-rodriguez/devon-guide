@@ -42,22 +42,27 @@ The *devonfw dist*, or distribution, i.e. the central zip file which contains th
 ** CheckStyle Plugin installed and configured
 ** SonarLint Plugin installed and configured
 ** Git Plugin installed
-FindBugs replaced by SpotBugs and configured
-Tomcat8 specific Oxygen configuration
-CobiGen Plugin installed
-Other Software
-Cmder integrated (when console.bat launched)
-Visual Studio Code latest version included and preconfigured with https://github.com/oasp/oasp-vscode-ide 
-Ant updated to latest.
-Maven updated to latest.
-Java updated to latest.
-Nodejs LTS updated to latest.
-@angular/cli included.
-Yarn package manager included.
-Python3 integrated
-Spyder3 IDE integrated in python3 installation
-OASP4JS-application-template for Angular5 at workspaces/examples
-My Thay Star Sample Application
+** FindBugs replaced by SpotBugs and configured
+** Tomcat8 specific Oxygen configuration
+** CobiGen Plugin installed
+* Other Software
+** Cmder integrated (when console.bat launched)
+** Visual Studio Code latest version included and preconfigured with https://github.com/oasp/oasp-vscode-ide 
+** Ant updated to latest.
+** Maven updated to latest.
+** Java updated to latest.
+** Nodejs LTS updated to latest.
+** @angular/cli included.
+** Yarn package manager included.
+** Python3 integrated
+** Spyder3 IDE integrated in python3 installation
+** OASP4JS-application-template for Angular5 at workspaces/examples
+
+=== My Thay Star Sample Application
+
 A more modularized approach has been followed in the current release of My Thai star application to decouple client from implementation details. Which provides better encapsulation of code and dependency management for API and implementation classes. This has been achieved with creation of a new “API” module that contain interfaces for REST services and corresponding Request/Response objects. With existing “Core” module being dependent on “API” module. To read further you can follow the link https://github.com/oasp/my-thai-star/wiki/java-design#basic-architecture-details 
-Microservices integrated. An email and Twitter microservice is integrated in my-thai-star. This is just for demonstration purposes. Microservice framework is already part of oasp4j 2.5.0
+
+Furthermore: an email and Twitter microservice wre integrated in my-thai-star. This is just for demonstration purposes. Microservice framework is already part of oasp4j 2.5.0
+
+
 
