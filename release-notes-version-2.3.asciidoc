@@ -8,7 +8,7 @@ toc::[]
 
 == Devonfw Release notes 2.3 "Dash"
 
-image::images/images/release-notes-2.3/devonfw-2.3-dash.png[width="680"]
+image::images/release-notes-2.3/devonfw-2.3-dash.png[width="680"]
 
 === Feature 1
 Devonfw is now fully supported feature 1.
