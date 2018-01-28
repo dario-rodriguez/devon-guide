@@ -58,10 +58,16 @@ The *devonfw dist*, or distribution, i.e. the central zip file which contains th
 ** Spyder3 IDE integrated in python3 installation
 ** OASP4JS-application-template for Angular5 at workspaces/examples
 ** Devon4sencha starter templates updated
-** Updated Devon Guide.pdf at doc folder
-** Cobigen_Templates project and docs updated
-** Cobigen TSPlugin Interface support
-** CobiGen Ionic CRUD App generation based on https://github.com/oasp/oasp4js-ionic-application-template
+
+== Cobigen
+
+A new version of Cobigen has been included. New features include: 
+ 
+* Swagger/Yaml Plugin for CobiGen. Cobigen is able to read a swagger definition file that follows the OpenAPI 3.0 spec and generate code. A preliminary release was already included in 2.2.1 but the current version is much more mature and stable. See: https://github.com/devonfw/tools-cobigen/wiki/howto_openapi_generation
+* Integration of CobiGen into Maven build process. This already existed but has been improved. It consists mainly of documentation + some bug fixes. See: https://github.com/devonfw/tools-cobigen/wiki/cobigen-maven_configuration
+* Cobigen_Templates project and docs updated
+* Cobigen TSPlugin Interface support
+* CobiGen Ionic CRUD App generation based on https://github.com/oasp/oasp4js-ionic-application-template
 
 === My Thai Star Sample Application
 
