@@ -10,7 +10,7 @@ toc::[]
 
 image::images/release-notes-2.3/devonfw-2.3-dash.png[width="680"]
 
-== Release: improving & strengthening
+== Release: improving & strengthening the Platform
  
 We are proud to announce the immediate release of *devonfw version 2.3* (code named “_Dash_” during development).  This release comes with a bit of a delay as we decided to wait for the publication of OASP4j 2.5. “Dash” contains a slew of new features but in essence it is already driven by what we expect to be the core focus of 2018: strengthening the platform and improving quality.
 
@@ -32,4 +32,32 @@ The first two ADcenters, in Valencia (Spain) and Bangalore (India), are already 
 
 The creation of the ADcenter is such a short time is visible proof that we´re getting closer to a situation where devonfw and Production Line are turning into the default development platform for APPS2, thereby standardizing all aspects of the software development life cycle: from training and design, architecture, devops and development,  all the way up to QA and deployment.  
 
+== Changes and new features
+
+=== Devonfw dist 
+
+The *devonfw dist*, or distribution, i.e. the central zip file which contains the main working environment for the devonfw developer, has been significantly enhanced. New features include: 
+
+* Eclipse Oxygen integrated
+** CheckStyle Plugin installed and configured
+** SonarLint Plugin installed and configured
+** Git Plugin installed
+FindBugs replaced by SpotBugs and configured
+Tomcat8 specific Oxygen configuration
+CobiGen Plugin installed
+Other Software
+Cmder integrated (when console.bat launched)
+Visual Studio Code latest version included and preconfigured with https://github.com/oasp/oasp-vscode-ide 
+Ant updated to latest.
+Maven updated to latest.
+Java updated to latest.
+Nodejs LTS updated to latest.
+@angular/cli included.
+Yarn package manager included.
+Python3 integrated
+Spyder3 IDE integrated in python3 installation
+OASP4JS-application-template for Angular5 at workspaces/examples
+My Thay Star Sample Application
+A more modularized approach has been followed in the current release of My Thai star application to decouple client from implementation details. Which provides better encapsulation of code and dependency management for API and implementation classes. This has been achieved with creation of a new “API” module that contain interfaces for REST services and corresponding Request/Response objects. With existing “Core” module being dependent on “API” module. To read further you can follow the link https://github.com/oasp/my-thai-star/wiki/java-design#basic-architecture-details 
+Microservices integrated. An email and Twitter microservice is integrated in my-thai-star. This is just for demonstration purposes. Microservice framework is already part of oasp4j 2.5.0
 
