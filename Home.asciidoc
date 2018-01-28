@@ -209,6 +209,7 @@ Version 2.3-SNAPSHOT
 
 == Appendix
 
+- link:release-notes-version-2.3[Release Notes devonfw version 2.3]
 - link:release-notes-version-2.2[Release Notes devonfw version 2.2]
 - link:release-notes-version-2.1[Release Notes devonfw version 2.1]
 - link:devon-guide-frequently-asked-questions[Frequently Asked Questions (FAQ)]
