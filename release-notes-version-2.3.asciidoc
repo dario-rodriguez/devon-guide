@@ -77,6 +77,7 @@ See: https://github.com/devonfw/devon-guide/wiki
 == OASP4JS
 
 The following changes have been incorporated in OASP4JS:
+
 * Angular CLI 1.6.0,
 * Angular 5.1,
 * Angular Material 5 and Covalent 1.0.0 RC1,
@@ -91,6 +92,7 @@ The new version includes an Integration of an admin interface for oasp4j apps (S
 == Devcon 
 
 A new version of Devcon has been released. Fixes and new features include:
+
 * Renaming of system Commands.
 * New menu has been added - “other modules”, if menus are more than 10, other modules will display some menus.
 * A progress bar has been added for installing the distribution
@@ -98,6 +100,7 @@ A new version of Devcon has been released. Fixes and new features include:
 == Devonfw IP Modules
 
 Existing devonfw IP modules can now be accessed with the help of starters following namespace devonfw-<module_name>-starter. Starters available for modules:
+
 * Reporting module
 * WinAuth AD Module
 * WinAuth SSO Module
@@ -106,6 +109,7 @@ Existing devonfw IP modules can now be accessed with the help of starters follow
 * Integration Module
 * Microservice Module
 * Compose for Redis Module 
+
 See: https://github.com/devonfw/devon/wiki#ip-modules 
 
 == Devonfw Shop Floor 
@@ -117,6 +121,7 @@ See: https://github.com/devonfw/devonfw-shop-floor
 == Devonfw-testing 
 
 The Allure Test Framework is an automated testing framework for functional testing of web applications and in coming future native mobile apps, web services and databases. All modules have tangible examples of how to build resilient integration test cases based on delivered functions. 
+
 * Examples available under embedded project “Allure-App-Under-Test” and in project wiki: https://github.com/devonfw/devonfw-testing/wiki 
 * How to install: https://github.com/devonfw/devonfw-testing/wiki/How-to-install  
 * Release Notes: 
@@ -140,6 +145,7 @@ See:  https://github.com/devonfw/devonfw-testing/wiki
 == DOT.NET Framework incubators
 
 The .NET Core and Xamarin frameworks are still under development by a workgroup from The Netherlands, Spain, Poland, Italy, Norway and Germany. The 1.0 release is expected to be coming soon but the current incubator frameworks are already being used in several engagements.  Some features to highlight are:
+
 * Full .NET implementation with multiplatform support
 * Detailed documentation for developers
 * Docker ready
