@@ -193,7 +193,7 @@ image::images/springbootadmin/Springbootclient.PNG[link="images/springbootadmin/
 
 For applications using Spring Boot 1.5.x (or later) you can manage loglevels out-of-the-box. For applications using older versions of Spring Boot the loglevel management is only available for link:https://logback.qos.ch/[Logback]. It is accessed via JMX so include Jolokia in your application. In addition you have configure Logback’s JMXConfigurator:
 
-1. Add dependency. 
+Add dependency:
 
 [source,xml]
 ----  
@@ -203,7 +203,7 @@ For applications using Spring Boot 1.5.x (or later) you can manage loglevels out
 </dependency>
 ----
 
-2. Add the logback-spring.xml file in resorce folder. 
+Add the `logback-spring.xml` file in resorce folder:
 
 [source,xml]
 ----  
