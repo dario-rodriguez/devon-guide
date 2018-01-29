@@ -13,9 +13,9 @@ Spring Boot Admin is an application to manage and monitor your link:http://proje
 === Configure the Spring boot admin for the OASP4J App.  
   
 ==== Setting up Spring boot Admin server
-  To run the spring boot admin. First, you need to setup admin server. To do this create the [[ spring.io|http://start.spring.io]] project and follow the below steps.  
+To run the spring boot admin. First, you need to setup admin server. To do this create the link:http://start.spring.io[spring.io] project and follow the below steps.  
 
-1. Add Spring Boot Admin Server and the UI dependency to the pom.xml file. 
+===== Add Spring Boot Admin Server and the UI dependency to the pom.xml file. 
 [source,xml]
 ----  
 <dependency>
@@ -29,10 +29,8 @@ Spring Boot Admin is an application to manage and monitor your link:http://proje
     <version>1.5.3</version>
 </dependency>
 ----
-  
 
-2. Add the Spring Boot Admin Server configuration via adding @EnableAdminServer to your spring boot class.
-
+===== Add the Spring Boot Admin Server configuration via adding @EnableAdminServer to your spring boot class.
 [source,java]
 ----  
 
@@ -45,7 +43,7 @@ public class SpringBootApp{
     }
 }
 ----
-3. If you want the login for the sever , then add the login depedency . 
+===== If you want the login for the sever , then add the login depedency . 
 
 [source,xml]
 ----  
@@ -56,7 +54,7 @@ public class SpringBootApp{
 </dependency>
 ----
 
-4. Add the properties to the application.properties file. 
+===== Add the properties to the application.properties file. 
  
 [source,java]
 ----  
@@ -68,7 +66,7 @@ security.user.name=admin
 security.user.password=admin123
 ----
 
-5. Securing Spring Boot Admin Server
+===== Securing Spring Boot Admin Server
 
 Since there are several approaches on solving authentication and authorization in distributed web applications Spring Boot Admin doesn’t ship a default one. If you include the spring-boot-admin-server-ui-login in your dependencies it will provide a login page and a logout button.
 
@@ -103,13 +101,13 @@ Below is the screenshot of the Admin Server UI.
 
 image::images/springbootadmin/springbootadminserver.PNG[,link="images/springbootadmin/springbootadminserver.PNG"]
 
-=== Register the client app.
+=== Register the client app
 
 Spring boot admin gives the monitoring status of multiple [[ spring.io|http://start.spring.io]] application.These applications are registered as the client application to spring boot admin server.You can register the application with the spring-boot-admin-client or  use [[ Spring Cloud Discovery|http://projects.spring.io/spring-cloud/spring-cloud.html]] (e.g. Eureka, Consul, …).    
 
 ==== Register with spring-boot-admin-starter-client  
 
-1. Add spring-boot-admin-starter-client dependency to the pom.xml file. 
+===== Add spring-boot-admin-starter-client dependency to the pom.xml file
 
 [source,xml]
 ----  
@@ -120,7 +118,8 @@ Spring boot admin gives the monitoring status of multiple [[ spring.io|http://st
 </dependency>
 
 ----
-2. Enable the SBA Client by configuring the URL of the Spring Boot Admin Server:
+
+===== Enable the SBA Client by configuring the URL of the Spring Boot Admin Server
 
 [source,java]
 ----  
@@ -134,7 +133,7 @@ If you already use Spring Cloud Discovery for your applications you don’t need
 
 The following steps are for using Eureka, but other Spring Cloud Discovery implementations are supported as well. There are examples using [[ Consul |https://github.com/codecentric/spring-boot-admin/tree/master/spring-boot-admin-samples/spring-boot-admin-sample-consul/]] and [[ Zookeeper |https://github.com/codecentric/spring-boot-admin/tree/master/spring-boot-admin-samples/spring-boot-admin-sample-zookeeper/]].
 
-1. Add spring-cloud-starter-eureka dependency to the pom.xml file. 
+===== Add spring-cloud-starter-eureka dependency to the pom.xml file
 
 [source,xml]
 ----  
@@ -143,7 +142,8 @@ The following steps are for using Eureka, but other Spring Cloud Discovery imple
   <artifactId>spring-cloud-starter-eureka</artifactId>
 </dependency>
 ----
-2. Add the Spring Boot Admin Server configuration via adding @EnableDiscoveryClient to your spring boot class.
+
+===== Add the Spring Boot Admin Server configuration via adding @EnableDiscoveryClient to your spring boot class
 
 [source,java]
 ----  
@@ -166,12 +166,11 @@ public class SpringBootApp {
 
 }
 ----
-3. Add the properties to the application.properties file. 
+
+===== Add the properties to the application.properties file
 
 [source,java]
 ----  
-
-
 eureka.client.serviceUrl.defaultZone=${EUREKA_URI:http://localhost:8180/eureka}
 spring.boot.admin.url=http://localhost:1111
 management.security.enabled=false
@@ -192,7 +191,7 @@ image::images/springbootadmin/Springbootclient.PNG[link="images/springbootadmin/
 
 === Loglevel management
 
-For applications using Spring Boot 1.5.x (or later) you can manage loglevels out-of-the-box. For applications using older versions of Spring Boot the loglevel management is only available for [[ Logback|https://logback.qos.ch/]]. It is accessed via JMX so include Jolokia in your application. In addition you have configure Logback’s JMXConfigurator:
+For applications using Spring Boot 1.5.x (or later) you can manage loglevels out-of-the-box. For applications using older versions of Spring Boot the loglevel management is only available for link:https://logback.qos.ch/[Logback]. It is accessed via JMX so include Jolokia in your application. In addition you have configure Logback’s JMXConfigurator:
 
 1. Add dependency. 
 
@@ -238,4 +237,39 @@ spring.boot.admin.notify.slack.webhook-url=https://hooks.slack.com/services/T715
 spring.boot.admin.notify.slack.message="#{application.name} (#{application.id}) is #{to.status}"
 ----
 
+=== Integrate Spring boot admin with module
+Please follow the below steps to configure the spring boot admin module to OASP4J app.     
 
+==== Spring boot Admin server
+Check out the Spring boot Admin server from this link:https://github.com/oasp/spring-boot-admin-server[repository].
+
+==== Configure spring boot admin client module to OASP4J sample app
+  
+Add the dependency in pom.xml file
+
+[source,xml]
+----   
+  <dependency>
+      <groupId>com.capgemini.devonfw.modules</groupId>
+      <artifactId>devonfw-springbootadminclient</artifactId>
+      <version>2.2.0</version>
+  </dependency>
+----
+
+Add the below property to application.properties file and change the values as per the spring boot admin server configuration like admin.url, username, password: 
+
+[source,java]
+----   
+eureka.client.serviceUrl.defaultZone=${EUREKA_URI:http://localhost:8180/eureka}
+spring.boot.admin.url=http://localhost:1111
+management.security.enabled=false
+spring.boot.admin.username=admin
+spring.boot.admin.password=admin123
+logging.file=target/${spring.application.name}.log
+
+eureka.instance.hostname=localhost
+eureka.client.register-with-eureka=false
+eureka.client.fetch-registry=false
+
+health.config.enabled=true 
+----

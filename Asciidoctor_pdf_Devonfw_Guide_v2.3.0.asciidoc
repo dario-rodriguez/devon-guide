@@ -192,8 +192,6 @@ include::oasp4j-addons.asciidoc[]
 
 include::Spring-boot-admin-Integration-with-OASP4J.asciidoc[]
 
-include::Integrate-Spring-boot-admin-with-module.asciidoc[]
-
 == OASP4Fn
 
 === A Closer Look
