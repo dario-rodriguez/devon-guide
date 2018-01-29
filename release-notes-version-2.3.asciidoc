@@ -59,6 +59,26 @@ The *devonfw dist*, or distribution, i.e. the central zip file which contains th
 ** OASP4JS-application-template for Angular5 at workspaces/examples
 ** Devon4sencha starter templates updated
 
+=== OASP4j 2.5
+
+==== Support for JAX-RS & JAX-WS clients
+
+With the aim to enhance the ease in consuming RESTful and SOAP web services, JAX-RS and JAX-WS clients have been introduced. They enable developers to concisely and efficiently implement portable client-side solutions that leverage existing and well-established client-side HTTP connector implementations. Furthermore, the getting started time for consuming web services has been considerably reduced with the default configuration out-of-the-box which can be tweaked as per individual requirements. 
+
+See: https://github.com/oasp/oasp4j/issues/358
+
+==== Separate security logs for OASP4J log component
+
+Based on OWASP(Open Web Application Security Project), OASP4J aims to give developers an easy way to have more control and flexibility with the logging of security events and tracking of forensic information. Furthermore, it helps classifying the information in log messages and applying masking when necessary. It provides powerful security features while based on set of logging APIs developers are already familiar with their experience with Log4J and its successors. 
+
+See: https://github.com/oasp/oasp4j/issues/569
+
+==== Support for Microservices
+
+Integration of an OASP4J application to a Microservices environment can now be leveraged with this release of OASP4J. Introduction of service clients for RESTful and SOAP web services based on Java EE give developers agility and ease to access microservices in the Devon framework. It significantly cuts down the efforts on part of developers around boilerplate code and stresses more focus on the business code improving overall efficiency and quality of deliverables.
+
+See: https://github.com/oasp/oasp4j/pull/589/commits
+
 === Cobigen
 
 A new version of Cobigen has been included. New features include: 
