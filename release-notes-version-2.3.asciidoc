@@ -63,13 +63,13 @@ The *devonfw dist*, or distribution, i.e. the central zip file which contains th
 
 ==== Support for JAX-RS & JAX-WS clients
 
-With the aim to enhance the ease in consuming RESTful and SOAP web services, JAX-RS and JAX-WS clients have been introduced. They enable developers to concisely and efficiently implement portable client-side solutions that leverage existing and well-established client-side HTTP connector implementations. Furthermore, the getting started time for consuming web services has been considerably reduced with the default configuration out-of-the-box which can be tweaked as per individual requirements. 
+With the aim to enhance the ease in consuming RESTful and SOAP web services, JAX-RS and JAX-WS clients have been introduced. They enable developers to concisely and efficiently implement portable client-side solutions that leverage existing and well-established client-side HTTP connector implementations. Furthermore, the getting started time for consuming web services has been considerably reduced with the default configuration out-of-the-box which can be tweaked as per individual project requirements. 
 
 See: https://github.com/oasp/oasp4j/issues/358
 
 ==== Separate security logs for OASP4J log component
 
-Based on OWASP(Open Web Application Security Project), OASP4J aims to give developers an easy way to have more control and flexibility with the logging of security events and tracking of forensic information. Furthermore, it helps classifying the information in log messages and applying masking when necessary. It provides powerful security features while based on set of logging APIs developers are already familiar with their experience with Log4J and its successors. 
+Based on OWASP(Open Web Application Security Project), OASP4J aims to give developers more control and flexibility with the logging of security events and tracking of forensic information. Furthermore, it helps classifying the information in log messages and applying masking when necessary. It provides powerful security features while based on set of logging APIs developers are already familiar with over a decade of their experience with Log4J and its successors. 
 
 See: https://github.com/oasp/oasp4j/issues/569
 
