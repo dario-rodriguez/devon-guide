@@ -334,6 +334,8 @@ include::Contributing-Code-of-Conduct.asciidoc[]
 
 == Appendix
 
+include::release-notes-version-2.3.asciidoc[]
+
 include::release-notes-version-2.2.asciidoc[]
 
 include::release-notes-version-2.1.asciidoc[]
