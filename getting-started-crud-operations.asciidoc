@@ -20,7 +20,7 @@ If you want to create the application from scratch:
 
 [source,batch]
 ----
-mvn -DarchetypeVersion=2.3.0 -DarchetypeGroupId=io.oasp.java.templates -DarchetypeArtifactId=oasp4j-template-server archetype:generate -DgroupId=com.capgemini.devonfw.application -DartifactId=tutorial -Dversion=0.1-SNAPSHOT -Dpackage=devonfw.tutorial
+mvn -DarchetypeVersion=2.5.0 -DarchetypeGroupId=io.oasp.java.templates -DarchetypeArtifactId=oasp4j-template-server archetype:generate -DgroupId=com.capgemini.devonfw.application -DartifactId=tutorial -Dversion=0.1-SNAPSHOT -Dpackage=devonfw.tutorial
 ----
 - Open Eclipse and Import the new _tutorial_ project as _Existing Maven Project_
 
