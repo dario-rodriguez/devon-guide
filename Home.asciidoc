@@ -189,7 +189,7 @@ Version 2.3-SNAPSHOT
 
 == IDE and Project Setup with Eclipse Oomph
 
-- link:Oomph_ide-setup-oomph[Seting up IDE with Oomph]
+- link:Oomph_ide-setup-oomph[Setting up an IDE with Oomph]
 - link:Oomph_devon-ide-oomph[Devon IDE Oomph Setup Definition]
 - link:Oomph_working-with-oomph[Using Oomph]
 - link:Oomph_oomph-basics[Oomph Task Basics]
