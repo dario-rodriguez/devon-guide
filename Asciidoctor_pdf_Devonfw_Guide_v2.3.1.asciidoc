@@ -6,7 +6,7 @@
 :listing-caption: Listing
 
 = Devonfw Guide
-v2.3.0
+v2.3.1
 Written by the Devonfw community - Copyright © 2015-2018 Capgemini
 
 toc::[]

@@ -20,7 +20,7 @@ In the _pom.xml_ of your application add this dependency (that also adds transit
 <dependency>
   <groupId>io.oasp.java.modules</groupId>
   <artifactId>oasp4j-logging</artifactId>
-  <version>2.3.1</version>
+  <version>2.5.0</version>
 </dependency>
 ----
 

@@ -14,7 +14,7 @@ Check out the Spring boot Admin server from the [[ repo |https://github.com/Hima
   <dependency>
       <groupId>com.capgemini.devonfw.modules</groupId>
       <artifactId>devonfw-springbootadminclient</artifactId>
-      <version>2.2.0</version>
+      <version>2.3.1</version>
   </dependency>
 ``` 
   2. Add the below property to application.properties file and change the values as per the spring boot admin server configuration like admin.url , username, password 

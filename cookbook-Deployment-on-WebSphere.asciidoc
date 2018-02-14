@@ -36,7 +36,7 @@ image::images/devonfw-deployment/tutorial_devon_add_websphere_liberty-3.PNG[,wid
 
 [source,bash]
 ----
-mvn -DarchetypeVersion=2.2.0 -DarchetypeGroupId=io.oasp.java.templates -DarchetypeArtifactId=oasp4j-template-server archetype:generate -DgroupId=io.oasp.application -DartifactId=libertyTest -Dversion=0.1-SNAPSHOT -Dpackage=io.oasp.application.libertyTest
+mvn -DarchetypeVersion=2.5.0 -DarchetypeGroupId=io.oasp.java.templates -DarchetypeArtifactId=oasp4j-template-server archetype:generate -DgroupId=io.oasp.application -DartifactId=libertyTest -Dversion=0.1-SNAPSHOT -Dpackage=io.oasp.application.libertyTest
 ----
 
   - Add the following entries in the pom.xml of the server module just before the closing project tag
