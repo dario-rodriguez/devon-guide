@@ -27,6 +27,11 @@ And then , you can have things or steps which you want.
 Above steps are necessary for Linux distribution, so that all environment variables are set.
 For more details on devon distro in general, refer https://github.com/devonfw/devon-guide/wiki/getting-started-distribution-structure[here].
 
+* For installing @angular/cli, run install-angular.sh script. This script requires you to enter root password and it will responsible to install node,
+npm and angular. After script executes, test it using `$ node -v` and `$ npm -v` command.
+
+* For installing sencha, run install-sencha.sh script. After script successfully executes you can test it with `sencha` command.
+
 
 
 
