@@ -11,7 +11,7 @@ toc::[]
 
 *  Choose right Open Source License for repository. Add License file to the root of repository. 
 *  Add NOTICE to the root of repository.
-*  Add copyright statement to all source code file. For doing this their are multiple tools. We can use 
+*  Add copyright statement to all source code file. For doing this there are multiple tools. We can use 
    http://marketplace.eclipse.org/content/eclipse-copyright-generator[Eclipse Copyright Generator plugin] to do the same.
    This adds a new Panel in the preferences (global or project based) with: Menu > Windows > Preferences > General > 
    Copyright.
