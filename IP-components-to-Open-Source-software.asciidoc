@@ -1,4 +1,3 @@
-
 :toc: macro
 toc::[]
 
@@ -7,25 +6,23 @@ toc::[]
 :source-highlighter: rouge
 :listing-caption: Listing
 
-== Steps to convert IP software to Open Source Software 
+== Steps to convert IP Software to Open Source Software 
 
-*  Choose right Open Source License for repository. Add License file to the root of repository. 
-*  Add NOTICE to the root of repository.
-*  Add copyright statement to all source code file. For doing this there are multiple tools. We can use 
-   http://marketplace.eclipse.org/content/eclipse-copyright-generator[Eclipse Copyright Generator plugin] to do the same.
-   This adds a new Panel in the preferences (global or project based) with: Menu > Windows > Preferences > General > 
-   Copyright.
-   A Menu Menu > Project > Apply Copyright. This wizard provide a lot of options and some default template for Open-Source 
-   licence 
-* For footer change copyright footer to include https://creativecommons.org/licenses/[Creative Commons License (Attribution-NoDerivatives 4.0 International)]. Text can be similar to "This documentation is licensed under the Creative Commons License (Attribution-NoDerivatives 4.0 International)."
-*  All source files should be consistent - follow same pattern for any usage so new contributor will follow the same
-*  Make a list of libraries with its versions and license type. Check if license are fitting requirement for open source. 
-*  Create a document with any prerequisite setup. Also include examples wherever necessary.
-*  Define https://github.com/devonfw/devon-guide/wiki/Contributing-Code-of-Conduct[Code Of Conduct]. Setup process for -
+* Choose right *Open Source License* for repository. Add License file to the root of repository. 
+* Add *NOTICE* to the root of repository.
+* Add *copyright statement* to all source code file. For doing this there are multiple tools. We can use http://marketplace.eclipse.org/content/eclipse-copyright-generator[Eclipse Copyright Generator plugin] to do the same.
+** This plugin adds a new Panel in the preferences (global or project based) with: `Menu > Windows > Preferences > General > Copyright`.
+** A Menu `Menu > Project > Apply Copyright`. This wizard provide a lot of options and some default template for Open-Source licence. 
+* Change copyright footer to include https://creativecommons.org/licenses/[Creative Commons License (Attribution-NoDerivatives 4.0 International)]. Text can be similar to _"This documentation is licensed under the Creative Commons License (Attribution-NoDerivatives 4.0 International)."_
+* All source files should be *consistent* - follow same pattern for any usage so new contributor will follow the same.
+* Make a list of libraries with its versions and license type. Check if license are fitting requirement for open source. 
+* Create a document with any prerequisite setup. Also include examples wherever necessary.
+* Define a https://github.com/devonfw/devon-guide/wiki/Contributing-Code-of-Conduct[Code Of Conduct]. 
+* Define a https://github.com/devonfw/devon-guide/wiki/Contributing-Code[Contributing Guide] that gathers the following points: 
 	1. How other developers can contribute to the project?
-	2. https://help.github.com/articles/creating-an-issue-template-for-your-repository/[Issue template] and https://help.github.com/articles/creating-a-pull-request-template-for-your-repository/[PR template] for Github repository. For example,Cobigen already has this templates https://github.com/devonfw/tools-cobigen/tree/master/.github[here]
-        3. Process for code quality review
-	4. Process for continuous testing 
+	2. https://help.github.com/articles/creating-an-issue-template-for-your-repository/[Issue template] and https://help.github.com/articles/creating-a-pull-request-template-for-your-repository/[PR template] for Github repository. For example, Cobigen already has these templates https://github.com/devonfw/tools-cobigen/tree/master/.github[here].
+        3. Process for code quality review.
+	4. Process for continuous testing. 
  
-*  Apart from above points, everything from selecting a proper license, branding, naming individual authors, doing legal review, and potentially searching for patent infringement code should be factored in this step.
-*  Once All above steps are done we are ready to publish our Open Source Project. Create a public repository and push code here.
+* Apart from above points, everything from selecting a proper license, branding, naming individual authors, doing legal review, and potentially searching for patent infringement code should be factored in this step.
+* Once all above steps are done we are ready to publish our Open Source Project. Create a public repository and push code here.
