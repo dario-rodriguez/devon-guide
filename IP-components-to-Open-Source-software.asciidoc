@@ -1,0 +1,24 @@
+
+:toc: macro
+toc::[]
+
+:doctype: book
+:reproducible:
+:source-highlighter: rouge
+:listing-caption: Listing
+
+== Steps to convert IP software to Open Source Software 
+
+*  Choose right Open Source License for repository. Add License file to the root of repository. 
+*  Add NOTICE to the root of repository.
+*  Add copyrigth statement to all source code file. For doing this their are multiple tools. We can use  Eclipse Copyright Generator plugin to do the same.
+* For footer change copyright footer to include 'Creative Commons License (Attribution-NoDerivatives 4.0 International)'. Text can be similar to "This documentation is licensed under the Creative Commons License (Attribution-NoDerivatives 4.0 International)."
+*  All source files should be consistent - follow same pattern for any usage so new contributer will follow the same
+*  Make a list of libraries with its versions and license type. Check if license are fitting requirement for open source. 
+*  Create a document with any prerequisite setup. Also include examples wherever necessary.
+*  Define Code Of Conduct. Setup process for -
+	1. How other developers can contribute to the project?
+	2. Process for code quality review
+	3. Process for continuous testing 
+*  Apart from above points, everything from selecting a proper license, branding, naming individual authors, doing legal review, and potentially searching for patent infringement code should be factored in this step.
+*  Once All above steps are done we are ready to publish our Open Source Project. Create a public repository and push code here.
