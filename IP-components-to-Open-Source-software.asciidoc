@@ -23,7 +23,10 @@ toc::[]
 *  Create a document with any prerequisite setup. Also include examples wherever necessary.
 *  Define https://github.com/devonfw/devon-guide/wiki/Contributing-Code-of-Conduct[Code Of Conduct]. Setup process for -
 	1. How other developers can contribute to the project?
-	2. Process for code quality review
-	3. Process for continuous testing 
+	2. https://help.github.com/articles/creating-an-issue-template-for-your-repository/[Issue template] and https://help.github.com/articles/creating-a-pull-request-template-for-your-repository/[PR template] for Github repository
+Cobigen already has this templates https://github.com/devonfw/tools-cobigen/tree/master/.github[here]
+        3. Process for code quality review
+	4. Process for continuous testing 
+ 
 *  Apart from above points, everything from selecting a proper license, branding, naming individual authors, doing legal review, and potentially searching for patent infringement code should be factored in this step.
 *  Once All above steps are done we are ready to publish our Open Source Project. Create a public repository and push code here.
