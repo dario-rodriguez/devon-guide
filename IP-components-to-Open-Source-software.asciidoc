@@ -11,12 +11,17 @@ toc::[]
 
 *  Choose right Open Source License for repository. Add License file to the root of repository. 
 *  Add NOTICE to the root of repository.
-*  Add copyrigth statement to all source code file. For doing this their are multiple tools. We can use  Eclipse Copyright Generator plugin to do the same.
-* For footer change copyright footer to include 'Creative Commons License (Attribution-NoDerivatives 4.0 International)'. Text can be similar to "This documentation is licensed under the Creative Commons License (Attribution-NoDerivatives 4.0 International)."
+*  Add copyright statement to all source code file. For doing this their are multiple tools. We can use 
+   http://marketplace.eclipse.org/content/eclipse-copyright-generator[Eclipse Copyright Generator plugin] to do the same.
+   This adds a new Panel in the preferences (global or project based) with: Menu > Windows > Preferences > General > 
+   Copyright.
+   A Menu Menu > Project > Apply Copyright. This wizard provide a lot of options and some default template for Open-Source 
+   licence 
+* For footer change copyright footer to include https://creativecommons.org/licenses/[Creative Commons License (Attribution-NoDerivatives 4.0 International)]. Text can be similar to "This documentation is licensed under the Creative Commons License (Attribution-NoDerivatives 4.0 International)."
 *  All source files should be consistent - follow same pattern for any usage so new contributor will follow the same
 *  Make a list of libraries with its versions and license type. Check if license are fitting requirement for open source. 
 *  Create a document with any prerequisite setup. Also include examples wherever necessary.
-*  Define Code Of Conduct. Setup process for -
+*  Define https://github.com/devonfw/devon-guide/wiki/Contributing-Code-of-Conduct[Code Of Conduct]. Setup process for -
 	1. How other developers can contribute to the project?
 	2. Process for code quality review
 	3. Process for continuous testing 
