@@ -17,8 +17,8 @@ toc::[]
 * All source files should be *consistent* - follow same pattern for any usage so new contributor will follow the same.
 * Make a list of libraries with its versions and license type. Check if license are fitting requirement for open source. 
 * Create a document with any prerequisite setup. Also include examples wherever necessary.
-* Define a https://github.com/devonfw/devon-guide/wiki/Contributing-Code-of-Conduct[Code Of Conduct]. 
-* Define a https://github.com/devonfw/devon-guide/wiki/Contributing-Code[Contributing Guide] that gathers the following points: 
+* Add a https://github.com/devonfw/devon-guide/wiki/Contributing-Code-of-Conduct[Code Of Conduct]. 
+* Add a https://github.com/devonfw/devon-guide/wiki/Contributing-Code[Contributing Guide] that gathers the following points: 
 	1. How other developers can contribute to the project?
 	2. https://help.github.com/articles/creating-an-issue-template-for-your-repository/[Issue template] and https://help.github.com/articles/creating-a-pull-request-template-for-your-repository/[PR template] for Github repository. For example, Cobigen already has these templates https://github.com/devonfw/tools-cobigen/tree/master/.github[here].
         3. Process for code quality review.
