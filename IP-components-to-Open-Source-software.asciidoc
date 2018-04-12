@@ -9,7 +9,7 @@ toc::[]
 == Steps to convert IP Software to Open Source Software 
 
 * Choose right *Open Source License* for repository. Add License file to the root of repository. In practice, that means that the https://opensource.org/licenses/Apache-2.0[Apache License version 2.0] will be applied.
-* Add *NOTICE* to the root of repository. Tou can find here a https://www.apache.org/licenses/example-NOTICE.txt[sample file].
+* Add *NOTICE* to the root of repository. You can find here a https://www.apache.org/licenses/example-NOTICE.txt[sample file].
 * Add *copyright statement* to all source code file. For doing this there are multiple tools. We can use http://marketplace.eclipse.org/content/eclipse-copyright-generator[Eclipse Copyright Generator plugin] to do the same.
 ** This plugin adds a new Panel in the preferences (global or project based) with: `Menu > Windows > Preferences > General > Copyright`.
 ** A Menu `Menu > Project > Apply Copyright`. This wizard provide a lot of options and some default template for Open-Source licence. 
