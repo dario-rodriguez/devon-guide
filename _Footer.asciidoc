@@ -1,1 +1,1 @@
-Devonfw Guide v.2.3-SNAPSHOT Copyright © 2016 Capgemini
+This documentation is licensed under the Creative Commons License (Attribution-NoDerivatives 4.0 International).
